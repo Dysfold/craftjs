@@ -6,10 +6,6 @@ const Paths = java.nio.file.Paths;
 const cache: Record<string, any> = {};
 const stack: string[] = [];
 
-// @ts-ignore
-const exports = {};
-const module = {};
-
 function resolveModule(parent: any, id: string) {
   if (id.match(/^[0-9A-Za-z_-]/)) {
     return resolveNodeModule(parent, id);
@@ -85,7 +81,9 @@ const overrides: Record<string, string> = {
   tty: 'tty-browserify',
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function require(id) {
   const pkg = java.lang.Package.getPackage(id);
   if (pkg) {
