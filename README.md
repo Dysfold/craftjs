@@ -15,3 +15,9 @@ The internal code is located at `internal`. The internal code is mostly coded in
 ## Testing
 
 Unit tests can be run by executing `runTests()` in the CraftJS Graal-context. Easiest way to do so is to run `js runTests()` -command in the server console.
+
+## Typescript
+
+`types` -directory contains Typescript definitions generated from Java types. It's not perfect, but most of the time it's been enough.
+
+*TODO: include the generation code in this repository*
