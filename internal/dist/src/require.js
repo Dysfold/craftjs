@@ -12,6 +12,7 @@ function resolveModule(parent, id) {
 function resolveNodeModule(folder, name) {
     const file = Paths.get(folder.toString(), 'node_modules').toFile();
     const parent = folder.getParent();
+    console.log(`${parent}, ${file}`);
     if (!file.exists() && parent) {
         return resolveNodeModule(parent, name);
     }
@@ -89,6 +90,7 @@ function require(id) {
         return require(override);
     }
     const parent = Paths.get((_a = stack.slice(-1)[0]) !== null && _a !== void 0 ? _a : '.', '.');
+    console.log(`${parent}, ${id}`);
     const resolved = resolveFile(resolveModule(parent, id)).normalize();
     const cacheId = resolved.toAbsolutePath().toString();
     if (cache[cacheId]) {

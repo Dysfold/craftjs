@@ -16,6 +16,7 @@ function resolveModule(parent: any, id: string) {
 function resolveNodeModule(folder: Path, name: string): Path | null {
   const file = Paths.get(folder.toString(), 'node_modules').toFile();
   const parent = folder.getParent();
+  console.log(`${parent}, ${file}`);
   if (!file.exists() && parent) {
     return resolveNodeModule(parent, name);
   } else if (file.exists() && file.isDirectory()) {
@@ -96,6 +97,7 @@ function require(id) {
   }
 
   const parent = Paths.get(stack.slice(-1)[0] ?? '.', '.');
+  console.log(`${parent}, ${id}`);
   const resolved = resolveFile(resolveModule(parent, id)).normalize();
   const cacheId = resolved.toAbsolutePath().toString();
 

@@ -1,4 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const b_1 = require("./b");
-b_1.foo;
+/* eslint-disable @typescript-eslint/no-var-requires */
+exports.local = require('./b');
+exports.node1 = require('a');
+exports.node2 = require('b');
+exports.java = require('java.lang');
