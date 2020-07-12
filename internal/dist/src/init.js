@@ -30,6 +30,7 @@ registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => {
     }
     unloadHandlers.forEach((h) => h());
     org_bukkit_event_1.HandlerList.unregisterAll(__plugin);
+    server.scheduler.cancelTasks(__plugin);
 });
 require('./command');
 require('./scheduling');

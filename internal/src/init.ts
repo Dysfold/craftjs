@@ -45,6 +45,8 @@ registerEvent(PluginDisableEvent, (event) => {
   unloadHandlers.forEach((h) => h());
 
   HandlerList.unregisterAll(__plugin);
+
+  server.scheduler.cancelTasks(__plugin);
 });
 
 require('./command');
