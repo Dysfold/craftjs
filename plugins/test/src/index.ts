@@ -1,9 +1,5 @@
-import { File } from 'java.io';
-import { b } from './a';
-import * as _ from 'lodash';
+import { Bukkit } from "org.bukkit";
 
-const f = new File('asd');
+const server = Bukkit;
 
-console.log(Object.keys(_));
-console.log(f.path);
-console.log(b);
+console.log(server.getOnlinePlayers);
