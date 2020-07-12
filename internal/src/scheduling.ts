@@ -10,7 +10,6 @@ function getSpigotMethod(name: 'runTaskTimer' | 'runTaskLater') {
   const params = [(Plugin as any).class, (Runnable as any).class, long].concat(
     name === 'runTaskTimer' ? [long] : [],
   );
-  console.log(params);
   const method = c.getMethod(name, ...params) as any;
   return (...args: any[]) => method.invoke(server.getScheduler(), ...args);
 }

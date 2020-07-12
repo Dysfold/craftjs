@@ -6,7 +6,6 @@ function getSpigotMethod(name) {
     const long = java.lang.Long.class.getField('TYPE').get(null);
     const c = server.getScheduler().class;
     const params = [org_bukkit_plugin_1.Plugin.class, java_lang_1.Runnable.class, long].concat(name === 'runTaskTimer' ? [long] : []);
-    console.log(params);
     const method = c.getMethod(name, ...params);
     return (...args) => method.invoke(server.getScheduler(), ...args);
 }
