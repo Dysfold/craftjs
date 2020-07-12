@@ -32,6 +32,12 @@ events_1.registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => 
     org_bukkit_event_1.HandlerList.unregisterAll(__plugin);
 });
 const { registerCommand } = require('./command');
+/**
+ * Command for executing javascript from minecraft
+ *
+ * @example
+ * /js console.log('hello world');
+ */
 registerCommand('js', (sender, label, args) => {
     const str = args.join(' ');
     try {

@@ -48,6 +48,12 @@ registerEvent(PluginDisableEvent, (event) => {
 
 const { registerCommand } = require('./command');
 
+/**
+ * Command for executing javascript from minecraft
+ * 
+ * @example
+ * /js console.log('hello world');
+ */
 registerCommand('js', (sender: CommandSender, label: string, args: string[]) => {
   const str = args.join(' ');
   try {
