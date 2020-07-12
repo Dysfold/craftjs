@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const java_io_1 = require("java.io");
 const org_bukkit_event_server_1 = require("org.bukkit.event.server");
 const org_bukkit_event_1 = require("org.bukkit.event");
-let Files = java.nio.file.Files;
+const Files = java.nio.file.Files;
 const unloadHandlers = [];
 global.addUnloadHandler = function (callback) {
     unloadHandlers.push(callback);
@@ -28,7 +28,7 @@ registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => {
     if (event.plugin !== __plugin) {
         return;
     }
-    unloadHandlers.forEach(h => h());
+    unloadHandlers.forEach((h) => h());
     org_bukkit_event_1.HandlerList.unregisterAll(__plugin);
 });
 require('./command');
@@ -45,7 +45,7 @@ registerCommand('js', (sender, label, args) => {
         const result = __ctx.eval('js', str);
         if (`${result}` === '[object Object]') {
             const json = JSON.stringify(result, null, 2);
-            json.split('\n').forEach(row => sender.sendMessage(row));
+            json.split('\n').forEach((row) => sender.sendMessage(row));
         }
         else {
             sender.sendMessage(`${result}`);

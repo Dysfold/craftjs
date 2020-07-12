@@ -9,14 +9,14 @@ function __registerCommand(name, callback) {
             const jsArgs = [...args];
             const result = callback(sender, label, jsArgs);
             return typeof result === 'boolean' ? result : true;
-        }
+        },
     });
     const cmd = new Cmd(name);
     server.commandMap.register(name, cmd);
     commands.push(cmd);
 }
 addUnloadHandler(() => {
-    commands.forEach(cmd => {
+    commands.forEach((cmd) => {
         console.log(`Unregistering ${cmd.name}`);
         const spigotCmd = server.commandMap.knownCommands.get(cmd.name);
         server.commandMap.knownCommands.remove(cmd.name);

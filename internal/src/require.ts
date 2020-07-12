@@ -1,14 +1,14 @@
-import { Path } from "java.nio.file";
+import { Path } from 'java.nio.file';
 
 declare const readFile: any;
 const Paths = java.nio.file.Paths;
 
-const cache: Record<string, any> = {}
+const cache: Record<string, any> = {};
 const stack: string[] = [];
 
 // @ts-ignore
-var exports = {};
-var module = {};
+const exports = {};
+const module = {};
 
 function resolveModule(parent: any, id: string) {
   if (id.match(/^[0-9A-Za-z_-]/)) {
@@ -37,7 +37,7 @@ function jsonParse(str: string) {
 }
 
 function getEntrypoint(directory: Path) {
-  const def = directory.resolve('index.js');;
+  const def = directory.resolve('index.js');
   const packageJson = directory.resolve('package.json').toFile();
   if (!packageJson.exists()) {
     return def;
@@ -47,7 +47,9 @@ function getEntrypoint(directory: Path) {
     return def;
   }
   const file = contents.main ? directory.resolve(contents.main) : def;
-  const jsFile = file.getParent()?.resolve(file.getFileName().toString() + '.js') as Path | undefined;
+  const jsFile = file
+    .getParent()
+    ?.resolve(file.getFileName().toString() + '.js') as Path | undefined;
   if (file.toFile().exists()) {
     return file;
   } else if (jsFile?.toFile().exists()) {
@@ -69,7 +71,6 @@ function resolveFile(path: Path) {
   return path;
 }
 
-
 function getPackage(path: string) {
   const parts = path.split('.');
   let obj = Packages;
@@ -80,9 +81,9 @@ function getPackage(path: string) {
 }
 
 const overrides: Record<string, string> = {
-  'path': 'path-browserify',
-  'tty': 'tty-browserify',
-}
+  path: 'path-browserify',
+  tty: 'tty-browserify',
+};
 
 // @ts-ignore
 function require(id) {
@@ -108,19 +109,26 @@ function require(id) {
   const exports = {};
   const module = {
     exports,
-  }
+  };
   const contents = readFile(resolved.toString());
   const closure = `
   (function(module, exports, __filename){
 ${contents}
   })
   `;
-  const src = org.graalvm.polyglot.Source.newBuilder('js', resolved.toFile()).content(closure).build();
+  const src = org.graalvm.polyglot.Source.newBuilder('js', resolved.toFile())
+    .content(closure)
+    .build();
   try {
     const func = __ctx.eval(src);
     func(module, exports, resolved.toString());
   } catch (e) {
-    const pos = ['lineNumber' in e ? e.lineNumber : '', 'columnNumber' in e ? e.columnNumber : ''].filter(Boolean).join(':');
+    const pos = [
+      'lineNumber' in e ? e.lineNumber : '',
+      'columnNumber' in e ? e.columnNumber : '',
+    ]
+      .filter(Boolean)
+      .join(':');
     console.log(`Error while executing ${src.getName()} at ${pos}`);
     console.error(e);
   }

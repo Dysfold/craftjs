@@ -14,7 +14,7 @@ function getRunnable(callback) {
     const Task = Java.extend(java_lang_1.Runnable, {
         run() {
             callback();
-        }
+        },
     });
     return new Task();
 }

@@ -4,8 +4,8 @@ const Paths = java.nio.file.Paths;
 const cache = {};
 const stack = [];
 // @ts-ignore
-var exports = {};
-var module = {};
+const exports = {};
+const module = {};
 function resolveModule(parent, id) {
     if (id.match(/^[0-9A-Za-z_-]/)) {
         return resolveNodeModule(parent, id);
@@ -34,7 +34,6 @@ function jsonParse(str) {
 function getEntrypoint(directory) {
     var _a;
     const def = directory.resolve('index.js');
-    ;
     const packageJson = directory.resolve('package.json').toFile();
     if (!packageJson.exists()) {
         return def;
@@ -44,7 +43,8 @@ function getEntrypoint(directory) {
         return def;
     }
     const file = contents.main ? directory.resolve(contents.main) : def;
-    const jsFile = (_a = file.getParent()) === null || _a === void 0 ? void 0 : _a.resolve(file.getFileName().toString() + '.js');
+    const jsFile = (_a = file
+        .getParent()) === null || _a === void 0 ? void 0 : _a.resolve(file.getFileName().toString() + '.js');
     if (file.toFile().exists()) {
         return file;
     }
@@ -75,8 +75,8 @@ function getPackage(path) {
     return obj;
 }
 const overrides = {
-    'path': 'path-browserify',
-    'tty': 'tty-browserify',
+    path: 'path-browserify',
+    tty: 'tty-browserify',
 };
 // @ts-ignore
 function require(id) {
@@ -106,13 +106,20 @@ function require(id) {
 ${contents}
   })
   `;
-    const src = org.graalvm.polyglot.Source.newBuilder('js', resolved.toFile()).content(closure).build();
+    const src = org.graalvm.polyglot.Source.newBuilder('js', resolved.toFile())
+        .content(closure)
+        .build();
     try {
         const func = __ctx.eval(src);
         func(module, exports, resolved.toString());
     }
     catch (e) {
-        const pos = ['lineNumber' in e ? e.lineNumber : '', 'columnNumber' in e ? e.columnNumber : ''].filter(Boolean).join(':');
+        const pos = [
+            'lineNumber' in e ? e.lineNumber : '',
+            'columnNumber' in e ? e.columnNumber : '',
+        ]
+            .filter(Boolean)
+            .join(':');
         console.log(`Error while executing ${src.getName()} at ${pos}`);
         console.error(e);
     }

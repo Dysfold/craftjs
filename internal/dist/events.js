@@ -7,7 +7,7 @@ const __registerEvent = (eventClass, callback, priority = org_bukkit_event_1.Eve
     const Ex = Java.extend(org_bukkit_plugin_1.EventExecutor, {
         execute(listener, event) {
             callback(event);
-        }
+        },
     });
     server.pluginManager.registerEvent(eventClass, new L(), priority, new Ex(), __plugin);
     const unregister = () => org_bukkit_event_1.HandlerList.unregisterAll(L);

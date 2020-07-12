@@ -1,11 +1,11 @@
-import { File } from "java.io";
-import { PluginDisableEvent } from "org.bukkit.event.server";
-import { HandlerList } from "org.bukkit.event";
-import { CommandSender } from "org.bukkit.command";
+import { File } from 'java.io';
+import { PluginDisableEvent } from 'org.bukkit.event.server';
+import { HandlerList } from 'org.bukkit.event';
+import { CommandSender } from 'org.bukkit.command';
 
 declare const Paths: any;
 
-let Files = java.nio.file.Files;
+const Files = java.nio.file.Files;
 
 const unloadHandlers: (() => void)[] = [];
 
@@ -15,7 +15,7 @@ declare global {
 
 global.addUnloadHandler = function (callback) {
   unloadHandlers.push(callback);
-}
+};
 
 function loadPlugins() {
   const pluginsDir = new File('js', 'plugins');
@@ -42,7 +42,7 @@ registerEvent(PluginDisableEvent, (event) => {
     return;
   }
 
-  unloadHandlers.forEach(h => h());
+  unloadHandlers.forEach((h) => h());
 
   HandlerList.unregisterAll(__plugin);
 });
@@ -52,24 +52,27 @@ require('./scheduling');
 
 /**
  * Command for executing javascript from minecraft
- * 
+ *
  * @example
  * /js console.log('hello world');
  */
-registerCommand('js', (sender: CommandSender, label: string, args: string[]) => {
-  const str = args.join(' ');
-  try {
-    const result = __ctx.eval('js', str);
-    if (`${result}` === '[object Object]') {
-      const json = JSON.stringify(result, null, 2);
-      json.split('\n').forEach(row => sender.sendMessage(row));
-    } else {
-      sender.sendMessage(`${result}`);
+registerCommand(
+  'js',
+  (sender: CommandSender, label: string, args: string[]) => {
+    const str = args.join(' ');
+    try {
+      const result = __ctx.eval('js', str);
+      if (`${result}` === '[object Object]') {
+        const json = JSON.stringify(result, null, 2);
+        json.split('\n').forEach((row) => sender.sendMessage(row));
+      } else {
+        sender.sendMessage(`${result}`);
+      }
+    } catch (e) {
+      console.error(e);
     }
-  } catch (e) {
-    console.error(e);
-  }
-});
+  },
+);
 
 const startTime = Date.now();
 loadPlugins();
