@@ -7,7 +7,7 @@ test('Scheduling', async (t) => {
   ) => {
     let tid: number | undefined;
     const promise = new Promise<boolean>((resolve) => {
-      tid = func(() => resolve(true), 200);
+      tid = func(() => resolve(true), 500);
     });
     t.eq(typeof tid, 'number', `${name} returns a task id`);
     const value = promise.catch(t.fail);
@@ -16,5 +16,9 @@ test('Scheduling', async (t) => {
   };
 
   await wait(setTimeout, 'setTimeout');
-  const tid = await wait(setTimeout, 'setInterval');
+  const tid = await wait(setInterval, 'setInterval');
+  const taskCount = server.scheduler.pendingTasks.size();
+  clearInterval(tid);
+  const newTaskCount = server.scheduler.pendingTasks.size();
+  t.eq(taskCount - 1, newTaskCount, 'clearInterval cancels task');
 });
