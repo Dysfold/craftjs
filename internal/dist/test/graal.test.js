@@ -9,5 +9,5 @@ zora_1.test('Basic variables', (t) => {
     t.eq(global, globalThis, 'global is globalThis');
     t.ok(typeof require === 'function', 'require is a function');
     t.ok(typeof setTimeout === 'function', 'setTimeout is a function');
-    t.ok(typeof setInterval === 'function', 'setTimeout is a function');
+    t.ok(typeof setInterval === 'function', 'setInterval is a function');
 });
