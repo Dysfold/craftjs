@@ -1,10 +1,21 @@
-declare const require: (path: string) => any;
-declare const load: (path: string) => any;
-declare const Packages: any;
-declare const java: any;
-declare const org: any;
-declare const __ctx: any;
-declare const __filename: string;
+import { Bukkit } from "org.bukkit";
+import { Plugin } from "org.bukkit.plugin";
+
+declare global {
+  const require: (path: string) => any;
+  const load: (path: string) => any;
+  const Packages: any;
+  const server: typeof Bukkit;
+  const java: any;
+  const Java: any;
+  const org: any;
+  const __ctx: any;
+  const global: typeof globalThis;
+  const __plugin: Plugin;
+  const __filename: string;
+
+}
+
 
 interface JIterable<T> {
   [index: number]: T;
