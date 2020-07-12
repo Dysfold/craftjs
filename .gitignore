@@ -1,2 +1,4 @@
 node_modules
 plugins/**/dist
+!internal/test/mock/node_modules
+!internal/dist/test/mock/node_modules
