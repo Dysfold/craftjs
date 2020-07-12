@@ -33,6 +33,7 @@ registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => {
 });
 require('./command');
 require('./scheduling');
+require('./testing');
 /**
  * Command for executing javascript from minecraft
  *
