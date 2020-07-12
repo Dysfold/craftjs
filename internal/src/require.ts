@@ -80,7 +80,6 @@ function require(id) {
   }
 
   const parent = Paths.get(stack.slice(-1)[0] ?? '.', '.');
-  console.log(`parent: ${parent}, id: ${id}`);
   const resolved = resolveFile(resolveModule(parent, id)).normalize();
   const cacheId = resolved.toAbsolutePath().toString();
 

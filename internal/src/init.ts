@@ -35,6 +35,8 @@ function loadPlugins() {
   }
 }
 
+require('./events');
+
 registerEvent(PluginDisableEvent, (event) => {
   if (event.plugin !== __plugin) {
     return;
@@ -46,7 +48,6 @@ registerEvent(PluginDisableEvent, (event) => {
 });
 
 require('./command');
-require('./events');
 
 /**
  * Command for executing javascript from minecraft

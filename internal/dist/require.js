@@ -73,7 +73,6 @@ function require(id) {
         return getPackage(id);
     }
     const parent = Paths.get((_a = stack.slice(-1)[0]) !== null && _a !== void 0 ? _a : '.', '.');
-    console.log(`parent: ${parent}, id: ${id}`);
     const resolved = resolveFile(resolveModule(parent, id)).normalize();
     const cacheId = resolved.toAbsolutePath().toString();
     if (cache[cacheId]) {
