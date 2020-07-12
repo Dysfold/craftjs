@@ -1,5 +1,9 @@
 import { File } from 'java.io';
 
+declare global {
+  function runTests(): void;
+}
+
 function walk(file: File, callback: (file: File) => void) {
   if (!file.isDirectory()) {
     callback(file);
@@ -24,13 +28,11 @@ function runTests() {
   });
 
   const ownPath = new File(__filename).toPath().getParent();
-  console.log(ownPath);
 
   testFiles.forEach((f) => {
     const relative = ownPath.relativize(f.toPath());
-    console.log(relative);
-    require(relative.toString());
+    require(`./${f.getPath()}`, '.');
   });
 }
 
-runTests();
+global.runTests = runTests;

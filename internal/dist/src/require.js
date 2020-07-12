@@ -75,10 +75,7 @@ const overrides = {
     path: 'path-browserify',
     tty: 'tty-browserify',
 };
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function require(id) {
+function __require(id, relative) {
     var _a, _b, _c;
     const pkg = java.lang.Package.getPackage(id);
     if (pkg) {
@@ -88,7 +85,7 @@ function require(id) {
     if (override) {
         return require(override);
     }
-    const parent = Paths.get((_a = stack.slice(-1)[0]) !== null && _a !== void 0 ? _a : '.', '.');
+    const parent = relative !== null && relative !== void 0 ? relative : Paths.get((_a = stack.slice(-1)[0]) !== null && _a !== void 0 ? _a : '.', '.');
     const resolved = resolveFile(resolveModule(parent, id)).normalize();
     const cacheId = resolved.toAbsolutePath().toString();
     if (cache[cacheId]) {
@@ -126,3 +123,4 @@ ${contents}
     stack.pop();
     return module.exports;
 }
+global.require = __require;

@@ -6,6 +6,10 @@ const Paths = java.nio.file.Paths;
 const cache: Record<string, any> = {};
 const stack: string[] = [];
 
+declare global {
+  function require(...params: Parameters<typeof __require>): any;
+}
+
 function resolveModule(parent: any, id: string) {
   if (id.match(/^[0-9A-Za-z_-]/)) {
     return resolveNodeModule(parent, id);
@@ -81,10 +85,7 @@ const overrides: Record<string, string> = {
   tty: 'tty-browserify',
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function require(id) {
+function __require(id: string, relative?: string): any {
   const pkg = java.lang.Package.getPackage(id);
   if (pkg) {
     return getPackage(id);
@@ -95,7 +96,7 @@ function require(id) {
     return require(override);
   }
 
-  const parent = Paths.get(stack.slice(-1)[0] ?? '.', '.');
+  const parent = relative ?? Paths.get(stack.slice(-1)[0] ?? '.', '.');
   const resolved = resolveFile(resolveModule(parent, id)).normalize();
   const cacheId = resolved.toAbsolutePath().toString();
 
@@ -134,3 +135,5 @@ ${contents}
   stack.pop();
   return module.exports;
 }
+
+global.require = __require;

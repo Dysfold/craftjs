@@ -2,7 +2,6 @@ import { Bukkit } from "org.bukkit";
 import { Plugin } from "org.bukkit.plugin";
 
 declare global {
-  const require: (path: string) => any;
   const load: (path: string) => any;
   const Packages: any;
   const server: typeof Bukkit;
