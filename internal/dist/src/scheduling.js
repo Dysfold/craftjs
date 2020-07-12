@@ -39,4 +39,4 @@ function setTimeout(handler, delay) {
 global.setInterval = setInterval;
 global.setTimeout = setTimeout;
 global.clearInterval = clearInterval;
-global.clearTimeout = clearTimeout;
+global.clearTimeout = clearInterval;

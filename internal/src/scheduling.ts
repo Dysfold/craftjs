@@ -53,4 +53,4 @@ function setTimeout(handler: () => void, delay: number) {
 global.setInterval = setInterval as any;
 global.setTimeout = setTimeout as any;
 global.clearInterval = clearInterval;
-global.clearTimeout = clearTimeout;
+global.clearTimeout = clearInterval;
