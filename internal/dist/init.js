@@ -32,8 +32,21 @@ events_1.registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => 
     org_bukkit_event_1.HandlerList.unregisterAll(__plugin);
 });
 const { registerCommand } = require('./command');
-registerCommand("js", () => {
-    console.log('js called');
+registerCommand('js', (sender, label, args) => {
+    const str = args.join(' ');
+    try {
+        const result = __ctx.eval('js', str);
+        if (`${result}` === '[object Object]') {
+            const json = JSON.stringify(result, null, 2);
+            json.split('\n').forEach(row => sender.sendMessage(row));
+        }
+        else {
+            sender.sendMessage(`${result}`);
+        }
+    }
+    catch (e) {
+        console.error(e);
+    }
 });
 const startTime = Date.now();
 loadPlugins();

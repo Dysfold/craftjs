@@ -4,10 +4,11 @@ import { registerEvent } from "./events";
 
 const commands: Command[] = [];
 
-export function registerCommand(name: string, callback: () => void | boolean) {
+export function registerCommand(name: string, callback: (sender: CommandSender, label: string, args: string[]) => void | boolean) {
   const Cmd = Java.extend(BukkitCommand, {
     execute(sender: CommandSender, label: string, args: string[]) {
-      const result = callback();
+      const jsArgs = [...args];
+      const result = callback(sender, label, jsArgs);
       return typeof result === 'boolean' ? result : true;
     }
   });

@@ -5,7 +5,8 @@ const commands = [];
 function registerCommand(name, callback) {
     const Cmd = Java.extend(org_bukkit_command_defaults_1.BukkitCommand, {
         execute(sender, label, args) {
-            const result = callback();
+            const jsArgs = [...args];
+            const result = callback(sender, label, jsArgs);
             return typeof result === 'boolean' ? result : true;
         }
     });
