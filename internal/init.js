@@ -9,6 +9,5 @@ function readFile(path) {
 var global = globalThis;
 var server = org.bukkit.Bukkit;
 var exports = {};
-var process = {};
 load('./js/internal/dist/require.js');
 require('./js/internal/dist/init');

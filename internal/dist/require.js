@@ -32,6 +32,7 @@ function jsonParse(str) {
     }
 }
 function getEntrypoint(directory) {
+    var _a;
     const def = directory.resolve('index.js');
     ;
     const packageJson = directory.resolve('package.json').toFile();
@@ -42,7 +43,15 @@ function getEntrypoint(directory) {
     if (!contents) {
         return def;
     }
-    return contents.main ? directory.resolve(contents.main) : def;
+    const file = contents.main ? directory.resolve(contents.main) : def;
+    const jsFile = (_a = file.getParent()) === null || _a === void 0 ? void 0 : _a.resolve(file.getFileName().toString() + '.js');
+    if (file.toFile().exists()) {
+        return file;
+    }
+    else if (jsFile === null || jsFile === void 0 ? void 0 : jsFile.toFile().exists()) {
+        return jsFile;
+    }
+    return def;
 }
 function resolveFile(path) {
     var _a, _b;
@@ -65,12 +74,20 @@ function getPackage(path) {
     }
     return obj;
 }
+const overrides = {
+    'path': 'path-browserify',
+    'tty': 'tty-browserify',
+};
 // @ts-ignore
 function require(id) {
     var _a, _b, _c;
     const pkg = java.lang.Package.getPackage(id);
     if (pkg) {
         return getPackage(id);
+    }
+    const override = overrides[id];
+    if (override) {
+        return require(override);
     }
     const parent = Paths.get((_a = stack.slice(-1)[0]) !== null && _a !== void 0 ? _a : '.', '.');
     const resolved = resolveFile(resolveModule(parent, id)).normalize();

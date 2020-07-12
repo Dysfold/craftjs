@@ -1,16 +1,8 @@
 "use strict";
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const java_io_1 = require("java.io");
 const org_bukkit_event_server_1 = require("org.bukkit.event.server");
 const org_bukkit_event_1 = require("org.bukkit.event");
-const jest = __importStar(require("jest"));
 let Files = java.nio.file.Files;
 const unloadHandlers = [];
 global.addUnloadHandler = function (callback) {
@@ -65,4 +57,3 @@ registerCommand('js', (sender, label, args) => {
 const startTime = Date.now();
 loadPlugins();
 console.log(`Loaded all plugins in ${Date.now() - startTime}ms`);
-jest.run(['asd']);

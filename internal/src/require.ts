@@ -46,7 +46,14 @@ function getEntrypoint(directory: Path) {
   if (!contents) {
     return def;
   }
-  return contents.main ? directory.resolve(contents.main) : def;
+  const file = contents.main ? directory.resolve(contents.main) : def;
+  const jsFile = file.getParent()?.resolve(file.getFileName().toString() + '.js') as Path | undefined;
+  if (file.toFile().exists()) {
+    return file;
+  } else if (jsFile?.toFile().exists()) {
+    return jsFile;
+  }
+  return def;
 }
 
 function resolveFile(path: Path) {
@@ -72,11 +79,21 @@ function getPackage(path: string) {
   return obj;
 }
 
+const overrides: Record<string, string> = {
+  'path': 'path-browserify',
+  'tty': 'tty-browserify',
+}
+
 // @ts-ignore
 function require(id) {
   const pkg = java.lang.Package.getPackage(id);
   if (pkg) {
     return getPackage(id);
+  }
+
+  const override = overrides[id];
+  if (override) {
+    return require(override);
   }
 
   const parent = Paths.get(stack.slice(-1)[0] ?? '.', '.');
