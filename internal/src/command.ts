@@ -1,10 +1,15 @@
 import { Command, CommandSender, PluginCommand } from "org.bukkit.command";
 import { BukkitCommand } from "org.bukkit.command.defaults";
-import { registerEvent } from "./events";
 
 const commands: Command[] = [];
 
-export function registerCommand(name: string, callback: (sender: CommandSender, label: string, args: string[]) => void | boolean) {
+declare global {
+  function registerCommand(...params: Parameters<typeof __registerCommand>): ReturnType<typeof __registerCommand>;
+}
+
+global.registerCommand = __registerCommand;
+
+function __registerCommand(name: string, callback: (sender: CommandSender, label: string, args: string[]) => void | boolean) {
   const Cmd = Java.extend(BukkitCommand, {
     execute(sender: CommandSender, label: string, args: string[]) {
       const jsArgs = [...args];

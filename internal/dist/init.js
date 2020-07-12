@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const java_io_1 = require("java.io");
-const events_1 = require("./events");
 const org_bukkit_event_server_1 = require("org.bukkit.event.server");
 const org_bukkit_event_1 = require("org.bukkit.event");
 let Files = java.nio.file.Files;
@@ -24,14 +23,15 @@ function loadPlugins() {
         require(relative.toString());
     }
 }
-events_1.registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => {
+registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => {
     if (event.plugin !== __plugin) {
         return;
     }
     unloadHandlers.forEach(h => h());
     org_bukkit_event_1.HandlerList.unregisterAll(__plugin);
 });
-const { registerCommand } = require('./command');
+require('./command');
+require('./events');
 /**
  * Command for executing javascript from minecraft
  *

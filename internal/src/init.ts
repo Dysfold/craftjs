@@ -1,5 +1,4 @@
 import { File } from "java.io";
-import { registerEvent } from "./events";
 import { PluginDisableEvent } from "org.bukkit.event.server";
 import { HandlerList } from "org.bukkit.event";
 import { CommandSender } from "org.bukkit.command";
@@ -46,7 +45,8 @@ registerEvent(PluginDisableEvent, (event) => {
   HandlerList.unregisterAll(__plugin);
 });
 
-const { registerCommand } = require('./command');
+require('./command');
+require('./events');
 
 /**
  * Command for executing javascript from minecraft
