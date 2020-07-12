@@ -5,3 +5,14 @@ declare const java: any;
 declare const org: any;
 declare const __ctx: any;
 declare const __filename: string;
+
+interface JIterable<T> {
+  [index: number]: T;
+  [Symbol.iterator]: () => Iterator<T>;
+}
+
+declare module 'java.util' {
+  interface Collection<E> extends JIterable<E> { }
+
+  interface List<E> extends JIterable<E> { }
+}

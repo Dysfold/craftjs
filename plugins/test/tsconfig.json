@@ -59,7 +59,6 @@
   },
   "include": [
     "src/**/*",
-    "../../types/generated/spigot/*",
-    "../../types/*",
+    "../../types/**/*",
   ]
 }
