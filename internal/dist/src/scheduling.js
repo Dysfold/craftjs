@@ -24,6 +24,12 @@ function setInterval(handler, delay) {
     const task = runTaskLater(__plugin, runnable, delay / 50, delay / 50);
     return task.getTaskId();
 }
+function clearInterval(tid) {
+    if (!tid) {
+        return;
+    }
+    server.scheduler.cancelTask(tid);
+}
 function setTimeout(handler, delay) {
     const runnable = getRunnable(handler);
     const runTaskLater = getSpigotMethod('runTaskLater');
@@ -32,3 +38,5 @@ function setTimeout(handler, delay) {
 }
 global.setInterval = setInterval;
 global.setTimeout = setTimeout;
+global.clearInterval = clearInterval;
+global.clearTimeout = clearTimeout;
