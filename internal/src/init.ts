@@ -48,6 +48,7 @@ registerEvent(PluginDisableEvent, (event) => {
 });
 
 require('./command');
+require('./scheduling');
 
 /**
  * Command for executing javascript from minecraft
