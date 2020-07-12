@@ -3,9 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Paths = java.nio.file.Paths;
 const cache = {};
 const stack = [];
-// @ts-ignore
-const exports = {};
-const module = {};
 function resolveModule(parent, id) {
     if (id.match(/^[0-9A-Za-z_-]/)) {
         return resolveNodeModule(parent, id);
@@ -78,7 +75,9 @@ const overrides = {
     path: 'path-browserify',
     tty: 'tty-browserify',
 };
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function require(id) {
     var _a, _b, _c;
     const pkg = java.lang.Package.getPackage(id);

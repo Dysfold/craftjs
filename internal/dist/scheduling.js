@@ -30,4 +30,5 @@ function setTimeout(handler, delay) {
     const task = runTaskLater(__plugin, runnable, delay / 50);
     return task.getTaskId();
 }
-setInterval(() => console.log('hiiohoi'), 1000);
+global.setInterval = setInterval;
+global.setTimeout = setTimeout;
