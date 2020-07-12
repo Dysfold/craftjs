@@ -43,4 +43,5 @@ function setTimeout(handler: () => void, delay: number) {
   return task.getTaskId();
 }
 
-setInterval(() => console.log('hiiohoi'), 1000);
+global.setInterval = setInterval as any;
+global.setTimeout = setTimeout as any;
