@@ -111,7 +111,7 @@ function __require(id: string, relative?: string): any {
   };
   const contents = readFile(resolved.toString());
   const closure = `
-  (function(module, exports, __filename){
+  (function(module, exports, __filename, __dirname){
 ${contents}
   })
   `;
@@ -120,7 +120,12 @@ ${contents}
     .build();
   try {
     const func = __ctx.eval(src);
-    func(module, exports, resolved.toString());
+    func(
+      module,
+      exports,
+      resolved.toString(),
+      resolved.getParent()?.toString() ?? '.',
+    );
   } catch (e) {
     const pos = [
       'lineNumber' in e ? e.lineNumber : '',

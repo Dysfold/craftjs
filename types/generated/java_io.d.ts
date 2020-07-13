@@ -1,78 +1,6 @@
 //@ts-nocheck
 
 declare module 'java.io' {
-import { OutputStream as java_io_OutputStream, InputStream as java_io_InputStream, Closeable as java_io_Closeable } from 'java.io';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class InputStream extends java_lang_Object implements java_io_Closeable {
-static MAX_SKIP_BUFFER_SIZE: number;
-static DEFAULT_BUFFER_SIZE: number;
-static MAX_BUFFER_SIZE: number;
-read(arg0: number[], arg1: number, arg2: number): number;
-read(arg0: number[]): number;
-read(): number;
-close(): void;
-mark(arg0: number): void;
-readAllBytes(): number[];
-readNBytes(arg0: number[], arg1: number, arg2: number): number;
-readNBytes(arg0: number): number[];
-transferTo(arg0: java_io_OutputStream): number;
-skip(arg0: number): number;
-available(): number;
-markSupported(): boolean;
-reset(): void;
-static nullInputStream(): java_io_InputStream;
-constructor();
-  }
-}//@ts-nocheck
-
-declare module 'java.io' {
-import { OutputStream as java_io_OutputStream, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class OutputStream extends java_lang_Object implements java_io_Closeable, java_io_Flushable {
-
-write(arg0: number[], arg1: number, arg2: number): void;
-write(arg0: number[]): void;
-write(arg0: number): void;
-flush(): void;
-close(): void;
-static nullOutputStream(): java_io_OutputStream;
-constructor();
-  }
-}//@ts-nocheck
-
-declare module 'java.io' {
-import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
-
-  export class Closeable implements java_lang_AutoCloseable {
-
-close(): void;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.io' {
-
-
-  export class Flushable {
-
-flush(): void;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.io' {
-
-
-  export class Serializable {
-
-
-
-  }
-}//@ts-nocheck
-
-declare module 'java.io' {
 import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Class as java_lang_Class } from 'java.lang';
 import { PrintWriter as java_io_PrintWriter, Writer as java_io_Writer, File as java_io_File, OutputStream as java_io_OutputStream, PrintStream as java_io_PrintStream } from 'java.io';
 import { Locale as java_util_Locale, Formatter as java_util_Formatter } from 'java.util';
@@ -146,33 +74,85 @@ constructor(arg0: java_io_OutputStream, arg1: boolean, arg2: java_nio_charset_Ch
 constructor(arg0: java_io_OutputStream, arg1: boolean);
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
-import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object } from 'java.lang';
-import { Writer as java_io_Writer, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
+import { OutputStream as java_io_OutputStream, InputStream as java_io_InputStream, Closeable as java_io_Closeable } from 'java.io';
+import { Object as java_lang_Object } from 'java.lang';
 
-  export class Writer extends java_lang_Object implements java_lang_Appendable, java_io_Closeable, java_io_Flushable {
-writeBuffer: string[];
-static WRITE_BUFFER_SIZE: number;
-lock: java_lang_Object;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_Writer;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
-append(arg0: string): java_io_Writer;
-append(arg0: string): java_lang_Appendable;
-append(arg0: java_lang_CharSequence): java_lang_Appendable;
-append(arg0: java_lang_CharSequence): java_io_Writer;
+  export class InputStream extends java_lang_Object implements java_io_Closeable {
+static MAX_SKIP_BUFFER_SIZE: number;
+static DEFAULT_BUFFER_SIZE: number;
+static MAX_BUFFER_SIZE: number;
+read(arg0: number[], arg1: number, arg2: number): number;
+read(arg0: number[]): number;
+read(): number;
+close(): void;
+mark(arg0: number): void;
+readAllBytes(): number[];
+readNBytes(arg0: number[], arg1: number, arg2: number): number;
+readNBytes(arg0: number): number[];
+transferTo(arg0: java_io_OutputStream): number;
+skip(arg0: number): number;
+available(): number;
+markSupported(): boolean;
+reset(): void;
+static nullInputStream(): java_io_InputStream;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { OutputStream as java_io_OutputStream, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class OutputStream extends java_lang_Object implements java_io_Closeable, java_io_Flushable {
+
+write(arg0: number[], arg1: number, arg2: number): void;
+write(arg0: number[]): void;
 write(arg0: number): void;
-write(arg0: string[]): void;
-write(arg0: string[], arg1: number, arg2: number): void;
-write(arg0: string): void;
-write(arg0: string, arg1: number, arg2: number): void;
 flush(): void;
 close(): void;
-static nullWriter(): java_io_Writer;
+static nullOutputStream(): java_io_OutputStream;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
+
+  export class Closeable implements java_lang_AutoCloseable {
+
+close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+
+
+  export class Flushable {
+
+flush(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+
+
+  export class Serializable {
+
+
+
+  }
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
@@ -191,19 +171,20 @@ type: java_lang_Class<java_lang_Object>;
 typeCode: string;
 typeString: string;
 offset: number;
+getName(): string;
 toString(): string;
 isPrimitive(): boolean;
 compareTo(arg0: java_lang_Object): number;
-getName(): string;
 getType(): java_lang_Class<java_lang_Object>;
 getTypeCode(): string;
 getTypeString(): string;
 getOffset(): number;
 isUnshared(): boolean;
-constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>, arg2: boolean);
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>);
+constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>, arg2: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Class as java_lang_Class } from 'java.lang';
@@ -274,39 +255,14 @@ constructor(arg0: java_io_File);
 constructor(arg0: java_io_OutputStream);
 constructor(arg0: java_io_OutputStream, arg1: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
-import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
-import { Writer as java_io_Writer, Reader as java_io_Reader, Closeable as java_io_Closeable } from 'java.io';
-import { Object as java_lang_Object, Readable as java_lang_Readable } from 'java.lang';
-
-  export class Reader extends java_lang_Object implements java_lang_Readable, java_io_Closeable {
-static TRANSFER_BUFFER_SIZE: number;
-lock: java_lang_Object;
-static maxSkipBufferSize: number;
-skipBuffer: string[];
-read(arg0: string[]): number;
-read(arg0: string[], arg1: number, arg2: number): number;
-read(arg0: java_nio_CharBuffer): number;
-read(): number;
-close(): void;
-mark(arg0: number): void;
-transferTo(arg0: java_io_Writer): number;
-skip(arg0: number): number;
-markSupported(): boolean;
-reset(): void;
-static nullReader(): java_io_Reader;
-ready(): boolean;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.io' {
-import { File as java_io_File, FilenameFilter as java_io_FilenameFilter, FileFilter as java_io_FileFilter, FileSystem as java_io_FileSystem, Serializable as java_io_Serializable } from 'java.io';
-import { Path as java_nio_file_Path } from 'java.nio.file';
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
+import { File as java_io_File, FilenameFilter as java_io_FilenameFilter, FileFilter as java_io_FileFilter, FileSystem as java_io_FileSystem, Serializable as java_io_Serializable } from 'java.io';
 import { URI as java_net_URI, URL as java_net_URL } from 'java.net';
+import { Path as java_nio_file_Path } from 'java.nio.file';
 import { PathStatus as java_io_File_PathStatus } from 'java.io.File';
 import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
 
@@ -325,6 +281,9 @@ static PREFIX_LENGTH_OFFSET: number;
 static serialVersionUID: number;
 filePath: java_nio_file_Path;
 static $assertionsDisabled: boolean;
+name: string;
+parent: string;
+path: string;
 parentFile: java_io_File;
 absolutePath: string;
 absoluteFile: java_io_File;
@@ -333,9 +292,23 @@ canonicalFile: java_io_File;
 totalSpace: number;
 freeSpace: number;
 usableSpace: number;
-name: string;
-parent: string;
-path: string;
+getName(): string;
+equals(arg0: java_lang_Object): boolean;
+length(): number;
+toString(): string;
+hashCode(): number;
+compareTo(arg0: java_lang_Object): number;
+compareTo(arg0: java_io_File): number;
+list(): string[];
+list(arg0: java_io_FilenameFilter): string[];
+getParent(): string;
+isAbsolute(): boolean;
+delete(): boolean;
+setReadOnly(): boolean;
+canRead(): boolean;
+getPath(): string;
+toURI(): java_net_URI;
+toURL(): java_net_URL;
 getParentFile(): java_io_File;
 getAbsolutePath(): string;
 getAbsoluteFile(): java_io_File;
@@ -349,8 +322,8 @@ isHidden(): boolean;
 lastModified(): number;
 createNewFile(): boolean;
 deleteOnExit(): void;
-listFiles(arg0: java_io_FilenameFilter): java_io_File[];
 listFiles(arg0: java_io_FileFilter): java_io_File[];
+listFiles(arg0: java_io_FilenameFilter): java_io_File[];
 listFiles(): java_io_File[];
 mkdir(): boolean;
 mkdirs(): boolean;
@@ -360,8 +333,8 @@ setWritable(arg0: boolean): boolean;
 setWritable(arg0: boolean, arg1: boolean): boolean;
 setReadable(arg0: boolean, arg1: boolean): boolean;
 setReadable(arg0: boolean): boolean;
-setExecutable(arg0: boolean, arg1: boolean): boolean;
 setExecutable(arg0: boolean): boolean;
+setExecutable(arg0: boolean, arg1: boolean): boolean;
 canExecute(): boolean;
 static listRoots(): java_io_File[];
 getTotalSpace(): number;
@@ -370,29 +343,13 @@ getUsableSpace(): number;
 static createTempFile(arg0: string, arg1: string): java_io_File;
 static createTempFile(arg0: string, arg1: string, arg2: java_io_File): java_io_File;
 toPath(): java_nio_file_Path;
-equals(arg0: java_lang_Object): boolean;
-length(): number;
-toString(): string;
-hashCode(): number;
-compareTo(arg0: java_lang_Object): number;
-compareTo(arg0: java_io_File): number;
-getName(): string;
-list(): string[];
-list(arg0: java_io_FilenameFilter): string[];
-getParent(): string;
-isAbsolute(): boolean;
-delete(): boolean;
-setReadOnly(): boolean;
-canRead(): boolean;
-getPath(): string;
-toURI(): java_net_URI;
-toURL(): java_net_URL;
-constructor(arg0: java_net_URI);
+constructor(arg0: string);
 constructor(arg0: string, arg1: string);
 constructor(arg0: java_io_File, arg1: string);
-constructor(arg0: string);
+constructor(arg0: java_net_URI);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { File as java_io_File } from 'java.io';
@@ -402,7 +359,8 @@ import { File as java_io_File } from 'java.io';
 accept(arg0: java_io_File, arg1: string): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { File as java_io_File } from 'java.io';
@@ -412,7 +370,8 @@ import { File as java_io_File } from 'java.io';
 accept(arg0: java_io_File): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Closeable as java_io_Closeable, FileDescriptor as java_io_FileDescriptor } from 'java.io';
@@ -435,7 +394,8 @@ sync(): void;
 valid(): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { File as java_io_File } from 'java.io';
@@ -454,6 +414,7 @@ static SPACE_FREE: number;
 static SPACE_USABLE: number;
 static useCanonCaches: boolean;
 static useCanonPrefixCache: boolean;
+length: number;
 defaultParent: string;
 booleanAttributes: number;
 lastModifiedTime: number;
@@ -461,7 +422,18 @@ space: number;
 separator: string;
 pathSeparator: string;
 nameMax: number;
-length: number;
+hashCode(arg0: java_io_File): number;
+getLength(arg0: java_io_File): number;
+list(arg0: java_io_File): string[];
+compare(arg0: java_io_File, arg1: java_io_File): number;
+resolve(arg0: java_io_File): string;
+resolve(arg0: string, arg1: string): string;
+isAbsolute(arg0: java_io_File): boolean;
+checkAccess(arg0: java_io_File, arg1: number): boolean;
+delete(arg0: java_io_File): boolean;
+setReadOnly(arg0: java_io_File): boolean;
+normalize(arg0: string): string;
+canonicalize(arg0: string): string;
 prefixLength(arg0: string): number;
 listRoots(): java_io_File[];
 getDefaultParent(): string;
@@ -477,21 +449,10 @@ getSpace(arg0: java_io_File, arg1: number): number;
 getSeparator(): string;
 getPathSeparator(): string;
 getNameMax(arg0: string): number;
-hashCode(arg0: java_io_File): number;
-getLength(arg0: java_io_File): number;
-list(arg0: java_io_File): string[];
-compare(arg0: java_io_File, arg1: java_io_File): number;
-resolve(arg0: java_io_File): string;
-resolve(arg0: string, arg1: string): string;
-isAbsolute(arg0: java_io_File): boolean;
-checkAccess(arg0: java_io_File, arg1: number): boolean;
-delete(arg0: java_io_File): boolean;
-setReadOnly(arg0: java_io_File): boolean;
-normalize(arg0: string): string;
-canonicalize(arg0: string): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.File' {
 import { PathStatus as java_io_File_PathStatus } from 'java.io.File';
@@ -512,7 +473,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
@@ -552,7 +514,8 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -583,7 +546,35 @@ notifyAll(): void;
 constructor(arg0: java_io_Writer);
 constructor(arg0: java_io_Writer, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object } from 'java.lang';
+import { Writer as java_io_Writer, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
+
+  export class Writer extends java_lang_Object implements java_lang_Appendable, java_io_Closeable, java_io_Flushable {
+writeBuffer: string[];
+static WRITE_BUFFER_SIZE: number;
+lock: java_lang_Object;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_Writer;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
+append(arg0: string): java_io_Writer;
+append(arg0: string): java_lang_Appendable;
+append(arg0: java_lang_CharSequence): java_lang_Appendable;
+append(arg0: java_lang_CharSequence): java_io_Writer;
+write(arg0: number): void;
+write(arg0: string[]): void;
+write(arg0: string[], arg1: number, arg2: number): void;
+write(arg0: string): void;
+write(arg0: string, arg1: number, arg2: number): void;
+flush(): void;
+close(): void;
+static nullWriter(): java_io_Writer;
+
+  }
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -619,7 +610,8 @@ constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_Charset);
 constructor(arg0: java_io_OutputStream);
 constructor(arg0: java_io_OutputStream, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -646,83 +638,35 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
-import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream, ObjectStreamException as java_io_ObjectStreamException } from 'java.io';
-import { Throwable as java_lang_Throwable, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
+import { Writer as java_io_Writer, Reader as java_io_Reader, Closeable as java_io_Closeable } from 'java.io';
+import { Object as java_lang_Object, Readable as java_lang_Readable } from 'java.lang';
 
-  export class OptionalDataException extends java_io_ObjectStreamException {
-static serialVersionUID: number;
-length: number;
-eof: boolean;
-cause: java_lang_Throwable;
-message: string;
-suppressed: java_lang_Throwable[];
-localizedMessage: string;
-stackTrace: java_lang_StackTraceElement[];
-class: java_lang_Class<java_lang_Object>;
-printStackTrace(): void;
-printStackTrace(arg0: java_io_PrintWriter): void;
-printStackTrace(arg0: java_io_PrintStream): void;
-fillInStackTrace(): java_lang_Throwable;
-getCause(): java_lang_Throwable;
-initCause(arg0: java_lang_Throwable): java_lang_Throwable;
-toString(): string;
-getMessage(): string;
-getSuppressed(): java_lang_Throwable[];
-getLocalizedMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
-addSuppressed(arg0: java_lang_Throwable): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
+  export class Reader extends java_lang_Object implements java_lang_Readable, java_io_Closeable {
+static TRANSFER_BUFFER_SIZE: number;
+lock: java_lang_Object;
+static maxSkipBufferSize: number;
+skipBuffer: string[];
+read(arg0: string[]): number;
+read(arg0: string[], arg1: number, arg2: number): number;
+read(arg0: java_nio_CharBuffer): number;
+read(): number;
+close(): void;
+mark(arg0: number): void;
+transferTo(arg0: java_io_Writer): number;
+skip(arg0: number): number;
+markSupported(): boolean;
+reset(): void;
+static nullReader(): java_io_Reader;
+ready(): boolean;
 
   }
-}//@ts-nocheck
-
-declare module 'java.io' {
-import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream, IOException as java_io_IOException } from 'java.io';
-import { Throwable as java_lang_Throwable, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-
-  export class ObjectStreamException extends java_io_IOException {
-static serialVersionUID: number;
-cause: java_lang_Throwable;
-message: string;
-suppressed: java_lang_Throwable[];
-localizedMessage: string;
-stackTrace: java_lang_StackTraceElement[];
-class: java_lang_Class<java_lang_Object>;
-printStackTrace(): void;
-printStackTrace(arg0: java_io_PrintWriter): void;
-printStackTrace(arg0: java_io_PrintStream): void;
-fillInStackTrace(): java_lang_Throwable;
-getCause(): java_lang_Throwable;
-initCause(arg0: java_lang_Throwable): java_lang_Throwable;
-toString(): string;
-getMessage(): string;
-getSuppressed(): java_lang_Throwable[];
-getLocalizedMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
-addSuppressed(arg0: java_lang_Throwable): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
@@ -736,6 +680,10 @@ write(arg0: number[], arg1: number, arg2: number): void;
 writeObject(arg0: java_lang_Object): void;
 flush(): void;
 close(): void;
+writeInt(arg0: number): void;
+writeBytes(arg0: string): void;
+writeUTF(arg0: string): void;
+writeFloat(arg0: number): void;
 writeChar(arg0: number): void;
 writeBoolean(arg0: boolean): void;
 writeByte(arg0: number): void;
@@ -743,19 +691,23 @@ writeShort(arg0: number): void;
 writeLong(arg0: number): void;
 writeDouble(arg0: number): void;
 writeChars(arg0: string): void;
-writeInt(arg0: number): void;
-writeBytes(arg0: string): void;
-writeUTF(arg0: string): void;
-writeFloat(arg0: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
 
   export class DataOutput {
 
+write(arg0: number[], arg1: number, arg2: number): void;
+write(arg0: number[]): void;
+write(arg0: number): void;
+writeInt(arg0: number): void;
+writeBytes(arg0: string): void;
+writeUTF(arg0: string): void;
+writeFloat(arg0: number): void;
 writeChar(arg0: number): void;
 writeBoolean(arg0: boolean): void;
 writeByte(arg0: number): void;
@@ -763,16 +715,10 @@ writeShort(arg0: number): void;
 writeLong(arg0: number): void;
 writeDouble(arg0: number): void;
 writeChars(arg0: string): void;
-write(arg0: number): void;
-write(arg0: number[]): void;
-write(arg0: number[], arg1: number, arg2: number): void;
-writeInt(arg0: number): void;
-writeBytes(arg0: string): void;
-writeUTF(arg0: string): void;
-writeFloat(arg0: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
@@ -787,7 +733,13 @@ read(): number;
 close(): void;
 skip(arg0: number): number;
 available(): number;
+readLine(): string;
+readInt(): number;
+readUTF(): string;
+readFloat(): number;
 readChar(): string;
+readFully(arg0: number[]): void;
+readFully(arg0: number[], arg1: number, arg2: number): void;
 skipBytes(arg0: number): number;
 readBoolean(): boolean;
 readByte(): number;
@@ -796,22 +748,23 @@ readShort(): number;
 readUnsignedShort(): number;
 readLong(): number;
 readDouble(): number;
-readFully(arg0: number[], arg1: number, arg2: number): void;
-readFully(arg0: number[]): void;
-readLine(): string;
-readInt(): number;
-readUTF(): string;
-readFloat(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
 
   export class DataInput {
 
+readLine(): string;
+readInt(): number;
+readUTF(): string;
+readFloat(): number;
 readChar(): string;
+readFully(arg0: number[]): void;
+readFully(arg0: number[], arg1: number, arg2: number): void;
 skipBytes(arg0: number): number;
 readBoolean(): boolean;
 readByte(): number;
@@ -820,15 +773,10 @@ readShort(): number;
 readUnsignedShort(): number;
 readLong(): number;
 readDouble(): number;
-readFully(arg0: number[], arg1: number, arg2: number): void;
-readFully(arg0: number[]): void;
-readLine(): string;
-readInt(): number;
-readUTF(): string;
-readFloat(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { ObjectOutput as java_io_ObjectOutput, ObjectInput as java_io_ObjectInput, Serializable as java_io_Serializable } from 'java.io';
@@ -839,7 +787,8 @@ writeExternal(arg0: java_io_ObjectOutput): void;
 readExternal(arg0: java_io_ObjectInput): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -867,7 +816,20 @@ serialFilter: java_io_ObjectInputFilter;
 static UNSAFE: jdk_internal_misc_Unsafe;
 objectInputFilter: java_io_ObjectInputFilter;
 class: java_lang_Class<java_lang_Object>;
+readObject(): java_lang_Object;
+defaultReadObject(): void;
+read(arg0: number[], arg1: number, arg2: number): number;
+read(): number;
+readLine(): string;
+close(): void;
+readInt(): number;
+readFields(): java_io_ObjectInputStream_GetField;
+available(): number;
+readUTF(): string;
+readFloat(): number;
 readChar(): string;
+readFully(arg0: number[]): void;
+readFully(arg0: number[], arg1: number, arg2: number): void;
 skipBytes(arg0: number): number;
 readBoolean(): boolean;
 readByte(): number;
@@ -876,19 +838,6 @@ readShort(): number;
 readUnsignedShort(): number;
 readLong(): number;
 readDouble(): number;
-readFully(arg0: number[], arg1: number, arg2: number): void;
-readFully(arg0: number[]): void;
-readObject(): java_lang_Object;
-defaultReadObject(): void;
-read(): number;
-read(arg0: number[], arg1: number, arg2: number): number;
-readLine(): string;
-close(): void;
-readInt(): number;
-readFields(): java_io_ObjectInputStream_GetField;
-available(): number;
-readUTF(): string;
-readFloat(): number;
 readUnshared(): java_lang_Object;
 registerValidation(arg0: java_io_ObjectInputValidation, arg1: number): void;
 getObjectInputFilter(): java_io_ObjectInputFilter;
@@ -904,7 +853,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_InputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -912,7 +862,7 @@ import { ObjectStreamClass as java_io_ObjectStreamClass } from 'java.io';
 
   export class GetField extends java_lang_Object {
 objectStreamClass: java_io_ObjectStreamClass;
-defaulted(arg0: string): boolean;
+get(arg0: string, arg1: number): number;
 get(arg0: string, arg1: number): number;
 get(arg0: string, arg1: number): number;
 get(arg0: string, arg1: number): number;
@@ -921,11 +871,12 @@ get(arg0: string, arg1: java_lang_Object): java_lang_Object;
 get(arg0: string, arg1: boolean): boolean;
 get(arg0: string, arg1: number): number;
 get(arg0: string, arg1: string): string;
-get(arg0: string, arg1: number): number;
+defaulted(arg0: string): boolean;
 getObjectStreamClass(): java_io_ObjectStreamClass;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { ObjectStreamField as java_io_ObjectStreamField, ObjectStreamClass as java_io_ObjectStreamClass, Serializable as java_io_Serializable } from 'java.io';
@@ -972,8 +923,8 @@ name: string;
 fields: java_io_ObjectStreamField[];
 field: java_io_ObjectStreamField;
 serialVersionUID: number;
-toString(): string;
 getName(): string;
+toString(): string;
 getFields(): java_io_ObjectStreamField[];
 getField(arg0: string): java_io_ObjectStreamField;
 static lookup(arg0: java_lang_Class<java_lang_Object>): java_io_ObjectStreamClass;
@@ -982,7 +933,8 @@ getSerialVersionUID(): number;
 forClass(): java_lang_Class<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectStreamClass' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -993,7 +945,8 @@ message: string;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectStreamClass' {
 import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
@@ -1012,7 +965,8 @@ types: java_lang_Class<java_lang_Object>[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectStreamClass' {
 import { ObjectStreamClass as java_io_ObjectStreamClass } from 'java.io';
@@ -1024,7 +978,8 @@ hasData: boolean;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
@@ -1034,7 +989,8 @@ declare module 'java.io' {
 validateObject(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { FilterInfo as java_io_ObjectInputFilter_FilterInfo, Status as java_io_ObjectInputFilter_Status } from 'java.io.ObjectInputFilter';
@@ -1044,7 +1000,8 @@ import { FilterInfo as java_io_ObjectInputFilter_FilterInfo, Status as java_io_O
 checkInput(arg0: java_io_ObjectInputFilter_FilterInfo): java_io_ObjectInputFilter_Status;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputFilter' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -1058,7 +1015,8 @@ serialClass(): java_lang_Class<java_lang_Object>;
 references(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputFilter' {
 import { Status as java_io_ObjectInputFilter_Status } from 'java.io.ObjectInputFilter';
@@ -1080,7 +1038,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1103,7 +1062,19 @@ in: java_io_ObjectInputStream_PeekInputStream;
 din: java_io_DataInputStream;
 this$0: java_io_ObjectInputStream;
 class: java_lang_Class<java_lang_Object>;
+read(): number;
+read(arg0: number[], arg1: number, arg2: number): number;
+readLine(): string;
+close(): void;
+readInt(): number;
+skip(arg0: number): number;
+available(): number;
+readUTF(): string;
+readFloat(): number;
 readChar(): string;
+readFully(arg0: number[], arg1: number, arg2: number): void;
+readFully(arg0: number[]): void;
+readFully(arg0: number[], arg1: number, arg2: number, arg3: boolean): void;
 skipBytes(arg0: number): number;
 readBoolean(): boolean;
 readByte(): number;
@@ -1112,18 +1083,6 @@ readShort(): number;
 readUnsignedShort(): number;
 readLong(): number;
 readDouble(): number;
-readFully(arg0: number[], arg1: number, arg2: number): void;
-readFully(arg0: number[], arg1: number, arg2: number, arg3: boolean): void;
-readFully(arg0: number[]): void;
-read(arg0: number[], arg1: number, arg2: number): number;
-read(): number;
-readLine(): string;
-close(): void;
-readInt(): number;
-skip(arg0: number): number;
-available(): number;
-readUTF(): string;
-readFloat(): number;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
@@ -1135,7 +1094,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1147,12 +1107,12 @@ peekb: number;
 totalBytesRead: number;
 bytesRead: number;
 class: java_lang_Class<java_lang_Object>;
-getBytesRead(): number;
-read(): number;
 read(arg0: number[], arg1: number, arg2: number): number;
+read(): number;
 close(): void;
 skip(arg0: number): number;
 available(): number;
+getBytesRead(): number;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
@@ -1164,7 +1124,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { DataInput as java_io_DataInput, OutputStream as java_io_OutputStream, InputStream as java_io_InputStream, FilterInputStream as java_io_FilterInputStream } from 'java.io';
@@ -1176,7 +1137,16 @@ chararr: string[];
 readBuffer: number[];
 lineBuffer: string[];
 class: java_lang_Class<java_lang_Object>;
+read(arg0: number[], arg1: number, arg2: number): number;
+read(arg0: number[]): number;
+readLine(): string;
+readInt(): number;
+static readUTF(arg0: java_io_DataInput): string;
+readUTF(): string;
+readFloat(): number;
 readChar(): string;
+readFully(arg0: number[], arg1: number, arg2: number): void;
+readFully(arg0: number[]): void;
 skipBytes(arg0: number): number;
 readBoolean(): boolean;
 readByte(): number;
@@ -1185,15 +1155,6 @@ readShort(): number;
 readUnsignedShort(): number;
 readLong(): number;
 readDouble(): number;
-readFully(arg0: number[]): void;
-readFully(arg0: number[], arg1: number, arg2: number): void;
-read(arg0: number[]): number;
-read(arg0: number[], arg1: number, arg2: number): number;
-readLine(): string;
-readInt(): number;
-readUTF(): string;
-static readUTF(arg0: java_io_DataInput): string;
-readFloat(): number;
 readAllBytes(): number[];
 readNBytes(arg0: number[], arg1: number, arg2: number): number;
 readNBytes(arg0: number): number[];
@@ -1210,7 +1171,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_InputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1239,7 +1201,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Callback as java_io_ObjectInputStream_ValidationList_Callback } from 'java.io.ObjectInputStream.ValidationList';
@@ -1250,7 +1213,8 @@ list: java_io_ObjectInputStream_ValidationList_Callback;
 clear(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream.ValidationList' {
 import { ObjectInputValidation as java_io_ObjectInputValidation } from 'java.io';
@@ -1266,7 +1230,8 @@ acc: java_security_AccessControlContext;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1284,7 +1249,8 @@ size: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream.HandleTable' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1297,26 +1263,28 @@ get(arg0: number): number;
 size(): number;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
-import { Object as java_lang_Object, Thread as java_lang_Thread } from 'java.lang';
 import { ObjectStreamClass as java_io_ObjectStreamClass } from 'java.io';
+import { Object as java_lang_Object, Thread as java_lang_Thread } from 'java.lang';
 
   export class SerialCallbackContext extends java_lang_Object {
 obj: java_lang_Object;
 desc: java_io_ObjectStreamClass;
 thread: java_lang_Thread;
-obj: java_lang_Object;
 desc: java_io_ObjectStreamClass;
+obj: java_lang_Object;
 check(): void;
+getDesc(): java_io_ObjectStreamClass;
 getObj(): java_lang_Object;
 checkAndSetUsed(): void;
-getDesc(): java_io_ObjectStreamClass;
 setUsed(): void;
 constructor(arg0: java_lang_Object, arg1: java_io_ObjectStreamClass);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { SerializablePermission as java_io_SerializablePermission } from 'java.io';
@@ -1355,7 +1323,8 @@ static PROTOCOL_VERSION_2: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1366,10 +1335,10 @@ static serialVersionUID: number;
 actions: string;
 name: string;
 class: java_lang_Class<java_lang_Object>;
-checkGuard(arg0: java_lang_Object): void;
-toString(): string;
 /** Returns the unique fully qualified name of this Permission */
 getName(): string;
+toString(): string;
+checkGuard(arg0: java_lang_Object): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
@@ -1379,7 +1348,8 @@ notifyAll(): void;
 constructor(arg0: string);
 constructor(arg0: string, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1400,16 +1370,9 @@ curPut: java_io_ObjectOutputStream_PutFieldImpl;
 debugInfoStack: java_io_ObjectOutputStream_DebugTraceInfoStack;
 static extendedDebugInfo: boolean;
 class: java_lang_Class<java_lang_Object>;
-writeChar(arg0: number): void;
-writeBoolean(arg0: boolean): void;
-writeByte(arg0: number): void;
-writeShort(arg0: number): void;
-writeLong(arg0: number): void;
-writeDouble(arg0: number): void;
-writeChars(arg0: string): void;
-write(arg0: number): void;
-write(arg0: number[]): void;
 write(arg0: number[], arg1: number, arg2: number): void;
+write(arg0: number[]): void;
+write(arg0: number): void;
 writeObject(arg0: java_lang_Object): void;
 defaultWriteObject(): void;
 flush(): void;
@@ -1421,6 +1384,13 @@ reset(): void;
 writeBytes(arg0: string): void;
 writeUTF(arg0: string): void;
 writeFloat(arg0: number): void;
+writeChar(arg0: number): void;
+writeBoolean(arg0: boolean): void;
+writeByte(arg0: number): void;
+writeShort(arg0: number): void;
+writeLong(arg0: number): void;
+writeDouble(arg0: number): void;
+writeChars(arg0: string): void;
 useProtocolVersion(arg0: number): void;
 writeUnshared(arg0: java_lang_Object): void;
 wait(arg0: number): void;
@@ -1434,7 +1404,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1454,7 +1425,8 @@ put(arg0: string, arg1: number): void;
 write(arg0: java_io_ObjectOutput): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1472,6 +1444,15 @@ pos: number;
 out: java_io_OutputStream;
 dout: java_io_DataOutputStream;
 class: java_lang_Class<java_lang_Object>;
+write(arg0: number[]): void;
+write(arg0: number[], arg1: number, arg2: number): void;
+write(arg0: number): void;
+flush(): void;
+close(): void;
+writeInt(arg0: number): void;
+writeBytes(arg0: string): void;
+writeUTF(arg0: string): void;
+writeFloat(arg0: number): void;
 writeChar(arg0: number): void;
 writeBoolean(arg0: boolean): void;
 writeByte(arg0: number): void;
@@ -1479,15 +1460,6 @@ writeShort(arg0: number): void;
 writeLong(arg0: number): void;
 writeDouble(arg0: number): void;
 writeChars(arg0: string): void;
-write(arg0: number[], arg1: number, arg2: number): void;
-write(arg0: number): void;
-write(arg0: number[]): void;
-flush(): void;
-close(): void;
-writeInt(arg0: number): void;
-writeBytes(arg0: string): void;
-writeUTF(arg0: string): void;
-writeFloat(arg0: number): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
@@ -1499,7 +1471,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { OutputStream as java_io_OutputStream, FilterOutputStream as java_io_FilterOutputStream, DataOutput as java_io_DataOutput } from 'java.io';
@@ -1510,13 +1483,6 @@ written: number;
 bytearr: number[];
 writeBuffer: number[];
 class: java_lang_Class<java_lang_Object>;
-writeChar(arg0: number): void;
-writeBoolean(arg0: boolean): void;
-writeByte(arg0: number): void;
-writeShort(arg0: number): void;
-writeLong(arg0: number): void;
-writeDouble(arg0: number): void;
-writeChars(arg0: string): void;
 size(): number;
 write(arg0: number): void;
 write(arg0: number[], arg1: number, arg2: number): void;
@@ -1525,6 +1491,13 @@ writeInt(arg0: number): void;
 writeBytes(arg0: string): void;
 writeUTF(arg0: string): void;
 writeFloat(arg0: number): void;
+writeChar(arg0: number): void;
+writeBoolean(arg0: boolean): void;
+writeByte(arg0: number): void;
+writeShort(arg0: number): void;
+writeLong(arg0: number): void;
+writeDouble(arg0: number): void;
+writeChars(arg0: string): void;
 static nullOutputStream(): java_io_OutputStream;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -1537,7 +1510,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1552,7 +1526,8 @@ objs: java_lang_Object[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { HandleTable as java_io_ObjectOutputStream_HandleTable } from 'java.io.ObjectOutputStream';
@@ -1564,7 +1539,8 @@ reps: java_lang_Object[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1598,7 +1574,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { List as java_util_List } from 'java.util';
@@ -1609,46 +1586,12 @@ stack: java_util_List<string>;
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
-import { OutputStream as java_io_OutputStream, InputStream as java_io_InputStream } from 'java.io';
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-
-  export class ByteArrayInputStream extends java_io_InputStream {
-buf: number[];
-pos: number;
-mark: number;
-count: number;
-class: java_lang_Class<java_lang_Object>;
-read(arg0: number[], arg1: number, arg2: number): number;
-read(): number;
-close(): void;
-mark(arg0: number): void;
-readAllBytes(): number[];
-readNBytes(arg0: number[], arg1: number, arg2: number): number;
-transferTo(arg0: java_io_OutputStream): number;
-skip(arg0: number): number;
-available(): number;
-markSupported(): boolean;
-reset(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: number[]);
-constructor(arg0: number[], arg1: number, arg2: number);
-  }
-}//@ts-nocheck
-
-declare module 'java.io' {
-import { OutputStream as java_io_OutputStream } from 'java.io';
 import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
+import { OutputStream as java_io_OutputStream } from 'java.io';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 
   export class ByteArrayOutputStream extends java_io_OutputStream {
@@ -1656,10 +1599,9 @@ buf: number[];
 count: number;
 static MAX_ARRAY_SIZE: number;
 class: java_lang_Class<java_lang_Object>;
-writeTo(arg0: java_io_OutputStream): void;
-toString(arg0: java_nio_charset_Charset): string;
 toString(arg0: string): string;
 toString(): string;
+toString(arg0: java_nio_charset_Charset): string;
 toString(arg0: number): string;
 size(): number;
 write(arg0: number): void;
@@ -1668,6 +1610,7 @@ close(): void;
 toByteArray(): number[];
 reset(): void;
 writeBytes(arg0: number[]): void;
+writeTo(arg0: java_io_OutputStream): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
@@ -1679,7 +1622,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { FileDescriptor as java_io_FileDescriptor, File as java_io_File, DataOutput as java_io_DataOutput, DataInput as java_io_DataInput, Closeable as java_io_Closeable } from 'java.io';
@@ -1698,33 +1642,13 @@ static O_RDWR: number;
 static O_SYNC: number;
 static O_DSYNC: number;
 static O_TEMPORARY: number;
-filePointer: number;
 fD: java_io_FileDescriptor;
 channel: java_nio_channels_FileChannel;
-writeChar(arg0: number): void;
-readChar(): string;
-skipBytes(arg0: number): number;
-getFilePointer(): number;
-readBoolean(): boolean;
-readByte(): number;
-readUnsignedByte(): number;
-readShort(): number;
-readUnsignedShort(): number;
-readLong(): number;
-readDouble(): number;
-writeBoolean(arg0: boolean): void;
-writeByte(arg0: number): void;
-writeShort(arg0: number): void;
-writeLong(arg0: number): void;
-writeDouble(arg0: number): void;
-writeChars(arg0: string): void;
-seek(arg0: number): void;
-readFully(arg0: number[]): void;
-readFully(arg0: number[], arg1: number, arg2: number): void;
+filePointer: number;
 length(): number;
+write(arg0: number): void;
 write(arg0: number[]): void;
 write(arg0: number[], arg1: number, arg2: number): void;
-write(arg0: number): void;
 read(arg0: number[]): number;
 read(arg0: number[], arg1: number, arg2: number): number;
 read(): number;
@@ -1740,6 +1664,26 @@ writeFloat(arg0: number): void;
 readFloat(): number;
 getFD(): java_io_FileDescriptor;
 getChannel(): java_nio_channels_FileChannel;
+writeChar(arg0: number): void;
+readChar(): string;
+seek(arg0: number): void;
+readFully(arg0: number[]): void;
+readFully(arg0: number[], arg1: number, arg2: number): void;
+skipBytes(arg0: number): number;
+getFilePointer(): number;
+readBoolean(): boolean;
+readByte(): number;
+readUnsignedByte(): number;
+readShort(): number;
+readUnsignedShort(): number;
+readLong(): number;
+readDouble(): number;
+writeBoolean(arg0: boolean): void;
+writeByte(arg0: number): void;
+writeShort(arg0: number): void;
+writeLong(arg0: number): void;
+writeDouble(arg0: number): void;
+writeChars(arg0: string): void;
 constructor(arg0: java_io_File, arg1: string);
 constructor(arg0: string, arg1: string);
   }

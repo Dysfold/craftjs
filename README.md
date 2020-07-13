@@ -20,4 +20,4 @@ Unit tests can be run by executing `runTests()` in the CraftJS Graal-context. Ea
 
 `types` -directory contains Typescript definitions generated from Java types. It's not perfect, but most of the time it's been enough.
 
-*TODO: include the generation code in this repository*
+More information is available [here](./docs/Typescript.md)

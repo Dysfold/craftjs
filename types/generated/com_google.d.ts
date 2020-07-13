@@ -32,7 +32,8 @@ containsEntry(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
 replaceValues(arg0: K, arg1: java_lang_Iterable<V>): java_util_Collection<V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -75,7 +76,8 @@ removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
 parallelStream(): java_util_stream_Stream<E>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.Multiset' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -83,14 +85,15 @@ import { Object as java_lang_Object } from 'java.lang';
   export class Entry<E extends java_lang_Object> {
 count: number;
 element: E;
-getCount(): number;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
+getCount(): number;
 getElement(): E;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.base' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -104,7 +107,8 @@ compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -149,7 +153,8 @@ getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -159,7 +164,8 @@ import { Object as java_lang_Object } from 'java.lang';
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.ImmutableList' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable, Class as java_lang_Class } from 'java.lang';
@@ -192,7 +198,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.ImmutableCollection' {
 import { Builder as com_google_common_collect_ImmutableCollection_Builder } from 'com.google.common.collect.ImmutableCollection';
@@ -209,7 +216,8 @@ addAll(arg0: java_lang_Iterable<E>): com_google_common_collect_ImmutableCollecti
 build(): com_google_common_collect_ImmutableCollection<E>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -250,7 +258,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
@@ -265,7 +274,8 @@ next(): E;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable, Comparable as java_lang_Comparable, Class as java_lang_Class } from 'java.lang';
@@ -337,7 +347,8 @@ parallelStream(): java_util_stream_Stream<E>;
 get(arg0: number): E;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -367,7 +378,8 @@ previousIndex(): number;
 hasPrevious(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.ImmutableCollection' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable, Class as java_lang_Class } from 'java.lang';
@@ -392,7 +404,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -403,12 +416,12 @@ import { EndpointPair as com_google_common_graph_EndpointPair, ElementOrder as c
 
 removeNode(arg0: java_lang_Object): boolean;
 putEdge(arg0: N, arg1: N): boolean;
-addNode(arg0: N): boolean;
 removeEdge(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-successors(arg0: java_lang_Object): java_util_Set<N>;
-nodes(): java_util_Set<N>;
+addNode(arg0: N): boolean;
 equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
+successors(arg0: java_lang_Object): java_util_Set<N>;
+nodes(): java_util_Set<N>;
 edges(): java_util_Set<com_google_common_graph_EndpointPair<N>>;
 isDirected(): boolean;
 allowsSelfLoops(): boolean;
@@ -420,26 +433,27 @@ inDegree(arg0: java_lang_Object): number;
 outDegree(arg0: java_lang_Object): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
-import { EndpointPair as com_google_common_graph_EndpointPair } from 'com.google.common.graph';
 import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
-import { UnmodifiableIterator as com_google_common_collect_UnmodifiableIterator } from 'com.google.common.collect';
 import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
+import { UnmodifiableIterator as com_google_common_collect_UnmodifiableIterator } from 'com.google.common.collect';
+import { EndpointPair as com_google_common_graph_EndpointPair } from 'com.google.common.graph';
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
 
   export class EndpointPair<N extends java_lang_Object> extends java_lang_Object implements java_lang_Iterable<N> {
 nodeU: N;
 nodeV: N;
-static unordered<N extends java_lang_Object>(arg0: N, arg1: N): com_google_common_graph_EndpointPair<N>;
-isOrdered(): boolean;
 equals(arg0: java_lang_Object): boolean;
 target(): N;
 hashCode(): number;
-iterator(): com_google_common_collect_UnmodifiableIterator<N>;
 iterator(): java_util_Iterator;
+iterator(): com_google_common_collect_UnmodifiableIterator<N>;
 source(): N;
+static unordered<N extends java_lang_Object>(arg0: N, arg1: N): com_google_common_graph_EndpointPair<N>;
+isOrdered(): boolean;
 nodeU(): N;
 nodeV(): N;
 adjacentNode(arg0: java_lang_Object): N;
@@ -448,29 +462,31 @@ spliterator(): java_util_Spliterator<T>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
+import { Type as com_google_common_graph_ElementOrder_Type } from 'com.google.common.graph.ElementOrder';
+import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
 import { Comparator as java_util_Comparator } from 'java.util';
 import { ElementOrder as com_google_common_graph_ElementOrder } from 'com.google.common.graph';
-import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
-import { Type as com_google_common_graph_ElementOrder_Type } from 'com.google.common.graph.ElementOrder';
 
   export class ElementOrder<T extends java_lang_Object> extends java_lang_Object {
 type: com_google_common_graph_ElementOrder_Type;
 comparator: java_util_Comparator<T>;
-static sorted<S extends java_lang_Object>(arg0: java_util_Comparator<S>): com_google_common_graph_ElementOrder<S>;
-static unordered<S extends java_lang_Object>(): com_google_common_graph_ElementOrder<S>;
 type(): com_google_common_graph_ElementOrder_Type;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
 comparator(): java_util_Comparator<T>;
-static natural<S extends java_lang_Comparable<java_lang_Object>>(): com_google_common_graph_ElementOrder<S>;
+static sorted<S extends java_lang_Object>(arg0: java_util_Comparator<S>): com_google_common_graph_ElementOrder<S>;
+static unordered<S extends java_lang_Object>(): com_google_common_graph_ElementOrder<S>;
 static insertion<S extends java_lang_Object>(): com_google_common_graph_ElementOrder<S>;
+static natural<S extends java_lang_Comparable<java_lang_Object>>(): com_google_common_graph_ElementOrder<S>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph.ElementOrder' {
 import { Type as com_google_common_graph_ElementOrder_Type } from 'com.google.common.graph.ElementOrder';
@@ -492,7 +508,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -501,10 +518,10 @@ import { EndpointPair as com_google_common_graph_EndpointPair, ElementOrder as c
 
   export class Graph<N extends java_lang_Object> {
 
-successors(arg0: java_lang_Object): java_util_Set<N>;
-nodes(): java_util_Set<N>;
 equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
+successors(arg0: java_lang_Object): java_util_Set<N>;
+nodes(): java_util_Set<N>;
 edges(): java_util_Set<com_google_common_graph_EndpointPair<N>>;
 isDirected(): boolean;
 allowsSelfLoops(): boolean;
@@ -516,7 +533,8 @@ inDegree(arg0: java_lang_Object): number;
 outDegree(arg0: java_lang_Object): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -531,12 +549,12 @@ delegate: java_util_Queue<E>;
 maxSize: number;
 static serialVersionUID: number;
 class: java_lang_Class<java_lang_Object>;
-offer(arg0: E): boolean;
 add(arg0: E): boolean;
 remove(arg0: java_lang_Object): boolean;
 contains(arg0: java_lang_Object): boolean;
 addAll(arg0: java_util_Collection<E>): boolean;
 static create<E extends java_lang_Object>(arg0: number): com_google_common_collect_EvictingQueue<E>;
+offer(arg0: E): boolean;
 remainingCapacity(): number;
 clear(): void;
 isEmpty(): boolean;
@@ -564,7 +582,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -575,11 +594,11 @@ import { ForwardingCollection as com_google_common_collect_ForwardingCollection 
 
   export class ForwardingQueue<E extends java_lang_Object> extends com_google_common_collect_ForwardingCollection<E> implements java_util_Queue<E> {
 class: java_lang_Class<java_lang_Object>;
-offer(arg0: E): boolean;
 remove(): E;
 poll(): E;
 peek(): E;
 element(): E;
+offer(arg0: E): boolean;
 toString(): string;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -597,7 +616,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';

@@ -61,5 +61,9 @@
     "src/**/*",
     "test/**/*",
     "../types/**/*"
+  ],
+  "exclude": [
+    "javadocs/**/*",
+    "node_modules/**/*"
   ]
 }

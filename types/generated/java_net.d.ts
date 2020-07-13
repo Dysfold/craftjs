@@ -70,11 +70,12 @@ constructor(arg0: string, arg1: string, arg2: number, arg3: string);
 constructor(arg0: string, arg1: string, arg2: string);
 constructor(arg0: string, arg1: string, arg2: number, arg3: string, arg4: java_net_URLStreamHandler);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
-import { URI as java_net_URI, URL as java_net_URL } from 'java.net';
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
+import { URI as java_net_URI, URL as java_net_URL } from 'java.net';
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class URI extends java_lang_Object implements java_lang_Comparable<java_net_URI>, java_io_Serializable {
@@ -140,11 +141,6 @@ static L_SCOPE_ID: number;
 static H_SCOPE_ID: number;
 static hexDigits: string[];
 static $assertionsDisabled: boolean;
-rawAuthority: string;
-rawSchemeSpecificPart: string;
-schemeSpecificPart: string;
-rawUserInfo: string;
-fragment: string;
 query: string;
 path: string;
 userInfo: string;
@@ -155,14 +151,11 @@ scheme: string;
 rawFragment: string;
 rawQuery: string;
 rawPath: string;
-getRawAuthority(): string;
-relativize(arg0: java_net_URI): java_net_URI;
-parseServerAuthority(): java_net_URI;
-getRawSchemeSpecificPart(): string;
-getSchemeSpecificPart(): string;
-getRawUserInfo(): string;
-getFragment(): string;
-toASCIIString(): string;
+rawAuthority: string;
+rawSchemeSpecificPart: string;
+schemeSpecificPart: string;
+rawUserInfo: string;
+fragment: string;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
@@ -185,13 +178,22 @@ getRawQuery(): string;
 getRawPath(): string;
 static create(arg0: string): java_net_URI;
 toURL(): java_net_URL;
-constructor(arg0: string);
+getRawAuthority(): string;
+relativize(arg0: java_net_URI): java_net_URI;
+parseServerAuthority(): java_net_URI;
+getRawSchemeSpecificPart(): string;
+getSchemeSpecificPart(): string;
+getRawUserInfo(): string;
+getFragment(): string;
+toASCIIString(): string;
 constructor(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string);
 constructor(arg0: string, arg1: string, arg2: string, arg3: string);
-constructor(arg0: string, arg1: string, arg2: string, arg3: number, arg4: string, arg5: string, arg6: string);
 constructor(arg0: string, arg1: string, arg2: string);
+constructor(arg0: string);
+constructor(arg0: string, arg1: string, arg2: string, arg3: number, arg4: string, arg5: string, arg6: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Type as java_net_Proxy_Type } from 'java.net.Proxy';
@@ -209,7 +211,8 @@ hashCode(): number;
 address(): java_net_SocketAddress;
 constructor(arg0: java_net_Proxy_Type, arg1: java_net_SocketAddress);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.Proxy' {
 import { Type as java_net_Proxy_Type } from 'java.net.Proxy';
@@ -231,7 +234,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -242,13 +246,14 @@ static serialVersionUID: number;
 
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
+import { Class as java_lang_Class, Object as java_lang_Object, Boolean as java_lang_Boolean } from 'java.lang';
+import { InputStream as java_io_InputStream, OutputStream as java_io_OutputStream } from 'java.io';
 import { Permission as java_security_Permission } from 'java.security';
 import { URL as java_net_URL, FileNameMap as java_net_FileNameMap, ContentHandlerFactory as java_net_ContentHandlerFactory, ContentHandler as java_net_ContentHandler } from 'java.net';
-import { Object as java_lang_Object, Class as java_lang_Class, Boolean as java_lang_Boolean } from 'java.lang';
-import { InputStream as java_io_InputStream, OutputStream as java_io_OutputStream } from 'java.io';
 import { Map as java_util_Map, List as java_util_List, Hashtable as java_util_Hashtable } from 'java.util';
 import { ConcurrentHashMap as java_util_concurrent_ConcurrentHashMap } from 'java.util.concurrent';
 import { MessageHeader as sun_net_www_MessageHeader } from 'sun.net.www';
@@ -273,14 +278,14 @@ static handlers: java_util_Hashtable<string, java_net_ContentHandler>;
 static contentClassPrefix: string;
 static contentPathProp: string;
 static $assertionsDisabled: boolean;
-permission: java_security_Permission;
-uRL: java_net_URL;
-contentLength: number;
-lastModified: number;
-date: number;
 content: java_lang_Object;
 content: java_lang_Object;
 inputStream: java_io_InputStream;
+permission: java_security_Permission;
+contentLength: number;
+uRL: java_net_URL;
+date: number;
+lastModified: number;
 contentLengthLong: number;
 contentType: string;
 headerField: string;
@@ -307,18 +312,18 @@ doOutput: boolean;
 static defaultAllowUserInteraction: boolean;
 ifModifiedSince: number;
 static defaultRequestProperty: string;
+toString(): string;
+connect(): void;
+getContent(arg0: java_lang_Class<java_lang_Object>[]): java_lang_Object;
+getContent(): java_lang_Object;
+getInputStream(): java_io_InputStream;
 getPermission(): java_security_Permission;
+getContentLength(): number;
 setRequestProperty(arg0: string, arg1: string): void;
 getURL(): java_net_URL;
 setUseCaches(arg0: boolean): void;
-getContentLength(): number;
-getLastModified(): number;
 getDate(): number;
-toString(): string;
-connect(): void;
-getContent(): java_lang_Object;
-getContent(arg0: java_lang_Class<java_lang_Object>[]): java_lang_Object;
-getInputStream(): java_io_InputStream;
+getLastModified(): number;
 getContentLengthLong(): number;
 getContentType(): string;
 getHeaderField(arg0: number): string;
@@ -362,11 +367,358 @@ static getDefaultRequestProperty(arg0: string): string;
 static setContentHandlerFactory(arg0: java_net_ContentHandlerFactory): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
-import { PermissionCollection as java_security_PermissionCollection, Permission as java_security_Permission } from 'java.security';
+
+
+  export class FileNameMap {
+contentTypeFor: string;
+getContentTypeFor(arg0: string): string;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { ContentHandler as java_net_ContentHandler } from 'java.net';
+
+  export class ContentHandlerFactory {
+
+createContentHandler(arg0: string): java_net_ContentHandler;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { URLConnection as java_net_URLConnection } from 'java.net';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+
+  export class ContentHandler extends java_lang_Object {
+content: java_lang_Object;
+content: java_lang_Object;
+getContent(arg0: java_net_URLConnection): java_lang_Object;
+getContent(arg0: java_net_URLConnection, arg1: java_lang_Class[]): java_lang_Object;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { URLStreamHandler as java_net_URLStreamHandler } from 'java.net';
+
+  export class URLStreamHandlerFactory {
+
+createURLStreamHandler(arg0: string): java_net_URLStreamHandler;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class URLStreamHandler extends java_lang_Object {
+
+
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object } from 'java.lang';
+import { InetAddress as java_net_InetAddress, NetworkInterface as java_net_NetworkInterface, InetAddressImpl as java_net_InetAddressImpl } from 'java.net';
+import { InetAddressHolder as java_net_InetAddress_InetAddressHolder, NameService as java_net_InetAddress_NameService, Addresses as java_net_InetAddress_Addresses, CachedAddresses as java_net_InetAddress_CachedAddresses, CachedLocalHost as java_net_InetAddress_CachedLocalHost } from 'java.net.InetAddress';
+import { ConcurrentMap as java_util_concurrent_ConcurrentMap } from 'java.util.concurrent';
+import { NavigableSet as java_util_NavigableSet } from 'java.util';
+import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
+import { ObjectStreamField as java_io_ObjectStreamField, Serializable as java_io_Serializable } from 'java.io';
+
+  export class InetAddress extends java_lang_Object implements java_io_Serializable {
+static PREFER_IPV4_VALUE: number;
+static PREFER_IPV6_VALUE: number;
+static PREFER_SYSTEM_VALUE: number;
+static IPv4: number;
+static IPv6: number;
+static preferIPv6Address: number;
+holder: java_net_InetAddress_InetAddressHolder;
+static nameService: java_net_InetAddress_NameService;
+canonicalHostName: string;
+static serialVersionUID: number;
+static cache: java_util_concurrent_ConcurrentMap<string, java_net_InetAddress_Addresses>;
+static expirySet: java_util_NavigableSet<java_net_InetAddress_CachedAddresses>;
+static impl: java_net_InetAddressImpl;
+static cachedLocalHost: java_net_InetAddress_CachedLocalHost;
+static UNSAFE: jdk_internal_misc_Unsafe;
+static FIELDS_OFFSET: number;
+static serialPersistentFields: java_io_ObjectStreamField[];
+hostAddress: string;
+address: number[];
+hostName: string;
+static byName: java_net_InetAddress;
+static byAddress: java_net_InetAddress;
+static byAddress: java_net_InetAddress;
+canonicalHostName: string;
+static allByName: java_net_InetAddress[];
+static loopbackAddress: java_net_InetAddress;
+static localHost: java_net_InetAddress;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getHostAddress(): string;
+getAddress(): number[];
+getHostName(): string;
+static getByName(arg0: string): java_net_InetAddress;
+static getByAddress(arg0: number[]): java_net_InetAddress;
+static getByAddress(arg0: string, arg1: number[]): java_net_InetAddress;
+isMulticastAddress(): boolean;
+isAnyLocalAddress(): boolean;
+isLoopbackAddress(): boolean;
+isLinkLocalAddress(): boolean;
+isSiteLocalAddress(): boolean;
+isMCGlobal(): boolean;
+isMCNodeLocal(): boolean;
+isMCLinkLocal(): boolean;
+isMCSiteLocal(): boolean;
+isMCOrgLocal(): boolean;
+isReachable(arg0: java_net_NetworkInterface, arg1: number, arg2: number): boolean;
+isReachable(arg0: number): boolean;
+getCanonicalHostName(): string;
+static getAllByName(arg0: string): java_net_InetAddress[];
+static getLoopbackAddress(): java_net_InetAddress;
+static getLocalHost(): java_net_InetAddress;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object } from 'java.lang';
+import { NetworkInterface as java_net_NetworkInterface, InetAddress as java_net_InetAddress, InterfaceAddress as java_net_InterfaceAddress } from 'java.net';
+import { Enumeration as java_util_Enumeration, List as java_util_List } from 'java.util';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class NetworkInterface extends java_lang_Object {
+name: string;
+displayName: string;
+index: number;
+addrs: java_net_InetAddress[];
+bindings: java_net_InterfaceAddress[];
+childs: java_net_NetworkInterface[];
+parent: java_net_NetworkInterface;
+virtual: boolean;
+static defaultInterface: java_net_NetworkInterface;
+static defaultIndex: number;
+name: string;
+parent: java_net_NetworkInterface;
+index: number;
+static byName: java_net_NetworkInterface;
+displayName: string;
+inetAddresses: java_util_Enumeration<java_net_InetAddress>;
+static byIndex: java_net_NetworkInterface;
+static byInetAddress: java_net_NetworkInterface;
+static networkInterfaces: java_util_Enumeration<java_net_NetworkInterface>;
+interfaceAddresses: java_util_List<java_net_InterfaceAddress>;
+subInterfaces: java_util_Enumeration<java_net_NetworkInterface>;
+hardwareAddress: number[];
+mTU: number;
+getName(): string;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getParent(): java_net_NetworkInterface;
+getIndex(): number;
+static getByName(arg0: string): java_net_NetworkInterface;
+getDisplayName(): string;
+getInetAddresses(): java_util_Enumeration<java_net_InetAddress>;
+isLoopback(): boolean;
+static getByIndex(arg0: number): java_net_NetworkInterface;
+static getByInetAddress(arg0: java_net_InetAddress): java_net_NetworkInterface;
+inetAddresses(): java_util_stream_Stream<java_net_InetAddress>;
+static getNetworkInterfaces(): java_util_Enumeration<java_net_NetworkInterface>;
+getInterfaceAddresses(): java_util_List<java_net_InterfaceAddress>;
+getSubInterfaces(): java_util_Enumeration<java_net_NetworkInterface>;
+subInterfaces(): java_util_stream_Stream<java_net_NetworkInterface>;
+static networkInterfaces(): java_util_stream_Stream<java_net_NetworkInterface>;
+isUp(): boolean;
+isPointToPoint(): boolean;
+supportsMulticast(): boolean;
+getHardwareAddress(): number[];
+getMTU(): number;
+isVirtual(): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object } from 'java.lang';
+import { InetAddress as java_net_InetAddress, Inet4Address as java_net_Inet4Address } from 'java.net';
+
+  export class InterfaceAddress extends java_lang_Object {
+address: java_net_InetAddress;
+broadcast: java_net_Inet4Address;
+maskLength: number;
+address: java_net_InetAddress;
+broadcast: java_net_InetAddress;
+networkPrefixLength: number;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getAddress(): java_net_InetAddress;
+getBroadcast(): java_net_InetAddress;
+getNetworkPrefixLength(): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { InetAddress as java_net_InetAddress } from 'java.net';
+
+  export class Inet4Address extends java_net_InetAddress {
+static INADDRSZ: number;
+static serialVersionUID: number;
+hostAddress: string;
+address: number[];
+class: java_lang_Class<java_lang_Object>;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+getHostAddress(): string;
+getAddress(): number[];
+isMulticastAddress(): boolean;
+isAnyLocalAddress(): boolean;
+isLoopbackAddress(): boolean;
+isLinkLocalAddress(): boolean;
+isSiteLocalAddress(): boolean;
+isMCGlobal(): boolean;
+isMCNodeLocal(): boolean;
+isMCLinkLocal(): boolean;
+isMCSiteLocal(): boolean;
+isMCOrgLocal(): boolean;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net.InetAddress' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class InetAddressHolder extends java_lang_Object {
+originalHostName: string;
+hostName: string;
+address: number;
+family: number;
+
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net.InetAddress' {
+import { InetAddress as java_net_InetAddress } from 'java.net';
+
+  export class NameService {
+hostByAddr: string;
+getHostByAddr(arg0: number[]): string;
+lookupAllHostAddr(arg0: string): java_net_InetAddress[];
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net.InetAddress' {
+import { InetAddress as java_net_InetAddress } from 'java.net';
+
+  export class Addresses {
+
+get(): java_net_InetAddress[];
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net.InetAddress' {
+import { InetAddress as java_net_InetAddress } from 'java.net';
+import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
+import { CachedAddresses as java_net_InetAddress_CachedAddresses, Addresses as java_net_InetAddress_Addresses } from 'java.net.InetAddress';
+import { AtomicLong as java_util_concurrent_atomic_AtomicLong } from 'java.util.concurrent.atomic';
+
+  export class CachedAddresses extends java_lang_Object implements java_net_InetAddress_Addresses, java_lang_Comparable<java_net_InetAddress_CachedAddresses> {
+static seq: java_util_concurrent_atomic_AtomicLong;
+host: string;
+inetAddresses: java_net_InetAddress[];
+expiryTime: number;
+id: number;
+get(): java_net_InetAddress[];
+compareTo(arg0: java_lang_Object): number;
+compareTo(arg0: java_net_InetAddress_CachedAddresses): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { InetAddress as java_net_InetAddress, NetworkInterface as java_net_NetworkInterface } from 'java.net';
+
+  export class InetAddressImpl {
+hostByAddr: string;
+localHostName: string;
+isReachable(arg0: java_net_InetAddress, arg1: number, arg2: java_net_NetworkInterface, arg3: number): boolean;
+anyLocalAddress(): java_net_InetAddress;
+getHostByAddr(arg0: number[]): string;
+loopbackAddress(): java_net_InetAddress;
+lookupAllHostAddr(arg0: string): java_net_InetAddress[];
+getLocalHostName(): string;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net.InetAddress' {
+import { InetAddress as java_net_InetAddress } from 'java.net';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class CachedLocalHost extends java_lang_Object {
+host: string;
+addr: java_net_InetAddress;
+expiryTime: number;
+
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class UrlDeserializedState extends java_lang_Object {
+protocol: string;
+host: string;
+port: number;
+authority: string;
+file: string;
+ref: string;
+hashCode: number;
+
+constructor(arg0: string, arg1: string, arg2: number, arg3: string, arg4: string, arg5: string, arg6: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Permission as java_security_Permission, PermissionCollection as java_security_PermissionCollection } from 'java.security';
 import { InetAddress as java_net_InetAddress } from 'java.net';
 import { Debug as sun_security_util_Debug } from 'sun.security.util';
 import { Serializable as java_io_Serializable } from 'java.io';
@@ -402,11 +754,11 @@ cdomain: string;
 hdomain: string;
 actions: string;
 class: java_lang_Class<java_lang_Object>;
-newPermissionCollection(): java_security_PermissionCollection;
 equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
 implies(arg0: java_security_Permission): boolean;
 getActions(): string;
+newPermissionCollection(): java_security_PermissionCollection;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
@@ -415,337 +767,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: string, arg1: string);
   }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { InetAddress as java_net_InetAddress, NetworkInterface as java_net_NetworkInterface, InetAddressImpl as java_net_InetAddressImpl } from 'java.net';
-import { Object as java_lang_Object } from 'java.lang';
-import { InetAddressHolder as java_net_InetAddress_InetAddressHolder, NameService as java_net_InetAddress_NameService, Addresses as java_net_InetAddress_Addresses, CachedAddresses as java_net_InetAddress_CachedAddresses, CachedLocalHost as java_net_InetAddress_CachedLocalHost } from 'java.net.InetAddress';
-import { ConcurrentMap as java_util_concurrent_ConcurrentMap } from 'java.util.concurrent';
-import { NavigableSet as java_util_NavigableSet } from 'java.util';
-import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
-import { ObjectStreamField as java_io_ObjectStreamField, Serializable as java_io_Serializable } from 'java.io';
-
-  export class InetAddress extends java_lang_Object implements java_io_Serializable {
-static PREFER_IPV4_VALUE: number;
-static PREFER_IPV6_VALUE: number;
-static PREFER_SYSTEM_VALUE: number;
-static IPv4: number;
-static IPv6: number;
-static preferIPv6Address: number;
-holder: java_net_InetAddress_InetAddressHolder;
-static nameService: java_net_InetAddress_NameService;
-canonicalHostName: string;
-static serialVersionUID: number;
-static cache: java_util_concurrent_ConcurrentMap<string, java_net_InetAddress_Addresses>;
-static expirySet: java_util_NavigableSet<java_net_InetAddress_CachedAddresses>;
-static impl: java_net_InetAddressImpl;
-static cachedLocalHost: java_net_InetAddress_CachedLocalHost;
-static UNSAFE: jdk_internal_misc_Unsafe;
-static FIELDS_OFFSET: number;
-static serialPersistentFields: java_io_ObjectStreamField[];
-static byName: java_net_InetAddress;
-static byAddress: java_net_InetAddress;
-static byAddress: java_net_InetAddress;
-canonicalHostName: string;
-static allByName: java_net_InetAddress[];
-static loopbackAddress: java_net_InetAddress;
-static localHost: java_net_InetAddress;
-hostAddress: string;
-address: number[];
-hostName: string;
-static getByName(arg0: string): java_net_InetAddress;
-static getByAddress(arg0: string, arg1: number[]): java_net_InetAddress;
-static getByAddress(arg0: number[]): java_net_InetAddress;
-isMulticastAddress(): boolean;
-isAnyLocalAddress(): boolean;
-isLoopbackAddress(): boolean;
-isLinkLocalAddress(): boolean;
-isSiteLocalAddress(): boolean;
-isMCGlobal(): boolean;
-isMCNodeLocal(): boolean;
-isMCLinkLocal(): boolean;
-isMCSiteLocal(): boolean;
-isMCOrgLocal(): boolean;
-isReachable(arg0: number): boolean;
-isReachable(arg0: java_net_NetworkInterface, arg1: number, arg2: number): boolean;
-getCanonicalHostName(): string;
-static getAllByName(arg0: string): java_net_InetAddress[];
-static getLoopbackAddress(): java_net_InetAddress;
-static getLocalHost(): java_net_InetAddress;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getHostAddress(): string;
-getAddress(): number[];
-getHostName(): string;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { NetworkInterface as java_net_NetworkInterface, InetAddress as java_net_InetAddress, InterfaceAddress as java_net_InterfaceAddress } from 'java.net';
-import { Enumeration as java_util_Enumeration, List as java_util_List } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class NetworkInterface extends java_lang_Object {
-name: string;
-displayName: string;
-index: number;
-addrs: java_net_InetAddress[];
-bindings: java_net_InterfaceAddress[];
-childs: java_net_NetworkInterface[];
-parent: java_net_NetworkInterface;
-virtual: boolean;
-static defaultInterface: java_net_NetworkInterface;
-static defaultIndex: number;
-static byName: java_net_NetworkInterface;
-displayName: string;
-inetAddresses: java_util_Enumeration<java_net_InetAddress>;
-name: string;
-parent: java_net_NetworkInterface;
-index: number;
-interfaceAddresses: java_util_List<java_net_InterfaceAddress>;
-subInterfaces: java_util_Enumeration<java_net_NetworkInterface>;
-static byIndex: java_net_NetworkInterface;
-hardwareAddress: number[];
-mTU: number;
-static byInetAddress: java_net_NetworkInterface;
-static networkInterfaces: java_util_Enumeration<java_net_NetworkInterface>;
-static getByName(arg0: string): java_net_NetworkInterface;
-getDisplayName(): string;
-getInetAddresses(): java_util_Enumeration<java_net_InetAddress>;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getName(): string;
-getParent(): java_net_NetworkInterface;
-getIndex(): number;
-getInterfaceAddresses(): java_util_List<java_net_InterfaceAddress>;
-getSubInterfaces(): java_util_Enumeration<java_net_NetworkInterface>;
-subInterfaces(): java_util_stream_Stream<java_net_NetworkInterface>;
-static getByIndex(arg0: number): java_net_NetworkInterface;
-static networkInterfaces(): java_util_stream_Stream<java_net_NetworkInterface>;
-isUp(): boolean;
-isPointToPoint(): boolean;
-supportsMulticast(): boolean;
-getHardwareAddress(): number[];
-getMTU(): number;
-isLoopback(): boolean;
-static getByInetAddress(arg0: java_net_InetAddress): java_net_NetworkInterface;
-inetAddresses(): java_util_stream_Stream<java_net_InetAddress>;
-static getNetworkInterfaces(): java_util_Enumeration<java_net_NetworkInterface>;
-isVirtual(): boolean;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { Object as java_lang_Object } from 'java.lang';
-import { InetAddress as java_net_InetAddress, Inet4Address as java_net_Inet4Address } from 'java.net';
-
-  export class InterfaceAddress extends java_lang_Object {
-address: java_net_InetAddress;
-broadcast: java_net_Inet4Address;
-maskLength: number;
-address: java_net_InetAddress;
-broadcast: java_net_InetAddress;
-networkPrefixLength: number;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getAddress(): java_net_InetAddress;
-getBroadcast(): java_net_InetAddress;
-getNetworkPrefixLength(): number;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { InetAddress as java_net_InetAddress } from 'java.net';
-
-  export class Inet4Address extends java_net_InetAddress {
-static INADDRSZ: number;
-static serialVersionUID: number;
-hostAddress: string;
-address: number[];
-class: java_lang_Class<java_lang_Object>;
-isMulticastAddress(): boolean;
-isAnyLocalAddress(): boolean;
-isLoopbackAddress(): boolean;
-isLinkLocalAddress(): boolean;
-isSiteLocalAddress(): boolean;
-isMCGlobal(): boolean;
-isMCNodeLocal(): boolean;
-isMCLinkLocal(): boolean;
-isMCSiteLocal(): boolean;
-isMCOrgLocal(): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getHostAddress(): string;
-getAddress(): number[];
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net.InetAddress' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class InetAddressHolder extends java_lang_Object {
-originalHostName: string;
-hostName: string;
-address: number;
-family: number;
-
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net.InetAddress' {
-import { InetAddress as java_net_InetAddress } from 'java.net';
-
-  export class NameService {
-hostByAddr: string;
-getHostByAddr(arg0: number[]): string;
-lookupAllHostAddr(arg0: string): java_net_InetAddress[];
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net.InetAddress' {
-import { InetAddress as java_net_InetAddress } from 'java.net';
-
-  export class Addresses {
-
-get(): java_net_InetAddress[];
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net.InetAddress' {
-import { InetAddress as java_net_InetAddress } from 'java.net';
-import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
-import { CachedAddresses as java_net_InetAddress_CachedAddresses, Addresses as java_net_InetAddress_Addresses } from 'java.net.InetAddress';
-import { AtomicLong as java_util_concurrent_atomic_AtomicLong } from 'java.util.concurrent.atomic';
-
-  export class CachedAddresses extends java_lang_Object implements java_net_InetAddress_Addresses, java_lang_Comparable<java_net_InetAddress_CachedAddresses> {
-static seq: java_util_concurrent_atomic_AtomicLong;
-host: string;
-inetAddresses: java_net_InetAddress[];
-expiryTime: number;
-id: number;
-get(): java_net_InetAddress[];
-compareTo(arg0: java_lang_Object): number;
-compareTo(arg0: java_net_InetAddress_CachedAddresses): number;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { InetAddress as java_net_InetAddress, NetworkInterface as java_net_NetworkInterface } from 'java.net';
-
-  export class InetAddressImpl {
-hostByAddr: string;
-localHostName: string;
-isReachable(arg0: java_net_InetAddress, arg1: number, arg2: java_net_NetworkInterface, arg3: number): boolean;
-anyLocalAddress(): java_net_InetAddress;
-getHostByAddr(arg0: number[]): string;
-loopbackAddress(): java_net_InetAddress;
-lookupAllHostAddr(arg0: string): java_net_InetAddress[];
-getLocalHostName(): string;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net.InetAddress' {
-import { InetAddress as java_net_InetAddress } from 'java.net';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class CachedLocalHost extends java_lang_Object {
-host: string;
-addr: java_net_InetAddress;
-expiryTime: number;
-
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-
-
-  export class FileNameMap {
-contentTypeFor: string;
-getContentTypeFor(arg0: string): string;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { ContentHandler as java_net_ContentHandler } from 'java.net';
-
-  export class ContentHandlerFactory {
-
-createContentHandler(arg0: string): java_net_ContentHandler;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { URLConnection as java_net_URLConnection } from 'java.net';
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-
-  export class ContentHandler extends java_lang_Object {
-content: java_lang_Object;
-content: java_lang_Object;
-getContent(arg0: java_net_URLConnection): java_lang_Object;
-getContent(arg0: java_net_URLConnection, arg1: java_lang_Class[]): java_lang_Object;
-constructor();
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { URLStreamHandler as java_net_URLStreamHandler } from 'java.net';
-
-  export class URLStreamHandlerFactory {
-
-createURLStreamHandler(arg0: string): java_net_URLStreamHandler;
-
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class URLStreamHandler extends java_lang_Object {
-
-
-constructor();
-  }
-}//@ts-nocheck
-
-declare module 'java.net' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class UrlDeserializedState extends java_lang_Object {
-protocol: string;
-host: string;
-port: number;
-authority: string;
-file: string;
-ref: string;
-hashCode: number;
-
-constructor(arg0: string, arg1: string, arg2: number, arg3: string, arg4: string, arg5: string, arg6: number);
-  }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -780,11 +803,12 @@ wait(): void;
 getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
-constructor(arg0: string, arg1: number);
 constructor(arg0: java_net_InetAddress, arg1: number);
 constructor(arg0: number);
+constructor(arg0: string, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.InetSocketAddress' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -799,7 +823,8 @@ toString(): string;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { URL as java_net_URL, URLClassLoader as java_net_URLClassLoader, URLStreamHandlerFactory as java_net_URLStreamHandlerFactory } from 'java.net';
@@ -814,11 +839,11 @@ import { AccessControlContext as java_security_AccessControlContext, SecureClass
 ucp: jdk_internal_loader_URLClassPath;
 acc: java_security_AccessControlContext;
 closeables: java_util_WeakHashMap<java_io_Closeable, java_lang_Void>;
-uRLs: java_net_URL[];
 resourceAsStream: java_io_InputStream;
+uRLs: java_net_URL[];
+name: string;
 static platformClassLoader: java_lang_ClassLoader;
 static systemClassLoader: java_lang_ClassLoader;
-name: string;
 resource: java_net_URL;
 static systemResourceAsStream: java_io_InputStream;
 static systemResource: java_net_URL;
@@ -829,17 +854,17 @@ unnamedModule: java_lang_Module;
 definedPackage: java_lang_Package;
 definedPackages: java_lang_Package[];
 class: java_lang_Class<java_lang_Object>;
-getURLs(): java_net_URL[];
 static newInstance(arg0: java_net_URL[], arg1: java_lang_ClassLoader): java_net_URLClassLoader;
 static newInstance(arg0: java_net_URL[]): java_net_URLClassLoader;
 getResourceAsStream(arg0: string): java_io_InputStream;
 findResource(arg0: string): java_net_URL;
 findResources(arg0: string): java_util_Enumeration<java_net_URL>;
 close(): void;
+getURLs(): java_net_URL[];
+getName(): string;
 loadClass(arg0: string): java_lang_Class<java_lang_Object>;
 static getPlatformClassLoader(): java_lang_ClassLoader;
 static getSystemClassLoader(): java_lang_ClassLoader;
-getName(): string;
 getResource(arg0: string): java_net_URL;
 static getSystemResourceAsStream(arg0: string): java_io_InputStream;
 static getSystemResource(arg0: string): java_net_URL;
@@ -864,10 +889,10 @@ hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
-constructor(arg0: java_net_URL[], arg1: java_lang_ClassLoader);
-constructor(arg0: string, arg1: java_net_URL[], arg2: java_lang_ClassLoader, arg3: java_net_URLStreamHandlerFactory);
-constructor(arg0: string, arg1: java_net_URL[], arg2: java_lang_ClassLoader);
-constructor(arg0: java_net_URL[]);
 constructor(arg0: java_net_URL[], arg1: java_lang_ClassLoader, arg2: java_net_URLStreamHandlerFactory);
+constructor(arg0: string, arg1: java_net_URL[], arg2: java_lang_ClassLoader);
+constructor(arg0: string, arg1: java_net_URL[], arg2: java_lang_ClassLoader, arg3: java_net_URLStreamHandlerFactory);
+constructor(arg0: java_net_URL[], arg1: java_lang_ClassLoader);
+constructor(arg0: java_net_URL[]);
   }
 }
