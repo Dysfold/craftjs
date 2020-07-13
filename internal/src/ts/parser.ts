@@ -89,7 +89,7 @@ interface JavaDocClass {
 
 function getJavaDocData(ref: ClassRef) {
   const fileName = ref.declaredName;
-  const f = new File(__filename, `javadocs/json/${fileName}.json`);
+  const f = new File(`js/javadocs/json/${fileName}.json`);
   if (!f.exists()) {
     return undefined;
   }

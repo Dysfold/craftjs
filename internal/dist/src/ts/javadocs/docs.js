@@ -12,17 +12,14 @@ function parseMethod(row, $) {
     var _a, _b, _c, _d, _e, _f;
     const nameCol = $('pre', row);
     const docCol = $('.block', row);
-    const name = nameCol
-        .text()
-        .split(/\s+/)
-        .join(' ');
+    const name = nameCol.text().split(/\s+/).join(' ');
     const methodName = name
         .split(/\(.*\)/g)[0]
         .split(/\s/)
         .slice(-1)[0];
     const methodDecorators = (_a = name.match(DECORATOR_REGEX)) !== null && _a !== void 0 ? _a : [];
     const params = (_c = (_b = name
-        .split('(')[1]) === null || _b === void 0 ? void 0 : _b.split(')')[0].match(PARAM_REGEX)) === null || _c === void 0 ? void 0 : _c.map(p => {
+        .split('(')[1]) === null || _b === void 0 ? void 0 : _b.split(')')[0].match(PARAM_REGEX)) === null || _c === void 0 ? void 0 : _c.map((p) => {
         var _a;
         return ({
             decorators: (_a = p.match(DECORATOR_REGEX)) !== null && _a !== void 0 ? _a : [],
@@ -63,5 +60,7 @@ function parseClass(className) {
     }, null, 2));
 }
 parseClass('Vector');
-const files = fs_1.default.readdirSync('./docs').filter(f => f.split('.').slice(-1)[0] === 'html');
-files.forEach(f => parseClass(f.replace('.html', '')));
+const files = fs_1.default
+    .readdirSync('./docs')
+    .filter((f) => f.split('.').slice(-1)[0] === 'html');
+files.forEach((f) => parseClass(f.replace('.html', '')));

@@ -52,6 +52,7 @@ registerEvent(PluginDisableEvent, (event) => {
 require('./command');
 require('./scheduling');
 require('./testing');
+require('./ts/generation');
 
 /**
  * Command for executing javascript from minecraft

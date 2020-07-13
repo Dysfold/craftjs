@@ -5,7 +5,7 @@ const java_io_1 = require("java.io");
 const Modifier = java.lang.reflect.Modifier;
 function getJavaDocData(ref) {
     const fileName = ref.declaredName;
-    const f = new java_io_1.File(__filename, `javadocs/json/${fileName}.json`);
+    const f = new java_io_1.File(`js/javadocs/json/${fileName}.json`);
     if (!f.exists()) {
         return undefined;
     }

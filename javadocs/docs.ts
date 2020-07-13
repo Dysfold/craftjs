@@ -28,10 +28,7 @@ interface Class {
 function parseMethod(row: CheerioElement, $: CheerioStatic) {
   const nameCol = $('pre', row);
   const docCol = $('.block', row);
-  const name = nameCol
-    .text()
-    .split(/\s+/)
-    .join(' ');
+  const name = nameCol.text().split(/\s+/).join(' ');
   const methodName = name
     .split(/\(.*\)/g)[0]
     .split(/\s/)
@@ -41,7 +38,7 @@ function parseMethod(row: CheerioElement, $: CheerioStatic) {
     .split('(')[1]
     ?.split(')')[0]
     .match(PARAM_REGEX)
-    ?.map(p => ({
+    ?.map((p) => ({
       decorators: p.match(DECORATOR_REGEX) ?? [],
       def: p.replace(DECORATOR_REGEX, '').trim(),
     }));
@@ -70,7 +67,10 @@ function parseClass(className: string) {
   const methods: Method[] = [];
 
   const rows = $('ul.blockList, ul.blockListLast', methodBlock).toArray();
-  const constructors = $('ul.blockList, ul.blockListLast', constructorsBlock).toArray();
+  const constructors = $(
+    'ul.blockList, ul.blockListLast',
+    constructorsBlock,
+  ).toArray();
 
   for (const row of constructors) {
     console.log($(row).text());
@@ -96,5 +96,7 @@ function parseClass(className: string) {
 
 parseClass('Vector');
 
-const files = fs.readdirSync('./docs').filter(f => f.split('.').slice(-1)[0] === 'html');
-files.forEach(f => parseClass(f.replace('.html', '')));
+const files = fs
+  .readdirSync('./docs')
+  .filter((f) => f.split('.').slice(-1)[0] === 'html');
+files.forEach((f) => parseClass(f.replace('.html', '')));
