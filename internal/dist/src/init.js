@@ -36,6 +36,10 @@ require('./command');
 require('./scheduling');
 require('./testing');
 global.generateTypescriptDefinitions = require('./ts/generation').runTheThing;
+function refresh() {
+    __plugin.refresh();
+}
+global.refresh = refresh;
 /**
  * Command for executing javascript from minecraft
  *

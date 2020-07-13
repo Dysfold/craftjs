@@ -10,8 +10,16 @@ const Files = java.nio.file.Files;
 const unloadHandlers: (() => void)[] = [];
 
 declare global {
+  /**
+   * Register a function to be called when the plugin is disabled
+   * @param callback Function to call
+   */
   function addUnloadHandler(callback: () => void): void;
   function generateTypescriptDefinitions(): void;
+  /**
+   * Reloads the plugin
+   */
+  function refresh(): void;
 }
 
 global.addUnloadHandler = function (callback) {
@@ -55,6 +63,12 @@ require('./scheduling');
 require('./testing');
 
 global.generateTypescriptDefinitions = require('./ts/generation').runTheThing;
+
+function refresh() {
+  (__plugin as any).refresh();
+}
+
+global.refresh = refresh;
 
 /**
  * Command for executing javascript from minecraft
