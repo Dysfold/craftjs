@@ -27,14 +27,16 @@ const __registerEvent: typeof registerEvent = (
       callback(event);
     },
   });
+  const listener = new L();
+
   server.pluginManager.registerEvent(
     eventClass as any,
-    new L(),
+    listener,
     priority,
     new Ex(),
     __plugin,
   );
-  const unregister = () => HandlerList.unregisterAll(L);
+  const unregister = () => HandlerList.unregisterAll(listener);
   return unregister;
 };
 

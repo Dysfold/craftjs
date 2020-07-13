@@ -19,6 +19,7 @@ declare global {
 interface JIterable<T> {
   [index: number]: T;
   [Symbol.iterator]: () => Iterator<T>;
+  length: number;
 }
 
 declare module 'java.util' {

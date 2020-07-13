@@ -9,8 +9,9 @@ const __registerEvent = (eventClass, callback, priority = org_bukkit_event_1.Eve
             callback(event);
         },
     });
-    server.pluginManager.registerEvent(eventClass, new L(), priority, new Ex(), __plugin);
-    const unregister = () => org_bukkit_event_1.HandlerList.unregisterAll(L);
+    const listener = new L();
+    server.pluginManager.registerEvent(eventClass, listener, priority, new Ex(), __plugin);
+    const unregister = () => org_bukkit_event_1.HandlerList.unregisterAll(listener);
     return unregister;
 };
 global.registerEvent = __registerEvent;
