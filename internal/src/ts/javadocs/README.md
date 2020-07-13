@@ -1,0 +1,1 @@
+Small program to extract JavaDoc-data to json. To be used in tandem with the Nashorn-script to generate TypeScript -declaration files from Java types.

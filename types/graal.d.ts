@@ -12,7 +12,8 @@ declare global {
   const global: typeof globalThis;
   const __plugin: Plugin;
   const __filename: string;
-
+  const readFile: (path: string) => string;
+  const writeFile: (path: string, data: string, append?: boolean) => void;
 }
 
 
