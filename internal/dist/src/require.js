@@ -76,7 +76,7 @@ const overrides = {
     tty: 'tty-browserify',
 };
 function __require(id, relative) {
-    var _a, _b, _c;
+    var _a, _b, _c, _d, _e;
     const pkg = java.lang.Package.getPackage(id);
     if (pkg) {
         return getPackage(id);
@@ -98,7 +98,7 @@ function __require(id, relative) {
     };
     const contents = readFile(resolved.toString());
     const closure = `
-  (function(module, exports, __filename){
+  (function(module, exports, __filename, __dirname){
 ${contents}
   })
   `;
@@ -107,7 +107,7 @@ ${contents}
         .build();
     try {
         const func = __ctx.eval(src);
-        func(module, exports, resolved.toString());
+        func(module, exports, resolved.toString(), (_e = (_d = resolved.getParent()) === null || _d === void 0 ? void 0 : _d.toString()) !== null && _e !== void 0 ? _e : '.');
     }
     catch (e) {
         const pos = [

@@ -52,7 +52,7 @@ registerEvent(PluginDisableEvent, (event) => {
 require('./command');
 require('./scheduling');
 require('./testing');
-require('./ts/generation');
+global.runTheThing = require('./ts/generation').runTheThing;
 
 /**
  * Command for executing javascript from minecraft

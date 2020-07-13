@@ -230,7 +230,7 @@ export function generateRecursiveDef(root: Class) {
 }
 
 export function runTheThing() {
-  const cFile = new File(__filename, 'classes.txt');
+  const cFile = new File('js/internal/src/ts/classes.txt');
   const spigotClasses = readFile(cFile.getPath()).split('\n');
   const defs: { ref: ClassRef; def: string }[] = [];
   const visited: string[] = [];

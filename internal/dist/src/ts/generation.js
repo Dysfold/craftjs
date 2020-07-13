@@ -152,7 +152,7 @@ function generateRecursiveDef(root) {
 }
 exports.generateRecursiveDef = generateRecursiveDef;
 function runTheThing() {
-    const cFile = new java_io_1.File(__filename, 'classes.txt');
+    const cFile = new java_io_1.File('js/internal/src/ts/classes.txt');
     const spigotClasses = readFile(cFile.getPath()).split('\n');
     const defs = [];
     const visited = [];
