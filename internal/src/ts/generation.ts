@@ -250,6 +250,7 @@ export function runTheThing() {
     const path = [d.ref.package, d.ref.name].join('.').split('.');
     const filePath = path.slice(0, 2).join('_');
     const f = new File(`./js/types/generated/${filePath}.d.ts`);
+    f.createNewFile();
     writeFile(f.getPath(), `//@ts-nocheck\n${d.def}`, true);
   }
 }

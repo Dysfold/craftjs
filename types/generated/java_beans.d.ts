@@ -76,15 +76,15 @@ constructor(arg0: java_lang_Object);
 }//@ts-nocheck
 
 declare module 'java.beans.PropertyChangeSupport' {
-import { PropertyChangeListener as java_beans_PropertyChangeListener, ChangeListenerMap as java_beans_ChangeListenerMap } from 'java.beans';
 import { EventListener as java_util_EventListener } from 'java.util';
+import { PropertyChangeListener as java_beans_PropertyChangeListener, ChangeListenerMap as java_beans_ChangeListenerMap } from 'java.beans';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 
   export class PropertyChangeListenerMap extends java_beans_ChangeListenerMap<java_beans_PropertyChangeListener> {
 static EMPTY: java_beans_PropertyChangeListener[];
 class: java_lang_Class<java_lang_Object>;
-extract(arg0: java_beans_PropertyChangeListener): java_beans_PropertyChangeListener;
 extract(arg0: java_util_EventListener): java_util_EventListener;
+extract(arg0: java_beans_PropertyChangeListener): java_beans_PropertyChangeListener;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;

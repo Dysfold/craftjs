@@ -83,10 +83,10 @@ import { Object as java_lang_Object } from 'java.lang';
   export class Entry<E extends java_lang_Object> {
 count: number;
 element: E;
-getCount(): number;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
+getCount(): number;
 getElement(): E;
 
   }
@@ -403,12 +403,12 @@ import { EndpointPair as com_google_common_graph_EndpointPair, ElementOrder as c
 
 removeNode(arg0: java_lang_Object): boolean;
 putEdge(arg0: N, arg1: N): boolean;
-addNode(arg0: N): boolean;
 removeEdge(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-successors(arg0: java_lang_Object): java_util_Set<N>;
-nodes(): java_util_Set<N>;
+addNode(arg0: N): boolean;
 equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
+successors(arg0: java_lang_Object): java_util_Set<N>;
+nodes(): java_util_Set<N>;
 edges(): java_util_Set<com_google_common_graph_EndpointPair<N>>;
 isDirected(): boolean;
 allowsSelfLoops(): boolean;
@@ -423,23 +423,23 @@ outDegree(arg0: java_lang_Object): number;
 }//@ts-nocheck
 
 declare module 'com.google.common.graph' {
-import { EndpointPair as com_google_common_graph_EndpointPair } from 'com.google.common.graph';
 import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
-import { UnmodifiableIterator as com_google_common_collect_UnmodifiableIterator } from 'com.google.common.collect';
 import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
+import { UnmodifiableIterator as com_google_common_collect_UnmodifiableIterator } from 'com.google.common.collect';
+import { EndpointPair as com_google_common_graph_EndpointPair } from 'com.google.common.graph';
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
 
   export class EndpointPair<N extends java_lang_Object> extends java_lang_Object implements java_lang_Iterable<N> {
 nodeU: N;
 nodeV: N;
-static unordered<N extends java_lang_Object>(arg0: N, arg1: N): com_google_common_graph_EndpointPair<N>;
-isOrdered(): boolean;
 equals(arg0: java_lang_Object): boolean;
 target(): N;
 hashCode(): number;
-iterator(): com_google_common_collect_UnmodifiableIterator<N>;
 iterator(): java_util_Iterator;
+iterator(): com_google_common_collect_UnmodifiableIterator<N>;
 source(): N;
+static unordered<N extends java_lang_Object>(arg0: N, arg1: N): com_google_common_graph_EndpointPair<N>;
+isOrdered(): boolean;
 nodeU(): N;
 nodeV(): N;
 adjacentNode(arg0: java_lang_Object): N;
@@ -451,23 +451,23 @@ forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 }//@ts-nocheck
 
 declare module 'com.google.common.graph' {
+import { Type as com_google_common_graph_ElementOrder_Type } from 'com.google.common.graph.ElementOrder';
+import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
 import { Comparator as java_util_Comparator } from 'java.util';
 import { ElementOrder as com_google_common_graph_ElementOrder } from 'com.google.common.graph';
-import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
-import { Type as com_google_common_graph_ElementOrder_Type } from 'com.google.common.graph.ElementOrder';
 
   export class ElementOrder<T extends java_lang_Object> extends java_lang_Object {
 type: com_google_common_graph_ElementOrder_Type;
 comparator: java_util_Comparator<T>;
-static sorted<S extends java_lang_Object>(arg0: java_util_Comparator<S>): com_google_common_graph_ElementOrder<S>;
-static unordered<S extends java_lang_Object>(): com_google_common_graph_ElementOrder<S>;
 type(): com_google_common_graph_ElementOrder_Type;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
 comparator(): java_util_Comparator<T>;
-static natural<S extends java_lang_Comparable<java_lang_Object>>(): com_google_common_graph_ElementOrder<S>;
+static sorted<S extends java_lang_Object>(arg0: java_util_Comparator<S>): com_google_common_graph_ElementOrder<S>;
+static unordered<S extends java_lang_Object>(): com_google_common_graph_ElementOrder<S>;
 static insertion<S extends java_lang_Object>(): com_google_common_graph_ElementOrder<S>;
+static natural<S extends java_lang_Comparable<java_lang_Object>>(): com_google_common_graph_ElementOrder<S>;
 
   }
 }//@ts-nocheck
@@ -501,10 +501,10 @@ import { EndpointPair as com_google_common_graph_EndpointPair, ElementOrder as c
 
   export class Graph<N extends java_lang_Object> {
 
-successors(arg0: java_lang_Object): java_util_Set<N>;
-nodes(): java_util_Set<N>;
 equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
+successors(arg0: java_lang_Object): java_util_Set<N>;
+nodes(): java_util_Set<N>;
 edges(): java_util_Set<com_google_common_graph_EndpointPair<N>>;
 isDirected(): boolean;
 allowsSelfLoops(): boolean;
@@ -531,12 +531,12 @@ delegate: java_util_Queue<E>;
 maxSize: number;
 static serialVersionUID: number;
 class: java_lang_Class<java_lang_Object>;
-offer(arg0: E): boolean;
 add(arg0: E): boolean;
 remove(arg0: java_lang_Object): boolean;
 contains(arg0: java_lang_Object): boolean;
 addAll(arg0: java_util_Collection<E>): boolean;
 static create<E extends java_lang_Object>(arg0: number): com_google_common_collect_EvictingQueue<E>;
+offer(arg0: E): boolean;
 remainingCapacity(): number;
 clear(): void;
 isEmpty(): boolean;
@@ -575,11 +575,11 @@ import { ForwardingCollection as com_google_common_collect_ForwardingCollection 
 
   export class ForwardingQueue<E extends java_lang_Object> extends com_google_common_collect_ForwardingCollection<E> implements java_util_Queue<E> {
 class: java_lang_Class<java_lang_Object>;
-offer(arg0: E): boolean;
 remove(): E;
 poll(): E;
 peek(): E;
 element(): E;
+offer(arg0: E): boolean;
 toString(): string;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
