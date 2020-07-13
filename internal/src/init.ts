@@ -11,6 +11,7 @@ const unloadHandlers: (() => void)[] = [];
 
 declare global {
   function addUnloadHandler(callback: () => void): void;
+  function generateTypescriptDefinitions(): void;
 }
 
 global.addUnloadHandler = function (callback) {
@@ -52,7 +53,8 @@ registerEvent(PluginDisableEvent, (event) => {
 require('./command');
 require('./scheduling');
 require('./testing');
-global.runTheThing = require('./ts/generation').runTheThing;
+
+global.generateTypescriptDefinitions = require('./ts/generation').runTheThing;
 
 /**
  * Command for executing javascript from minecraft
