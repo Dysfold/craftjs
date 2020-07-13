@@ -1,7 +1,6 @@
 "use strict";
 // eslint-ignore
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseClass = exports.parseMethod = void 0;
 const java_io_1 = require("java.io");
 const Modifier = java.lang.reflect.Modifier;
 function getJavaDocData(ref) {

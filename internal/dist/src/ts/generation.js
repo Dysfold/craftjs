@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.runTheThing = exports.generateRecursiveDef = exports.generateClassDefinition = exports.generateMethodDefinition = void 0;
 const parser_1 = require("./parser");
 const java_io_1 = require("java.io");
 function getClassRef(ref) {

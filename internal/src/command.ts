@@ -3,12 +3,6 @@ import { BukkitCommand } from 'org.bukkit.command.defaults';
 
 const commands: Command[] = [];
 
-declare global {
-  function registerCommand(
-    ...params: Parameters<typeof __registerCommand>
-  ): ReturnType<typeof __registerCommand>;
-}
-
 global.registerCommand = __registerCommand;
 
 function __registerCommand(

@@ -6,10 +6,6 @@ const Paths = java.nio.file.Paths;
 const cache: Record<string, any> = {};
 const stack: string[] = [];
 
-declare global {
-  function require(...params: Parameters<typeof __require>): any;
-}
-
 function resolveModule(parent: any, id: string) {
   if (id.match(/^[0-9A-Za-z_-]/)) {
     return resolveNodeModule(parent, id);
