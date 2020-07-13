@@ -3,20 +3,8 @@
 declare module 'java.lang' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 
-  export class Object {
-class: java_lang_Class<java_lang_Object>;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor();
-  }
-}//@ts-nocheck
+  export type Object = {};
+}
 
 declare module 'java.lang' {
 import { ClassLoader as java_lang_ClassLoader, Class as java_lang_Class, Object as java_lang_Object, Module as java_lang_Module, Package as java_lang_Package } from 'java.lang';

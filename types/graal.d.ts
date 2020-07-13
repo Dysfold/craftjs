@@ -26,4 +26,7 @@ declare module 'java.util' {
   interface Collection<E> extends JIterable<E> { }
 
   interface List<E> extends JIterable<E> { }
+
+  // @ts-ignore
+  interface ArrayList<E> extends JIterable<E> { }
 }
