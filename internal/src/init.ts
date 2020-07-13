@@ -1,11 +1,8 @@
 import { File } from 'java.io';
+import { Paths } from 'java.nio.file';
 import { PluginDisableEvent } from 'org.bukkit.event.server';
 import { HandlerList } from 'org.bukkit.event';
 import { CommandSender } from 'org.bukkit.command';
-
-declare const Paths: any;
-
-const Files = java.nio.file.Files;
 
 const unloadHandlers: (() => void)[] = [];
 

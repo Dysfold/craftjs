@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const java_io_1 = require("java.io");
+const java_nio_file_1 = require("java.nio.file");
 const org_bukkit_event_server_1 = require("org.bukkit.event.server");
 const org_bukkit_event_1 = require("org.bukkit.event");
-const Files = java.nio.file.Files;
 const unloadHandlers = [];
 global.addUnloadHandler = function (callback) {
     unloadHandlers.push(callback);
@@ -13,12 +13,12 @@ function loadPlugins() {
     if (!pluginsDir.exists()) {
         pluginsDir.mkdirs();
     }
-    const self = Paths.get(__filename).getParent();
+    const self = java_nio_file_1.Paths.get(__filename).getParent();
     for (const file of pluginsDir.listFiles()) {
         if (!file.isDirectory()) {
             continue;
         }
-        const path = Paths.get(file.getPath());
+        const path = java_nio_file_1.Paths.get(file.getPath());
         const relative = self.relativize(path);
         require(relative.toString());
     }

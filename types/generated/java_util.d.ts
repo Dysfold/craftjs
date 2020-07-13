@@ -6623,3 +6623,18 @@ hashCode(): number;
 constructor(arg0: java_io_File, arg1: java_nio_file_attribute_BasicFileAttributes);
   }
 }
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { BiPredicate as java_util_function_BiPredicate } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class BiPredicate<T extends java_lang_Object, U extends java_lang_Object> {
+
+test(arg0: T, arg1: U): boolean;
+or(arg0: java_util_function_BiPredicate<java_lang_Object, java_lang_Object>): java_util_function_BiPredicate<T, U>;
+and(arg0: java_util_function_BiPredicate<java_lang_Object, java_lang_Object>): java_util_function_BiPredicate<T, U>;
+negate(): java_util_function_BiPredicate<T, U>;
+
+  }
+}

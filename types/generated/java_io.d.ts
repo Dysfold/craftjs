@@ -1688,3 +1688,47 @@ constructor(arg0: java_io_File, arg1: string);
 constructor(arg0: string, arg1: string);
   }
 }
+//@ts-nocheck
+
+declare module 'java.io' {
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Reader as java_io_Reader } from 'java.io';
+
+  export class BufferedReader extends java_io_Reader {
+in: java_io_Reader;
+cb: string[];
+nChars: number;
+nextChar: number;
+static INVALIDATED: number;
+static UNMARKED: number;
+markedChar: number;
+readAheadLimit: number;
+skipLF: boolean;
+markedSkipLF: boolean;
+static defaultCharBufferSize: number;
+static defaultExpectedLineLength: number;
+class: java_lang_Class<java_lang_Object>;
+lines(): java_util_stream_Stream<string>;
+read(): number;
+read(arg0: string[], arg1: number, arg2: number): number;
+readLine(): string;
+close(): void;
+mark(arg0: number): void;
+skip(arg0: number): number;
+markSupported(): boolean;
+reset(): void;
+ready(): boolean;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: java_io_Reader, arg1: number);
+constructor(arg0: java_io_Reader);
+  }
+}

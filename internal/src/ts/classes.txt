@@ -1149,3 +1149,5 @@ org.bukkit.configuration.file.YamlRepresenter
 org.bukkit.entity.Zombie
 org.bukkit.entity.ZombieHorse
 org.bukkit.entity.ZombieVillager
+java.nio.file.Files
+java.nio.file.Paths

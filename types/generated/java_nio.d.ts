@@ -1597,3 +1597,207 @@ implies(arg0: javax_security_auth_Subject): boolean;
 
   }
 }
+//@ts-nocheck
+
+declare module 'java.nio.file' {
+import { Path as java_nio_file_Path, OpenOption as java_nio_file_OpenOption, CopyOption as java_nio_file_CopyOption, FileVisitOption as java_nio_file_FileVisitOption, LinkOption as java_nio_file_LinkOption, FileVisitor as java_nio_file_FileVisitor, FileStore as java_nio_file_FileStore, DirectoryStream as java_nio_file_DirectoryStream } from 'java.nio.file';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
+import { Iterable as java_lang_Iterable, CharSequence as java_lang_CharSequence, Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { OutputStream as java_io_OutputStream, InputStream as java_io_InputStream, BufferedReader as java_io_BufferedReader, BufferedWriter as java_io_BufferedWriter } from 'java.io';
+import { BiPredicate as java_util_function_BiPredicate } from 'java.util.function';
+import { BasicFileAttributes as java_nio_file_attribute_BasicFileAttributes, UserPrincipal as java_nio_file_attribute_UserPrincipal, FileAttribute as java_nio_file_attribute_FileAttribute, FileTime as java_nio_file_attribute_FileTime, PosixFilePermission as java_nio_file_attribute_PosixFilePermission, FileAttributeView as java_nio_file_attribute_FileAttributeView } from 'java.nio.file.attribute';
+import { Set as java_util_Set, List as java_util_List, Map as java_util_Map } from 'java.util';
+import { SeekableByteChannel as java_nio_channels_SeekableByteChannel } from 'java.nio.channels';
+import { Filter as java_nio_file_DirectoryStream_Filter } from 'java.nio.file.DirectoryStream';
+import { JavaLangAccess as jdk_internal_misc_JavaLangAccess } from 'jdk.internal.misc';
+
+  export class Files extends java_lang_Object {
+static DEFAULT_CREATE_OPTIONS: java_util_Set<java_nio_file_OpenOption>;
+static BUFFER_SIZE: number;
+static MAX_BUFFER_SIZE: number;
+static JLA: jdk_internal_misc_JavaLangAccess;
+static $assertionsDisabled: boolean;
+static owner: java_nio_file_attribute_UserPrincipal;
+static lastModifiedTime: java_nio_file_attribute_FileTime;
+static attribute: java_lang_Object;
+static posixFilePermissions: java_util_Set<java_nio_file_attribute_PosixFilePermission>;
+static fileStore: java_nio_file_FileStore;
+static fileAttributeView: V;
+static list(arg0: java_nio_file_Path): java_util_stream_Stream<java_nio_file_Path>;
+static lines(arg0: java_nio_file_Path, arg1: java_nio_charset_Charset): java_util_stream_Stream<string>;
+static lines(arg0: java_nio_file_Path): java_util_stream_Stream<string>;
+static size(arg0: java_nio_file_Path): number;
+static write(arg0: java_nio_file_Path, arg1: java_lang_Iterable<java_lang_CharSequence>, arg2: java_nio_charset_Charset, ...arg3: java_nio_file_OpenOption[]): java_nio_file_Path;
+static write(arg0: java_nio_file_Path, arg1: java_lang_Iterable<java_lang_CharSequence>, ...arg2: java_nio_file_OpenOption[]): java_nio_file_Path;
+static write(arg0: java_nio_file_Path, arg1: number[], ...arg2: java_nio_file_OpenOption[]): java_nio_file_Path;
+static delete(arg0: java_nio_file_Path): void;
+static copy(arg0: java_nio_file_Path, arg1: java_io_OutputStream): number;
+static copy(arg0: java_io_InputStream, arg1: java_nio_file_Path, ...arg2: java_nio_file_CopyOption[]): number;
+static copy(arg0: java_nio_file_Path, arg1: java_nio_file_Path, ...arg2: java_nio_file_CopyOption[]): java_nio_file_Path;
+static readAllBytes(arg0: java_nio_file_Path): number[];
+static find(arg0: java_nio_file_Path, arg1: number, arg2: java_util_function_BiPredicate<java_nio_file_Path, java_nio_file_attribute_BasicFileAttributes>, ...arg3: java_nio_file_FileVisitOption[]): java_util_stream_Stream<java_nio_file_Path>;
+static walk(arg0: java_nio_file_Path, arg1: number, ...arg2: java_nio_file_FileVisitOption[]): java_util_stream_Stream<java_nio_file_Path>;
+static walk(arg0: java_nio_file_Path, ...arg1: java_nio_file_FileVisitOption[]): java_util_stream_Stream<java_nio_file_Path>;
+static getOwner(arg0: java_nio_file_Path, ...arg1: java_nio_file_LinkOption[]): java_nio_file_attribute_UserPrincipal;
+static isDirectory(arg0: java_nio_file_Path, ...arg1: java_nio_file_LinkOption[]): boolean;
+static exists(arg0: java_nio_file_Path, ...arg1: java_nio_file_LinkOption[]): boolean;
+static isHidden(arg0: java_nio_file_Path): boolean;
+static createTempFile(arg0: java_nio_file_Path, arg1: string, arg2: string, ...arg3: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static createTempFile(arg0: string, arg1: string, ...arg2: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static getLastModifiedTime(arg0: java_nio_file_Path, ...arg1: java_nio_file_LinkOption[]): java_nio_file_attribute_FileTime;
+static createDirectory(arg0: java_nio_file_Path, ...arg1: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static setLastModifiedTime(arg0: java_nio_file_Path, arg1: java_nio_file_attribute_FileTime): java_nio_file_Path;
+static isRegularFile(arg0: java_nio_file_Path, ...arg1: java_nio_file_LinkOption[]): boolean;
+static isSymbolicLink(arg0: java_nio_file_Path): boolean;
+static setOwner(arg0: java_nio_file_Path, arg1: java_nio_file_attribute_UserPrincipal): java_nio_file_Path;
+static createFile(arg0: java_nio_file_Path, ...arg1: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static createDirectories(arg0: java_nio_file_Path, ...arg1: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static createTempDirectory(arg0: string, ...arg1: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static createTempDirectory(arg0: java_nio_file_Path, arg1: string, ...arg2: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static probeContentType(arg0: java_nio_file_Path): string;
+static getAttribute(arg0: java_nio_file_Path, arg1: string, ...arg2: java_nio_file_LinkOption[]): java_lang_Object;
+static getPosixFilePermissions(arg0: java_nio_file_Path, ...arg1: java_nio_file_LinkOption[]): java_util_Set<java_nio_file_attribute_PosixFilePermission>;
+static setPosixFilePermissions(arg0: java_nio_file_Path, arg1: java_util_Set<java_nio_file_attribute_PosixFilePermission>): java_nio_file_Path;
+static notExists(arg0: java_nio_file_Path, ...arg1: java_nio_file_LinkOption[]): boolean;
+static isReadable(arg0: java_nio_file_Path): boolean;
+static isWritable(arg0: java_nio_file_Path): boolean;
+static isExecutable(arg0: java_nio_file_Path): boolean;
+static walkFileTree(arg0: java_nio_file_Path, arg1: java_nio_file_FileVisitor<java_lang_Object>): java_nio_file_Path;
+static walkFileTree(arg0: java_nio_file_Path, arg1: java_util_Set<java_nio_file_FileVisitOption>, arg2: number, arg3: java_nio_file_FileVisitor<java_lang_Object>): java_nio_file_Path;
+static newBufferedReader(arg0: java_nio_file_Path, arg1: java_nio_charset_Charset): java_io_BufferedReader;
+static newBufferedReader(arg0: java_nio_file_Path): java_io_BufferedReader;
+static newBufferedWriter(arg0: java_nio_file_Path, ...arg1: java_nio_file_OpenOption[]): java_io_BufferedWriter;
+static newBufferedWriter(arg0: java_nio_file_Path, arg1: java_nio_charset_Charset, ...arg2: java_nio_file_OpenOption[]): java_io_BufferedWriter;
+static readString(arg0: java_nio_file_Path): string;
+static readString(arg0: java_nio_file_Path, arg1: java_nio_charset_Charset): string;
+static readAllLines(arg0: java_nio_file_Path, arg1: java_nio_charset_Charset): java_util_List<string>;
+static readAllLines(arg0: java_nio_file_Path): java_util_List<string>;
+static writeString(arg0: java_nio_file_Path, arg1: java_lang_CharSequence, ...arg2: java_nio_file_OpenOption[]): java_nio_file_Path;
+static writeString(arg0: java_nio_file_Path, arg1: java_lang_CharSequence, arg2: java_nio_charset_Charset, ...arg3: java_nio_file_OpenOption[]): java_nio_file_Path;
+static readAttributes<A extends java_nio_file_attribute_BasicFileAttributes>(arg0: java_nio_file_Path, arg1: java_lang_Class<A>, ...arg2: java_nio_file_LinkOption[]): A;
+static readAttributes(arg0: java_nio_file_Path, arg1: string, ...arg2: java_nio_file_LinkOption[]): java_util_Map<string, java_lang_Object>;
+static getFileStore(arg0: java_nio_file_Path): java_nio_file_FileStore;
+static getFileAttributeView<V extends java_nio_file_attribute_FileAttributeView>(arg0: java_nio_file_Path, arg1: java_lang_Class<V>, ...arg2: java_nio_file_LinkOption[]): V;
+static newByteChannel(arg0: java_nio_file_Path, ...arg1: java_nio_file_OpenOption[]): java_nio_channels_SeekableByteChannel;
+static newByteChannel(arg0: java_nio_file_Path, arg1: java_util_Set<java_nio_file_OpenOption>, ...arg2: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_channels_SeekableByteChannel;
+static move(arg0: java_nio_file_Path, arg1: java_nio_file_Path, ...arg2: java_nio_file_CopyOption[]): java_nio_file_Path;
+static isSameFile(arg0: java_nio_file_Path, arg1: java_nio_file_Path): boolean;
+static createSymbolicLink(arg0: java_nio_file_Path, arg1: java_nio_file_Path, ...arg2: java_nio_file_attribute_FileAttribute<java_lang_Object>[]): java_nio_file_Path;
+static createLink(arg0: java_nio_file_Path, arg1: java_nio_file_Path): java_nio_file_Path;
+static readSymbolicLink(arg0: java_nio_file_Path): java_nio_file_Path;
+static setAttribute(arg0: java_nio_file_Path, arg1: string, arg2: java_lang_Object, ...arg3: java_nio_file_LinkOption[]): java_nio_file_Path;
+static deleteIfExists(arg0: java_nio_file_Path): boolean;
+static newInputStream(arg0: java_nio_file_Path, ...arg1: java_nio_file_OpenOption[]): java_io_InputStream;
+static newOutputStream(arg0: java_nio_file_Path, ...arg1: java_nio_file_OpenOption[]): java_io_OutputStream;
+static newDirectoryStream(arg0: java_nio_file_Path, arg1: java_nio_file_DirectoryStream_Filter<java_lang_Object>): java_nio_file_DirectoryStream<java_nio_file_Path>;
+static newDirectoryStream(arg0: java_nio_file_Path): java_nio_file_DirectoryStream<java_nio_file_Path>;
+static newDirectoryStream(arg0: java_nio_file_Path, arg1: string): java_nio_file_DirectoryStream<java_nio_file_Path>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.file' {
+import { FileVisitOption as java_nio_file_FileVisitOption } from 'java.nio.file';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class FileVisitOption extends java_lang_Enum<java_nio_file_FileVisitOption> {
+static FOLLOW_LINKS: java_nio_file_FileVisitOption;
+static $VALUES: java_nio_file_FileVisitOption[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_nio_file_FileVisitOption[];
+static valueOf(arg0: string): java_nio_file_FileVisitOption;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.file.attribute' {
+import { PosixFilePermission as java_nio_file_attribute_PosixFilePermission } from 'java.nio.file.attribute';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class PosixFilePermission extends java_lang_Enum<java_nio_file_attribute_PosixFilePermission> {
+static OWNER_READ: java_nio_file_attribute_PosixFilePermission;
+static OWNER_WRITE: java_nio_file_attribute_PosixFilePermission;
+static OWNER_EXECUTE: java_nio_file_attribute_PosixFilePermission;
+static GROUP_READ: java_nio_file_attribute_PosixFilePermission;
+static GROUP_WRITE: java_nio_file_attribute_PosixFilePermission;
+static GROUP_EXECUTE: java_nio_file_attribute_PosixFilePermission;
+static OTHERS_READ: java_nio_file_attribute_PosixFilePermission;
+static OTHERS_WRITE: java_nio_file_attribute_PosixFilePermission;
+static OTHERS_EXECUTE: java_nio_file_attribute_PosixFilePermission;
+static $VALUES: java_nio_file_attribute_PosixFilePermission[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_nio_file_attribute_PosixFilePermission[];
+static valueOf(arg0: string): java_nio_file_attribute_PosixFilePermission;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.file' {
+import { BasicFileAttributes as java_nio_file_attribute_BasicFileAttributes } from 'java.nio.file.attribute';
+import { FileVisitResult as java_nio_file_FileVisitResult } from 'java.nio.file';
+import { IOException as java_io_IOException } from 'java.io';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class FileVisitor<T extends java_lang_Object> {
+
+visitFile(arg0: T, arg1: java_nio_file_attribute_BasicFileAttributes): java_nio_file_FileVisitResult;
+visitFileFailed(arg0: T, arg1: java_io_IOException): java_nio_file_FileVisitResult;
+preVisitDirectory(arg0: T, arg1: java_nio_file_attribute_BasicFileAttributes): java_nio_file_FileVisitResult;
+postVisitDirectory(arg0: T, arg1: java_io_IOException): java_nio_file_FileVisitResult;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.file' {
+import { FileVisitResult as java_nio_file_FileVisitResult } from 'java.nio.file';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class FileVisitResult extends java_lang_Enum<java_nio_file_FileVisitResult> {
+static CONTINUE: java_nio_file_FileVisitResult;
+static TERMINATE: java_nio_file_FileVisitResult;
+static SKIP_SUBTREE: java_nio_file_FileVisitResult;
+static SKIP_SIBLINGS: java_nio_file_FileVisitResult;
+static $VALUES: java_nio_file_FileVisitResult[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_nio_file_FileVisitResult[];
+static valueOf(arg0: string): java_nio_file_FileVisitResult;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.file' {
+import { Path as java_nio_file_Path } from 'java.nio.file';
+import { URI as java_net_URI } from 'java.net';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Paths extends java_lang_Object {
+
+static get(arg0: string, ...arg1: string[]): java_nio_file_Path;
+static get(arg0: java_net_URI): java_nio_file_Path;
+
+  }
+}
