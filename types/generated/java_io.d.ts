@@ -1,83 +1,6 @@
 //@ts-nocheck
 
 declare module 'java.io' {
-import { OutputStream as java_io_OutputStream, InputStream as java_io_InputStream, Closeable as java_io_Closeable } from 'java.io';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class InputStream extends java_lang_Object implements java_io_Closeable {
-static MAX_SKIP_BUFFER_SIZE: number;
-static DEFAULT_BUFFER_SIZE: number;
-static MAX_BUFFER_SIZE: number;
-read(arg0: number[], arg1: number, arg2: number): number;
-read(arg0: number[]): number;
-read(): number;
-close(): void;
-mark(arg0: number): void;
-readAllBytes(): number[];
-readNBytes(arg0: number[], arg1: number, arg2: number): number;
-readNBytes(arg0: number): number[];
-transferTo(arg0: java_io_OutputStream): number;
-skip(arg0: number): number;
-available(): number;
-markSupported(): boolean;
-reset(): void;
-static nullInputStream(): java_io_InputStream;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-import { OutputStream as java_io_OutputStream, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class OutputStream extends java_lang_Object implements java_io_Closeable, java_io_Flushable {
-
-write(arg0: number[], arg1: number, arg2: number): void;
-write(arg0: number[]): void;
-write(arg0: number): void;
-flush(): void;
-close(): void;
-static nullOutputStream(): java_io_OutputStream;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
-
-  export class Closeable implements java_lang_AutoCloseable {
-
-close(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-
-
-  export class Flushable {
-
-flush(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-
-
-  export class Serializable {
-
-
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
 import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Class as java_lang_Class } from 'java.lang';
 import { PrintWriter as java_io_PrintWriter, Writer as java_io_Writer, File as java_io_File, OutputStream as java_io_OutputStream, PrintStream as java_io_PrintStream } from 'java.io';
 import { Locale as java_util_Locale, Formatter as java_util_Formatter } from 'java.util';
@@ -155,27 +78,77 @@ constructor(arg0: java_io_OutputStream);
 //@ts-nocheck
 
 declare module 'java.io' {
-import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object } from 'java.lang';
-import { Writer as java_io_Writer, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
+import { OutputStream as java_io_OutputStream, InputStream as java_io_InputStream, Closeable as java_io_Closeable } from 'java.io';
+import { Object as java_lang_Object } from 'java.lang';
 
-  export class Writer extends java_lang_Object implements java_lang_Appendable, java_io_Closeable, java_io_Flushable {
-writeBuffer: string[];
-static WRITE_BUFFER_SIZE: number;
-lock: java_lang_Object;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_Writer;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
-append(arg0: string): java_io_Writer;
-append(arg0: string): java_lang_Appendable;
-append(arg0: java_lang_CharSequence): java_lang_Appendable;
-append(arg0: java_lang_CharSequence): java_io_Writer;
+  export class InputStream extends java_lang_Object implements java_io_Closeable {
+static MAX_SKIP_BUFFER_SIZE: number;
+static DEFAULT_BUFFER_SIZE: number;
+static MAX_BUFFER_SIZE: number;
+read(arg0: number[], arg1: number, arg2: number): number;
+read(arg0: number[]): number;
+read(): number;
+close(): void;
+mark(arg0: number): void;
+readAllBytes(): number[];
+readNBytes(arg0: number[], arg1: number, arg2: number): number;
+readNBytes(arg0: number): number[];
+transferTo(arg0: java_io_OutputStream): number;
+skip(arg0: number): number;
+available(): number;
+markSupported(): boolean;
+reset(): void;
+static nullInputStream(): java_io_InputStream;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { OutputStream as java_io_OutputStream, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class OutputStream extends java_lang_Object implements java_io_Closeable, java_io_Flushable {
+
+write(arg0: number[], arg1: number, arg2: number): void;
+write(arg0: number[]): void;
 write(arg0: number): void;
-write(arg0: string[]): void;
-write(arg0: string[], arg1: number, arg2: number): void;
-write(arg0: string): void;
-write(arg0: string, arg1: number, arg2: number): void;
 flush(): void;
 close(): void;
-static nullWriter(): java_io_Writer;
+static nullOutputStream(): java_io_OutputStream;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
+
+  export class Closeable implements java_lang_AutoCloseable {
+
+close(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+
+
+  export class Flushable {
+
+flush(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+
+
+  export class Serializable {
+
+
 
   }
 }
@@ -209,6 +182,78 @@ getOffset(): number;
 isUnshared(): boolean;
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>);
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>, arg2: boolean);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Class as java_lang_Class } from 'java.lang';
+import { PrintStream as java_io_PrintStream, OutputStream as java_io_OutputStream, File as java_io_File, BufferedWriter as java_io_BufferedWriter, OutputStreamWriter as java_io_OutputStreamWriter, FilterOutputStream as java_io_FilterOutputStream, Closeable as java_io_Closeable } from 'java.io';
+import { Locale as java_util_Locale, Formatter as java_util_Formatter } from 'java.util';
+import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
+
+  export class PrintStream extends java_io_FilterOutputStream implements java_lang_Appendable, java_io_Closeable {
+autoFlush: boolean;
+trouble: boolean;
+formatter: java_util_Formatter;
+textOut: java_io_BufferedWriter;
+charOut: java_io_OutputStreamWriter;
+closing: boolean;
+class: java_lang_Class<java_lang_Object>;
+println(arg0: number): void;
+println(arg0: number): void;
+println(arg0: number): void;
+println(arg0: java_lang_Object): void;
+println(arg0: string[]): void;
+println(arg0: string): void;
+println(): void;
+println(arg0: boolean): void;
+println(arg0: string): void;
+println(arg0: number): void;
+append(arg0: java_lang_CharSequence): java_lang_Appendable;
+append(arg0: java_lang_CharSequence): java_io_PrintStream;
+append(arg0: string): java_lang_Appendable;
+append(arg0: string): java_io_PrintStream;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_PrintStream;
+format(arg0: java_util_Locale, arg1: string, ...arg2: java_lang_Object[]): java_io_PrintStream;
+format(arg0: string, ...arg1: java_lang_Object[]): java_io_PrintStream;
+write(arg0: number): void;
+write(arg0: number[], arg1: number, arg2: number): void;
+print(arg0: boolean): void;
+print(arg0: number): void;
+print(arg0: number): void;
+print(arg0: number): void;
+print(arg0: java_lang_Object): void;
+print(arg0: string): void;
+print(arg0: string[]): void;
+print(arg0: string): void;
+print(arg0: number): void;
+flush(): void;
+close(): void;
+checkError(): boolean;
+printf(arg0: string, ...arg1: java_lang_Object[]): java_io_PrintStream;
+printf(arg0: java_util_Locale, arg1: string, ...arg2: java_lang_Object[]): java_io_PrintStream;
+static nullOutputStream(): java_io_OutputStream;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: string, arg1: string);
+constructor(arg0: string);
+constructor(arg0: java_io_OutputStream, arg1: boolean, arg2: java_nio_charset_Charset);
+constructor(arg0: java_io_OutputStream, arg1: boolean, arg2: string);
+constructor(arg0: string, arg1: java_nio_charset_Charset);
+constructor(arg0: java_io_File, arg1: string);
+constructor(arg0: java_io_File, arg1: java_nio_charset_Charset);
+constructor(arg0: java_io_File);
+constructor(arg0: java_io_OutputStream);
+constructor(arg0: java_io_OutputStream, arg1: boolean);
   }
 }
 //@ts-nocheck
@@ -329,243 +374,6 @@ accept(arg0: java_io_File): boolean;
 //@ts-nocheck
 
 declare module 'java.io' {
-import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Class as java_lang_Class } from 'java.lang';
-import { PrintStream as java_io_PrintStream, OutputStream as java_io_OutputStream, File as java_io_File, BufferedWriter as java_io_BufferedWriter, OutputStreamWriter as java_io_OutputStreamWriter, FilterOutputStream as java_io_FilterOutputStream, Closeable as java_io_Closeable } from 'java.io';
-import { Locale as java_util_Locale, Formatter as java_util_Formatter } from 'java.util';
-import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
-
-  export class PrintStream extends java_io_FilterOutputStream implements java_lang_Appendable, java_io_Closeable {
-autoFlush: boolean;
-trouble: boolean;
-formatter: java_util_Formatter;
-textOut: java_io_BufferedWriter;
-charOut: java_io_OutputStreamWriter;
-closing: boolean;
-class: java_lang_Class<java_lang_Object>;
-println(arg0: number): void;
-println(arg0: number): void;
-println(arg0: number): void;
-println(arg0: java_lang_Object): void;
-println(arg0: string[]): void;
-println(arg0: string): void;
-println(): void;
-println(arg0: boolean): void;
-println(arg0: string): void;
-println(arg0: number): void;
-append(arg0: java_lang_CharSequence): java_lang_Appendable;
-append(arg0: java_lang_CharSequence): java_io_PrintStream;
-append(arg0: string): java_lang_Appendable;
-append(arg0: string): java_io_PrintStream;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_PrintStream;
-format(arg0: java_util_Locale, arg1: string, ...arg2: java_lang_Object[]): java_io_PrintStream;
-format(arg0: string, ...arg1: java_lang_Object[]): java_io_PrintStream;
-write(arg0: number): void;
-write(arg0: number[], arg1: number, arg2: number): void;
-print(arg0: boolean): void;
-print(arg0: number): void;
-print(arg0: number): void;
-print(arg0: number): void;
-print(arg0: java_lang_Object): void;
-print(arg0: string): void;
-print(arg0: string[]): void;
-print(arg0: string): void;
-print(arg0: number): void;
-flush(): void;
-close(): void;
-checkError(): boolean;
-printf(arg0: string, ...arg1: java_lang_Object[]): java_io_PrintStream;
-printf(arg0: java_util_Locale, arg1: string, ...arg2: java_lang_Object[]): java_io_PrintStream;
-static nullOutputStream(): java_io_OutputStream;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: string, arg1: string);
-constructor(arg0: string);
-constructor(arg0: java_io_OutputStream, arg1: boolean, arg2: java_nio_charset_Charset);
-constructor(arg0: java_io_OutputStream, arg1: boolean, arg2: string);
-constructor(arg0: string, arg1: java_nio_charset_Charset);
-constructor(arg0: java_io_File, arg1: string);
-constructor(arg0: java_io_File, arg1: java_nio_charset_Charset);
-constructor(arg0: java_io_File);
-constructor(arg0: java_io_OutputStream);
-constructor(arg0: java_io_OutputStream, arg1: boolean);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
-import { Throwable as java_lang_Throwable, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object, Class as java_lang_Class, Exception as java_lang_Exception } from 'java.lang';
-
-  export class IOException extends java_lang_Exception {
-static serialVersionUID: number;
-cause: java_lang_Throwable;
-message: string;
-suppressed: java_lang_Throwable[];
-localizedMessage: string;
-stackTrace: java_lang_StackTraceElement[];
-class: java_lang_Class<java_lang_Object>;
-printStackTrace(): void;
-printStackTrace(arg0: java_io_PrintWriter): void;
-printStackTrace(arg0: java_io_PrintStream): void;
-fillInStackTrace(): java_lang_Throwable;
-getCause(): java_lang_Throwable;
-initCause(arg0: java_lang_Throwable): java_lang_Throwable;
-toString(): string;
-getMessage(): string;
-getSuppressed(): java_lang_Throwable[];
-getLocalizedMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
-addSuppressed(arg0: java_lang_Throwable): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: java_lang_Throwable);
-constructor(arg0: string, arg1: java_lang_Throwable);
-constructor(arg0: string);
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Writer as java_io_Writer } from 'java.io';
-
-  export class BufferedWriter extends java_io_Writer {
-out: java_io_Writer;
-cb: string[];
-nChars: number;
-nextChar: number;
-static defaultCharBufferSize: number;
-class: java_lang_Class<java_lang_Object>;
-write(arg0: string[], arg1: number, arg2: number): void;
-write(arg0: number): void;
-write(arg0: string, arg1: number, arg2: number): void;
-newLine(): void;
-flush(): void;
-close(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: java_io_Writer);
-constructor(arg0: java_io_Writer, arg1: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Writer as java_io_Writer, OutputStream as java_io_OutputStream } from 'java.io';
-import { CharsetEncoder as java_nio_charset_CharsetEncoder, Charset as java_nio_charset_Charset } from 'java.nio.charset';
-import { StreamEncoder as sun_nio_cs_StreamEncoder } from 'sun.nio.cs';
-
-  export class OutputStreamWriter extends java_io_Writer {
-se: sun_nio_cs_StreamEncoder;
-encoding: string;
-class: java_lang_Class<java_lang_Object>;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_Writer;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
-append(arg0: java_lang_CharSequence): java_lang_Appendable;
-append(arg0: java_lang_CharSequence): java_io_Writer;
-write(arg0: string[], arg1: number, arg2: number): void;
-write(arg0: number): void;
-write(arg0: string, arg1: number, arg2: number): void;
-flush(): void;
-close(): void;
-getEncoding(): string;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_CharsetEncoder);
-constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_Charset);
-constructor(arg0: java_io_OutputStream);
-constructor(arg0: java_io_OutputStream, arg1: string);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { OutputStream as java_io_OutputStream } from 'java.io';
-
-  export class FilterOutputStream extends java_io_OutputStream {
-out: java_io_OutputStream;
-closed: boolean;
-closeLock: java_lang_Object;
-class: java_lang_Class<java_lang_Object>;
-write(arg0: number[], arg1: number, arg2: number): void;
-write(arg0: number[]): void;
-write(arg0: number): void;
-flush(): void;
-close(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: java_io_OutputStream);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
-import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
-import { Writer as java_io_Writer, Reader as java_io_Reader, Closeable as java_io_Closeable } from 'java.io';
-import { Object as java_lang_Object, Readable as java_lang_Readable } from 'java.lang';
-
-  export class Reader extends java_lang_Object implements java_lang_Readable, java_io_Closeable {
-static TRANSFER_BUFFER_SIZE: number;
-lock: java_lang_Object;
-static maxSkipBufferSize: number;
-skipBuffer: string[];
-read(arg0: string[]): number;
-read(arg0: string[], arg1: number, arg2: number): number;
-read(arg0: java_nio_CharBuffer): number;
-read(): number;
-close(): void;
-mark(arg0: number): void;
-transferTo(arg0: java_io_Writer): number;
-skip(arg0: number): number;
-markSupported(): boolean;
-reset(): void;
-static nullReader(): java_io_Reader;
-ready(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.io' {
 import { Closeable as java_io_Closeable, FileDescriptor as java_io_FileDescriptor } from 'java.io';
 import { List as java_util_List } from 'java.util';
 import { PhantomCleanable as jdk_internal_ref_PhantomCleanable } from 'jdk.internal.ref';
@@ -663,6 +471,198 @@ wait(): void;
 getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
+import { Throwable as java_lang_Throwable, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object, Class as java_lang_Class, Exception as java_lang_Exception } from 'java.lang';
+
+  export class IOException extends java_lang_Exception {
+static serialVersionUID: number;
+cause: java_lang_Throwable;
+message: string;
+suppressed: java_lang_Throwable[];
+localizedMessage: string;
+stackTrace: java_lang_StackTraceElement[];
+class: java_lang_Class<java_lang_Object>;
+printStackTrace(): void;
+printStackTrace(arg0: java_io_PrintWriter): void;
+printStackTrace(arg0: java_io_PrintStream): void;
+fillInStackTrace(): java_lang_Throwable;
+getCause(): java_lang_Throwable;
+initCause(arg0: java_lang_Throwable): java_lang_Throwable;
+toString(): string;
+getMessage(): string;
+getSuppressed(): java_lang_Throwable[];
+getLocalizedMessage(): string;
+getStackTrace(): java_lang_StackTraceElement[];
+setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+addSuppressed(arg0: java_lang_Throwable): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: java_lang_Throwable);
+constructor(arg0: string, arg1: java_lang_Throwable);
+constructor(arg0: string);
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Writer as java_io_Writer } from 'java.io';
+
+  export class BufferedWriter extends java_io_Writer {
+out: java_io_Writer;
+cb: string[];
+nChars: number;
+nextChar: number;
+static defaultCharBufferSize: number;
+class: java_lang_Class<java_lang_Object>;
+write(arg0: string[], arg1: number, arg2: number): void;
+write(arg0: number): void;
+write(arg0: string, arg1: number, arg2: number): void;
+newLine(): void;
+flush(): void;
+close(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: java_io_Writer);
+constructor(arg0: java_io_Writer, arg1: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object } from 'java.lang';
+import { Writer as java_io_Writer, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
+
+  export class Writer extends java_lang_Object implements java_lang_Appendable, java_io_Closeable, java_io_Flushable {
+writeBuffer: string[];
+static WRITE_BUFFER_SIZE: number;
+lock: java_lang_Object;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_Writer;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
+append(arg0: string): java_io_Writer;
+append(arg0: string): java_lang_Appendable;
+append(arg0: java_lang_CharSequence): java_lang_Appendable;
+append(arg0: java_lang_CharSequence): java_io_Writer;
+write(arg0: number): void;
+write(arg0: string[]): void;
+write(arg0: string[], arg1: number, arg2: number): void;
+write(arg0: string): void;
+write(arg0: string, arg1: number, arg2: number): void;
+flush(): void;
+close(): void;
+static nullWriter(): java_io_Writer;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Writer as java_io_Writer, OutputStream as java_io_OutputStream } from 'java.io';
+import { CharsetEncoder as java_nio_charset_CharsetEncoder, Charset as java_nio_charset_Charset } from 'java.nio.charset';
+import { StreamEncoder as sun_nio_cs_StreamEncoder } from 'sun.nio.cs';
+
+  export class OutputStreamWriter extends java_io_Writer {
+se: sun_nio_cs_StreamEncoder;
+encoding: string;
+class: java_lang_Class<java_lang_Object>;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_io_Writer;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
+append(arg0: java_lang_CharSequence): java_lang_Appendable;
+append(arg0: java_lang_CharSequence): java_io_Writer;
+write(arg0: string[], arg1: number, arg2: number): void;
+write(arg0: number): void;
+write(arg0: string, arg1: number, arg2: number): void;
+flush(): void;
+close(): void;
+getEncoding(): string;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_CharsetEncoder);
+constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_Charset);
+constructor(arg0: java_io_OutputStream);
+constructor(arg0: java_io_OutputStream, arg1: string);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { OutputStream as java_io_OutputStream } from 'java.io';
+
+  export class FilterOutputStream extends java_io_OutputStream {
+out: java_io_OutputStream;
+closed: boolean;
+closeLock: java_lang_Object;
+class: java_lang_Class<java_lang_Object>;
+write(arg0: number[], arg1: number, arg2: number): void;
+write(arg0: number[]): void;
+write(arg0: number): void;
+flush(): void;
+close(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: java_io_OutputStream);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.io' {
+import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
+import { Writer as java_io_Writer, Reader as java_io_Reader, Closeable as java_io_Closeable } from 'java.io';
+import { Object as java_lang_Object, Readable as java_lang_Readable } from 'java.lang';
+
+  export class Reader extends java_lang_Object implements java_lang_Readable, java_io_Closeable {
+static TRANSFER_BUFFER_SIZE: number;
+lock: java_lang_Object;
+static maxSkipBufferSize: number;
+skipBuffer: string[];
+read(arg0: string[]): number;
+read(arg0: string[], arg1: number, arg2: number): number;
+read(arg0: java_nio_CharBuffer): number;
+read(): number;
+close(): void;
+mark(arg0: number): void;
+transferTo(arg0: java_io_Writer): number;
+skip(arg0: number): number;
+markSupported(): boolean;
+reset(): void;
+static nullReader(): java_io_Reader;
+ready(): boolean;
 
   }
 }

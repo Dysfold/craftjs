@@ -371,55 +371,59 @@ static setContentHandlerFactory(arg0: java_net_ContentHandlerFactory): void;
 //@ts-nocheck
 
 declare module 'java.net' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Permission as java_security_Permission, PermissionCollection as java_security_PermissionCollection } from 'java.security';
-import { InetAddress as java_net_InetAddress } from 'java.net';
-import { Debug as sun_security_util_Debug } from 'sun.security.util';
-import { Serializable as java_io_Serializable } from 'java.io';
 
-  export class SocketPermission extends java_security_Permission implements java_io_Serializable {
-static serialVersionUID: number;
-static CONNECT: number;
-static LISTEN: number;
-static ACCEPT: number;
-static RESOLVE: number;
-static NONE: number;
-static ALL: number;
-static PORT_MIN: number;
-static PORT_MAX: number;
-static PRIV_PORT_MAX: number;
-static DEF_EPH_LOW: number;
-mask: number;
-actions: string;
-hostname: string;
-cname: string;
-addresses: java_net_InetAddress[];
-wildcard: boolean;
-init_with_ip: boolean;
-invalid: boolean;
-portrange: number[];
-defaultDeny: boolean;
-untrusted: boolean;
-trusted: boolean;
-static trustNameService: boolean;
-static debug: sun_security_util_Debug;
-static debugInit: boolean;
-cdomain: string;
-hdomain: string;
-actions: string;
-class: java_lang_Class<java_lang_Object>;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-implies(arg0: java_security_Permission): boolean;
-getActions(): string;
-newPermissionCollection(): java_security_PermissionCollection;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: string, arg1: string);
+
+  export class FileNameMap {
+contentTypeFor: string;
+getContentTypeFor(arg0: string): string;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { ContentHandler as java_net_ContentHandler } from 'java.net';
+
+  export class ContentHandlerFactory {
+
+createContentHandler(arg0: string): java_net_ContentHandler;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { URLConnection as java_net_URLConnection } from 'java.net';
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+
+  export class ContentHandler extends java_lang_Object {
+content: java_lang_Object;
+content: java_lang_Object;
+getContent(arg0: java_net_URLConnection): java_lang_Object;
+getContent(arg0: java_net_URLConnection, arg1: java_lang_Class[]): java_lang_Object;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { URLStreamHandler as java_net_URLStreamHandler } from 'java.net';
+
+  export class URLStreamHandlerFactory {
+
+createURLStreamHandler(arg0: string): java_net_URLStreamHandler;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class URLStreamHandler extends java_lang_Object {
+
+
+constructor();
   }
 }
 //@ts-nocheck
@@ -696,64 +700,6 @@ expiryTime: number;
 //@ts-nocheck
 
 declare module 'java.net' {
-
-
-  export class FileNameMap {
-contentTypeFor: string;
-getContentTypeFor(arg0: string): string;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.net' {
-import { ContentHandler as java_net_ContentHandler } from 'java.net';
-
-  export class ContentHandlerFactory {
-
-createContentHandler(arg0: string): java_net_ContentHandler;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.net' {
-import { URLConnection as java_net_URLConnection } from 'java.net';
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-
-  export class ContentHandler extends java_lang_Object {
-content: java_lang_Object;
-content: java_lang_Object;
-getContent(arg0: java_net_URLConnection): java_lang_Object;
-getContent(arg0: java_net_URLConnection, arg1: java_lang_Class[]): java_lang_Object;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.net' {
-import { URLStreamHandler as java_net_URLStreamHandler } from 'java.net';
-
-  export class URLStreamHandlerFactory {
-
-createURLStreamHandler(arg0: string): java_net_URLStreamHandler;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.net' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class URLStreamHandler extends java_lang_Object {
-
-
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
 
   export class UrlDeserializedState extends java_lang_Object {
@@ -766,6 +712,60 @@ ref: string;
 hashCode: number;
 
 constructor(arg0: string, arg1: string, arg2: number, arg3: string, arg4: string, arg5: string, arg6: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.net' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Permission as java_security_Permission, PermissionCollection as java_security_PermissionCollection } from 'java.security';
+import { InetAddress as java_net_InetAddress } from 'java.net';
+import { Debug as sun_security_util_Debug } from 'sun.security.util';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class SocketPermission extends java_security_Permission implements java_io_Serializable {
+static serialVersionUID: number;
+static CONNECT: number;
+static LISTEN: number;
+static ACCEPT: number;
+static RESOLVE: number;
+static NONE: number;
+static ALL: number;
+static PORT_MIN: number;
+static PORT_MAX: number;
+static PRIV_PORT_MAX: number;
+static DEF_EPH_LOW: number;
+mask: number;
+actions: string;
+hostname: string;
+cname: string;
+addresses: java_net_InetAddress[];
+wildcard: boolean;
+init_with_ip: boolean;
+invalid: boolean;
+portrange: number[];
+defaultDeny: boolean;
+untrusted: boolean;
+trusted: boolean;
+static trustNameService: boolean;
+static debug: sun_security_util_Debug;
+static debugInit: boolean;
+cdomain: string;
+hdomain: string;
+actions: string;
+class: java_lang_Class<java_lang_Object>;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+implies(arg0: java_security_Permission): boolean;
+getActions(): string;
+newPermissionCollection(): java_security_PermissionCollection;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: string, arg1: string);
   }
 }
 //@ts-nocheck

@@ -63,6 +63,7 @@
     "../types/**/*"
   ],
   "exclude": [
-    "javadocs/**/*"
+    "javadocs/**/*",
+    "node_modules/**/*"
   ]
 }

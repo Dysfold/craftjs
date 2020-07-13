@@ -1,14 +1,97 @@
 //@ts-nocheck
 
 declare module 'java.util' {
-import { Iterator as java_util_Iterator } from 'java.util';
+import { Object as java_lang_Object } from 'java.lang';
+import { Collection as java_util_Collection, Map as java_util_Map, Set as java_util_Set } from 'java.util';
+import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
+import { Entry as java_util_Map_Entry } from 'java.util.Map';
+
+  export class Map<K extends java_lang_Object, V extends java_lang_Object> {
+orDefault: V;
+remove(arg0: java_lang_Object): V;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+get(arg0: java_lang_Object): V;
+put(arg0: K, arg1: V): V;
+equals(arg0: java_lang_Object): boolean;
+values(): java_util_Collection<V>;
+hashCode(): number;
+static copyOf<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Map<K, V>): java_util_Map<K, V>;
+clear(): void;
+isEmpty(): boolean;
+replace(arg0: K, arg1: V): V;
+replace(arg0: K, arg1: V, arg2: V): boolean;
+replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
+size(): number;
+merge(arg0: K, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
+putAll(arg0: java_util_Map<K, V>): void;
+static entry<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V): java_util_Map_Entry<K, V>;
+putIfAbsent(arg0: K, arg1: V): V;
+compute(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V, arg18: K, arg19: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V): java_util_Map<K, V>;
+static of<K extends java_lang_Object, V extends java_lang_Object>(): java_util_Map<K, V>;
+forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+containsKey(arg0: java_lang_Object): boolean;
+computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
+containsValue(arg0: java_lang_Object): boolean;
+keySet(): java_util_Set<K>;
+getOrDefault(arg0: java_lang_Object, arg1: V): V;
+computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+static ofEntries<K extends java_lang_Object, V extends java_lang_Object>(...arg0: java_util_Map_Entry<K, V>[]): java_util_Map<K, V>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
+import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection } from 'java.util';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class Collection<E extends java_lang_Object> implements java_lang_Iterable<E> {
+
+add(arg0: E): boolean;
+remove(arg0: java_lang_Object): boolean;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+clear(): void;
+isEmpty(): boolean;
+contains(arg0: java_lang_Object): boolean;
+size(): number;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray(): java_lang_Object[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+iterator(): java_util_Iterator<E>;
+spliterator(): java_util_Spliterator<E>;
+addAll(arg0: java_util_Collection<E>): boolean;
+stream(): java_util_stream_Stream<E>;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+parallelStream(): java_util_stream_Stream<E>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
 
-  export class Enumeration<E extends java_lang_Object> {
+  export class IntFunction<R extends java_lang_Object> {
 
-asIterator(): java_util_Iterator<E>;
-hasMoreElements(): boolean;
-nextElement(): E;
+apply(arg0: number): R;
 
   }
 }
@@ -45,66 +128,30 @@ andThen(arg0: java_util_function_Consumer<java_lang_Object>): java_util_function
 }
 //@ts-nocheck
 
-declare module 'java.util.stream' {
-import { Comparator as java_util_Comparator, Optional as java_util_Optional, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
-import { Object as java_lang_Object, Runnable as java_lang_Runnable } from 'java.lang';
-import { Builder as java_util_stream_Stream_Builder } from 'java.util.stream.Stream';
-import { Stream as java_util_stream_Stream, Collector as java_util_stream_Collector, IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, DoubleStream as java_util_stream_DoubleStream, BaseStream as java_util_stream_BaseStream } from 'java.util.stream';
-import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Supplier as java_util_function_Supplier, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function, Consumer as java_util_function_Consumer, BinaryOperator as java_util_function_BinaryOperator, BiFunction as java_util_function_BiFunction, UnaryOperator as java_util_function_UnaryOperator, ToIntFunction as java_util_function_ToIntFunction, ToLongFunction as java_util_function_ToLongFunction, ToDoubleFunction as java_util_function_ToDoubleFunction } from 'java.util.function';
+declare module 'java.util' {
+import { Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
 
-  export class Stream<T extends java_lang_Object> implements java_util_stream_BaseStream<T, java_util_stream_Stream<T>> {
-
-min(arg0: java_util_Comparator<java_lang_Object>): java_util_Optional<T>;
-max(arg0: java_util_Comparator<java_lang_Object>): java_util_Optional<T>;
-count(): number;
-static builder<T extends java_lang_Object>(): java_util_stream_Stream_Builder<T>;
-static concat<T extends java_lang_Object>(arg0: java_util_stream_Stream<T>, arg1: java_util_stream_Stream<T>): java_util_stream_Stream<T>;
-limit(arg0: number): java_util_stream_Stream<T>;
-toArray(): java_lang_Object[];
-toArray<A extends java_lang_Object>(arg0: java_util_function_IntFunction<A[]>): A[];
-static empty<T extends java_lang_Object>(): java_util_stream_Stream<T>;
-filter(arg0: java_util_function_Predicate<java_lang_Object>): java_util_stream_Stream<T>;
-collect<R extends java_lang_Object, A extends java_lang_Object>(arg0: java_util_stream_Collector<java_lang_Object, A, R>): R;
-collect<R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_BiConsumer<R, java_lang_Object>, arg2: java_util_function_BiConsumer<R, R>): R;
-map<R extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, R>): java_util_stream_Stream<R>;
-static of<T extends java_lang_Object>(arg0: T): java_util_stream_Stream<T>;
-static of<T extends java_lang_Object>(...arg0: T[]): java_util_stream_Stream<T>;
-flatMap<R extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, java_util_stream_Stream<R>>): java_util_stream_Stream<R>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-findAny(): java_util_Optional<T>;
-skip(arg0: number): java_util_stream_Stream<T>;
-peek(arg0: java_util_function_Consumer<java_lang_Object>): java_util_stream_Stream<T>;
-reduce(arg0: T, arg1: java_util_function_BinaryOperator<T>): T;
-reduce<U extends java_lang_Object>(arg0: U, arg1: java_util_function_BiFunction<U, java_lang_Object, U>, arg2: java_util_function_BinaryOperator<U>): U;
-reduce(arg0: java_util_function_BinaryOperator<T>): java_util_Optional<T>;
-static iterate<T extends java_lang_Object>(arg0: T, arg1: java_util_function_Predicate<java_lang_Object>, arg2: java_util_function_UnaryOperator<T>): java_util_stream_Stream<T>;
-static iterate<T extends java_lang_Object>(arg0: T, arg1: java_util_function_UnaryOperator<T>): java_util_stream_Stream<T>;
-static generate<T extends java_lang_Object>(arg0: java_util_function_Supplier<T>): java_util_stream_Stream<T>;
-distinct(): java_util_stream_Stream<T>;
-static ofNullable<T extends java_lang_Object>(arg0: T): java_util_stream_Stream<T>;
-findFirst(): java_util_Optional<T>;
-dropWhile(arg0: java_util_function_Predicate<java_lang_Object>): java_util_stream_Stream<T>;
-sorted(): java_util_stream_Stream<T>;
-sorted(arg0: java_util_Comparator<java_lang_Object>): java_util_stream_Stream<T>;
-allMatch(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-anyMatch(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-forEachOrdered(arg0: java_util_function_Consumer<java_lang_Object>): void;
-mapToInt(arg0: java_util_function_ToIntFunction<java_lang_Object>): java_util_stream_IntStream;
-mapToLong(arg0: java_util_function_ToLongFunction<java_lang_Object>): java_util_stream_LongStream;
-mapToDouble(arg0: java_util_function_ToDoubleFunction<java_lang_Object>): java_util_stream_DoubleStream;
-flatMapToInt(arg0: java_util_function_Function<java_lang_Object, java_util_stream_IntStream>): java_util_stream_IntStream;
-flatMapToDouble(arg0: java_util_function_Function<java_lang_Object, java_util_stream_DoubleStream>): java_util_stream_DoubleStream;
-flatMapToLong(arg0: java_util_function_Function<java_lang_Object, java_util_stream_LongStream>): java_util_stream_LongStream;
-takeWhile(arg0: java_util_function_Predicate<java_lang_Object>): java_util_stream_Stream<T>;
-noneMatch(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-iterator(): java_util_Iterator<T>;
-spliterator(): java_util_Spliterator<T>;
-close(): void;
-parallel(): S;
-onClose(arg0: java_lang_Runnable): S;
-unordered(): S;
-isParallel(): boolean;
-sequential(): S;
+  export class Spliterator<T extends java_lang_Object> {
+static ORDERED: number;
+static DISTINCT: number;
+static SORTED: number;
+static SIZED: number;
+static NONNULL: number;
+static IMMUTABLE: number;
+static CONCURRENT: number;
+static SUBSIZED: number;
+exactSizeIfKnown: number;
+comparator: java_util_Comparator<java_lang_Object>;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+characteristics(): number;
+estimateSize(): number;
+trySplit(): java_util_Spliterator<T>;
+tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
+getExactSizeIfKnown(): number;
+hasCharacteristics(arg0: number): boolean;
+getComparator(): java_util_Comparator<java_lang_Object>;
 
   }
 }
@@ -184,6 +231,71 @@ import { Object as java_lang_Object } from 'java.lang';
   export class ToDoubleFunction<T extends java_lang_Object> {
 
 applyAsDouble(arg0: T): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream' {
+import { Comparator as java_util_Comparator, Optional as java_util_Optional, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
+import { Object as java_lang_Object, Runnable as java_lang_Runnable } from 'java.lang';
+import { Builder as java_util_stream_Stream_Builder } from 'java.util.stream.Stream';
+import { Stream as java_util_stream_Stream, Collector as java_util_stream_Collector, IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, DoubleStream as java_util_stream_DoubleStream, BaseStream as java_util_stream_BaseStream } from 'java.util.stream';
+import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Supplier as java_util_function_Supplier, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function, Consumer as java_util_function_Consumer, BinaryOperator as java_util_function_BinaryOperator, BiFunction as java_util_function_BiFunction, UnaryOperator as java_util_function_UnaryOperator, ToIntFunction as java_util_function_ToIntFunction, ToLongFunction as java_util_function_ToLongFunction, ToDoubleFunction as java_util_function_ToDoubleFunction } from 'java.util.function';
+
+  export class Stream<T extends java_lang_Object> implements java_util_stream_BaseStream<T, java_util_stream_Stream<T>> {
+
+min(arg0: java_util_Comparator<java_lang_Object>): java_util_Optional<T>;
+max(arg0: java_util_Comparator<java_lang_Object>): java_util_Optional<T>;
+count(): number;
+static builder<T extends java_lang_Object>(): java_util_stream_Stream_Builder<T>;
+static concat<T extends java_lang_Object>(arg0: java_util_stream_Stream<T>, arg1: java_util_stream_Stream<T>): java_util_stream_Stream<T>;
+limit(arg0: number): java_util_stream_Stream<T>;
+toArray(): java_lang_Object[];
+toArray<A extends java_lang_Object>(arg0: java_util_function_IntFunction<A[]>): A[];
+static empty<T extends java_lang_Object>(): java_util_stream_Stream<T>;
+filter(arg0: java_util_function_Predicate<java_lang_Object>): java_util_stream_Stream<T>;
+collect<R extends java_lang_Object, A extends java_lang_Object>(arg0: java_util_stream_Collector<java_lang_Object, A, R>): R;
+collect<R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_BiConsumer<R, java_lang_Object>, arg2: java_util_function_BiConsumer<R, R>): R;
+map<R extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, R>): java_util_stream_Stream<R>;
+static of<T extends java_lang_Object>(arg0: T): java_util_stream_Stream<T>;
+static of<T extends java_lang_Object>(...arg0: T[]): java_util_stream_Stream<T>;
+flatMap<R extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, java_util_stream_Stream<R>>): java_util_stream_Stream<R>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+findAny(): java_util_Optional<T>;
+skip(arg0: number): java_util_stream_Stream<T>;
+peek(arg0: java_util_function_Consumer<java_lang_Object>): java_util_stream_Stream<T>;
+reduce(arg0: T, arg1: java_util_function_BinaryOperator<T>): T;
+reduce<U extends java_lang_Object>(arg0: U, arg1: java_util_function_BiFunction<U, java_lang_Object, U>, arg2: java_util_function_BinaryOperator<U>): U;
+reduce(arg0: java_util_function_BinaryOperator<T>): java_util_Optional<T>;
+static iterate<T extends java_lang_Object>(arg0: T, arg1: java_util_function_Predicate<java_lang_Object>, arg2: java_util_function_UnaryOperator<T>): java_util_stream_Stream<T>;
+static iterate<T extends java_lang_Object>(arg0: T, arg1: java_util_function_UnaryOperator<T>): java_util_stream_Stream<T>;
+static generate<T extends java_lang_Object>(arg0: java_util_function_Supplier<T>): java_util_stream_Stream<T>;
+distinct(): java_util_stream_Stream<T>;
+static ofNullable<T extends java_lang_Object>(arg0: T): java_util_stream_Stream<T>;
+findFirst(): java_util_Optional<T>;
+dropWhile(arg0: java_util_function_Predicate<java_lang_Object>): java_util_stream_Stream<T>;
+sorted(): java_util_stream_Stream<T>;
+sorted(arg0: java_util_Comparator<java_lang_Object>): java_util_stream_Stream<T>;
+allMatch(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+anyMatch(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+forEachOrdered(arg0: java_util_function_Consumer<java_lang_Object>): void;
+mapToInt(arg0: java_util_function_ToIntFunction<java_lang_Object>): java_util_stream_IntStream;
+mapToLong(arg0: java_util_function_ToLongFunction<java_lang_Object>): java_util_stream_LongStream;
+mapToDouble(arg0: java_util_function_ToDoubleFunction<java_lang_Object>): java_util_stream_DoubleStream;
+flatMapToInt(arg0: java_util_function_Function<java_lang_Object, java_util_stream_IntStream>): java_util_stream_IntStream;
+flatMapToDouble(arg0: java_util_function_Function<java_lang_Object, java_util_stream_DoubleStream>): java_util_stream_DoubleStream;
+flatMapToLong(arg0: java_util_function_Function<java_lang_Object, java_util_stream_LongStream>): java_util_stream_LongStream;
+takeWhile(arg0: java_util_function_Predicate<java_lang_Object>): java_util_stream_Stream<T>;
+noneMatch(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+iterator(): java_util_Iterator<T>;
+spliterator(): java_util_Spliterator<T>;
+close(): void;
+parallel(): S;
+onClose(arg0: java_lang_Runnable): S;
+unordered(): S;
+isParallel(): boolean;
+sequential(): S;
 
   }
 }
@@ -413,1003 +525,14 @@ hasNext(): boolean;
 //@ts-nocheck
 
 declare module 'java.util' {
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
 import { Iterator as java_util_Iterator } from 'java.util';
-
-  export class PrimitiveIterator<T extends java_lang_Object, T_CONS extends java_lang_Object> implements java_util_Iterator<T> {
-
-forEachRemaining(arg0: T_CONS): void;
-remove(): void;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-next(): E;
-hasNext(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
-
-  export class Spliterator<T extends java_lang_Object> {
-static ORDERED: number;
-static DISTINCT: number;
-static SORTED: number;
-static SIZED: number;
-static NONNULL: number;
-static IMMUTABLE: number;
-static CONCURRENT: number;
-static SUBSIZED: number;
-exactSizeIfKnown: number;
-comparator: java_util_Comparator<java_lang_Object>;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-characteristics(): number;
-estimateSize(): number;
-trySplit(): java_util_Spliterator<T>;
-tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
-getExactSizeIfKnown(): number;
-hasCharacteristics(arg0: number): boolean;
-getComparator(): java_util_Comparator<java_lang_Object>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Spliterator' {
-import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
-import { IntConsumer as java_util_function_IntConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { OfPrimitive as java_util_Spliterator_OfPrimitive, OfInt as java_util_Spliterator_OfInt } from 'java.util.Spliterator';
-import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
-
-  export class OfInt implements java_util_Spliterator_OfPrimitive<java_lang_Integer, java_util_function_IntConsumer, java_util_Spliterator_OfInt> {
-exactSizeIfKnown: number;
-comparator: java_util_Comparator<java_lang_Object>;
-forEachRemaining(arg0: java_lang_Object): void;
-forEachRemaining(arg0: java_util_function_IntConsumer): void;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-trySplit(): java_util_Spliterator_OfPrimitive;
-trySplit(): java_util_Spliterator;
-trySplit(): java_util_Spliterator_OfInt;
-tryAdvance(arg0: java_util_function_IntConsumer): boolean;
-tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
-tryAdvance(arg0: java_lang_Object): boolean;
-characteristics(): number;
-estimateSize(): number;
-getExactSizeIfKnown(): number;
-hasCharacteristics(arg0: number): boolean;
-getComparator(): java_util_Comparator<java_lang_Object>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Spliterator' {
-import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-import { OfPrimitive as java_util_Spliterator_OfPrimitive } from 'java.util.Spliterator';
-
-  export class OfPrimitive<T extends java_lang_Object, T_CONS extends java_lang_Object, T_SPLITR extends java_util_Spliterator_OfPrimitive<T, T_CONS, T_SPLITR>> implements java_util_Spliterator<T> {
-exactSizeIfKnown: number;
-comparator: java_util_Comparator<java_lang_Object>;
-forEachRemaining(arg0: T_CONS): void;
-trySplit(): java_util_Spliterator;
-trySplit(): T_SPLITR;
-tryAdvance(arg0: T_CONS): boolean;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-characteristics(): number;
-estimateSize(): number;
-tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
-getExactSizeIfKnown(): number;
-hasCharacteristics(arg0: number): boolean;
-getComparator(): java_util_Comparator<java_lang_Object>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { IntPredicate as java_util_function_IntPredicate } from 'java.util.function';
-
-  export class IntPredicate {
-
-test(arg0: number): boolean;
-or(arg0: java_util_function_IntPredicate): java_util_function_IntPredicate;
-and(arg0: java_util_function_IntPredicate): java_util_function_IntPredicate;
-negate(): java_util_function_IntPredicate;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
 
-  export class ObjIntConsumer<T extends java_lang_Object> {
-
-accept(arg0: T, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { BiConsumer as java_util_function_BiConsumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class BiConsumer<T extends java_lang_Object, U extends java_lang_Object> {
-
-accept(arg0: T, arg1: U): void;
-andThen(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): java_util_function_BiConsumer<T, U>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { IntUnaryOperator as java_util_function_IntUnaryOperator } from 'java.util.function';
-
-  export class IntUnaryOperator {
-
-static identity(): java_util_function_IntUnaryOperator;
-applyAsInt(arg0: number): number;
-compose(arg0: java_util_function_IntUnaryOperator): java_util_function_IntUnaryOperator;
-andThen(arg0: java_util_function_IntUnaryOperator): java_util_function_IntUnaryOperator;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class IntFunction<R extends java_lang_Object> {
-
-apply(arg0: number): R;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class IntBinaryOperator {
-
-applyAsInt(arg0: number, arg1: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.stream' {
-import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
-import { Runnable as java_lang_Runnable, AutoCloseable as java_lang_AutoCloseable, Object as java_lang_Object } from 'java.lang';
-import { BaseStream as java_util_stream_BaseStream } from 'java.util.stream';
-
-  export class BaseStream<T extends java_lang_Object, S extends java_util_stream_BaseStream<T, S>> implements java_lang_AutoCloseable {
-
-iterator(): java_util_Iterator<T>;
-spliterator(): java_util_Spliterator<T>;
-close(): void;
-parallel(): S;
-onClose(arg0: java_lang_Runnable): S;
-unordered(): S;
-isParallel(): boolean;
-sequential(): S;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class IntToLongFunction {
-
-applyAsLong(arg0: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.stream' {
-import { OptionalLong as java_util_OptionalLong, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, OptionalDouble as java_util_OptionalDouble, LongSummaryStatistics as java_util_LongSummaryStatistics } from 'java.util';
-import { Builder as java_util_stream_LongStream_Builder } from 'java.util.stream.LongStream';
-import { LongStream as java_util_stream_LongStream, BaseStream as java_util_stream_BaseStream, IntStream as java_util_stream_IntStream, DoubleStream as java_util_stream_DoubleStream, Stream as java_util_stream_Stream } from 'java.util.stream';
-import { OfLong as java_util_PrimitiveIterator_OfLong } from 'java.util.PrimitiveIterator';
-import { OfLong as java_util_Spliterator_OfLong } from 'java.util.Spliterator';
-import { LongPredicate as java_util_function_LongPredicate, Supplier as java_util_function_Supplier, ObjLongConsumer as java_util_function_ObjLongConsumer, BiConsumer as java_util_function_BiConsumer, LongUnaryOperator as java_util_function_LongUnaryOperator, LongFunction as java_util_function_LongFunction, LongConsumer as java_util_function_LongConsumer, LongBinaryOperator as java_util_function_LongBinaryOperator, LongSupplier as java_util_function_LongSupplier, LongToIntFunction as java_util_function_LongToIntFunction, LongToDoubleFunction as java_util_function_LongToDoubleFunction } from 'java.util.function';
-import { Object as java_lang_Object, Long as java_lang_Long, Runnable as java_lang_Runnable } from 'java.lang';
-
-  export class LongStream implements java_util_stream_BaseStream<java_lang_Long, java_util_stream_LongStream> {
-
-min(): java_util_OptionalLong;
-max(): java_util_OptionalLong;
-count(): number;
-static builder(): java_util_stream_LongStream_Builder;
-static concat(arg0: java_util_stream_LongStream, arg1: java_util_stream_LongStream): java_util_stream_LongStream;
-limit(arg0: number): java_util_stream_LongStream;
-toArray(): number[];
-iterator(): java_util_Iterator;
-iterator(): java_util_PrimitiveIterator_OfLong;
-spliterator(): java_util_Spliterator;
-spliterator(): java_util_Spliterator_OfLong;
-static empty(): java_util_stream_LongStream;
-filter(arg0: java_util_function_LongPredicate): java_util_stream_LongStream;
-collect<R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_ObjLongConsumer<R>, arg2: java_util_function_BiConsumer<R, R>): R;
-map(arg0: java_util_function_LongUnaryOperator): java_util_stream_LongStream;
-static of(...arg0: number[]): java_util_stream_LongStream;
-static of(arg0: number): java_util_stream_LongStream;
-flatMap(arg0: java_util_function_LongFunction<java_util_stream_LongStream>): java_util_stream_LongStream;
-forEach(arg0: java_util_function_LongConsumer): void;
-findAny(): java_util_OptionalLong;
-skip(arg0: number): java_util_stream_LongStream;
-peek(arg0: java_util_function_LongConsumer): java_util_stream_LongStream;
-sum(): number;
-reduce(arg0: number, arg1: java_util_function_LongBinaryOperator): number;
-reduce(arg0: java_util_function_LongBinaryOperator): java_util_OptionalLong;
-static iterate(arg0: number, arg1: java_util_function_LongPredicate, arg2: java_util_function_LongUnaryOperator): java_util_stream_LongStream;
-static iterate(arg0: number, arg1: java_util_function_LongUnaryOperator): java_util_stream_LongStream;
-static range(arg0: number, arg1: number): java_util_stream_LongStream;
-parallel(): java_util_stream_BaseStream;
-parallel(): java_util_stream_LongStream;
-static generate(arg0: java_util_function_LongSupplier): java_util_stream_LongStream;
-distinct(): java_util_stream_LongStream;
-findFirst(): java_util_OptionalLong;
-dropWhile(arg0: java_util_function_LongPredicate): java_util_stream_LongStream;
-sorted(): java_util_stream_LongStream;
-allMatch(arg0: java_util_function_LongPredicate): boolean;
-anyMatch(arg0: java_util_function_LongPredicate): boolean;
-forEachOrdered(arg0: java_util_function_LongConsumer): void;
-mapToInt(arg0: java_util_function_LongToIntFunction): java_util_stream_IntStream;
-mapToDouble(arg0: java_util_function_LongToDoubleFunction): java_util_stream_DoubleStream;
-takeWhile(arg0: java_util_function_LongPredicate): java_util_stream_LongStream;
-noneMatch(arg0: java_util_function_LongPredicate): boolean;
-sequential(): java_util_stream_BaseStream;
-sequential(): java_util_stream_LongStream;
-mapToObj<U extends java_lang_Object>(arg0: java_util_function_LongFunction<U>): java_util_stream_Stream<U>;
-static rangeClosed(arg0: number, arg1: number): java_util_stream_LongStream;
-average(): java_util_OptionalDouble;
-summaryStatistics(): java_util_LongSummaryStatistics;
-asDoubleStream(): java_util_stream_DoubleStream;
-boxed(): java_util_stream_Stream<java_lang_Long>;
-close(): void;
-onClose(arg0: java_lang_Runnable): S;
-unordered(): S;
-isParallel(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
-import { OptionalLong as java_util_OptionalLong } from 'java.util';
-import { LongStream as java_util_stream_LongStream } from 'java.util.stream';
-import { Supplier as java_util_function_Supplier, LongConsumer as java_util_function_LongConsumer, LongSupplier as java_util_function_LongSupplier } from 'java.util.function';
-
-  export class OptionalLong extends java_lang_Object {
-static EMPTY: java_util_OptionalLong;
-isPresent: boolean;
-value: number;
-asLong: number;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-isEmpty(): boolean;
-static empty(): java_util_OptionalLong;
-stream(): java_util_stream_LongStream;
-static of(arg0: number): java_util_OptionalLong;
-isPresent(): boolean;
-orElse(arg0: number): number;
-orElseThrow<X extends java_lang_Throwable>(arg0: java_util_function_Supplier<X>): number;
-orElseThrow(): number;
-ifPresent(arg0: java_util_function_LongConsumer): void;
-ifPresentOrElse(arg0: java_util_function_LongConsumer, arg1: java_lang_Runnable): void;
-orElseGet(arg0: java_util_function_LongSupplier): number;
-getAsLong(): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { LongConsumer as java_util_function_LongConsumer } from 'java.util.function';
-
-  export class LongConsumer {
-
-accept(arg0: number): void;
-andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class LongSupplier {
-asLong: number;
-getAsLong(): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.stream.LongStream' {
-import { Builder as java_util_stream_LongStream_Builder } from 'java.util.stream.LongStream';
-import { LongStream as java_util_stream_LongStream } from 'java.util.stream';
-import { LongConsumer as java_util_function_LongConsumer } from 'java.util.function';
-
-  export class Builder implements java_util_function_LongConsumer {
-
-add(arg0: number): java_util_stream_LongStream_Builder;
-accept(arg0: number): void;
-build(): java_util_stream_LongStream;
-andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.PrimitiveIterator' {
-import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
-import { LongConsumer as java_util_function_LongConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { PrimitiveIterator as java_util_PrimitiveIterator } from 'java.util';
-
-  export class OfLong implements java_util_PrimitiveIterator<java_lang_Long, java_util_function_LongConsumer> {
-
-forEachRemaining(arg0: java_lang_Object): void;
-forEachRemaining(arg0: java_util_function_LongConsumer): void;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-next(): java_lang_Object;
-next(): java_lang_Long;
-nextLong(): number;
-remove(): void;
-hasNext(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Spliterator' {
-import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
-import { LongConsumer as java_util_function_LongConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { OfPrimitive as java_util_Spliterator_OfPrimitive, OfLong as java_util_Spliterator_OfLong } from 'java.util.Spliterator';
-import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
-
-  export class OfLong implements java_util_Spliterator_OfPrimitive<java_lang_Long, java_util_function_LongConsumer, java_util_Spliterator_OfLong> {
-exactSizeIfKnown: number;
-comparator: java_util_Comparator<java_lang_Object>;
-forEachRemaining(arg0: java_lang_Object): void;
-forEachRemaining(arg0: java_util_function_LongConsumer): void;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-trySplit(): java_util_Spliterator_OfPrimitive;
-trySplit(): java_util_Spliterator;
-trySplit(): java_util_Spliterator_OfLong;
-tryAdvance(arg0: java_util_function_LongConsumer): boolean;
-tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
-tryAdvance(arg0: java_lang_Object): boolean;
-characteristics(): number;
-estimateSize(): number;
-getExactSizeIfKnown(): number;
-hasCharacteristics(arg0: number): boolean;
-getComparator(): java_util_Comparator<java_lang_Object>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { LongPredicate as java_util_function_LongPredicate } from 'java.util.function';
-
-  export class LongPredicate {
-
-test(arg0: number): boolean;
-or(arg0: java_util_function_LongPredicate): java_util_function_LongPredicate;
-and(arg0: java_util_function_LongPredicate): java_util_function_LongPredicate;
-negate(): java_util_function_LongPredicate;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class ObjLongConsumer<T extends java_lang_Object> {
-
-accept(arg0: T, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { LongUnaryOperator as java_util_function_LongUnaryOperator } from 'java.util.function';
-
-  export class LongUnaryOperator {
-
-static identity(): java_util_function_LongUnaryOperator;
-applyAsLong(arg0: number): number;
-compose(arg0: java_util_function_LongUnaryOperator): java_util_function_LongUnaryOperator;
-andThen(arg0: java_util_function_LongUnaryOperator): java_util_function_LongUnaryOperator;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class LongFunction<R extends java_lang_Object> {
-
-apply(arg0: number): R;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class LongBinaryOperator {
-
-applyAsLong(arg0: number, arg1: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class LongToIntFunction {
-
-applyAsInt(arg0: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class LongToDoubleFunction {
-
-applyAsDouble(arg0: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.stream' {
-import { OptionalDouble as java_util_OptionalDouble, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, DoubleSummaryStatistics as java_util_DoubleSummaryStatistics } from 'java.util';
-import { Builder as java_util_stream_DoubleStream_Builder } from 'java.util.stream.DoubleStream';
-import { DoubleStream as java_util_stream_DoubleStream, BaseStream as java_util_stream_BaseStream, IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, Stream as java_util_stream_Stream } from 'java.util.stream';
-import { OfDouble as java_util_PrimitiveIterator_OfDouble } from 'java.util.PrimitiveIterator';
-import { OfDouble as java_util_Spliterator_OfDouble } from 'java.util.Spliterator';
-import { DoublePredicate as java_util_function_DoublePredicate, Supplier as java_util_function_Supplier, ObjDoubleConsumer as java_util_function_ObjDoubleConsumer, BiConsumer as java_util_function_BiConsumer, DoubleUnaryOperator as java_util_function_DoubleUnaryOperator, DoubleFunction as java_util_function_DoubleFunction, DoubleConsumer as java_util_function_DoubleConsumer, DoubleBinaryOperator as java_util_function_DoubleBinaryOperator, DoubleSupplier as java_util_function_DoubleSupplier, DoubleToIntFunction as java_util_function_DoubleToIntFunction, DoubleToLongFunction as java_util_function_DoubleToLongFunction } from 'java.util.function';
-import { Object as java_lang_Object, Double as java_lang_Double, Runnable as java_lang_Runnable } from 'java.lang';
-
-  export class DoubleStream implements java_util_stream_BaseStream<java_lang_Double, java_util_stream_DoubleStream> {
-
-min(): java_util_OptionalDouble;
-max(): java_util_OptionalDouble;
-count(): number;
-static builder(): java_util_stream_DoubleStream_Builder;
-static concat(arg0: java_util_stream_DoubleStream, arg1: java_util_stream_DoubleStream): java_util_stream_DoubleStream;
-limit(arg0: number): java_util_stream_DoubleStream;
-toArray(): number[];
-iterator(): java_util_Iterator;
-iterator(): java_util_PrimitiveIterator_OfDouble;
-spliterator(): java_util_Spliterator;
-spliterator(): java_util_Spliterator_OfDouble;
-static empty(): java_util_stream_DoubleStream;
-filter(arg0: java_util_function_DoublePredicate): java_util_stream_DoubleStream;
-collect<R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_ObjDoubleConsumer<R>, arg2: java_util_function_BiConsumer<R, R>): R;
-map(arg0: java_util_function_DoubleUnaryOperator): java_util_stream_DoubleStream;
-static of(...arg0: number[]): java_util_stream_DoubleStream;
-static of(arg0: number): java_util_stream_DoubleStream;
-flatMap(arg0: java_util_function_DoubleFunction<java_util_stream_DoubleStream>): java_util_stream_DoubleStream;
-forEach(arg0: java_util_function_DoubleConsumer): void;
-findAny(): java_util_OptionalDouble;
-skip(arg0: number): java_util_stream_DoubleStream;
-peek(arg0: java_util_function_DoubleConsumer): java_util_stream_DoubleStream;
-sum(): number;
-reduce(arg0: number, arg1: java_util_function_DoubleBinaryOperator): number;
-reduce(arg0: java_util_function_DoubleBinaryOperator): java_util_OptionalDouble;
-static iterate(arg0: number, arg1: java_util_function_DoublePredicate, arg2: java_util_function_DoubleUnaryOperator): java_util_stream_DoubleStream;
-static iterate(arg0: number, arg1: java_util_function_DoubleUnaryOperator): java_util_stream_DoubleStream;
-parallel(): java_util_stream_DoubleStream;
-parallel(): java_util_stream_BaseStream;
-static generate(arg0: java_util_function_DoubleSupplier): java_util_stream_DoubleStream;
-distinct(): java_util_stream_DoubleStream;
-findFirst(): java_util_OptionalDouble;
-dropWhile(arg0: java_util_function_DoublePredicate): java_util_stream_DoubleStream;
-sorted(): java_util_stream_DoubleStream;
-allMatch(arg0: java_util_function_DoublePredicate): boolean;
-anyMatch(arg0: java_util_function_DoublePredicate): boolean;
-forEachOrdered(arg0: java_util_function_DoubleConsumer): void;
-mapToInt(arg0: java_util_function_DoubleToIntFunction): java_util_stream_IntStream;
-mapToLong(arg0: java_util_function_DoubleToLongFunction): java_util_stream_LongStream;
-takeWhile(arg0: java_util_function_DoublePredicate): java_util_stream_DoubleStream;
-noneMatch(arg0: java_util_function_DoublePredicate): boolean;
-sequential(): java_util_stream_BaseStream;
-sequential(): java_util_stream_DoubleStream;
-mapToObj<U extends java_lang_Object>(arg0: java_util_function_DoubleFunction<U>): java_util_stream_Stream<U>;
-average(): java_util_OptionalDouble;
-summaryStatistics(): java_util_DoubleSummaryStatistics;
-boxed(): java_util_stream_Stream<java_lang_Double>;
-close(): void;
-onClose(arg0: java_lang_Runnable): S;
-unordered(): S;
-isParallel(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
-import { OptionalDouble as java_util_OptionalDouble } from 'java.util';
-import { DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
-import { Supplier as java_util_function_Supplier, DoubleConsumer as java_util_function_DoubleConsumer, DoubleSupplier as java_util_function_DoubleSupplier } from 'java.util.function';
-
-  export class OptionalDouble extends java_lang_Object {
-static EMPTY: java_util_OptionalDouble;
-isPresent: boolean;
-value: number;
-asDouble: number;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-isEmpty(): boolean;
-static empty(): java_util_OptionalDouble;
-stream(): java_util_stream_DoubleStream;
-static of(arg0: number): java_util_OptionalDouble;
-isPresent(): boolean;
-orElse(arg0: number): number;
-orElseThrow<X extends java_lang_Throwable>(arg0: java_util_function_Supplier<X>): number;
-orElseThrow(): number;
-ifPresent(arg0: java_util_function_DoubleConsumer): void;
-ifPresentOrElse(arg0: java_util_function_DoubleConsumer, arg1: java_lang_Runnable): void;
-orElseGet(arg0: java_util_function_DoubleSupplier): number;
-getAsDouble(): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { DoubleConsumer as java_util_function_DoubleConsumer } from 'java.util.function';
-
-  export class DoubleConsumer {
-
-accept(arg0: number): void;
-andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class DoubleSupplier {
-asDouble: number;
-getAsDouble(): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.stream.DoubleStream' {
-import { Builder as java_util_stream_DoubleStream_Builder } from 'java.util.stream.DoubleStream';
-import { DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
-import { DoubleConsumer as java_util_function_DoubleConsumer } from 'java.util.function';
-
-  export class Builder implements java_util_function_DoubleConsumer {
-
-add(arg0: number): java_util_stream_DoubleStream_Builder;
-accept(arg0: number): void;
-build(): java_util_stream_DoubleStream;
-andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.PrimitiveIterator' {
-import { Object as java_lang_Object, Double as java_lang_Double } from 'java.lang';
-import { DoubleConsumer as java_util_function_DoubleConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { PrimitiveIterator as java_util_PrimitiveIterator } from 'java.util';
-
-  export class OfDouble implements java_util_PrimitiveIterator<java_lang_Double, java_util_function_DoubleConsumer> {
-
-forEachRemaining(arg0: java_lang_Object): void;
-forEachRemaining(arg0: java_util_function_DoubleConsumer): void;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-next(): java_lang_Object;
-next(): java_lang_Double;
-nextDouble(): number;
-remove(): void;
-hasNext(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Spliterator' {
-import { Object as java_lang_Object, Double as java_lang_Double } from 'java.lang';
-import { DoubleConsumer as java_util_function_DoubleConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { OfPrimitive as java_util_Spliterator_OfPrimitive, OfDouble as java_util_Spliterator_OfDouble } from 'java.util.Spliterator';
-import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
-
-  export class OfDouble implements java_util_Spliterator_OfPrimitive<java_lang_Double, java_util_function_DoubleConsumer, java_util_Spliterator_OfDouble> {
-exactSizeIfKnown: number;
-comparator: java_util_Comparator<java_lang_Object>;
-forEachRemaining(arg0: java_lang_Object): void;
-forEachRemaining(arg0: java_util_function_DoubleConsumer): void;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-trySplit(): java_util_Spliterator_OfPrimitive;
-trySplit(): java_util_Spliterator;
-trySplit(): java_util_Spliterator_OfDouble;
-tryAdvance(arg0: java_util_function_DoubleConsumer): boolean;
-tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
-tryAdvance(arg0: java_lang_Object): boolean;
-characteristics(): number;
-estimateSize(): number;
-getExactSizeIfKnown(): number;
-hasCharacteristics(arg0: number): boolean;
-getComparator(): java_util_Comparator<java_lang_Object>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { DoublePredicate as java_util_function_DoublePredicate } from 'java.util.function';
-
-  export class DoublePredicate {
-
-test(arg0: number): boolean;
-or(arg0: java_util_function_DoublePredicate): java_util_function_DoublePredicate;
-and(arg0: java_util_function_DoublePredicate): java_util_function_DoublePredicate;
-negate(): java_util_function_DoublePredicate;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class ObjDoubleConsumer<T extends java_lang_Object> {
-
-accept(arg0: T, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { DoubleUnaryOperator as java_util_function_DoubleUnaryOperator } from 'java.util.function';
-
-  export class DoubleUnaryOperator {
-
-static identity(): java_util_function_DoubleUnaryOperator;
-applyAsDouble(arg0: number): number;
-compose(arg0: java_util_function_DoubleUnaryOperator): java_util_function_DoubleUnaryOperator;
-andThen(arg0: java_util_function_DoubleUnaryOperator): java_util_function_DoubleUnaryOperator;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class DoubleFunction<R extends java_lang_Object> {
-
-apply(arg0: number): R;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class DoubleBinaryOperator {
-
-applyAsDouble(arg0: number, arg1: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class DoubleToIntFunction {
-
-applyAsInt(arg0: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class DoubleToLongFunction {
-
-applyAsLong(arg0: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { DoubleSummaryStatistics as java_util_DoubleSummaryStatistics } from 'java.util';
-import { DoubleConsumer as java_util_function_DoubleConsumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class DoubleSummaryStatistics extends java_lang_Object implements java_util_function_DoubleConsumer {
-count: number;
-sum: number;
-sumCompensation: number;
-simpleSum: number;
-min: number;
-max: number;
-count: number;
-sum: number;
-min: number;
-max: number;
-average: number;
-toString(): string;
-accept(arg0: number): void;
-combine(arg0: java_util_DoubleSummaryStatistics): void;
-getCount(): number;
-getSum(): number;
-getMin(): number;
-getMax(): number;
-getAverage(): number;
-andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
-constructor();
-constructor(arg0: number, arg1: number, arg2: number, arg3: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { LongSummaryStatistics as java_util_LongSummaryStatistics } from 'java.util';
-import { LongConsumer as java_util_function_LongConsumer, IntConsumer as java_util_function_IntConsumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class LongSummaryStatistics extends java_lang_Object implements java_util_function_LongConsumer, java_util_function_IntConsumer {
-count: number;
-sum: number;
-min: number;
-max: number;
-count: number;
-sum: number;
-min: number;
-max: number;
-average: number;
-toString(): string;
-accept(arg0: number): void;
-accept(arg0: number): void;
-combine(arg0: java_util_LongSummaryStatistics): void;
-getCount(): number;
-getSum(): number;
-getMin(): number;
-getMax(): number;
-getAverage(): number;
-andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
-andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
-constructor();
-constructor(arg0: number, arg1: number, arg2: number, arg3: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-
-
-  export class IntToDoubleFunction {
-
-applyAsDouble(arg0: number): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { IntSummaryStatistics as java_util_IntSummaryStatistics } from 'java.util';
-import { IntConsumer as java_util_function_IntConsumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class IntSummaryStatistics extends java_lang_Object implements java_util_function_IntConsumer {
-count: number;
-sum: number;
-min: number;
-max: number;
-count: number;
-sum: number;
-min: number;
-max: number;
-average: number;
-toString(): string;
-accept(arg0: number): void;
-combine(arg0: java_util_IntSummaryStatistics): void;
-getCount(): number;
-getSum(): number;
-getMin(): number;
-getMax(): number;
-getAverage(): number;
-andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
-constructor();
-constructor(arg0: number, arg1: number, arg2: number, arg3: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Object as java_lang_Object, Character as java_lang_Character, Cloneable as java_lang_Cloneable } from 'java.lang';
-import { Category as java_util_Locale_Category, LanguageRange as java_util_Locale_LanguageRange, FilteringMode as java_util_Locale_FilteringMode, IsoCountryCode as java_util_Locale_IsoCountryCode, Cache as java_util_Locale_Cache } from 'java.util.Locale';
-import { Locale as java_util_Locale, List as java_util_List, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
-import { BaseLocale as sun_util_locale_BaseLocale, LocaleExtensions as sun_util_locale_LocaleExtensions } from 'sun.util.locale';
-import { ObjectStreamField as java_io_ObjectStreamField, Serializable as java_io_Serializable } from 'java.io';
-
-  export class Locale extends java_lang_Object implements java_lang_Cloneable, java_io_Serializable {
-static LOCALECACHE: java_util_Locale_Cache;
-static ENGLISH: java_util_Locale;
-static FRENCH: java_util_Locale;
-static GERMAN: java_util_Locale;
-static ITALIAN: java_util_Locale;
-static JAPANESE: java_util_Locale;
-static KOREAN: java_util_Locale;
-static CHINESE: java_util_Locale;
-static SIMPLIFIED_CHINESE: java_util_Locale;
-static TRADITIONAL_CHINESE: java_util_Locale;
-static FRANCE: java_util_Locale;
-static GERMANY: java_util_Locale;
-static ITALY: java_util_Locale;
-static JAPAN: java_util_Locale;
-static KOREA: java_util_Locale;
-static CHINA: java_util_Locale;
-static PRC: java_util_Locale;
-static TAIWAN: java_util_Locale;
-static UK: java_util_Locale;
-static US: java_util_Locale;
-static CANADA: java_util_Locale;
-static CANADA_FRENCH: java_util_Locale;
-static ROOT: java_util_Locale;
-static PRIVATE_USE_EXTENSION: string;
-static UNICODE_LOCALE_EXTENSION: string;
-static serialVersionUID: number;
-static DISPLAY_LANGUAGE: number;
-static DISPLAY_COUNTRY: number;
-static DISPLAY_VARIANT: number;
-static DISPLAY_SCRIPT: number;
-static DISPLAY_UEXT_KEY: number;
-static DISPLAY_UEXT_TYPE: number;
-baseLocale: sun_util_locale_BaseLocale;
-localeExtensions: sun_util_locale_LocaleExtensions;
-hashCodeValue: number;
-static defaultLocale: java_util_Locale;
-static defaultDisplayLocale: java_util_Locale;
-static defaultFormatLocale: java_util_Locale;
-languageTag: string;
-static serialPersistentFields: java_io_ObjectStreamField[];
-static isoLanguages: string[];
-static isoCountries: string[];
-static $assertionsDisabled: boolean;
-static default: java_util_Locale;
-static default: java_util_Locale;
-language: string;
-displayName: string;
-displayName: string;
-static availableLocales: java_util_Locale[];
-static iSOCountries: java_util_Set<string>;
-static iSOCountries: string[];
-static iSOLanguages: string[];
-script: string;
-country: string;
-variant: string;
-extension: string;
-extensionKeys: java_util_Set<java_lang_Character>;
-unicodeLocaleAttributes: java_util_Set<string>;
-unicodeLocaleType: string;
-unicodeLocaleKeys: java_util_Set<string>;
-iSO3Language: string;
-iSO3Country: string;
-displayLanguage: string;
-displayLanguage: string;
-displayScript: string;
-displayScript: string;
-displayCountry: string;
-displayCountry: string;
-displayVariant: string;
-displayVariant: string;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-clone(): java_lang_Object;
-static getDefault(arg0: java_util_Locale_Category): java_util_Locale;
-static getDefault(): java_util_Locale;
-static filter(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<java_util_Locale>): java_util_List<java_util_Locale>;
-static filter(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<java_util_Locale>, arg2: java_util_Locale_FilteringMode): java_util_List<java_util_Locale>;
-static lookup(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<java_util_Locale>): java_util_Locale;
-getLanguage(): string;
-getDisplayName(arg0: java_util_Locale): string;
-getDisplayName(): string;
-static getAvailableLocales(): java_util_Locale[];
-static setDefault(arg0: java_util_Locale): void;
-static setDefault(arg0: java_util_Locale_Category, arg1: java_util_Locale): void;
-static getISOCountries(arg0: java_util_Locale_IsoCountryCode): java_util_Set<string>;
-static getISOCountries(): string[];
-static getISOLanguages(): string[];
-getScript(): string;
-getCountry(): string;
-getVariant(): string;
-hasExtensions(): boolean;
-stripExtensions(): java_util_Locale;
-getExtension(arg0: string): string;
-getExtensionKeys(): java_util_Set<java_lang_Character>;
-getUnicodeLocaleAttributes(): java_util_Set<string>;
-getUnicodeLocaleType(arg0: string): string;
-getUnicodeLocaleKeys(): java_util_Set<string>;
-toLanguageTag(): string;
-static forLanguageTag(arg0: string): java_util_Locale;
-getISO3Language(): string;
-getISO3Country(): string;
-getDisplayLanguage(): string;
-getDisplayLanguage(arg0: java_util_Locale): string;
-getDisplayScript(): string;
-getDisplayScript(arg0: java_util_Locale): string;
-getDisplayCountry(): string;
-getDisplayCountry(arg0: java_util_Locale): string;
-getDisplayVariant(arg0: java_util_Locale): string;
-getDisplayVariant(): string;
-static filterTags(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<string>, arg2: java_util_Locale_FilteringMode): java_util_List<string>;
-static filterTags(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<string>): java_util_List<string>;
-static lookupTag(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<string>): string;
-constructor(arg0: string);
-constructor(arg0: string, arg1: string);
-constructor(arg0: string, arg1: string, arg2: string);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Locale' {
-import { Category as java_util_Locale_Category } from 'java.util.Locale';
-import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
-
-  export class Category extends java_lang_Enum<java_util_Locale_Category> {
-static DISPLAY: java_util_Locale_Category;
-static FORMAT: java_util_Locale_Category;
-languageKey: string;
-scriptKey: string;
-countryKey: string;
-variantKey: string;
-extensionsKey: string;
-static $VALUES: java_util_Locale_Category[];
-class: java_lang_Class<java_lang_Object>;
-static values(): java_util_Locale_Category[];
-static valueOf(arg0: string): java_util_Locale_Category;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
+  export class Enumeration<E extends java_lang_Object> {
+
+asIterator(): java_util_Iterator<E>;
+hasMoreElements(): boolean;
+nextElement(): E;
 
   }
 }
@@ -1474,40 +597,6 @@ forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 }
 //@ts-nocheck
 
-declare module 'java.util' {
-import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
-import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection } from 'java.util';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class Collection<E extends java_lang_Object> implements java_lang_Iterable<E> {
-
-add(arg0: E): boolean;
-remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-iterator(): java_util_Iterator<E>;
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'java.util.function' {
 import { UnaryOperator as java_util_function_UnaryOperator, Function as java_util_function_Function } from 'java.util.function';
 import { Object as java_lang_Object } from 'java.lang';
@@ -1540,891 +629,6 @@ previous(): E;
 previousIndex(): number;
 hasPrevious(): boolean;
 forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Locale' {
-import { Object as java_lang_Object } from 'java.lang';
-import { List as java_util_List, Map as java_util_Map } from 'java.util';
-import { LanguageRange as java_util_Locale_LanguageRange } from 'java.util.Locale';
-
-  export class LanguageRange extends java_lang_Object {
-static MAX_WEIGHT: number;
-static MIN_WEIGHT: number;
-range: string;
-weight: number;
-hash: number;
-weight: number;
-range: string;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-static parse(arg0: string): java_util_List<java_util_Locale_LanguageRange>;
-static parse(arg0: string, arg1: java_util_Map<string, java_util_List<string>>): java_util_List<java_util_Locale_LanguageRange>;
-static mapEquivalents(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Map<string, java_util_List<string>>): java_util_List<java_util_Locale_LanguageRange>;
-getWeight(): number;
-getRange(): string;
-constructor(arg0: string);
-constructor(arg0: string, arg1: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Object as java_lang_Object } from 'java.lang';
-import { Collection as java_util_Collection, Map as java_util_Map, Set as java_util_Set } from 'java.util';
-import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
-import { Entry as java_util_Map_Entry } from 'java.util.Map';
-
-  export class Map<K extends java_lang_Object, V extends java_lang_Object> {
-orDefault: V;
-remove(arg0: java_lang_Object): V;
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-get(arg0: java_lang_Object): V;
-put(arg0: K, arg1: V): V;
-equals(arg0: java_lang_Object): boolean;
-values(): java_util_Collection<V>;
-hashCode(): number;
-static copyOf<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Map<K, V>): java_util_Map<K, V>;
-clear(): void;
-isEmpty(): boolean;
-replace(arg0: K, arg1: V): V;
-replace(arg0: K, arg1: V, arg2: V): boolean;
-replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
-size(): number;
-merge(arg0: K, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
-putAll(arg0: java_util_Map<K, V>): void;
-static entry<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V): java_util_Map_Entry<K, V>;
-putIfAbsent(arg0: K, arg1: V): V;
-compute(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V, arg18: K, arg19: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V, arg16: K, arg17: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V, arg14: K, arg15: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V, arg4: K, arg5: V, arg6: K, arg7: V, arg8: K, arg9: V, arg10: K, arg11: V, arg12: K, arg13: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V, arg2: K, arg3: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: K, arg1: V): java_util_Map<K, V>;
-static of<K extends java_lang_Object, V extends java_lang_Object>(): java_util_Map<K, V>;
-forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-containsKey(arg0: java_lang_Object): boolean;
-computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
-containsValue(arg0: java_lang_Object): boolean;
-keySet(): java_util_Set<K>;
-getOrDefault(arg0: java_lang_Object, arg1: V): V;
-computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-static ofEntries<K extends java_lang_Object, V extends java_lang_Object>(...arg0: java_util_Map_Entry<K, V>[]): java_util_Map<K, V>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { Function as java_util_function_Function, BiFunction as java_util_function_BiFunction } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class BiFunction<T extends java_lang_Object, U extends java_lang_Object, R extends java_lang_Object> {
-
-apply(arg0: T, arg1: U): R;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_BiFunction<T, U, V>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Object as java_lang_Object } from 'java.lang';
-import { Collection as java_util_Collection, Set as java_util_Set, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
-import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class Set<E extends java_lang_Object> implements java_util_Collection<E> {
-
-add(arg0: E): boolean;
-remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-static copyOf<E extends java_lang_Object>(arg0: java_util_Collection<E>): java_util_Set<E>;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray(): java_lang_Object[];
-iterator(): java_util_Iterator<E>;
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E, arg7: E, arg8: E, arg9: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E, arg7: E, arg8: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(...arg0: E[]): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E, arg7: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E): java_util_Set<E>;
-static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E): java_util_Set<E>;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-stream(): java_util_stream_Stream<E>;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Map' {
-import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
-import { Comparator as java_util_Comparator } from 'java.util';
-import { Entry as java_util_Map_Entry } from 'java.util.Map';
-
-  export class Entry<K extends java_lang_Object, V extends java_lang_Object> {
-value: V;
-key: K;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getValue(): V;
-getKey(): K;
-setValue(arg0: V): V;
-static comparingByKey<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_Comparator<java_util_Map_Entry<K, V>>;
-static comparingByKey<K extends java_lang_Comparable<java_lang_Object>, V extends java_lang_Object>(): java_util_Comparator<java_util_Map_Entry<K, V>>;
-static comparingByValue<K extends java_lang_Object, V extends java_lang_Comparable<java_lang_Object>>(): java_util_Comparator<java_util_Map_Entry<K, V>>;
-static comparingByValue<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_Comparator<java_util_Map_Entry<K, V>>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Locale' {
-import { FilteringMode as java_util_Locale_FilteringMode } from 'java.util.Locale';
-import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
-
-  export class FilteringMode extends java_lang_Enum<java_util_Locale_FilteringMode> {
-static AUTOSELECT_FILTERING: java_util_Locale_FilteringMode;
-static EXTENDED_FILTERING: java_util_Locale_FilteringMode;
-static IGNORE_EXTENDED_RANGES: java_util_Locale_FilteringMode;
-static MAP_EXTENDED_RANGES: java_util_Locale_FilteringMode;
-static REJECT_EXTENDED_RANGES: java_util_Locale_FilteringMode;
-static $VALUES: java_util_Locale_FilteringMode[];
-class: java_lang_Class<java_lang_Object>;
-static values(): java_util_Locale_FilteringMode[];
-static valueOf(arg0: string): java_util_Locale_FilteringMode;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Locale' {
-import { IsoCountryCode as java_util_Locale_IsoCountryCode } from 'java.util.Locale';
-import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
-import { Map as java_util_Map, Set as java_util_Set } from 'java.util';
-
-  export class IsoCountryCode extends java_lang_Enum<java_util_Locale_IsoCountryCode> {
-static PART1_ALPHA2: java_util_Locale_IsoCountryCode;
-static PART1_ALPHA3: java_util_Locale_IsoCountryCode;
-static PART3: java_util_Locale_IsoCountryCode;
-static iso3166CodesMap: java_util_Map<java_util_Locale_IsoCountryCode, java_util_Set<string>>;
-static $VALUES: java_util_Locale_IsoCountryCode[];
-class: java_lang_Class<java_lang_Object>;
-static values(): java_util_Locale_IsoCountryCode[];
-static valueOf(arg0: string): java_util_Locale_IsoCountryCode;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.Locale' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { LocaleObjectCache as sun_util_locale_LocaleObjectCache } from 'sun.util.locale';
-import { Locale as java_util_Locale } from 'java.util';
-
-  export class Cache extends sun_util_locale_LocaleObjectCache<java_lang_Object, java_util_Locale> {
-class: java_lang_Class<java_lang_Object>;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Collection as java_util_Collection, Set as java_util_Set, Comparator as java_util_Comparator, SortedMap as java_util_SortedMap, Map as java_util_Map } from 'java.util';
-import { Entry as java_util_Map_Entry } from 'java.util.Map';
-import { Object as java_lang_Object } from 'java.lang';
-import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
-
-  export class SortedMap<K extends java_lang_Object, V extends java_lang_Object> implements java_util_Map<K, V> {
-orDefault: V;
-values(): java_util_Collection<V>;
-entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
-keySet(): java_util_Set<K>;
-comparator(): java_util_Comparator<java_lang_Object>;
-firstKey(): K;
-lastKey(): K;
-subMap(arg0: K, arg1: K): java_util_SortedMap<K, V>;
-headMap(arg0: K): java_util_SortedMap<K, V>;
-tailMap(arg0: K): java_util_SortedMap<K, V>;
-remove(arg0: java_lang_Object): V;
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-get(arg0: java_lang_Object): V;
-put(arg0: K, arg1: V): V;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-replace(arg0: K, arg1: V): V;
-replace(arg0: K, arg1: V, arg2: V): boolean;
-replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
-size(): number;
-merge(arg0: K, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-putAll(arg0: java_util_Map<K, V>): void;
-putIfAbsent(arg0: K, arg1: V): V;
-compute(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-containsKey(arg0: java_lang_Object): boolean;
-computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
-containsValue(arg0: java_lang_Object): boolean;
-getOrDefault(arg0: java_lang_Object, arg1: V): V;
-computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.concurrent.atomic' {
-import { IntUnaryOperator as java_util_function_IntUnaryOperator, IntBinaryOperator as java_util_function_IntBinaryOperator } from 'java.util.function';
-import { Object as java_lang_Object, Class as java_lang_Class, Number as java_lang_Number } from 'java.lang';
-import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class AtomicInteger extends java_lang_Number implements java_io_Serializable {
-static serialVersionUID: number;
-static U: jdk_internal_misc_Unsafe;
-static VALUE: number;
-value: number;
-opaque: number;
-acquire: number;
-andSet: number;
-andAdd: number;
-andIncrement: number;
-andDecrement: number;
-andUpdate: number;
-andAccumulate: number;
-plain: number;
-class: java_lang_Class<java_lang_Object>;
-get(): number;
-toString(): string;
-intValue(): number;
-longValue(): number;
-floatValue(): number;
-doubleValue(): number;
-set(arg0: number): void;
-getOpaque(): number;
-setOpaque(arg0: number): void;
-getAcquire(): number;
-setRelease(arg0: number): void;
-compareAndSet(arg0: number, arg1: number): boolean;
-compareAndExchange(arg0: number, arg1: number): number;
-compareAndExchangeAcquire(arg0: number, arg1: number): number;
-compareAndExchangeRelease(arg0: number, arg1: number): number;
-weakCompareAndSetPlain(arg0: number, arg1: number): boolean;
-weakCompareAndSet(arg0: number, arg1: number): boolean;
-weakCompareAndSetAcquire(arg0: number, arg1: number): boolean;
-weakCompareAndSetRelease(arg0: number, arg1: number): boolean;
-getAndSet(arg0: number): number;
-getAndAdd(arg0: number): number;
-lazySet(arg0: number): void;
-getAndIncrement(): number;
-getAndDecrement(): number;
-incrementAndGet(): number;
-decrementAndGet(): number;
-addAndGet(arg0: number): number;
-getAndUpdate(arg0: java_util_function_IntUnaryOperator): number;
-updateAndGet(arg0: java_util_function_IntUnaryOperator): number;
-getAndAccumulate(arg0: number, arg1: java_util_function_IntBinaryOperator): number;
-accumulateAndGet(arg0: number, arg1: java_util_function_IntBinaryOperator): number;
-getPlain(): number;
-setPlain(arg0: number): void;
-weakCompareAndSetVolatile(arg0: number, arg1: number): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: number);
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.concurrent' {
-import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
-import { ChronoUnit as java_time_temporal_ChronoUnit } from 'java.time.temporal';
-import { Duration as java_time_Duration } from 'java.time';
-import { Object as java_lang_Object, Thread as java_lang_Thread, Class as java_lang_Class, Enum as java_lang_Enum } from 'java.lang';
-
-  export class TimeUnit extends java_lang_Enum<java_util_concurrent_TimeUnit> {
-static NANOSECONDS: java_util_concurrent_TimeUnit;
-static MICROSECONDS: java_util_concurrent_TimeUnit;
-static MILLISECONDS: java_util_concurrent_TimeUnit;
-static SECONDS: java_util_concurrent_TimeUnit;
-static MINUTES: java_util_concurrent_TimeUnit;
-static HOURS: java_util_concurrent_TimeUnit;
-static DAYS: java_util_concurrent_TimeUnit;
-static NANO_SCALE: number;
-static MICRO_SCALE: number;
-static MILLI_SCALE: number;
-static SECOND_SCALE: number;
-static MINUTE_SCALE: number;
-static HOUR_SCALE: number;
-static DAY_SCALE: number;
-scale: number;
-maxNanos: number;
-maxMicros: number;
-maxMillis: number;
-maxSecs: number;
-microRatio: number;
-milliRatio: number;
-secRatio: number;
-static $VALUES: java_util_concurrent_TimeUnit[];
-class: java_lang_Class<java_lang_Object>;
-static values(): java_util_concurrent_TimeUnit[];
-static valueOf(arg0: string): java_util_concurrent_TimeUnit;
-static of(arg0: java_time_temporal_ChronoUnit): java_util_concurrent_TimeUnit;
-sleep(arg0: number): void;
-toNanos(arg0: number): number;
-convert(arg0: number, arg1: java_util_concurrent_TimeUnit): number;
-convert(arg0: java_time_Duration): number;
-toMicros(arg0: number): number;
-toSeconds(arg0: number): number;
-toMinutes(arg0: number): number;
-toHours(arg0: number): number;
-toDays(arg0: number): number;
-timedWait(arg0: java_lang_Object, arg1: number): void;
-timedJoin(arg0: java_lang_Thread, arg1: number): void;
-toChronoUnit(): java_time_temporal_ChronoUnit;
-toMillis(arg0: number): number;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
-import { AtomicLong as java_util_concurrent_atomic_AtomicLong } from 'java.util.concurrent.atomic';
-import { ObjectStreamField as java_io_ObjectStreamField, Serializable as java_io_Serializable } from 'java.io';
-import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Random extends java_lang_Object implements java_io_Serializable {
-static serialVersionUID: number;
-seed: java_util_concurrent_atomic_AtomicLong;
-static multiplier: number;
-static addend: number;
-static mask: number;
-static DOUBLE_UNIT: number;
-static BadBound: string;
-static BadRange: string;
-static BadSize: string;
-static seedUniquifier: java_util_concurrent_atomic_AtomicLong;
-nextNextGaussian: number;
-haveNextNextGaussian: boolean;
-static serialPersistentFields: java_io_ObjectStreamField[];
-static unsafe: jdk_internal_misc_Unsafe;
-static seedOffset: number;
-nextInt(): number;
-nextInt(arg0: number): number;
-nextDouble(): number;
-setSeed(arg0: number): void;
-nextLong(): number;
-nextBoolean(): boolean;
-nextFloat(): number;
-nextGaussian(): number;
-ints(arg0: number, arg1: number): java_util_stream_IntStream;
-ints(arg0: number, arg1: number, arg2: number): java_util_stream_IntStream;
-ints(): java_util_stream_IntStream;
-ints(arg0: number): java_util_stream_IntStream;
-longs(arg0: number, arg1: number, arg2: number): java_util_stream_LongStream;
-longs(arg0: number, arg1: number): java_util_stream_LongStream;
-longs(): java_util_stream_LongStream;
-longs(arg0: number): java_util_stream_LongStream;
-doubles(arg0: number, arg1: number, arg2: number): java_util_stream_DoubleStream;
-doubles(arg0: number, arg1: number): java_util_stream_DoubleStream;
-doubles(): java_util_stream_DoubleStream;
-doubles(arg0: number): java_util_stream_DoubleStream;
-nextBytes(arg0: number[]): void;
-constructor();
-constructor(arg0: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.concurrent.atomic' {
-import { LongUnaryOperator as java_util_function_LongUnaryOperator, LongBinaryOperator as java_util_function_LongBinaryOperator } from 'java.util.function';
-import { Object as java_lang_Object, Class as java_lang_Class, Number as java_lang_Number } from 'java.lang';
-import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class AtomicLong extends java_lang_Number implements java_io_Serializable {
-static serialVersionUID: number;
-static VM_SUPPORTS_LONG_CAS: boolean;
-static U: jdk_internal_misc_Unsafe;
-static VALUE: number;
-value: number;
-opaque: number;
-acquire: number;
-andSet: number;
-andAdd: number;
-andIncrement: number;
-andDecrement: number;
-andUpdate: number;
-andAccumulate: number;
-plain: number;
-class: java_lang_Class<java_lang_Object>;
-get(): number;
-toString(): string;
-intValue(): number;
-longValue(): number;
-floatValue(): number;
-doubleValue(): number;
-set(arg0: number): void;
-getOpaque(): number;
-setOpaque(arg0: number): void;
-getAcquire(): number;
-setRelease(arg0: number): void;
-compareAndSet(arg0: number, arg1: number): boolean;
-compareAndExchange(arg0: number, arg1: number): number;
-compareAndExchangeAcquire(arg0: number, arg1: number): number;
-compareAndExchangeRelease(arg0: number, arg1: number): number;
-weakCompareAndSetPlain(arg0: number, arg1: number): boolean;
-weakCompareAndSet(arg0: number, arg1: number): boolean;
-weakCompareAndSetAcquire(arg0: number, arg1: number): boolean;
-weakCompareAndSetRelease(arg0: number, arg1: number): boolean;
-getAndSet(arg0: number): number;
-getAndAdd(arg0: number): number;
-lazySet(arg0: number): void;
-getAndIncrement(): number;
-getAndDecrement(): number;
-incrementAndGet(): number;
-decrementAndGet(): number;
-addAndGet(arg0: number): number;
-getAndUpdate(arg0: java_util_function_LongUnaryOperator): number;
-updateAndGet(arg0: java_util_function_LongUnaryOperator): number;
-getAndAccumulate(arg0: number, arg1: java_util_function_LongBinaryOperator): number;
-accumulateAndGet(arg0: number, arg1: java_util_function_LongBinaryOperator): number;
-getPlain(): number;
-setPlain(arg0: number): void;
-weakCompareAndSetVolatile(arg0: number, arg1: number): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor();
-constructor(arg0: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Collection as java_util_Collection, Enumeration as java_util_Enumeration, Set as java_util_Set, Map as java_util_Map, Properties as java_util_Properties, Hashtable as java_util_Hashtable } from 'java.util';
-import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
-import { PrintStream as java_io_PrintStream, PrintWriter as java_io_PrintWriter, Reader as java_io_Reader, InputStream as java_io_InputStream, OutputStream as java_io_OutputStream, Writer as java_io_Writer } from 'java.io';
-import { Entry as java_util_Map_Entry } from 'java.util.Map';
-import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
-import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
-import { ConcurrentHashMap as java_util_concurrent_ConcurrentHashMap } from 'java.util.concurrent';
-
-  export class Properties extends java_util_Hashtable<java_lang_Object, java_lang_Object> {
-static serialVersionUID: number;
-static UNSAFE: jdk_internal_misc_Unsafe;
-defaults: java_util_Properties;
-map: java_util_concurrent_ConcurrentHashMap<java_lang_Object, java_lang_Object>;
-static hexDigit: string[];
-property: string;
-property: string;
-orDefault: java_lang_Object;
-class: java_lang_Class<java_lang_Object>;
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-remove(arg0: java_lang_Object): java_lang_Object;
-get(arg0: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-getProperty(arg0: string): string;
-getProperty(arg0: string, arg1: string): string;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-values(): java_util_Collection<java_lang_Object>;
-hashCode(): number;
-clone(): java_lang_Object;
-clear(): void;
-isEmpty(): boolean;
-replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
-replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-contains(arg0: java_lang_Object): boolean;
-replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): void;
-list(arg0: java_io_PrintStream): void;
-list(arg0: java_io_PrintWriter): void;
-elements(): java_util_Enumeration<java_lang_Object>;
-size(): number;
-merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
-entrySet(): java_util_Set<java_util_Map_Entry<java_lang_Object, java_lang_Object>>;
-putAll(arg0: java_util_Map<java_lang_Object, java_lang_Object>): void;
-putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-compute(arg0: java_lang_Object, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
-setProperty(arg0: string, arg1: string): java_lang_Object;
-load(arg0: java_io_Reader): void;
-load(arg0: java_io_InputStream): void;
-forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-containsKey(arg0: java_lang_Object): boolean;
-computeIfAbsent(arg0: java_lang_Object, arg1: java_util_function_Function<java_lang_Object, java_lang_Object>): java_lang_Object;
-save(arg0: java_io_OutputStream, arg1: string): void;
-store(arg0: java_io_OutputStream, arg1: string): void;
-store(arg0: java_io_Writer, arg1: string): void;
-loadFromXML(arg0: java_io_InputStream): void;
-storeToXML(arg0: java_io_OutputStream, arg1: string): void;
-storeToXML(arg0: java_io_OutputStream, arg1: string, arg2: java_nio_charset_Charset): void;
-storeToXML(arg0: java_io_OutputStream, arg1: string, arg2: string): void;
-propertyNames(): java_util_Enumeration<java_lang_Object>;
-stringPropertyNames(): java_util_Set<string>;
-keys(): java_util_Enumeration<java_lang_Object>;
-containsValue(arg0: java_lang_Object): boolean;
-keySet(): java_util_Set<java_lang_Object>;
-getOrDefault(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: java_util_Properties);
-constructor(arg0: number);
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Locale as java_util_Locale, Formatter as java_util_Formatter } from 'java.util';
-import { Object as java_lang_Object, Appendable as java_lang_Appendable } from 'java.lang';
-import { IOException as java_io_IOException, File as java_io_File, OutputStream as java_io_OutputStream, PrintStream as java_io_PrintStream, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
-import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
-import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
-
-  export class Formatter extends java_lang_Object implements java_io_Closeable, java_io_Flushable {
-a: java_lang_Appendable;
-l: java_util_Locale;
-lastException: java_io_IOException;
-zero: string;
-static scaleUp: number;
-static MAX_FD_CHARS: number;
-static formatSpecifier: string;
-static fsPattern: java_util_regex_Pattern;
-toString(): string;
-locale(): java_util_Locale;
-format(arg0: java_util_Locale, arg1: string, ...arg2: java_lang_Object[]): java_util_Formatter;
-format(arg0: string, ...arg1: java_lang_Object[]): java_util_Formatter;
-out(): java_lang_Appendable;
-flush(): void;
-close(): void;
-ioException(): java_io_IOException;
-constructor(arg0: java_io_File, arg1: string);
-constructor(arg0: java_io_File);
-constructor(arg0: string, arg1: java_nio_charset_Charset, arg2: java_util_Locale);
-constructor(arg0: string, arg1: string, arg2: java_util_Locale);
-constructor(arg0: string, arg1: string);
-constructor(arg0: java_io_OutputStream, arg1: string);
-constructor(arg0: java_io_OutputStream, arg1: string, arg2: java_util_Locale);
-constructor(arg0: java_io_PrintStream);
-constructor(arg0: java_io_File, arg1: java_nio_charset_Charset, arg2: java_util_Locale);
-constructor(arg0: java_io_File, arg1: string, arg2: java_util_Locale);
-constructor();
-constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_Charset, arg2: java_util_Locale);
-constructor(arg0: java_io_OutputStream);
-constructor(arg0: string);
-constructor(arg0: java_lang_Appendable, arg1: java_util_Locale);
-constructor(arg0: java_util_Locale);
-constructor(arg0: java_lang_Appendable);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex' {
-import { CharSequence as java_lang_CharSequence, Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
-import { Pattern as java_util_regex_Pattern, Matcher as java_util_regex_Matcher } from 'java.util.regex';
-import { Predicate as java_util_function_Predicate } from 'java.util.function';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-import { Node as java_util_regex_Pattern_Node, CharPredicate as java_util_regex_Pattern_CharPredicate, GroupHead as java_util_regex_Pattern_GroupHead } from 'java.util.regex.Pattern';
-import { Map as java_util_Map, List as java_util_List } from 'java.util';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class Pattern extends java_lang_Object implements java_io_Serializable {
-static UNIX_LINES: number;
-static CASE_INSENSITIVE: number;
-static COMMENTS: number;
-static MULTILINE: number;
-static LITERAL: number;
-static DOTALL: number;
-static UNICODE_CASE: number;
-static CANON_EQ: number;
-static UNICODE_CHARACTER_CLASS: number;
-static ALL_FLAGS: number;
-static serialVersionUID: number;
-pattern: string;
-flags: number;
-flags0: number;
-compiled: boolean;
-normalizedPattern: string;
-root: java_util_regex_Pattern_Node;
-matchRoot: java_util_regex_Pattern_Node;
-buffer: number[];
-predicate: java_util_regex_Pattern_CharPredicate;
-namedGroups: java_util_Map<string, java_lang_Integer>;
-groupNodes: java_util_regex_Pattern_GroupHead[];
-topClosureNodes: java_util_List<java_util_regex_Pattern_Node>;
-localTCNCount: number;
-hasGroupRef: boolean;
-temp: number[];
-capturingGroupCount: number;
-localCount: number;
-cursor: number;
-patternLength: number;
-hasSupplementary: boolean;
-static MAX_REPS: number;
-static lookbehindEnd: java_util_regex_Pattern_Node;
-static accept: java_util_regex_Pattern_Node;
-static lastAccept: java_util_regex_Pattern_Node;
-static $assertionsDisabled: boolean;
-toString(): string;
-flags(): number;
-static matches(arg0: string, arg1: java_lang_CharSequence): boolean;
-split(arg0: java_lang_CharSequence, arg1: number): string[];
-split(arg0: java_lang_CharSequence): string[];
-static compile(arg0: string): java_util_regex_Pattern;
-static compile(arg0: string, arg1: number): java_util_regex_Pattern;
-matcher(arg0: java_lang_CharSequence): java_util_regex_Matcher;
-static quote(arg0: string): string;
-pattern(): string;
-asPredicate(): java_util_function_Predicate<string>;
-asMatchPredicate(): java_util_function_Predicate<string>;
-splitAsStream(arg0: java_lang_CharSequence): java_util_stream_Stream<string>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex' {
-import { Function as java_util_function_Function } from 'java.util.function';
-import { MatchResult as java_util_regex_MatchResult, Matcher as java_util_regex_Matcher, Pattern as java_util_regex_Pattern, IntHashSet as java_util_regex_IntHashSet } from 'java.util.regex';
-import { CharSequence as java_lang_CharSequence, StringBuilder as java_lang_StringBuilder, StringBuffer as java_lang_StringBuffer, Object as java_lang_Object } from 'java.lang';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class Matcher extends java_lang_Object implements java_util_regex_MatchResult {
-parentPattern: java_util_regex_Pattern;
-groups: number[];
-from: number;
-to: number;
-lookbehindTo: number;
-text: java_lang_CharSequence;
-static ENDANCHOR: number;
-static NOANCHOR: number;
-acceptMode: number;
-first: number;
-last: number;
-oldLast: number;
-lastAppendPosition: number;
-locals: number[];
-localsPos: java_util_regex_IntHashSet[];
-hitEnd: boolean;
-requireEnd: boolean;
-transparentBounds: boolean;
-anchoringBounds: boolean;
-modCount: number;
-group(arg0: number): string;
-group(arg0: string): string;
-group(): string;
-toString(): string;
-matches(): boolean;
-replaceFirst(arg0: java_util_function_Function<java_util_regex_MatchResult, string>): string;
-replaceFirst(arg0: string): string;
-replaceAll(arg0: string): string;
-replaceAll(arg0: java_util_function_Function<java_util_regex_MatchResult, string>): string;
-end(arg0: string): number;
-end(arg0: number): number;
-end(): number;
-start(): number;
-start(arg0: string): number;
-start(arg0: number): number;
-reset(arg0: java_lang_CharSequence): java_util_regex_Matcher;
-reset(): java_util_regex_Matcher;
-find(): boolean;
-find(arg0: number): boolean;
-appendReplacement(arg0: java_lang_StringBuilder, arg1: string): java_util_regex_Matcher;
-appendReplacement(arg0: java_lang_StringBuffer, arg1: string): java_util_regex_Matcher;
-appendTail(arg0: java_lang_StringBuffer): java_lang_StringBuffer;
-appendTail(arg0: java_lang_StringBuilder): java_lang_StringBuilder;
-region(arg0: number, arg1: number): java_util_regex_Matcher;
-pattern(): java_util_regex_Pattern;
-results(): java_util_stream_Stream<java_util_regex_MatchResult>;
-hitEnd(): boolean;
-groupCount(): number;
-requireEnd(): boolean;
-toMatchResult(): java_util_regex_MatchResult;
-usePattern(arg0: java_util_regex_Pattern): java_util_regex_Matcher;
-lookingAt(): boolean;
-static quoteReplacement(arg0: string): string;
-regionStart(): number;
-regionEnd(): number;
-hasTransparentBounds(): boolean;
-useTransparentBounds(arg0: boolean): java_util_regex_Matcher;
-hasAnchoringBounds(): boolean;
-useAnchoringBounds(arg0: boolean): java_util_regex_Matcher;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex' {
-
-
-  export class MatchResult {
-
-group(): string;
-group(arg0: number): string;
-end(arg0: number): number;
-end(): number;
-start(): number;
-start(arg0: number): number;
-groupCount(): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class IntHashSet extends java_lang_Object {
-entries: number[];
-hashes: number[];
-pos: number;
-add(arg0: number): void;
-clear(): void;
-contains(arg0: number): boolean;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex.Pattern' {
-import { Node as java_util_regex_Pattern_Node } from 'java.util.regex.Pattern';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Node extends java_lang_Object {
-next: java_util_regex_Pattern_Node;
-
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex.Pattern' {
-import { CharPredicate as java_util_regex_Pattern_CharPredicate } from 'java.util.regex.Pattern';
-
-  export class CharPredicate {
-
-is(arg0: number): boolean;
-and(arg0: java_util_regex_Pattern_CharPredicate): java_util_regex_Pattern_CharPredicate;
-negate(): java_util_regex_Pattern_CharPredicate;
-union(arg0: java_util_regex_Pattern_CharPredicate, arg1: java_util_regex_Pattern_CharPredicate): java_util_regex_Pattern_CharPredicate;
-union(arg0: java_util_regex_Pattern_CharPredicate): java_util_regex_Pattern_CharPredicate;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex.Pattern' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { GroupTail as java_util_regex_Pattern_GroupTail, Node as java_util_regex_Pattern_Node } from 'java.util.regex.Pattern';
-
-  export class GroupHead extends java_util_regex_Pattern_Node {
-localIndex: number;
-tail: java_util_regex_Pattern_GroupTail;
-class: java_lang_Class<java_lang_Object>;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.regex.Pattern' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Node as java_util_regex_Pattern_Node } from 'java.util.regex.Pattern';
-
-  export class GroupTail extends java_util_regex_Pattern_Node {
-localIndex: number;
-groupIndex: number;
-class: java_lang_Class<java_lang_Object>;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
 
   }
 }
@@ -2560,6 +764,101 @@ constructor(arg0: number, arg1: number);
 }
 //@ts-nocheck
 
+declare module 'java.util.function' {
+import { Function as java_util_function_Function, BiFunction as java_util_function_BiFunction } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class BiFunction<T extends java_lang_Object, U extends java_lang_Object, R extends java_lang_Object> {
+
+apply(arg0: T, arg1: U): R;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_BiFunction<T, U, V>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Object as java_lang_Object } from 'java.lang';
+import { Collection as java_util_Collection, Set as java_util_Set, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
+import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class Set<E extends java_lang_Object> implements java_util_Collection<E> {
+
+add(arg0: E): boolean;
+remove(arg0: java_lang_Object): boolean;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+static copyOf<E extends java_lang_Object>(arg0: java_util_Collection<E>): java_util_Set<E>;
+clear(): void;
+isEmpty(): boolean;
+contains(arg0: java_lang_Object): boolean;
+size(): number;
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray(): java_lang_Object[];
+iterator(): java_util_Iterator<E>;
+spliterator(): java_util_Spliterator<E>;
+addAll(arg0: java_util_Collection<E>): boolean;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E, arg7: E, arg8: E, arg9: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E, arg7: E, arg8: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(...arg0: E[]): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E, arg4: E, arg5: E, arg6: E, arg7: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E): java_util_Set<E>;
+static of<E extends java_lang_Object>(arg0: E, arg1: E, arg2: E, arg3: E): java_util_Set<E>;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+stream(): java_util_stream_Stream<E>;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+parallelStream(): java_util_stream_Stream<E>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Map' {
+import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
+import { Comparator as java_util_Comparator } from 'java.util';
+import { Entry as java_util_Map_Entry } from 'java.util.Map';
+
+  export class Entry<K extends java_lang_Object, V extends java_lang_Object> {
+value: V;
+key: K;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+getValue(): V;
+getKey(): K;
+setValue(arg0: V): V;
+static comparingByKey<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_Comparator<java_util_Map_Entry<K, V>>;
+static comparingByKey<K extends java_lang_Comparable<java_lang_Object>, V extends java_lang_Object>(): java_util_Comparator<java_util_Map_Entry<K, V>>;
+static comparingByValue<K extends java_lang_Object, V extends java_lang_Comparable<java_lang_Object>>(): java_util_Comparator<java_util_Map_Entry<K, V>>;
+static comparingByValue<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_Comparator<java_util_Map_Entry<K, V>>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { BiConsumer as java_util_function_BiConsumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class BiConsumer<T extends java_lang_Object, U extends java_lang_Object> {
+
+accept(arg0: T, arg1: U): void;
+andThen(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): java_util_function_BiConsumer<T, U>;
+
+  }
+}
+//@ts-nocheck
+
 declare module 'java.util.concurrent.ConcurrentHashMap' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
@@ -2653,6 +952,17 @@ applyAsDouble(arg0: T, arg1: U): number;
 //@ts-nocheck
 
 declare module 'java.util.function' {
+
+
+  export class DoubleBinaryOperator {
+
+applyAsDouble(arg0: number, arg1: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
 
   export class ToLongBiFunction<T extends java_lang_Object, U extends java_lang_Object> {
@@ -2664,11 +974,33 @@ applyAsLong(arg0: T, arg1: U): number;
 //@ts-nocheck
 
 declare module 'java.util.function' {
+
+
+  export class LongBinaryOperator {
+
+applyAsLong(arg0: number, arg1: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
 
   export class ToIntBiFunction<T extends java_lang_Object, U extends java_lang_Object> {
 
 applyAsInt(arg0: T, arg1: U): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class IntBinaryOperator {
+
+applyAsInt(arg0: number, arg1: number): number;
 
   }
 }
@@ -2970,6 +1302,1377 @@ constructor();
 //@ts-nocheck
 
 declare module 'java.util' {
+import { Iterator as java_util_Iterator, NavigableSet as java_util_NavigableSet, SortedSet as java_util_SortedSet, Spliterator as java_util_Spliterator, Comparator as java_util_Comparator, Collection as java_util_Collection } from 'java.util';
+import { Object as java_lang_Object } from 'java.lang';
+import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class NavigableSet<E extends java_lang_Object> implements java_util_SortedSet<E> {
+
+iterator(): java_util_Iterator<E>;
+lower(arg0: E): E;
+floor(arg0: E): E;
+pollFirst(): E;
+pollLast(): E;
+descendingIterator(): java_util_Iterator<E>;
+ceiling(arg0: E): E;
+higher(arg0: E): E;
+subSet(arg0: E, arg1: boolean, arg2: E, arg3: boolean): java_util_NavigableSet<E>;
+subSet(arg0: E, arg1: E): java_util_SortedSet<E>;
+headSet(arg0: E, arg1: boolean): java_util_NavigableSet<E>;
+headSet(arg0: E): java_util_SortedSet<E>;
+tailSet(arg0: E, arg1: boolean): java_util_NavigableSet<E>;
+tailSet(arg0: E): java_util_SortedSet<E>;
+descendingSet(): java_util_NavigableSet<E>;
+last(): E;
+spliterator(): java_util_Spliterator<E>;
+first(): E;
+comparator(): java_util_Comparator<java_lang_Object>;
+add(arg0: E): boolean;
+remove(arg0: java_lang_Object): boolean;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+clear(): void;
+isEmpty(): boolean;
+contains(arg0: java_lang_Object): boolean;
+size(): number;
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray(): java_lang_Object[];
+addAll(arg0: java_util_Collection<E>): boolean;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+stream(): java_util_stream_Stream<E>;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+parallelStream(): java_util_stream_Stream<E>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator, SortedSet as java_util_SortedSet, Iterator as java_util_Iterator, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
+import { Object as java_lang_Object } from 'java.lang';
+import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class SortedSet<E extends java_lang_Object> implements java_util_Set<E> {
+
+last(): E;
+spliterator(): java_util_Spliterator<E>;
+first(): E;
+comparator(): java_util_Comparator<java_lang_Object>;
+subSet(arg0: E, arg1: E): java_util_SortedSet<E>;
+headSet(arg0: E): java_util_SortedSet<E>;
+tailSet(arg0: E): java_util_SortedSet<E>;
+add(arg0: E): boolean;
+remove(arg0: java_lang_Object): boolean;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+clear(): void;
+isEmpty(): boolean;
+contains(arg0: java_lang_Object): boolean;
+size(): number;
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray(): java_lang_Object[];
+iterator(): java_util_Iterator<E>;
+addAll(arg0: java_util_Collection<E>): boolean;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+stream(): java_util_stream_Stream<E>;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+parallelStream(): java_util_stream_Stream<E>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.concurrent.atomic' {
+import { LongUnaryOperator as java_util_function_LongUnaryOperator, LongBinaryOperator as java_util_function_LongBinaryOperator } from 'java.util.function';
+import { Object as java_lang_Object, Class as java_lang_Class, Number as java_lang_Number } from 'java.lang';
+import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class AtomicLong extends java_lang_Number implements java_io_Serializable {
+static serialVersionUID: number;
+static VM_SUPPORTS_LONG_CAS: boolean;
+static U: jdk_internal_misc_Unsafe;
+static VALUE: number;
+value: number;
+opaque: number;
+acquire: number;
+andSet: number;
+andAdd: number;
+andIncrement: number;
+andDecrement: number;
+andUpdate: number;
+andAccumulate: number;
+plain: number;
+class: java_lang_Class<java_lang_Object>;
+get(): number;
+toString(): string;
+intValue(): number;
+longValue(): number;
+floatValue(): number;
+doubleValue(): number;
+set(arg0: number): void;
+getOpaque(): number;
+setOpaque(arg0: number): void;
+getAcquire(): number;
+setRelease(arg0: number): void;
+compareAndSet(arg0: number, arg1: number): boolean;
+compareAndExchange(arg0: number, arg1: number): number;
+compareAndExchangeAcquire(arg0: number, arg1: number): number;
+compareAndExchangeRelease(arg0: number, arg1: number): number;
+weakCompareAndSetPlain(arg0: number, arg1: number): boolean;
+weakCompareAndSet(arg0: number, arg1: number): boolean;
+weakCompareAndSetAcquire(arg0: number, arg1: number): boolean;
+weakCompareAndSetRelease(arg0: number, arg1: number): boolean;
+getAndSet(arg0: number): number;
+getAndAdd(arg0: number): number;
+lazySet(arg0: number): void;
+getAndIncrement(): number;
+getAndDecrement(): number;
+incrementAndGet(): number;
+decrementAndGet(): number;
+addAndGet(arg0: number): number;
+getAndUpdate(arg0: java_util_function_LongUnaryOperator): number;
+updateAndGet(arg0: java_util_function_LongUnaryOperator): number;
+getAndAccumulate(arg0: number, arg1: java_util_function_LongBinaryOperator): number;
+accumulateAndGet(arg0: number, arg1: java_util_function_LongBinaryOperator): number;
+getPlain(): number;
+setPlain(arg0: number): void;
+weakCompareAndSetVolatile(arg0: number, arg1: number): boolean;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor();
+constructor(arg0: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { LongUnaryOperator as java_util_function_LongUnaryOperator } from 'java.util.function';
+
+  export class LongUnaryOperator {
+
+static identity(): java_util_function_LongUnaryOperator;
+applyAsLong(arg0: number): number;
+compose(arg0: java_util_function_LongUnaryOperator): java_util_function_LongUnaryOperator;
+andThen(arg0: java_util_function_LongUnaryOperator): java_util_function_LongUnaryOperator;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.concurrent.atomic' {
+import { IntUnaryOperator as java_util_function_IntUnaryOperator, IntBinaryOperator as java_util_function_IntBinaryOperator } from 'java.util.function';
+import { Object as java_lang_Object, Class as java_lang_Class, Number as java_lang_Number } from 'java.lang';
+import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class AtomicInteger extends java_lang_Number implements java_io_Serializable {
+static serialVersionUID: number;
+static U: jdk_internal_misc_Unsafe;
+static VALUE: number;
+value: number;
+opaque: number;
+acquire: number;
+andSet: number;
+andAdd: number;
+andIncrement: number;
+andDecrement: number;
+andUpdate: number;
+andAccumulate: number;
+plain: number;
+class: java_lang_Class<java_lang_Object>;
+get(): number;
+toString(): string;
+intValue(): number;
+longValue(): number;
+floatValue(): number;
+doubleValue(): number;
+set(arg0: number): void;
+getOpaque(): number;
+setOpaque(arg0: number): void;
+getAcquire(): number;
+setRelease(arg0: number): void;
+compareAndSet(arg0: number, arg1: number): boolean;
+compareAndExchange(arg0: number, arg1: number): number;
+compareAndExchangeAcquire(arg0: number, arg1: number): number;
+compareAndExchangeRelease(arg0: number, arg1: number): number;
+weakCompareAndSetPlain(arg0: number, arg1: number): boolean;
+weakCompareAndSet(arg0: number, arg1: number): boolean;
+weakCompareAndSetAcquire(arg0: number, arg1: number): boolean;
+weakCompareAndSetRelease(arg0: number, arg1: number): boolean;
+getAndSet(arg0: number): number;
+getAndAdd(arg0: number): number;
+lazySet(arg0: number): void;
+getAndIncrement(): number;
+getAndDecrement(): number;
+incrementAndGet(): number;
+decrementAndGet(): number;
+addAndGet(arg0: number): number;
+getAndUpdate(arg0: java_util_function_IntUnaryOperator): number;
+updateAndGet(arg0: java_util_function_IntUnaryOperator): number;
+getAndAccumulate(arg0: number, arg1: java_util_function_IntBinaryOperator): number;
+accumulateAndGet(arg0: number, arg1: java_util_function_IntBinaryOperator): number;
+getPlain(): number;
+setPlain(arg0: number): void;
+weakCompareAndSetVolatile(arg0: number, arg1: number): boolean;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: number);
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { IntUnaryOperator as java_util_function_IntUnaryOperator } from 'java.util.function';
+
+  export class IntUnaryOperator {
+
+static identity(): java_util_function_IntUnaryOperator;
+applyAsInt(arg0: number): number;
+compose(arg0: java_util_function_IntUnaryOperator): java_util_function_IntUnaryOperator;
+andThen(arg0: java_util_function_IntUnaryOperator): java_util_function_IntUnaryOperator;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Collection as java_util_Collection, Enumeration as java_util_Enumeration, Set as java_util_Set, Map as java_util_Map, Properties as java_util_Properties, Hashtable as java_util_Hashtable } from 'java.util';
+import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
+import { PrintStream as java_io_PrintStream, PrintWriter as java_io_PrintWriter, Reader as java_io_Reader, InputStream as java_io_InputStream, OutputStream as java_io_OutputStream, Writer as java_io_Writer } from 'java.io';
+import { Entry as java_util_Map_Entry } from 'java.util.Map';
+import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
+import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
+import { ConcurrentHashMap as java_util_concurrent_ConcurrentHashMap } from 'java.util.concurrent';
+
+  export class Properties extends java_util_Hashtable<java_lang_Object, java_lang_Object> {
+static serialVersionUID: number;
+static UNSAFE: jdk_internal_misc_Unsafe;
+defaults: java_util_Properties;
+map: java_util_concurrent_ConcurrentHashMap<java_lang_Object, java_lang_Object>;
+static hexDigit: string[];
+property: string;
+property: string;
+orDefault: java_lang_Object;
+class: java_lang_Class<java_lang_Object>;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+remove(arg0: java_lang_Object): java_lang_Object;
+get(arg0: java_lang_Object): java_lang_Object;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+getProperty(arg0: string): string;
+getProperty(arg0: string, arg1: string): string;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+values(): java_util_Collection<java_lang_Object>;
+hashCode(): number;
+clone(): java_lang_Object;
+clear(): void;
+isEmpty(): boolean;
+replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
+replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+contains(arg0: java_lang_Object): boolean;
+replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): void;
+list(arg0: java_io_PrintStream): void;
+list(arg0: java_io_PrintWriter): void;
+elements(): java_util_Enumeration<java_lang_Object>;
+size(): number;
+merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
+entrySet(): java_util_Set<java_util_Map_Entry<java_lang_Object, java_lang_Object>>;
+putAll(arg0: java_util_Map<java_lang_Object, java_lang_Object>): void;
+putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+compute(arg0: java_lang_Object, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
+setProperty(arg0: string, arg1: string): java_lang_Object;
+load(arg0: java_io_Reader): void;
+load(arg0: java_io_InputStream): void;
+forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+containsKey(arg0: java_lang_Object): boolean;
+computeIfAbsent(arg0: java_lang_Object, arg1: java_util_function_Function<java_lang_Object, java_lang_Object>): java_lang_Object;
+save(arg0: java_io_OutputStream, arg1: string): void;
+store(arg0: java_io_OutputStream, arg1: string): void;
+store(arg0: java_io_Writer, arg1: string): void;
+loadFromXML(arg0: java_io_InputStream): void;
+storeToXML(arg0: java_io_OutputStream, arg1: string): void;
+storeToXML(arg0: java_io_OutputStream, arg1: string, arg2: java_nio_charset_Charset): void;
+storeToXML(arg0: java_io_OutputStream, arg1: string, arg2: string): void;
+propertyNames(): java_util_Enumeration<java_lang_Object>;
+stringPropertyNames(): java_util_Set<string>;
+keys(): java_util_Enumeration<java_lang_Object>;
+containsValue(arg0: java_lang_Object): boolean;
+keySet(): java_util_Set<java_lang_Object>;
+getOrDefault(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: java_util_Properties);
+constructor(arg0: number);
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Object as java_lang_Object, Character as java_lang_Character, Cloneable as java_lang_Cloneable } from 'java.lang';
+import { Category as java_util_Locale_Category, LanguageRange as java_util_Locale_LanguageRange, FilteringMode as java_util_Locale_FilteringMode, IsoCountryCode as java_util_Locale_IsoCountryCode, Cache as java_util_Locale_Cache } from 'java.util.Locale';
+import { Locale as java_util_Locale, List as java_util_List, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
+import { BaseLocale as sun_util_locale_BaseLocale, LocaleExtensions as sun_util_locale_LocaleExtensions } from 'sun.util.locale';
+import { ObjectStreamField as java_io_ObjectStreamField, Serializable as java_io_Serializable } from 'java.io';
+
+  export class Locale extends java_lang_Object implements java_lang_Cloneable, java_io_Serializable {
+static LOCALECACHE: java_util_Locale_Cache;
+static ENGLISH: java_util_Locale;
+static FRENCH: java_util_Locale;
+static GERMAN: java_util_Locale;
+static ITALIAN: java_util_Locale;
+static JAPANESE: java_util_Locale;
+static KOREAN: java_util_Locale;
+static CHINESE: java_util_Locale;
+static SIMPLIFIED_CHINESE: java_util_Locale;
+static TRADITIONAL_CHINESE: java_util_Locale;
+static FRANCE: java_util_Locale;
+static GERMANY: java_util_Locale;
+static ITALY: java_util_Locale;
+static JAPAN: java_util_Locale;
+static KOREA: java_util_Locale;
+static CHINA: java_util_Locale;
+static PRC: java_util_Locale;
+static TAIWAN: java_util_Locale;
+static UK: java_util_Locale;
+static US: java_util_Locale;
+static CANADA: java_util_Locale;
+static CANADA_FRENCH: java_util_Locale;
+static ROOT: java_util_Locale;
+static PRIVATE_USE_EXTENSION: string;
+static UNICODE_LOCALE_EXTENSION: string;
+static serialVersionUID: number;
+static DISPLAY_LANGUAGE: number;
+static DISPLAY_COUNTRY: number;
+static DISPLAY_VARIANT: number;
+static DISPLAY_SCRIPT: number;
+static DISPLAY_UEXT_KEY: number;
+static DISPLAY_UEXT_TYPE: number;
+baseLocale: sun_util_locale_BaseLocale;
+localeExtensions: sun_util_locale_LocaleExtensions;
+hashCodeValue: number;
+static defaultLocale: java_util_Locale;
+static defaultDisplayLocale: java_util_Locale;
+static defaultFormatLocale: java_util_Locale;
+languageTag: string;
+static serialPersistentFields: java_io_ObjectStreamField[];
+static isoLanguages: string[];
+static isoCountries: string[];
+static $assertionsDisabled: boolean;
+static default: java_util_Locale;
+static default: java_util_Locale;
+language: string;
+displayName: string;
+displayName: string;
+static availableLocales: java_util_Locale[];
+static iSOCountries: java_util_Set<string>;
+static iSOCountries: string[];
+static iSOLanguages: string[];
+script: string;
+country: string;
+variant: string;
+extension: string;
+extensionKeys: java_util_Set<java_lang_Character>;
+unicodeLocaleAttributes: java_util_Set<string>;
+unicodeLocaleType: string;
+unicodeLocaleKeys: java_util_Set<string>;
+iSO3Language: string;
+iSO3Country: string;
+displayLanguage: string;
+displayLanguage: string;
+displayScript: string;
+displayScript: string;
+displayCountry: string;
+displayCountry: string;
+displayVariant: string;
+displayVariant: string;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+clone(): java_lang_Object;
+static getDefault(arg0: java_util_Locale_Category): java_util_Locale;
+static getDefault(): java_util_Locale;
+static filter(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<java_util_Locale>): java_util_List<java_util_Locale>;
+static filter(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<java_util_Locale>, arg2: java_util_Locale_FilteringMode): java_util_List<java_util_Locale>;
+static lookup(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<java_util_Locale>): java_util_Locale;
+getLanguage(): string;
+getDisplayName(arg0: java_util_Locale): string;
+getDisplayName(): string;
+static getAvailableLocales(): java_util_Locale[];
+static setDefault(arg0: java_util_Locale): void;
+static setDefault(arg0: java_util_Locale_Category, arg1: java_util_Locale): void;
+static getISOCountries(arg0: java_util_Locale_IsoCountryCode): java_util_Set<string>;
+static getISOCountries(): string[];
+static getISOLanguages(): string[];
+getScript(): string;
+getCountry(): string;
+getVariant(): string;
+hasExtensions(): boolean;
+stripExtensions(): java_util_Locale;
+getExtension(arg0: string): string;
+getExtensionKeys(): java_util_Set<java_lang_Character>;
+getUnicodeLocaleAttributes(): java_util_Set<string>;
+getUnicodeLocaleType(arg0: string): string;
+getUnicodeLocaleKeys(): java_util_Set<string>;
+toLanguageTag(): string;
+static forLanguageTag(arg0: string): java_util_Locale;
+getISO3Language(): string;
+getISO3Country(): string;
+getDisplayLanguage(): string;
+getDisplayLanguage(arg0: java_util_Locale): string;
+getDisplayScript(): string;
+getDisplayScript(arg0: java_util_Locale): string;
+getDisplayCountry(): string;
+getDisplayCountry(arg0: java_util_Locale): string;
+getDisplayVariant(arg0: java_util_Locale): string;
+getDisplayVariant(): string;
+static filterTags(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<string>, arg2: java_util_Locale_FilteringMode): java_util_List<string>;
+static filterTags(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<string>): java_util_List<string>;
+static lookupTag(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Collection<string>): string;
+constructor(arg0: string);
+constructor(arg0: string, arg1: string);
+constructor(arg0: string, arg1: string, arg2: string);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Locale' {
+import { Category as java_util_Locale_Category } from 'java.util.Locale';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class Category extends java_lang_Enum<java_util_Locale_Category> {
+static DISPLAY: java_util_Locale_Category;
+static FORMAT: java_util_Locale_Category;
+languageKey: string;
+scriptKey: string;
+countryKey: string;
+variantKey: string;
+extensionsKey: string;
+static $VALUES: java_util_Locale_Category[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_util_Locale_Category[];
+static valueOf(arg0: string): java_util_Locale_Category;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Locale' {
+import { Object as java_lang_Object } from 'java.lang';
+import { List as java_util_List, Map as java_util_Map } from 'java.util';
+import { LanguageRange as java_util_Locale_LanguageRange } from 'java.util.Locale';
+
+  export class LanguageRange extends java_lang_Object {
+static MAX_WEIGHT: number;
+static MIN_WEIGHT: number;
+range: string;
+weight: number;
+hash: number;
+weight: number;
+range: string;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+static parse(arg0: string): java_util_List<java_util_Locale_LanguageRange>;
+static parse(arg0: string, arg1: java_util_Map<string, java_util_List<string>>): java_util_List<java_util_Locale_LanguageRange>;
+static mapEquivalents(arg0: java_util_List<java_util_Locale_LanguageRange>, arg1: java_util_Map<string, java_util_List<string>>): java_util_List<java_util_Locale_LanguageRange>;
+getWeight(): number;
+getRange(): string;
+constructor(arg0: string);
+constructor(arg0: string, arg1: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Locale' {
+import { FilteringMode as java_util_Locale_FilteringMode } from 'java.util.Locale';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class FilteringMode extends java_lang_Enum<java_util_Locale_FilteringMode> {
+static AUTOSELECT_FILTERING: java_util_Locale_FilteringMode;
+static EXTENDED_FILTERING: java_util_Locale_FilteringMode;
+static IGNORE_EXTENDED_RANGES: java_util_Locale_FilteringMode;
+static MAP_EXTENDED_RANGES: java_util_Locale_FilteringMode;
+static REJECT_EXTENDED_RANGES: java_util_Locale_FilteringMode;
+static $VALUES: java_util_Locale_FilteringMode[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_util_Locale_FilteringMode[];
+static valueOf(arg0: string): java_util_Locale_FilteringMode;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Locale' {
+import { IsoCountryCode as java_util_Locale_IsoCountryCode } from 'java.util.Locale';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+import { Map as java_util_Map, Set as java_util_Set } from 'java.util';
+
+  export class IsoCountryCode extends java_lang_Enum<java_util_Locale_IsoCountryCode> {
+static PART1_ALPHA2: java_util_Locale_IsoCountryCode;
+static PART1_ALPHA3: java_util_Locale_IsoCountryCode;
+static PART3: java_util_Locale_IsoCountryCode;
+static iso3166CodesMap: java_util_Map<java_util_Locale_IsoCountryCode, java_util_Set<string>>;
+static $VALUES: java_util_Locale_IsoCountryCode[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_util_Locale_IsoCountryCode[];
+static valueOf(arg0: string): java_util_Locale_IsoCountryCode;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Locale' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { LocaleObjectCache as sun_util_locale_LocaleObjectCache } from 'sun.util.locale';
+import { Locale as java_util_Locale } from 'java.util';
+
+  export class Cache extends sun_util_locale_LocaleObjectCache<java_lang_Object, java_util_Locale> {
+class: java_lang_Class<java_lang_Object>;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Collection as java_util_Collection, Set as java_util_Set, Comparator as java_util_Comparator, SortedMap as java_util_SortedMap, Map as java_util_Map } from 'java.util';
+import { Entry as java_util_Map_Entry } from 'java.util.Map';
+import { Object as java_lang_Object } from 'java.lang';
+import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
+
+  export class SortedMap<K extends java_lang_Object, V extends java_lang_Object> implements java_util_Map<K, V> {
+orDefault: V;
+values(): java_util_Collection<V>;
+entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
+keySet(): java_util_Set<K>;
+comparator(): java_util_Comparator<java_lang_Object>;
+firstKey(): K;
+lastKey(): K;
+subMap(arg0: K, arg1: K): java_util_SortedMap<K, V>;
+headMap(arg0: K): java_util_SortedMap<K, V>;
+tailMap(arg0: K): java_util_SortedMap<K, V>;
+remove(arg0: java_lang_Object): V;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+get(arg0: java_lang_Object): V;
+put(arg0: K, arg1: V): V;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+clear(): void;
+isEmpty(): boolean;
+replace(arg0: K, arg1: V): V;
+replace(arg0: K, arg1: V, arg2: V): boolean;
+replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
+size(): number;
+merge(arg0: K, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+putAll(arg0: java_util_Map<K, V>): void;
+putIfAbsent(arg0: K, arg1: V): V;
+compute(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+containsKey(arg0: java_lang_Object): boolean;
+computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
+containsValue(arg0: java_lang_Object): boolean;
+getOrDefault(arg0: java_lang_Object, arg1: V): V;
+computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.concurrent' {
+import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
+import { ChronoUnit as java_time_temporal_ChronoUnit } from 'java.time.temporal';
+import { Duration as java_time_Duration } from 'java.time';
+import { Object as java_lang_Object, Thread as java_lang_Thread, Class as java_lang_Class, Enum as java_lang_Enum } from 'java.lang';
+
+  export class TimeUnit extends java_lang_Enum<java_util_concurrent_TimeUnit> {
+static NANOSECONDS: java_util_concurrent_TimeUnit;
+static MICROSECONDS: java_util_concurrent_TimeUnit;
+static MILLISECONDS: java_util_concurrent_TimeUnit;
+static SECONDS: java_util_concurrent_TimeUnit;
+static MINUTES: java_util_concurrent_TimeUnit;
+static HOURS: java_util_concurrent_TimeUnit;
+static DAYS: java_util_concurrent_TimeUnit;
+static NANO_SCALE: number;
+static MICRO_SCALE: number;
+static MILLI_SCALE: number;
+static SECOND_SCALE: number;
+static MINUTE_SCALE: number;
+static HOUR_SCALE: number;
+static DAY_SCALE: number;
+scale: number;
+maxNanos: number;
+maxMicros: number;
+maxMillis: number;
+maxSecs: number;
+microRatio: number;
+milliRatio: number;
+secRatio: number;
+static $VALUES: java_util_concurrent_TimeUnit[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_util_concurrent_TimeUnit[];
+static valueOf(arg0: string): java_util_concurrent_TimeUnit;
+static of(arg0: java_time_temporal_ChronoUnit): java_util_concurrent_TimeUnit;
+sleep(arg0: number): void;
+toNanos(arg0: number): number;
+convert(arg0: number, arg1: java_util_concurrent_TimeUnit): number;
+convert(arg0: java_time_Duration): number;
+toMicros(arg0: number): number;
+toSeconds(arg0: number): number;
+toMinutes(arg0: number): number;
+toHours(arg0: number): number;
+toDays(arg0: number): number;
+timedWait(arg0: java_lang_Object, arg1: number): void;
+timedJoin(arg0: java_lang_Thread, arg1: number): void;
+toChronoUnit(): java_time_temporal_ChronoUnit;
+toMillis(arg0: number): number;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
+import { AtomicLong as java_util_concurrent_atomic_AtomicLong } from 'java.util.concurrent.atomic';
+import { ObjectStreamField as java_io_ObjectStreamField, Serializable as java_io_Serializable } from 'java.io';
+import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Random extends java_lang_Object implements java_io_Serializable {
+static serialVersionUID: number;
+seed: java_util_concurrent_atomic_AtomicLong;
+static multiplier: number;
+static addend: number;
+static mask: number;
+static DOUBLE_UNIT: number;
+static BadBound: string;
+static BadRange: string;
+static BadSize: string;
+static seedUniquifier: java_util_concurrent_atomic_AtomicLong;
+nextNextGaussian: number;
+haveNextNextGaussian: boolean;
+static serialPersistentFields: java_io_ObjectStreamField[];
+static unsafe: jdk_internal_misc_Unsafe;
+static seedOffset: number;
+nextInt(): number;
+nextInt(arg0: number): number;
+nextDouble(): number;
+setSeed(arg0: number): void;
+nextLong(): number;
+nextBoolean(): boolean;
+nextFloat(): number;
+nextGaussian(): number;
+ints(arg0: number, arg1: number): java_util_stream_IntStream;
+ints(arg0: number, arg1: number, arg2: number): java_util_stream_IntStream;
+ints(): java_util_stream_IntStream;
+ints(arg0: number): java_util_stream_IntStream;
+longs(arg0: number, arg1: number, arg2: number): java_util_stream_LongStream;
+longs(arg0: number, arg1: number): java_util_stream_LongStream;
+longs(): java_util_stream_LongStream;
+longs(arg0: number): java_util_stream_LongStream;
+doubles(arg0: number, arg1: number, arg2: number): java_util_stream_DoubleStream;
+doubles(arg0: number, arg1: number): java_util_stream_DoubleStream;
+doubles(): java_util_stream_DoubleStream;
+doubles(arg0: number): java_util_stream_DoubleStream;
+nextBytes(arg0: number[]): void;
+constructor();
+constructor(arg0: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream' {
+import { OptionalLong as java_util_OptionalLong, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, OptionalDouble as java_util_OptionalDouble, LongSummaryStatistics as java_util_LongSummaryStatistics } from 'java.util';
+import { Builder as java_util_stream_LongStream_Builder } from 'java.util.stream.LongStream';
+import { LongStream as java_util_stream_LongStream, BaseStream as java_util_stream_BaseStream, IntStream as java_util_stream_IntStream, DoubleStream as java_util_stream_DoubleStream, Stream as java_util_stream_Stream } from 'java.util.stream';
+import { OfLong as java_util_PrimitiveIterator_OfLong } from 'java.util.PrimitiveIterator';
+import { OfLong as java_util_Spliterator_OfLong } from 'java.util.Spliterator';
+import { LongPredicate as java_util_function_LongPredicate, Supplier as java_util_function_Supplier, ObjLongConsumer as java_util_function_ObjLongConsumer, BiConsumer as java_util_function_BiConsumer, LongUnaryOperator as java_util_function_LongUnaryOperator, LongFunction as java_util_function_LongFunction, LongConsumer as java_util_function_LongConsumer, LongBinaryOperator as java_util_function_LongBinaryOperator, LongSupplier as java_util_function_LongSupplier, LongToIntFunction as java_util_function_LongToIntFunction, LongToDoubleFunction as java_util_function_LongToDoubleFunction } from 'java.util.function';
+import { Object as java_lang_Object, Long as java_lang_Long, Runnable as java_lang_Runnable } from 'java.lang';
+
+  export class LongStream implements java_util_stream_BaseStream<java_lang_Long, java_util_stream_LongStream> {
+
+min(): java_util_OptionalLong;
+max(): java_util_OptionalLong;
+count(): number;
+static builder(): java_util_stream_LongStream_Builder;
+static concat(arg0: java_util_stream_LongStream, arg1: java_util_stream_LongStream): java_util_stream_LongStream;
+limit(arg0: number): java_util_stream_LongStream;
+toArray(): number[];
+iterator(): java_util_Iterator;
+iterator(): java_util_PrimitiveIterator_OfLong;
+spliterator(): java_util_Spliterator;
+spliterator(): java_util_Spliterator_OfLong;
+static empty(): java_util_stream_LongStream;
+filter(arg0: java_util_function_LongPredicate): java_util_stream_LongStream;
+collect<R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_ObjLongConsumer<R>, arg2: java_util_function_BiConsumer<R, R>): R;
+map(arg0: java_util_function_LongUnaryOperator): java_util_stream_LongStream;
+static of(...arg0: number[]): java_util_stream_LongStream;
+static of(arg0: number): java_util_stream_LongStream;
+flatMap(arg0: java_util_function_LongFunction<java_util_stream_LongStream>): java_util_stream_LongStream;
+forEach(arg0: java_util_function_LongConsumer): void;
+findAny(): java_util_OptionalLong;
+skip(arg0: number): java_util_stream_LongStream;
+peek(arg0: java_util_function_LongConsumer): java_util_stream_LongStream;
+sum(): number;
+reduce(arg0: number, arg1: java_util_function_LongBinaryOperator): number;
+reduce(arg0: java_util_function_LongBinaryOperator): java_util_OptionalLong;
+static iterate(arg0: number, arg1: java_util_function_LongPredicate, arg2: java_util_function_LongUnaryOperator): java_util_stream_LongStream;
+static iterate(arg0: number, arg1: java_util_function_LongUnaryOperator): java_util_stream_LongStream;
+static range(arg0: number, arg1: number): java_util_stream_LongStream;
+parallel(): java_util_stream_BaseStream;
+parallel(): java_util_stream_LongStream;
+static generate(arg0: java_util_function_LongSupplier): java_util_stream_LongStream;
+distinct(): java_util_stream_LongStream;
+findFirst(): java_util_OptionalLong;
+dropWhile(arg0: java_util_function_LongPredicate): java_util_stream_LongStream;
+sorted(): java_util_stream_LongStream;
+allMatch(arg0: java_util_function_LongPredicate): boolean;
+anyMatch(arg0: java_util_function_LongPredicate): boolean;
+forEachOrdered(arg0: java_util_function_LongConsumer): void;
+mapToInt(arg0: java_util_function_LongToIntFunction): java_util_stream_IntStream;
+mapToDouble(arg0: java_util_function_LongToDoubleFunction): java_util_stream_DoubleStream;
+takeWhile(arg0: java_util_function_LongPredicate): java_util_stream_LongStream;
+noneMatch(arg0: java_util_function_LongPredicate): boolean;
+sequential(): java_util_stream_BaseStream;
+sequential(): java_util_stream_LongStream;
+mapToObj<U extends java_lang_Object>(arg0: java_util_function_LongFunction<U>): java_util_stream_Stream<U>;
+static rangeClosed(arg0: number, arg1: number): java_util_stream_LongStream;
+average(): java_util_OptionalDouble;
+summaryStatistics(): java_util_LongSummaryStatistics;
+asDoubleStream(): java_util_stream_DoubleStream;
+boxed(): java_util_stream_Stream<java_lang_Long>;
+close(): void;
+onClose(arg0: java_lang_Runnable): S;
+unordered(): S;
+isParallel(): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
+import { OptionalLong as java_util_OptionalLong } from 'java.util';
+import { LongStream as java_util_stream_LongStream } from 'java.util.stream';
+import { Supplier as java_util_function_Supplier, LongConsumer as java_util_function_LongConsumer, LongSupplier as java_util_function_LongSupplier } from 'java.util.function';
+
+  export class OptionalLong extends java_lang_Object {
+static EMPTY: java_util_OptionalLong;
+isPresent: boolean;
+value: number;
+asLong: number;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+isEmpty(): boolean;
+static empty(): java_util_OptionalLong;
+stream(): java_util_stream_LongStream;
+static of(arg0: number): java_util_OptionalLong;
+isPresent(): boolean;
+orElse(arg0: number): number;
+orElseThrow<X extends java_lang_Throwable>(arg0: java_util_function_Supplier<X>): number;
+orElseThrow(): number;
+ifPresent(arg0: java_util_function_LongConsumer): void;
+ifPresentOrElse(arg0: java_util_function_LongConsumer, arg1: java_lang_Runnable): void;
+orElseGet(arg0: java_util_function_LongSupplier): number;
+getAsLong(): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { LongConsumer as java_util_function_LongConsumer } from 'java.util.function';
+
+  export class LongConsumer {
+
+accept(arg0: number): void;
+andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class LongSupplier {
+asLong: number;
+getAsLong(): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream.LongStream' {
+import { Builder as java_util_stream_LongStream_Builder } from 'java.util.stream.LongStream';
+import { LongStream as java_util_stream_LongStream } from 'java.util.stream';
+import { LongConsumer as java_util_function_LongConsumer } from 'java.util.function';
+
+  export class Builder implements java_util_function_LongConsumer {
+
+add(arg0: number): java_util_stream_LongStream_Builder;
+accept(arg0: number): void;
+build(): java_util_stream_LongStream;
+andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.PrimitiveIterator' {
+import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
+import { LongConsumer as java_util_function_LongConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { PrimitiveIterator as java_util_PrimitiveIterator } from 'java.util';
+
+  export class OfLong implements java_util_PrimitiveIterator<java_lang_Long, java_util_function_LongConsumer> {
+
+forEachRemaining(arg0: java_lang_Object): void;
+forEachRemaining(arg0: java_util_function_LongConsumer): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+next(): java_lang_Object;
+next(): java_lang_Long;
+nextLong(): number;
+remove(): void;
+hasNext(): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+import { Iterator as java_util_Iterator } from 'java.util';
+
+  export class PrimitiveIterator<T extends java_lang_Object, T_CONS extends java_lang_Object> implements java_util_Iterator<T> {
+
+forEachRemaining(arg0: T_CONS): void;
+remove(): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+next(): E;
+hasNext(): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Spliterator' {
+import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
+import { LongConsumer as java_util_function_LongConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { OfPrimitive as java_util_Spliterator_OfPrimitive, OfLong as java_util_Spliterator_OfLong } from 'java.util.Spliterator';
+import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
+
+  export class OfLong implements java_util_Spliterator_OfPrimitive<java_lang_Long, java_util_function_LongConsumer, java_util_Spliterator_OfLong> {
+exactSizeIfKnown: number;
+comparator: java_util_Comparator<java_lang_Object>;
+forEachRemaining(arg0: java_lang_Object): void;
+forEachRemaining(arg0: java_util_function_LongConsumer): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+trySplit(): java_util_Spliterator_OfPrimitive;
+trySplit(): java_util_Spliterator;
+trySplit(): java_util_Spliterator_OfLong;
+tryAdvance(arg0: java_util_function_LongConsumer): boolean;
+tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
+tryAdvance(arg0: java_lang_Object): boolean;
+characteristics(): number;
+estimateSize(): number;
+getExactSizeIfKnown(): number;
+hasCharacteristics(arg0: number): boolean;
+getComparator(): java_util_Comparator<java_lang_Object>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Spliterator' {
+import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
+import { Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+import { OfPrimitive as java_util_Spliterator_OfPrimitive } from 'java.util.Spliterator';
+
+  export class OfPrimitive<T extends java_lang_Object, T_CONS extends java_lang_Object, T_SPLITR extends java_util_Spliterator_OfPrimitive<T, T_CONS, T_SPLITR>> implements java_util_Spliterator<T> {
+exactSizeIfKnown: number;
+comparator: java_util_Comparator<java_lang_Object>;
+forEachRemaining(arg0: T_CONS): void;
+trySplit(): java_util_Spliterator;
+trySplit(): T_SPLITR;
+tryAdvance(arg0: T_CONS): boolean;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+characteristics(): number;
+estimateSize(): number;
+tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
+getExactSizeIfKnown(): number;
+hasCharacteristics(arg0: number): boolean;
+getComparator(): java_util_Comparator<java_lang_Object>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { LongPredicate as java_util_function_LongPredicate } from 'java.util.function';
+
+  export class LongPredicate {
+
+test(arg0: number): boolean;
+or(arg0: java_util_function_LongPredicate): java_util_function_LongPredicate;
+and(arg0: java_util_function_LongPredicate): java_util_function_LongPredicate;
+negate(): java_util_function_LongPredicate;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class ObjLongConsumer<T extends java_lang_Object> {
+
+accept(arg0: T, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class LongFunction<R extends java_lang_Object> {
+
+apply(arg0: number): R;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream' {
+import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
+import { Runnable as java_lang_Runnable, AutoCloseable as java_lang_AutoCloseable, Object as java_lang_Object } from 'java.lang';
+import { BaseStream as java_util_stream_BaseStream } from 'java.util.stream';
+
+  export class BaseStream<T extends java_lang_Object, S extends java_util_stream_BaseStream<T, S>> implements java_lang_AutoCloseable {
+
+iterator(): java_util_Iterator<T>;
+spliterator(): java_util_Spliterator<T>;
+close(): void;
+parallel(): S;
+onClose(arg0: java_lang_Runnable): S;
+unordered(): S;
+isParallel(): boolean;
+sequential(): S;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class LongToIntFunction {
+
+applyAsInt(arg0: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class LongToDoubleFunction {
+
+applyAsDouble(arg0: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream' {
+import { OptionalDouble as java_util_OptionalDouble, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, DoubleSummaryStatistics as java_util_DoubleSummaryStatistics } from 'java.util';
+import { Builder as java_util_stream_DoubleStream_Builder } from 'java.util.stream.DoubleStream';
+import { DoubleStream as java_util_stream_DoubleStream, BaseStream as java_util_stream_BaseStream, IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, Stream as java_util_stream_Stream } from 'java.util.stream';
+import { OfDouble as java_util_PrimitiveIterator_OfDouble } from 'java.util.PrimitiveIterator';
+import { OfDouble as java_util_Spliterator_OfDouble } from 'java.util.Spliterator';
+import { DoublePredicate as java_util_function_DoublePredicate, Supplier as java_util_function_Supplier, ObjDoubleConsumer as java_util_function_ObjDoubleConsumer, BiConsumer as java_util_function_BiConsumer, DoubleUnaryOperator as java_util_function_DoubleUnaryOperator, DoubleFunction as java_util_function_DoubleFunction, DoubleConsumer as java_util_function_DoubleConsumer, DoubleBinaryOperator as java_util_function_DoubleBinaryOperator, DoubleSupplier as java_util_function_DoubleSupplier, DoubleToIntFunction as java_util_function_DoubleToIntFunction, DoubleToLongFunction as java_util_function_DoubleToLongFunction } from 'java.util.function';
+import { Object as java_lang_Object, Double as java_lang_Double, Runnable as java_lang_Runnable } from 'java.lang';
+
+  export class DoubleStream implements java_util_stream_BaseStream<java_lang_Double, java_util_stream_DoubleStream> {
+
+min(): java_util_OptionalDouble;
+max(): java_util_OptionalDouble;
+count(): number;
+static builder(): java_util_stream_DoubleStream_Builder;
+static concat(arg0: java_util_stream_DoubleStream, arg1: java_util_stream_DoubleStream): java_util_stream_DoubleStream;
+limit(arg0: number): java_util_stream_DoubleStream;
+toArray(): number[];
+iterator(): java_util_Iterator;
+iterator(): java_util_PrimitiveIterator_OfDouble;
+spliterator(): java_util_Spliterator;
+spliterator(): java_util_Spliterator_OfDouble;
+static empty(): java_util_stream_DoubleStream;
+filter(arg0: java_util_function_DoublePredicate): java_util_stream_DoubleStream;
+collect<R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_ObjDoubleConsumer<R>, arg2: java_util_function_BiConsumer<R, R>): R;
+map(arg0: java_util_function_DoubleUnaryOperator): java_util_stream_DoubleStream;
+static of(...arg0: number[]): java_util_stream_DoubleStream;
+static of(arg0: number): java_util_stream_DoubleStream;
+flatMap(arg0: java_util_function_DoubleFunction<java_util_stream_DoubleStream>): java_util_stream_DoubleStream;
+forEach(arg0: java_util_function_DoubleConsumer): void;
+findAny(): java_util_OptionalDouble;
+skip(arg0: number): java_util_stream_DoubleStream;
+peek(arg0: java_util_function_DoubleConsumer): java_util_stream_DoubleStream;
+sum(): number;
+reduce(arg0: number, arg1: java_util_function_DoubleBinaryOperator): number;
+reduce(arg0: java_util_function_DoubleBinaryOperator): java_util_OptionalDouble;
+static iterate(arg0: number, arg1: java_util_function_DoublePredicate, arg2: java_util_function_DoubleUnaryOperator): java_util_stream_DoubleStream;
+static iterate(arg0: number, arg1: java_util_function_DoubleUnaryOperator): java_util_stream_DoubleStream;
+parallel(): java_util_stream_DoubleStream;
+parallel(): java_util_stream_BaseStream;
+static generate(arg0: java_util_function_DoubleSupplier): java_util_stream_DoubleStream;
+distinct(): java_util_stream_DoubleStream;
+findFirst(): java_util_OptionalDouble;
+dropWhile(arg0: java_util_function_DoublePredicate): java_util_stream_DoubleStream;
+sorted(): java_util_stream_DoubleStream;
+allMatch(arg0: java_util_function_DoublePredicate): boolean;
+anyMatch(arg0: java_util_function_DoublePredicate): boolean;
+forEachOrdered(arg0: java_util_function_DoubleConsumer): void;
+mapToInt(arg0: java_util_function_DoubleToIntFunction): java_util_stream_IntStream;
+mapToLong(arg0: java_util_function_DoubleToLongFunction): java_util_stream_LongStream;
+takeWhile(arg0: java_util_function_DoublePredicate): java_util_stream_DoubleStream;
+noneMatch(arg0: java_util_function_DoublePredicate): boolean;
+sequential(): java_util_stream_BaseStream;
+sequential(): java_util_stream_DoubleStream;
+mapToObj<U extends java_lang_Object>(arg0: java_util_function_DoubleFunction<U>): java_util_stream_Stream<U>;
+average(): java_util_OptionalDouble;
+summaryStatistics(): java_util_DoubleSummaryStatistics;
+boxed(): java_util_stream_Stream<java_lang_Double>;
+close(): void;
+onClose(arg0: java_lang_Runnable): S;
+unordered(): S;
+isParallel(): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
+import { OptionalDouble as java_util_OptionalDouble } from 'java.util';
+import { DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
+import { Supplier as java_util_function_Supplier, DoubleConsumer as java_util_function_DoubleConsumer, DoubleSupplier as java_util_function_DoubleSupplier } from 'java.util.function';
+
+  export class OptionalDouble extends java_lang_Object {
+static EMPTY: java_util_OptionalDouble;
+isPresent: boolean;
+value: number;
+asDouble: number;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+isEmpty(): boolean;
+static empty(): java_util_OptionalDouble;
+stream(): java_util_stream_DoubleStream;
+static of(arg0: number): java_util_OptionalDouble;
+isPresent(): boolean;
+orElse(arg0: number): number;
+orElseThrow<X extends java_lang_Throwable>(arg0: java_util_function_Supplier<X>): number;
+orElseThrow(): number;
+ifPresent(arg0: java_util_function_DoubleConsumer): void;
+ifPresentOrElse(arg0: java_util_function_DoubleConsumer, arg1: java_lang_Runnable): void;
+orElseGet(arg0: java_util_function_DoubleSupplier): number;
+getAsDouble(): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { DoubleConsumer as java_util_function_DoubleConsumer } from 'java.util.function';
+
+  export class DoubleConsumer {
+
+accept(arg0: number): void;
+andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class DoubleSupplier {
+asDouble: number;
+getAsDouble(): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream.DoubleStream' {
+import { Builder as java_util_stream_DoubleStream_Builder } from 'java.util.stream.DoubleStream';
+import { DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
+import { DoubleConsumer as java_util_function_DoubleConsumer } from 'java.util.function';
+
+  export class Builder implements java_util_function_DoubleConsumer {
+
+add(arg0: number): java_util_stream_DoubleStream_Builder;
+accept(arg0: number): void;
+build(): java_util_stream_DoubleStream;
+andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.PrimitiveIterator' {
+import { Object as java_lang_Object, Double as java_lang_Double } from 'java.lang';
+import { DoubleConsumer as java_util_function_DoubleConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { PrimitiveIterator as java_util_PrimitiveIterator } from 'java.util';
+
+  export class OfDouble implements java_util_PrimitiveIterator<java_lang_Double, java_util_function_DoubleConsumer> {
+
+forEachRemaining(arg0: java_lang_Object): void;
+forEachRemaining(arg0: java_util_function_DoubleConsumer): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+next(): java_lang_Object;
+next(): java_lang_Double;
+nextDouble(): number;
+remove(): void;
+hasNext(): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Spliterator' {
+import { Object as java_lang_Object, Double as java_lang_Double } from 'java.lang';
+import { DoubleConsumer as java_util_function_DoubleConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { OfPrimitive as java_util_Spliterator_OfPrimitive, OfDouble as java_util_Spliterator_OfDouble } from 'java.util.Spliterator';
+import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
+
+  export class OfDouble implements java_util_Spliterator_OfPrimitive<java_lang_Double, java_util_function_DoubleConsumer, java_util_Spliterator_OfDouble> {
+exactSizeIfKnown: number;
+comparator: java_util_Comparator<java_lang_Object>;
+forEachRemaining(arg0: java_lang_Object): void;
+forEachRemaining(arg0: java_util_function_DoubleConsumer): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+trySplit(): java_util_Spliterator_OfPrimitive;
+trySplit(): java_util_Spliterator;
+trySplit(): java_util_Spliterator_OfDouble;
+tryAdvance(arg0: java_util_function_DoubleConsumer): boolean;
+tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
+tryAdvance(arg0: java_lang_Object): boolean;
+characteristics(): number;
+estimateSize(): number;
+getExactSizeIfKnown(): number;
+hasCharacteristics(arg0: number): boolean;
+getComparator(): java_util_Comparator<java_lang_Object>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { DoublePredicate as java_util_function_DoublePredicate } from 'java.util.function';
+
+  export class DoublePredicate {
+
+test(arg0: number): boolean;
+or(arg0: java_util_function_DoublePredicate): java_util_function_DoublePredicate;
+and(arg0: java_util_function_DoublePredicate): java_util_function_DoublePredicate;
+negate(): java_util_function_DoublePredicate;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class ObjDoubleConsumer<T extends java_lang_Object> {
+
+accept(arg0: T, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { DoubleUnaryOperator as java_util_function_DoubleUnaryOperator } from 'java.util.function';
+
+  export class DoubleUnaryOperator {
+
+static identity(): java_util_function_DoubleUnaryOperator;
+applyAsDouble(arg0: number): number;
+compose(arg0: java_util_function_DoubleUnaryOperator): java_util_function_DoubleUnaryOperator;
+andThen(arg0: java_util_function_DoubleUnaryOperator): java_util_function_DoubleUnaryOperator;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class DoubleFunction<R extends java_lang_Object> {
+
+apply(arg0: number): R;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class DoubleToIntFunction {
+
+applyAsInt(arg0: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class DoubleToLongFunction {
+
+applyAsLong(arg0: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { DoubleSummaryStatistics as java_util_DoubleSummaryStatistics } from 'java.util';
+import { DoubleConsumer as java_util_function_DoubleConsumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class DoubleSummaryStatistics extends java_lang_Object implements java_util_function_DoubleConsumer {
+count: number;
+sum: number;
+sumCompensation: number;
+simpleSum: number;
+min: number;
+max: number;
+count: number;
+sum: number;
+min: number;
+max: number;
+average: number;
+toString(): string;
+accept(arg0: number): void;
+combine(arg0: java_util_DoubleSummaryStatistics): void;
+getCount(): number;
+getSum(): number;
+getMin(): number;
+getMax(): number;
+getAverage(): number;
+andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
+constructor();
+constructor(arg0: number, arg1: number, arg2: number, arg3: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { LongSummaryStatistics as java_util_LongSummaryStatistics } from 'java.util';
+import { LongConsumer as java_util_function_LongConsumer, IntConsumer as java_util_function_IntConsumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class LongSummaryStatistics extends java_lang_Object implements java_util_function_LongConsumer, java_util_function_IntConsumer {
+count: number;
+sum: number;
+min: number;
+max: number;
+count: number;
+sum: number;
+min: number;
+max: number;
+average: number;
+toString(): string;
+accept(arg0: number): void;
+accept(arg0: number): void;
+combine(arg0: java_util_LongSummaryStatistics): void;
+getCount(): number;
+getSum(): number;
+getMin(): number;
+getMax(): number;
+getAverage(): number;
+andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
+andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
+constructor();
+constructor(arg0: number, arg1: number, arg2: number, arg3: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable, Comparable as java_lang_Comparable } from 'java.lang';
 import { Date as java_util_Date } from 'java.util';
 import { Instant as java_time_Instant } from 'java.time';
@@ -3031,6 +2734,244 @@ constructor(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number
 constructor();
 constructor(arg0: number);
 constructor(arg0: number, arg1: number, arg2: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex' {
+import { CharSequence as java_lang_CharSequence, Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
+import { Pattern as java_util_regex_Pattern, Matcher as java_util_regex_Matcher } from 'java.util.regex';
+import { Predicate as java_util_function_Predicate } from 'java.util.function';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+import { Node as java_util_regex_Pattern_Node, CharPredicate as java_util_regex_Pattern_CharPredicate, GroupHead as java_util_regex_Pattern_GroupHead } from 'java.util.regex.Pattern';
+import { Map as java_util_Map, List as java_util_List } from 'java.util';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class Pattern extends java_lang_Object implements java_io_Serializable {
+static UNIX_LINES: number;
+static CASE_INSENSITIVE: number;
+static COMMENTS: number;
+static MULTILINE: number;
+static LITERAL: number;
+static DOTALL: number;
+static UNICODE_CASE: number;
+static CANON_EQ: number;
+static UNICODE_CHARACTER_CLASS: number;
+static ALL_FLAGS: number;
+static serialVersionUID: number;
+pattern: string;
+flags: number;
+flags0: number;
+compiled: boolean;
+normalizedPattern: string;
+root: java_util_regex_Pattern_Node;
+matchRoot: java_util_regex_Pattern_Node;
+buffer: number[];
+predicate: java_util_regex_Pattern_CharPredicate;
+namedGroups: java_util_Map<string, java_lang_Integer>;
+groupNodes: java_util_regex_Pattern_GroupHead[];
+topClosureNodes: java_util_List<java_util_regex_Pattern_Node>;
+localTCNCount: number;
+hasGroupRef: boolean;
+temp: number[];
+capturingGroupCount: number;
+localCount: number;
+cursor: number;
+patternLength: number;
+hasSupplementary: boolean;
+static MAX_REPS: number;
+static lookbehindEnd: java_util_regex_Pattern_Node;
+static accept: java_util_regex_Pattern_Node;
+static lastAccept: java_util_regex_Pattern_Node;
+static $assertionsDisabled: boolean;
+toString(): string;
+flags(): number;
+static matches(arg0: string, arg1: java_lang_CharSequence): boolean;
+split(arg0: java_lang_CharSequence, arg1: number): string[];
+split(arg0: java_lang_CharSequence): string[];
+static compile(arg0: string): java_util_regex_Pattern;
+static compile(arg0: string, arg1: number): java_util_regex_Pattern;
+matcher(arg0: java_lang_CharSequence): java_util_regex_Matcher;
+static quote(arg0: string): string;
+pattern(): string;
+asPredicate(): java_util_function_Predicate<string>;
+asMatchPredicate(): java_util_function_Predicate<string>;
+splitAsStream(arg0: java_lang_CharSequence): java_util_stream_Stream<string>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex' {
+import { Function as java_util_function_Function } from 'java.util.function';
+import { MatchResult as java_util_regex_MatchResult, Matcher as java_util_regex_Matcher, Pattern as java_util_regex_Pattern, IntHashSet as java_util_regex_IntHashSet } from 'java.util.regex';
+import { CharSequence as java_lang_CharSequence, StringBuilder as java_lang_StringBuilder, StringBuffer as java_lang_StringBuffer, Object as java_lang_Object } from 'java.lang';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class Matcher extends java_lang_Object implements java_util_regex_MatchResult {
+parentPattern: java_util_regex_Pattern;
+groups: number[];
+from: number;
+to: number;
+lookbehindTo: number;
+text: java_lang_CharSequence;
+static ENDANCHOR: number;
+static NOANCHOR: number;
+acceptMode: number;
+first: number;
+last: number;
+oldLast: number;
+lastAppendPosition: number;
+locals: number[];
+localsPos: java_util_regex_IntHashSet[];
+hitEnd: boolean;
+requireEnd: boolean;
+transparentBounds: boolean;
+anchoringBounds: boolean;
+modCount: number;
+group(arg0: number): string;
+group(arg0: string): string;
+group(): string;
+toString(): string;
+matches(): boolean;
+replaceFirst(arg0: java_util_function_Function<java_util_regex_MatchResult, string>): string;
+replaceFirst(arg0: string): string;
+replaceAll(arg0: string): string;
+replaceAll(arg0: java_util_function_Function<java_util_regex_MatchResult, string>): string;
+end(arg0: string): number;
+end(arg0: number): number;
+end(): number;
+start(): number;
+start(arg0: string): number;
+start(arg0: number): number;
+reset(arg0: java_lang_CharSequence): java_util_regex_Matcher;
+reset(): java_util_regex_Matcher;
+find(): boolean;
+find(arg0: number): boolean;
+appendReplacement(arg0: java_lang_StringBuilder, arg1: string): java_util_regex_Matcher;
+appendReplacement(arg0: java_lang_StringBuffer, arg1: string): java_util_regex_Matcher;
+appendTail(arg0: java_lang_StringBuffer): java_lang_StringBuffer;
+appendTail(arg0: java_lang_StringBuilder): java_lang_StringBuilder;
+region(arg0: number, arg1: number): java_util_regex_Matcher;
+pattern(): java_util_regex_Pattern;
+results(): java_util_stream_Stream<java_util_regex_MatchResult>;
+hitEnd(): boolean;
+groupCount(): number;
+requireEnd(): boolean;
+toMatchResult(): java_util_regex_MatchResult;
+usePattern(arg0: java_util_regex_Pattern): java_util_regex_Matcher;
+lookingAt(): boolean;
+static quoteReplacement(arg0: string): string;
+regionStart(): number;
+regionEnd(): number;
+hasTransparentBounds(): boolean;
+useTransparentBounds(arg0: boolean): java_util_regex_Matcher;
+hasAnchoringBounds(): boolean;
+useAnchoringBounds(arg0: boolean): java_util_regex_Matcher;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex' {
+
+
+  export class MatchResult {
+
+group(): string;
+group(arg0: number): string;
+end(arg0: number): number;
+end(): number;
+start(): number;
+start(arg0: number): number;
+groupCount(): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class IntHashSet extends java_lang_Object {
+entries: number[];
+hashes: number[];
+pos: number;
+add(arg0: number): void;
+clear(): void;
+contains(arg0: number): boolean;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex.Pattern' {
+import { Node as java_util_regex_Pattern_Node } from 'java.util.regex.Pattern';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Node extends java_lang_Object {
+next: java_util_regex_Pattern_Node;
+
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex.Pattern' {
+import { CharPredicate as java_util_regex_Pattern_CharPredicate } from 'java.util.regex.Pattern';
+
+  export class CharPredicate {
+
+is(arg0: number): boolean;
+and(arg0: java_util_regex_Pattern_CharPredicate): java_util_regex_Pattern_CharPredicate;
+negate(): java_util_regex_Pattern_CharPredicate;
+union(arg0: java_util_regex_Pattern_CharPredicate, arg1: java_util_regex_Pattern_CharPredicate): java_util_regex_Pattern_CharPredicate;
+union(arg0: java_util_regex_Pattern_CharPredicate): java_util_regex_Pattern_CharPredicate;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex.Pattern' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { GroupTail as java_util_regex_Pattern_GroupTail, Node as java_util_regex_Pattern_Node } from 'java.util.regex.Pattern';
+
+  export class GroupHead extends java_util_regex_Pattern_Node {
+localIndex: number;
+tail: java_util_regex_Pattern_GroupTail;
+class: java_lang_Class<java_lang_Object>;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.regex.Pattern' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Node as java_util_regex_Pattern_Node } from 'java.util.regex.Pattern';
+
+  export class GroupTail extends java_util_regex_Pattern_Node {
+localIndex: number;
+groupIndex: number;
+class: java_lang_Class<java_lang_Object>;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
   }
 }
 //@ts-nocheck
@@ -3188,97 +3129,6 @@ declare module 'java.util' {
 }
 //@ts-nocheck
 
-declare module 'java.util' {
-import { Iterator as java_util_Iterator, NavigableSet as java_util_NavigableSet, SortedSet as java_util_SortedSet, Spliterator as java_util_Spliterator, Comparator as java_util_Comparator, Collection as java_util_Collection } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class NavigableSet<E extends java_lang_Object> implements java_util_SortedSet<E> {
-
-iterator(): java_util_Iterator<E>;
-lower(arg0: E): E;
-floor(arg0: E): E;
-pollFirst(): E;
-pollLast(): E;
-descendingIterator(): java_util_Iterator<E>;
-ceiling(arg0: E): E;
-higher(arg0: E): E;
-subSet(arg0: E, arg1: boolean, arg2: E, arg3: boolean): java_util_NavigableSet<E>;
-subSet(arg0: E, arg1: E): java_util_SortedSet<E>;
-headSet(arg0: E, arg1: boolean): java_util_NavigableSet<E>;
-headSet(arg0: E): java_util_SortedSet<E>;
-tailSet(arg0: E, arg1: boolean): java_util_NavigableSet<E>;
-tailSet(arg0: E): java_util_SortedSet<E>;
-descendingSet(): java_util_NavigableSet<E>;
-last(): E;
-spliterator(): java_util_Spliterator<E>;
-first(): E;
-comparator(): java_util_Comparator<java_lang_Object>;
-add(arg0: E): boolean;
-remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray(): java_lang_Object[];
-addAll(arg0: java_util_Collection<E>): boolean;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-stream(): java_util_stream_Stream<E>;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
-import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator, SortedSet as java_util_SortedSet, Iterator as java_util_Iterator, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class SortedSet<E extends java_lang_Object> implements java_util_Set<E> {
-
-last(): E;
-spliterator(): java_util_Spliterator<E>;
-first(): E;
-comparator(): java_util_Comparator<java_lang_Object>;
-subSet(arg0: E, arg1: E): java_util_SortedSet<E>;
-headSet(arg0: E): java_util_SortedSet<E>;
-tailSet(arg0: E): java_util_SortedSet<E>;
-add(arg0: E): boolean;
-remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray(): java_lang_Object[];
-iterator(): java_util_Iterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-stream(): java_util_stream_Stream<E>;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'java.util.concurrent' {
 import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java.lang';
 import { Future as java_util_concurrent_Future, Callable as java_util_concurrent_Callable, TimeUnit as java_util_concurrent_TimeUnit, Executor as java_util_concurrent_Executor } from 'java.util.concurrent';
@@ -3342,80 +3192,47 @@ execute(arg0: java_lang_Runnable): void;
 }
 //@ts-nocheck
 
-declare module 'java.util.stream.Stream' {
-import { Builder as java_util_stream_Stream_Builder } from 'java.util.stream.Stream';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
+declare module 'java.util' {
+import { Locale as java_util_Locale, Formatter as java_util_Formatter } from 'java.util';
+import { Object as java_lang_Object, Appendable as java_lang_Appendable } from 'java.lang';
+import { IOException as java_io_IOException, File as java_io_File, OutputStream as java_io_OutputStream, PrintStream as java_io_PrintStream, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
+import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
+import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
 
-  export class Builder<T extends java_lang_Object> implements java_util_function_Consumer<T> {
-
-add(arg0: T): java_util_stream_Stream_Builder<T>;
-/** Performs this operation on the given argument. */
-accept(t: T): void;
-build(): java_util_stream_Stream<T>;
-andThen(arg0: java_util_function_Consumer<java_lang_Object>): java_util_function_Consumer<T>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.stream' {
-import { Set as java_util_Set } from 'java.util';
-import { Characteristics as java_util_stream_Collector_Characteristics } from 'java.util.stream.Collector';
-import { Supplier as java_util_function_Supplier, BiConsumer as java_util_function_BiConsumer, BinaryOperator as java_util_function_BinaryOperator, Function as java_util_function_Function } from 'java.util.function';
-import { Collector as java_util_stream_Collector } from 'java.util.stream';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Collector<T extends java_lang_Object, A extends java_lang_Object, R extends java_lang_Object> {
-
-characteristics(): java_util_Set<java_util_stream_Collector_Characteristics>;
-static of<T extends java_lang_Object, A extends java_lang_Object, R extends java_lang_Object>(arg0: java_util_function_Supplier<A>, arg1: java_util_function_BiConsumer<A, T>, arg2: java_util_function_BinaryOperator<A>, arg3: java_util_function_Function<A, R>, ...arg4: java_util_stream_Collector_Characteristics[]): java_util_stream_Collector<T, A, R>;
-static of<T extends java_lang_Object, R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_BiConsumer<R, T>, arg2: java_util_function_BinaryOperator<R>, ...arg3: java_util_stream_Collector_Characteristics[]): java_util_stream_Collector<T, R, R>;
-combiner(): java_util_function_BinaryOperator<A>;
-supplier(): java_util_function_Supplier<A>;
-finisher(): java_util_function_Function<A, R>;
-accumulator(): java_util_function_BiConsumer<A, T>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.stream.Collector' {
-import { Characteristics as java_util_stream_Collector_Characteristics } from 'java.util.stream.Collector';
-import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
-
-  export class Characteristics extends java_lang_Enum<java_util_stream_Collector_Characteristics> {
-static CONCURRENT: java_util_stream_Collector_Characteristics;
-static UNORDERED: java_util_stream_Collector_Characteristics;
-static IDENTITY_FINISH: java_util_stream_Collector_Characteristics;
-static $VALUES: java_util_stream_Collector_Characteristics[];
-class: java_lang_Class<java_lang_Object>;
-static values(): java_util_stream_Collector_Characteristics[];
-static valueOf(arg0: string): java_util_stream_Collector_Characteristics;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util.function' {
-import { Comparator as java_util_Comparator } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-import { BinaryOperator as java_util_function_BinaryOperator, Function as java_util_function_Function, BiFunction as java_util_function_BiFunction } from 'java.util.function';
-
-  export class BinaryOperator<T extends java_lang_Object> implements java_util_function_BiFunction<T, T, T> {
-
-static maxBy<T extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_function_BinaryOperator<T>;
-static minBy<T extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_function_BinaryOperator<T>;
-apply(arg0: T, arg1: U): R;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_BiFunction<T, U, V>;
-
+  export class Formatter extends java_lang_Object implements java_io_Closeable, java_io_Flushable {
+a: java_lang_Appendable;
+l: java_util_Locale;
+lastException: java_io_IOException;
+zero: string;
+static scaleUp: number;
+static MAX_FD_CHARS: number;
+static formatSpecifier: string;
+static fsPattern: java_util_regex_Pattern;
+toString(): string;
+locale(): java_util_Locale;
+format(arg0: java_util_Locale, arg1: string, ...arg2: java_lang_Object[]): java_util_Formatter;
+format(arg0: string, ...arg1: java_lang_Object[]): java_util_Formatter;
+out(): java_lang_Appendable;
+flush(): void;
+close(): void;
+ioException(): java_io_IOException;
+constructor(arg0: java_io_File, arg1: string);
+constructor(arg0: java_io_File);
+constructor(arg0: string, arg1: java_nio_charset_Charset, arg2: java_util_Locale);
+constructor(arg0: string, arg1: string, arg2: java_util_Locale);
+constructor(arg0: string, arg1: string);
+constructor(arg0: java_io_OutputStream, arg1: string);
+constructor(arg0: java_io_OutputStream, arg1: string, arg2: java_util_Locale);
+constructor(arg0: java_io_PrintStream);
+constructor(arg0: java_io_File, arg1: java_nio_charset_Charset, arg2: java_util_Locale);
+constructor(arg0: java_io_File, arg1: string, arg2: java_util_Locale);
+constructor();
+constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_Charset, arg2: java_util_Locale);
+constructor(arg0: java_io_OutputStream);
+constructor(arg0: string);
+constructor(arg0: java_lang_Appendable, arg1: java_util_Locale);
+constructor(arg0: java_util_Locale);
+constructor(arg0: java_lang_Appendable);
   }
 }
 //@ts-nocheck
@@ -3698,6 +3515,189 @@ wait(): void;
 getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.Spliterator' {
+import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
+import { IntConsumer as java_util_function_IntConsumer, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { OfPrimitive as java_util_Spliterator_OfPrimitive, OfInt as java_util_Spliterator_OfInt } from 'java.util.Spliterator';
+import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
+
+  export class OfInt implements java_util_Spliterator_OfPrimitive<java_lang_Integer, java_util_function_IntConsumer, java_util_Spliterator_OfInt> {
+exactSizeIfKnown: number;
+comparator: java_util_Comparator<java_lang_Object>;
+forEachRemaining(arg0: java_lang_Object): void;
+forEachRemaining(arg0: java_util_function_IntConsumer): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+trySplit(): java_util_Spliterator_OfPrimitive;
+trySplit(): java_util_Spliterator;
+trySplit(): java_util_Spliterator_OfInt;
+tryAdvance(arg0: java_util_function_IntConsumer): boolean;
+tryAdvance(arg0: java_util_function_Consumer<java_lang_Object>): boolean;
+tryAdvance(arg0: java_lang_Object): boolean;
+characteristics(): number;
+estimateSize(): number;
+getExactSizeIfKnown(): number;
+hasCharacteristics(arg0: number): boolean;
+getComparator(): java_util_Comparator<java_lang_Object>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { IntPredicate as java_util_function_IntPredicate } from 'java.util.function';
+
+  export class IntPredicate {
+
+test(arg0: number): boolean;
+or(arg0: java_util_function_IntPredicate): java_util_function_IntPredicate;
+and(arg0: java_util_function_IntPredicate): java_util_function_IntPredicate;
+negate(): java_util_function_IntPredicate;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class ObjIntConsumer<T extends java_lang_Object> {
+
+accept(arg0: T, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class IntToLongFunction {
+
+applyAsLong(arg0: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+
+
+  export class IntToDoubleFunction {
+
+applyAsDouble(arg0: number): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { IntSummaryStatistics as java_util_IntSummaryStatistics } from 'java.util';
+import { IntConsumer as java_util_function_IntConsumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class IntSummaryStatistics extends java_lang_Object implements java_util_function_IntConsumer {
+count: number;
+sum: number;
+min: number;
+max: number;
+count: number;
+sum: number;
+min: number;
+max: number;
+average: number;
+toString(): string;
+accept(arg0: number): void;
+combine(arg0: java_util_IntSummaryStatistics): void;
+getCount(): number;
+getSum(): number;
+getMin(): number;
+getMax(): number;
+getAverage(): number;
+andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
+constructor();
+constructor(arg0: number, arg1: number, arg2: number, arg3: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream.Stream' {
+import { Builder as java_util_stream_Stream_Builder } from 'java.util.stream.Stream';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+import { Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Builder<T extends java_lang_Object> implements java_util_function_Consumer<T> {
+
+add(arg0: T): java_util_stream_Stream_Builder<T>;
+/** Performs this operation on the given argument. */
+accept(t: T): void;
+build(): java_util_stream_Stream<T>;
+andThen(arg0: java_util_function_Consumer<java_lang_Object>): java_util_function_Consumer<T>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream' {
+import { Set as java_util_Set } from 'java.util';
+import { Characteristics as java_util_stream_Collector_Characteristics } from 'java.util.stream.Collector';
+import { Supplier as java_util_function_Supplier, BiConsumer as java_util_function_BiConsumer, BinaryOperator as java_util_function_BinaryOperator, Function as java_util_function_Function } from 'java.util.function';
+import { Collector as java_util_stream_Collector } from 'java.util.stream';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Collector<T extends java_lang_Object, A extends java_lang_Object, R extends java_lang_Object> {
+
+characteristics(): java_util_Set<java_util_stream_Collector_Characteristics>;
+static of<T extends java_lang_Object, A extends java_lang_Object, R extends java_lang_Object>(arg0: java_util_function_Supplier<A>, arg1: java_util_function_BiConsumer<A, T>, arg2: java_util_function_BinaryOperator<A>, arg3: java_util_function_Function<A, R>, ...arg4: java_util_stream_Collector_Characteristics[]): java_util_stream_Collector<T, A, R>;
+static of<T extends java_lang_Object, R extends java_lang_Object>(arg0: java_util_function_Supplier<R>, arg1: java_util_function_BiConsumer<R, T>, arg2: java_util_function_BinaryOperator<R>, ...arg3: java_util_stream_Collector_Characteristics[]): java_util_stream_Collector<T, R, R>;
+combiner(): java_util_function_BinaryOperator<A>;
+supplier(): java_util_function_Supplier<A>;
+finisher(): java_util_function_Function<A, R>;
+accumulator(): java_util_function_BiConsumer<A, T>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.stream.Collector' {
+import { Characteristics as java_util_stream_Collector_Characteristics } from 'java.util.stream.Collector';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class Characteristics extends java_lang_Enum<java_util_stream_Collector_Characteristics> {
+static CONCURRENT: java_util_stream_Collector_Characteristics;
+static UNORDERED: java_util_stream_Collector_Characteristics;
+static IDENTITY_FINISH: java_util_stream_Collector_Characteristics;
+static $VALUES: java_util_stream_Collector_Characteristics[];
+class: java_lang_Class<java_lang_Object>;
+static values(): java_util_stream_Collector_Characteristics[];
+static valueOf(arg0: string): java_util_stream_Collector_Characteristics;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util.function' {
+import { Comparator as java_util_Comparator } from 'java.util';
+import { Object as java_lang_Object } from 'java.lang';
+import { BinaryOperator as java_util_function_BinaryOperator, Function as java_util_function_Function, BiFunction as java_util_function_BiFunction } from 'java.util.function';
+
+  export class BinaryOperator<T extends java_lang_Object> implements java_util_function_BiFunction<T, T, T> {
+
+static maxBy<T extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_function_BinaryOperator<T>;
+static minBy<T extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_function_BinaryOperator<T>;
+apply(arg0: T, arg1: U): R;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_BiFunction<T, U, V>;
 
   }
 }

@@ -139,6 +139,16 @@ function generateImportDefinitions(deps: ClassRef[]) {
 export function generateClassDefinition(clazz: Class) {
   const dependencies: ClassRef[] = [];
 
+  if (clazz.ref.name === 'Object' && clazz.ref.package === 'java.lang') {
+    return {
+      definition: `
+declare module '${clazz.ref.package}' {  
+  export type ${clazz.ref.name} = {}
+}`,
+      dependencies: [],
+    };
+  }
+
   const methodDefs = clazz.methods.map((m) =>
     generateMethodDefinition(m, dependencies),
   );

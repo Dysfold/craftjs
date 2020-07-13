@@ -49,102 +49,11 @@ constructor();
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
-import { Permission as java_security_Permission, DomainCombiner as java_security_DomainCombiner, AccessControlContext as java_security_AccessControlContext, ProtectionDomain as java_security_ProtectionDomain } from 'java.security';
-import { Debug as sun_security_util_Debug } from 'sun.security.util';
 
-  export class AccessControlContext extends java_lang_Object {
-context: java_security_ProtectionDomain[];
-isPrivileged: boolean;
-isAuthorized: boolean;
-privilegedContext: java_security_AccessControlContext;
-combiner: java_security_DomainCombiner;
-permissions: java_security_Permission[];
-parent: java_security_AccessControlContext;
-isWrapped: boolean;
-isLimited: boolean;
-limitedContext: java_security_ProtectionDomain[];
-static debugInit: boolean;
-static debug: sun_security_util_Debug;
-domainCombiner: java_security_DomainCombiner;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-checkPermission(arg0: java_security_Permission): void;
-getDomainCombiner(): java_security_DomainCombiner;
-constructor(arg0: java_security_AccessControlContext, arg1: java_security_DomainCombiner);
-constructor(arg0: java_security_ProtectionDomain[]);
-  }
-}
-//@ts-nocheck
+  export class Guard {
 
-declare module 'java.security' {
-import { ProtectionDomain as java_security_ProtectionDomain } from 'java.security';
+checkGuard(arg0: java_lang_Object): void;
 
-  export class DomainCombiner {
-
-combine(arg0: java_security_ProtectionDomain[], arg1: java_security_ProtectionDomain[]): java_security_ProtectionDomain[];
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.security' {
-import { ClassLoader as java_lang_ClassLoader, Object as java_lang_Object } from 'java.lang';
-import { CodeSource as java_security_CodeSource, Principal as java_security_Principal, PermissionCollection as java_security_PermissionCollection, Permission as java_security_Permission } from 'java.security';
-import { Key as java_security_ProtectionDomain_Key } from 'java.security.ProtectionDomain';
-
-  export class ProtectionDomain extends java_lang_Object {
-static filePermCompatInPD: boolean;
-codesource: java_security_CodeSource;
-classloader: java_lang_ClassLoader;
-principals: java_security_Principal[];
-permissions: java_security_PermissionCollection;
-hasAllPerm: boolean;
-staticPermissions: boolean;
-key: java_security_ProtectionDomain_Key;
-classLoader: java_lang_ClassLoader;
-codeSource: java_security_CodeSource;
-principals: java_security_Principal[];
-permissions: java_security_PermissionCollection;
-toString(): string;
-getClassLoader(): java_lang_ClassLoader;
-getCodeSource(): java_security_CodeSource;
-getPrincipals(): java_security_Principal[];
-getPermissions(): java_security_PermissionCollection;
-staticPermissionsOnly(): boolean;
-implies(arg0: java_security_Permission): boolean;
-constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection);
-constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection, arg2: java_lang_ClassLoader, arg3: java_security_Principal[]);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.security' {
-import { Object as java_lang_Object } from 'java.lang';
-import { URL as java_net_URL, SocketPermission as java_net_SocketPermission } from 'java.net';
-import { Certificate as java_security_cert_Certificate, CertificateFactory as java_security_cert_CertificateFactory } from 'java.security.cert';
-import { CodeSource as java_security_CodeSource, CodeSigner as java_security_CodeSigner } from 'java.security';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class CodeSource extends java_lang_Object implements java_io_Serializable {
-static serialVersionUID: number;
-location: java_net_URL;
-signers: java_security_CodeSigner[];
-certs: java_security_cert_Certificate[];
-sp: java_net_SocketPermission;
-factory: java_security_cert_CertificateFactory;
-locationNoFragString: string;
-location: java_net_URL;
-certificates: java_security_cert_Certificate[];
-codeSigners: java_security_CodeSigner[];
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getLocation(): java_net_URL;
-getCertificates(): java_security_cert_Certificate[];
-implies(arg0: java_security_CodeSource): boolean;
-getCodeSigners(): java_security_CodeSigner[];
-constructor(arg0: java_net_URL, arg1: java_security_cert_Certificate[]);
-constructor(arg0: java_net_URL, arg1: java_security_CodeSigner[]);
   }
 }
 //@ts-nocheck
@@ -371,6 +280,108 @@ constructorParameterClass: java_lang_Class<java_lang_Object>;
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
+import { Permission as java_security_Permission, DomainCombiner as java_security_DomainCombiner, AccessControlContext as java_security_AccessControlContext, ProtectionDomain as java_security_ProtectionDomain } from 'java.security';
+import { Debug as sun_security_util_Debug } from 'sun.security.util';
+
+  export class AccessControlContext extends java_lang_Object {
+context: java_security_ProtectionDomain[];
+isPrivileged: boolean;
+isAuthorized: boolean;
+privilegedContext: java_security_AccessControlContext;
+combiner: java_security_DomainCombiner;
+permissions: java_security_Permission[];
+parent: java_security_AccessControlContext;
+isWrapped: boolean;
+isLimited: boolean;
+limitedContext: java_security_ProtectionDomain[];
+static debugInit: boolean;
+static debug: sun_security_util_Debug;
+domainCombiner: java_security_DomainCombiner;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+checkPermission(arg0: java_security_Permission): void;
+getDomainCombiner(): java_security_DomainCombiner;
+constructor(arg0: java_security_AccessControlContext, arg1: java_security_DomainCombiner);
+constructor(arg0: java_security_ProtectionDomain[]);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.security' {
+import { ProtectionDomain as java_security_ProtectionDomain } from 'java.security';
+
+  export class DomainCombiner {
+
+combine(arg0: java_security_ProtectionDomain[], arg1: java_security_ProtectionDomain[]): java_security_ProtectionDomain[];
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.security' {
+import { ClassLoader as java_lang_ClassLoader, Object as java_lang_Object } from 'java.lang';
+import { CodeSource as java_security_CodeSource, Principal as java_security_Principal, PermissionCollection as java_security_PermissionCollection, Permission as java_security_Permission } from 'java.security';
+import { Key as java_security_ProtectionDomain_Key } from 'java.security.ProtectionDomain';
+
+  export class ProtectionDomain extends java_lang_Object {
+static filePermCompatInPD: boolean;
+codesource: java_security_CodeSource;
+classloader: java_lang_ClassLoader;
+principals: java_security_Principal[];
+permissions: java_security_PermissionCollection;
+hasAllPerm: boolean;
+staticPermissions: boolean;
+key: java_security_ProtectionDomain_Key;
+classLoader: java_lang_ClassLoader;
+codeSource: java_security_CodeSource;
+principals: java_security_Principal[];
+permissions: java_security_PermissionCollection;
+toString(): string;
+getClassLoader(): java_lang_ClassLoader;
+getCodeSource(): java_security_CodeSource;
+getPrincipals(): java_security_Principal[];
+getPermissions(): java_security_PermissionCollection;
+staticPermissionsOnly(): boolean;
+implies(arg0: java_security_Permission): boolean;
+constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection);
+constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection, arg2: java_lang_ClassLoader, arg3: java_security_Principal[]);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.security' {
+import { Object as java_lang_Object } from 'java.lang';
+import { URL as java_net_URL, SocketPermission as java_net_SocketPermission } from 'java.net';
+import { Certificate as java_security_cert_Certificate, CertificateFactory as java_security_cert_CertificateFactory } from 'java.security.cert';
+import { CodeSource as java_security_CodeSource, CodeSigner as java_security_CodeSigner } from 'java.security';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class CodeSource extends java_lang_Object implements java_io_Serializable {
+static serialVersionUID: number;
+location: java_net_URL;
+signers: java_security_CodeSigner[];
+certs: java_security_cert_Certificate[];
+sp: java_net_SocketPermission;
+factory: java_security_cert_CertificateFactory;
+locationNoFragString: string;
+location: java_net_URL;
+certificates: java_security_cert_Certificate[];
+codeSigners: java_security_CodeSigner[];
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+getLocation(): java_net_URL;
+getCertificates(): java_security_cert_Certificate[];
+implies(arg0: java_security_CodeSource): boolean;
+getCodeSigners(): java_security_CodeSigner[];
+constructor(arg0: java_net_URL, arg1: java_security_cert_Certificate[]);
+constructor(arg0: java_net_URL, arg1: java_security_CodeSigner[]);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.security' {
+import { Object as java_lang_Object } from 'java.lang';
 import { CertPath as java_security_cert_CertPath } from 'java.security.cert';
 import { Timestamp as java_security_Timestamp } from 'java.security';
 import { Serializable as java_io_Serializable } from 'java.io';
@@ -558,17 +569,6 @@ import { Object as java_lang_Object } from 'java.lang';
   export class Key extends java_lang_Object {
 this$0: java_security_ProtectionDomain;
 
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.security' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Guard {
-
-checkGuard(arg0: java_lang_Object): void;
 
   }
 }

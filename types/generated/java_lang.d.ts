@@ -1,20 +1,174 @@
 //@ts-nocheck
 
-declare module 'java.lang' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+declare module 'java.lang' {  
+  export type Object = {}
+}
+//@ts-nocheck
 
-  export class Object {
+declare module 'java.lang' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Comparable<T extends java_lang_Object> {
+
+compareTo(arg0: T): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream, Serializable as java_io_Serializable } from 'java.io';
+import { Throwable as java_lang_Throwable, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object } from 'java.lang';
+import { List as java_util_List } from 'java.util';
+
+  export class Throwable extends java_lang_Object implements java_io_Serializable {
+static serialVersionUID: number;
+backtrace: java_lang_Object;
+detailMessage: string;
+static UNASSIGNED_STACK: java_lang_StackTraceElement[];
+cause: java_lang_Throwable;
+stackTrace: java_lang_StackTraceElement[];
+depth: number;
+static SUPPRESSED_SENTINEL: java_util_List<java_lang_Throwable>;
+suppressedExceptions: java_util_List<java_lang_Throwable>;
+static NULL_CAUSE_MESSAGE: string;
+static SELF_SUPPRESSION_MESSAGE: string;
+static CAUSE_CAPTION: string;
+static SUPPRESSED_CAPTION: string;
+static EMPTY_THROWABLE_ARRAY: java_lang_Throwable[];
+static $assertionsDisabled: boolean;
+cause: java_lang_Throwable;
+message: string;
+suppressed: java_lang_Throwable[];
+localizedMessage: string;
+stackTrace: java_lang_StackTraceElement[];
+printStackTrace(): void;
+printStackTrace(arg0: java_io_PrintWriter): void;
+printStackTrace(arg0: java_io_PrintStream): void;
+fillInStackTrace(): java_lang_Throwable;
+getCause(): java_lang_Throwable;
+initCause(arg0: java_lang_Throwable): java_lang_Throwable;
+toString(): string;
+getMessage(): string;
+getSuppressed(): java_lang_Throwable[];
+getLocalizedMessage(): string;
+getStackTrace(): java_lang_StackTraceElement[];
+setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+addSuppressed(arg0: java_lang_Throwable): void;
+constructor(arg0: java_lang_Throwable);
+constructor(arg0: string, arg1: java_lang_Throwable);
+constructor(arg0: string);
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { IntStream as java_util_stream_IntStream } from 'java.util.stream';
+import { CharSequence as java_lang_CharSequence } from 'java.lang';
+
+  export class CharSequence {
+
+length(): number;
+toString(): string;
+codePoints(): java_util_stream_IntStream;
+charAt(arg0: number): string;
+subSequence(arg0: number, arg1: number): java_lang_CharSequence;
+chars(): java_util_stream_IntStream;
+static compare(arg0: java_lang_CharSequence, arg1: java_lang_CharSequence): number;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+
+
+  export class Runnable {
+
+run(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { Object as java_lang_Object, Integer as java_lang_Integer, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
+
+  export class Integer extends java_lang_Number implements java_lang_Comparable<java_lang_Integer> {
+static MIN_VALUE: number;
+static MAX_VALUE: number;
+static TYPE: java_lang_Class<java_lang_Integer>;
+static digits: string[];
+static DigitTens: number[];
+static DigitOnes: number[];
+static sizeTable: number[];
+value: number;
+static SIZE: number;
+static BYTES: number;
+static serialVersionUID: number;
+static integer: java_lang_Integer;
+static integer: java_lang_Integer;
+static integer: java_lang_Integer;
 class: java_lang_Class<java_lang_Object>;
+static numberOfLeadingZeros(arg0: number): number;
+static numberOfTrailingZeros(arg0: number): number;
+static bitCount(arg0: number): number;
+equals(arg0: java_lang_Object): boolean;
+static toString(arg0: number): string;
+static toString(arg0: number, arg1: number): string;
+toString(): string;
+static hashCode(arg0: number): number;
+hashCode(): number;
+static min(arg0: number, arg1: number): number;
+static max(arg0: number, arg1: number): number;
+static reverseBytes(arg0: number): number;
+compareTo(arg0: java_lang_Object): number;
+compareTo(arg0: java_lang_Integer): number;
+byteValue(): number;
+shortValue(): number;
+intValue(): number;
+longValue(): number;
+floatValue(): number;
+doubleValue(): number;
+static valueOf(arg0: number): java_lang_Integer;
+static valueOf(arg0: string, arg1: number): java_lang_Integer;
+static valueOf(arg0: string): java_lang_Integer;
+static toHexString(arg0: number): string;
+static decode(arg0: string): java_lang_Integer;
+static compare(arg0: number, arg1: number): number;
+static reverse(arg0: number): number;
+static toUnsignedLong(arg0: number): number;
+static parseInt(arg0: string): number;
+static parseInt(arg0: string, arg1: number): number;
+static parseInt(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
+static sum(arg0: number, arg1: number): number;
+static compareUnsigned(arg0: number, arg1: number): number;
+static toUnsignedString(arg0: number, arg1: number): string;
+static toUnsignedString(arg0: number): string;
+static toOctalString(arg0: number): string;
+static toBinaryString(arg0: number): string;
+static parseUnsignedInt(arg0: string, arg1: number): number;
+static parseUnsignedInt(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
+static parseUnsignedInt(arg0: string): number;
+static getInteger(arg0: string, arg1: java_lang_Integer): java_lang_Integer;
+static getInteger(arg0: string, arg1: number): java_lang_Integer;
+static getInteger(arg0: string): java_lang_Integer;
+static divideUnsigned(arg0: number, arg1: number): number;
+static remainderUnsigned(arg0: number, arg1: number): number;
+static highestOneBit(arg0: number): number;
+static lowestOneBit(arg0: number): number;
+static rotateLeft(arg0: number, arg1: number): number;
+static rotateRight(arg0: number, arg1: number): number;
+static signum(arg0: number): number;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
-constructor();
+constructor(arg0: string);
+constructor(arg0: number);
   }
 }
 //@ts-nocheck
@@ -328,17 +482,6 @@ close(): void;
 //@ts-nocheck
 
 declare module 'java.lang' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Comparable<T extends java_lang_Object> {
-
-compareTo(arg0: T): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
 import { Object as java_lang_Object, Class as java_lang_Class, Enum as java_lang_Enum, Comparable as java_lang_Comparable } from 'java.lang';
 import { Serializable as java_io_Serializable } from 'java.io';
 
@@ -361,517 +504,33 @@ ordinal(): number;
 //@ts-nocheck
 
 declare module 'java.lang' {
-import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream, Serializable as java_io_Serializable } from 'java.io';
-import { Throwable as java_lang_Throwable, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object } from 'java.lang';
-import { List as java_util_List } from 'java.util';
-
-  export class Throwable extends java_lang_Object implements java_io_Serializable {
-static serialVersionUID: number;
-backtrace: java_lang_Object;
-detailMessage: string;
-static UNASSIGNED_STACK: java_lang_StackTraceElement[];
-cause: java_lang_Throwable;
-stackTrace: java_lang_StackTraceElement[];
-depth: number;
-static SUPPRESSED_SENTINEL: java_util_List<java_lang_Throwable>;
-suppressedExceptions: java_util_List<java_lang_Throwable>;
-static NULL_CAUSE_MESSAGE: string;
-static SELF_SUPPRESSION_MESSAGE: string;
-static CAUSE_CAPTION: string;
-static SUPPRESSED_CAPTION: string;
-static EMPTY_THROWABLE_ARRAY: java_lang_Throwable[];
-static $assertionsDisabled: boolean;
-cause: java_lang_Throwable;
-message: string;
-suppressed: java_lang_Throwable[];
-localizedMessage: string;
-stackTrace: java_lang_StackTraceElement[];
-printStackTrace(): void;
-printStackTrace(arg0: java_io_PrintWriter): void;
-printStackTrace(arg0: java_io_PrintStream): void;
-fillInStackTrace(): java_lang_Throwable;
-getCause(): java_lang_Throwable;
-initCause(arg0: java_lang_Throwable): java_lang_Throwable;
-toString(): string;
-getMessage(): string;
-getSuppressed(): java_lang_Throwable[];
-getLocalizedMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
-addSuppressed(arg0: java_lang_Throwable): void;
-constructor(arg0: java_lang_Throwable);
-constructor(arg0: string, arg1: java_lang_Throwable);
-constructor(arg0: string);
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { IntStream as java_util_stream_IntStream } from 'java.util.stream';
-import { CharSequence as java_lang_CharSequence } from 'java.lang';
-
-  export class CharSequence {
-
-length(): number;
-toString(): string;
-codePoints(): java_util_stream_IntStream;
-charAt(arg0: number): string;
-subSequence(arg0: number, arg1: number): java_lang_CharSequence;
-chars(): java_util_stream_IntStream;
-static compare(arg0: java_lang_CharSequence, arg1: java_lang_CharSequence): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-
-
-  export class Runnable {
-
-run(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object, Integer as java_lang_Integer, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
-
-  export class Integer extends java_lang_Number implements java_lang_Comparable<java_lang_Integer> {
-static MIN_VALUE: number;
-static MAX_VALUE: number;
-static TYPE: java_lang_Class<java_lang_Integer>;
-static digits: string[];
-static DigitTens: number[];
-static DigitOnes: number[];
-static sizeTable: number[];
-value: number;
-static SIZE: number;
-static BYTES: number;
-static serialVersionUID: number;
-static integer: java_lang_Integer;
-static integer: java_lang_Integer;
-static integer: java_lang_Integer;
-class: java_lang_Class<java_lang_Object>;
-static numberOfLeadingZeros(arg0: number): number;
-static numberOfTrailingZeros(arg0: number): number;
-static bitCount(arg0: number): number;
-equals(arg0: java_lang_Object): boolean;
-static toString(arg0: number): string;
-static toString(arg0: number, arg1: number): string;
-toString(): string;
-static hashCode(arg0: number): number;
-hashCode(): number;
-static min(arg0: number, arg1: number): number;
-static max(arg0: number, arg1: number): number;
-static reverseBytes(arg0: number): number;
-compareTo(arg0: java_lang_Object): number;
-compareTo(arg0: java_lang_Integer): number;
-byteValue(): number;
-shortValue(): number;
-intValue(): number;
-longValue(): number;
-floatValue(): number;
-doubleValue(): number;
-static valueOf(arg0: number): java_lang_Integer;
-static valueOf(arg0: string, arg1: number): java_lang_Integer;
-static valueOf(arg0: string): java_lang_Integer;
-static toHexString(arg0: number): string;
-static decode(arg0: string): java_lang_Integer;
-static compare(arg0: number, arg1: number): number;
-static reverse(arg0: number): number;
-static toUnsignedLong(arg0: number): number;
-static parseInt(arg0: string): number;
-static parseInt(arg0: string, arg1: number): number;
-static parseInt(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
-static sum(arg0: number, arg1: number): number;
-static compareUnsigned(arg0: number, arg1: number): number;
-static toUnsignedString(arg0: number, arg1: number): string;
-static toUnsignedString(arg0: number): string;
-static toOctalString(arg0: number): string;
-static toBinaryString(arg0: number): string;
-static parseUnsignedInt(arg0: string, arg1: number): number;
-static parseUnsignedInt(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
-static parseUnsignedInt(arg0: string): number;
-static getInteger(arg0: string, arg1: java_lang_Integer): java_lang_Integer;
-static getInteger(arg0: string, arg1: number): java_lang_Integer;
-static getInteger(arg0: string): java_lang_Integer;
-static divideUnsigned(arg0: number, arg1: number): number;
-static remainderUnsigned(arg0: number, arg1: number): number;
-static highestOneBit(arg0: number): number;
-static lowestOneBit(arg0: number): number;
-static rotateLeft(arg0: number, arg1: number): number;
-static rotateRight(arg0: number, arg1: number): number;
-static signum(arg0: number): number;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: string);
-constructor(arg0: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object } from 'java.lang';
+import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 import { Serializable as java_io_Serializable } from 'java.io';
 
-  export class Number extends java_lang_Object implements java_io_Serializable {
+  export class Boolean extends java_lang_Object implements java_io_Serializable, java_lang_Comparable<java_lang_Boolean> {
+static TRUE: java_lang_Boolean;
+static FALSE: java_lang_Boolean;
+static TYPE: java_lang_Class<java_lang_Boolean>;
+value: boolean;
 static serialVersionUID: number;
-byteValue(): number;
-shortValue(): number;
-intValue(): number;
-longValue(): number;
-floatValue(): number;
-doubleValue(): number;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object, Long as java_lang_Long, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
-
-  export class Long extends java_lang_Number implements java_lang_Comparable<java_lang_Long> {
-static MIN_VALUE: number;
-static MAX_VALUE: number;
-static TYPE: java_lang_Class<java_lang_Long>;
-value: number;
-static SIZE: number;
-static BYTES: number;
-static serialVersionUID: number;
-static long: java_lang_Long;
-static long: java_lang_Long;
-static long: java_lang_Long;
-class: java_lang_Class<java_lang_Object>;
-static numberOfLeadingZeros(arg0: number): number;
-static numberOfTrailingZeros(arg0: number): number;
-static bitCount(arg0: number): number;
+static boolean: boolean;
 equals(arg0: java_lang_Object): boolean;
-static toString(arg0: number): string;
-static toString(arg0: number, arg1: number): string;
 toString(): string;
-static hashCode(arg0: number): number;
+static toString(arg0: boolean): string;
+static hashCode(arg0: boolean): number;
 hashCode(): number;
-static min(arg0: number, arg1: number): number;
-static max(arg0: number, arg1: number): number;
-static reverseBytes(arg0: number): number;
+compareTo(arg0: java_lang_Boolean): number;
 compareTo(arg0: java_lang_Object): number;
-compareTo(arg0: java_lang_Long): number;
-static getLong(arg0: string): java_lang_Long;
-static getLong(arg0: string, arg1: number): java_lang_Long;
-static getLong(arg0: string, arg1: java_lang_Long): java_lang_Long;
-byteValue(): number;
-shortValue(): number;
-intValue(): number;
-longValue(): number;
-floatValue(): number;
-doubleValue(): number;
-static valueOf(arg0: string): java_lang_Long;
-static valueOf(arg0: number): java_lang_Long;
-static valueOf(arg0: string, arg1: number): java_lang_Long;
-static toHexString(arg0: number): string;
-static decode(arg0: string): java_lang_Long;
-static compare(arg0: number, arg1: number): number;
-static reverse(arg0: number): number;
-static sum(arg0: number, arg1: number): number;
-static compareUnsigned(arg0: number, arg1: number): number;
-static toUnsignedString(arg0: number, arg1: number): string;
-static toUnsignedString(arg0: number): string;
-static toOctalString(arg0: number): string;
-static toBinaryString(arg0: number): string;
-static divideUnsigned(arg0: number, arg1: number): number;
-static remainderUnsigned(arg0: number, arg1: number): number;
-static highestOneBit(arg0: number): number;
-static lowestOneBit(arg0: number): number;
-static rotateLeft(arg0: number, arg1: number): number;
-static rotateRight(arg0: number, arg1: number): number;
-static signum(arg0: number): number;
-static parseLong(arg0: string): number;
-static parseLong(arg0: string, arg1: number): number;
-static parseLong(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
-static parseUnsignedLong(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
-static parseUnsignedLong(arg0: string, arg1: number): number;
-static parseUnsignedLong(arg0: string): number;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: string);
-constructor(arg0: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object, Double as java_lang_Double, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
-
-  export class Double extends java_lang_Number implements java_lang_Comparable<java_lang_Double> {
-static POSITIVE_INFINITY: number;
-static NEGATIVE_INFINITY: number;
-static NaN: number;
-static MAX_VALUE: number;
-static MIN_NORMAL: number;
-static MIN_VALUE: number;
-static MAX_EXPONENT: number;
-static MIN_EXPONENT: number;
-static SIZE: number;
-static BYTES: number;
-static TYPE: java_lang_Class<java_lang_Double>;
-value: number;
-static serialVersionUID: number;
-class: java_lang_Class<java_lang_Object>;
-equals(arg0: java_lang_Object): boolean;
-static toString(arg0: number): string;
-toString(): string;
-hashCode(): number;
-static hashCode(arg0: number): number;
-static min(arg0: number, arg1: number): number;
-static max(arg0: number, arg1: number): number;
-static doubleToRawLongBits(arg0: number): number;
-static doubleToLongBits(arg0: number): number;
-static longBitsToDouble(arg0: number): number;
-compareTo(arg0: java_lang_Object): number;
-compareTo(arg0: java_lang_Double): number;
-byteValue(): number;
-shortValue(): number;
-intValue(): number;
-longValue(): number;
-floatValue(): number;
-doubleValue(): number;
-static valueOf(arg0: string): java_lang_Double;
-static valueOf(arg0: number): java_lang_Double;
-static toHexString(arg0: number): string;
-static compare(arg0: number, arg1: number): number;
-static isNaN(arg0: number): boolean;
-isNaN(): boolean;
-static isInfinite(arg0: number): boolean;
-isInfinite(): boolean;
-static isFinite(arg0: number): boolean;
-static sum(arg0: number, arg1: number): number;
-static parseDouble(arg0: string): number;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: number);
-constructor(arg0: string);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable } from 'java.lang';
-
-  export class Appendable {
-
-append(arg0: java_lang_CharSequence): java_lang_Appendable;
-append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
-append(arg0: string): java_lang_Appendable;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Iterable<T extends java_lang_Object> {
-
-iterator(): java_util_Iterator<T>;
-spliterator(): java_util_Spliterator<T>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object, Character as java_lang_Character, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class Character extends java_lang_Object implements java_io_Serializable, java_lang_Comparable<java_lang_Character> {
-static MIN_RADIX: number;
-static MAX_RADIX: number;
-static MIN_VALUE: string;
-static MAX_VALUE: string;
-static TYPE: java_lang_Class<java_lang_Character>;
-static UNASSIGNED: number;
-static UPPERCASE_LETTER: number;
-static LOWERCASE_LETTER: number;
-static TITLECASE_LETTER: number;
-static MODIFIER_LETTER: number;
-static OTHER_LETTER: number;
-static NON_SPACING_MARK: number;
-static ENCLOSING_MARK: number;
-static COMBINING_SPACING_MARK: number;
-static DECIMAL_DIGIT_NUMBER: number;
-static LETTER_NUMBER: number;
-static OTHER_NUMBER: number;
-static SPACE_SEPARATOR: number;
-static LINE_SEPARATOR: number;
-static PARAGRAPH_SEPARATOR: number;
-static CONTROL: number;
-static FORMAT: number;
-static PRIVATE_USE: number;
-static SURROGATE: number;
-static DASH_PUNCTUATION: number;
-static START_PUNCTUATION: number;
-static END_PUNCTUATION: number;
-static CONNECTOR_PUNCTUATION: number;
-static OTHER_PUNCTUATION: number;
-static MATH_SYMBOL: number;
-static CURRENCY_SYMBOL: number;
-static MODIFIER_SYMBOL: number;
-static OTHER_SYMBOL: number;
-static INITIAL_QUOTE_PUNCTUATION: number;
-static FINAL_QUOTE_PUNCTUATION: number;
-static ERROR: number;
-static DIRECTIONALITY_UNDEFINED: number;
-static DIRECTIONALITY_LEFT_TO_RIGHT: number;
-static DIRECTIONALITY_RIGHT_TO_LEFT: number;
-static DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC: number;
-static DIRECTIONALITY_EUROPEAN_NUMBER: number;
-static DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR: number;
-static DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR: number;
-static DIRECTIONALITY_ARABIC_NUMBER: number;
-static DIRECTIONALITY_COMMON_NUMBER_SEPARATOR: number;
-static DIRECTIONALITY_NONSPACING_MARK: number;
-static DIRECTIONALITY_BOUNDARY_NEUTRAL: number;
-static DIRECTIONALITY_PARAGRAPH_SEPARATOR: number;
-static DIRECTIONALITY_SEGMENT_SEPARATOR: number;
-static DIRECTIONALITY_WHITESPACE: number;
-static DIRECTIONALITY_OTHER_NEUTRALS: number;
-static DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING: number;
-static DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE: number;
-static DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING: number;
-static DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE: number;
-static DIRECTIONALITY_POP_DIRECTIONAL_FORMAT: number;
-static DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE: number;
-static DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE: number;
-static DIRECTIONALITY_FIRST_STRONG_ISOLATE: number;
-static DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE: number;
-static MIN_HIGH_SURROGATE: string;
-static MAX_HIGH_SURROGATE: string;
-static MIN_LOW_SURROGATE: string;
-static MAX_LOW_SURROGATE: string;
-static MIN_SURROGATE: string;
-static MAX_SURROGATE: string;
-static MIN_SUPPLEMENTARY_CODE_POINT: number;
-static MIN_CODE_POINT: number;
-static MAX_CODE_POINT: number;
-value: string;
-static serialVersionUID: number;
-static SIZE: number;
-static BYTES: number;
-static $assertionsDisabled: boolean;
-static name: string;
-static type: number;
-static type: number;
-static numericValue: number;
-static numericValue: number;
-static directionality: number;
-static directionality: number;
-static getName(arg0: number): string;
-static isJavaIdentifierStart(arg0: string): boolean;
-static isJavaIdentifierStart(arg0: number): boolean;
-static isJavaIdentifierPart(arg0: number): boolean;
-static isJavaIdentifierPart(arg0: string): boolean;
-equals(arg0: java_lang_Object): boolean;
-static toString(arg0: number): string;
-static toString(arg0: string): string;
-toString(): string;
-hashCode(): number;
-static hashCode(arg0: string): number;
-static reverseBytes(arg0: string): string;
-compareTo(arg0: java_lang_Character): number;
-compareTo(arg0: java_lang_Object): number;
-static isDigit(arg0: string): boolean;
-static isDigit(arg0: number): boolean;
-static isLowerCase(arg0: number): boolean;
-static isLowerCase(arg0: string): boolean;
-static isUpperCase(arg0: number): boolean;
-static isUpperCase(arg0: string): boolean;
-static isWhitespace(arg0: number): boolean;
-static isWhitespace(arg0: string): boolean;
-charValue(): string;
-static valueOf(arg0: string): java_lang_Character;
-static codePointAt(arg0: string[], arg1: number): number;
-static codePointAt(arg0: string[], arg1: number, arg2: number): number;
-static codePointAt(arg0: java_lang_CharSequence, arg1: number): number;
-static codePointBefore(arg0: string[], arg1: number, arg2: number): number;
-static codePointBefore(arg0: java_lang_CharSequence, arg1: number): number;
-static codePointBefore(arg0: string[], arg1: number): number;
-static codePointCount(arg0: java_lang_CharSequence, arg1: number, arg2: number): number;
-static codePointCount(arg0: string[], arg1: number, arg2: number): number;
-static offsetByCodePoints(arg0: string[], arg1: number, arg2: number, arg3: number, arg4: number): number;
-static offsetByCodePoints(arg0: java_lang_CharSequence, arg1: number, arg2: number): number;
-static toLowerCase(arg0: string): string;
-static toLowerCase(arg0: number): number;
-static toUpperCase(arg0: string): string;
-static toUpperCase(arg0: number): number;
-static compare(arg0: string, arg1: string): number;
-static toChars(arg0: number, arg1: string[], arg2: number): number;
-static toChars(arg0: number): string[];
-static isBmpCodePoint(arg0: number): boolean;
-static isSupplementaryCodePoint(arg0: number): boolean;
-static getType(arg0: string): number;
-static getType(arg0: number): number;
-static isLetter(arg0: number): boolean;
-static isLetter(arg0: string): boolean;
-static isLetterOrDigit(arg0: string): boolean;
-static isLetterOrDigit(arg0: number): boolean;
-static isValidCodePoint(arg0: number): boolean;
-static isHighSurrogate(arg0: string): boolean;
-static isLowSurrogate(arg0: string): boolean;
-static isSurrogate(arg0: string): boolean;
-static isSurrogatePair(arg0: string, arg1: string): boolean;
-static charCount(arg0: number): number;
-static toCodePoint(arg0: string, arg1: string): number;
-static highSurrogate(arg0: number): string;
-static lowSurrogate(arg0: number): string;
-static isTitleCase(arg0: number): boolean;
-static isTitleCase(arg0: string): boolean;
-static isDefined(arg0: string): boolean;
-static isDefined(arg0: number): boolean;
-static isJavaLetter(arg0: string): boolean;
-static isJavaLetterOrDigit(arg0: string): boolean;
-static isAlphabetic(arg0: number): boolean;
-static isIdeographic(arg0: number): boolean;
-static isUnicodeIdentifierStart(arg0: string): boolean;
-static isUnicodeIdentifierStart(arg0: number): boolean;
-static isUnicodeIdentifierPart(arg0: string): boolean;
-static isUnicodeIdentifierPart(arg0: number): boolean;
-static isIdentifierIgnorable(arg0: number): boolean;
-static isIdentifierIgnorable(arg0: string): boolean;
-static toTitleCase(arg0: number): number;
-static toTitleCase(arg0: string): string;
-static digit(arg0: number, arg1: number): number;
-static digit(arg0: string, arg1: number): number;
-static getNumericValue(arg0: number): number;
-static getNumericValue(arg0: string): number;
-static isSpace(arg0: string): boolean;
-static isSpaceChar(arg0: number): boolean;
-static isSpaceChar(arg0: string): boolean;
-static isISOControl(arg0: number): boolean;
-static isISOControl(arg0: string): boolean;
-static forDigit(arg0: number, arg1: number): string;
-static getDirectionality(arg0: number): number;
-static getDirectionality(arg0: string): number;
-static isMirrored(arg0: number): boolean;
-static isMirrored(arg0: string): boolean;
-static codePointOf(arg0: string): number;
+static getBoolean(arg0: string): boolean;
+booleanValue(): boolean;
+static valueOf(arg0: string): java_lang_Boolean;
+static valueOf(arg0: boolean): java_lang_Boolean;
+static compare(arg0: boolean, arg1: boolean): number;
+static parseBoolean(arg0: string): boolean;
+static logicalAnd(arg0: boolean, arg1: boolean): boolean;
+static logicalOr(arg0: boolean, arg1: boolean): boolean;
+static logicalXor(arg0: boolean, arg1: boolean): boolean;
+constructor(arg0: boolean);
 constructor(arg0: string);
   }
 }
@@ -1103,6 +762,377 @@ declare module 'java.lang' {
 //@ts-nocheck
 
 declare module 'java.lang' {
+import { Object as java_lang_Object } from 'java.lang';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class Number extends java_lang_Object implements java_io_Serializable {
+static serialVersionUID: number;
+byteValue(): number;
+shortValue(): number;
+intValue(): number;
+longValue(): number;
+floatValue(): number;
+doubleValue(): number;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { Supplier as java_util_function_Supplier } from 'java.util.function';
+import { ThreadLocal as java_lang_ThreadLocal, Object as java_lang_Object } from 'java.lang';
+import { AtomicInteger as java_util_concurrent_atomic_AtomicInteger } from 'java.util.concurrent.atomic';
+
+  export class ThreadLocal<T extends java_lang_Object> extends java_lang_Object {
+threadLocalHashCode: number;
+static nextHashCode: java_util_concurrent_atomic_AtomicInteger;
+static HASH_INCREMENT: number;
+remove(): void;
+get(): T;
+set(arg0: T): void;
+static withInitial<S extends java_lang_Object>(arg0: java_util_function_Supplier<S>): java_lang_ThreadLocal<S>;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { Package as java_lang_Package, Class as java_lang_Class, Object as java_lang_Object, NamedPackage as java_lang_NamedPackage } from 'java.lang';
+import { Annotation as java_lang_annotation_Annotation } from 'java.lang.annotation';
+import { URL as java_net_URL } from 'java.net';
+import { VersionInfo as java_lang_Package_VersionInfo } from 'java.lang.Package';
+import { AnnotatedElement as java_lang_reflect_AnnotatedElement } from 'java.lang.reflect';
+
+  export class Package extends java_lang_NamedPackage implements java_lang_reflect_AnnotatedElement {
+versionInfo: java_lang_Package_VersionInfo;
+packageInfo: java_lang_Class<java_lang_Object>;
+name: string;
+static package: java_lang_Package;
+annotation: A;
+annotationsByType: A[];
+annotations: java_lang_annotation_Annotation[];
+declaredAnnotation: A;
+declaredAnnotationsByType: A[];
+declaredAnnotations: java_lang_annotation_Annotation[];
+static packages: java_lang_Package[];
+specificationTitle: string;
+specificationVersion: string;
+specificationVendor: string;
+implementationTitle: string;
+implementationVersion: string;
+implementationVendor: string;
+class: java_lang_Class<java_lang_Object>;
+getName(): string;
+toString(): string;
+hashCode(): number;
+static getPackage(arg0: string): java_lang_Package;
+getAnnotation<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A;
+isAnnotationPresent(arg0: java_lang_Class<java_lang_annotation_Annotation>): boolean;
+getAnnotationsByType<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A[];
+getAnnotations(): java_lang_annotation_Annotation[];
+getDeclaredAnnotation<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A;
+getDeclaredAnnotationsByType<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A[];
+getDeclaredAnnotations(): java_lang_annotation_Annotation[];
+static getPackages(): java_lang_Package[];
+isSealed(arg0: java_net_URL): boolean;
+isSealed(): boolean;
+getSpecificationTitle(): string;
+getSpecificationVersion(): string;
+getSpecificationVendor(): string;
+getImplementationTitle(): string;
+getImplementationVersion(): string;
+getImplementationVendor(): string;
+isCompatibleWith(arg0: string): boolean;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang.Package' {
+import { VersionInfo as java_lang_Package_VersionInfo } from 'java.lang.Package';
+import { URL as java_net_URL } from 'java.net';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class VersionInfo extends java_lang_Object {
+static NULL_VERSION_INFO: java_lang_Package_VersionInfo;
+specTitle: string;
+specVersion: string;
+specVendor: string;
+implTitle: string;
+implVersion: string;
+implVendor: string;
+sealBase: java_net_URL;
+
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { Module as java_lang_Module, Object as java_lang_Object } from 'java.lang';
+
+  export class NamedPackage extends java_lang_Object {
+name: string;
+module: java_lang_Module;
+
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang.ref' {
+import { Object as java_lang_Object } from 'java.lang';
+import { ReferenceQueue as java_lang_ref_ReferenceQueue, Reference as java_lang_ref_Reference } from 'java.lang.ref';
+
+  export class Reference<T extends java_lang_Object> extends java_lang_Object {
+referent: T;
+queue: java_lang_ref_ReferenceQueue<java_lang_Object>;
+next: java_lang_ref_Reference;
+discovered: java_lang_ref_Reference<T>;
+static processPendingLock: java_lang_Object;
+static processPendingActive: boolean;
+get(): T;
+clear(): void;
+isEnqueued(): boolean;
+enqueue(): boolean;
+static reachabilityFence(arg0: java_lang_Object): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang.ref' {
+import { Reference as java_lang_ref_Reference, ReferenceQueue as java_lang_ref_ReferenceQueue } from 'java.lang.ref';
+import { Object as java_lang_Object } from 'java.lang';
+import { Lock as java_lang_ref_ReferenceQueue_Lock } from 'java.lang.ref.ReferenceQueue';
+
+  export class ReferenceQueue<T extends java_lang_Object> extends java_lang_Object {
+static NULL: java_lang_ref_ReferenceQueue<java_lang_Object>;
+static ENQUEUED: java_lang_ref_ReferenceQueue<java_lang_Object>;
+lock: java_lang_ref_ReferenceQueue_Lock;
+head: java_lang_ref_Reference<T>;
+queueLength: number;
+static $assertionsDisabled: boolean;
+remove(arg0: number): java_lang_ref_Reference<T>;
+remove(): java_lang_ref_Reference<T>;
+poll(): java_lang_ref_Reference<T>;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang.ref.ReferenceQueue' {
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Lock extends java_lang_Object {
+
+
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable } from 'java.lang';
+
+  export class Appendable {
+
+append(arg0: java_lang_CharSequence): java_lang_Appendable;
+append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appendable;
+append(arg0: string): java_lang_Appendable;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
+import { Object as java_lang_Object, Character as java_lang_Character, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class Character extends java_lang_Object implements java_io_Serializable, java_lang_Comparable<java_lang_Character> {
+static MIN_RADIX: number;
+static MAX_RADIX: number;
+static MIN_VALUE: string;
+static MAX_VALUE: string;
+static TYPE: java_lang_Class<java_lang_Character>;
+static UNASSIGNED: number;
+static UPPERCASE_LETTER: number;
+static LOWERCASE_LETTER: number;
+static TITLECASE_LETTER: number;
+static MODIFIER_LETTER: number;
+static OTHER_LETTER: number;
+static NON_SPACING_MARK: number;
+static ENCLOSING_MARK: number;
+static COMBINING_SPACING_MARK: number;
+static DECIMAL_DIGIT_NUMBER: number;
+static LETTER_NUMBER: number;
+static OTHER_NUMBER: number;
+static SPACE_SEPARATOR: number;
+static LINE_SEPARATOR: number;
+static PARAGRAPH_SEPARATOR: number;
+static CONTROL: number;
+static FORMAT: number;
+static PRIVATE_USE: number;
+static SURROGATE: number;
+static DASH_PUNCTUATION: number;
+static START_PUNCTUATION: number;
+static END_PUNCTUATION: number;
+static CONNECTOR_PUNCTUATION: number;
+static OTHER_PUNCTUATION: number;
+static MATH_SYMBOL: number;
+static CURRENCY_SYMBOL: number;
+static MODIFIER_SYMBOL: number;
+static OTHER_SYMBOL: number;
+static INITIAL_QUOTE_PUNCTUATION: number;
+static FINAL_QUOTE_PUNCTUATION: number;
+static ERROR: number;
+static DIRECTIONALITY_UNDEFINED: number;
+static DIRECTIONALITY_LEFT_TO_RIGHT: number;
+static DIRECTIONALITY_RIGHT_TO_LEFT: number;
+static DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC: number;
+static DIRECTIONALITY_EUROPEAN_NUMBER: number;
+static DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR: number;
+static DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR: number;
+static DIRECTIONALITY_ARABIC_NUMBER: number;
+static DIRECTIONALITY_COMMON_NUMBER_SEPARATOR: number;
+static DIRECTIONALITY_NONSPACING_MARK: number;
+static DIRECTIONALITY_BOUNDARY_NEUTRAL: number;
+static DIRECTIONALITY_PARAGRAPH_SEPARATOR: number;
+static DIRECTIONALITY_SEGMENT_SEPARATOR: number;
+static DIRECTIONALITY_WHITESPACE: number;
+static DIRECTIONALITY_OTHER_NEUTRALS: number;
+static DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING: number;
+static DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE: number;
+static DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING: number;
+static DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE: number;
+static DIRECTIONALITY_POP_DIRECTIONAL_FORMAT: number;
+static DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE: number;
+static DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE: number;
+static DIRECTIONALITY_FIRST_STRONG_ISOLATE: number;
+static DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE: number;
+static MIN_HIGH_SURROGATE: string;
+static MAX_HIGH_SURROGATE: string;
+static MIN_LOW_SURROGATE: string;
+static MAX_LOW_SURROGATE: string;
+static MIN_SURROGATE: string;
+static MAX_SURROGATE: string;
+static MIN_SUPPLEMENTARY_CODE_POINT: number;
+static MIN_CODE_POINT: number;
+static MAX_CODE_POINT: number;
+value: string;
+static serialVersionUID: number;
+static SIZE: number;
+static BYTES: number;
+static $assertionsDisabled: boolean;
+static name: string;
+static type: number;
+static type: number;
+static numericValue: number;
+static numericValue: number;
+static directionality: number;
+static directionality: number;
+static getName(arg0: number): string;
+static isJavaIdentifierStart(arg0: string): boolean;
+static isJavaIdentifierStart(arg0: number): boolean;
+static isJavaIdentifierPart(arg0: number): boolean;
+static isJavaIdentifierPart(arg0: string): boolean;
+equals(arg0: java_lang_Object): boolean;
+static toString(arg0: number): string;
+static toString(arg0: string): string;
+toString(): string;
+hashCode(): number;
+static hashCode(arg0: string): number;
+static reverseBytes(arg0: string): string;
+compareTo(arg0: java_lang_Character): number;
+compareTo(arg0: java_lang_Object): number;
+static isDigit(arg0: string): boolean;
+static isDigit(arg0: number): boolean;
+static isLowerCase(arg0: number): boolean;
+static isLowerCase(arg0: string): boolean;
+static isUpperCase(arg0: number): boolean;
+static isUpperCase(arg0: string): boolean;
+static isWhitespace(arg0: number): boolean;
+static isWhitespace(arg0: string): boolean;
+charValue(): string;
+static valueOf(arg0: string): java_lang_Character;
+static codePointAt(arg0: string[], arg1: number): number;
+static codePointAt(arg0: string[], arg1: number, arg2: number): number;
+static codePointAt(arg0: java_lang_CharSequence, arg1: number): number;
+static codePointBefore(arg0: string[], arg1: number, arg2: number): number;
+static codePointBefore(arg0: java_lang_CharSequence, arg1: number): number;
+static codePointBefore(arg0: string[], arg1: number): number;
+static codePointCount(arg0: java_lang_CharSequence, arg1: number, arg2: number): number;
+static codePointCount(arg0: string[], arg1: number, arg2: number): number;
+static offsetByCodePoints(arg0: string[], arg1: number, arg2: number, arg3: number, arg4: number): number;
+static offsetByCodePoints(arg0: java_lang_CharSequence, arg1: number, arg2: number): number;
+static toLowerCase(arg0: string): string;
+static toLowerCase(arg0: number): number;
+static toUpperCase(arg0: string): string;
+static toUpperCase(arg0: number): number;
+static compare(arg0: string, arg1: string): number;
+static toChars(arg0: number, arg1: string[], arg2: number): number;
+static toChars(arg0: number): string[];
+static isBmpCodePoint(arg0: number): boolean;
+static isSupplementaryCodePoint(arg0: number): boolean;
+static getType(arg0: string): number;
+static getType(arg0: number): number;
+static isLetter(arg0: number): boolean;
+static isLetter(arg0: string): boolean;
+static isLetterOrDigit(arg0: string): boolean;
+static isLetterOrDigit(arg0: number): boolean;
+static isValidCodePoint(arg0: number): boolean;
+static isHighSurrogate(arg0: string): boolean;
+static isLowSurrogate(arg0: string): boolean;
+static isSurrogate(arg0: string): boolean;
+static isSurrogatePair(arg0: string, arg1: string): boolean;
+static charCount(arg0: number): number;
+static toCodePoint(arg0: string, arg1: string): number;
+static highSurrogate(arg0: number): string;
+static lowSurrogate(arg0: number): string;
+static isTitleCase(arg0: number): boolean;
+static isTitleCase(arg0: string): boolean;
+static isDefined(arg0: string): boolean;
+static isDefined(arg0: number): boolean;
+static isJavaLetter(arg0: string): boolean;
+static isJavaLetterOrDigit(arg0: string): boolean;
+static isAlphabetic(arg0: number): boolean;
+static isIdeographic(arg0: number): boolean;
+static isUnicodeIdentifierStart(arg0: string): boolean;
+static isUnicodeIdentifierStart(arg0: number): boolean;
+static isUnicodeIdentifierPart(arg0: string): boolean;
+static isUnicodeIdentifierPart(arg0: number): boolean;
+static isIdentifierIgnorable(arg0: number): boolean;
+static isIdentifierIgnorable(arg0: string): boolean;
+static toTitleCase(arg0: number): number;
+static toTitleCase(arg0: string): string;
+static digit(arg0: number, arg1: number): number;
+static digit(arg0: string, arg1: number): number;
+static getNumericValue(arg0: number): number;
+static getNumericValue(arg0: string): number;
+static isSpace(arg0: string): boolean;
+static isSpaceChar(arg0: number): boolean;
+static isSpaceChar(arg0: string): boolean;
+static isISOControl(arg0: number): boolean;
+static isISOControl(arg0: string): boolean;
+static forDigit(arg0: number, arg1: number): string;
+static getDirectionality(arg0: number): number;
+static getDirectionality(arg0: string): number;
+static isMirrored(arg0: number): boolean;
+static isMirrored(arg0: string): boolean;
+static codePointOf(arg0: string): number;
+constructor(arg0: string);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
 import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
 
   export class Readable {
@@ -1134,72 +1164,137 @@ constructor(arg0: T, arg1: java_lang_ref_ReferenceQueue<java_lang_Object>);
 }
 //@ts-nocheck
 
-declare module 'java.lang.ref' {
-import { Reference as java_lang_ref_Reference, ReferenceQueue as java_lang_ref_ReferenceQueue } from 'java.lang.ref';
-import { Object as java_lang_Object } from 'java.lang';
-import { Lock as java_lang_ref_ReferenceQueue_Lock } from 'java.lang.ref.ReferenceQueue';
+declare module 'java.lang' {
+import { Object as java_lang_Object, Long as java_lang_Long, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
 
-  export class ReferenceQueue<T extends java_lang_Object> extends java_lang_Object {
-static NULL: java_lang_ref_ReferenceQueue<java_lang_Object>;
-static ENQUEUED: java_lang_ref_ReferenceQueue<java_lang_Object>;
-lock: java_lang_ref_ReferenceQueue_Lock;
-head: java_lang_ref_Reference<T>;
-queueLength: number;
-static $assertionsDisabled: boolean;
-remove(arg0: number): java_lang_ref_Reference<T>;
-remove(): java_lang_ref_Reference<T>;
-poll(): java_lang_ref_Reference<T>;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang.ref' {
-import { Object as java_lang_Object } from 'java.lang';
-import { ReferenceQueue as java_lang_ref_ReferenceQueue, Reference as java_lang_ref_Reference } from 'java.lang.ref';
-
-  export class Reference<T extends java_lang_Object> extends java_lang_Object {
-referent: T;
-queue: java_lang_ref_ReferenceQueue<java_lang_Object>;
-next: java_lang_ref_Reference;
-discovered: java_lang_ref_Reference<T>;
-static processPendingLock: java_lang_Object;
-static processPendingActive: boolean;
-get(): T;
-clear(): void;
-isEnqueued(): boolean;
-enqueue(): boolean;
-static reachabilityFence(arg0: java_lang_Object): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang.ref.ReferenceQueue' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Lock extends java_lang_Object {
-
-
-
+  export class Long extends java_lang_Number implements java_lang_Comparable<java_lang_Long> {
+static MIN_VALUE: number;
+static MAX_VALUE: number;
+static TYPE: java_lang_Class<java_lang_Long>;
+value: number;
+static SIZE: number;
+static BYTES: number;
+static serialVersionUID: number;
+static long: java_lang_Long;
+static long: java_lang_Long;
+static long: java_lang_Long;
+class: java_lang_Class<java_lang_Object>;
+static numberOfLeadingZeros(arg0: number): number;
+static numberOfTrailingZeros(arg0: number): number;
+static bitCount(arg0: number): number;
+equals(arg0: java_lang_Object): boolean;
+static toString(arg0: number): string;
+static toString(arg0: number, arg1: number): string;
+toString(): string;
+static hashCode(arg0: number): number;
+hashCode(): number;
+static min(arg0: number, arg1: number): number;
+static max(arg0: number, arg1: number): number;
+static reverseBytes(arg0: number): number;
+compareTo(arg0: java_lang_Object): number;
+compareTo(arg0: java_lang_Long): number;
+static getLong(arg0: string): java_lang_Long;
+static getLong(arg0: string, arg1: number): java_lang_Long;
+static getLong(arg0: string, arg1: java_lang_Long): java_lang_Long;
+byteValue(): number;
+shortValue(): number;
+intValue(): number;
+longValue(): number;
+floatValue(): number;
+doubleValue(): number;
+static valueOf(arg0: string): java_lang_Long;
+static valueOf(arg0: number): java_lang_Long;
+static valueOf(arg0: string, arg1: number): java_lang_Long;
+static toHexString(arg0: number): string;
+static decode(arg0: string): java_lang_Long;
+static compare(arg0: number, arg1: number): number;
+static reverse(arg0: number): number;
+static sum(arg0: number, arg1: number): number;
+static compareUnsigned(arg0: number, arg1: number): number;
+static toUnsignedString(arg0: number, arg1: number): string;
+static toUnsignedString(arg0: number): string;
+static toOctalString(arg0: number): string;
+static toBinaryString(arg0: number): string;
+static divideUnsigned(arg0: number, arg1: number): number;
+static remainderUnsigned(arg0: number, arg1: number): number;
+static highestOneBit(arg0: number): number;
+static lowestOneBit(arg0: number): number;
+static rotateLeft(arg0: number, arg1: number): number;
+static rotateRight(arg0: number, arg1: number): number;
+static signum(arg0: number): number;
+static parseLong(arg0: string): number;
+static parseLong(arg0: string, arg1: number): number;
+static parseLong(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
+static parseUnsignedLong(arg0: java_lang_CharSequence, arg1: number, arg2: number, arg3: number): number;
+static parseUnsignedLong(arg0: string, arg1: number): number;
+static parseUnsignedLong(arg0: string): number;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: string);
+constructor(arg0: number);
   }
 }
 //@ts-nocheck
 
 declare module 'java.lang' {
-import { Supplier as java_util_function_Supplier } from 'java.util.function';
-import { ThreadLocal as java_lang_ThreadLocal, Object as java_lang_Object } from 'java.lang';
-import { AtomicInteger as java_util_concurrent_atomic_AtomicInteger } from 'java.util.concurrent.atomic';
+import { Object as java_lang_Object, Double as java_lang_Double, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
 
-  export class ThreadLocal<T extends java_lang_Object> extends java_lang_Object {
-threadLocalHashCode: number;
-static nextHashCode: java_util_concurrent_atomic_AtomicInteger;
-static HASH_INCREMENT: number;
-remove(): void;
-get(): T;
-set(arg0: T): void;
-static withInitial<S extends java_lang_Object>(arg0: java_util_function_Supplier<S>): java_lang_ThreadLocal<S>;
-constructor();
+  export class Double extends java_lang_Number implements java_lang_Comparable<java_lang_Double> {
+static POSITIVE_INFINITY: number;
+static NEGATIVE_INFINITY: number;
+static NaN: number;
+static MAX_VALUE: number;
+static MIN_NORMAL: number;
+static MIN_VALUE: number;
+static MAX_EXPONENT: number;
+static MIN_EXPONENT: number;
+static SIZE: number;
+static BYTES: number;
+static TYPE: java_lang_Class<java_lang_Double>;
+value: number;
+static serialVersionUID: number;
+class: java_lang_Class<java_lang_Object>;
+equals(arg0: java_lang_Object): boolean;
+static toString(arg0: number): string;
+toString(): string;
+hashCode(): number;
+static hashCode(arg0: number): number;
+static min(arg0: number, arg1: number): number;
+static max(arg0: number, arg1: number): number;
+static doubleToRawLongBits(arg0: number): number;
+static doubleToLongBits(arg0: number): number;
+static longBitsToDouble(arg0: number): number;
+compareTo(arg0: java_lang_Object): number;
+compareTo(arg0: java_lang_Double): number;
+byteValue(): number;
+shortValue(): number;
+intValue(): number;
+longValue(): number;
+floatValue(): number;
+doubleValue(): number;
+static valueOf(arg0: string): java_lang_Double;
+static valueOf(arg0: number): java_lang_Double;
+static toHexString(arg0: number): string;
+static compare(arg0: number, arg1: number): number;
+static isNaN(arg0: number): boolean;
+isNaN(): boolean;
+static isInfinite(arg0: number): boolean;
+isInfinite(): boolean;
+static isFinite(arg0: number): boolean;
+static sum(arg0: number, arg1: number): number;
+static parseDouble(arg0: string): number;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: number);
+constructor(arg0: string);
   }
 }
 //@ts-nocheck
@@ -1428,61 +1523,6 @@ getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
 
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class Boolean extends java_lang_Object implements java_io_Serializable, java_lang_Comparable<java_lang_Boolean> {
-static TRUE: java_lang_Boolean;
-static FALSE: java_lang_Boolean;
-static TYPE: java_lang_Class<java_lang_Boolean>;
-value: boolean;
-static serialVersionUID: number;
-static boolean: boolean;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-static toString(arg0: boolean): string;
-static hashCode(arg0: boolean): number;
-hashCode(): number;
-compareTo(arg0: java_lang_Boolean): number;
-compareTo(arg0: java_lang_Object): number;
-static getBoolean(arg0: string): boolean;
-booleanValue(): boolean;
-static valueOf(arg0: string): java_lang_Boolean;
-static valueOf(arg0: boolean): java_lang_Boolean;
-static compare(arg0: boolean, arg1: boolean): number;
-static parseBoolean(arg0: string): boolean;
-static logicalAnd(arg0: boolean, arg1: boolean): boolean;
-static logicalOr(arg0: boolean, arg1: boolean): boolean;
-static logicalXor(arg0: boolean, arg1: boolean): boolean;
-constructor(arg0: boolean);
-constructor(arg0: string);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object, Class as java_lang_Class, Throwable as java_lang_Throwable } from 'java.lang';
-
-  export class Exception extends java_lang_Throwable {
-static serialVersionUID: number;
-class: java_lang_Class<java_lang_Object>;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-constructor(arg0: java_lang_Throwable);
-constructor(arg0: string, arg1: java_lang_Throwable);
-constructor(arg0: string);
-constructor();
   }
 }
 //@ts-nocheck
@@ -1826,92 +1866,38 @@ notifyAll(): void;
 //@ts-nocheck
 
 declare module 'java.lang' {
-import { Package as java_lang_Package, Class as java_lang_Class, Object as java_lang_Object, NamedPackage as java_lang_NamedPackage } from 'java.lang';
-import { Annotation as java_lang_annotation_Annotation } from 'java.lang.annotation';
-import { URL as java_net_URL } from 'java.net';
-import { VersionInfo as java_lang_Package_VersionInfo } from 'java.lang.Package';
-import { AnnotatedElement as java_lang_reflect_AnnotatedElement } from 'java.lang.reflect';
-
-  export class Package extends java_lang_NamedPackage implements java_lang_reflect_AnnotatedElement {
-versionInfo: java_lang_Package_VersionInfo;
-packageInfo: java_lang_Class<java_lang_Object>;
-name: string;
-static package: java_lang_Package;
-annotation: A;
-annotationsByType: A[];
-annotations: java_lang_annotation_Annotation[];
-declaredAnnotation: A;
-declaredAnnotationsByType: A[];
-declaredAnnotations: java_lang_annotation_Annotation[];
-static packages: java_lang_Package[];
-specificationTitle: string;
-specificationVersion: string;
-specificationVendor: string;
-implementationTitle: string;
-implementationVersion: string;
-implementationVendor: string;
-class: java_lang_Class<java_lang_Object>;
-getName(): string;
-toString(): string;
-hashCode(): number;
-static getPackage(arg0: string): java_lang_Package;
-getAnnotation<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A;
-isAnnotationPresent(arg0: java_lang_Class<java_lang_annotation_Annotation>): boolean;
-getAnnotationsByType<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A[];
-getAnnotations(): java_lang_annotation_Annotation[];
-getDeclaredAnnotation<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A;
-getDeclaredAnnotationsByType<A extends java_lang_annotation_Annotation>(arg0: java_lang_Class<A>): A[];
-getDeclaredAnnotations(): java_lang_annotation_Annotation[];
-static getPackages(): java_lang_Package[];
-isSealed(arg0: java_net_URL): boolean;
-isSealed(): boolean;
-getSpecificationTitle(): string;
-getSpecificationVersion(): string;
-getSpecificationVendor(): string;
-getImplementationTitle(): string;
-getImplementationVersion(): string;
-getImplementationVendor(): string;
-isCompatibleWith(arg0: string): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang.Package' {
-import { VersionInfo as java_lang_Package_VersionInfo } from 'java.lang.Package';
-import { URL as java_net_URL } from 'java.net';
+import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
+import { Consumer as java_util_function_Consumer } from 'java.util.function';
 import { Object as java_lang_Object } from 'java.lang';
 
-  export class VersionInfo extends java_lang_Object {
-static NULL_VERSION_INFO: java_lang_Package_VersionInfo;
-specTitle: string;
-specVersion: string;
-specVendor: string;
-implTitle: string;
-implVersion: string;
-implVendor: string;
-sealBase: java_net_URL;
+  export class Iterable<T extends java_lang_Object> {
 
+iterator(): java_util_Iterator<T>;
+spliterator(): java_util_Spliterator<T>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
 }
 //@ts-nocheck
 
 declare module 'java.lang' {
-import { Module as java_lang_Module, Object as java_lang_Object } from 'java.lang';
+import { Object as java_lang_Object, Class as java_lang_Class, Throwable as java_lang_Throwable } from 'java.lang';
 
-  export class NamedPackage extends java_lang_Object {
-name: string;
-module: java_lang_Module;
-
-
+  export class Exception extends java_lang_Throwable {
+static serialVersionUID: number;
+class: java_lang_Class<java_lang_Object>;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+wait(): void;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+constructor(arg0: java_lang_Throwable);
+constructor(arg0: string, arg1: java_lang_Throwable);
+constructor(arg0: string);
+constructor();
   }
 }
 //@ts-nocheck

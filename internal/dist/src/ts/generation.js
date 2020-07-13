@@ -84,6 +84,15 @@ function generateImportDefinitions(deps) {
 }
 function generateClassDefinition(clazz) {
     const dependencies = [];
+    if (clazz.ref.name === 'Object' && clazz.ref.package === 'java.lang') {
+        return {
+            definition: `
+declare module '${clazz.ref.package}' {  
+  export type ${clazz.ref.name} = {}
+}`,
+            dependencies: [],
+        };
+    }
     const methodDefs = clazz.methods.map((m) => generateMethodDefinition(m, dependencies));
     const getters = clazz.methods.filter((m) => m.name.match(/^get[A-Z]/g));
     const getterFields = getters.map((g) => {
