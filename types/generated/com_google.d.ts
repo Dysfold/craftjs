@@ -32,7 +32,8 @@ containsEntry(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
 replaceValues(arg0: K, arg1: java_lang_Iterable<V>): java_util_Collection<V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -75,7 +76,8 @@ removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
 parallelStream(): java_util_stream_Stream<E>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.Multiset' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -90,7 +92,8 @@ getCount(): number;
 getElement(): E;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.base' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -104,7 +107,8 @@ compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -149,7 +153,8 @@ getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -159,7 +164,8 @@ import { Object as java_lang_Object } from 'java.lang';
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.ImmutableList' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable, Class as java_lang_Class } from 'java.lang';
@@ -192,7 +198,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.ImmutableCollection' {
 import { Builder as com_google_common_collect_ImmutableCollection_Builder } from 'com.google.common.collect.ImmutableCollection';
@@ -209,7 +216,8 @@ addAll(arg0: java_lang_Iterable<E>): com_google_common_collect_ImmutableCollecti
 build(): com_google_common_collect_ImmutableCollection<E>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -250,7 +258,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
@@ -265,7 +274,8 @@ next(): E;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable, Comparable as java_lang_Comparable, Class as java_lang_Class } from 'java.lang';
@@ -337,7 +347,8 @@ parallelStream(): java_util_stream_Stream<E>;
 get(arg0: number): E;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -367,7 +378,8 @@ previousIndex(): number;
 hasPrevious(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect.ImmutableCollection' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable, Class as java_lang_Class } from 'java.lang';
@@ -392,7 +404,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -420,7 +433,8 @@ inDegree(arg0: java_lang_Object): number;
 outDegree(arg0: java_lang_Object): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
@@ -448,7 +462,8 @@ spliterator(): java_util_Spliterator<T>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
 import { Type as com_google_common_graph_ElementOrder_Type } from 'com.google.common.graph.ElementOrder';
@@ -470,7 +485,8 @@ static insertion<S extends java_lang_Object>(): com_google_common_graph_ElementO
 static natural<S extends java_lang_Comparable<java_lang_Object>>(): com_google_common_graph_ElementOrder<S>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph.ElementOrder' {
 import { Type as com_google_common_graph_ElementOrder_Type } from 'com.google.common.graph.ElementOrder';
@@ -492,7 +508,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.graph' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -516,7 +533,8 @@ inDegree(arg0: java_lang_Object): number;
 outDegree(arg0: java_lang_Object): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -564,7 +582,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -597,7 +616,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'com.google.common.collect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';

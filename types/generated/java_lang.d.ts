@@ -16,7 +16,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Module as java_lang_Module, Class as java_lang_Class, Object as java_lang_Object, ClassLoader as java_lang_ClassLoader, Package as java_lang_Package } from 'java.lang';
@@ -176,7 +177,8 @@ isNestmateOf(arg0: java_lang_Class<java_lang_Object>): boolean;
 getNestMembers(): java_lang_Class<java_lang_Object>[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Module as java_lang_Module, Class as java_lang_Class, Object as java_lang_Object, ClassLoader as java_lang_ClassLoader, ModuleLayer as java_lang_ModuleLayer } from 'java.lang';
@@ -239,7 +241,8 @@ getDeclaredAnnotation<T extends java_lang_annotation_Annotation>(arg0: java_lang
 getDeclaredAnnotationsByType<T extends java_lang_annotation_Annotation>(arg0: java_lang_Class<T>): T[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Class as java_lang_Class, Object as java_lang_Object, ClassLoader as java_lang_ClassLoader, Module as java_lang_Module, Package as java_lang_Package, NamedPackage as java_lang_NamedPackage, Boolean as java_lang_Boolean } from 'java.lang';
@@ -310,7 +313,8 @@ setClassAssertionStatus(arg0: string, arg1: boolean): void;
 clearAssertionStatus(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 
@@ -320,7 +324,8 @@ declare module 'java.lang' {
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -330,7 +335,8 @@ import { Object as java_lang_Object } from 'java.lang';
 compareTo(arg0: T): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Class as java_lang_Class, Enum as java_lang_Enum, Comparable as java_lang_Comparable } from 'java.lang';
@@ -351,7 +357,8 @@ getDeclaringClass(): java_lang_Class<E>;
 ordinal(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream, Serializable as java_io_Serializable } from 'java.io';
@@ -397,7 +404,8 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { IntStream as java_util_stream_IntStream } from 'java.util.stream';
@@ -414,7 +422,8 @@ chars(): java_util_stream_IntStream;
 static compare(arg0: java_lang_CharSequence, arg1: java_lang_CharSequence): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 
@@ -424,7 +433,8 @@ declare module 'java.lang' {
 run(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Integer as java_lang_Integer, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
@@ -504,7 +514,8 @@ notifyAll(): void;
 constructor(arg0: string);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -520,7 +531,8 @@ floatValue(): number;
 doubleValue(): number;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Long as java_lang_Long, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
@@ -595,7 +607,8 @@ notifyAll(): void;
 constructor(arg0: string);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Double as java_lang_Double, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
@@ -653,7 +666,8 @@ notifyAll(): void;
 constructor(arg0: number);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable } from 'java.lang';
@@ -665,7 +679,8 @@ append(arg0: java_lang_CharSequence, arg1: number, arg2: number): java_lang_Appe
 append(arg0: string): java_lang_Appendable;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
@@ -679,7 +694,8 @@ spliterator(): java_util_Spliterator<T>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Character as java_lang_Character, CharSequence as java_lang_CharSequence, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
@@ -858,7 +874,8 @@ static isMirrored(arg0: string): boolean;
 static codePointOf(arg0: string): number;
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -941,7 +958,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.annotation' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -955,7 +973,8 @@ hashCode(): number;
 annotationType(): java_lang_Class<java_lang_annotation_Annotation>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 
@@ -965,7 +984,8 @@ typeName: string;
 getTypeName(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Type as java_lang_reflect_Type, AnnotatedType as java_lang_reflect_AnnotatedType, AnnotatedElement as java_lang_reflect_AnnotatedElement } from 'java.lang.reflect';
@@ -992,7 +1012,8 @@ getDeclaredAnnotationsByType<T extends java_lang_annotation_Annotation>(arg0: ja
 getDeclaredAnnotations(): java_lang_annotation_Annotation[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Class as java_lang_Class } from 'java.lang';
@@ -1014,7 +1035,8 @@ getDeclaredAnnotationsByType<T extends java_lang_annotation_Annotation>(arg0: ja
 getDeclaredAnnotations(): java_lang_annotation_Annotation[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -1048,7 +1070,8 @@ isAccessible(): boolean;
 canAccess(arg0: java_lang_Object): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -1065,7 +1088,8 @@ isSynthetic(): boolean;
 getDeclaringClass(): java_lang_Class<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 
@@ -1075,7 +1099,8 @@ declare module 'java.lang' {
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
@@ -1085,7 +1110,8 @@ import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
 read(arg0: java_nio_CharBuffer): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ref' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1105,7 +1131,8 @@ notifyAll(): void;
 constructor(arg0: T);
 constructor(arg0: T, arg1: java_lang_ref_ReferenceQueue<java_lang_Object>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ref' {
 import { Reference as java_lang_ref_Reference, ReferenceQueue as java_lang_ref_ReferenceQueue } from 'java.lang.ref';
@@ -1124,7 +1151,8 @@ remove(): java_lang_ref_Reference<T>;
 poll(): java_lang_ref_Reference<T>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ref' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1144,7 +1172,8 @@ enqueue(): boolean;
 static reachabilityFence(arg0: java_lang_Object): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ref.ReferenceQueue' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1154,7 +1183,8 @@ import { Object as java_lang_Object } from 'java.lang';
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Supplier as java_util_function_Supplier } from 'java.util.function';
@@ -1171,7 +1201,8 @@ set(arg0: T): void;
 static withInitial<S extends java_lang_Object>(arg0: java_util_function_Supplier<S>): java_lang_ThreadLocal<S>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Thread as java_lang_Thread, ThreadGroup as java_lang_ThreadGroup, ClassLoader as java_lang_ClassLoader, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object, Runnable as java_lang_Runnable } from 'java.lang';
@@ -1272,7 +1303,8 @@ constructor(arg0: java_lang_ThreadGroup, arg1: java_lang_Runnable, arg2: string)
 constructor(arg0: java_lang_Runnable, arg1: string);
 constructor(arg0: java_lang_ThreadGroup, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { ThreadGroup as java_lang_ThreadGroup, Thread as java_lang_Thread, Throwable as java_lang_Throwable, Object as java_lang_Object } from 'java.lang';
@@ -1319,7 +1351,8 @@ allowThreadSuspension(arg0: boolean): boolean;
 constructor(arg0: string);
 constructor(arg0: java_lang_ThreadGroup, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.Thread' {
 import { Thread as java_lang_Thread, Throwable as java_lang_Throwable } from 'java.lang';
@@ -1329,7 +1362,8 @@ import { Thread as java_lang_Thread, Throwable as java_lang_Throwable } from 'ja
 uncaughtException(arg0: java_lang_Thread, arg1: java_lang_Throwable): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1369,7 +1403,8 @@ isNativeMethod(): boolean;
 constructor(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string, arg5: string, arg6: number);
 constructor(arg0: string, arg1: string, arg2: string, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.Thread' {
 import { State as java_lang_Thread_State } from 'java.lang.Thread';
@@ -1394,7 +1429,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
@@ -1426,7 +1462,8 @@ static logicalXor(arg0: boolean, arg1: boolean): boolean;
 constructor(arg0: boolean);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Class as java_lang_Class, Throwable as java_lang_Throwable } from 'java.lang';
@@ -1447,7 +1484,8 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { StringBuffer as java_lang_StringBuffer, AbstractStringBuilder as java_lang_AbstractStringBuilder, StringBuilder as java_lang_StringBuilder, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
@@ -1558,7 +1596,8 @@ constructor(arg0: string);
 constructor(arg0: number);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { AbstractStringBuilder as java_lang_AbstractStringBuilder, StringBuffer as java_lang_StringBuffer, Appendable as java_lang_Appendable, CharSequence as java_lang_CharSequence, Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
@@ -1671,7 +1710,8 @@ constructor(arg0: string);
 constructor(arg0: number);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { AbstractStringBuilder as java_lang_AbstractStringBuilder, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object, StringBuffer as java_lang_StringBuffer } from 'java.lang';
@@ -1741,7 +1781,8 @@ deleteCharAt(arg0: number): java_lang_AbstractStringBuilder;
 reverse(): java_lang_AbstractStringBuilder;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ThreadLocal' {
 import { Entry as java_lang_ThreadLocal_ThreadLocalMap_Entry } from 'java.lang.ThreadLocal.ThreadLocalMap';
@@ -1755,7 +1796,8 @@ threshold: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ThreadLocal.ThreadLocalMap' {
 import { Object as java_lang_Object, Class as java_lang_Class, ThreadLocal as java_lang_ThreadLocal } from 'java.lang';
@@ -1780,7 +1822,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Package as java_lang_Package, Class as java_lang_Class, Object as java_lang_Object, NamedPackage as java_lang_NamedPackage } from 'java.lang';
@@ -1838,7 +1881,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.Package' {
 import { VersionInfo as java_lang_Package_VersionInfo } from 'java.lang.Package';
@@ -1857,7 +1901,8 @@ sealBase: java_net_URL;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Module as java_lang_Module, Object as java_lang_Object } from 'java.lang';
@@ -1868,7 +1913,8 @@ module: java_lang_Module;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ClassLoader' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -1885,7 +1931,8 @@ static nativeLibraryContext: java_util_Deque<java_lang_ClassLoader_NativeLibrary
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module' {
 import { Set as java_util_Set, Optional as java_util_Optional } from 'java.util';
@@ -1941,7 +1988,8 @@ static newOpenModule(arg0: string): java_lang_module_ModuleDescriptor_Builder;
 static newAutomaticModule(arg0: string): java_lang_module_ModuleDescriptor_Builder;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor' {
 import { Modifier as java_lang_module_ModuleDescriptor_Modifier } from 'java.lang.module.ModuleDescriptor';
@@ -1964,7 +2012,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -1984,7 +2033,8 @@ compareTo(arg0: java_lang_Object): number;
 static parse(arg0: string): java_lang_module_ModuleDescriptor_Version;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor' {
 import { Set as java_util_Set } from 'java.util';
@@ -2007,7 +2057,8 @@ isQualified(): boolean;
 targets(): java_util_Set<string>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor.Exports' {
 import { Modifier as java_lang_module_ModuleDescriptor_Exports_Modifier } from 'java.lang.module.ModuleDescriptor.Exports';
@@ -2028,7 +2079,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor' {
 import { Set as java_util_Set } from 'java.util';
@@ -2051,7 +2103,8 @@ isQualified(): boolean;
 targets(): java_util_Set<string>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor.Opens' {
 import { Modifier as java_lang_module_ModuleDescriptor_Opens_Modifier } from 'java.lang.module.ModuleDescriptor.Opens';
@@ -2072,7 +2125,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -2091,7 +2145,8 @@ service(): string;
 providers(): java_util_List<string>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor' {
 import { Set as java_util_Set, Optional as java_util_Optional } from 'java.util';
@@ -2116,7 +2171,8 @@ rawCompiledVersion(): java_util_Optional<string>;
 compiledVersion(): java_util_Optional<java_lang_module_ModuleDescriptor_Version>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor.Requires' {
 import { Modifier as java_lang_module_ModuleDescriptor_Requires_Modifier } from 'java.lang.module.ModuleDescriptor.Requires';
@@ -2139,7 +2195,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module.ModuleDescriptor' {
 import { Builder as java_lang_module_ModuleDescriptor_Builder, Version as java_lang_module_ModuleDescriptor_Version, Exports as java_lang_module_ModuleDescriptor_Exports, Opens as java_lang_module_ModuleDescriptor_Opens, Provides as java_lang_module_ModuleDescriptor_Provides, Requires as java_lang_module_ModuleDescriptor_Requires, Modifier as java_lang_module_ModuleDescriptor_Modifier } from 'java.lang.module.ModuleDescriptor';
@@ -2190,7 +2247,8 @@ requires(arg0: java_util_Set<java_lang_module_ModuleDescriptor_Requires_Modifier
 mainClass(arg0: string): java_lang_module_ModuleDescriptor_Builder;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { ModuleLayer as java_lang_ModuleLayer, Module as java_lang_Module, ClassLoader as java_lang_ClassLoader, Object as java_lang_Object } from 'java.lang';
@@ -2226,12 +2284,14 @@ defineModulesWithManyLoaders(arg0: java_lang_module_Configuration, arg1: java_la
 findLoader(arg0: string): java_lang_ClassLoader;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module' {
 import { Configuration as java_lang_module_Configuration, ModuleFinder as java_lang_module_ModuleFinder, ResolvedModule as java_lang_module_ResolvedModule } from 'java.lang.module';
 import { Collection as java_util_Collection, List as java_util_List, Set as java_util_Set, Optional as java_util_Optional, Map as java_util_Map } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
+/** Represents a source of configurable options and settings */
 
   export class Configuration extends java_lang_Object {
 static EMPTY_CONFIGURATION: java_lang_module_Configuration;
@@ -2253,7 +2313,8 @@ static resolveAndBind(arg0: java_lang_module_ModuleFinder, arg1: java_util_List<
 resolveAndBind(arg0: java_lang_module_ModuleFinder, arg1: java_lang_module_ModuleFinder, arg2: java_util_Collection<string>): java_lang_module_Configuration;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module' {
 import { Path as java_nio_file_Path } from 'java.nio.file';
@@ -2269,7 +2330,8 @@ static compose(...arg0: java_lang_module_ModuleFinder[]): java_lang_module_Modul
 findAll(): java_util_Set<java_lang_module_ModuleReference>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module' {
 import { ModuleDescriptor as java_lang_module_ModuleDescriptor, ModuleReader as java_lang_module_ModuleReader } from 'java.lang.module';
@@ -2285,7 +2347,8 @@ open(): java_lang_module_ModuleReader;
 location(): java_util_Optional<java_net_URI>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module' {
 import { Stream as java_util_stream_Stream } from 'java.util.stream';
@@ -2304,7 +2367,8 @@ find(arg0: string): java_util_Optional<java_net_URI>;
 release(arg0: java_nio_ByteBuffer): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.module' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2323,7 +2387,8 @@ reference(): java_lang_module_ModuleReference;
 configuration(): java_lang_module_Configuration;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ModuleLayer' {
 import { Module as java_lang_Module, ModuleLayer as java_lang_ModuleLayer, Object as java_lang_Object } from 'java.lang';
@@ -2337,7 +2402,8 @@ addOpens(arg0: java_lang_Module, arg1: string, arg2: java_lang_Module): java_lan
 layer(): java_lang_ModuleLayer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { AnnotatedType as java_lang_reflect_AnnotatedType, Type as java_lang_reflect_Type, AnnotatedElement as java_lang_reflect_AnnotatedElement, GenericDeclaration as java_lang_reflect_GenericDeclaration } from 'java.lang.reflect';
@@ -2370,7 +2436,8 @@ getDeclaredAnnotationsByType<T extends java_lang_annotation_Annotation>(arg0: ja
 getDeclaredAnnotations(): java_lang_annotation_Annotation[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { TypeVariable as java_lang_reflect_TypeVariable, AnnotatedElement as java_lang_reflect_AnnotatedElement } from 'java.lang.reflect';
@@ -2395,7 +2462,8 @@ getDeclaredAnnotationsByType<T extends java_lang_annotation_Annotation>(arg0: ja
 getDeclaredAnnotations(): java_lang_annotation_Annotation[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2481,7 +2549,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { TypeVariable as java_lang_reflect_TypeVariable, AnnotatedType as java_lang_reflect_AnnotatedType, Type as java_lang_reflect_Type, Parameter as java_lang_reflect_Parameter, AccessibleObject as java_lang_reflect_AccessibleObject, Member as java_lang_reflect_Member, GenericDeclaration as java_lang_reflect_GenericDeclaration } from 'java.lang.reflect';
@@ -2544,7 +2613,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2594,7 +2664,8 @@ isVarArgs(): boolean;
 isAnnotationPresent(arg0: java_lang_Class<java_lang_annotation_Annotation>): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.reflect' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2671,7 +2742,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ref' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2694,7 +2766,8 @@ notifyAll(): void;
 constructor(arg0: T);
 constructor(arg0: T, arg1: java_lang_ref_ReferenceQueue<java_lang_Object>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.Class' {
 import { Field as java_lang_reflect_Field, Method as java_lang_reflect_Method, Constructor as java_lang_reflect_Constructor } from 'java.lang.reflect';
@@ -2717,7 +2790,8 @@ redefinedCount: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.Class' {
 import { Map as java_util_Map } from 'java.util';
@@ -2731,7 +2805,8 @@ redefinedCount: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ClassValue' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2769,7 +2844,8 @@ getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ClassValue' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2797,7 +2873,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ClassValue' {
 import { ClassValue as java_lang_ClassValue, Object as java_lang_Object } from 'java.lang';
@@ -2809,7 +2886,8 @@ promise: java_lang_ClassValue_Entry<T>;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -2829,7 +2907,8 @@ remove(arg0: java_lang_Class<java_lang_Object>): void;
 get(arg0: java_lang_Class<java_lang_Object>): T;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ClassValue' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2839,7 +2918,8 @@ import { Object as java_lang_Object } from 'java.lang';
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { Object as java_lang_Object, Class as java_lang_Class, Integer as java_lang_Integer, ArrayIndexOutOfBoundsException as java_lang_ArrayIndexOutOfBoundsException } from 'java.lang';
@@ -2915,7 +2995,8 @@ static loadLoadFence(): void;
 static storeStoreFence(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.VarHandle' {
 import { AccessMode as java_lang_invoke_VarHandle_AccessMode, AccessType as java_lang_invoke_VarHandle_AccessType } from 'java.lang.invoke.VarHandle';
@@ -2971,7 +3052,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.VarHandle' {
 import { AccessType as java_lang_invoke_VarHandle_AccessType } from 'java.lang.invoke.VarHandle';
@@ -2997,7 +3079,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { Class as java_lang_Class, Object as java_lang_Object, ClassLoader as java_lang_ClassLoader } from 'java.lang';
@@ -3057,7 +3140,8 @@ unwrap(): java_lang_invoke_MethodType;
 static fromMethodDescriptorString(arg0: string, arg1: java_lang_ClassLoader): java_lang_invoke_MethodType;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { MethodType as java_lang_invoke_MethodType, LambdaForm as java_lang_invoke_LambdaForm, MethodHandle as java_lang_invoke_MethodHandle } from 'java.lang.invoke';
@@ -3130,7 +3214,8 @@ hasLongPrimitives(): boolean;
 argSlotToParameter(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -3176,7 +3261,8 @@ static basicTypeSignature(arg0: java_lang_invoke_MethodType): string;
 static shortenSignature(arg0: string): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3208,7 +3294,8 @@ asFixedArity(): java_lang_invoke_MethodHandle;
 bindTo(arg0: java_lang_Object): java_lang_invoke_MethodHandle;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.LambdaForm' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3230,7 +3317,8 @@ paramString(): string;
 exprString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.LambdaForm' {
 import { BasicType as java_lang_invoke_LambdaForm_BasicType } from 'java.lang.invoke.LambdaForm';
@@ -3270,7 +3358,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.LambdaForm' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3292,7 +3381,8 @@ isConstantZero(): boolean;
 isIdentity(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.MethodHandleImpl' {
 import { Intrinsic as java_lang_invoke_MethodHandleImpl_Intrinsic } from 'java.lang.invoke.MethodHandleImpl';
@@ -3322,7 +3412,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { MemberName as java_lang_invoke_MemberName, MethodType as java_lang_invoke_MethodType, ResolvedMethodName as java_lang_invoke_ResolvedMethodName } from 'java.lang.invoke';
@@ -3433,7 +3524,8 @@ constructor(arg0: java_lang_reflect_Method);
 constructor(arg0: java_lang_reflect_Method, arg1: boolean);
 constructor(arg0: number, arg1: java_lang_Class<java_lang_Object>, arg2: string, arg3: java_lang_Object);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
@@ -3471,7 +3563,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
@@ -3511,7 +3604,8 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3521,7 +3615,8 @@ import { Object as java_lang_Object } from 'java.lang';
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.LambdaForm' {
 import { Kind as java_lang_invoke_LambdaForm_Kind } from 'java.lang.invoke.LambdaForm';
@@ -3608,7 +3703,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.MemberName' {
 import { Class as java_lang_Class, Object as java_lang_Object, ReflectiveOperationException as java_lang_ReflectiveOperationException } from 'java.lang';
@@ -3636,7 +3732,8 @@ resolveOrFail<NoSuchMemberException extends java_lang_ReflectiveOperationExcepti
 getNestedTypes(arg0: java_lang_Class<java_lang_Object>, arg1: boolean, arg2: java_lang_Class<java_lang_Object>): java_util_List<java_lang_invoke_MemberName>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { MethodType as java_lang_invoke_MethodType, MethodHandle as java_lang_invoke_MethodHandle } from 'java.lang.invoke';
@@ -3663,7 +3760,8 @@ static $assertionsDisabled: boolean;
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.MethodType' {
 import { ConcurrentMap as java_util_concurrent_ConcurrentMap } from 'java.util.concurrent';
@@ -3678,7 +3776,8 @@ add(arg0: T): T;
 get(arg0: T): T;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.MethodType.ConcurrentWeakInternSet' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3704,7 +3803,8 @@ notifyAll(): void;
 constructor(arg0: T, arg1: java_lang_ref_ReferenceQueue<T>);
 constructor(arg0: T);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke' {
 import { MethodType as java_lang_invoke_MethodType, MemberName as java_lang_invoke_MemberName } from 'java.lang.invoke';
@@ -3718,7 +3818,8 @@ static $assertionsDisabled: boolean;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.invoke.VarHandle' {
 import { MethodType as java_lang_invoke_MethodType, MethodHandle as java_lang_invoke_MethodHandle } from 'java.lang.invoke';
@@ -3730,7 +3831,8 @@ methodHandle_table: java_lang_invoke_MethodHandle[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
@@ -3769,7 +3871,8 @@ constructor();
 constructor(arg0: string);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
@@ -3808,7 +3911,8 @@ constructor();
 constructor(arg0: string);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
@@ -3848,7 +3952,8 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Byte as java_lang_Byte, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
@@ -3894,7 +3999,8 @@ notifyAll(): void;
 constructor(arg0: number);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Short as java_lang_Short, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
@@ -3941,7 +4047,8 @@ notifyAll(): void;
 constructor(arg0: number);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Float as java_lang_Float, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
@@ -4000,7 +4107,8 @@ constructor(arg0: string);
 constructor(arg0: number);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.Character' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -4012,7 +4120,8 @@ toString(): string;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Class as java_lang_Class, Void as java_lang_Void, Object as java_lang_Object } from 'java.lang';
@@ -4022,7 +4131,8 @@ static TYPE: java_lang_Class<java_lang_Void>;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -4032,6 +4142,7 @@ import { BasicPermission as java_security_BasicPermission } from 'java.security'
 static serialVersionUID: number;
 name: string;
 class: java_lang_Class<java_lang_Object>;
+/** Returns the unique fully qualified name of this Permission */
 getName(): string;
 toString(): string;
 checkGuard(arg0: java_lang_Object): void;
@@ -4044,7 +4155,8 @@ notifyAll(): void;
 constructor(arg0: string);
 constructor(arg0: string, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { Throwable as java_lang_Throwable, StackTraceElement as java_lang_StackTraceElement, Object as java_lang_Object, Class as java_lang_Class, ReflectiveOperationException as java_lang_ReflectiveOperationException } from 'java.lang';
@@ -4086,7 +4198,8 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.Runtime' {
 import { Object as java_lang_Object, Integer as java_lang_Integer, Comparable as java_lang_Comparable } from 'java.lang';
@@ -4119,7 +4232,8 @@ compareToIgnoreOptional(arg0: java_lang_Runtime_Version): number;
 equalsIgnoreOptional(arg0: java_lang_Object): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang.ref.Cleaner' {
 
@@ -4129,7 +4243,8 @@ declare module 'java.lang.ref.Cleaner' {
 clean(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.lang' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';

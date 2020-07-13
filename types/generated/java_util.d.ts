@@ -11,7 +11,8 @@ hasMoreElements(): boolean;
 nextElement(): E;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
@@ -25,19 +26,24 @@ next(): E;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
 import { Object as java_lang_Object } from 'java.lang';
+/** Represents an operation that accepts a single input argument and returns no
+ result. */
 
   export class Consumer<T extends java_lang_Object> {
 
-accept(arg0: T): void;
+/** Performs this operation on the given argument. */
+accept(t: T): void;
 andThen(arg0: java_util_function_Consumer<java_lang_Object>): java_util_function_Consumer<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream' {
 import { Comparator as java_util_Comparator, Optional as java_util_Optional, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
@@ -101,12 +107,14 @@ isParallel(): boolean;
 sequential(): S;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
 import { Comparator as java_util_Comparator } from 'java.util';
 import { Function as java_util_function_Function, ToIntFunction as java_util_function_ToIntFunction, ToLongFunction as java_util_function_ToLongFunction, ToDoubleFunction as java_util_function_ToDoubleFunction } from 'java.util.function';
+/** Represents a captured state of an on / off comparator. */
 
   export class Comparator<T extends java_lang_Object> {
 
@@ -130,7 +138,8 @@ static comparingLong<T extends java_lang_Object>(arg0: java_util_function_ToLong
 static comparingDouble<T extends java_lang_Object>(arg0: java_util_function_ToDoubleFunction<java_lang_Object>): java_util_Comparator<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Function as java_util_function_Function } from 'java.util.function';
@@ -144,7 +153,8 @@ compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -154,7 +164,8 @@ import { Object as java_lang_Object } from 'java.lang';
 applyAsInt(arg0: T): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -164,7 +175,8 @@ import { Object as java_lang_Object } from 'java.lang';
 applyAsLong(arg0: T): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -174,7 +186,8 @@ import { Object as java_lang_Object } from 'java.lang';
 applyAsDouble(arg0: T): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
@@ -207,7 +220,8 @@ or(arg0: java_util_function_Supplier<java_util_Optional<T>>): java_util_Optional
 orElseGet(arg0: java_util_function_Supplier<T>): T;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Predicate as java_util_function_Predicate } from 'java.util.function';
@@ -223,7 +237,8 @@ static isEqual<T extends java_lang_Object>(arg0: java_lang_Object): java_util_fu
 static not<T extends java_lang_Object>(arg0: java_util_function_Predicate<java_lang_Object>): java_util_function_Predicate<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -233,7 +248,8 @@ import { Object as java_lang_Object } from 'java.lang';
 get(): T;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream' {
 import { OptionalInt as java_util_OptionalInt, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, OptionalDouble as java_util_OptionalDouble, IntSummaryStatistics as java_util_IntSummaryStatistics } from 'java.util';
@@ -303,7 +319,8 @@ unordered(): S;
 isParallel(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
@@ -333,7 +350,8 @@ orElseGet(arg0: java_util_function_IntSupplier): number;
 getAsInt(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { IntConsumer as java_util_function_IntConsumer } from 'java.util.function';
@@ -344,7 +362,8 @@ accept(arg0: number): void;
 andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -354,7 +373,8 @@ asInt: number;
 getAsInt(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream.IntStream' {
 import { Builder as java_util_stream_IntStream_Builder } from 'java.util.stream.IntStream';
@@ -369,7 +389,8 @@ build(): java_util_stream_IntStream;
 andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.PrimitiveIterator' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -388,7 +409,8 @@ remove(): void;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
@@ -404,7 +426,8 @@ next(): E;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
@@ -432,7 +455,8 @@ hasCharacteristics(arg0: number): boolean;
 getComparator(): java_util_Comparator<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Spliterator' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -459,7 +483,8 @@ hasCharacteristics(arg0: number): boolean;
 getComparator(): java_util_Comparator<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Spliterator' {
 import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator } from 'java.util';
@@ -483,7 +508,8 @@ hasCharacteristics(arg0: number): boolean;
 getComparator(): java_util_Comparator<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { IntPredicate as java_util_function_IntPredicate } from 'java.util.function';
@@ -496,7 +522,8 @@ and(arg0: java_util_function_IntPredicate): java_util_function_IntPredicate;
 negate(): java_util_function_IntPredicate;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -506,7 +533,8 @@ import { Object as java_lang_Object } from 'java.lang';
 accept(arg0: T, arg1: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { BiConsumer as java_util_function_BiConsumer } from 'java.util.function';
@@ -518,7 +546,8 @@ accept(arg0: T, arg1: U): void;
 andThen(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): java_util_function_BiConsumer<T, U>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { IntUnaryOperator as java_util_function_IntUnaryOperator } from 'java.util.function';
@@ -531,7 +560,8 @@ compose(arg0: java_util_function_IntUnaryOperator): java_util_function_IntUnaryO
 andThen(arg0: java_util_function_IntUnaryOperator): java_util_function_IntUnaryOperator;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -541,7 +571,8 @@ import { Object as java_lang_Object } from 'java.lang';
 apply(arg0: number): R;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -551,7 +582,8 @@ declare module 'java.util.function' {
 applyAsInt(arg0: number, arg1: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream' {
 import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
@@ -570,7 +602,8 @@ isParallel(): boolean;
 sequential(): S;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -580,7 +613,8 @@ declare module 'java.util.function' {
 applyAsLong(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream' {
 import { OptionalLong as java_util_OptionalLong, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, OptionalDouble as java_util_OptionalDouble, LongSummaryStatistics as java_util_LongSummaryStatistics } from 'java.util';
@@ -649,7 +683,8 @@ unordered(): S;
 isParallel(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
@@ -679,7 +714,8 @@ orElseGet(arg0: java_util_function_LongSupplier): number;
 getAsLong(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { LongConsumer as java_util_function_LongConsumer } from 'java.util.function';
@@ -690,7 +726,8 @@ accept(arg0: number): void;
 andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -700,7 +737,8 @@ asLong: number;
 getAsLong(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream.LongStream' {
 import { Builder as java_util_stream_LongStream_Builder } from 'java.util.stream.LongStream';
@@ -715,7 +753,8 @@ build(): java_util_stream_LongStream;
 andThen(arg0: java_util_function_LongConsumer): java_util_function_LongConsumer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.PrimitiveIterator' {
 import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
@@ -734,7 +773,8 @@ remove(): void;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Spliterator' {
 import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
@@ -761,7 +801,8 @@ hasCharacteristics(arg0: number): boolean;
 getComparator(): java_util_Comparator<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { LongPredicate as java_util_function_LongPredicate } from 'java.util.function';
@@ -774,7 +815,8 @@ and(arg0: java_util_function_LongPredicate): java_util_function_LongPredicate;
 negate(): java_util_function_LongPredicate;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -784,7 +826,8 @@ import { Object as java_lang_Object } from 'java.lang';
 accept(arg0: T, arg1: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { LongUnaryOperator as java_util_function_LongUnaryOperator } from 'java.util.function';
@@ -797,7 +840,8 @@ compose(arg0: java_util_function_LongUnaryOperator): java_util_function_LongUnar
 andThen(arg0: java_util_function_LongUnaryOperator): java_util_function_LongUnaryOperator;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -807,7 +851,8 @@ import { Object as java_lang_Object } from 'java.lang';
 apply(arg0: number): R;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -817,7 +862,8 @@ declare module 'java.util.function' {
 applyAsLong(arg0: number, arg1: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -827,7 +873,8 @@ declare module 'java.util.function' {
 applyAsInt(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -837,7 +884,8 @@ declare module 'java.util.function' {
 applyAsDouble(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream' {
 import { OptionalDouble as java_util_OptionalDouble, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, DoubleSummaryStatistics as java_util_DoubleSummaryStatistics } from 'java.util';
@@ -903,7 +951,8 @@ unordered(): S;
 isParallel(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Throwable as java_lang_Throwable, Runnable as java_lang_Runnable } from 'java.lang';
@@ -933,7 +982,8 @@ orElseGet(arg0: java_util_function_DoubleSupplier): number;
 getAsDouble(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { DoubleConsumer as java_util_function_DoubleConsumer } from 'java.util.function';
@@ -944,7 +994,8 @@ accept(arg0: number): void;
 andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -954,7 +1005,8 @@ asDouble: number;
 getAsDouble(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream.DoubleStream' {
 import { Builder as java_util_stream_DoubleStream_Builder } from 'java.util.stream.DoubleStream';
@@ -969,7 +1021,8 @@ build(): java_util_stream_DoubleStream;
 andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsumer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.PrimitiveIterator' {
 import { Object as java_lang_Object, Double as java_lang_Double } from 'java.lang';
@@ -988,7 +1041,8 @@ remove(): void;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Spliterator' {
 import { Object as java_lang_Object, Double as java_lang_Double } from 'java.lang';
@@ -1015,7 +1069,8 @@ hasCharacteristics(arg0: number): boolean;
 getComparator(): java_util_Comparator<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { DoublePredicate as java_util_function_DoublePredicate } from 'java.util.function';
@@ -1028,7 +1083,8 @@ and(arg0: java_util_function_DoublePredicate): java_util_function_DoublePredicat
 negate(): java_util_function_DoublePredicate;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1038,7 +1094,8 @@ import { Object as java_lang_Object } from 'java.lang';
 accept(arg0: T, arg1: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { DoubleUnaryOperator as java_util_function_DoubleUnaryOperator } from 'java.util.function';
@@ -1051,7 +1108,8 @@ compose(arg0: java_util_function_DoubleUnaryOperator): java_util_function_Double
 andThen(arg0: java_util_function_DoubleUnaryOperator): java_util_function_DoubleUnaryOperator;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1061,7 +1119,8 @@ import { Object as java_lang_Object } from 'java.lang';
 apply(arg0: number): R;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -1071,7 +1130,8 @@ declare module 'java.util.function' {
 applyAsDouble(arg0: number, arg1: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -1081,7 +1141,8 @@ declare module 'java.util.function' {
 applyAsInt(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -1091,7 +1152,8 @@ declare module 'java.util.function' {
 applyAsLong(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { DoubleSummaryStatistics as java_util_DoubleSummaryStatistics } from 'java.util';
@@ -1122,7 +1184,8 @@ andThen(arg0: java_util_function_DoubleConsumer): java_util_function_DoubleConsu
 constructor();
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { LongSummaryStatistics as java_util_LongSummaryStatistics } from 'java.util';
@@ -1153,7 +1216,8 @@ andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
 constructor();
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 
@@ -1163,7 +1227,8 @@ declare module 'java.util.function' {
 applyAsDouble(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { IntSummaryStatistics as java_util_IntSummaryStatistics } from 'java.util';
@@ -1192,7 +1257,8 @@ andThen(arg0: java_util_function_IntConsumer): java_util_function_IntConsumer;
 constructor();
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Character as java_lang_Character, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -1319,7 +1385,8 @@ constructor(arg0: string);
 constructor(arg0: string, arg1: string);
 constructor(arg0: string, arg1: string, arg2: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Locale' {
 import { Category as java_util_Locale_Category } from 'java.util.Locale';
@@ -1345,7 +1412,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1403,7 +1471,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
@@ -1436,7 +1505,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { UnaryOperator as java_util_function_UnaryOperator, Function as java_util_function_Function } from 'java.util.function';
@@ -1450,7 +1520,8 @@ compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
@@ -1471,7 +1542,8 @@ hasPrevious(): boolean;
 forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Locale' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1497,7 +1569,8 @@ getRange(): string;
 constructor(arg0: string);
 constructor(arg0: string, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1548,7 +1621,8 @@ computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, 
 static ofEntries<K extends java_lang_Object, V extends java_lang_Object>(...arg0: java_util_Map_Entry<K, V>[]): java_util_Map<K, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Function as java_util_function_Function, BiFunction as java_util_function_BiFunction } from 'java.util.function';
@@ -1560,7 +1634,8 @@ apply(arg0: T, arg1: U): R;
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_BiFunction<T, U, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1606,7 +1681,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Map' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -1627,7 +1703,8 @@ static comparingByValue<K extends java_lang_Object, V extends java_lang_Comparab
 static comparingByValue<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Comparator<java_lang_Object>): java_util_Comparator<java_util_Map_Entry<K, V>>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Locale' {
 import { FilteringMode as java_util_Locale_FilteringMode } from 'java.util.Locale';
@@ -1651,7 +1728,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Locale' {
 import { IsoCountryCode as java_util_Locale_IsoCountryCode } from 'java.util.Locale';
@@ -1675,7 +1753,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Locale' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1695,7 +1774,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Collection as java_util_Collection, Set as java_util_Set, Comparator as java_util_Comparator, SortedMap as java_util_SortedMap, Map as java_util_Map } from 'java.util';
@@ -1738,7 +1818,8 @@ getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.atomic' {
 import { IntUnaryOperator as java_util_function_IntUnaryOperator, IntBinaryOperator as java_util_function_IntBinaryOperator } from 'java.util.function';
@@ -1806,7 +1887,8 @@ notifyAll(): void;
 constructor(arg0: number);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -1863,7 +1945,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
@@ -1912,7 +1995,8 @@ nextBytes(arg0: number[]): void;
 constructor();
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.atomic' {
 import { LongUnaryOperator as java_util_function_LongUnaryOperator, LongBinaryOperator as java_util_function_LongBinaryOperator } from 'java.util.function';
@@ -1981,7 +2065,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2059,7 +2144,8 @@ constructor(arg0: java_util_Properties);
 constructor(arg0: number);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Locale as java_util_Locale, Formatter as java_util_Formatter } from 'java.util';
@@ -2103,7 +2189,8 @@ constructor(arg0: java_lang_Appendable, arg1: java_util_Locale);
 constructor(arg0: java_util_Locale);
 constructor(arg0: java_lang_Appendable);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex' {
 import { CharSequence as java_lang_CharSequence, Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
@@ -2166,7 +2253,8 @@ asMatchPredicate(): java_util_function_Predicate<string>;
 splitAsStream(arg0: java_lang_CharSequence): java_util_stream_Stream<string>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex' {
 import { Function as java_util_function_Function } from 'java.util.function';
@@ -2236,7 +2324,8 @@ hasAnchoringBounds(): boolean;
 useAnchoringBounds(arg0: boolean): java_util_regex_Matcher;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex' {
 
@@ -2252,7 +2341,8 @@ start(arg0: number): number;
 groupCount(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2266,7 +2356,8 @@ clear(): void;
 contains(arg0: number): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex.Pattern' {
 import { Node as java_util_regex_Pattern_Node } from 'java.util.regex.Pattern';
@@ -2277,7 +2368,8 @@ next: java_util_regex_Pattern_Node;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex.Pattern' {
 import { CharPredicate as java_util_regex_Pattern_CharPredicate } from 'java.util.regex.Pattern';
@@ -2291,7 +2383,8 @@ union(arg0: java_util_regex_Pattern_CharPredicate, arg1: java_util_regex_Pattern
 union(arg0: java_util_regex_Pattern_CharPredicate): java_util_regex_Pattern_CharPredicate;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex.Pattern' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2312,7 +2405,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.regex.Pattern' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2333,7 +2427,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class } from 'java.lang';
@@ -2462,7 +2557,8 @@ constructor(arg0: java_util_Map<K, V>);
 constructor(arg0: number, arg1: number, arg2: number);
 constructor(arg0: number, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ConcurrentHashMap' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2503,7 +2599,8 @@ removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
 parallelStream(): java_util_stream_Stream<E>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ConcurrentHashMap' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2541,7 +2638,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2551,7 +2649,8 @@ import { Object as java_lang_Object } from 'java.lang';
 applyAsDouble(arg0: T, arg1: U): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2561,7 +2660,8 @@ import { Object as java_lang_Object } from 'java.lang';
 applyAsLong(arg0: T, arg1: U): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2571,7 +2671,8 @@ import { Object as java_lang_Object } from 'java.lang';
 applyAsInt(arg0: T, arg1: U): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ConcurrentHashMap' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2593,7 +2694,8 @@ getKey(): K;
 setValue(arg0: V): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ConcurrentHashMap' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2603,7 +2705,8 @@ value: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ConcurrentHashMap' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2638,7 +2741,8 @@ stream(): java_util_stream_Stream<E>;
 parallelStream(): java_util_stream_Stream<E>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ConcurrentHashMap' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -2674,7 +2778,8 @@ stream(): java_util_stream_Stream<E>;
 parallelStream(): java_util_stream_Stream<E>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2714,7 +2819,8 @@ getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2751,7 +2857,8 @@ containsValue(arg0: java_lang_Object): boolean;
 keySet(): java_util_Set<K>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -2818,7 +2925,8 @@ constructor();
 constructor(arg0: number);
 constructor(arg0: number, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.Hashtable' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2840,7 +2948,8 @@ getKey(): K;
 setValue(arg0: V): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2857,7 +2966,8 @@ size(): number;
 keys(): java_util_Enumeration<K>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable, Comparable as java_lang_Comparable } from 'java.lang';
@@ -2922,7 +3032,8 @@ constructor();
 constructor(arg0: number);
 constructor(arg0: number, arg1: number, arg2: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -2987,7 +3098,8 @@ constructor(arg0: java_util_Collection<E>);
 constructor();
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3029,7 +3141,8 @@ replaceAll(arg0: java_util_function_UnaryOperator<E>): void;
 sort(arg0: java_util_Comparator<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3061,7 +3174,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 
@@ -3071,7 +3185,8 @@ declare module 'java.util' {
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Iterator as java_util_Iterator, NavigableSet as java_util_NavigableSet, SortedSet as java_util_SortedSet, Spliterator as java_util_Spliterator, Comparator as java_util_Comparator, Collection as java_util_Collection } from 'java.util';
@@ -3121,7 +3236,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Spliterator as java_util_Spliterator, Comparator as java_util_Comparator, SortedSet as java_util_SortedSet, Iterator as java_util_Iterator, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
@@ -3160,7 +3276,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java.lang';
@@ -3184,7 +3301,8 @@ invokeAny<T extends java_lang_Object>(arg0: java_util_Collection<java_util_concu
 execute(arg0: java_lang_Runnable): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -3199,7 +3317,8 @@ cancel(arg0: boolean): boolean;
 isCancelled(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3209,7 +3328,8 @@ import { Object as java_lang_Object } from 'java.lang';
 call(): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Runnable as java_lang_Runnable } from 'java.lang';
@@ -3219,7 +3339,8 @@ import { Runnable as java_lang_Runnable } from 'java.lang';
 execute(arg0: java_lang_Runnable): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream.Stream' {
 import { Builder as java_util_stream_Stream_Builder } from 'java.util.stream.Stream';
@@ -3230,12 +3351,14 @@ import { Object as java_lang_Object } from 'java.lang';
   export class Builder<T extends java_lang_Object> implements java_util_function_Consumer<T> {
 
 add(arg0: T): java_util_stream_Stream_Builder<T>;
-accept(arg0: T): void;
+/** Performs this operation on the given argument. */
+accept(t: T): void;
 build(): java_util_stream_Stream<T>;
 andThen(arg0: java_util_function_Consumer<java_lang_Object>): java_util_function_Consumer<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream' {
 import { Set as java_util_Set } from 'java.util';
@@ -3255,7 +3378,8 @@ finisher(): java_util_function_Function<A, R>;
 accumulator(): java_util_function_BiConsumer<A, T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.stream.Collector' {
 import { Characteristics as java_util_stream_Collector_Characteristics } from 'java.util.stream.Collector';
@@ -3277,7 +3401,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.function' {
 import { Comparator as java_util_Comparator } from 'java.util';
@@ -3292,7 +3417,8 @@ apply(arg0: T, arg1: U): R;
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_BiFunction<T, U, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -3300,6 +3426,10 @@ import { UnaryOperator as java_util_function_UnaryOperator, Consumer as java_uti
 import { Enumeration as java_util_Enumeration, List as java_util_List, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection, Comparator as java_util_Comparator, ListIterator as java_util_ListIterator, AbstractList as java_util_AbstractList, RandomAccess as java_util_RandomAccess } from 'java.util';
 import { Stream as java_util_stream_Stream } from 'java.util.stream';
 import { Serializable as java_io_Serializable } from 'java.io';
+/** Represents a mutable vector. Because the components of Vectors are mutable,
+ storing Vectors long term may be dangerous if passing code modifies the
+ Vector later. If you want to keep around a Vector, it may be wise to call
+ clone() in order to get a copy. */
 
   export class Vector<E extends java_lang_Object> extends java_util_AbstractList<E> implements java_util_List<E>, java_util_RandomAccess, java_lang_Cloneable, java_io_Serializable {
 elementData: java_lang_Object[];
@@ -3313,9 +3443,17 @@ add(arg0: number, arg1: E): void;
 remove(arg0: number): E;
 remove(arg0: java_lang_Object): boolean;
 get(arg0: number): E;
-equals(arg0: java_lang_Object): boolean;
+/** Checks to see if two objects are equal.
+ 
+ Only two Vectors can ever return true. This method uses a fuzzy match
+ to account for floating point errors. The epsilon can be retrieved
+ with epsilon. */
+equals(obj: java_lang_Object): boolean;
+/** Returns this vector's components as x,y,z. */
 toString(): string;
+/** Returns a hash code for this vector */
 hashCode(): number;
+/** Get a new vector. */
 clone(): java_lang_Object;
 indexOf(arg0: java_lang_Object): number;
 indexOf(arg0: java_lang_Object, arg1: number): number;
@@ -3367,11 +3505,13 @@ toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): 
 stream(): java_util_stream_Stream<E>;
 parallelStream(): java_util_stream_Stream<E>;
 constructor(arg0: java_util_Collection<E>);
+/** Construct the vector with all components as 0. */
 constructor();
 constructor(arg0: number);
 constructor(arg0: number, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3427,7 +3567,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3465,7 +3606,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3523,7 +3665,8 @@ constructor(arg0: number);
 constructor(arg0: number, arg1: number);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.WeakHashMap' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3557,7 +3700,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -3590,7 +3734,8 @@ static randomUUID(): java_util_UUID;
 static fromString(arg0: string): java_util_UUID;
 constructor(arg0: number, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { Level as java_util_logging_Level, LogRecord as java_util_logging_LogRecord, Logger as java_util_logging_Logger, Filter as java_util_logging_Filter, Handler as java_util_logging_Handler, LogManager as java_util_logging_LogManager } from 'java.util.logging';
@@ -3699,7 +3844,8 @@ getUseParentHandlers(): boolean;
 setResourceBundle(arg0: java_util_ResourceBundle): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -3738,7 +3884,8 @@ getResourceBundleName(): string;
 getLocalizedName(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { Object as java_lang_Object, Throwable as java_lang_Throwable, ThreadLocal as java_lang_ThreadLocal, Integer as java_lang_Integer } from 'java.lang';
@@ -3809,7 +3956,8 @@ getInstant(): java_time_Instant;
 getThrown(): java_lang_Throwable;
 constructor(arg0: java_util_logging_Level, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, ClassLoader as java_lang_ClassLoader, Module as java_lang_Module } from 'java.lang';
@@ -3866,7 +4014,8 @@ static clearCache(): void;
 static clearCache(arg0: java_lang_ClassLoader): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.ResourceBundle' {
 import { List as java_util_List, Locale as java_util_Locale, ResourceBundle as java_util_ResourceBundle } from 'java.util';
@@ -3900,7 +4049,8 @@ needsReload(arg0: string, arg1: java_util_Locale, arg2: string, arg3: java_lang_
 toBundleName(arg0: string, arg1: java_util_Locale): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.ResourceBundle.Control' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3920,7 +4070,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.ResourceBundle' {
 import { Object as java_lang_Object, Module as java_lang_Module, Throwable as java_lang_Throwable, Boolean as java_lang_Boolean } from 'java.lang';
@@ -3946,7 +4097,8 @@ toString(): string;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.ResourceBundle' {
 import { CacheKey as java_util_ResourceBundle_CacheKey, CacheKeyReference as java_util_ResourceBundle_CacheKeyReference } from 'java.util.ResourceBundle';
@@ -3974,7 +4126,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.ResourceBundle' {
 import { CacheKey as java_util_ResourceBundle_CacheKey } from 'java.util.ResourceBundle';
@@ -3984,7 +4137,8 @@ cacheKey: java_util_ResourceBundle_CacheKey;
 getCacheKey(): java_util_ResourceBundle_CacheKey;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Iterator as java_util_Iterator, ServiceLoader as java_util_ServiceLoader, Optional as java_util_Optional, Spliterator as java_util_Spliterator, List as java_util_List } from 'java.util';
@@ -4022,7 +4176,8 @@ spliterator(): java_util_Spliterator<T>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.ServiceLoader' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -4034,7 +4189,8 @@ get(): S;
 type(): java_lang_Class<S>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.spi' {
 import { Locale as java_util_Locale, ResourceBundle as java_util_ResourceBundle } from 'java.util';
@@ -4044,7 +4200,8 @@ bundle: java_util_ResourceBundle;
 getBundle(arg0: string, arg1: java_util_Locale): java_util_ResourceBundle;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.ResourceBundle' {
 import { CacheKey as java_util_ResourceBundle_CacheKey, CacheKeyReference as java_util_ResourceBundle_CacheKeyReference } from 'java.util.ResourceBundle';
@@ -4072,7 +4229,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { LogRecord as java_util_logging_LogRecord } from 'java.util.logging';
@@ -4082,7 +4240,8 @@ import { LogRecord as java_util_logging_LogRecord } from 'java.util.logging';
 isLoggable(arg0: java_util_logging_LogRecord): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { LogRecord as java_util_logging_LogRecord, Filter as java_util_logging_Filter, Level as java_util_logging_Level, Formatter as java_util_logging_Formatter, ErrorManager as java_util_logging_ErrorManager, LogManager as java_util_logging_LogManager } from 'java.util.logging';
@@ -4117,7 +4276,8 @@ setErrorManager(arg0: java_util_logging_ErrorManager): void;
 getErrorManager(): java_util_logging_ErrorManager;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { LogRecord as java_util_logging_LogRecord, Handler as java_util_logging_Handler } from 'java.util.logging';
@@ -4132,7 +4292,8 @@ getTail(arg0: java_util_logging_Handler): string;
 formatMessage(arg0: java_util_logging_LogRecord): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { Exception as java_lang_Exception, Object as java_lang_Object } from 'java.lang';
@@ -4148,7 +4309,8 @@ static FORMAT_FAILURE: number;
 error(arg0: string, arg1: java_lang_Exception, arg2: number): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { Logger as java_util_logging_Logger, LogManager as java_util_logging_LogManager, LoggingMXBean as java_util_logging_LoggingMXBean, Level as java_util_logging_Level } from 'java.util.logging';
@@ -4208,7 +4370,8 @@ addConfigurationListener(arg0: java_lang_Runnable): java_util_logging_LogManager
 removeConfigurationListener(arg0: java_lang_Runnable): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging' {
 import { List as java_util_List } from 'java.util';
@@ -4223,7 +4386,8 @@ setLoggerLevel(arg0: string, arg1: string): void;
 getParentLoggerName(arg0: string): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging.LogManager' {
 import { ConcurrentHashMap as java_util_concurrent_ConcurrentHashMap } from 'java.util.concurrent';
@@ -4239,7 +4403,8 @@ this$0: java_util_logging_LogManager;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging.LogManager' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -4270,7 +4435,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging.LogManager' {
 import { HashMap as java_util_HashMap } from 'java.util';
@@ -4285,7 +4451,8 @@ context: java_util_logging_LogManager_LoggerContext;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -4346,7 +4513,8 @@ constructor();
 constructor(arg0: java_util_Map<K, V>);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.HashMap' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -4368,7 +4536,8 @@ getKey(): K;
 setValue(arg0: V): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -4402,7 +4571,8 @@ getWaitQueueLength(arg0: java_util_concurrent_locks_Condition): number;
 constructor();
 constructor(arg0: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -4419,7 +4589,8 @@ await(arg0: number, arg1: java_util_concurrent_TimeUnit): boolean;
 awaitUntil(arg0: java_util_Date): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.ReentrantLock' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -4438,7 +4609,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks' {
 import { Collection as java_util_Collection } from 'java.util';
@@ -4497,7 +4669,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.AbstractQueuedSynchronizer' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -4523,7 +4696,8 @@ await(arg0: number, arg1: java_util_concurrent_TimeUnit): boolean;
 awaitUntil(arg0: java_util_Date): boolean;
 constructor(arg0: java_util_concurrent_locks_AbstractQueuedSynchronizer);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.AbstractQueuedSynchronizer' {
 import { Node as java_util_concurrent_locks_AbstractQueuedSynchronizer_Node } from 'java.util.concurrent.locks.AbstractQueuedSynchronizer';
@@ -4549,7 +4723,8 @@ static WAITSTATUS: java_lang_invoke_VarHandle;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks' {
 import { Thread as java_lang_Thread, Object as java_lang_Object } from 'java.lang';
@@ -4561,7 +4736,8 @@ exclusiveOwnerThread: java_lang_Thread;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -4577,7 +4753,8 @@ unlock(): void;
 newCondition(): java_util_concurrent_locks_Condition;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -4633,7 +4810,8 @@ constructor();
 constructor(arg0: E[]);
 constructor(arg0: java_util_Collection<E>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging.LogManager' {
 import { Logger as java_util_logging_Logger } from 'java.util.logging';
@@ -4648,7 +4826,8 @@ hashCode(): number;
 static create(arg0: java_util_logging_Logger): java_util_logging_LogManager_CloseOnReset;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging.Logger' {
 import { ResourceBundle as java_util_ResourceBundle } from 'java.util';
@@ -4660,7 +4839,8 @@ userBundle: java_util_ResourceBundle;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.logging.Logger' {
 import { ConfigurationData as java_util_logging_Logger_ConfigurationData } from 'java.util.logging.Logger';
@@ -4678,7 +4858,8 @@ handlers: java_util_concurrent_CopyOnWriteArrayList<java_util_logging_Handler>;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -4692,7 +4873,8 @@ toString(): string;
 getSource(): java_lang_Object;
 constructor(arg0: java_lang_Object);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 
@@ -4702,7 +4884,8 @@ declare module 'java.util' {
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.atomic' {
 import { VarHandle as java_lang_invoke_VarHandle } from 'java.lang.invoke';
@@ -4740,7 +4923,8 @@ weakCompareAndSetVolatile(arg0: boolean, arg1: boolean): boolean;
 constructor(arg0: boolean);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { TimeUnit as java_util_concurrent_TimeUnit, Delayed as java_util_concurrent_Delayed } from 'java.util.concurrent';
@@ -4752,7 +4936,8 @@ getDelay(arg0: java_util_concurrent_TimeUnit): number;
 compareTo(arg0: T): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -4813,7 +4998,8 @@ observesDaylightTime(): boolean;
 inDaylightTime(arg0: java_util_Date): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class, Cloneable as java_lang_Cloneable, Enum as java_lang_Enum } from 'java.lang';
@@ -4869,7 +5055,8 @@ constructor(arg0: java_lang_Class<K>);
 constructor(arg0: java_util_Map<K, V>);
 constructor(arg0: java_util_EnumMap<K, V>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { TimeUnit as java_util_concurrent_TimeUnit, CompletableFuture as java_util_concurrent_CompletableFuture, CompletionStage as java_util_concurrent_CompletionStage, Executor as java_util_concurrent_Executor, Future as java_util_concurrent_Future } from 'java.util.concurrent';
@@ -5003,7 +5190,8 @@ static runAsync(arg0: java_lang_Runnable): java_util_concurrent_CompletableFutur
 static anyOf(...arg0: java_util_concurrent_CompletableFuture<java_lang_Object>[]): java_util_concurrent_CompletableFuture<java_lang_Object>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { BiFunction as java_util_function_BiFunction, Function as java_util_function_Function, Consumer as java_util_function_Consumer, BiConsumer as java_util_function_BiConsumer } from 'java.util.function';
@@ -5052,7 +5240,8 @@ applyToEither<U extends java_lang_Object>(arg0: java_util_concurrent_CompletionS
 whenComplete(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): java_util_concurrent_CompletionStage<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.CompletableFuture' {
 import { Object as java_lang_Object, Void as java_lang_Void, Class as java_lang_Class, Runnable as java_lang_Runnable } from 'java.lang';
@@ -5081,7 +5270,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { TimeUnit as java_util_concurrent_TimeUnit, ForkJoinPool as java_util_concurrent_ForkJoinPool, ForkJoinTask as java_util_concurrent_ForkJoinTask, Callable as java_util_concurrent_Callable, Future as java_util_concurrent_Future } from 'java.util.concurrent';
@@ -5146,7 +5336,8 @@ static adapt<T extends java_lang_Object>(arg0: java_util_concurrent_Callable<T>)
 static adapt(arg0: java_lang_Runnable): java_util_concurrent_ForkJoinTask<java_lang_Object>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { ForkJoinTask as java_util_concurrent_ForkJoinTask, Callable as java_util_concurrent_Callable, Future as java_util_concurrent_Future, ForkJoinPool as java_util_concurrent_ForkJoinPool, TimeUnit as java_util_concurrent_TimeUnit, AbstractExecutorService as java_util_concurrent_AbstractExecutorService } from 'java.util.concurrent';
@@ -5267,7 +5458,8 @@ constructor();
 constructor(arg0: number, arg1: java_util_concurrent_ForkJoinPool_ForkJoinWorkerThreadFactory, arg2: java_lang_Thread_UncaughtExceptionHandler, arg3: boolean);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ForkJoinPool' {
 import { ForkJoinPool as java_util_concurrent_ForkJoinPool, ForkJoinWorkerThread as java_util_concurrent_ForkJoinWorkerThread } from 'java.util.concurrent';
@@ -5277,7 +5469,8 @@ import { ForkJoinPool as java_util_concurrent_ForkJoinPool, ForkJoinWorkerThread
 newThread(arg0: java_util_concurrent_ForkJoinPool): java_util_concurrent_ForkJoinWorkerThread;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { ForkJoinPool as java_util_concurrent_ForkJoinPool } from 'java.util.concurrent';
@@ -5303,7 +5496,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ForkJoinPool' {
 import { ForkJoinTask as java_util_concurrent_ForkJoinTask, ForkJoinPool as java_util_concurrent_ForkJoinPool, ForkJoinWorkerThread as java_util_concurrent_ForkJoinWorkerThread } from 'java.util.concurrent';
@@ -5327,7 +5521,8 @@ static TOP: java_lang_invoke_VarHandle;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ForkJoinPool' {
 
@@ -5338,7 +5533,8 @@ block(): boolean;
 isReleasable(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java.lang';
@@ -5362,7 +5558,8 @@ awaitTermination(arg0: number, arg1: java_util_concurrent_TimeUnit): boolean;
 execute(arg0: java_lang_Runnable): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ForkJoinTask' {
 import { Object as java_lang_Object, Class as java_lang_Class, Throwable as java_lang_Throwable } from 'java.lang';
@@ -5392,7 +5589,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.CompletableFuture' {
 
@@ -5402,7 +5600,8 @@ declare module 'java.util.concurrent.CompletableFuture' {
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.CompletableFuture' {
 import { Throwable as java_lang_Throwable, Object as java_lang_Object } from 'java.lang';
@@ -5412,7 +5611,8 @@ ex: java_lang_Throwable;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { EnumSet as java_util_EnumSet, Collection as java_util_Collection, Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, AbstractSet as java_util_AbstractSet } from 'java.util';
@@ -5467,7 +5667,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -5494,7 +5695,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.atomic' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -5527,7 +5729,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.atomic' {
 import { Object as java_lang_Object, Class as java_lang_Class, Number as java_lang_Number } from 'java.lang';
@@ -5554,7 +5757,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.atomic.Striped64' {
 import { VarHandle as java_lang_invoke_VarHandle } from 'java.lang.invoke';
@@ -5566,7 +5770,8 @@ static VALUE: java_lang_invoke_VarHandle;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -5621,7 +5826,8 @@ parallelStream(): java_util_stream_Stream<E>;
 constructor();
 constructor(arg0: java_util_Collection<E>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.ConcurrentLinkedQueue' {
 import { Node as java_util_concurrent_ConcurrentLinkedQueue_Node } from 'java.util.concurrent.ConcurrentLinkedQueue';
@@ -5633,7 +5839,8 @@ next: java_util_concurrent_ConcurrentLinkedQueue_Node<E>;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util' {
 import { Collection as java_util_Collection, Spliterator as java_util_Spliterator, AbstractCollection as java_util_AbstractCollection, Queue as java_util_Queue } from 'java.util';
@@ -5667,7 +5874,8 @@ peek(): E;
 offer(arg0: E): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks' {
 import { Thread as java_lang_Thread, Object as java_lang_Object } from 'java.lang';
@@ -5704,7 +5912,8 @@ getReadHoldCount(): number;
 constructor();
 constructor(arg0: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.ReentrantReadWriteLock' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -5728,7 +5937,8 @@ getHoldCount(): number;
 isHeldByCurrentThread(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.ReentrantReadWriteLock' {
 import { Object as java_lang_Object, Class as java_lang_Class, Thread as java_lang_Thread } from 'java.lang';
@@ -5756,7 +5966,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.ReentrantReadWriteLock.Sync' {
 import { HoldCounter as java_util_concurrent_locks_ReentrantReadWriteLock_Sync_HoldCounter } from 'java.util.concurrent.locks.ReentrantReadWriteLock.Sync';
@@ -5777,7 +5988,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.ReentrantReadWriteLock.Sync' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -5788,7 +6000,8 @@ tid: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks.ReentrantReadWriteLock' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -5809,7 +6022,8 @@ unlock(): void;
 newCondition(): java_util_concurrent_locks_Condition;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.concurrent.locks' {
 import { Lock as java_util_concurrent_locks_Lock } from 'java.util.concurrent.locks';
@@ -5820,7 +6034,8 @@ writeLock(): java_util_concurrent_locks_Lock;
 readLock(): java_util_concurrent_locks_Lock;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.jar' {
 import { Stream as java_util_stream_Stream } from 'java.util.stream';
@@ -5893,7 +6108,8 @@ constructor(arg0: string);
 constructor(arg0: java_io_File, arg1: boolean, arg2: number, arg3: java_lang_Runtime_Version);
 constructor(arg0: java_io_File, arg1: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.jar' {
 import { Certificate as java_security_cert_Certificate } from 'java.security.cert';
@@ -5926,7 +6142,8 @@ constructor(arg0: java_util_jar_JarEntry);
 constructor(arg0: java_util_zip_ZipEntry);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.jar' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -5974,7 +6191,8 @@ constructor(arg0: java_util_jar_Attributes);
 constructor(arg0: number);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.jar.Attributes' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -6008,7 +6226,8 @@ toString(): string;
 hashCode(): number;
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -6075,7 +6294,8 @@ getComment(): string;
 constructor(arg0: string);
 constructor(arg0: java_util_zip_ZipEntry);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip' {
 
@@ -6124,7 +6344,8 @@ static ENDCOM: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.jar' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -6152,7 +6373,8 @@ constructor(arg0: java_util_jar_Manifest);
 constructor(arg0: java_io_InputStream);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.jar' {
 import { ManifestEntryVerifier as sun_security_util_ManifestEntryVerifier, Debug as sun_security_util_Debug, SignatureFileVerifier as sun_security_util_SignatureFileVerifier, ManifestDigester as sun_security_util_ManifestDigester } from 'sun.security.util';
@@ -6211,7 +6433,8 @@ getManifestDigests(): java_util_List<java_lang_Object>;
 beginEntry(arg0: java_util_jar_JarEntry, arg1: sun_security_util_ManifestEntryVerifier): void;
 constructor(arg0: number[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip' {
 import { Stream as java_util_stream_Stream } from 'java.util.stream';
@@ -6255,7 +6478,8 @@ constructor(arg0: java_io_File, arg1: number);
 constructor(arg0: java_io_File);
 constructor(arg0: java_io_File, arg1: number, arg2: java_nio_charset_Charset);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip' {
 import { Charset as java_nio_charset_Charset, CharsetDecoder as java_nio_charset_CharsetDecoder, CharsetEncoder as java_nio_charset_CharsetEncoder } from 'java.nio.charset';
@@ -6272,7 +6496,8 @@ enc: java_nio_charset_CharsetEncoder;
 static get(arg0: java_nio_charset_Charset): java_util_zip_ZipCoder;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip.ZipFile' {
 import { Set as java_util_Set, Deque as java_util_Deque } from 'java.util';
@@ -6290,7 +6515,8 @@ zsrc: java_util_zip_ZipFile_Source;
 run(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip' {
 import { ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
@@ -6339,7 +6565,8 @@ getTotalOut(): number;
 constructor(arg0: boolean);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip.Inflater' {
 import { Cleanable as java_lang_ref_Cleaner_Cleanable } from 'java.lang.ref.Cleaner';
@@ -6351,7 +6578,8 @@ cleanable: java_lang_ref_Cleaner_Cleanable;
 run(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip.ZipFile' {
 import { Key as java_util_zip_ZipFile_Source_Key } from 'java.util.zip.ZipFile.Source';
@@ -6379,7 +6607,8 @@ static BUF_SIZE: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.util.zip.ZipFile.Source' {
 import { Object as java_lang_Object } from 'java.lang';

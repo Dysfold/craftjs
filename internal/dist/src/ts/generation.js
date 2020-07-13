@@ -169,12 +169,17 @@ function runTheThing() {
             continue;
         }
     }
+    const contents = {};
     for (const d of defs) {
         const path = [d.ref.package, d.ref.name].join('.').split('.');
         const filePath = path.slice(0, 2).join('_');
-        const f = new java_io_1.File(`./js/types/generated/${filePath}.d.ts`);
-        f.createNewFile();
-        writeFile(f.getPath(), `//@ts-nocheck\n${d.def}`, true);
+        const f = `./js/types/generated/${filePath}.d.ts`;
+        contents[f] = contents[f]
+            ? `${contents[f]}\n//@ts-nocheck\n${d.def}`
+            : `//@ts-nocheck\n${d.def}`;
+    }
+    for (const file in contents) {
+        writeFile(file, contents[file]);
     }
 }
 exports.runTheThing = runTheThing;

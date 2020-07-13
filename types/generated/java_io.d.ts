@@ -24,7 +24,8 @@ reset(): void;
 static nullInputStream(): java_io_InputStream;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { OutputStream as java_io_OutputStream, Closeable as java_io_Closeable, Flushable as java_io_Flushable } from 'java.io';
@@ -40,7 +41,8 @@ close(): void;
 static nullOutputStream(): java_io_OutputStream;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
@@ -50,7 +52,8 @@ import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
@@ -60,7 +63,8 @@ declare module 'java.io' {
 flush(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
@@ -70,7 +74,8 @@ declare module 'java.io' {
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Class as java_lang_Class } from 'java.lang';
@@ -146,7 +151,8 @@ constructor(arg0: java_io_OutputStream, arg1: boolean, arg2: java_nio_charset_Ch
 constructor(arg0: java_io_OutputStream, arg1: boolean);
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object } from 'java.lang';
@@ -172,7 +178,8 @@ close(): void;
 static nullWriter(): java_io_Writer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
@@ -203,7 +210,8 @@ isUnshared(): boolean;
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>);
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>, arg2: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -295,7 +303,8 @@ constructor(arg0: string, arg1: string);
 constructor(arg0: java_io_File, arg1: string);
 constructor(arg0: java_net_URI);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { File as java_io_File } from 'java.io';
@@ -305,7 +314,8 @@ import { File as java_io_File } from 'java.io';
 accept(arg0: java_io_File, arg1: string): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { File as java_io_File } from 'java.io';
@@ -315,7 +325,8 @@ import { File as java_io_File } from 'java.io';
 accept(arg0: java_io_File): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Class as java_lang_Class } from 'java.lang';
@@ -386,7 +397,8 @@ constructor(arg0: java_io_File);
 constructor(arg0: java_io_OutputStream);
 constructor(arg0: java_io_OutputStream, arg1: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
@@ -426,7 +438,8 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -457,7 +470,8 @@ notifyAll(): void;
 constructor(arg0: java_io_Writer);
 constructor(arg0: java_io_Writer, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { CharSequence as java_lang_CharSequence, Appendable as java_lang_Appendable, Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -493,7 +507,8 @@ constructor(arg0: java_io_OutputStream, arg1: java_nio_charset_Charset);
 constructor(arg0: java_io_OutputStream);
 constructor(arg0: java_io_OutputStream, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -520,7 +535,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { CharBuffer as java_nio_CharBuffer } from 'java.nio';
@@ -546,7 +562,8 @@ static nullReader(): java_io_Reader;
 ready(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Closeable as java_io_Closeable, FileDescriptor as java_io_FileDescriptor } from 'java.io';
@@ -569,7 +586,8 @@ sync(): void;
 valid(): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { File as java_io_File } from 'java.io';
@@ -625,7 +643,8 @@ getPathSeparator(): string;
 getNameMax(arg0: string): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.File' {
 import { PathStatus as java_io_File_PathStatus } from 'java.io.File';
@@ -646,7 +665,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
@@ -673,7 +693,8 @@ writeDouble(arg0: number): void;
 writeChars(arg0: string): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
@@ -696,7 +717,8 @@ writeDouble(arg0: number): void;
 writeChars(arg0: string): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
@@ -728,7 +750,8 @@ readLong(): number;
 readDouble(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
@@ -752,7 +775,8 @@ readLong(): number;
 readDouble(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { ObjectOutput as java_io_ObjectOutput, ObjectInput as java_io_ObjectInput, Serializable as java_io_Serializable } from 'java.io';
@@ -763,7 +787,8 @@ writeExternal(arg0: java_io_ObjectOutput): void;
 readExternal(arg0: java_io_ObjectInput): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -828,7 +853,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_InputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -849,7 +875,8 @@ defaulted(arg0: string): boolean;
 getObjectStreamClass(): java_io_ObjectStreamClass;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { ObjectStreamField as java_io_ObjectStreamField, ObjectStreamClass as java_io_ObjectStreamClass, Serializable as java_io_Serializable } from 'java.io';
@@ -906,7 +933,8 @@ getSerialVersionUID(): number;
 forClass(): java_lang_Class<java_lang_Object>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectStreamClass' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -917,7 +945,8 @@ message: string;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectStreamClass' {
 import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
@@ -936,7 +965,8 @@ types: java_lang_Class<java_lang_Object>[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectStreamClass' {
 import { ObjectStreamClass as java_io_ObjectStreamClass } from 'java.io';
@@ -948,7 +978,8 @@ hasData: boolean;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 
@@ -958,7 +989,8 @@ declare module 'java.io' {
 validateObject(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { FilterInfo as java_io_ObjectInputFilter_FilterInfo, Status as java_io_ObjectInputFilter_Status } from 'java.io.ObjectInputFilter';
@@ -968,7 +1000,8 @@ import { FilterInfo as java_io_ObjectInputFilter_FilterInfo, Status as java_io_O
 checkInput(arg0: java_io_ObjectInputFilter_FilterInfo): java_io_ObjectInputFilter_Status;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputFilter' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -982,7 +1015,8 @@ serialClass(): java_lang_Class<java_lang_Object>;
 references(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputFilter' {
 import { Status as java_io_ObjectInputFilter_Status } from 'java.io.ObjectInputFilter';
@@ -1004,7 +1038,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1059,7 +1094,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1088,7 +1124,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { DataInput as java_io_DataInput, OutputStream as java_io_OutputStream, InputStream as java_io_InputStream, FilterInputStream as java_io_FilterInputStream } from 'java.io';
@@ -1134,7 +1171,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_InputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1163,7 +1201,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Callback as java_io_ObjectInputStream_ValidationList_Callback } from 'java.io.ObjectInputStream.ValidationList';
@@ -1174,7 +1213,8 @@ list: java_io_ObjectInputStream_ValidationList_Callback;
 clear(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream.ValidationList' {
 import { ObjectInputValidation as java_io_ObjectInputValidation } from 'java.io';
@@ -1190,7 +1230,8 @@ acc: java_security_AccessControlContext;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1208,7 +1249,8 @@ size: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectInputStream.HandleTable' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1221,7 +1263,8 @@ get(arg0: number): number;
 size(): number;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { ObjectStreamClass as java_io_ObjectStreamClass } from 'java.io';
@@ -1240,7 +1283,8 @@ checkAndSetUsed(): void;
 setUsed(): void;
 constructor(arg0: java_lang_Object, arg1: java_io_ObjectStreamClass);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { SerializablePermission as java_io_SerializablePermission } from 'java.io';
@@ -1279,7 +1323,8 @@ static PROTOCOL_VERSION_2: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1290,6 +1335,7 @@ static serialVersionUID: number;
 actions: string;
 name: string;
 class: java_lang_Class<java_lang_Object>;
+/** Returns the unique fully qualified name of this Permission */
 getName(): string;
 toString(): string;
 checkGuard(arg0: java_lang_Object): void;
@@ -1302,7 +1348,8 @@ notifyAll(): void;
 constructor(arg0: string);
 constructor(arg0: string, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1357,7 +1404,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1377,7 +1425,8 @@ put(arg0: string, arg1: number): void;
 write(arg0: java_io_ObjectOutput): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1422,7 +1471,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { OutputStream as java_io_OutputStream, FilterOutputStream as java_io_FilterOutputStream, DataOutput as java_io_DataOutput } from 'java.io';
@@ -1460,7 +1510,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_io_OutputStream);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1475,7 +1526,8 @@ objs: java_lang_Object[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { HandleTable as java_io_ObjectOutputStream_HandleTable } from 'java.io.ObjectOutputStream';
@@ -1487,7 +1539,8 @@ reps: java_lang_Object[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1521,7 +1574,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io.ObjectOutputStream' {
 import { List as java_util_List } from 'java.util';
@@ -1532,7 +1586,8 @@ stack: java_util_List<string>;
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
@@ -1567,7 +1622,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.io' {
 import { FileDescriptor as java_io_FileDescriptor, File as java_io_File, DataOutput as java_io_DataOutput, DataInput as java_io_DataInput, Closeable as java_io_Closeable } from 'java.io';

@@ -23,7 +23,8 @@ containsAttributes(arg0: javax_swing_text_AttributeSet): boolean;
 getResolveParent(): javax_swing_text_AttributeSet;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.swing' {
 import { ActionListener as java_awt_event_ActionListener } from 'java.awt.event';
@@ -77,7 +78,8 @@ restart(): void;
 getDelay(): number;
 constructor(arg0: number, arg1: java_awt_event_ActionListener);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.swing.event' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -100,7 +102,8 @@ getListenerCount(): number;
 getListeners<T extends java_util_EventListener>(arg0: java_lang_Class<T>): T[];
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.swing.TimerQueue' {
 import { Delayed as java_util_concurrent_Delayed, TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';

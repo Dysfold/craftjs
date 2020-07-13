@@ -40,7 +40,8 @@ displayName(arg0: java_util_Locale): string;
 newDecoder(): java_nio_charset_CharsetDecoder;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { ByteBuffer as java_nio_ByteBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder, CharBuffer as java_nio_CharBuffer, ShortBuffer as java_nio_ShortBuffer, IntBuffer as java_nio_IntBuffer, LongBuffer as java_nio_LongBuffer, FloatBuffer as java_nio_FloatBuffer, DoubleBuffer as java_nio_DoubleBuffer } from 'java.nio';
@@ -151,7 +152,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { Buffer as java_nio_Buffer } from 'java.nio';
@@ -188,7 +190,8 @@ slice(): java_nio_Buffer;
 duplicate(): java_nio_Buffer;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { ByteOrder as java_nio_ByteOrder } from 'java.nio';
@@ -203,7 +206,8 @@ toString(): string;
 static nativeOrder(): java_nio_ByteOrder;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { CharBuffer as java_nio_CharBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder } from 'java.nio';
@@ -284,7 +288,8 @@ notifyAll(): void;
 codePoints(): java_util_stream_IntStream;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { ShortBuffer as java_nio_ShortBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder } from 'java.nio';
@@ -347,7 +352,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { IntBuffer as java_nio_IntBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder } from 'java.nio';
@@ -410,7 +416,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { LongBuffer as java_nio_LongBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder } from 'java.nio';
@@ -473,7 +480,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { FloatBuffer as java_nio_FloatBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder } from 'java.nio';
@@ -536,7 +544,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { DoubleBuffer as java_nio_DoubleBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder } from 'java.nio';
@@ -599,7 +608,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.charset' {
 import { Charset as java_nio_charset_Charset, CoderResult as java_nio_charset_CoderResult, CharsetEncoder as java_nio_charset_CharsetEncoder, CodingErrorAction as java_nio_charset_CodingErrorAction, CharsetDecoder as java_nio_charset_CharsetDecoder } from 'java.nio.charset';
@@ -640,7 +650,8 @@ unmappableCharacterAction(): java_nio_charset_CodingErrorAction;
 replaceWith(arg0: number[]): java_nio_charset_CharsetEncoder;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.charset' {
 import { CoderResult as java_nio_charset_CoderResult } from 'java.nio.charset';
@@ -672,7 +683,8 @@ isUnmappable(): boolean;
 static unmappableForLength(arg0: number): java_nio_charset_CoderResult;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.charset' {
 import { CodingErrorAction as java_nio_charset_CodingErrorAction } from 'java.nio.charset';
@@ -686,7 +698,8 @@ static REPORT: java_nio_charset_CodingErrorAction;
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.charset' {
 import { Charset as java_nio_charset_Charset, CoderResult as java_nio_charset_CoderResult, CharsetDecoder as java_nio_charset_CharsetDecoder, CodingErrorAction as java_nio_charset_CodingErrorAction } from 'java.nio.charset';
@@ -725,7 +738,8 @@ isCharsetDetected(): boolean;
 detectedCharset(): java_nio_charset_Charset;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.charset.spi' {
 import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
@@ -738,7 +752,8 @@ charsetForName(arg0: string): java_nio_charset_Charset;
 charsets(): java_util_Iterator<java_nio_charset_Charset>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { Path as java_nio_file_Path, WatchService as java_nio_file_WatchService, WatchKey as java_nio_file_WatchKey, LinkOption as java_nio_file_LinkOption, FileSystem as java_nio_file_FileSystem, Watchable as java_nio_file_Watchable } from 'java.nio.file';
@@ -792,7 +807,8 @@ spliterator(): java_util_Spliterator<T>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent';
@@ -807,7 +823,8 @@ close(): void;
 take(): java_nio_file_WatchKey;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { List as java_util_List } from 'java.util';
@@ -823,7 +840,8 @@ pollEvents(): java_util_List<java_nio_file_WatchEvent<java_lang_Object>>;
 watchable(): java_nio_file_Watchable;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { Kind as java_nio_file_WatchEvent_Kind } from 'java.nio.file.WatchEvent';
@@ -836,7 +854,8 @@ count(): number;
 kind(): java_nio_file_WatchEvent_Kind<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.WatchEvent' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -847,7 +866,8 @@ name(): string;
 type(): java_lang_Class<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { WatchService as java_nio_file_WatchService, WatchKey as java_nio_file_WatchKey } from 'java.nio.file';
@@ -860,7 +880,8 @@ register(arg0: java_nio_file_WatchService, arg1: java_nio_file_WatchEvent_Kind<j
 register(arg0: java_nio_file_WatchService, ...arg1: java_nio_file_WatchEvent_Kind<java_lang_Object>[]): java_nio_file_WatchKey;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.WatchEvent' {
 
@@ -870,7 +891,8 @@ declare module 'java.nio.file.WatchEvent' {
 name(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { LinkOption as java_nio_file_LinkOption, OpenOption as java_nio_file_OpenOption, CopyOption as java_nio_file_CopyOption } from 'java.nio.file';
@@ -890,7 +912,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 
@@ -900,7 +923,8 @@ declare module 'java.nio.file' {
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 
@@ -910,7 +934,8 @@ declare module 'java.nio.file' {
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { FileSystemProvider as java_nio_file_spi_FileSystemProvider } from 'java.nio.file.spi';
@@ -941,7 +966,8 @@ newWatchService(): java_nio_file_WatchService;
 supportedFileAttributeViews(): java_util_Set<string>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.spi' {
 import { Path as java_nio_file_Path, AccessMode as java_nio_file_AccessMode, CopyOption as java_nio_file_CopyOption, FileSystem as java_nio_file_FileSystem, LinkOption as java_nio_file_LinkOption, FileStore as java_nio_file_FileStore, OpenOption as java_nio_file_OpenOption, DirectoryStream as java_nio_file_DirectoryStream } from 'java.nio.file';
@@ -995,7 +1021,8 @@ newOutputStream(arg0: java_nio_file_Path, ...arg1: java_nio_file_OpenOption[]): 
 newDirectoryStream(arg0: java_nio_file_Path, arg1: java_nio_file_DirectoryStream_Filter<java_lang_Object>): java_nio_file_DirectoryStream<java_nio_file_Path>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { AccessMode as java_nio_file_AccessMode } from 'java.nio.file';
@@ -1017,7 +1044,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1028,7 +1056,8 @@ name(): string;
 value(): T;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { FileTime as java_nio_file_attribute_FileTime } from 'java.nio.file.attribute';
@@ -1047,7 +1076,8 @@ lastModifiedTime(): java_nio_file_attribute_FileTime;
 fileKey(): java_lang_Object;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -1088,7 +1118,8 @@ static fromMillis(arg0: number): java_nio_file_attribute_FileTime;
 toInstant(): java_time_Instant;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -1114,7 +1145,8 @@ supportsFileAttributeView(arg0: string): boolean;
 getFileStoreAttributeView<V extends java_nio_file_attribute_FileStoreAttributeView>(arg0: java_lang_Class<V>): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { AttributeView as java_nio_file_attribute_AttributeView } from 'java.nio.file.attribute';
@@ -1124,7 +1156,8 @@ import { AttributeView as java_nio_file_attribute_AttributeView } from 'java.nio
 name(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 
@@ -1134,7 +1167,8 @@ declare module 'java.nio.file.attribute' {
 name(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { AttributeView as java_nio_file_attribute_AttributeView } from 'java.nio.file.attribute';
@@ -1144,7 +1178,8 @@ import { AttributeView as java_nio_file_attribute_AttributeView } from 'java.nio
 name(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { FileLock as java_nio_channels_FileLock, FileChannel as java_nio_channels_FileChannel, SeekableByteChannel as java_nio_channels_SeekableByteChannel, WritableByteChannel as java_nio_channels_WritableByteChannel, ReadableByteChannel as java_nio_channels_ReadableByteChannel, GatheringByteChannel as java_nio_channels_GatheringByteChannel, ScatteringByteChannel as java_nio_channels_ScatteringByteChannel } from 'java.nio.channels';
@@ -1194,7 +1229,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { FileChannel as java_nio_channels_FileChannel, Channel as java_nio_channels_Channel } from 'java.nio.channels';
@@ -1217,7 +1253,8 @@ overlaps(arg0: number, arg1: number): boolean;
 acquiredBy(): java_nio_channels_Channel;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { Closeable as java_io_Closeable } from 'java.io';
@@ -1228,7 +1265,8 @@ isOpen(): boolean;
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels.FileChannel' {
 import { MapMode as java_nio_channels_FileChannel_MapMode } from 'java.nio.channels.FileChannel';
@@ -1242,7 +1280,8 @@ name: string;
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio' {
 import { MappedByteBuffer as java_nio_MappedByteBuffer, ByteBuffer as java_nio_ByteBuffer, Buffer as java_nio_Buffer } from 'java.nio';
@@ -1291,7 +1330,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { SeekableByteChannel as java_nio_channels_SeekableByteChannel, ByteChannel as java_nio_channels_ByteChannel } from 'java.nio.channels';
@@ -1309,7 +1349,8 @@ isOpen(): boolean;
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
@@ -1323,7 +1364,8 @@ close(): void;
 write(arg0: java_nio_ByteBuffer): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
@@ -1336,7 +1378,8 @@ isOpen(): boolean;
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
@@ -1349,7 +1392,8 @@ isOpen(): boolean;
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels.spi' {
 import { Object as java_lang_Object, Thread as java_lang_Thread } from 'java.lang';
@@ -1365,7 +1409,8 @@ isOpen(): boolean;
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { Channel as java_nio_channels_Channel } from 'java.nio.channels';
@@ -1376,7 +1421,8 @@ close(): void;
 isOpen(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
@@ -1391,7 +1437,8 @@ isOpen(): boolean;
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
@@ -1406,7 +1453,8 @@ isOpen(): boolean;
 close(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { Future as java_util_concurrent_Future, ExecutorService as java_util_concurrent_ExecutorService } from 'java.util.concurrent';
@@ -1438,7 +1486,8 @@ close(): void;
 isOpen(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { Throwable as java_lang_Throwable, Object as java_lang_Object } from 'java.lang';
@@ -1449,7 +1498,8 @@ completed(arg0: V, arg1: A): void;
 failed(arg0: java_lang_Throwable, arg1: A): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.channels' {
 import { Channel as java_nio_channels_Channel } from 'java.nio.channels';
@@ -1460,7 +1510,8 @@ close(): void;
 isOpen(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.DirectoryStream' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1470,7 +1521,8 @@ import { Object as java_lang_Object } from 'java.lang';
 accept(arg0: T): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
@@ -1486,7 +1538,8 @@ spliterator(): java_util_Spliterator<T>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file' {
 import { Path as java_nio_file_Path } from 'java.nio.file';
@@ -1496,7 +1549,8 @@ import { Path as java_nio_file_Path } from 'java.nio.file';
 matches(arg0: java_nio_file_Path): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { UserPrincipal as java_nio_file_attribute_UserPrincipal, GroupPrincipal as java_nio_file_attribute_GroupPrincipal } from 'java.nio.file.attribute';
@@ -1508,7 +1562,8 @@ lookupPrincipalByName(arg0: string): java_nio_file_attribute_UserPrincipal;
 lookupPrincipalByGroupName(arg0: string): java_nio_file_attribute_GroupPrincipal;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1524,7 +1579,8 @@ hashCode(): number;
 implies(arg0: javax_security_auth_Subject): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.nio.file.attribute' {
 import { Object as java_lang_Object } from 'java.lang';

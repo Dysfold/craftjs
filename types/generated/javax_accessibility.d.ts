@@ -81,7 +81,8 @@ addPropertyChangeListener(arg0: java_beans_PropertyChangeListener): void;
 removePropertyChangeListener(arg0: java_beans_PropertyChangeListener): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { AccessibleState as javax_accessibility_AccessibleState } from 'javax.accessibility';
@@ -100,7 +101,8 @@ addAll(arg0: javax_accessibility_AccessibleState[]): void;
 constructor();
 constructor(arg0: javax_accessibility_AccessibleState[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -147,7 +149,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Locale as java_util_Locale, Hashtable as java_util_Hashtable } from 'java.util';
@@ -162,7 +165,8 @@ toDisplayString(): string;
 toDisplayString(arg0: java_util_Locale): string;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
@@ -172,7 +176,8 @@ accessibleContext: javax_accessibility_AccessibleContext;
 getAccessibleContext(): javax_accessibility_AccessibleContext;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
@@ -189,7 +194,8 @@ clearAccessibleSelection(): void;
 selectAllAccessibleSelection(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -270,7 +276,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 
@@ -288,7 +295,8 @@ getAccessibleActionDescription(arg0: number): string;
 doAccessibleAction(arg0: number): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Point as java_awt_Point, Rectangle as java_awt_Rectangle } from 'java.awt';
@@ -322,7 +330,8 @@ getSelectionStart(): number;
 getSelectionEnd(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { AttributeSet as javax_swing_text_AttributeSet } from 'javax.swing.text';
@@ -364,7 +373,8 @@ getSelectionStart(): number;
 getSelectionEnd(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Number as java_lang_Number } from 'java.lang';
@@ -379,7 +389,8 @@ getMinimumAccessibleValue(): java_lang_Number;
 getMaximumAccessibleValue(): java_lang_Number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 
@@ -394,7 +405,8 @@ getAccessibleIconWidth(): number;
 getAccessibleIconHeight(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { AccessibleRelation as javax_accessibility_AccessibleRelation } from 'javax.accessibility';
@@ -415,7 +427,8 @@ addAll(arg0: javax_accessibility_AccessibleRelation[]): void;
 constructor();
 constructor(arg0: javax_accessibility_AccessibleRelation[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -466,7 +479,8 @@ constructor(arg0: string, arg1: java_lang_Object[]);
 constructor(arg0: string, arg1: java_lang_Object);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Accessible as javax_accessibility_Accessible, AccessibleTable as javax_accessibility_AccessibleTable } from 'javax.accessibility';
@@ -509,7 +523,8 @@ getSelectedAccessibleRows(): number[];
 getSelectedAccessibleColumns(): number[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'javax.accessibility' {
 import { Point as java_awt_Point, Dimension as java_awt_Dimension, Font as java_awt_Font, Rectangle as java_awt_Rectangle, FontMetrics as java_awt_FontMetrics, Color as java_awt_Color, Cursor as java_awt_Cursor } from 'java.awt';

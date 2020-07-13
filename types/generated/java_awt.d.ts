@@ -7,6 +7,9 @@ import { ColorSpace as java_awt_color_ColorSpace } from 'java.awt.color';
 import { ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
 import { Rectangle2D as java_awt_geom_Rectangle2D, AffineTransform as java_awt_geom_AffineTransform } from 'java.awt.geom';
 import { Serializable as java_io_Serializable } from 'java.io';
+/** A container for a color palette. This class is immutable; the set methods
+ return a new color. The color names listed as fields are HTML4 standards,
+ but subject to change. */
 
   export class Color extends java_lang_Object implements java_awt_Paint, java_io_Serializable {
 static white: java_awt_Color;
@@ -59,12 +62,15 @@ static color: java_awt_Color;
 static color: java_awt_Color;
 components: number[];
 components: number[];
-equals(arg0: java_lang_Object): boolean;
+equals(o: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
 static decode(arg0: string): java_awt_Color;
+/** Gets the red component */
 getRed(): number;
+/** Gets the green component */
 getGreen(): number;
+/** Gets the blue component */
 getBlue(): number;
 getRGB(): number;
 getTransparency(): number;
@@ -93,7 +99,8 @@ constructor(arg0: number, arg1: number, arg2: number);
 constructor(arg0: java_awt_color_ColorSpace, arg1: number[], arg2: number);
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.color' {
 import { ColorSpace as java_awt_color_ColorSpace } from 'java.awt.color';
@@ -159,7 +166,8 @@ getMinValue(arg0: number): number;
 getMaxValue(arg0: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -265,7 +273,8 @@ getComponents(arg0: number, arg1: number[], arg2: number): number[];
 getComponents(arg0: java_lang_Object, arg1: number[], arg2: number): number[];
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -305,7 +314,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Raster as java_awt_image_Raster, SampleModel as java_awt_image_SampleModel, WritableRaster as java_awt_image_WritableRaster, DataBuffer as java_awt_image_DataBuffer } from 'java.awt.image';
@@ -399,7 +409,8 @@ getMinX(): number;
 getBounds(): java_awt_Rectangle;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { DataBuffer as java_awt_image_DataBuffer, SampleModel as java_awt_image_SampleModel } from 'java.awt.image';
@@ -473,7 +484,8 @@ getWidth(): number;
 getHeight(): number;
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { StateTrackableDelegate as sun_java2d_StateTrackableDelegate } from 'sun.java2d';
@@ -526,7 +538,8 @@ setElemDouble(arg0: number, arg1: number): void;
 setElemDouble(arg0: number, arg1: number, arg2: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Rectangle as java_awt_Rectangle, Point as java_awt_Point, Dimension as java_awt_Dimension, Shape as java_awt_Shape } from 'java.awt';
@@ -624,7 +637,8 @@ constructor(arg0: java_awt_Rectangle);
 constructor();
 constructor(arg0: java_awt_Point, arg1: java_awt_Dimension);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -660,7 +674,8 @@ constructor(arg0: number, arg1: number);
 constructor(arg0: java_awt_Point);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -684,7 +699,8 @@ setLocation(arg0: java_awt_geom_Point2D): void;
 setLocation(arg0: number, arg1: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -719,7 +735,8 @@ constructor(arg0: java_awt_Dimension);
 constructor();
 constructor(arg0: number, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -735,7 +752,8 @@ getWidth(): number;
 getHeight(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom' {
 import { Point2D as java_awt_geom_Point2D, Rectangle2D as java_awt_geom_Rectangle2D, AffineTransform as java_awt_geom_AffineTransform, PathIterator as java_awt_geom_PathIterator, Line2D as java_awt_geom_Line2D, RectangularShape as java_awt_geom_RectangularShape } from 'java.awt.geom';
@@ -781,7 +799,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -904,7 +923,8 @@ constructor(arg0: number[]);
 constructor();
 constructor(arg0: java_awt_geom_AffineTransform);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Point2D as java_awt_geom_Point2D, Rectangle2D as java_awt_geom_Rectangle2D, AffineTransform as java_awt_geom_AffineTransform, PathIterator as java_awt_geom_PathIterator } from 'java.awt.geom';
@@ -927,7 +947,8 @@ getPathIterator(arg0: java_awt_geom_AffineTransform, arg1: number): java_awt_geo
 getBounds(): java_awt_Rectangle;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom' {
 
@@ -948,7 +969,8 @@ currentSegment(arg0: number[]): number;
 currentSegment(arg0: number[]): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -1006,7 +1028,8 @@ getBounds(): java_awt_Rectangle;
 getBounds2D(): java_awt_geom_Rectangle2D;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -1061,7 +1084,8 @@ getBounds2D(): java_awt_geom_Rectangle2D;
 getPathIterator(arg0: java_awt_geom_AffineTransform): java_awt_geom_PathIterator;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.color' {
 import { ICC_Profile as java_awt_color_ICC_Profile, ColorSpace as java_awt_color_ColorSpace } from 'java.awt.color';
@@ -1102,7 +1126,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_awt_color_ICC_Profile);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.color' {
 import { InputStream as java_io_InputStream, OutputStream as java_io_OutputStream, Serializable as java_io_Serializable } from 'java.io';
@@ -1270,7 +1295,8 @@ getProfileClass(): number;
 getPCSType(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 
@@ -1283,7 +1309,8 @@ transparency: number;
 getTransparency(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { RenderingHints as java_awt_RenderingHints } from 'java.awt';
@@ -1374,7 +1401,8 @@ computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, 
 constructor(arg0: java_util_Map<java_awt_RenderingHints_Key, java_lang_Object>);
 constructor(arg0: java_awt_RenderingHints_Key, arg1: java_lang_Object);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.RenderingHints' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1388,7 +1416,8 @@ hashCode(): number;
 isCompatibleValue(arg0: java_lang_Object): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { ColorModel as java_awt_image_ColorModel, Raster as java_awt_image_Raster } from 'java.awt.image';
@@ -1401,7 +1430,8 @@ getColorModel(): java_awt_image_ColorModel;
 getRaster(arg0: number, arg1: number, arg2: number, arg3: number): java_awt_image_Raster;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
@@ -1414,7 +1444,8 @@ createContext(arg0: java_awt_image_ColorModel, arg1: java_awt_Rectangle, arg2: j
 getTransparency(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { ImageObserver as java_awt_image_ImageObserver, ImageProducer as java_awt_image_ImageProducer } from 'java.awt.image';
@@ -1452,7 +1483,8 @@ getWidth(arg0: java_awt_image_ImageObserver): number;
 getHeight(arg0: java_awt_image_ImageObserver): number;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Image as java_awt_Image } from 'java.awt';
@@ -1469,7 +1501,8 @@ static ABORT: number;
 imageUpdate(arg0: java_awt_Image, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Graphics as java_awt_Graphics, Font as java_awt_Font, Image as java_awt_Image, Color as java_awt_Color, FontMetrics as java_awt_FontMetrics, Rectangle as java_awt_Rectangle, Shape as java_awt_Shape, Polygon as java_awt_Polygon } from 'java.awt';
@@ -1538,7 +1571,8 @@ translate(arg0: number, arg1: number): void;
 setColor(arg0: java_awt_Color): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1684,7 +1718,8 @@ getStyle(): number;
 constructor(arg0: java_util_Map<java_textdCharacterIterator_Attribute_Attribute, java_lang_Object>);
 constructor(arg0: string, arg1: number, arg2: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.font' {
 import { Class as java_lang_Class, Object as java_lang_Object, Float as java_lang_Float, Integer as java_lang_Integer, Boolean as java_lang_Boolean } from 'java.lang';
@@ -1763,7 +1798,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.font' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1792,7 +1828,8 @@ getTransformType(): number;
 constructor(arg0: java_awt_geom_AffineTransform, arg1: java_lang_Object, arg2: java_lang_Object);
 constructor(arg0: java_awt_geom_AffineTransform, arg1: boolean, arg2: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.font' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -1822,7 +1859,8 @@ getUnderlineThickness(): number;
 getHeight(): number;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.font' {
 import { GlyphVector as java_awt_font_GlyphVector, FontRenderContext as java_awt_font_FontRenderContext, GlyphMetrics as java_awt_font_GlyphMetrics, GlyphJustificationInfo as java_awt_font_GlyphJustificationInfo } from 'java.awt.font';
@@ -1888,7 +1926,8 @@ getGlyphJustificationInfo(arg0: number): java_awt_font_GlyphJustificationInfo;
 getFont(): java_awt_Font;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.font' {
 import { Rectangle2D as java_awt_geom_Rectangle2D } from 'java.awt.geom';
@@ -1928,7 +1967,8 @@ isComponent(): boolean;
 constructor(arg0: number, arg1: java_awt_geom_Rectangle2D, arg2: number);
 constructor(arg0: boolean, arg1: number, arg2: number, arg3: java_awt_geom_Rectangle2D, arg4: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.geom.Rectangle2D' {
 import { Rectangle2D as java_awt_geom_Rectangle2D, Point2D as java_awt_geom_Point2D, Dimension2D as java_awt_geom_Dimension2D } from 'java.awt.geom';
@@ -1996,7 +2036,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.font' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2018,7 +2059,8 @@ shrinkRightLimit: number;
 
 constructor(arg0: number, arg1: boolean, arg2: number, arg3: number, arg4: number, arg5: boolean, arg6: number, arg7: number, arg8: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Graphics as java_awt_Graphics, Font as java_awt_Font } from 'java.awt';
@@ -2081,7 +2123,8 @@ getHeight(): number;
 getFont(): java_awt_Font;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Point as java_awt_Point, Rectangle as java_awt_Rectangle, Shape as java_awt_Shape } from 'java.awt';
@@ -2122,7 +2165,8 @@ getBounds(): java_awt_Rectangle;
 constructor();
 constructor(arg0: number[], arg1: number[], arg2: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { ColorModel as java_awt_image_ColorModel, BufferedImage as java_awt_image_BufferedImage, VolatileImage as java_awt_image_VolatileImage } from 'java.awt.image';
@@ -2159,7 +2203,8 @@ isTranslucencyCapable(): boolean;
 getBounds(): java_awt_Rectangle;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { GraphicsConfiguration as java_awt_GraphicsConfiguration, GraphicsConfigTemplate as java_awt_GraphicsConfigTemplate, Window as java_awt_Window, DisplayMode as java_awt_DisplayMode, Rectangle as java_awt_Rectangle } from 'java.awt';
@@ -2200,7 +2245,8 @@ isWindowTranslucencySupported(arg0: java_awt_GraphicsDevice_WindowTranslucency):
 getConfigurations(): java_awt_GraphicsConfiguration[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { GraphicsConfiguration as java_awt_GraphicsConfiguration } from 'java.awt';
@@ -2217,7 +2263,8 @@ getBestConfiguration(arg0: java_awt_GraphicsConfiguration[]): java_awt_GraphicsC
 isGraphicsConfigSupported(arg0: java_awt_GraphicsConfiguration): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Type as java_awt_Window_Type, WindowDisposerRecord as java_awt_Window_WindowDisposerRecord } from 'java.awt.Window';
@@ -2596,7 +2643,8 @@ constructor(arg0: java_awt_Frame);
 constructor(arg0: java_awt_Window);
 constructor(arg0: java_awt_Window, arg1: java_awt_GraphicsConfiguration);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.Window' {
 import { Type as java_awt_Window_Type } from 'java.awt.Window';
@@ -2618,7 +2666,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { PropertyChangeListener as java_beans_PropertyChangeListener, PropertyChangeSupport as java_beans_PropertyChangeSupport } from 'java.beans';
@@ -2725,7 +2774,8 @@ removePropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListen
 beep(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { MenuComponent as java_awt_MenuComponent, Shape as java_awt_Shape, Image as java_awt_Image, MenuBar as java_awt_MenuBar, Rectangle as java_awt_Rectangle, Frame as java_awt_Frame, Color as java_awt_Color, Component as java_awt_Component, Graphics as java_awt_Graphics, Font as java_awt_Font, Dimension as java_awt_Dimension, Container as java_awt_Container, LayoutManager as java_awt_LayoutManager, FocusTraversalPolicy as java_awt_FocusTraversalPolicy, ComponentOrientation as java_awt_ComponentOrientation, Insets as java_awt_Insets, Event as java_awt_Event, Point as java_awt_Point, AWTKeyStroke as java_awt_AWTKeyStroke, PopupMenu as java_awt_PopupMenu, ImageCapabilities as java_awt_ImageCapabilities, FontMetrics as java_awt_FontMetrics, GraphicsConfiguration as java_awt_GraphicsConfiguration, AWTEvent as java_awt_AWTEvent, Cursor as java_awt_Cursor, Window as java_awt_Window, MenuContainer as java_awt_MenuContainer } from 'java.awt';
@@ -3086,7 +3136,8 @@ constructor(arg0: string);
 constructor(arg0: java_awt_GraphicsConfiguration);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { MenuContainer as java_awt_MenuContainer, Font as java_awt_Font, Event as java_awt_Event, AWTEvent as java_awt_AWTEvent } from 'java.awt';
@@ -3126,7 +3177,8 @@ dispatchEvent(arg0: java_awt_AWTEvent): void;
 getFont(): java_awt_Font;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { MenuComponent as java_awt_MenuComponent, Event as java_awt_Event, Font as java_awt_Font } from 'java.awt';
@@ -3138,12 +3190,16 @@ postEvent(arg0: java_awt_Event): boolean;
 getFont(): java_awt_Font;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Event as java_awt_Event } from 'java.awt';
 import { Serializable as java_io_Serializable } from 'java.io';
+/** Represents an event.
+
+ All events require a static method named getHandlerList() which returns the same HandlerList as getHandlers(). */
 
   export class Event extends java_lang_Object implements java_io_Serializable {
 data: number;
@@ -3239,7 +3295,8 @@ constructor(arg0: java_lang_Object, arg1: number, arg2: number, arg3: number, ar
 constructor(arg0: java_lang_Object, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: java_lang_Object);
 constructor(arg0: java_lang_Object, arg1: number, arg2: java_lang_Object);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { FocusEvent as java_awt_event_FocusEvent } from 'java.awt.event';
@@ -3251,7 +3308,8 @@ focusGained(arg0: java_awt_event_FocusEvent): void;
 focusLost(arg0: java_awt_event_FocusEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
@@ -3294,7 +3352,8 @@ constructor(arg0: java_awt_Component, arg1: number, arg2: boolean);
 constructor(arg0: java_awt_Component, arg1: number, arg2: boolean, arg3: java_awt_Component, arg4: java_awt_event_FocusEvent_Cause);
 constructor(arg0: java_awt_Component, arg1: number, arg2: boolean, arg3: java_awt_Component);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event.FocusEvent' {
 import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
@@ -3324,7 +3383,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { PopupMenu as java_awt_PopupMenu, MenuComponent as java_awt_MenuComponent, Graphics as java_awt_Graphics, Point as java_awt_Point, Dimension as java_awt_Dimension, Container as java_awt_Container, Event as java_awt_Event, Rectangle as java_awt_Rectangle, Font as java_awt_Font, ComponentOrientation as java_awt_ComponentOrientation, Shape as java_awt_Shape, Image as java_awt_Image, Toolkit as java_awt_Toolkit, AWTKeyStroke as java_awt_AWTKeyStroke, Component as java_awt_Component, ImageCapabilities as java_awt_ImageCapabilities, FontMetrics as java_awt_FontMetrics, Color as java_awt_Color, GraphicsConfiguration as java_awt_GraphicsConfiguration, AWTEvent as java_awt_AWTEvent, Cursor as java_awt_Cursor, MenuContainer as java_awt_MenuContainer } from 'java.awt';
@@ -3706,7 +3766,8 @@ getBounds(arg0: java_awt_Rectangle): java_awt_Rectangle;
 getBounds(): java_awt_Rectangle;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { MenuContainer as java_awt_MenuContainer, Component as java_awt_Component, MenuShortcut as java_awt_MenuShortcut, Font as java_awt_Font, Event as java_awt_Event, AWTEvent as java_awt_AWTEvent, Menu as java_awt_Menu } from 'java.awt';
@@ -3768,7 +3829,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { MenuShortcut as java_awt_MenuShortcut } from 'java.awt';
@@ -3789,7 +3851,8 @@ usesShiftModifier(): boolean;
 constructor(arg0: number);
 constructor(arg0: number, arg1: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { ActionEvent as java_awt_event_ActionEvent } from 'java.awt.event';
@@ -3800,7 +3863,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 actionPerformed(arg0: java_awt_event_ActionEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3840,7 +3904,8 @@ constructor(arg0: java_lang_Object, arg1: number, arg2: string, arg3: number, ar
 constructor(arg0: java_lang_Object, arg1: number, arg2: string, arg3: number);
 constructor(arg0: java_lang_Object, arg1: number, arg2: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -3895,7 +3960,8 @@ notifyAll(): void;
 constructor(arg0: java_lang_Object, arg1: number);
 constructor(arg0: java_awt_Event);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { MenuItem as java_awt_MenuItem, MenuComponent as java_awt_MenuComponent, MenuContainer as java_awt_MenuContainer, Font as java_awt_Font, Event as java_awt_Event, AWTEvent as java_awt_AWTEvent } from 'java.awt';
@@ -3955,7 +4021,8 @@ constructor(arg0: string, arg1: boolean);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { MenuShortcut as java_awt_MenuShortcut, MenuComponent as java_awt_MenuComponent } from 'java.awt';
@@ -4013,7 +4080,8 @@ constructor(arg0: string, arg1: java_awt_MenuShortcut);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Component as java_awt_Component, Graphics as java_awt_Graphics, Font as java_awt_Font, Dimension as java_awt_Dimension, AWTKeyStroke as java_awt_AWTKeyStroke, Container as java_awt_Container, LayoutManager as java_awt_LayoutManager, FocusTraversalPolicy as java_awt_FocusTraversalPolicy, ComponentOrientation as java_awt_ComponentOrientation, Insets as java_awt_Insets, Event as java_awt_Event, Point as java_awt_Point, LightweightDispatcher as java_awt_LightweightDispatcher, Color as java_awt_Color } from 'java.awt';
@@ -4024,6 +4092,7 @@ import { ContainerListener as java_awt_event_ContainerListener } from 'java.awt.
 import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
 import { PlatformLogger as sun_util_logging_PlatformLogger } from 'sun.util.logging';
 import { AppContext as sun_awt_AppContext } from 'sun.awt';
+/** Represents a captured state of a container block. */
 
   export class Container extends java_awt_Component {
 static log: sun_util_logging_PlatformLogger;
@@ -4150,7 +4219,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Character as java_lang_Character, Integer as java_lang_Integer } from 'java.lang';
@@ -4196,7 +4266,8 @@ getKeyEventType(): number;
 getKeyCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Component as java_awt_Component } from 'java.awt';
@@ -4454,7 +4525,8 @@ constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, 
 constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, arg4: number, arg5: string, arg6: number);
 constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, arg4: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -4521,7 +4593,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Component as java_awt_Component, AWTEvent as java_awt_AWTEvent } from 'java.awt';
@@ -4551,7 +4624,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_awt_Component, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
@@ -4566,7 +4640,8 @@ findCode(arg0: string): java_lang_Integer;
 findName(arg0: java_lang_Integer): string;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Component as java_awt_Component, Container as java_awt_Container, Dimension as java_awt_Dimension } from 'java.awt';
@@ -4580,7 +4655,8 @@ preferredLayoutSize(arg0: java_awt_Container): java_awt_Dimension;
 minimumLayoutSize(arg0: java_awt_Container): java_awt_Dimension;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Container as java_awt_Container, Component as java_awt_Component, Window as java_awt_Window } from 'java.awt';
@@ -4601,7 +4677,8 @@ getInitialComponent(arg0: java_awt_Window): java_awt_Component;
 getDefaultComponent(arg0: java_awt_Container): java_awt_Component;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { ResourceBundle as java_util_ResourceBundle, Locale as java_util_Locale } from 'java.util';
@@ -4626,7 +4703,8 @@ isHorizontal(): boolean;
 isLeftToRight(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -4645,7 +4723,8 @@ clone(): java_lang_Object;
 set(arg0: number, arg1: number, arg2: number, arg3: number): void;
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { ContainerEvent as java_awt_event_ContainerEvent } from 'java.awt.event';
@@ -4657,7 +4736,8 @@ componentAdded(arg0: java_awt_event_ContainerEvent): void;
 componentRemoved(arg0: java_awt_event_ContainerEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Component as java_awt_Component, Container as java_awt_Container } from 'java.awt';
@@ -4693,7 +4773,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_awt_Component, arg1: number, arg2: java_awt_Component);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { AWTEvent as java_awt_AWTEvent, Container as java_awt_Container, Component as java_awt_Component, Cursor as java_awt_Cursor } from 'java.awt';
@@ -4723,7 +4804,8 @@ static $assertionsDisabled: boolean;
 eventDispatched(arg0: java_awt_AWTEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Cursor as java_awt_Cursor } from 'java.awt';
@@ -4780,7 +4862,8 @@ static getDefaultCursor(): java_awt_Cursor;
 static getPredefinedCursor(arg0: number): java_awt_Cursor;
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.Cursor' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -4791,7 +4874,8 @@ pData: number;
 dispose(): void;
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { AWTEvent as java_awt_AWTEvent } from 'java.awt';
@@ -4802,7 +4886,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 eventDispatched(arg0: java_awt_AWTEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { MouseEvent as java_awt_event_MouseEvent } from 'java.awt.event';
@@ -4817,7 +4902,8 @@ mouseExited(arg0: java_awt_event_MouseEvent): void;
 mouseEntered(arg0: java_awt_event_MouseEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Point as java_awt_Point, Component as java_awt_Component } from 'java.awt';
@@ -4894,7 +4980,8 @@ constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, 
 constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean);
 constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: boolean, arg10: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { MouseEvent as java_awt_event_MouseEvent } from 'java.awt.event';
@@ -4906,7 +4993,8 @@ mouseMoved(arg0: java_awt_event_MouseEvent): void;
 mouseDragged(arg0: java_awt_event_MouseEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { MouseWheelEvent as java_awt_event_MouseWheelEvent } from 'java.awt.event';
@@ -4917,7 +5005,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 mouseWheelMoved(arg0: java_awt_event_MouseWheelEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Component as java_awt_Component } from 'java.awt';
@@ -4979,7 +5068,8 @@ constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, 
 constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: number, arg8: number, arg9: boolean, arg10: number, arg11: number, arg12: number);
 constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: boolean, arg8: number, arg9: number, arg10: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { InputMethodEvent as java_awt_event_InputMethodEvent } from 'java.awt.event';
@@ -4991,7 +5081,8 @@ inputMethodTextChanged(arg0: java_awt_event_InputMethodEvent): void;
 caretPositionChanged(arg0: java_awt_event_InputMethodEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { AttributedCharacterIterator as java_text_AttributedCharacterIterator } from 'java.text';
@@ -5038,7 +5129,8 @@ constructor(arg0: java_awt_Component, arg1: number, arg2: java_awt_font_TextHitI
 constructor(arg0: java_awt_Component, arg1: number, arg2: java_text_AttributedCharacterIterator, arg3: number, arg4: java_awt_font_TextHitInfo, arg5: java_awt_font_TextHitInfo);
 constructor(arg0: java_awt_Component, arg1: number, arg2: number, arg3: java_text_AttributedCharacterIterator, arg4: number, arg5: java_awt_font_TextHitInfo, arg6: java_awt_font_TextHitInfo);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.font' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -5066,7 +5158,8 @@ getOffsetHit(arg0: number): java_awt_font_TextHitInfo;
 getCharIndex(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.im' {
 import { TextHitInfo as java_awt_font_TextHitInfo } from 'java.awt.font';
@@ -5090,7 +5183,8 @@ cancelLatestCommittedText(arg0: java_textdCharacterIterator_Attribute_Attribute[
 getSelectedText(arg0: java_textdCharacterIterator_Attribute_Attribute[]): java_text_AttributedCharacterIterator;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { ImageConsumer as java_awt_image_ImageConsumer } from 'java.awt.image';
@@ -5104,7 +5198,8 @@ startProduction(arg0: java_awt_image_ImageConsumer): void;
 requestTopDownLeftRightResend(arg0: java_awt_image_ImageConsumer): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Hashtable as java_util_Hashtable } from 'java.util';
@@ -5130,7 +5225,8 @@ setHints(arg0: number): void;
 imageComplete(arg0: number): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.im' {
 import { InputContext as java_awt_im_InputContext } from 'java.awt.im';
@@ -5157,7 +5253,8 @@ removeNotify(arg0: java_awt_Component): void;
 dispatchEvent(arg0: java_awt_AWTEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DropTargetDropEvent as java_awt_dnd_DropTargetDropEvent, DropTargetListener as java_awt_dnd_DropTargetListener, DropTargetDragEvent as java_awt_dnd_DropTargetDragEvent, DropTargetEvent as java_awt_dnd_DropTargetEvent, DropTargetContext as java_awt_dnd_DropTargetContext } from 'java.awt.dnd';
@@ -5209,7 +5306,8 @@ constructor();
 constructor(arg0: java_awt_Component, arg1: number, arg2: java_awt_dnd_DropTargetListener, arg3: boolean);
 constructor(arg0: java_awt_Component, arg1: number, arg2: java_awt_dnd_DropTargetListener, arg3: boolean, arg4: java_awt_datatransfer_FlavorMap);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Point as java_awt_Point } from 'java.awt';
@@ -5257,7 +5355,8 @@ notifyAll(): void;
 constructor(arg0: java_awt_dnd_DropTargetContext, arg1: java_awt_Point, arg2: number, arg3: number);
 constructor(arg0: java_awt_dnd_DropTargetContext, arg1: java_awt_Point, arg2: number, arg3: number, arg4: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { Object as java_lang_Object, Class as java_lang_Class, ClassLoader as java_lang_ClassLoader, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -5331,7 +5430,8 @@ constructor(arg0: java_lang_Class<java_lang_Object>, arg1: string);
 constructor(arg0: string, arg1: string);
 constructor(arg0: string, arg1: string, arg2: java_lang_ClassLoader);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { DataFlavor as java_awt_datatransfer_DataFlavor } from 'java.awt.datatransfer';
@@ -5345,7 +5445,8 @@ isDataFlavorSupported(arg0: java_awt_datatransfer_DataFlavor): boolean;
 getTransferData(arg0: java_awt_datatransfer_DataFlavor): java_lang_Object;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -5383,7 +5484,8 @@ constructor(arg0: string, arg1: string);
 constructor(arg0: string);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -5406,7 +5508,8 @@ getNames(): java_util_Enumeration<string>;
 constructor();
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DropTarget as java_awt_dnd_DropTarget } from 'java.awt.dnd';
@@ -5428,7 +5531,8 @@ dropComplete(arg0: boolean): void;
 getComponent(): java_awt_Component;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DropTargetContext as java_awt_dnd_DropTargetContext } from 'java.awt.dnd';
@@ -5451,7 +5555,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_awt_dnd_DropTargetContext);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DropTargetDropEvent as java_awt_dnd_DropTargetDropEvent, DropTargetDragEvent as java_awt_dnd_DropTargetDragEvent, DropTargetEvent as java_awt_dnd_DropTargetEvent } from 'java.awt.dnd';
@@ -5466,7 +5571,8 @@ dropActionChanged(arg0: java_awt_dnd_DropTargetDragEvent): void;
 dragExit(arg0: java_awt_dnd_DropTargetEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Point as java_awt_Point } from 'java.awt';
@@ -5509,7 +5615,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_awt_dnd_DropTargetContext, arg1: java_awt_Point, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { DataFlavor as java_awt_datatransfer_DataFlavor } from 'java.awt.datatransfer';
@@ -5522,7 +5629,8 @@ getNativesForFlavors(arg0: java_awt_datatransfer_DataFlavor[]): java_util_Map<ja
 getFlavorsForNatives(arg0: string[]): java_util_Map<string, java_awt_datatransfer_DataFlavor>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd.DropTarget' {
 import { ActionEvent as java_awt_event_ActionEvent, ActionListener as java_awt_event_ActionListener } from 'java.awt.event';
@@ -5543,7 +5651,8 @@ hysteresis: number;
 actionPerformed(arg0: java_awt_event_ActionEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Insets as java_awt_Insets, Point as java_awt_Point } from 'java.awt';
@@ -5554,7 +5663,8 @@ getAutoscrollInsets(): java_awt_Insets;
 autoscroll(arg0: java_awt_Point): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.Component' {
 import { BaselineResizeBehavior as java_awt_Component_BaselineResizeBehavior } from 'java.awt.Component';
@@ -5577,7 +5687,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -5589,7 +5700,8 @@ isAccelerated(): boolean;
 isTrueVolatile(): boolean;
 constructor(arg0: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { GraphicsConfiguration as java_awt_GraphicsConfiguration, Graphics as java_awt_Graphics, Graphics2D as java_awt_Graphics2D, ImageCapabilities as java_awt_ImageCapabilities, Image as java_awt_Image, Transparency as java_awt_Transparency } from 'java.awt';
@@ -5630,7 +5742,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -5766,7 +5879,8 @@ constructor(arg0: number, arg1: number, arg2: number, arg3: java_awt_image_Index
 constructor(arg0: number, arg1: number, arg2: number);
 constructor(arg0: java_awt_image_ColorModel, arg1: java_awt_image_WritableRaster, arg2: boolean, arg3: java_util_Hashtable<java_lang_Object, java_lang_Object>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Shape as java_awt_Shape, Rectangle as java_awt_Rectangle, GraphicsConfiguration as java_awt_GraphicsConfiguration, Paint as java_awt_Paint, Stroke as java_awt_Stroke, RenderingHints as java_awt_RenderingHints, Composite as java_awt_Composite, Image as java_awt_Image, Color as java_awt_Color, Graphics as java_awt_Graphics } from 'java.awt';
@@ -5839,7 +5953,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -5891,7 +6006,8 @@ getHeight(): number;
 getMinX(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image.renderable' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -5922,7 +6038,8 @@ getHeight(): number;
 getMinX(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image.renderable' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -5952,7 +6069,8 @@ constructor(arg0: java_awt_geom_AffineTransform, arg1: java_awt_RenderingHints);
 constructor(arg0: java_awt_geom_AffineTransform);
 constructor(arg0: java_awt_geom_AffineTransform, arg1: java_awt_Shape, arg2: java_awt_RenderingHints);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Shape as java_awt_Shape } from 'java.awt';
@@ -5962,7 +6080,8 @@ import { Shape as java_awt_Shape } from 'java.awt';
 createStrokedShape(arg0: java_awt_Shape): java_awt_Shape;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
@@ -5973,7 +6092,8 @@ import { RenderingHints as java_awt_RenderingHints, CompositeContext as java_awt
 createContext(arg0: java_awt_image_ColorModel, arg1: java_awt_image_ColorModel, arg2: java_awt_RenderingHints): java_awt_CompositeContext;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Raster as java_awt_image_Raster, WritableRaster as java_awt_image_WritableRaster } from 'java.awt.image';
@@ -5984,7 +6104,8 @@ compose(arg0: java_awt_image_Raster, arg1: java_awt_image_Raster, arg2: java_awt
 dispose(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { BufferedImage as java_awt_image_BufferedImage, ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
@@ -6002,7 +6123,8 @@ getPoint2D(arg0: java_awt_geom_Point2D, arg1: java_awt_geom_Point2D): java_awt_g
 getBounds2D(arg0: java_awt_image_BufferedImage): java_awt_geom_Rectangle2D;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { WritableRenderedImage as java_awt_image_WritableRenderedImage } from 'java.awt.image';
@@ -6012,7 +6134,8 @@ import { WritableRenderedImage as java_awt_image_WritableRenderedImage } from 'j
 tileUpdate(arg0: java_awt_image_WritableRenderedImage, arg1: number, arg2: number, arg3: boolean): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Raster as java_awt_image_Raster, TileObserver as java_awt_image_TileObserver, WritableRaster as java_awt_image_WritableRaster, ColorModel as java_awt_image_ColorModel, SampleModel as java_awt_image_SampleModel, RenderedImage as java_awt_image_RenderedImage } from 'java.awt.image';
@@ -6074,7 +6197,8 @@ getHeight(): number;
 getMinX(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6161,7 +6285,8 @@ constructor(arg0: number, arg1: number, arg2: number[], arg3: number[], arg4: nu
 constructor(arg0: number, arg1: number, arg2: number[], arg3: number[], arg4: number[]);
 constructor(arg0: number, arg1: number, arg2: number[], arg3: number, arg4: boolean, arg5: number, arg6: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { ComponentEvent as java_awt_event_ComponentEvent } from 'java.awt.event';
@@ -6175,7 +6300,8 @@ componentShown(arg0: java_awt_event_ComponentEvent): void;
 componentHidden(arg0: java_awt_event_ComponentEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { HierarchyEvent as java_awt_event_HierarchyEvent } from 'java.awt.event';
@@ -6186,7 +6312,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 hierarchyChanged(arg0: java_awt_event_HierarchyEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Component as java_awt_Component, Container as java_awt_Container, AWTEvent as java_awt_AWTEvent } from 'java.awt';
@@ -6228,7 +6355,8 @@ notifyAll(): void;
 constructor(arg0: java_awt_Component, arg1: number, arg2: java_awt_Component, arg3: java_awt_Container);
 constructor(arg0: java_awt_Component, arg1: number, arg2: java_awt_Component, arg3: java_awt_Container, arg4: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { HierarchyEvent as java_awt_event_HierarchyEvent } from 'java.awt.event';
@@ -6240,7 +6368,8 @@ ancestorMoved(arg0: java_awt_event_HierarchyEvent): void;
 ancestorResized(arg0: java_awt_event_HierarchyEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { KeyEvent as java_awt_event_KeyEvent } from 'java.awt.event';
@@ -6253,7 +6382,8 @@ keyPressed(arg0: java_awt_event_KeyEvent): void;
 keyReleased(arg0: java_awt_event_KeyEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.image' {
 import { Graphics as java_awt_Graphics, BufferCapabilities as java_awt_BufferCapabilities } from 'java.awt';
@@ -6270,7 +6400,8 @@ getCapabilities(): java_awt_BufferCapabilities;
 contentsLost(): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -6293,7 +6424,8 @@ isFullScreenRequired(): boolean;
 isMultiBufferAvailable(): boolean;
 constructor(arg0: java_awt_ImageCapabilities, arg1: java_awt_ImageCapabilities, arg2: java_awt_BufferCapabilities_FlipContents);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.BufferCapabilities' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6322,7 +6454,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { PlatformLogger as sun_util_logging_PlatformLogger } from 'sun.util.logging';
@@ -6336,7 +6469,8 @@ toString(): string;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Menu as java_awt_Menu, MenuComponent as java_awt_MenuComponent, MenuShortcut as java_awt_MenuShortcut, MenuItem as java_awt_MenuItem, MenuContainer as java_awt_MenuContainer } from 'java.awt';
@@ -6381,7 +6515,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -6455,7 +6590,8 @@ constructor(arg0: number, arg1: java_awt_JobAttributes_DefaultSelectionType, arg
 constructor(arg0: java_awt_JobAttributes);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.JobAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6480,7 +6616,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.JobAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6507,7 +6644,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.JobAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6534,7 +6672,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.JobAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6559,7 +6698,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.JobAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6586,7 +6726,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -6634,7 +6775,8 @@ constructor(arg0: java_awt_PageAttributes_ColorType, arg1: java_awt_PageAttribut
 constructor(arg0: java_awt_PageAttributes);
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.PageAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6659,7 +6801,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.PageAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6902,7 +7045,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.PageAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6927,7 +7071,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.PageAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6954,7 +7099,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.PageAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -6979,7 +7125,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Dimension as java_awt_Dimension, Graphics as java_awt_Graphics } from 'java.awt';
@@ -6997,7 +7144,8 @@ lastPageFirst(): boolean;
 getGraphics(): java_awt_Graphics;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -7026,7 +7174,8 @@ getFlavorListeners(): java_awt_datatransfer_FlavorListener[];
 setContents(arg0: java_awt_datatransfer_Transferable, arg1: java_awt_datatransfer_ClipboardOwner): void;
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { FlavorEvent as java_awt_datatransfer_FlavorEvent } from 'java.awt.datatransfer';
@@ -7037,7 +7186,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 flavorsChanged(arg0: java_awt_datatransfer_FlavorEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -7057,7 +7207,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_awt_datatransfer_Clipboard);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.datatransfer' {
 import { Clipboard as java_awt_datatransfer_Clipboard, Transferable as java_awt_datatransfer_Transferable } from 'java.awt.datatransfer';
@@ -7067,7 +7218,8 @@ import { Clipboard as java_awt_datatransfer_Clipboard, Transferable as java_awt_
 lostOwnership(arg0: java_awt_datatransfer_Clipboard, arg1: java_awt_datatransfer_Transferable): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { EventQueue as java_awt_EventQueue, AWTEvent as java_awt_AWTEvent, SecondaryLoop as java_awt_SecondaryLoop, Queue as java_awt_Queue, EventDispatchThread as java_awt_EventDispatchThread } from 'java.awt';
@@ -7127,7 +7279,8 @@ getNextEvent(): java_awt_AWTEvent;
 static getMostRecentEventTime(): number;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 
@@ -7138,7 +7291,8 @@ exit(): boolean;
 enter(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { EventQueueItem as sun_awt_EventQueueItem } from 'sun.awt';
@@ -7150,7 +7304,8 @@ tail: sun_awt_EventQueueItem;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { EventQueue as java_awt_EventQueue, EventFilter as java_awt_EventFilter } from 'java.awt';
@@ -7180,7 +7335,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { AWTEvent as java_awt_AWTEvent } from 'java.awt';
@@ -7191,7 +7347,8 @@ import { FilterAction as java_awt_EventFilter_FilterAction } from 'java.awt.Even
 acceptEvent(arg0: java_awt_AWTEvent): java_awt_EventFilter_FilterAction;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.EventFilter' {
 import { FilterAction as java_awt_EventFilter_FilterAction } from 'java.awt.EventFilter';
@@ -7213,7 +7370,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -7262,7 +7420,8 @@ static getDragThreshold(): number;
 getListeners<T extends java_util_EventListener>(arg0: java_lang_Class<T>): T[];
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DragGestureEvent as java_awt_dnd_DragGestureEvent } from 'java.awt.dnd';
@@ -7273,7 +7432,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 dragGestureRecognized(arg0: java_awt_dnd_DragGestureEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -7319,7 +7479,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_awt_dnd_DragGestureRecognizer, arg1: number, arg2: java_awt_Point, arg3: java_util_List<java_awt_event_InputEvent>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Component as java_awt_Component } from 'java.awt';
@@ -7351,7 +7512,8 @@ removeDragGestureListener(arg0: java_awt_dnd_DragGestureListener): void;
 getComponent(): java_awt_Component;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DragSourceDragEvent as java_awt_dnd_DragSourceDragEvent, DragSourceEvent as java_awt_dnd_DragSourceEvent, DragSourceDropEvent as java_awt_dnd_DragSourceDropEvent } from 'java.awt.dnd';
@@ -7366,7 +7528,8 @@ dragExit(arg0: java_awt_dnd_DragSourceEvent): void;
 dragDropEnd(arg0: java_awt_dnd_DragSourceDropEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -7405,7 +7568,8 @@ notifyAll(): void;
 constructor(arg0: java_awt_dnd_DragSourceContext, arg1: number, arg2: number, arg3: number);
 constructor(arg0: java_awt_dnd_DragSourceContext, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DragGestureEvent as java_awt_dnd_DragGestureEvent, DragSourceDragEvent as java_awt_dnd_DragSourceDragEvent, DragSourceEvent as java_awt_dnd_DragSourceEvent, DragSourceListener as java_awt_dnd_DragSourceListener, DragSourceDropEvent as java_awt_dnd_DragSourceDropEvent, DragSource as java_awt_dnd_DragSource, DragSourceMotionListener as java_awt_dnd_DragSourceMotionListener } from 'java.awt.dnd';
@@ -7453,7 +7617,8 @@ getCursor(): java_awt_Cursor;
 setCursor(arg0: java_awt_Cursor): void;
 constructor(arg0: java_awt_dnd_DragGestureEvent, arg1: java_awt_Cursor, arg2: java_awt_Image, arg3: java_awt_Point, arg4: java_awt_datatransfer_Transferable, arg5: java_awt_dnd_DragSourceListener);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Point as java_awt_Point } from 'java.awt';
@@ -7486,7 +7651,8 @@ notifyAll(): void;
 constructor(arg0: java_awt_dnd_DragSourceContext);
 constructor(arg0: java_awt_dnd_DragSourceContext, arg1: number, arg2: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -7516,7 +7682,8 @@ constructor(arg0: java_awt_dnd_DragSourceContext);
 constructor(arg0: java_awt_dnd_DragSourceContext, arg1: number, arg2: boolean, arg3: number, arg4: number);
 constructor(arg0: java_awt_dnd_DragSourceContext, arg1: number, arg2: boolean);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.dnd' {
 import { DragSourceDragEvent as java_awt_dnd_DragSourceDragEvent } from 'java.awt.dnd';
@@ -7527,7 +7694,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 dragMouseMoved(arg0: java_awt_dnd_DragSourceDragEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.Dialog' {
 import { ModalityType as java_awt_Dialog_ModalityType } from 'java.awt.Dialog';
@@ -7550,7 +7718,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.Dialog' {
 import { ModalExclusionType as java_awt_Dialog_ModalExclusionType } from 'java.awt.Dialog';
@@ -7572,7 +7741,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.im' {
 import { Map as java_util_Map } from 'java.util';
@@ -7602,7 +7772,8 @@ constructor(arg0: boolean, arg1: number, arg2: number, arg3: java_util_Map<java_
 constructor(arg0: boolean, arg1: number, arg2: number);
 constructor(arg0: boolean, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.Toolkit' {
 import { AWTEvent as java_awt_AWTEvent, Toolkit as java_awt_Toolkit } from 'java.awt';
@@ -7624,7 +7795,8 @@ eventDispatched(arg0: java_awt_AWTEvent): void;
 getListener(): java_awt_event_AWTEventListener;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { WindowEvent as java_awt_event_WindowEvent } from 'java.awt.event';
@@ -7641,7 +7813,8 @@ windowActivated(arg0: java_awt_event_WindowEvent): void;
 windowDeactivated(arg0: java_awt_event_WindowEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { Window as java_awt_Window } from 'java.awt';
@@ -7694,7 +7867,8 @@ constructor(arg0: java_awt_Window, arg1: number, arg2: number, arg3: number);
 constructor(arg0: java_awt_Window, arg1: number, arg2: java_awt_Window);
 constructor(arg0: java_awt_Window, arg1: number, arg2: java_awt_Window, arg3: number, arg4: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { WindowEvent as java_awt_event_WindowEvent } from 'java.awt.event';
@@ -7705,7 +7879,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 windowStateChanged(arg0: java_awt_event_WindowEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.event' {
 import { WindowEvent as java_awt_event_WindowEvent } from 'java.awt.event';
@@ -7717,7 +7892,8 @@ windowGainedFocus(arg0: java_awt_event_WindowEvent): void;
 windowLostFocus(arg0: java_awt_event_WindowEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.Window' {
 import { WeakReference as java_lang_ref_WeakReference } from 'java.lang.ref';
@@ -7734,7 +7910,8 @@ dispose(): void;
 updateOwner(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Shape as java_awt_Shape, Color as java_awt_Color, Component as java_awt_Component, Graphics as java_awt_Graphics, Font as java_awt_Font, Dimension as java_awt_Dimension, Container as java_awt_Container, LayoutManager as java_awt_LayoutManager, FocusTraversalPolicy as java_awt_FocusTraversalPolicy, ComponentOrientation as java_awt_ComponentOrientation, Insets as java_awt_Insets, Event as java_awt_Event, Point as java_awt_Point, AWTKeyStroke as java_awt_AWTKeyStroke, PopupMenu as java_awt_PopupMenu, MenuComponent as java_awt_MenuComponent, Rectangle as java_awt_Rectangle, Image as java_awt_Image, ImageCapabilities as java_awt_ImageCapabilities, FontMetrics as java_awt_FontMetrics, GraphicsConfiguration as java_awt_GraphicsConfiguration, AWTEvent as java_awt_AWTEvent, Cursor as java_awt_Cursor, Window as java_awt_Window, Dialog as java_awt_Dialog, Frame as java_awt_Frame, ModalEventFilter as java_awt_ModalEventFilter, SecondaryLoop as java_awt_SecondaryLoop } from 'java.awt';
@@ -8080,7 +8257,8 @@ constructor(arg0: java_awt_Dialog, arg1: string);
 constructor(arg0: java_awt_Dialog);
 constructor(arg0: java_awt_Frame, arg1: string, arg2: boolean, arg3: java_awt_GraphicsConfiguration);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { AWTEvent as java_awt_AWTEvent, Dialog as java_awt_Dialog, EventFilter as java_awt_EventFilter } from 'java.awt';
@@ -8093,7 +8271,8 @@ disabled: boolean;
 acceptEvent(arg0: java_awt_AWTEvent): java_awt_EventFilter_FilterAction;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { Container as java_awt_Container, Component as java_awt_Component } from 'java.awt';
@@ -8107,7 +8286,8 @@ static serialVersionUID: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt' {
 import { DisplayMode as java_awt_DisplayMode, Dimension as java_awt_Dimension } from 'java.awt';
@@ -8133,7 +8313,8 @@ getWidth(): number;
 getHeight(): number;
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.awt.GraphicsDevice' {
 import { WindowTranslucency as java_awt_GraphicsDevice_WindowTranslucency } from 'java.awt.GraphicsDevice';

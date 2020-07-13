@@ -106,7 +106,8 @@ constructor(arg0: number);
 constructor();
 constructor(arg0: java_util_Map<java_lang_Integer, V>, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.objects' {
 import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator, ObjectIterable as it_unimi_dsi_fastutil_objects_ObjectIterable } from 'it.unimi.dsi.fastutil.objects';
@@ -141,7 +142,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.objects' {
 import { Consumer as java_util_function_Consumer } from 'java.util.function';
@@ -157,7 +159,8 @@ next(): E;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.objects' {
 import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator } from 'it.unimi.dsi.fastutil.objects';
@@ -173,7 +176,8 @@ spliterator(): java_util_Spliterator<T>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -222,7 +226,8 @@ forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 forEach(arg0: java_util_function_IntConsumer): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Consumer as java_util_function_Consumer, IntConsumer as java_util_function_IntConsumer } from 'java.util.function';
@@ -242,7 +247,8 @@ remove(): void;
 hasNext(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -290,7 +296,8 @@ forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 forEach(arg0: java_util_function_IntConsumer): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
@@ -307,7 +314,8 @@ forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 spliterator(): java_util_Spliterator<T>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.objects' {
 import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator, ObjectCollection as it_unimi_dsi_fastutil_objects_ObjectCollection } from 'it.unimi.dsi.fastutil.objects';
@@ -342,7 +350,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints.Int2ObjectMap' {
 import { Consumer as java_util_function_Consumer, IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate } from 'java.util.function';
@@ -380,7 +389,8 @@ parallelStream(): java_util_stream_Stream<E>;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints.Int2ObjectMap' {
 import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
@@ -400,7 +410,8 @@ getValue(): V;
 setValue(arg0: V): V;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -428,7 +439,8 @@ compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -447,7 +459,8 @@ compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -520,7 +533,8 @@ forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>)
 containsValue(arg0: java_lang_Object): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Object as java_lang_Object, Integer as java_lang_Integer, Class as java_lang_Class } from 'java.lang';
@@ -601,7 +615,8 @@ replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Objec
 forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -631,7 +646,8 @@ compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'it.unimi.dsi.fastutil' {
 

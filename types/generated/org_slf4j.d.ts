@@ -70,7 +70,8 @@ isWarnEnabled(): boolean;
 isWarnEnabled(arg0: org_slf4j_Marker): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.slf4j' {
 import { Marker as org_slf4j_Marker } from 'org.slf4j';

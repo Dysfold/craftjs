@@ -17,7 +17,8 @@ setErrorIndex(arg0: number): void;
 setIndex(arg0: number): void;
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.text' {
 import { Object as java_lang_Object, StringBuffer as java_lang_StringBuffer, Cloneable as java_lang_Cloneable } from 'java.lang';
@@ -34,7 +35,8 @@ parseObject(arg0: string, arg1: java_text_ParsePosition): java_lang_Object;
 formatToCharacterIterator(arg0: java_lang_Object): java_text_AttributedCharacterIterator;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.text' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -62,7 +64,8 @@ constructor(arg0: java_text_Format_Field, arg1: number);
 constructor(arg0: java_text_Format_Field);
 constructor(arg0: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.text.Format' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -79,7 +82,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.text' {
 import { Map as java_util_Map, Set as java_util_Set } from 'java.util';
@@ -121,7 +125,8 @@ getBeginIndex(): number;
 getEndIndex(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.text' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';

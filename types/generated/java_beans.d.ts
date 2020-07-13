@@ -9,7 +9,8 @@ import { EventListener as java_util_EventListener } from 'java.util';
 propertyChange(arg0: java_beans_PropertyChangeEvent): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.beans' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -42,7 +43,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: java_lang_Object, arg1: string, arg2: java_lang_Object, arg3: java_lang_Object);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.beans' {
 import { PropertyChangeListener as java_beans_PropertyChangeListener, PropertyChangeEvent as java_beans_PropertyChangeEvent } from 'java.beans';
@@ -73,7 +75,8 @@ removePropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListen
 hasListeners(arg0: string): boolean;
 constructor(arg0: java_lang_Object);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.beans.PropertyChangeSupport' {
 import { EventListener as java_util_EventListener } from 'java.util';
@@ -96,7 +99,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.beans' {
 import { Set as java_util_Set, Map as java_util_Map, EventListener as java_util_EventListener } from 'java.util';

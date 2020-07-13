@@ -45,7 +45,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { TemporalUnit as java_time_temporal_TemporalUnit, TemporalField as java_time_temporal_TemporalField, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster, TemporalAmount as java_time_temporal_TemporalAmount, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, TemporalAccessor as java_time_temporal_TemporalAccessor } from 'java.time.temporal';
@@ -68,7 +69,8 @@ isSupported(arg0: java_time_temporal_TemporalField): boolean;
 range(arg0: java_time_temporal_TemporalField): java_time_temporal_ValueRange;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { Temporal as java_time_temporal_Temporal } from 'java.time.temporal';
@@ -86,7 +88,8 @@ addTo<R extends java_time_temporal_Temporal>(arg0: R, arg1: number): R;
 between(arg0: java_time_temporal_Temporal, arg1: java_time_temporal_Temporal): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalUnit as java_time_temporal_TemporalUnit, TemporalAmount as java_time_temporal_TemporalAmount, Temporal as java_time_temporal_Temporal } from 'java.time.temporal';
@@ -167,7 +170,8 @@ toNanosPart(): number;
 truncatedTo(arg0: java_time_temporal_TemporalUnit): java_time_Duration;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { TemporalUnit as java_time_temporal_TemporalUnit, Temporal as java_time_temporal_Temporal } from 'java.time.temporal';
@@ -181,7 +185,8 @@ getUnits(): java_util_List<java_time_temporal_TemporalUnit>;
 subtractFrom(arg0: java_time_temporal_Temporal): java_time_temporal_Temporal;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { Map as java_util_Map, Locale as java_util_Locale } from 'java.util';
@@ -208,7 +213,8 @@ getFrom(arg0: java_time_temporal_TemporalAccessor): number;
 adjustInto<R extends java_time_temporal_Temporal>(arg0: R, arg1: number): R;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange } from 'java.time.temporal';
@@ -223,7 +229,8 @@ isSupported(arg0: java_time_temporal_TemporalField): boolean;
 range(arg0: java_time_temporal_TemporalField): java_time_temporal_ValueRange;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { TemporalAccessor as java_time_temporal_TemporalAccessor } from 'java.time.temporal';
@@ -234,7 +241,8 @@ import { Object as java_lang_Object } from 'java.lang';
 queryFrom(arg0: java_time_temporal_TemporalAccessor): R;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -269,7 +277,8 @@ checkValidValue(arg0: number, arg1: java_time_temporal_TemporalField): number;
 checkValidIntValue(arg0: number, arg1: java_time_temporal_TemporalField): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { ResolverStyle as java_time_format_ResolverStyle } from 'java.time.format';
@@ -291,7 +300,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { Temporal as java_time_temporal_Temporal } from 'java.time.temporal';
@@ -301,7 +311,8 @@ import { Temporal as java_time_temporal_Temporal } from 'java.time.temporal';
 adjustInto(arg0: java_time_temporal_Temporal): java_time_temporal_Temporal;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -369,7 +380,8 @@ atZone(arg0: java_time_ZoneId): java_time_ZonedDateTime;
 toEpochMilli(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -394,7 +406,8 @@ static tickMinutes(arg0: java_time_ZoneId): java_time_Clock;
 static tick(arg0: java_time_Clock, arg1: java_time_Duration): java_time_Clock;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -427,7 +440,8 @@ static getAvailableZoneIds(): java_util_Set<string>;
 static ofOffset(arg0: string, arg1: java_time_ZoneOffset): java_time_ZoneId;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.zone' {
 import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
@@ -478,7 +492,8 @@ getTransitions(): java_util_List<java_time_zone_ZoneOffsetTransition>;
 getTransitionRules(): java_util_List<java_time_zone_ZoneOffsetTransitionRule>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster } from 'java.time.temporal';
@@ -531,7 +546,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.zone' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -570,7 +586,8 @@ getInstant(): java_time_Instant;
 isOverlap(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -694,7 +711,8 @@ toInstant(arg0: java_time_ZoneOffset): java_time_Instant;
 getChronology(): java_time_chrono_Chronology;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -746,7 +764,8 @@ getLong(arg0: java_time_temporal_TemporalField): number;
 range(arg0: java_time_temporal_TemporalField): java_time_temporal_ValueRange;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalField as java_time_temporal_TemporalField } from 'java.time.temporal';
@@ -823,7 +842,8 @@ toFormat(arg0: java_time_temporal_TemporalQuery<java_lang_Object>): java_text_Fo
 toFormat(): java_text_Format;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { FormatStyle as java_time_format_FormatStyle } from 'java.time.format';
@@ -846,7 +866,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalUnit as java_time_temporal_TemporalUnit, TemporalAmount as java_time_temporal_TemporalAmount, Temporal as java_time_temporal_Temporal } from 'java.time.temporal';
@@ -915,7 +936,8 @@ minusMonths(arg0: number): java_time_Period;
 toTotalMonths(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { TemporalUnit as java_time_temporal_TemporalUnit, Temporal as java_time_temporal_Temporal, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -944,7 +966,8 @@ negated(): java_time_chrono_ChronoPeriod;
 subtractFrom(arg0: java_time_temporal_Temporal): java_time_temporal_Temporal;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { Object as java_lang_Object, Long as java_lang_Long, Comparable as java_lang_Comparable } from 'java.lang';
@@ -994,7 +1017,8 @@ static ofLocale(arg0: java_util_Locale): java_time_chrono_Chronology;
 getCalendarType(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.temporal' {
 import { ChronoField as java_time_temporal_ChronoField, ValueRange as java_time_temporal_ValueRange, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalUnit as java_time_temporal_TemporalUnit, Temporal as java_time_temporal_Temporal, TemporalField as java_time_temporal_TemporalField } from 'java.time.temporal';
@@ -1068,7 +1092,8 @@ notifyAll(): void;
 resolve(arg0: java_util_Map<java_time_temporal_TemporalField, java_lang_Long>, arg1: java_time_temporal_TemporalAccessor, arg2: java_time_format_ResolverStyle): java_time_temporal_TemporalAccessor;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { TextStyle as java_time_format_TextStyle } from 'java.time.format';
@@ -1098,7 +1123,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -1153,7 +1179,8 @@ getLong(arg0: java_time_temporal_TemporalField): number;
 range(arg0: java_time_temporal_TemporalField): java_time_temporal_ValueRange;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalAdjuster as java_time_temporal_TemporalAdjuster } from 'java.time.temporal';
@@ -1175,7 +1202,8 @@ getDisplayName(arg0: java_time_format_TextStyle, arg1: java_util_Locale): string
 adjustInto(arg0: java_time_temporal_Temporal): java_time_temporal_Temporal;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -1277,7 +1305,8 @@ toNanoOfDay(): number;
 atDate(arg0: java_time_LocalDate): java_time_LocalDateTime;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -1396,7 +1425,8 @@ atStartOfDay(): java_time_LocalDateTime;
 atStartOfDay(arg0: java_time_ZoneId): java_time_ZonedDateTime;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster } from 'java.time.temporal';
@@ -1451,7 +1481,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster } from 'java.time.temporal';
@@ -1496,7 +1527,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { IsoEra as java_time_chrono_IsoEra, Era as java_time_chrono_Era } from 'java.time.chrono';
@@ -1532,7 +1564,8 @@ getDisplayName(arg0: java_time_format_TextStyle, arg1: java_util_Locale): string
 adjustInto(arg0: java_time_temporal_Temporal): java_time_temporal_Temporal;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, TemporalAdjuster as java_time_temporal_TemporalAdjuster, Temporal as java_time_temporal_Temporal, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -1616,7 +1649,8 @@ withOffsetSameLocal(arg0: java_time_ZoneOffset): java_time_OffsetTime;
 withOffsetSameInstant(arg0: java_time_ZoneOffset): java_time_OffsetTime;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, TemporalAdjuster as java_time_temporal_TemporalAdjuster, Temporal as java_time_temporal_Temporal, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -1733,7 +1767,8 @@ atZoneSimilarLocal(arg0: java_time_ZoneId): java_time_ZonedDateTime;
 toOffsetTime(): java_time_OffsetTime;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, TemporalAdjuster as java_time_temporal_TemporalAdjuster, Temporal as java_time_temporal_Temporal, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -1866,7 +1901,8 @@ isAfter(arg0: java_time_chrono_ChronoZonedDateTime<java_lang_Object>): boolean;
 isBefore(arg0: java_time_chrono_ChronoZonedDateTime<java_lang_Object>): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, TemporalUnit as java_time_temporal_TemporalUnit, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster, TemporalAmount as java_time_temporal_TemporalAmount } from 'java.time.temporal';
@@ -1925,7 +1961,8 @@ withZoneSameInstant(arg0: java_time_ZoneId): java_time_chrono_ChronoZonedDateTim
 until(arg0: java_time_temporal_Temporal, arg1: java_time_temporal_TemporalUnit): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { ChronoField as java_time_temporal_ChronoField, ValueRange as java_time_temporal_ValueRange, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalField as java_time_temporal_TemporalField } from 'java.time.temporal';
@@ -1991,7 +2028,8 @@ getDisplayName(arg0: java_time_format_TextStyle, arg1: java_util_Locale): string
 epochSecond(arg0: java_time_chrono_Era, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: java_time_ZoneOffset): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.chrono' {
 import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
@@ -2039,7 +2077,8 @@ period(arg0: number, arg1: number, arg2: number): java_time_chrono_ChronoPeriod;
 getCalendarType(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2075,7 +2114,8 @@ getDecimalSeparator(): string;
 withDecimalSeparator(arg0: string): java_time_format_DecimalStyle;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format.DateTimeFormatterBuilder' {
 import { DateTimePrintContext as java_time_format_DateTimePrintContext, DateTimeParseContext as java_time_format_DateTimeParseContext } from 'java.time.format';
@@ -2091,7 +2131,8 @@ parse(arg0: java_time_format_DateTimeParseContext, arg1: java_lang_CharSequence,
 withOptional(arg0: boolean): java_time_format_DateTimeFormatterBuilder_CompositePrinterParser;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { TemporalAccessor as java_time_temporal_TemporalAccessor } from 'java.time.temporal';
@@ -2105,7 +2146,8 @@ optional: number;
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { DateTimeFormatter as java_time_format_DateTimeFormatter, Parsed as java_time_format_Parsed } from 'java.time.format';
@@ -2123,7 +2165,8 @@ chronoListeners: java_util_ArrayList<java_util_function_Consumer<java_time_chron
 toString(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, TemporalAccessor as java_time_temporal_TemporalAccessor } from 'java.time.temporal';
@@ -2151,7 +2194,8 @@ get(arg0: java_time_temporal_TemporalField): number;
 range(arg0: java_time_temporal_TemporalField): java_time_temporal_ValueRange;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.format.DateTimeFormatterBuilder' {
 import { DateTimePrintContext as java_time_format_DateTimePrintContext, DateTimeParseContext as java_time_format_DateTimeParseContext } from 'java.time.format';
@@ -2163,7 +2207,8 @@ format(arg0: java_time_format_DateTimePrintContext, arg1: java_lang_StringBuilde
 parse(arg0: java_time_format_DateTimeParseContext, arg1: java_lang_CharSequence, arg2: number): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.zone' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -2208,7 +2253,8 @@ isMidnightEndOfDay(): boolean;
 getTimeDefinition(): java_time_zone_ZoneOffsetTransitionRule_TimeDefinition;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.time.zone.ZoneOffsetTransitionRule' {
 import { TimeDefinition as java_time_zone_ZoneOffsetTransitionRule_TimeDefinition } from 'java.time.zone.ZoneOffsetTransitionRule';

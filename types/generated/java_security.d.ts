@@ -4,12 +4,14 @@ declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Permission as java_security_Permission, PermissionCollection as java_security_PermissionCollection, Guard as java_security_Guard } from 'java.security';
 import { Serializable as java_io_Serializable } from 'java.io';
+/** Represents a unique permission that may be attached to a Permissible */
 
   export class Permission extends java_lang_Object implements java_security_Guard, java_io_Serializable {
 static serialVersionUID: number;
 name: string;
 name: string;
 actions: string;
+/** Returns the unique fully qualified name of this Permission */
 getName(): string;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
@@ -18,9 +20,10 @@ implies(arg0: java_security_Permission): boolean;
 getActions(): string;
 newPermissionCollection(): java_security_PermissionCollection;
 checkGuard(arg0: java_lang_Object): void;
-constructor(arg0: string);
+constructor(name: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Permission as java_security_Permission } from 'java.security';
@@ -41,7 +44,8 @@ isReadOnly(): boolean;
 elementsAsStream(): java_util_stream_Stream<java_security_Permission>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -69,7 +73,8 @@ getDomainCombiner(): java_security_DomainCombiner;
 constructor(arg0: java_security_AccessControlContext, arg1: java_security_DomainCombiner);
 constructor(arg0: java_security_ProtectionDomain[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { ProtectionDomain as java_security_ProtectionDomain } from 'java.security';
@@ -79,7 +84,8 @@ import { ProtectionDomain as java_security_ProtectionDomain } from 'java.securit
 combine(arg0: java_security_ProtectionDomain[], arg1: java_security_ProtectionDomain[]): java_security_ProtectionDomain[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { ClassLoader as java_lang_ClassLoader, Object as java_lang_Object } from 'java.lang';
@@ -109,7 +115,8 @@ implies(arg0: java_security_Permission): boolean;
 constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection);
 constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection, arg2: java_lang_ClassLoader, arg3: java_security_Principal[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -139,7 +146,8 @@ getCodeSigners(): java_security_CodeSigner[];
 constructor(arg0: java_net_URL, arg1: java_security_cert_Certificate[]);
 constructor(arg0: java_net_URL, arg1: java_security_CodeSigner[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.cert' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -164,7 +172,8 @@ verify(arg0: java_security_PublicKey, arg1: java_security_Provider): void;
 getPublicKey(): java_security_PublicKey;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Key as java_security_Key } from 'java.security';
@@ -179,7 +188,8 @@ getFormat(): string;
 getAlgorithm(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Serializable as java_io_Serializable } from 'java.io';
@@ -194,7 +204,8 @@ getFormat(): string;
 getAlgorithm(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -275,7 +286,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.Provider' {
 import { Object as java_lang_Object, Class as java_lang_Class, Boolean as java_lang_Boolean } from 'java.lang';
@@ -312,7 +324,8 @@ getAlgorithm(): string;
 supportsParameter(arg0: java_lang_Object): boolean;
 constructor(arg0: java_security_Provider, arg1: string, arg2: string, arg3: string, arg4: java_util_List<string>, arg5: java_util_Map<string, string>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.Provider' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -325,7 +338,8 @@ toString(): string;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.Provider' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -338,7 +352,8 @@ equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.Provider' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -351,7 +366,8 @@ constructorParameterClass: java_lang_Class<java_lang_Object>;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -373,7 +389,8 @@ getSignerCertPath(): java_security_cert_CertPath;
 getTimestamp(): java_security_Timestamp;
 constructor(arg0: java_security_cert_CertPath, arg1: java_security_Timestamp);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.cert' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -399,7 +416,8 @@ getEncoded(): number[];
 getEncodings(): java_util_Iterator<string>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -421,7 +439,8 @@ getSignerCertPath(): java_security_cert_CertPath;
 getTimestamp(): java_util_Date;
 constructor(arg0: java_util_Date, arg1: java_security_cert_CertPath);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.cert' {
 import { Provider as java_security_Provider } from 'java.security';
@@ -455,7 +474,8 @@ generateCRL(arg0: java_io_InputStream): java_security_cert_CRL;
 generateCRLs(arg0: java_io_InputStream): java_util_Collection<java_security_cert_CRL>;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.cert' {
 import { Certificate as java_security_cert_Certificate } from 'java.security.cert';
@@ -469,7 +489,8 @@ getType(): string;
 isRevoked(arg0: java_security_cert_Certificate): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.cert' {
 import { InputStream as java_io_InputStream } from 'java.io';
@@ -489,7 +510,8 @@ engineGenerateCRL(arg0: java_io_InputStream): java_security_cert_CRL;
 engineGenerateCRLs(arg0: java_io_InputStream): java_util_Collection<java_security_cert_CRL>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -504,7 +526,8 @@ hashCode(): number;
 implies(arg0: javax_security_auth_Subject): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -514,7 +537,8 @@ import { Object as java_lang_Object } from 'java.lang';
 run(): T;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -524,7 +548,8 @@ import { Object as java_lang_Object } from 'java.lang';
 run(): T;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.ProtectionDomain' {
 import { ProtectionDomain as java_security_ProtectionDomain } from 'java.security';
@@ -535,7 +560,8 @@ this$0: java_security_ProtectionDomain;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -545,7 +571,8 @@ import { Object as java_lang_Object } from 'java.lang';
 checkGuard(arg0: java_lang_Object): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -573,7 +600,8 @@ notifyAll(): void;
 constructor(arg0: string, arg1: string);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security' {
 import { Object as java_lang_Object, Class as java_lang_Class, ClassLoader as java_lang_ClassLoader } from 'java.lang';
@@ -596,7 +624,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.security.SecureClassLoader' {
 import { Object as java_lang_Object } from 'java.lang';

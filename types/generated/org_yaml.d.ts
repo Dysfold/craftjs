@@ -60,12 +60,16 @@ constructor();
 constructor(arg0: org_yaml_snakeyaml_constructor_BaseConstructor, arg1: org_yaml_snakeyaml_representer_Representer);
 constructor(arg0: org_yaml_snakeyaml_constructor_BaseConstructor);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.events' {
 import { Object as java_lang_Object } from 'java.lang';
 import { ID as org_yaml_snakeyaml_events_Event_ID } from 'org.yaml.snakeyaml.events.Event';
 import { Mark as org_yaml_snakeyaml_error_Mark } from 'org.yaml.snakeyaml.error';
+/** Represents an event.
+
+ All events require a static method named getHandlerList() which returns the same HandlerList as getHandlers(). */
 
   export class Event extends java_lang_Object {
 startMark: org_yaml_snakeyaml_error_Mark;
@@ -82,7 +86,8 @@ getEndMark(): org_yaml_snakeyaml_error_Mark;
 getEventId(): org_yaml_snakeyaml_events_Event_ID;
 constructor(arg0: org_yaml_snakeyaml_error_Mark, arg1: org_yaml_snakeyaml_error_Mark);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.events.Event' {
 import { ID as org_yaml_snakeyaml_events_Event_ID } from 'org.yaml.snakeyaml.events.Event';
@@ -111,7 +116,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.error' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -143,7 +149,8 @@ constructor(arg0: string, arg1: number, arg2: number, arg3: number, arg4: number
 constructor(arg0: string, arg1: number, arg2: number, arg3: number, arg4: string, arg5: number);
 constructor(arg0: string, arg1: number, arg2: number, arg3: number, arg4: string[], arg5: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.nodes' {
 import { Object as java_lang_Object, Class as java_lang_Class, Boolean as java_lang_Boolean } from 'java.lang';
@@ -183,13 +190,19 @@ setTag(arg0: org_yaml_snakeyaml_nodes_Tag): void;
 setType(arg0: java_lang_Class<java_lang_Object>): void;
 constructor(arg0: org_yaml_snakeyaml_nodes_Tag, arg1: org_yaml_snakeyaml_error_Mark, arg2: org_yaml_snakeyaml_error_Mark);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.nodes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { URI as java_net_URI } from 'java.net';
 import { Tag as org_yaml_snakeyaml_nodes_Tag } from 'org.yaml.snakeyaml.nodes';
 import { Map as java_util_Map, Set as java_util_Set } from 'java.util';
+/** Represents a tag that may be defined by the server or a resource pack to
+ group like things together.
+
+ Note that whilst all tags defined within this interface must be present in
+ implementations, their existence is not guaranteed across future versions. */
 
   export class Tag extends java_lang_Object {
 static PREFIX: string;
@@ -225,7 +238,8 @@ constructor(arg0: java_net_URI);
 constructor(arg0: java_lang_Class<java_lang_Object>);
 constructor(arg0: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.nodes' {
 import { NodeId as org_yaml_snakeyaml_nodes_NodeId } from 'org.yaml.snakeyaml.nodes';
@@ -248,7 +262,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml' {
 import { Property as org_yaml_snakeyaml_introspector_Property, PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils, PropertySubstitute as org_yaml_snakeyaml_introspector_PropertySubstitute, BeanAccess as org_yaml_snakeyaml_introspector_BeanAccess } from 'org.yaml.snakeyaml.introspector';
@@ -305,7 +320,8 @@ constructor(arg0: java_lang_Class<java_lang_Object>, arg1: string);
 constructor(arg0: java_lang_Class<java_lang_Object>, arg1: org_yaml_snakeyaml_nodes_Tag, arg2: java_lang_Class<java_lang_Object>);
 constructor(arg0: java_lang_Class<java_lang_Object>, arg1: org_yaml_snakeyaml_nodes_Tag);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.introspector' {
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
@@ -337,7 +353,8 @@ isReadable(): boolean;
 isWritable(): boolean;
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.introspector' {
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -368,7 +385,8 @@ setSkipMissingProperties(arg0: boolean): void;
 isSkipMissingProperties(): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.introspector' {
 import { BeanAccess as org_yaml_snakeyaml_introspector_BeanAccess } from 'org.yaml.snakeyaml.introspector';
@@ -390,7 +408,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.util' {
 import { Boolean as java_lang_Boolean, Object as java_lang_Object } from 'java.lang';
@@ -400,7 +419,8 @@ isRunningOnAndroid: java_lang_Boolean;
 isRunningOnAndroid(): boolean;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.introspector' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -448,7 +468,8 @@ notifyAll(): void;
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>, arg2: string, arg3: string, ...arg4: java_lang_Class<java_lang_Object>[]);
 constructor(arg0: string, arg1: java_lang_Class<java_lang_Object>, ...arg2: java_lang_Class<java_lang_Object>[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.DumperOptions' {
 import { FlowStyle as org_yaml_snakeyaml_DumperOptions_FlowStyle } from 'org.yaml.snakeyaml.DumperOptions';
@@ -475,7 +496,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.constructor' {
 import { Composer as org_yaml_snakeyaml_composer_Composer } from 'org.yaml.snakeyaml.composer';
@@ -522,7 +544,8 @@ getData(): java_lang_Object;
 constructor();
 constructor(arg0: org_yaml_snakeyaml_LoaderOptions);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.composer' {
 import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes';
@@ -547,7 +570,8 @@ getSingleNode(): org_yaml_snakeyaml_nodes_Node;
 constructor(arg0: org_yaml_snakeyaml_parser_Parser, arg1: org_yaml_snakeyaml_resolver_Resolver);
 constructor(arg0: org_yaml_snakeyaml_parser_Parser, arg1: org_yaml_snakeyaml_resolver_Resolver, arg2: org_yaml_snakeyaml_LoaderOptions);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.parser' {
 import { ID as org_yaml_snakeyaml_events_Event_ID } from 'org.yaml.snakeyaml.events.Event';
@@ -560,7 +584,8 @@ peekEvent(): org_yaml_snakeyaml_events_Event;
 getEvent(): org_yaml_snakeyaml_events_Event;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.resolver' {
 import { NodeId as org_yaml_snakeyaml_nodes_NodeId, Tag as org_yaml_snakeyaml_nodes_Tag } from 'org.yaml.snakeyaml.nodes';
@@ -584,7 +609,8 @@ resolve(arg0: org_yaml_snakeyaml_nodes_NodeId, arg1: string, arg2: boolean): org
 addImplicitResolver(arg0: org_yaml_snakeyaml_nodes_Tag, arg1: java_util_regex_Pattern, arg2: string): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.resolver' {
 import { Tag as org_yaml_snakeyaml_nodes_Tag } from 'org.yaml.snakeyaml.nodes';
@@ -601,7 +627,8 @@ getTag(): org_yaml_snakeyaml_nodes_Tag;
 getRegexp(): java_util_regex_Pattern;
 constructor(arg0: org_yaml_snakeyaml_nodes_Tag, arg1: java_util_regex_Pattern);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -623,7 +650,8 @@ getMaxAliasesForCollections(): number;
 setAllowRecursiveKeys(arg0: boolean): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.constructor' {
 import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes';
@@ -635,7 +663,8 @@ construct2ndStep(arg0: org_yaml_snakeyaml_nodes_Node, arg1: java_lang_Object): v
 construct(arg0: org_yaml_snakeyaml_nodes_Node): java_lang_Object;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.constructor.BaseConstructor' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -647,7 +676,8 @@ _2(): K;
 _1(): T;
 constructor(arg0: T, arg1: K);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.representer' {
 import { TimeZone as java_util_TimeZone, Map as java_util_Map } from 'java.util';
@@ -689,7 +719,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: org_yaml_snakeyaml_DumperOptions);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.DumperOptions' {
 import { ScalarStyle as org_yaml_snakeyaml_DumperOptions_ScalarStyle } from 'org.yaml.snakeyaml.DumperOptions';
@@ -718,7 +749,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml' {
 import { Version as org_yaml_snakeyaml_DumperOptions_Version, LineBreak as org_yaml_snakeyaml_DumperOptions_LineBreak, NonPrintableStyle as org_yaml_snakeyaml_DumperOptions_NonPrintableStyle, FlowStyle as org_yaml_snakeyaml_DumperOptions_FlowStyle, ScalarStyle as org_yaml_snakeyaml_DumperOptions_ScalarStyle } from 'org.yaml.snakeyaml.DumperOptions';
@@ -799,7 +831,8 @@ getWidth(): number;
 setIndent(arg0: number): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.DumperOptions' {
 import { Version as org_yaml_snakeyaml_DumperOptions_Version } from 'org.yaml.snakeyaml.DumperOptions';
@@ -826,7 +859,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.DumperOptions' {
 import { LineBreak as org_yaml_snakeyaml_DumperOptions_LineBreak } from 'org.yaml.snakeyaml.DumperOptions';
@@ -854,7 +888,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.serializer' {
 import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes';
@@ -864,7 +899,8 @@ import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes'
 nextAnchor(arg0: org_yaml_snakeyaml_nodes_Node): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.DumperOptions' {
 import { NonPrintableStyle as org_yaml_snakeyaml_DumperOptions_NonPrintableStyle } from 'org.yaml.snakeyaml.DumperOptions';
@@ -885,7 +921,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.representer' {
 import { TimeZone as java_util_TimeZone, Map as java_util_Map } from 'java.util';
@@ -918,7 +955,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: org_yaml_snakeyaml_DumperOptions);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.representer' {
 import { PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils } from 'org.yaml.snakeyaml.introspector';
@@ -951,7 +989,8 @@ getDefaultScalarStyle(): org_yaml_snakeyaml_DumperOptions_ScalarStyle;
 getDefaultFlowStyle(): org_yaml_snakeyaml_DumperOptions_FlowStyle;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.representer' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -962,7 +1001,8 @@ import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes'
 representData(arg0: java_lang_Object): org_yaml_snakeyaml_nodes_Node;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.constructor' {
 import { Object as java_lang_Object, Class as java_lang_Class, Boolean as java_lang_Boolean } from 'java.lang';
@@ -991,7 +1031,8 @@ notifyAll(): void;
 constructor();
 constructor(arg0: org_yaml_snakeyaml_LoaderOptions);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.constructor.SafeConstructor' {
 import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes';
@@ -1012,7 +1053,8 @@ notify(): void;
 notifyAll(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.constructor' {
 import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes';

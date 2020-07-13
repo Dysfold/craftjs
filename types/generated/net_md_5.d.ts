@@ -75,7 +75,8 @@ static toLegacyText(...arg0: net_md_5_bungee_api_chat_BaseComponent[]): string;
 setColor(arg0: net_md_5_bungee_api_ChatColor): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'net.md_5.bungee.api.chat.ComponentBuilder' {
 import { FormatRetention as net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention } from 'net.md_5.bungee.api.chat.ComponentBuilder';
@@ -98,7 +99,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'net.md_5.bungee.api.chat' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -116,7 +118,8 @@ getValue(): string;
 getAction(): net_md_5_bungee_api_chat_ClickEvent_Action;
 constructor(arg0: net_md_5_bungee_api_chat_ClickEvent_Action, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'net.md_5.bungee.api.chat.ClickEvent' {
 import { Action as net_md_5_bungee_api_chat_ClickEvent_Action } from 'net.md_5.bungee.api.chat.ClickEvent';
@@ -141,7 +144,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'net.md_5.bungee.api.chat' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -160,7 +164,8 @@ getValue(): net_md_5_bungee_api_chat_BaseComponent[];
 getAction(): net_md_5_bungee_api_chat_HoverEvent_Action;
 constructor(arg0: net_md_5_bungee_api_chat_HoverEvent_Action, arg1: net_md_5_bungee_api_chat_BaseComponent[]);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'net.md_5.bungee.api.chat.HoverEvent' {
 import { Action as net_md_5_bungee_api_chat_HoverEvent_Action } from 'net.md_5.bungee.api.chat.HoverEvent';
@@ -183,7 +188,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'net.md_5.bungee.api' {
 import { Object as java_lang_Object, Character as java_lang_Character } from 'java.lang';
@@ -191,6 +197,7 @@ import { ChatColor as net_md_5_bungee_api_ChatColor } from 'net.md_5.bungee.api'
 import { Color as java_awt_Color } from 'java.awt';
 import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
 import { Map as java_util_Map } from 'java.util';
+/** All supported color values for chat */
 
   export class ChatColor extends java_lang_Object {
 static COLOR_CHAR: string;
@@ -225,23 +232,39 @@ toString: string;
 name: string;
 ordinal: number;
 name: string;
-static byChar: net_md_5_bungee_api_ChatColor;
+static byChar: net_md_5_bungee_api_ChatColor | null;
 getName(): string;
 name(): string;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
+/** Returns an array containing the constants of this enum type, in
+the order they are declared. This method may be used to iterate
+over the constants as follows:
+for (ChatColor c : ChatColor.values())
+    System.out.println(c);
+ */
 static values(): net_md_5_bungee_api_ChatColor[];
 hashCode(): number;
-static valueOf(arg0: string): net_md_5_bungee_api_ChatColor;
+/** Returns the enum constant of this type with the specified name.
+The string must match exactly an identifier used to declare an
+enum constant in this type.  (Extraneous whitespace characters are 
+not permitted.) */
+static valueOf(name: string): net_md_5_bungee_api_ChatColor;
 static of(arg0: java_awt_Color): net_md_5_bungee_api_ChatColor;
 static of(arg0: string): net_md_5_bungee_api_ChatColor;
 ordinal(): number;
-static getByChar(arg0: string): net_md_5_bungee_api_ChatColor;
+/** Gets the color represented by the specified color code */
+static getByChar(code: string): net_md_5_bungee_api_ChatColor | null;
 static stripColor(arg0: string): string;
-static translateAlternateColorCodes(arg0: string, arg1: string): string;
+/** Translates a string using an alternate color code character into a
+ string that uses the internal ChatColor.COLOR_CODE color code
+ character. The alternate color code character will only be replaced if
+ it is immediately followed by 0-9, A-F, a-f, K-O, k-o, R or r. */
+static translateAlternateColorCodes(altColorChar: string, textToTranslate: string): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'net.md_5.bungee.api' {
 import { ChatMessageType as net_md_5_bungee_api_ChatMessageType } from 'net.md_5.bungee.api';

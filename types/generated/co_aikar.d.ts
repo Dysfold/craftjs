@@ -3,19 +3,34 @@
 declare module 'co.aikar.timings' {
 import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
 import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
+/** Provides an ability to time sections of code within the Minecraft Server */
 
   export class Timing implements java_lang_AutoCloseable {
-timingHandler: co_aikar_timings_TimingHandler;
+timingHandler: co_aikar_timings_TimingHandler | null;
 close(): void;
 abort(): void;
+/** Starts timing the execution until stopTiming() is called.
+
+ But only if we are on the primary thread. */
 startTimingIfSync(): co_aikar_timings_Timing;
+/** Stops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources
+
+ But only if we are on the primary thread. */
 stopTimingIfSync(): void;
-getTimingHandler(): co_aikar_timings_TimingHandler;
+/** Used internally to get the actual backing Handler in the case of delegated Handlers */
+getTimingHandler(): co_aikar_timings_TimingHandler | null;
+/** Starts timing the execution until stopTiming() is called. */
 startTiming(): co_aikar_timings_Timing;
+/** Stops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources */
 stopTiming(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -53,7 +68,8 @@ startTiming(): co_aikar_timings_Timing;
 stopTiming(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -73,7 +89,8 @@ toString(): string;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings.TimingIdentifier' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -90,7 +107,8 @@ equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -106,7 +124,8 @@ curTickTotal: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util' {
 import { Class as java_lang_Class, Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
@@ -116,14 +135,14 @@ import { ForwardingMap as com_google_common_collect_ForwardingMap } from 'com.go
 
   export class Counter<T extends java_lang_Object> extends com_google_common_collect_ForwardingMap<T, java_lang_Long> {
 counts: java_util_Map<T, java_lang_Long>;
-count: number;
+count: number | null;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
-increment(arg0: T, arg1: number): number;
-increment(arg0: T): number;
-getCount(arg0: T): number;
-decrement(arg0: T): number;
-decrement(arg0: T, arg1: number): number;
+increment(key: T | null, amount: number): number | null;
+increment(key: T | null): number | null;
+getCount(key: T | null): number | null;
+decrement(key: T | null): number | null;
+decrement(key: T | null, amount: number): number | null;
 toString(): string;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -144,7 +163,8 @@ getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -157,15 +177,29 @@ avgFreeMemory: number;
 avgUsedMemory: number;
 timingHandler: co_aikar_timings_TimingHandler;
 class: java_lang_Class<java_lang_Object>;
-equals(arg0: java_lang_Object): boolean;
+equals(o: java_lang_Object): boolean;
 hashCode(): number;
+/** This is simply for the Closeable interface so it can be used with try-with-resources () */
 close(): void;
 isEnabled(): boolean;
+/** Description copied from interface: TimingStarts timing the execution until Timing.stopTiming() is called.
+
+ But only if we are on the primary thread. */
 startTimingIfSync(): co_aikar_timings_Timing;
+/** Description copied from interface: TimingStops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources
+
+ But only if we are on the primary thread. */
 stopTimingIfSync(): void;
+/** Description copied from interface: TimingUsed internally to get the actual backing Handler in the case of delegated Handlers */
 getTimingHandler(): co_aikar_timings_TimingHandler;
 isSpecial(): boolean;
+/** Description copied from interface: TimingStarts timing the execution until Timing.stopTiming() is called. */
 startTiming(): co_aikar_timings_Timing;
+/** Description copied from interface: TimingStops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources */
 stopTiming(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -176,31 +210,41 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util' {
 import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
 import { List as java_util_List, Map as java_util_Map } from 'java.util';
 import { JSONPair as co_aikar_util_JSONUtil_JSONPair } from 'co.aikar.util.JSONUtil';
 import { Function as com_google_common_base_Function } from 'com.google.common.base';
+/** Provides Utility methods that assist with generating JSON Objects */
 
   export class JSONUtil extends java_lang_Object {
 
-static toArray(...arg0: java_lang_Object[]): java_util_List;
-static createObject(...arg0: co_aikar_util_JSONUtil_JSONPair[]): java_util_Map<string, java_lang_Object>;
-static appendObjectData(arg0: java_util_Map, ...arg1: co_aikar_util_JSONUtil_JSONPair[]): java_util_Map<string, java_lang_Object>;
-static toObjectMapper<E extends java_lang_Object>(arg0: E[], arg1: com_google_common_base_Function<E, co_aikar_util_JSONUtil_JSONPair>): java_util_Map;
-static toObjectMapper<E extends java_lang_Object>(arg0: java_lang_Iterable<E>, arg1: com_google_common_base_Function<E, co_aikar_util_JSONUtil_JSONPair>): java_util_Map;
-static toArrayMapper<E extends java_lang_Object>(arg0: java_lang_Iterable<E>, arg1: com_google_common_base_Function<E, java_lang_Object>): java_util_List;
-static toArrayMapper<E extends java_lang_Object>(arg0: E[], arg1: com_google_common_base_Function<E, java_lang_Object>): java_util_List;
-static pair(arg0: string, arg1: java_lang_Object): co_aikar_util_JSONUtil_JSONPair;
-static pair(arg0: number, arg1: java_lang_Object): co_aikar_util_JSONUtil_JSONPair;
+/** This builds a JSON array from a set of data */
+static toArray(...data: java_lang_Object[]): java_util_List;
+/** Creates a new JSON object from multiple JSONPair key/value pairs */
+static createObject(...data: co_aikar_util_JSONUtil_JSONPair[]): java_util_Map<string, java_lang_Object>;
+/** This appends multiple key/value Obj pairs into a JSON Object */
+static appendObjectData(parent: java_util_Map, ...data: co_aikar_util_JSONUtil_JSONPair[]): java_util_Map<string, java_lang_Object>;
+/** These help build a single JSON Object from a collection, using a mapper function */
+static toObjectMapper<E extends java_lang_Object>(collection: E[], mapper: com_google_common_base_Function<E, co_aikar_util_JSONUtil_JSONPair>): java_util_Map;
+static toObjectMapper<E extends java_lang_Object>(collection: java_lang_Iterable<E>, mapper: com_google_common_base_Function<E, co_aikar_util_JSONUtil_JSONPair>): java_util_Map;
+static toArrayMapper<E extends java_lang_Object>(collection: java_lang_Iterable<E>, mapper: com_google_common_base_Function<E, java_lang_Object>): java_util_List;
+/** These help build a single JSON array using a mapper function */
+static toArrayMapper<E extends java_lang_Object>(collection: E[], mapper: com_google_common_base_Function<E, java_lang_Object>): java_util_List;
+/** Creates a key/value "JSONPair" object */
+static pair(key: string, obj: java_lang_Object | null): co_aikar_util_JSONUtil_JSONPair | null;
+static pair(key: number, obj: java_lang_Object | null): co_aikar_util_JSONUtil_JSONPair | null;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util.JSONUtil' {
 import { Object as java_lang_Object } from 'java.lang';
+/** Simply stores a key and a value, used internally by many methods below. */
 
   export class JSONPair extends java_lang_Object {
 key: string;
@@ -208,10 +252,12 @@ val: java_lang_Object;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util.JSONUtil' {
 import { Object as java_lang_Object } from 'java.lang';
+/** Simply stores a key and a value, used internally by many methods below. */
 
   export class JSONPair extends java_lang_Object {
 key: string;
@@ -219,7 +265,8 @@ val: java_lang_Object;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util' {
 import { Object as java_lang_Object, Class as java_lang_Class, Integer as java_lang_Integer } from 'java.lang';
@@ -229,12 +276,22 @@ import { Entry as java_util_Map_Entry } from 'java.util.Map';
 import { Set as java_util_Set } from 'java.util';
 import { Int2ObjectFunction as it_unimi_dsi_fastutil_ints_Int2ObjectFunction, Int2ObjectOpenHashMap as it_unimi_dsi_fastutil_ints_Int2ObjectOpenHashMap } from 'it.unimi.dsi.fastutil.ints';
 import { Function as com_google_common_base_Function } from 'com.google.common.base';
+/** Allows you to pass a Loader function that when a key is accessed that doesn't exist,
+ automatically loads the entry into the map by calling the loader Function.
+
+ .get() Will only return null if the Loader can return null.
+
+ You may pass any backing Map to use.
+
+ This class is not thread safe and should be wrapped with Collections.synchronizedMap on the OUTSIDE of the LoadingMap if needed.
+
+ Do not wrap the backing map with Collections.synchronizedMap. */
 
   export class LoadingIntMap<V extends java_lang_Object> extends it_unimi_dsi_fastutil_ints_Int2ObjectOpenHashMap<V> {
 loader: com_google_common_base_Function<java_lang_Integer, V>;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
-get(arg0: number): V;
+get(key: number): V | null;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 defaultReturnValue(arg0: V): void;
@@ -275,26 +332,29 @@ computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction): j
 computeIfAbsentPartial(arg0: number, arg1: it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>): V;
 replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
 forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-constructor(arg0: number, arg1: number, arg2: com_google_common_base_Function<java_lang_Integer, V>);
-constructor(arg0: number, arg1: com_google_common_base_Function<java_lang_Integer, V>);
-constructor(arg0: com_google_common_base_Function<java_lang_Integer, V>);
+constructor(expectedSize: number, loadFactor: number, loader: com_google_common_base_Function<java_lang_Integer, V>);
+constructor(expectedSize: number, loader: com_google_common_base_Function<java_lang_Integer, V>);
+constructor(loader: com_google_common_base_Function<java_lang_Integer, V>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util.LoadingIntMap' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Function as java_util_function_Function } from 'java.util.function';
 import { Function as com_google_common_base_Function } from 'com.google.common.base';
+/** Due to java stuff, you will need to cast it to (Function) for some cases */
 
   export class Feeder<T extends java_lang_Object> extends java_lang_Object implements com_google_common_base_Function<T, T> {
 
-apply(arg0: java_lang_Object): T;
-apply(): T;
+apply(input: java_lang_Object | null): T | null;
+apply(): T | null;
 compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -302,16 +362,26 @@ import { Collection as java_util_Collection, Set as java_util_Set, Map as java_u
 import { LoadingMap as co_aikar_util_LoadingMap } from 'co.aikar.util';
 import { Entry as java_util_Map_Entry } from 'java.util.Map';
 import { Function as java_util_function_Function, BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer } from 'java.util.function';
+/** Allows you to pass a Loader function that when a key is accessed that doesn't exists,
+ automatically loads the entry into the map by calling the loader Function.
+
+ .get() Will only return null if the Loader can return null.
+
+ You may pass any backing Map to use.
+
+ This class is not thread safe and should be wrapped with Collections.synchronizedMap on the OUTSIDE of the LoadingMap if needed.
+
+ Do not wrap the backing map with Collections.synchronizedMap. */
 
   export class LoadingMap<K extends java_lang_Object, V extends java_lang_Object> extends java_util_AbstractMap<K, V> {
 backingMap: java_util_Map<K, V>;
 loader: java_util_function_Function<K, V>;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
-remove(arg0: java_lang_Object): V;
-get(arg0: java_lang_Object): V;
-put(arg0: K, arg1: V): V;
-equals(arg0: java_lang_Object): boolean;
+remove(key: java_lang_Object | null): V | null;
+get(key: java_lang_Object | null): V | null;
+put(key: K | null, value: V | null): V | null;
+equals(o: java_lang_Object | null): boolean | null;
 values(): java_util_Collection<V>;
 hashCode(): number;
 clone(): java_lang_Object;
@@ -320,22 +390,40 @@ clear(): void;
 isEmpty(): boolean;
 size(): number;
 entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
-putAll(arg0: java_util_Map<K, V>): void;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Map<K, V>, arg1: java_util_function_Function<K, V>): java_util_Map<K, V>;
-containsKey(arg0: java_lang_Object): boolean;
-containsValue(arg0: java_lang_Object): boolean;
+putAll(m: java_util_Map<K, V>): void;
+/** Creates a new LoadingMap with the specified map and loader */
+static of<K extends java_lang_Object, V extends java_lang_Object>(backingMap: java_util_Map<K, V>, loader: java_util_function_Function<K, V>): java_util_Map<K, V>;
+containsKey(key: java_lang_Object | null): boolean | null;
+containsValue(value: java_lang_Object | null): boolean | null;
 keySet(): java_util_Set<K>;
-static newIdentityHashMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_function_Function<K, V>): java_util_Map<K, V>;
-static newIdentityHashMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_function_Function<K, V>, arg1: number): java_util_Map<K, V>;
-static newHashMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_function_Function<K, V>): java_util_Map<K, V>;
-static newHashMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_function_Function<K, V>, arg1: number, arg2: number): java_util_Map<K, V>;
-static newHashMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_function_Function<K, V>, arg1: number): java_util_Map<K, V>;
-static newAutoMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Map<K, V>, arg1: java_lang_Class<K>, arg2: java_lang_Class<V>): java_util_Map<K, V>;
-static newAutoMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Map<K, V>, arg1: java_lang_Class<V>): java_util_Map<K, V>;
-static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_lang_Class<V>): java_util_Map<K, V>;
-static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_lang_Class<K>, arg1: java_lang_Class<V>, arg2: number, arg3: number): java_util_Map<K, V>;
-static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_lang_Class<V>, arg1: number, arg2: number): java_util_Map<K, V>;
-static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_lang_Class<K>, arg1: java_lang_Class<V>): java_util_Map<K, V>;
+/** Initializes an auto loading map using an Identity HashMap */
+static newIdentityHashMap<K extends java_lang_Object, V extends java_lang_Object>(loader: java_util_function_Function<K, V>): java_util_Map<K, V>;
+/** Initializes an auto loading map using an Identity HashMap */
+static newIdentityHashMap<K extends java_lang_Object, V extends java_lang_Object>(loader: java_util_function_Function<K, V>, initialCapacity: number): java_util_Map<K, V>;
+/** Initializes an auto loading map using a HashMap */
+static newHashMap<K extends java_lang_Object, V extends java_lang_Object>(loader: java_util_function_Function<K, V>): java_util_Map<K, V>;
+/** Initializes an auto loading map using a HashMap */
+static newHashMap<K extends java_lang_Object, V extends java_lang_Object>(loader: java_util_function_Function<K, V>, initialCapacity: number, loadFactor: number): java_util_Map<K, V>;
+/** Initializes an auto loading map using a HashMap */
+static newHashMap<K extends java_lang_Object, V extends java_lang_Object>(loader: java_util_function_Function<K, V>, initialCapacity: number): java_util_Map<K, V>;
+/** Creates a LoadingMap with an auto instantiating loader.
+
+ Will auto construct class of of Value when not found
+
+ Since this uses Reflection, It is more effecient to define your own static loader
+ than using this helper, but if performance is not critical, this is easier. */
+static newAutoMap<K extends java_lang_Object, V extends java_lang_Object>(backingMap: java_util_Map<K, V>, keyClass: java_lang_Class<K> | null, valueClass: java_lang_Class<V>): java_util_Map<K, V> | null;
+/** Creates a LoadingMap with an auto instantiating loader.
+
+ Will auto construct class of of Value when not found
+
+ Since this uses Reflection, It is more effecient to define your own static loader
+ than using this helper, but if performance is not critical, this is easier. */
+static newAutoMap<K extends java_lang_Object, V extends java_lang_Object>(backingMap: java_util_Map<K, V>, valueClass: java_lang_Class<V>): java_util_Map<K, V>;
+static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(valueClass: java_lang_Class<V>): java_util_Map<K, V>;
+static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(keyClass: java_lang_Class<K> | null, valueClass: java_lang_Class<V>, initialCapacity: number, loadFactor: number): java_util_Map<K, V> | null;
+static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(valueClass: java_lang_Class<V>, initialCapacity: number, loadFactor: number): java_util_Map<K, V>;
+static newHashAutoMap<K extends java_lang_Object, V extends java_lang_Object>(keyClass: java_lang_Class<K> | null, valueClass: java_lang_Class<V>): java_util_Map<K, V> | null;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 wait(): void;
@@ -353,29 +441,34 @@ forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>)
 computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
 getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-constructor(arg0: java_util_Map<K, V>, arg1: java_util_function_Function<K, V>);
+/** Initializes an auto loading map using specified loader and backing map */
+constructor(backingMap: java_util_Map<K, V>, loader: java_util_function_Function<K, V>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util.LoadingMap' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Function as java_util_function_Function } from 'java.util.function';
+/** Due to java stuff, you will need to cast it to (Function) for some cases */
 
   export class Feeder<T extends java_lang_Object> extends java_lang_Object implements java_util_function_Function<T, T> {
 
-apply(arg0: java_lang_Object): T;
-apply(): T;
+apply(input: java_lang_Object | null): T | null;
+apply(): T | null;
 compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.util' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { Collection as java_util_Collection, Set as java_util_Set, Map as java_util_Map, AbstractMap as java_util_AbstractMap } from 'java.util';
 import { Entry as java_util_Map_Entry } from 'java.util.Map';
 import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
+/** Implements a Most Recently Used cache in front of a backing map, to quickly access the last accessed result. */
 
   export class MRUMapCache<K extends java_lang_Object, V extends java_lang_Object> extends java_util_AbstractMap<K, V> {
 backingMap: java_util_Map<K, V>;
@@ -383,18 +476,19 @@ cacheKey: java_lang_Object;
 cacheValue: V;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
-remove(arg0: java_lang_Object): V;
-get(arg0: java_lang_Object): V;
-put(arg0: K, arg1: V): V;
+remove(key: java_lang_Object | null): V | null;
+get(key: java_lang_Object | null): V | null;
+put(key: K | null, value: V | null): V | null;
 values(): java_util_Collection<V>;
 clear(): void;
 isEmpty(): boolean;
 size(): number;
 entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
-putAll(arg0: java_util_Map<K, V>): void;
-static of<K extends java_lang_Object, V extends java_lang_Object>(arg0: java_util_Map<K, V>): java_util_Map<K, V>;
-containsKey(arg0: java_lang_Object): boolean;
-containsValue(arg0: java_lang_Object): boolean;
+putAll(m: java_util_Map<K, V>): void;
+/** Wraps the specified map with a most recently used cache */
+static of<K extends java_lang_Object, V extends java_lang_Object>(map: java_util_Map<K, V>): java_util_Map<K, V>;
+containsKey(key: java_lang_Object | null): boolean | null;
+containsValue(value: java_lang_Object | null): boolean | null;
 keySet(): java_util_Set<K>;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -413,9 +507,10 @@ forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>)
 computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
 getOrDefault(arg0: java_lang_Object, arg1: V): V;
 computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-constructor(arg0: java_util_Map<K, V>);
+constructor(backingMap: java_util_Map<K, V>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
@@ -423,17 +518,31 @@ import { Object as java_lang_Object } from 'java.lang';
 
   export class NullTimingHandler extends java_lang_Object implements co_aikar_timings_Timing {
 static NULL: co_aikar_timings_Timing;
-timingHandler: co_aikar_timings_TimingHandler;
+timingHandler: co_aikar_timings_TimingHandler | null;
 close(): void;
 abort(): void;
+/** Description copied from interface: TimingStarts timing the execution until Timing.stopTiming() is called.
+
+ But only if we are on the primary thread. */
 startTimingIfSync(): co_aikar_timings_Timing;
+/** Description copied from interface: TimingStops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources
+
+ But only if we are on the primary thread. */
 stopTimingIfSync(): void;
-getTimingHandler(): co_aikar_timings_TimingHandler;
+/** Description copied from interface: TimingUsed internally to get the actual backing Handler in the case of delegated Handlers */
+getTimingHandler(): co_aikar_timings_TimingHandler | null;
+/** Description copied from interface: TimingStarts timing the execution until Timing.stopTiming() is called. */
 startTiming(): co_aikar_timings_Timing;
+/** Description copied from interface: TimingStops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources */
 stopTiming(): void;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Listener as org_bukkit_event_Listener, Event as org_bukkit_event_Event } from 'org.bukkit.event';
@@ -445,27 +554,44 @@ import { Timing as co_aikar_timings_Timing } from 'co.aikar.timings';
   export class TimedEventExecutor extends java_lang_Object implements org_bukkit_plugin_EventExecutor {
 executor: org_bukkit_plugin_EventExecutor;
 timings: co_aikar_timings_Timing;
-execute(arg0: org_bukkit_event_Listener, arg1: org_bukkit_event_Event): void;
-constructor(arg0: org_bukkit_plugin_EventExecutor, arg1: org_bukkit_plugin_Plugin, arg2: java_lang_reflect_Method, arg3: java_lang_Class<org_bukkit_event_Event>);
+execute(listener: org_bukkit_event_Listener, event: org_bukkit_event_Event): void;
+/** Wraps an event executor and associates a timing handler to it. */
+constructor(executor: org_bukkit_plugin_EventExecutor, plugin: org_bukkit_plugin_Plugin, method: java_lang_reflect_Method | null, eventClass: java_lang_Class<org_bukkit_event_Event>);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
 import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
+/** Provides an ability to time sections of code within the Minecraft Server */
 
   export class Timing implements java_lang_AutoCloseable {
-timingHandler: co_aikar_timings_TimingHandler;
+timingHandler: co_aikar_timings_TimingHandler | null;
 close(): void;
 abort(): void;
+/** Starts timing the execution until stopTiming() is called.
+
+ But only if we are on the primary thread. */
 startTimingIfSync(): co_aikar_timings_Timing;
+/** Stops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources
+
+ But only if we are on the primary thread. */
 stopTimingIfSync(): void;
-getTimingHandler(): co_aikar_timings_TimingHandler;
+/** Used internally to get the actual backing Handler in the case of delegated Handlers */
+getTimingHandler(): co_aikar_timings_TimingHandler | null;
+/** Starts timing the execution until stopTiming() is called. */
 startTiming(): co_aikar_timings_Timing;
+/** Stops timing and records the data. Propagates the data up to group handlers.
+
+ Will automatically be called when this Timing is used with try-with-resources */
 stopTiming(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Map as java_util_Map, Set as java_util_Set } from 'java.util';
@@ -496,7 +622,8 @@ worlds: java_util_Map<java_lang_Object, java_lang_Object>;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings.TimingHistory' {
 import { TicksRecord as co_aikar_timings_TimingHistory_TicksRecord, PingRecord as co_aikar_timings_TimingHistory_PingRecord } from 'co.aikar.timings.TimingHistory';
@@ -515,7 +642,8 @@ loadAvg: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings.TimingHistory' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -529,7 +657,8 @@ activatedEntity: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings.TimingHistory' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -539,7 +668,8 @@ avg: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { TimingData as co_aikar_timings_TimingData } from 'co.aikar.timings';
@@ -551,7 +681,8 @@ children: co_aikar_timings_TimingData[];
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
@@ -570,24 +701,77 @@ static historyInterval: number;
 static historyLength: number;
 static historyInterval: number;
 static historyLength: number;
-static of(arg0: org_bukkit_plugin_Plugin, arg1: string): co_aikar_timings_Timing;
-static of(arg0: org_bukkit_plugin_Plugin, arg1: string, arg2: co_aikar_timings_Timing): co_aikar_timings_Timing;
+/** Returns a Timing for a plugin corresponding to a name. */
+static of(plugin: org_bukkit_plugin_Plugin, name: string): co_aikar_timings_Timing;
+/** Returns a handler that has a groupHandler timer handler. Parent timers should not have their
+ start/stop methods called directly, as the children will call it for you.
+
+ Parent Timers are used to group multiple subsections together and get a summary of them combined
+ Parent Handler can not be changed after first call */
+static of(plugin: org_bukkit_plugin_Plugin, name: string, groupHandler: co_aikar_timings_Timing | null): co_aikar_timings_Timing | null;
+/** Resets all Timing Data */
 static reset(): void;
-static setTimingsEnabled(arg0: boolean): void;
+/** Sets whether or not the Spigot Timings system should be enabled
+
+ Calling this will reset timing data. */
+static setTimingsEnabled(enabled: boolean): void;
+/** Gets whether or not the Spigot Timings system is enabled */
 static isTimingsEnabled(): boolean;
-static setVerboseTimingsEnabled(arg0: boolean): void;
+/** Sets whether or not the Timings should monitor at Verbose level.
+
+ When Verbose is disabled, high-frequency timings will not be available.
+ Calling this will reset timing data. */
+static setVerboseTimingsEnabled(enabled: boolean): void;
+/** Gets the interval between Timing History report generation.
+
+ Defaults to 5 minutes (6000 ticks) */
 static getHistoryInterval(): number;
-static ofStart(arg0: org_bukkit_plugin_Plugin, arg1: string): co_aikar_timings_Timing;
-static ofStart(arg0: org_bukkit_plugin_Plugin, arg1: string, arg2: co_aikar_timings_Timing): co_aikar_timings_Timing;
+/** Returns a Timing object after starting it, useful for Java7 try-with-resources.
+
+ try (Timing ignored = Timings.ofStart(plugin, someName)) {
+ // timed section
+ } */
+static ofStart(plugin: org_bukkit_plugin_Plugin, name: string): co_aikar_timings_Timing;
+/** Returns a Timing object after starting it, useful for Java7 try-with-resources.
+
+ try (Timing ignored = Timings.ofStart(plugin, someName, groupHandler)) {
+ // timed section
+ } */
+static ofStart(plugin: org_bukkit_plugin_Plugin, name: string, groupHandler: co_aikar_timings_Timing | null): co_aikar_timings_Timing | null;
+/** Sets whether or not the Timings should monitor at Verbose level.
+
+ When Verbose is disabled, high-frequency timings will not be available. */
 static isVerboseTimingsEnabled(): boolean;
-static setHistoryInterval(arg0: number): void;
-static setHistoryLength(arg0: number): void;
+/** Sets the interval between Timing History report generations.
+
+ Defaults to 5 minutes (6000 ticks)
+
+ This will recheck your history length, so lowering this value will lower your
+ history length if you need more than 60 history windows. */
+static setHistoryInterval(interval: number): void;
+/** Sets how long Timing History reports are kept for the server.
+
+ Defaults to 1 hours(72000 ticks)
+
+ This value is capped at a maximum of getHistoryInterval() * MAX_HISTORY_FRAMES (12)
+
+ Will not reset Timing Data but may truncate old history if the new length is less than old length. */
+static setHistoryLength(length: number): void;
+/** Gets how long in ticks Timings history is kept for the server.
+
+ Defaults to 1 hour (72000 ticks) */
 static getHistoryLength(): number;
-static generateReport(arg0: org_bukkit_command_CommandSender): void;
-static generateReport(arg0: co_aikar_timings_TimingsReportListener): void;
+/** Generates a report and sends it to the specified command sender.
+
+ If sender is null, ConsoleCommandSender will be used. */
+static generateReport(sender: org_bukkit_command_CommandSender | null): void | null;
+/** Generates a report and sends it to the specified listener.
+ Use with BufferedCommandSender to get full response when done! */
+static generateReport(sender: co_aikar_timings_TimingsReportListener): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Server as org_bukkit_Server } from 'org.bukkit';
@@ -603,40 +787,80 @@ import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java
 senders: java_util_List<org_bukkit_command_CommandSender>;
 onDone: java_lang_Runnable;
 timingsURL: string;
-timingsURL: string;
+timingsURL: string | null;
 name: string;
 server: org_bukkit_Server;
 effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
 done(): void;
-done(arg0: string): void;
+done(url: string | null): void | null;
 addConsoleIfNeeded(): void;
-getTimingsURL(): string;
-sendMessage(arg0: string): void;
+getTimingsURL(): string | null;
+/** Description copied from interface: CommandSenderSends this sender a message */
+sendMessage(message: string): void;
+/** Description copied from interface: CommandSenderGets the name of this command sender */
 getName(): string;
+/** Description copied from interface: CommandSenderReturns the server instance that this command is running on */
 getServer(): org_bukkit_Server;
 spigot(): org_bukkit_command_CommandSender_Spigot;
+/** Description copied from interface: ServerOperatorChecks if this object is a server operator */
 isOp(): boolean;
-sendMessage(arg0: string[]): void;
-hasPermission(arg0: org_bukkit_permissions_Permission): boolean;
-hasPermission(arg0: string): boolean;
-isPermissionSet(arg0: string): boolean;
-isPermissionSet(arg0: org_bukkit_permissions_Permission): boolean;
-addAttachment(arg0: org_bukkit_plugin_Plugin, arg1: string, arg2: boolean, arg3: number): org_bukkit_permissions_PermissionAttachment;
-addAttachment(arg0: org_bukkit_plugin_Plugin): org_bukkit_permissions_PermissionAttachment;
-addAttachment(arg0: org_bukkit_plugin_Plugin, arg1: string, arg2: boolean): org_bukkit_permissions_PermissionAttachment;
-addAttachment(arg0: org_bukkit_plugin_Plugin, arg1: number): org_bukkit_permissions_PermissionAttachment;
-removeAttachment(arg0: org_bukkit_permissions_PermissionAttachment): void;
+/** Description copied from interface: CommandSenderSends this sender a message */
+sendMessage(message: string[]): void;
+/** Description copied from interface: PermissibleGets the value of the specified permission, if set.
+ 
+ If a permission override is not set on this object, the default value
+ of the permission will be returned */
+hasPermission(perm: org_bukkit_permissions_Permission): boolean;
+/** Description copied from interface: PermissibleGets the value of the specified permission, if set.
+ 
+ If a permission override is not set on this object, the default value
+ of the permission will be returned. */
+hasPermission(name: string): boolean;
+/** Description copied from interface: PermissibleChecks if this object contains an override for the specified
+ permission, by fully qualified name */
+isPermissionSet(name: string): boolean;
+/** Description copied from interface: PermissibleChecks if this object contains an override for the specified Permission */
+isPermissionSet(perm: org_bukkit_permissions_Permission): boolean;
+/** Description copied from interface: PermissibleTemporarily adds a new PermissionAttachment with a single
+ permission by name and value */
+addAttachment(plugin: org_bukkit_plugin_Plugin, name: string, value: boolean, ticks: number): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleAdds a new empty PermissionAttachment to this object */
+addAttachment(plugin: org_bukkit_plugin_Plugin): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleAdds a new PermissionAttachment with a single permission by
+ name and value */
+addAttachment(plugin: org_bukkit_plugin_Plugin, name: string, value: boolean): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleTemporarily adds a new empty PermissionAttachment to this
+ object */
+addAttachment(plugin: org_bukkit_plugin_Plugin, ticks: number): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleRemoves the given PermissionAttachment from this object */
+removeAttachment(attachment: org_bukkit_permissions_PermissionAttachment): void;
+/** Description copied from interface: PermissibleRecalculates the permissions for this object, if the attachments have
+ changed values.
+ 
+ This should very rarely need to be called from a plugin. */
 recalculatePermissions(): void;
+/** Description copied from interface: PermissibleGets a set containing all of the permissions currently in effect by
+ this object */
 getEffectivePermissions(): java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
-setOp(arg0: boolean): void;
-sendMessage(arg0: net_md_5_bungee_api_chat_BaseComponent): void;
-sendMessage(...arg0: net_md_5_bungee_api_chat_BaseComponent[]): void;
-constructor(arg0: java_util_List<org_bukkit_command_CommandSender>, arg1: java_lang_Runnable);
-constructor(arg0: java_util_List<org_bukkit_command_CommandSender>);
-constructor(arg0: org_bukkit_command_CommandSender, arg1: java_lang_Runnable);
-constructor(arg0: org_bukkit_command_CommandSender);
+/** Description copied from interface: ServerOperatorSets the operator status of this object */
+setOp(value: boolean): void;
+/** Sends the component to the sender
+
+ If this sender does not support sending full components then
+ the component will be sent as legacy text. */
+sendMessage(component: net_md_5_bungee_api_chat_BaseComponent): void;
+/** Sends the component to the sender
+
+ If this sender does not support sending full components then
+ the component will be sent as legacy text. */
+sendMessage(...component: net_md_5_bungee_api_chat_BaseComponent[]): void;
+constructor(senders: java_util_List<org_bukkit_command_CommandSender>, onDone: java_lang_Runnable | null);
+constructor(senders: java_util_List<org_bukkit_command_CommandSender>);
+constructor(sender: org_bukkit_command_CommandSender, onDone: java_lang_Runnable | null);
+constructor(senders: org_bukkit_command_CommandSender);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { CommandSender as org_bukkit_command_CommandSender, CommandMap as org_bukkit_command_CommandMap, Command as org_bukkit_command_Command } from 'org.bukkit.command';
@@ -649,39 +873,87 @@ import { BukkitCommand as org_bukkit_command_defaults_BukkitCommand } from 'org.
 static TIMINGS_SUBCOMMANDS: java_util_List<string>;
 lastResetAttempt: number;
 name: string;
-permission: string;
+permission: string | null;
 timingName: string;
 label: string;
 usage: string;
-permissionMessage: string;
+permissionMessage: string | null;
 aliases: java_util_List<string>;
 description: string;
 class: java_lang_Class<java_lang_Object>;
-execute(arg0: org_bukkit_command_CommandSender, arg1: string, arg2: string[]): boolean;
-tabComplete(arg0: org_bukkit_command_CommandSender, arg1: string, arg2: string[]): java_util_List<string>;
+/** Description copied from class: CommandExecutes the command, returning its success */
+execute(sender: org_bukkit_command_CommandSender, currentAlias: string, args: string[]): boolean;
+/** Description copied from class: CommandExecuted on tab completion for this command, returning a list of
+ options the player can tab through. */
+tabComplete(sender: org_bukkit_command_CommandSender, alias: string, args: string[]): java_util_List<string>;
+/** Returns the name of this command */
 getName(): string;
 toString(): string;
+/** Returns the current registered state of this command */
 isRegistered(): boolean;
-register(arg0: org_bukkit_command_CommandMap): boolean;
-setName(arg0: string): boolean;
-setPermission(arg0: string): void;
-getPermission(): string;
-unregister(arg0: org_bukkit_command_CommandMap): boolean;
-setLabel(arg0: string): boolean;
-testPermissionSilent(arg0: org_bukkit_command_CommandSender): boolean;
+/** Registers this command to a CommandMap.
+ Once called it only allows changes the registered CommandMap */
+register(commandMap: org_bukkit_command_CommandMap): boolean;
+/** Sets the name of this command.
+ 
+ May only be used before registering the command.
+ Will return true if the new name is set, and false
+ if the command has already been registered. */
+setName(name: string): boolean;
+/** Sets the permission required by users to be able to perform this
+ command */
+setPermission(permission: string | null): void | null;
+/** Gets the permission required by users to be able to perform this
+ command */
+getPermission(): string | null;
+/** Unregisters this command from the passed CommandMap applying any
+ outstanding changes */
+unregister(commandMap: org_bukkit_command_CommandMap): boolean;
+/** Sets the label of this command.
+ 
+ May only be used before registering the command.
+ Will return true if the new name is set, and false
+ if the command has already been registered. */
+setLabel(name: string): boolean;
+/** Tests the given CommandSender to see if they can perform this
+ command.
+ 
+ No error is sent to the sender. */
+testPermissionSilent(target: org_bukkit_command_CommandSender): boolean;
 getTimingName(): string;
-testPermission(arg0: org_bukkit_command_CommandSender): boolean;
-setDescription(arg0: string): org_bukkit_command_Command;
-setPermissionMessage(arg0: string): org_bukkit_command_Command;
-setUsage(arg0: string): org_bukkit_command_Command;
-static broadcastCommandMessage(arg0: org_bukkit_command_CommandSender, arg1: string): void;
-static broadcastCommandMessage(arg0: org_bukkit_command_CommandSender, arg1: string, arg2: boolean): void;
+/** Tests the given CommandSender to see if they can perform this
+ command.
+ 
+ If they do not have permission, they will be informed that they cannot
+ do this. */
+testPermission(target: org_bukkit_command_CommandSender): boolean;
+/** Sets a brief description of this command. Defining a description in the
+ PluginDescriptionFile.getCommands() (under the
+ `description' node) is equivalent to this method. */
+setDescription(description: string): org_bukkit_command_Command;
+/** Sets the message sent when a permission check fails */
+setPermissionMessage(permissionMessage: string | null): org_bukkit_command_Command | null;
+/** Sets the example usage of this command */
+setUsage(usage: string): org_bukkit_command_Command;
+static broadcastCommandMessage(source: org_bukkit_command_CommandSender, message: string): void;
+static broadcastCommandMessage(source: org_bukkit_command_CommandSender, message: string, sendToSource: boolean): void;
+/** Returns the label for this command */
 getLabel(): string;
+/** Gets an example usage of this command */
 getUsage(): string;
-setAliases(arg0: java_util_List<string>): org_bukkit_command_Command;
-getPermissionMessage(): string;
-tabComplete(arg0: org_bukkit_command_CommandSender, arg1: string, arg2: string[], arg3: org_bukkit_Location): java_util_List<string>;
+/** Sets the list of aliases to request on registration for this command.
+ This is not effective outside of defining aliases in the PluginDescriptionFile.getCommands() (under the
+ `aliases' node) is equivalent to this method. */
+setAliases(aliases: java_util_List<string>): org_bukkit_command_Command;
+/** Returns a message to be displayed on a failed permission check for this
+ command */
+getPermissionMessage(): string | null;
+/** Executed on tab completion for this command, returning a list of
+ options the player can tab through. */
+tabComplete(sender: org_bukkit_command_CommandSender, alias: string, args: string[], location: org_bukkit_Location | null): java_util_List<string> | null;
+/** Returns a list of active aliases of this command */
 getAliases(): java_util_List<string>;
+/** Gets a brief description of this command */
 getDescription(): string;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -691,9 +963,10 @@ hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
-constructor(arg0: string);
+constructor(name: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Command as org_bukkit_command_Command } from 'org.bukkit.command';
@@ -718,13 +991,19 @@ static timingStart: number;
 static historyStart: number;
 static needsFullReset: boolean;
 static needsRecheckEnabled: boolean;
-static commandTiming: co_aikar_timings_Timing;
-static pluginByClassloader: org_bukkit_plugin_Plugin;
-static getCommandTiming(arg0: string, arg1: org_bukkit_command_Command): co_aikar_timings_Timing;
-static getPluginByClassloader(arg0: java_lang_Class<java_lang_Object>): org_bukkit_plugin_Plugin;
+static commandTiming: co_aikar_timings_Timing | null;
+static pluginByClassloader: org_bukkit_plugin_Plugin | null;
+/** Due to access restrictions, we need a helper method to get a Command TimingHandler with String group
+
+ Plugins should never call this */
+static getCommandTiming(pluginName: string | null, command: org_bukkit_command_Command): co_aikar_timings_Timing | null;
+/** Looks up the class loader for the specified class, and if it is a PluginClassLoader, return the
+ Plugin that created this class. */
+static getPluginByClassloader(clazz: java_lang_Class<java_lang_Object> | null): org_bukkit_plugin_Plugin | null;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'co.aikar.timings' {
 import { Server as org_bukkit_Server } from 'org.bukkit';
@@ -740,37 +1019,76 @@ import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java
 senders: java_util_List<org_bukkit_command_CommandSender>;
 onDone: java_lang_Runnable;
 timingsURL: string;
-timingsURL: string;
+timingsURL: string | null;
 name: string;
 server: org_bukkit_Server;
 effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
 done(): void;
-done(arg0: string): void;
+done(url: string | null): void | null;
 addConsoleIfNeeded(): void;
-getTimingsURL(): string;
-sendMessage(arg0: string): void;
+getTimingsURL(): string | null;
+/** Description copied from interface: CommandSenderSends this sender a message */
+sendMessage(message: string): void;
+/** Description copied from interface: CommandSenderGets the name of this command sender */
 getName(): string;
+/** Description copied from interface: CommandSenderReturns the server instance that this command is running on */
 getServer(): org_bukkit_Server;
 spigot(): org_bukkit_command_CommandSender_Spigot;
+/** Description copied from interface: ServerOperatorChecks if this object is a server operator */
 isOp(): boolean;
-sendMessage(arg0: string[]): void;
-hasPermission(arg0: org_bukkit_permissions_Permission): boolean;
-hasPermission(arg0: string): boolean;
-isPermissionSet(arg0: string): boolean;
-isPermissionSet(arg0: org_bukkit_permissions_Permission): boolean;
-addAttachment(arg0: org_bukkit_plugin_Plugin, arg1: string, arg2: boolean, arg3: number): org_bukkit_permissions_PermissionAttachment;
-addAttachment(arg0: org_bukkit_plugin_Plugin): org_bukkit_permissions_PermissionAttachment;
-addAttachment(arg0: org_bukkit_plugin_Plugin, arg1: string, arg2: boolean): org_bukkit_permissions_PermissionAttachment;
-addAttachment(arg0: org_bukkit_plugin_Plugin, arg1: number): org_bukkit_permissions_PermissionAttachment;
-removeAttachment(arg0: org_bukkit_permissions_PermissionAttachment): void;
+/** Description copied from interface: CommandSenderSends this sender a message */
+sendMessage(message: string[]): void;
+/** Description copied from interface: PermissibleGets the value of the specified permission, if set.
+ 
+ If a permission override is not set on this object, the default value
+ of the permission will be returned */
+hasPermission(perm: org_bukkit_permissions_Permission): boolean;
+/** Description copied from interface: PermissibleGets the value of the specified permission, if set.
+ 
+ If a permission override is not set on this object, the default value
+ of the permission will be returned. */
+hasPermission(name: string): boolean;
+/** Description copied from interface: PermissibleChecks if this object contains an override for the specified
+ permission, by fully qualified name */
+isPermissionSet(name: string): boolean;
+/** Description copied from interface: PermissibleChecks if this object contains an override for the specified Permission */
+isPermissionSet(perm: org_bukkit_permissions_Permission): boolean;
+/** Description copied from interface: PermissibleTemporarily adds a new PermissionAttachment with a single
+ permission by name and value */
+addAttachment(plugin: org_bukkit_plugin_Plugin, name: string, value: boolean, ticks: number): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleAdds a new empty PermissionAttachment to this object */
+addAttachment(plugin: org_bukkit_plugin_Plugin): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleAdds a new PermissionAttachment with a single permission by
+ name and value */
+addAttachment(plugin: org_bukkit_plugin_Plugin, name: string, value: boolean): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleTemporarily adds a new empty PermissionAttachment to this
+ object */
+addAttachment(plugin: org_bukkit_plugin_Plugin, ticks: number): org_bukkit_permissions_PermissionAttachment;
+/** Description copied from interface: PermissibleRemoves the given PermissionAttachment from this object */
+removeAttachment(attachment: org_bukkit_permissions_PermissionAttachment): void;
+/** Description copied from interface: PermissibleRecalculates the permissions for this object, if the attachments have
+ changed values.
+ 
+ This should very rarely need to be called from a plugin. */
 recalculatePermissions(): void;
+/** Description copied from interface: PermissibleGets a set containing all of the permissions currently in effect by
+ this object */
 getEffectivePermissions(): java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
-setOp(arg0: boolean): void;
-sendMessage(arg0: net_md_5_bungee_api_chat_BaseComponent): void;
-sendMessage(...arg0: net_md_5_bungee_api_chat_BaseComponent[]): void;
-constructor(arg0: java_util_List<org_bukkit_command_CommandSender>, arg1: java_lang_Runnable);
-constructor(arg0: java_util_List<org_bukkit_command_CommandSender>);
-constructor(arg0: org_bukkit_command_CommandSender, arg1: java_lang_Runnable);
-constructor(arg0: org_bukkit_command_CommandSender);
+/** Description copied from interface: ServerOperatorSets the operator status of this object */
+setOp(value: boolean): void;
+/** Sends the component to the sender
+
+ If this sender does not support sending full components then
+ the component will be sent as legacy text. */
+sendMessage(component: net_md_5_bungee_api_chat_BaseComponent): void;
+/** Sends the component to the sender
+
+ If this sender does not support sending full components then
+ the component will be sent as legacy text. */
+sendMessage(...component: net_md_5_bungee_api_chat_BaseComponent[]): void;
+constructor(senders: java_util_List<org_bukkit_command_CommandSender>, onDone: java_lang_Runnable | null);
+constructor(senders: java_util_List<org_bukkit_command_CommandSender>);
+constructor(sender: org_bukkit_command_CommandSender, onDone: java_lang_Runnable | null);
+constructor(senders: org_bukkit_command_CommandSender);
   }
 }

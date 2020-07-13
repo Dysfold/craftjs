@@ -70,7 +70,8 @@ constructor(arg0: string, arg1: string, arg2: number, arg3: string);
 constructor(arg0: string, arg1: string, arg2: string);
 constructor(arg0: string, arg1: string, arg2: number, arg3: string, arg4: java_net_URLStreamHandler);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
@@ -191,7 +192,8 @@ constructor(arg0: string, arg1: string, arg2: string);
 constructor(arg0: string);
 constructor(arg0: string, arg1: string, arg2: string, arg3: number, arg4: string, arg5: string, arg6: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Type as java_net_Proxy_Type } from 'java.net.Proxy';
@@ -209,7 +211,8 @@ hashCode(): number;
 address(): java_net_SocketAddress;
 constructor(arg0: java_net_Proxy_Type, arg1: java_net_SocketAddress);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.Proxy' {
 import { Type as java_net_Proxy_Type } from 'java.net.Proxy';
@@ -231,7 +234,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -242,7 +246,8 @@ static serialVersionUID: number;
 
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Class as java_lang_Class, Object as java_lang_Object, Boolean as java_lang_Boolean } from 'java.lang';
@@ -362,7 +367,8 @@ static getDefaultRequestProperty(arg0: string): string;
 static setContentHandlerFactory(arg0: java_net_ContentHandlerFactory): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -415,7 +421,8 @@ notify(): void;
 notifyAll(): void;
 constructor(arg0: string, arg1: string);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -481,7 +488,8 @@ static getLoopbackAddress(): java_net_InetAddress;
 static getLocalHost(): java_net_InetAddress;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -539,7 +547,8 @@ getMTU(): number;
 isVirtual(): boolean;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -560,7 +569,8 @@ getBroadcast(): java_net_InetAddress;
 getNetworkPrefixLength(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -594,7 +604,8 @@ notify(): void;
 notifyAll(): void;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.InetAddress' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -607,7 +618,8 @@ family: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.InetAddress' {
 import { InetAddress as java_net_InetAddress } from 'java.net';
@@ -618,7 +630,8 @@ getHostByAddr(arg0: number[]): string;
 lookupAllHostAddr(arg0: string): java_net_InetAddress[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.InetAddress' {
 import { InetAddress as java_net_InetAddress } from 'java.net';
@@ -628,7 +641,8 @@ import { InetAddress as java_net_InetAddress } from 'java.net';
 get(): java_net_InetAddress[];
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.InetAddress' {
 import { InetAddress as java_net_InetAddress } from 'java.net';
@@ -647,7 +661,8 @@ compareTo(arg0: java_lang_Object): number;
 compareTo(arg0: java_net_InetAddress_CachedAddresses): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { InetAddress as java_net_InetAddress, NetworkInterface as java_net_NetworkInterface } from 'java.net';
@@ -663,7 +678,8 @@ lookupAllHostAddr(arg0: string): java_net_InetAddress[];
 getLocalHostName(): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.InetAddress' {
 import { InetAddress as java_net_InetAddress } from 'java.net';
@@ -676,7 +692,8 @@ expiryTime: number;
 
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 
@@ -686,7 +703,8 @@ contentTypeFor: string;
 getContentTypeFor(arg0: string): string;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { ContentHandler as java_net_ContentHandler } from 'java.net';
@@ -696,7 +714,8 @@ import { ContentHandler as java_net_ContentHandler } from 'java.net';
 createContentHandler(arg0: string): java_net_ContentHandler;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { URLConnection as java_net_URLConnection } from 'java.net';
@@ -709,7 +728,8 @@ getContent(arg0: java_net_URLConnection): java_lang_Object;
 getContent(arg0: java_net_URLConnection, arg1: java_lang_Class[]): java_lang_Object;
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { URLStreamHandler as java_net_URLStreamHandler } from 'java.net';
@@ -719,7 +739,8 @@ import { URLStreamHandler as java_net_URLStreamHandler } from 'java.net';
 createURLStreamHandler(arg0: string): java_net_URLStreamHandler;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -729,7 +750,8 @@ import { Object as java_lang_Object } from 'java.lang';
 
 constructor();
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -745,7 +767,8 @@ hashCode: number;
 
 constructor(arg0: string, arg1: string, arg2: number, arg3: string, arg4: string, arg5: string, arg6: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -784,7 +807,8 @@ constructor(arg0: java_net_InetAddress, arg1: number);
 constructor(arg0: number);
 constructor(arg0: string, arg1: number);
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net.InetSocketAddress' {
 import { Object as java_lang_Object } from 'java.lang';
@@ -799,7 +823,8 @@ toString(): string;
 hashCode(): number;
 
   }
-}//@ts-nocheck
+}
+//@ts-nocheck
 
 declare module 'java.net' {
 import { URL as java_net_URL, URLClassLoader as java_net_URLClassLoader, URLStreamHandlerFactory as java_net_URLStreamHandlerFactory } from 'java.net';
