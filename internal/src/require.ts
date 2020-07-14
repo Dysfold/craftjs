@@ -1,12 +1,19 @@
 import { Path } from 'java.nio.file';
 
-declare const readFile: any;
 const Paths = java.nio.file.Paths;
+
+declare const readFile: any;
 
 const cache: Record<string, any> = {};
 const stack: string[] = [];
 
-function resolveModule(parent: any, id: string) {
+class ModuleNotFoundError extends Error {
+  constructor(module: string, parent: Path) {
+    super(`Module '${module}' could not be resolved from ${parent}`);
+  }
+}
+
+function resolveModule(parent: Path, id: string): Path | null {
   if (id.match(/^[0-9A-Za-z_-]/)) {
     return resolveNodeModule(parent, id);
   }
@@ -54,7 +61,11 @@ function getEntrypoint(directory: Path) {
   return def;
 }
 
-function resolveFile(path: Path) {
+function resolveFile(path: Path | null) {
+  if (!path) {
+    return null;
+  }
+
   const file = path.toFile();
   const name = path.getFileName();
   const parts = name.toString().split('.');
@@ -62,7 +73,7 @@ function resolveFile(path: Path) {
     return getEntrypoint(path);
   }
   if (parts.length === 1) {
-    return Paths.get(path.getParent()?.toString() ?? '.', `${name}.js`);
+    return Paths.get(path.getParent()?.toString() ?? '.', `${name}.js`) as Path;
   }
   return path;
 }
@@ -92,8 +103,16 @@ function __require(id: string, relative?: string): any {
     return require(override);
   }
 
-  const parent = relative ?? Paths.get(stack.slice(-1)[0] ?? '.', '.');
-  const resolved = resolveFile(resolveModule(parent, id)).normalize();
+  const parent = relative
+    ? Paths.get(relative)
+    : Paths.get(stack.slice(-1)[0] ?? '.', '.');
+  const folder = resolveModule(parent, id);
+  const resolved = resolveFile(folder)?.normalize();
+
+  if (!resolved || !resolved.toFile().exists()) {
+    throw new ModuleNotFoundError(id, parent);
+  }
+
   const cacheId = resolved.toAbsolutePath().toString();
 
   if (cache[cacheId]) {
