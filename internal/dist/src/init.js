@@ -35,6 +35,7 @@ registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => {
 require('./command');
 require('./scheduling');
 require('./testing');
+require('./sourcemap');
 global.generateTypescriptDefinitions = require('./ts/generation').runTheThing;
 function refresh() {
     __plugin.refresh();

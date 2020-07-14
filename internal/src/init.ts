@@ -58,6 +58,7 @@ registerEvent(PluginDisableEvent, (event) => {
 require('./command');
 require('./scheduling');
 require('./testing');
+require('./sourcemap');
 
 global.generateTypescriptDefinitions = require('./ts/generation').runTheThing;
 
