@@ -16,7 +16,9 @@ declare global {
 
 
   function registerCommand(
-    name: string, callback: (sender: CommandSender, label: string, args: string[]) => void
+    name: string,
+    callback: (sender: CommandSender, label: string, args: string[]) => void,
+    tabComplete?: (sender: CommandSender, alias: string, args: string[]) => string[] | void
   ): void;
 
   function require(module: string, parent?: string): any;

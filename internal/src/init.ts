@@ -90,6 +90,7 @@ registerCommand(
       console.error(e);
     }
   },
+  (sender, alias, args) => {},
 );
 
 const startTime = Date.now();
