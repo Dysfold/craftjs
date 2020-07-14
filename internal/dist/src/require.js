@@ -134,3 +134,4 @@ ${contents}
     return module.exports;
 }
 global.require = __require;
+//# sourceMappingURL=require.js.map

@@ -34,3 +34,4 @@ zora_1.test('Events', async (t) => {
     t.notOk(await b, 'Event unregistration works');
     t.eq(oldHandlerAmount, getHandlerAmount(), 'Registered listener count stays the same');
 });
+//# sourceMappingURL=events.test.js.map

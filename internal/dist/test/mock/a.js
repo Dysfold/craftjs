@@ -5,3 +5,4 @@ exports.local = require('./b');
 exports.node1 = require('a');
 exports.node2 = require('b');
 exports.java = require('java.lang');
+//# sourceMappingURL=a.js.map

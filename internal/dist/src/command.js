@@ -23,3 +23,4 @@ addUnloadHandler(() => {
         spigotCmd.unregister(server.commandMap);
     });
 });
+//# sourceMappingURL=command.js.map
