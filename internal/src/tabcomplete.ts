@@ -13,6 +13,12 @@ export function tabComplete(
 
   const properties = [];
   for (const key in obj) {
+    if (key.match(/^get[A-Z]/)) {
+      const getterName = key.replace(/^get/, '');
+      properties.push(
+        getterName[0].toLocaleLowerCase().concat(getterName.slice(1)),
+      );
+    }
     properties.push(key);
   }
 
