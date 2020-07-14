@@ -14,7 +14,7 @@ function runTests() {
     const baseDir = new java_io_1.File('js');
     const testFiles = [];
     walk(baseDir, (f) => {
-        if (!f.getName().match(/\.test\.js/g) ||
+        if (!f.getName().match(/\.test\.js$/g) ||
             f.getPath().match('node_modules') // Exclude tests of node_modules
         ) {
             return;
@@ -28,3 +28,4 @@ function runTests() {
     });
 }
 global.runTests = runTests;
+//# sourceMappingURL=testing.js.map

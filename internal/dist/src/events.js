@@ -15,3 +15,4 @@ const __registerEvent = (eventClass, callback, priority = org_bukkit_event_1.Eve
     return unregister;
 };
 global.registerEvent = __registerEvent;
+//# sourceMappingURL=events.js.map

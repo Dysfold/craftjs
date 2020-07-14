@@ -144,9 +144,14 @@ ${contents}
     );
   } catch (e) {
     const line = e.lineNumber ? e.lineNumber - 2 : -1;
+    const error = global.patchError
+      ? global.patchError(resolved, contents, e, line)
+      : e;
 
     console.log(
-      `Error while executing ${e.fileName ?? src.getName()} at line ${line}`,
+      `Error while executing ${error.fileName ?? src.getName()} at line ${
+        error.lineNumber
+      }`,
     );
     console.error(e);
   }

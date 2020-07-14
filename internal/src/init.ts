@@ -41,6 +41,7 @@ function loadPlugins() {
   }
 }
 
+require('./sourcemap');
 require('./events');
 
 registerEvent(PluginDisableEvent, (event) => {

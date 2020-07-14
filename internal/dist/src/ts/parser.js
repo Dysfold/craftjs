@@ -197,3 +197,4 @@ function parseClass(clazz) {
     };
 }
 exports.parseClass = parseClass;
+//# sourceMappingURL=parser.js.map

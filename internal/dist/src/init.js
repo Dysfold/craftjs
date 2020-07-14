@@ -23,6 +23,7 @@ function loadPlugins() {
         require(relative.toString());
     }
 }
+require('./sourcemap');
 require('./events');
 registerEvent(org_bukkit_event_server_1.PluginDisableEvent, (event) => {
     if (event.plugin !== __plugin) {
@@ -65,3 +66,4 @@ registerCommand('js', (sender, label, args) => {
 const startTime = Date.now();
 loadPlugins();
 console.log(`Loaded all plugins in ${Date.now() - startTime}ms`);
+//# sourceMappingURL=init.js.map

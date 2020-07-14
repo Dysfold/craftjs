@@ -13,6 +13,7 @@ declare global {
   const __plugin: Plugin;
   const __filename: string;
   const __dirname: string;
+  const __jsdir: string;
   const readFile: (path: string) => string;
   const writeFile: (path: string, data: string, append?: boolean) => void;
 
