@@ -3,7 +3,12 @@ import { BukkitCommand } from 'org.bukkit.command.defaults';
 
 const commands: Command[] = [];
 
-global.registerCommand = __registerCommand;
+/*
+The setTimeout is necessary to prevent IllegalStateExceptions (https://github.com/Ap3teus/craftjs-javascript/issues/10)
+on player joins. I don't know why that fixes it, but it does ¯\_(ツ)_/¯
+*/
+global.registerCommand = (...params) =>
+  setTimeout(() => __registerCommand(...params), 50);
 
 function __registerCommand(
   ...[name, callback, tabComplete]: Parameters<typeof registerCommand>
