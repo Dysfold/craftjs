@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/js-base64": "^2.3.2",
+    "js-base64": "^2.6.3",
     "typescript": "^3.9.6",
     "vlq": "^1.0.1",
     "zora": "^4.0.0"

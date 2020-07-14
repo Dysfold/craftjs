@@ -1,4 +1,5 @@
 import * as vlq from 'vlq';
+import { Base64 } from 'js-base64';
 import { Path, Paths } from 'java.nio.file';
 
 declare global {
@@ -56,13 +57,22 @@ function generateErrorMessage(
   if (!sourceMapUrl) {
     return error;
   }
+
   const url = sourceMapUrl.split('=')[1];
+
+  const isInline = /^data:application\/json;base64,/.test(url);
+
   const folder = file.getParent();
   const sourceMapFile = folder.resolve(url);
-  if (!sourceMapFile.toFile().exists()) {
+  if (!sourceMapFile.toFile().exists() && !isInline) {
     return error;
   }
-  const sourceMap = JSON.parse(readFile(sourceMapFile.toString()));
+
+  const sourceMapContents = isInline
+    ? Base64.decode(url.split('base64,')[1])
+    : readFile(sourceMapFile.toString());
+
+  const sourceMap = JSON.parse(sourceMapContents);
   if (lineNumber === -1) {
     return error;
   }

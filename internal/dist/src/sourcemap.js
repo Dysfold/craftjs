@@ -8,6 +8,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const vlq = __importStar(require("vlq"));
+const js_base64_1 = require("js-base64");
 const java_nio_file_1 = require("java.nio.file");
 function mapLineToSource({ mappings, sources }, jsLine) {
     const lines = mappings.split(';').map((line) => line.split(','));
@@ -37,12 +38,16 @@ function generateErrorMessage(file, fileContents, error, lineNumber) {
         return error;
     }
     const url = sourceMapUrl.split('=')[1];
+    const isInline = /^data:application\/json;base64,/.test(url);
     const folder = file.getParent();
     const sourceMapFile = folder.resolve(url);
-    if (!sourceMapFile.toFile().exists()) {
+    if (!sourceMapFile.toFile().exists() && !isInline) {
         return error;
     }
-    const sourceMap = JSON.parse(readFile(sourceMapFile.toString()));
+    const sourceMapContents = isInline
+        ? js_base64_1.Base64.decode(url.split('base64,')[1])
+        : readFile(sourceMapFile.toString());
+    const sourceMap = JSON.parse(sourceMapContents);
     if (lineNumber === -1) {
         return error;
     }
