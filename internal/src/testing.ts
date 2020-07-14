@@ -19,7 +19,7 @@ function runTests() {
   const testFiles: File[] = [];
   walk(baseDir, (f) => {
     if (
-      !f.getName().match(/\.test\.js/g) ||
+      !f.getName().match(/\.test\.js$/g) ||
       f.getPath().match('node_modules') // Exclude tests of node_modules
     ) {
       return;

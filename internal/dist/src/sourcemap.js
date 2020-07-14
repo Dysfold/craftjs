@@ -31,7 +31,8 @@ function mapLineToSource({ mappings, sources }, jsLine) {
         line: result,
     };
 }
-function generateErrorMessage(file, fileContents, error, lineNumber) {
+exports.mapLineToSource = mapLineToSource;
+function patchError(file, fileContents, error, lineNumber) {
     const lines = fileContents.split('\n');
     const sourceMapUrl = lines.find((line) => /\/\/# sourceMappingURL/.test(line));
     if (!sourceMapUrl) {
@@ -59,5 +60,5 @@ function generateErrorMessage(file, fileContents, error, lineNumber) {
     return error;
 }
 global.mapLineToSource = mapLineToSource;
-global.generateErrorMessage = generateErrorMessage;
+global.patchError = patchError;
 //# sourceMappingURL=sourcemap.js.map

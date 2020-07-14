@@ -144,8 +144,8 @@ ${contents}
     );
   } catch (e) {
     const line = e.lineNumber ? e.lineNumber - 2 : -1;
-    const error = global.generateErrorMessage
-      ? global.generateErrorMessage(resolved, contents, e, line)
+    const error = global.patchError
+      ? global.patchError(resolved, contents, e, line)
       : e;
 
     console.log(

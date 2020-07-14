@@ -10,12 +10,12 @@ declare global {
    */
   function mapLineToSource(sourceMap: SourceMap, jsLine: number): void;
 
-  function generateErrorMessage(
+  function patchError(
     file: Path,
     contents: string,
     error: Error,
     lineNumber: number,
-  ): void;
+  ): Error;
 }
 
 interface SourceMap {
@@ -23,7 +23,10 @@ interface SourceMap {
   mappings: string;
 }
 
-function mapLineToSource({ mappings, sources }: SourceMap, jsLine: number) {
+export function mapLineToSource(
+  { mappings, sources }: SourceMap,
+  jsLine: number,
+) {
   const lines = mappings.split(';').map((line) => line.split(','));
   const decoded = lines.map((line) => line.map((col) => vlq.decode(col)));
   let sourceLine = 0;
@@ -44,7 +47,7 @@ function mapLineToSource({ mappings, sources }: SourceMap, jsLine: number) {
   };
 }
 
-function generateErrorMessage(
+function patchError(
   file: Path,
   fileContents: string,
   error: any,
@@ -86,4 +89,4 @@ function generateErrorMessage(
 }
 
 global.mapLineToSource = mapLineToSource;
-global.generateErrorMessage = generateErrorMessage;
+global.patchError = patchError;
