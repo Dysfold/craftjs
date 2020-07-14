@@ -24,7 +24,7 @@ global.addUnloadHandler = function (callback) {
 };
 
 function loadPlugins() {
-  const pluginsDir = new File('js', 'plugins');
+  const pluginsDir = new File(__jsdir, 'plugins');
   if (!pluginsDir.exists()) {
     pluginsDir.mkdirs();
   }

@@ -9,7 +9,7 @@ global.addUnloadHandler = function (callback) {
     unloadHandlers.push(callback);
 };
 function loadPlugins() {
-    const pluginsDir = new java_io_1.File('js', 'plugins');
+    const pluginsDir = new java_io_1.File(__jsdir, 'plugins');
     if (!pluginsDir.exists()) {
         pluginsDir.mkdirs();
     }

@@ -11,7 +11,7 @@ function walk(file, callback) {
     }
 }
 function runTests() {
-    const baseDir = new java_io_1.File('js');
+    const baseDir = new java_io_1.File(__jsdir);
     const testFiles = [];
     walk(baseDir, (f) => {
         if (!f.getName().match(/\.test\.js$/g) ||

@@ -15,7 +15,7 @@ function walk(file: File, callback: (file: File) => void) {
 }
 
 function runTests() {
-  const baseDir = new File('js');
+  const baseDir = new File(__jsdir);
   const testFiles: File[] = [];
   walk(baseDir, (f) => {
     if (
