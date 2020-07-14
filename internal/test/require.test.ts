@@ -12,6 +12,17 @@ test('require', (t) => {
       `Requiring node_modules and defaulting to index.js works`,
     );
     t.ok(module.java, 'Requiring java-packages works');
+
+    try {
+      require('./doesntexist');
+      t.fail();
+    } catch (e) {
+      t.eq(
+        e?.name,
+        'ModuleNotFoundError',
+        'Requiring non existant module should throw ModuleNotFoundError',
+      );
+    }
   } catch (e) {
     t.fail(e);
   }

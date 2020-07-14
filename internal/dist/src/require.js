@@ -3,6 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Paths = java.nio.file.Paths;
 const cache = {};
 const stack = [];
+class ModuleNotFoundError extends Error {
+    constructor(module, parent) {
+        super(`Module '${module}' could not be resolved from ${parent}`);
+        this.name = 'ModuleNotFoundError';
+    }
+}
 function resolveModule(parent, id) {
     if (id.match(/^[0-9A-Za-z_-]/)) {
         return resolveNodeModule(parent, id);
@@ -52,6 +58,9 @@ function getEntrypoint(directory) {
 }
 function resolveFile(path) {
     var _a, _b;
+    if (!path) {
+        return null;
+    }
     const file = path.toFile();
     const name = path.getFileName();
     const parts = name.toString().split('.');
@@ -76,7 +85,7 @@ const overrides = {
     tty: 'tty-browserify',
 };
 function __require(id, relative) {
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d, _e, _f;
     const pkg = java.lang.Package.getPackage(id);
     if (pkg) {
         return getPackage(id);
@@ -85,13 +94,19 @@ function __require(id, relative) {
     if (override) {
         return require(override);
     }
-    const parent = relative !== null && relative !== void 0 ? relative : Paths.get((_a = stack.slice(-1)[0]) !== null && _a !== void 0 ? _a : '.', '.');
-    const resolved = resolveFile(resolveModule(parent, id)).normalize();
+    const parent = relative
+        ? Paths.get(relative)
+        : Paths.get((_a = stack.slice(-1)[0]) !== null && _a !== void 0 ? _a : '.', '.');
+    const folder = resolveModule(parent, id);
+    const resolved = (_b = resolveFile(folder)) === null || _b === void 0 ? void 0 : _b.normalize();
+    if (!resolved || !resolved.toFile().exists()) {
+        throw new ModuleNotFoundError(id, parent);
+    }
     const cacheId = resolved.toAbsolutePath().toString();
     if (cache[cacheId]) {
         return cache[cacheId].exports;
     }
-    stack.push((_c = (_b = resolved.getParent()) === null || _b === void 0 ? void 0 : _b.toString()) !== null && _c !== void 0 ? _c : '.');
+    stack.push((_d = (_c = resolved.getParent()) === null || _c === void 0 ? void 0 : _c.toString()) !== null && _d !== void 0 ? _d : '.');
     const exports = {};
     const module = {
         exports,
@@ -107,7 +122,7 @@ ${contents}
         .build();
     try {
         const func = __ctx.eval(src);
-        func(module, exports, resolved.toString(), (_e = (_d = resolved.getParent()) === null || _d === void 0 ? void 0 : _d.toString()) !== null && _e !== void 0 ? _e : '.');
+        func(module, exports, resolved.toString(), (_f = (_e = resolved.getParent()) === null || _e === void 0 ? void 0 : _e.toString()) !== null && _f !== void 0 ? _f : '.');
     }
     catch (e) {
         const pos = [
