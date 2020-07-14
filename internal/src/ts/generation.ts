@@ -149,9 +149,9 @@ declare module '${clazz.ref.package}' {
     };
   }
 
-  const methodDefs = clazz.methods.map((m) =>
-    generateMethodDefinition(m, dependencies),
-  );
+  const methodDefs = clazz.methods
+    .map((m) => generateMethodDefinition(m, dependencies))
+    .sort();
 
   const getters = clazz.methods.filter((m) => m.name.match(/^get[A-Z]/g));
   const getterFields = getters.map((g) => {
@@ -163,13 +163,14 @@ declare module '${clazz.ref.package}' {
     } as Property;
   });
 
-  const constructorDefs = clazz.constructors.map((c) =>
-    generateMethodDefinition(c, dependencies),
-  );
+  const constructorDefs = clazz.constructors
+    .map((c) => generateMethodDefinition(c, dependencies))
+    .sort();
   const propDefs = clazz.properties
     .concat(getterFields)
     .filter((p) => p.isPublic)
-    .map((p) => generatePropertyDefinition(p, dependencies));
+    .map((p) => generatePropertyDefinition(p, dependencies))
+    .sort();
   const extend = clazz.extends
     ? generateTypeDefinition(clazz.extends, dependencies)
     : undefined;

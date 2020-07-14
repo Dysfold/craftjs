@@ -46,6 +46,7 @@ export interface Parameter {
 
 export interface Property {
   name: string;
+  docs: string;
   isStatic: boolean;
   isPublic: boolean;
   nullable: boolean;
@@ -292,6 +293,7 @@ function parseProperty(field: any): Property {
   const modifiers = field.getModifiers();
   return {
     name: field.getName(),
+    docs: '',
     isStatic: Modifier.isStatic(modifiers),
     isPublic: Modifier.isPublic(modifiers),
     nullable: false,

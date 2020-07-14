@@ -9,27 +9,27 @@ import { Entry as java_util_Map_Entry } from 'java.util.Map';
 
   export class Multimap<K extends java_lang_Object, V extends java_lang_Object> {
 
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-get(arg0: K): java_util_Collection<V>;
-put(arg0: K, arg1: V): boolean;
-equals(arg0: java_lang_Object): boolean;
-values(): java_util_Collection<V>;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-size(): number;
-putAll(arg0: com_google_common_collect_Multimap<K, V>): boolean;
-putAll(arg0: K, arg1: java_lang_Iterable<V>): boolean;
-forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-containsKey(arg0: java_lang_Object): boolean;
-keys(): com_google_common_collect_Multiset<K>;
-containsValue(arg0: java_lang_Object): boolean;
-keySet(): java_util_Set<K>;
-entries(): java_util_Collection<java_util_Map_Entry<K, V>>;
-removeAll(arg0: java_lang_Object): java_util_Collection<V>;
 asMap(): java_util_Map<K, java_util_Collection<V>>;
+clear(): void;
 containsEntry(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+containsKey(arg0: java_lang_Object): boolean;
+containsValue(arg0: java_lang_Object): boolean;
+entries(): java_util_Collection<java_util_Map_Entry<K, V>>;
+equals(arg0: java_lang_Object): boolean;
+forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+get(arg0: K): java_util_Collection<V>;
+hashCode(): number;
+isEmpty(): boolean;
+keySet(): java_util_Set<K>;
+keys(): com_google_common_collect_Multiset<K>;
+put(arg0: K, arg1: V): boolean;
+putAll(arg0: K, arg1: java_lang_Iterable<V>): boolean;
+putAll(arg0: com_google_common_collect_Multimap<K, V>): boolean;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+removeAll(arg0: java_lang_Object): java_util_Collection<V>;
 replaceValues(arg0: K, arg1: java_lang_Iterable<V>): java_util_Collection<V>;
+size(): number;
+values(): java_util_Collection<V>;
 
   }
 }
@@ -44,36 +44,36 @@ import { Stream as java_util_stream_Stream } from 'java.util.stream';
 
   export class Multiset<E extends java_lang_Object> implements java_util_Collection<E> {
 
-add(arg0: E, arg1: number): number;
 add(arg0: E): boolean;
+add(arg0: E, arg1: number): number;
+addAll(arg0: java_util_Collection<E>): boolean;
+clear(): void;
+contains(arg0: java_lang_Object): boolean;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+count(arg0: java_lang_Object): number;
+elementSet(): java_util_Set<E>;
+entrySet(): java_util_Set<com_google_common_collect_Multiset_Entry<E>>;
+equals(arg0: java_lang_Object): boolean;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+forEachEntry(arg0: java_util_function_ObjIntConsumer<java_lang_Object>): void;
+hashCode(): number;
+isEmpty(): boolean;
+iterator(): java_util_Iterator<E>;
+parallelStream(): java_util_stream_Stream<E>;
 remove(arg0: java_lang_Object): boolean;
 remove(arg0: java_lang_Object, arg1: number): number;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-count(arg0: java_lang_Object): number;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-iterator(): java_util_Iterator<E>;
-spliterator(): java_util_Spliterator<E>;
-entrySet(): java_util_Set<com_google_common_collect_Multiset_Entry<E>>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-forEachEntry(arg0: java_util_function_ObjIntConsumer<java_lang_Object>): void;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 setCount(arg0: E, arg1: number): number;
 setCount(arg0: E, arg1: number, arg2: number): boolean;
-elementSet(): java_util_Set<E>;
-clear(): void;
-isEmpty(): boolean;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+size(): number;
+spliterator(): java_util_Spliterator<E>;
+stream(): java_util_stream_Stream<E>;
 toArray(): java_lang_Object[];
 toArray<T extends java_lang_Object>(arg0: T[]): T[];
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toString(): string;
 
   }
 }
@@ -86,10 +86,10 @@ import { Object as java_lang_Object } from 'java.lang';
 count: number;
 element: E;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getCount(): number;
 getElement(): E;
+hashCode(): number;
+toString(): string;
 
   }
 }
@@ -101,10 +101,10 @@ import { Function as java_util_function_Function } from 'java.util.function';
 
   export class Function<F extends java_lang_Object, T extends java_lang_Object> implements java_util_function_Function<F, T> {
 
-equals(arg0: java_lang_Object): boolean;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 apply(arg0: F): T;
 compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+equals(arg0: java_lang_Object): boolean;
 
   }
 }
@@ -120,37 +120,37 @@ import { ForwardingObject as com_google_common_collect_ForwardingObject } from '
   export class ForwardingMap<K extends java_lang_Object, V extends java_lang_Object> extends com_google_common_collect_ForwardingObject implements java_util_Map<K, V> {
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
-remove(arg0: java_lang_Object): V;
-get(arg0: java_lang_Object): V;
-put(arg0: K, arg1: V): V;
-equals(arg0: java_lang_Object): boolean;
-values(): java_util_Collection<V>;
-hashCode(): number;
 clear(): void;
-isEmpty(): boolean;
-size(): number;
-entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
-putAll(arg0: java_util_Map<K, V>): void;
+compute(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
+computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 containsKey(arg0: java_lang_Object): boolean;
 containsValue(arg0: java_lang_Object): boolean;
-keySet(): java_util_Set<K>;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
+entrySet(): java_util_Set<java_util_Map_Entry<K, V>>;
+equals(arg0: java_lang_Object): boolean;
+forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+get(arg0: java_lang_Object): V;
 getClass(): java_lang_Class<java_lang_Object>;
+getOrDefault(arg0: java_lang_Object, arg1: V): V;
+hashCode(): number;
+isEmpty(): boolean;
+keySet(): java_util_Set<K>;
+merge(arg0: K, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 notify(): void;
 notifyAll(): void;
+put(arg0: K, arg1: V): V;
+putAll(arg0: java_util_Map<K, V>): void;
+putIfAbsent(arg0: K, arg1: V): V;
+remove(arg0: java_lang_Object): V;
 remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
 replace(arg0: K, arg1: V): V;
 replace(arg0: K, arg1: V, arg2: V): boolean;
 replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
-merge(arg0: K, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-putIfAbsent(arg0: K, arg1: V): V;
-compute(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-computeIfAbsent(arg0: K, arg1: java_util_function_Function<java_lang_Object, V>): V;
-getOrDefault(arg0: java_lang_Object, arg1: V): V;
-computeIfPresent(arg0: K, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+size(): number;
+values(): java_util_Collection<V>;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 
   }
 }

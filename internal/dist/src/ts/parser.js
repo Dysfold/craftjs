@@ -164,6 +164,7 @@ function parseProperty(field) {
     const modifiers = field.getModifiers();
     return {
         name: field.getName(),
+        docs: '',
         isStatic: Modifier.isStatic(modifiers),
         isPublic: Modifier.isPublic(modifiers),
         nullable: false,

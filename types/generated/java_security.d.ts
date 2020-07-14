@@ -7,17 +7,17 @@ import { Serializable as java_io_Serializable } from 'java.io';
 /** Represents a unique permission that may be attached to a Permissible */
 
   export class Permission extends java_lang_Object implements java_security_Guard, java_io_Serializable {
-name: string;
 actions: string;
+name: string;
 /** Returns the unique fully qualified name of this Permission */
 getName(): string;
+checkGuard(arg0: java_lang_Object): void;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
+getActions(): string;
 hashCode(): number;
 implies(arg0: java_security_Permission): boolean;
-getActions(): string;
 newPermissionCollection(): java_security_PermissionCollection;
-checkGuard(arg0: java_lang_Object): void;
+toString(): string;
 constructor(name: string);
   }
 }
@@ -33,12 +33,12 @@ import { Serializable as java_io_Serializable } from 'java.io';
   export class PermissionCollection extends java_lang_Object implements java_io_Serializable {
 
 add(arg0: java_security_Permission): void;
-toString(): string;
 elements(): java_util_Enumeration<java_security_Permission>;
-implies(arg0: java_security_Permission): boolean;
-setReadOnly(): void;
-isReadOnly(): boolean;
 elementsAsStream(): java_util_stream_Stream<java_security_Permission>;
+implies(arg0: java_security_Permission): boolean;
+isReadOnly(): boolean;
+setReadOnly(): void;
+toString(): string;
 constructor();
   }
 }
@@ -61,11 +61,11 @@ import { Subject as javax_security_auth_Subject } from 'javax.security.auth';
 
   export class Principal {
 name: string;
-getName(): string;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
+getName(): string;
 hashCode(): number;
 implies(arg0: javax_security_auth_Subject): boolean;
+toString(): string;
 
   }
 }
@@ -77,10 +77,10 @@ import { Permission as java_security_Permission, DomainCombiner as java_security
 
   export class AccessControlContext extends java_lang_Object {
 domainCombiner: java_security_DomainCombiner;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
 checkPermission(arg0: java_security_Permission): void;
+equals(arg0: java_lang_Object): boolean;
 getDomainCombiner(): java_security_DomainCombiner;
+hashCode(): number;
 constructor(arg0: java_security_AccessControlContext, arg1: java_security_DomainCombiner);
 constructor(arg0: java_security_ProtectionDomain[]);
   }
@@ -105,15 +105,15 @@ import { CodeSource as java_security_CodeSource, Principal as java_security_Prin
   export class ProtectionDomain extends java_lang_Object {
 classLoader: java_lang_ClassLoader;
 codeSource: java_security_CodeSource;
-principals: java_security_Principal[];
 permissions: java_security_PermissionCollection;
-toString(): string;
+principals: java_security_Principal[];
 getClassLoader(): java_lang_ClassLoader;
 getCodeSource(): java_security_CodeSource;
-getPrincipals(): java_security_Principal[];
 getPermissions(): java_security_PermissionCollection;
-staticPermissionsOnly(): boolean;
+getPrincipals(): java_security_Principal[];
 implies(arg0: java_security_Permission): boolean;
+staticPermissionsOnly(): boolean;
+toString(): string;
 constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection);
 constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection, arg2: java_lang_ClassLoader, arg3: java_security_Principal[]);
   }
@@ -128,18 +128,18 @@ import { CodeSource as java_security_CodeSource, CodeSigner as java_security_Cod
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class CodeSource extends java_lang_Object implements java_io_Serializable {
-location: java_net_URL;
 certificates: java_security_cert_Certificate[];
 codeSigners: java_security_CodeSigner[];
+location: java_net_URL;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getLocation(): java_net_URL;
 getCertificates(): java_security_cert_Certificate[];
-implies(arg0: java_security_CodeSource): boolean;
 getCodeSigners(): java_security_CodeSigner[];
-constructor(arg0: java_net_URL, arg1: java_security_cert_Certificate[]);
+getLocation(): java_net_URL;
+hashCode(): number;
+implies(arg0: java_security_CodeSource): boolean;
+toString(): string;
 constructor(arg0: java_net_URL, arg1: java_security_CodeSigner[]);
+constructor(arg0: java_net_URL, arg1: java_security_cert_Certificate[]);
   }
 }
 //@ts-nocheck
@@ -150,18 +150,18 @@ import { PublicKey as java_security_PublicKey, Provider as java_security_Provide
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Certificate extends java_lang_Object implements java_io_Serializable {
-type: string;
 encoded: number[];
 publicKey: java_security_PublicKey;
+type: string;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getType(): string;
 getEncoded(): number[];
-verify(arg0: java_security_PublicKey): void;
-verify(arg0: java_security_PublicKey, arg1: string): void;
-verify(arg0: java_security_PublicKey, arg1: java_security_Provider): void;
 getPublicKey(): java_security_PublicKey;
+getType(): string;
+hashCode(): number;
+toString(): string;
+verify(arg0: java_security_PublicKey): void;
+verify(arg0: java_security_PublicKey, arg1: java_security_Provider): void;
+verify(arg0: java_security_PublicKey, arg1: string): void;
 
   }
 }
@@ -171,13 +171,13 @@ declare module 'java.security' {
 import { Key as java_security_Key } from 'java.security';
 
   export class PublicKey implements java_security_Key {
-static serialVersionUID: number;
+algorithm: string;
 encoded: number[];
 format: string;
-algorithm: string;
+static serialVersionUID: number;
+getAlgorithm(): string;
 getEncoded(): number[];
 getFormat(): string;
-getAlgorithm(): string;
 
   }
 }
@@ -187,13 +187,13 @@ declare module 'java.security' {
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Key implements java_io_Serializable {
-static serialVersionUID: number;
+algorithm: string;
 encoded: number[];
 format: string;
-algorithm: string;
+static serialVersionUID: number;
+getAlgorithm(): string;
 getEncoded(): number[];
 getFormat(): string;
-getAlgorithm(): string;
 
   }
 }
@@ -209,53 +209,53 @@ import { Service as java_security_Provider_Service } from 'java.security.Provide
 import { Provider as java_security_Provider } from 'java.security';
 
   export class Provider extends java_util_Properties {
+class: java_lang_Class<java_lang_Object>;
+info: string;
 name: string;
-property: string;
 orDefault: java_lang_Object;
-version: number;
+property: string;
 service: java_security_Provider_Service;
 services: java_util_Set<java_security_Provider_Service>;
+version: number;
 versionStr: string;
-info: string;
-class: java_lang_Class<java_lang_Object>;
-getName(): string;
-remove(arg0: java_lang_Object): java_lang_Object;
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-get(arg0: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-getProperty(arg0: string): string;
-toString(): string;
-values(): java_util_Collection<java_lang_Object>;
 clear(): void;
-replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
-replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): void;
-elements(): java_util_Enumeration<java_lang_Object>;
-merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
-entrySet(): java_util_Set<java_util_Map_Entry<java_lang_Object, java_lang_Object>>;
-putAll(arg0: java_util_Map<java_lang_Object, java_lang_Object>): void;
-putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
 compute(arg0: java_lang_Object, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
-load(arg0: java_io_InputStream): void;
-forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
 computeIfAbsent(arg0: java_lang_Object, arg1: java_util_function_Function<java_lang_Object, java_lang_Object>): java_lang_Object;
-keys(): java_util_Enumeration<java_lang_Object>;
-keySet(): java_util_Set<java_lang_Object>;
-getOrDefault(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
 computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
-getVersion(): number;
+configure(arg0: string): java_security_Provider;
+elements(): java_util_Enumeration<java_lang_Object>;
+entrySet(): java_util_Set<java_util_Map_Entry<java_lang_Object, java_lang_Object>>;
+forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+get(arg0: java_lang_Object): java_lang_Object;
+getClass(): java_lang_Class<java_lang_Object>;
+getInfo(): string;
+getName(): string;
+getOrDefault(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+getProperty(arg0: string): string;
 getService(arg0: string, arg1: string): java_security_Provider_Service;
 getServices(): java_util_Set<java_security_Provider_Service>;
-configure(arg0: string): java_security_Provider;
-isConfigured(): boolean;
+getVersion(): number;
 getVersionStr(): string;
-getInfo(): string;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
+isConfigured(): boolean;
+keySet(): java_util_Set<java_lang_Object>;
+keys(): java_util_Enumeration<java_lang_Object>;
+load(arg0: java_io_InputStream): void;
+merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): java_lang_Object;
 notify(): void;
 notifyAll(): void;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+putAll(arg0: java_util_Map<java_lang_Object, java_lang_Object>): void;
+putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+remove(arg0: java_lang_Object): java_lang_Object;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
+replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, java_lang_Object>): void;
+toString(): string;
+values(): java_util_Collection<java_lang_Object>;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 
   }
 }
@@ -267,19 +267,19 @@ import { Provider as java_security_Provider } from 'java.security';
 import { List as java_util_List, Map as java_util_Map } from 'java.util';
 
   export class Service extends java_lang_Object {
-type: string;
-className: string;
-attribute: string;
-provider: java_security_Provider;
 algorithm: string;
-toString(): string;
-newInstance(arg0: java_lang_Object): java_lang_Object;
-getType(): string;
-getClassName(): string;
-getAttribute(arg0: string): string;
-getProvider(): java_security_Provider;
+attribute: string;
+className: string;
+provider: java_security_Provider;
+type: string;
 getAlgorithm(): string;
+getAttribute(arg0: string): string;
+getClassName(): string;
+getProvider(): java_security_Provider;
+getType(): string;
+newInstance(arg0: java_lang_Object): java_lang_Object;
 supportsParameter(arg0: java_lang_Object): boolean;
+toString(): string;
 constructor(arg0: java_security_Provider, arg1: string, arg2: string, arg3: string, arg4: java_util_List<string>, arg5: java_util_Map<string, string>);
   }
 }
@@ -295,10 +295,10 @@ import { Serializable as java_io_Serializable } from 'java.io';
 signerCertPath: java_security_cert_CertPath;
 timestamp: java_security_Timestamp;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getSignerCertPath(): java_security_cert_CertPath;
 getTimestamp(): java_security_Timestamp;
+hashCode(): number;
+toString(): string;
 constructor(arg0: java_security_cert_CertPath, arg1: java_security_Timestamp);
   }
 }
@@ -312,18 +312,18 @@ import { Serializable as java_io_Serializable } from 'java.io';
 
   export class CertPath extends java_lang_Object implements java_io_Serializable {
 certificates: java_util_List<java_security_cert_Certificate>;
-type: string;
 encoded: number[];
 encoded: number[];
 encodings: java_util_Iterator<string>;
+type: string;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getCertificates(): java_util_List<java_security_cert_Certificate>;
-getType(): string;
-getEncoded(arg0: string): number[];
 getEncoded(): number[];
+getEncoded(arg0: string): number[];
 getEncodings(): java_util_Iterator<string>;
+getType(): string;
+hashCode(): number;
+toString(): string;
 
   }
 }
@@ -339,10 +339,10 @@ import { Serializable as java_io_Serializable } from 'java.io';
 signerCertPath: java_security_cert_CertPath;
 timestamp: java_util_Date;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getSignerCertPath(): java_security_cert_CertPath;
 getTimestamp(): java_util_Date;
+hashCode(): number;
+toString(): string;
 constructor(arg0: java_util_Date, arg1: java_security_cert_CertPath);
   }
 }
@@ -379,18 +379,18 @@ import { Serializable as java_io_Serializable } from 'java.io';
 actions: string;
 class: java_lang_Class<java_lang_Object>;
 equals(arg0: java_lang_Object): boolean;
+getActions(): string;
+getClass(): java_lang_Class<java_lang_Object>;
 hashCode(): number;
 implies(arg0: java_security_Permission): boolean;
-getActions(): string;
 newPermissionCollection(): java_security_PermissionCollection;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
-constructor(arg0: string, arg1: string);
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 constructor(arg0: string);
+constructor(arg0: string, arg1: string);
   }
 }
 //@ts-nocheck
@@ -400,15 +400,15 @@ import { Object as java_lang_Object, Class as java_lang_Class, ClassLoader as ja
 
   export class SecureClassLoader extends java_lang_ClassLoader {
 class: java_lang_Class<java_lang_Object>;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
+hashCode(): number;
 notify(): void;
 notifyAll(): void;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 
   }
 }

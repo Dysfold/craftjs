@@ -23,26 +23,11 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when an entity stops riding another entity. */
 
   export class EntityDismountEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-handlers: org_bukkit_event_HandlerList;
-static handlerList: org_bukkit_event_HandlerList;
+class: java_lang_Class<java_lang_Object>;
 dismounted: org_bukkit_entity_Entity;
 eventName: string;
-class: java_lang_Class<java_lang_Object>;
-getHandlers(): org_bukkit_event_HandlerList;
-/** Description copied from interface: CancellableGets the cancellation state of this event. A cancelled event will not
- be executed in the server, but will still pass to other plugins */
-isCancelled(): boolean;
-/** Description copied from interface: CancellableSets the cancellation state of this event. A cancelled event will not
- be executed in the server, but will still pass to other plugins. */
-setCancelled(cancel: boolean): void;
-static getHandlerList(): org_bukkit_event_HandlerList;
-isCancellable(): boolean;
-getDismounted(): org_bukkit_entity_Entity;
-/** Calls the event and tests if cancelled. */
-callEvent(): boolean;
-/** Convenience method for providing a user-friendly identifier. By
- default, it is the event's class's simple name. */
-getEventName(): string;
+handlers: org_bukkit_event_HandlerList;
+static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -61,15 +46,30 @@ getEventName(): string;
  Asynchronous calls are not calculated in the plugin timing system.
   */
 isAsynchronous(): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
+/** Calls the event and tests if cancelled. */
+callEvent(): boolean;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+getEventName(): string;
+/** Description copied from interface: CancellableGets the cancellation state of this event. A cancelled event will not
+ be executed in the server, but will still pass to other plugins */
+isCancelled(): boolean;
+/** Description copied from interface: CancellableSets the cancellation state of this event. A cancelled event will not
+ be executed in the server, but will still pass to other plugins. */
+setCancelled(cancel: boolean): void;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
+getDismounted(): org_bukkit_entity_Entity;
+getHandlers(): org_bukkit_event_HandlerList;
+hashCode(): number;
+isCancellable(): boolean;
 notify(): void;
 notifyAll(): void;
+static getHandlerList(): org_bukkit_event_HandlerList;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 constructor(what: org_bukkit_entity_Entity, dismounted: org_bukkit_entity_Entity);
 constructor(what: org_bukkit_entity_Entity, dismounted: org_bukkit_entity_Entity, isCancellable: boolean);
   }
@@ -84,25 +84,11 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when an entity attempts to ride another entity. */
 
   export class EntityMountEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-handlers: org_bukkit_event_HandlerList;
-static handlerList: org_bukkit_event_HandlerList;
-mount: org_bukkit_entity_Entity;
-eventName: string;
 class: java_lang_Class<java_lang_Object>;
-getHandlers(): org_bukkit_event_HandlerList;
-/** Description copied from interface: CancellableGets the cancellation state of this event. A cancelled event will not
- be executed in the server, but will still pass to other plugins */
-isCancelled(): boolean;
-/** Description copied from interface: CancellableSets the cancellation state of this event. A cancelled event will not
- be executed in the server, but will still pass to other plugins. */
-setCancelled(cancel: boolean): void;
-static getHandlerList(): org_bukkit_event_HandlerList;
-getMount(): org_bukkit_entity_Entity;
-/** Calls the event and tests if cancelled. */
-callEvent(): boolean;
-/** Convenience method for providing a user-friendly identifier. By
- default, it is the event's class's simple name. */
-getEventName(): string;
+eventName: string;
+handlers: org_bukkit_event_HandlerList;
+mount: org_bukkit_entity_Entity;
+static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -121,15 +107,29 @@ getEventName(): string;
  Asynchronous calls are not calculated in the plugin timing system.
   */
 isAsynchronous(): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
+/** Calls the event and tests if cancelled. */
+callEvent(): boolean;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+getEventName(): string;
+/** Description copied from interface: CancellableGets the cancellation state of this event. A cancelled event will not
+ be executed in the server, but will still pass to other plugins */
+isCancelled(): boolean;
+/** Description copied from interface: CancellableSets the cancellation state of this event. A cancelled event will not
+ be executed in the server, but will still pass to other plugins. */
+setCancelled(cancel: boolean): void;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
+getHandlers(): org_bukkit_event_HandlerList;
+getMount(): org_bukkit_entity_Entity;
+hashCode(): number;
 notify(): void;
 notifyAll(): void;
+static getHandlerList(): org_bukkit_event_HandlerList;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 constructor(what: org_bukkit_entity_Entity, mount: org_bukkit_entity_Entity);
   }
 }
@@ -144,24 +144,11 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when player is about to spawn in a world after joining the server. */
 
   export class PlayerSpawnLocationEvent extends org_bukkit_event_player_PlayerEvent {
-handlers: org_bukkit_event_HandlerList;
-static handlerList: org_bukkit_event_HandlerList;
-spawnLocation: org_bukkit_Location;
-eventName: string;
 class: java_lang_Class<java_lang_Object>;
-getHandlers(): org_bukkit_event_HandlerList;
-static getHandlerList(): org_bukkit_event_HandlerList;
-/** Gets player's spawn location.
- If the player OfflinePlayer.hasPlayedBefore(), it's going to default to the location inside player.dat file.
- For new players, the default spawn location is spawn of the main Bukkit world. */
-getSpawnLocation(): org_bukkit_Location;
-/** Sets player's spawn location. */
-setSpawnLocation(location: org_bukkit_Location): void;
-/** Calls the event and tests if cancelled. */
-callEvent(): boolean;
-/** Convenience method for providing a user-friendly identifier. By
- default, it is the event's class's simple name. */
-getEventName(): string;
+eventName: string;
+handlers: org_bukkit_event_HandlerList;
+spawnLocation: org_bukkit_Location;
+static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -180,15 +167,28 @@ getEventName(): string;
  Asynchronous calls are not calculated in the plugin timing system.
   */
 isAsynchronous(): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
+/** Calls the event and tests if cancelled. */
+callEvent(): boolean;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+getEventName(): string;
+/** Gets player's spawn location.
+ If the player OfflinePlayer.hasPlayedBefore(), it's going to default to the location inside player.dat file.
+ For new players, the default spawn location is spawn of the main Bukkit world. */
+getSpawnLocation(): org_bukkit_Location;
+/** Sets player's spawn location. */
+setSpawnLocation(location: org_bukkit_Location): void;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
+getHandlers(): org_bukkit_event_HandlerList;
+hashCode(): number;
 notify(): void;
 notifyAll(): void;
+static getHandlerList(): org_bukkit_event_HandlerList;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 constructor(who: org_bukkit_entity_Player, spawnLocation: org_bukkit_Location);
   }
 }
@@ -203,24 +203,11 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when player is about to spawn in a world after joining the server. */
 
   export class PlayerSpawnLocationEvent extends org_bukkit_event_player_PlayerEvent {
-handlers: org_bukkit_event_HandlerList;
-static handlerList: org_bukkit_event_HandlerList;
-spawnLocation: org_bukkit_Location;
-eventName: string;
 class: java_lang_Class<java_lang_Object>;
-getHandlers(): org_bukkit_event_HandlerList;
-static getHandlerList(): org_bukkit_event_HandlerList;
-/** Gets player's spawn location.
- If the player OfflinePlayer.hasPlayedBefore(), it's going to default to the location inside player.dat file.
- For new players, the default spawn location is spawn of the main Bukkit world. */
-getSpawnLocation(): org_bukkit_Location;
-/** Sets player's spawn location. */
-setSpawnLocation(location: org_bukkit_Location): void;
-/** Calls the event and tests if cancelled. */
-callEvent(): boolean;
-/** Convenience method for providing a user-friendly identifier. By
- default, it is the event's class's simple name. */
-getEventName(): string;
+eventName: string;
+handlers: org_bukkit_event_HandlerList;
+spawnLocation: org_bukkit_Location;
+static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -239,15 +226,28 @@ getEventName(): string;
  Asynchronous calls are not calculated in the plugin timing system.
   */
 isAsynchronous(): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
+/** Calls the event and tests if cancelled. */
+callEvent(): boolean;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+getEventName(): string;
+/** Gets player's spawn location.
+ If the player OfflinePlayer.hasPlayedBefore(), it's going to default to the location inside player.dat file.
+ For new players, the default spawn location is spawn of the main Bukkit world. */
+getSpawnLocation(): org_bukkit_Location;
+/** Sets player's spawn location. */
+setSpawnLocation(location: org_bukkit_Location): void;
 equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
 getClass(): java_lang_Class<java_lang_Object>;
+getHandlers(): org_bukkit_event_HandlerList;
+hashCode(): number;
 notify(): void;
 notifyAll(): void;
+static getHandlerList(): org_bukkit_event_HandlerList;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 constructor(who: org_bukkit_entity_Player, spawnLocation: org_bukkit_Location);
   }
 }

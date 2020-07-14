@@ -9,28 +9,28 @@ import { Stream as java_util_stream_Stream } from 'java.util.stream';
 
   export class ObjectSet<K extends java_lang_Object> implements it_unimi_dsi_fastutil_objects_ObjectCollection<K>, java_util_Set<K> {
 
+add(arg0: E): boolean;
+addAll(arg0: java_util_Collection<E>): boolean;
+clear(): void;
+contains(arg0: java_lang_Object): boolean;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+equals(arg0: java_lang_Object): boolean;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+hashCode(): number;
+isEmpty(): boolean;
 iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
 iterator(): java_util_Iterator;
-add(arg0: E): boolean;
+parallelStream(): java_util_stream_Stream<E>;
 remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+size(): number;
+spliterator(): java_util_Spliterator<E>;
+stream(): java_util_stream_Stream<E>;
+toArray(): java_lang_Object[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
 
   }
 }
@@ -43,11 +43,11 @@ import { Iterator as java_util_Iterator } from 'java.util';
 
   export class ObjectIterator<K extends java_lang_Object> implements java_util_Iterator<K> {
 
-skip(arg0: number): number;
-remove(): void;
 forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-next(): E;
 hasNext(): boolean;
+next(): E;
+remove(): void;
+skip(arg0: number): number;
 
   }
 }
@@ -62,28 +62,28 @@ import { Stream as java_util_stream_Stream } from 'java.util.stream';
 
   export class ObjectCollection<K extends java_lang_Object> implements java_util_Collection<K>, it_unimi_dsi_fastutil_objects_ObjectIterable<K> {
 
+add(arg0: E): boolean;
+addAll(arg0: java_util_Collection<E>): boolean;
+clear(): void;
+contains(arg0: java_lang_Object): boolean;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+equals(arg0: java_lang_Object): boolean;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+hashCode(): number;
+isEmpty(): boolean;
 iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
 iterator(): java_util_Iterator;
-add(arg0: E): boolean;
+parallelStream(): java_util_stream_Stream<E>;
 remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+size(): number;
+spliterator(): java_util_Spliterator<E>;
+stream(): java_util_stream_Stream<E>;
+toArray(): java_lang_Object[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
 
   }
 }
@@ -97,10 +97,10 @@ import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java
 
   export class ObjectIterable<K extends java_lang_Object> implements java_lang_Iterable<K> {
 
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
 iterator(): java_util_Iterator;
 spliterator(): java_util_Spliterator<T>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 
   }
 }
@@ -113,23 +113,23 @@ import { Function as it_unimi_dsi_fastutil_Function } from 'it.unimi.dsi.fastuti
 
   export class Int2ObjectFunction<V extends java_lang_Object> implements it_unimi_dsi_fastutil_Function<java_lang_Integer, V>, java_util_function_IntFunction<V> {
 
-remove(arg0: java_lang_Object): V;
-remove(arg0: number): V;
-get(arg0: java_lang_Object): V;
-get(arg0: number): V;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Integer, arg1: V): V;
-put(arg0: number, arg1: V): V;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+apply(arg0: K): V;
 apply(arg0: number): V;
+clear(): void;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 containsKey(arg0: java_lang_Object): boolean;
 containsKey(arg0: number): boolean;
-defaultReturnValue(arg0: V): void;
 defaultReturnValue(): V;
-clear(): void;
+defaultReturnValue(arg0: V): void;
+get(arg0: java_lang_Object): V;
+get(arg0: number): V;
+put(arg0: java_lang_Integer, arg1: V): V;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+put(arg0: number, arg1: V): V;
+remove(arg0: java_lang_Object): V;
+remove(arg0: number): V;
 size(): number;
-apply(arg0: K): V;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
 }
@@ -141,15 +141,15 @@ import { Function as java_util_function_Function } from 'java.util.function';
 
   export class Function<K extends java_lang_Object, V extends java_lang_Object> implements java_util_function_Function<K, V> {
 
-remove(arg0: java_lang_Object): V;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+apply(arg0: K): V;
+clear(): void;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
+containsKey(arg0: java_lang_Object): boolean;
 get(arg0: java_lang_Object): V;
 put(arg0: K, arg1: V): V;
-clear(): void;
+remove(arg0: java_lang_Object): V;
 size(): number;
-apply(arg0: K): V;
-containsKey(arg0: java_lang_Object): boolean;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
 }
@@ -167,85 +167,85 @@ import { Serializable as java_io_Serializable } from 'java.io';
 import { Hash as it_unimi_dsi_fastutil_Hash } from 'it.unimi.dsi.fastutil';
 
   export class Int2ObjectOpenHashMap<V extends java_lang_Object> extends it_unimi_dsi_fastutil_ints_AbstractInt2ObjectMap<V> implements java_io_Serializable, java_lang_Cloneable, it_unimi_dsi_fastutil_Hash {
-orDefault: V;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
-remove(arg0: number, arg1: java_lang_Object): boolean;
-remove(arg0: number): V;
-get(arg0: number): V;
-put(arg0: number, arg1: V): V;
-values(): it_unimi_dsi_fastutil_objects_ObjectCollection<V>;
-values(): java_util_Collection;
-hashCode(): number;
-clone(): java_lang_Object;
-clone(): it_unimi_dsi_fastutil_ints_Int2ObjectOpenHashMap<V>;
-clear(): void;
-isEmpty(): boolean;
-replace(arg0: number, arg1: V, arg2: V): boolean;
-replace(arg0: number, arg1: V): V;
-trim(): boolean;
-trim(arg0: number): boolean;
-size(): number;
-merge(arg0: number, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-putAll(arg0: java_util_Map<java_lang_Integer, V>): void;
-putIfAbsent(arg0: number, arg1: V): V;
-compute(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-containsKey(arg0: number): boolean;
-computeIfAbsent(arg0: number, arg1: java_util_function_IntFunction<V>): V;
-containsValue(arg0: java_lang_Object): boolean;
-keySet(): it_unimi_dsi_fastutil_ints_IntSet;
-keySet(): java_util_Set;
-getOrDefault(arg0: number, arg1: V): V;
-computeIfPresent(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-int2ObjectEntrySet(): it_unimi_dsi_fastutil_objects_ObjectSet;
-int2ObjectEntrySet(): it_unimi_dsi_fastutil_ints_Int2ObjectMap_FastEntrySet<V>;
-defaultReturnValue(arg0: V): void;
-defaultReturnValue(): V;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-remove(arg0: java_lang_Object): V;
-get(arg0: java_lang_Object): V;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Integer, arg1: V): V;
-apply(arg0: number): V;
-containsKey(arg0: java_lang_Object): boolean;
-apply(arg0: K): V;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
+orDefault: V;
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-replace(arg0: java_lang_Integer, arg1: V): V;
-replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
-replace(arg0: java_lang_Integer, arg1: V, arg2: V): boolean;
-merge(arg0: java_lang_Integer, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction): java_lang_Object;
-entrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<java_util_Map_Entry<java_lang_Integer, V>>;
-entrySet(): java_util_Set;
-putIfAbsent(arg0: java_lang_Integer, arg1: V): V;
-putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+apply(arg0: K): V;
+apply(arg0: number): V;
+clear(): void;
+clone(): it_unimi_dsi_fastutil_ints_Int2ObjectOpenHashMap<V>;
+clone(): java_lang_Object;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 compute(arg0: java_lang_Integer, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 compute(arg0: java_lang_Object, arg1: java_util_function_BiFunction): java_lang_Object;
-computeIfAbsent(arg0: java_lang_Object, arg1: java_util_function_Function): java_lang_Object;
+compute(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 computeIfAbsent(arg0: java_lang_Integer, arg1: java_util_function_Function<java_lang_Object, V>): V;
-getOrDefault(arg0: java_lang_Object, arg1: V): V;
+computeIfAbsent(arg0: java_lang_Object, arg1: java_util_function_Function): java_lang_Object;
+computeIfAbsent(arg0: number, arg1: java_util_function_IntFunction<V>): V;
+computeIfAbsentPartial(arg0: number, arg1: it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>): V;
 computeIfPresent(arg0: java_lang_Integer, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction): java_lang_Object;
-computeIfAbsentPartial(arg0: number, arg1: it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>): V;
-replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
+computeIfPresent(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+containsKey(arg0: java_lang_Object): boolean;
+containsKey(arg0: number): boolean;
+containsValue(arg0: java_lang_Object): boolean;
+defaultReturnValue(): V;
+defaultReturnValue(arg0: V): void;
+entrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<java_util_Map_Entry<java_lang_Integer, V>>;
+entrySet(): java_util_Set;
 forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-constructor(arg0: java_util_Map<java_lang_Integer, V>);
-constructor(arg0: it_unimi_dsi_fastutil_ints_Int2ObjectMap<V>, arg1: number);
-constructor(arg0: it_unimi_dsi_fastutil_ints_Int2ObjectMap<V>);
-constructor(arg0: number[], arg1: V[], arg2: number);
-constructor(arg0: number[], arg1: V[]);
-constructor(arg0: number, arg1: number);
-constructor(arg0: number);
+get(arg0: java_lang_Object): V;
+get(arg0: number): V;
+getClass(): java_lang_Class<java_lang_Object>;
+getOrDefault(arg0: java_lang_Object, arg1: V): V;
+getOrDefault(arg0: number, arg1: V): V;
+hashCode(): number;
+int2ObjectEntrySet(): it_unimi_dsi_fastutil_ints_Int2ObjectMap_FastEntrySet<V>;
+int2ObjectEntrySet(): it_unimi_dsi_fastutil_objects_ObjectSet;
+isEmpty(): boolean;
+keySet(): it_unimi_dsi_fastutil_ints_IntSet;
+keySet(): java_util_Set;
+merge(arg0: java_lang_Integer, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction): java_lang_Object;
+merge(arg0: number, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+notify(): void;
+notifyAll(): void;
+put(arg0: java_lang_Integer, arg1: V): V;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+put(arg0: number, arg1: V): V;
+putAll(arg0: java_util_Map<java_lang_Integer, V>): void;
+putIfAbsent(arg0: java_lang_Integer, arg1: V): V;
+putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+putIfAbsent(arg0: number, arg1: V): V;
+remove(arg0: java_lang_Object): V;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+remove(arg0: number): V;
+remove(arg0: number, arg1: java_lang_Object): boolean;
+replace(arg0: java_lang_Integer, arg1: V): V;
+replace(arg0: java_lang_Integer, arg1: V, arg2: V): boolean;
+replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
+replace(arg0: number, arg1: V): V;
+replace(arg0: number, arg1: V, arg2: V): boolean;
+replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
+size(): number;
+trim(): boolean;
+trim(arg0: number): boolean;
+values(): it_unimi_dsi_fastutil_objects_ObjectCollection<V>;
+values(): java_util_Collection;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 constructor();
+constructor(arg0: it_unimi_dsi_fastutil_ints_Int2ObjectMap<V>);
+constructor(arg0: it_unimi_dsi_fastutil_ints_Int2ObjectMap<V>, arg1: number);
+constructor(arg0: java_util_Map<java_lang_Integer, V>);
 constructor(arg0: java_util_Map<java_lang_Integer, V>, arg1: number);
+constructor(arg0: number);
+constructor(arg0: number, arg1: number);
+constructor(arg0: number[], arg1: V[]);
+constructor(arg0: number[], arg1: V[], arg2: number);
   }
 }
 //@ts-nocheck
@@ -259,42 +259,42 @@ import { Stream as java_util_stream_Stream } from 'java.util.stream';
 
   export class IntSet implements it_unimi_dsi_fastutil_ints_IntCollection, java_util_Set<java_lang_Integer> {
 
-add(arg0: java_lang_Object): boolean;
 add(arg0: java_lang_Integer): boolean;
-remove(arg0: number): boolean;
-remove(arg0: java_lang_Object): boolean;
-contains(arg0: java_lang_Object): boolean;
-iterator(): java_util_Iterator;
-iterator(): it_unimi_dsi_fastutil_ints_IntIterator;
-rem(arg0: number): boolean;
+add(arg0: java_lang_Object): boolean;
 add(arg0: number): boolean;
-contains(arg0: number): boolean;
-toArray(arg0: number[]): number[];
 addAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-containsAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-retainAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-removeAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-removeIf(arg0: java_util_function_IntPredicate): boolean;
-toIntArray(): number[];
-toIntArray(arg0: number[]): number[];
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-spliterator(): java_util_Spliterator<E>;
 addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
+clear(): void;
+contains(arg0: java_lang_Object): boolean;
+contains(arg0: number): boolean;
+containsAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
 containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
+equals(arg0: java_lang_Object): boolean;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 forEach(arg0: java_util_function_IntConsumer): void;
+hashCode(): number;
+isEmpty(): boolean;
+iterator(): it_unimi_dsi_fastutil_ints_IntIterator;
+iterator(): java_util_Iterator;
+parallelStream(): java_util_stream_Stream<E>;
+rem(arg0: number): boolean;
+remove(arg0: java_lang_Object): boolean;
+remove(arg0: number): boolean;
+removeAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeIf(arg0: java_util_function_IntPredicate): boolean;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+retainAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+size(): number;
+spliterator(): java_util_Spliterator<E>;
+stream(): java_util_stream_Stream<E>;
+toArray(): java_lang_Object[];
+toArray(arg0: number[]): number[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toIntArray(): number[];
+toIntArray(arg0: number[]): number[];
 
   }
 }
@@ -307,15 +307,15 @@ import { OfInt as java_util_PrimitiveIterator_OfInt } from 'java.util.PrimitiveI
 
   export class IntIterator implements java_util_PrimitiveIterator_OfInt {
 
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-next(): java_lang_Object;
-next(): java_lang_Integer;
-skip(arg0: number): number;
-nextInt(): number;
 forEachRemaining(arg0: java_lang_Object): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
 forEachRemaining(arg0: java_util_function_IntConsumer): void;
-remove(): void;
 hasNext(): boolean;
+next(): java_lang_Integer;
+next(): java_lang_Object;
+nextInt(): number;
+remove(): void;
+skip(arg0: number): number;
 
   }
 }
@@ -330,41 +330,41 @@ import { Stream as java_util_stream_Stream } from 'java.util.stream';
 
   export class IntCollection implements java_util_Collection<java_lang_Integer>, it_unimi_dsi_fastutil_ints_IntIterable {
 
+add(arg0: java_lang_Integer): boolean;
 add(arg0: java_lang_Object): boolean;
 add(arg0: number): boolean;
-add(arg0: java_lang_Integer): boolean;
-remove(arg0: java_lang_Object): boolean;
+addAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
+addAll(arg0: java_util_Collection<E>): boolean;
+clear(): void;
 contains(arg0: java_lang_Object): boolean;
 contains(arg0: number): boolean;
-toArray(arg0: number[]): number[];
-iterator(): java_util_Iterator;
-iterator(): it_unimi_dsi_fastutil_ints_IntIterator;
-addAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-rem(arg0: number): boolean;
 containsAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-retainAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-removeAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-removeIf(arg0: java_util_function_IntPredicate): boolean;
-toIntArray(): number[];
-toIntArray(arg0: number[]): number[];
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
 containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
+equals(arg0: java_lang_Object): boolean;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 forEach(arg0: java_util_function_IntConsumer): void;
+hashCode(): number;
+isEmpty(): boolean;
+iterator(): it_unimi_dsi_fastutil_ints_IntIterator;
+iterator(): java_util_Iterator;
+parallelStream(): java_util_stream_Stream<E>;
+rem(arg0: number): boolean;
+remove(arg0: java_lang_Object): boolean;
+removeAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeIf(arg0: java_util_function_IntPredicate): boolean;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+retainAll(arg0: it_unimi_dsi_fastutil_ints_IntCollection): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+size(): number;
+spliterator(): java_util_Spliterator<E>;
+stream(): java_util_stream_Stream<E>;
+toArray(): java_lang_Object[];
+toArray(arg0: number[]): number[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toIntArray(): number[];
+toIntArray(arg0: number[]): number[];
 
   }
 }
@@ -378,10 +378,10 @@ import { Object as java_lang_Object, Iterable as java_lang_Iterable, Integer as 
 
   export class IntIterable implements java_lang_Iterable<java_lang_Integer> {
 
-iterator(): java_util_Iterator;
-iterator(): it_unimi_dsi_fastutil_ints_IntIterator;
-forEach(arg0: java_util_function_IntConsumer): void;
 forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+forEach(arg0: java_util_function_IntConsumer): void;
+iterator(): it_unimi_dsi_fastutil_ints_IntIterator;
+iterator(): java_util_Iterator;
 spliterator(): java_util_Spliterator<T>;
 
   }
@@ -398,30 +398,30 @@ import { Stream as java_util_stream_Stream } from 'java.util.stream';
 
   export class FastEntrySet<V extends java_lang_Object> implements it_unimi_dsi_fastutil_objects_ObjectSet<it_unimi_dsi_fastutil_ints_Int2ObjectMap_Entry<V>> {
 
+add(arg0: E): boolean;
+addAll(arg0: java_util_Collection<E>): boolean;
+clear(): void;
+contains(arg0: java_lang_Object): boolean;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+equals(arg0: java_lang_Object): boolean;
 fastForEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
 fastIterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<it_unimi_dsi_fastutil_ints_Int2ObjectMap_Entry<V>>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+hashCode(): number;
+isEmpty(): boolean;
 iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
 iterator(): java_util_Iterator;
-add(arg0: E): boolean;
+parallelStream(): java_util_stream_Stream<E>;
 remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+size(): number;
+spliterator(): java_util_Spliterator<E>;
+stream(): java_util_stream_Stream<E>;
+toArray(): java_lang_Object[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
 
   }
 }
@@ -432,16 +432,16 @@ import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.l
 import { Entry as java_util_Map_Entry } from 'java.util.Map';
 
   export class Entry<V extends java_lang_Object> implements java_util_Map_Entry<java_lang_Integer, V> {
+intKey: number;
 key: java_lang_Integer;
 key: java_lang_Object;
-intKey: number;
 value: V;
+equals(arg0: java_lang_Object): boolean;
+getIntKey(): number;
 getKey(): java_lang_Integer;
 getKey(): java_lang_Object;
-getIntKey(): number;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
 getValue(): V;
+hashCode(): number;
 setValue(arg0: V): V;
 
   }
@@ -460,63 +460,63 @@ import { Entry as it_unimi_dsi_fastutil_ints_Int2ObjectMap_Entry } from 'it.unim
   export class Int2ObjectMap<V extends java_lang_Object> implements it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>, java_util_Map<java_lang_Integer, V> {
 orDefault: V;
 orDefault: V;
-remove(arg0: java_lang_Object): V;
-remove(arg0: number, arg1: java_lang_Object): boolean;
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-get(arg0: java_lang_Object): V;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Integer, arg1: V): V;
-values(): it_unimi_dsi_fastutil_objects_ObjectCollection<V>;
-values(): java_util_Collection;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+apply(arg0: K): V;
+apply(arg0: number): V;
 clear(): void;
-replace(arg0: number, arg1: V): V;
-replace(arg0: number, arg1: V, arg2: V): boolean;
-replace(arg0: java_lang_Integer, arg1: V): V;
-replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
-replace(arg0: java_lang_Integer, arg1: V, arg2: V): boolean;
-size(): number;
-merge(arg0: java_lang_Integer, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-merge(arg0: number, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction): java_lang_Object;
-entrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<java_util_Map_Entry<java_lang_Integer, V>>;
-entrySet(): java_util_Set;
-putIfAbsent(arg0: java_lang_Integer, arg1: V): V;
-putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-putIfAbsent(arg0: number, arg1: V): V;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 compute(arg0: java_lang_Integer, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 compute(arg0: java_lang_Object, arg1: java_util_function_BiFunction): java_lang_Object;
 compute(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-containsKey(arg0: number): boolean;
-containsKey(arg0: java_lang_Object): boolean;
+computeIfAbsent(arg0: java_lang_Integer, arg1: java_util_function_Function<java_lang_Object, V>): V;
 computeIfAbsent(arg0: java_lang_Object, arg1: java_util_function_Function): java_lang_Object;
 computeIfAbsent(arg0: number, arg1: java_util_function_IntFunction<V>): V;
-computeIfAbsent(arg0: java_lang_Integer, arg1: java_util_function_Function<java_lang_Object, V>): V;
-keySet(): it_unimi_dsi_fastutil_ints_IntSet;
-keySet(): java_util_Set;
-getOrDefault(arg0: java_lang_Object, arg1: V): V;
-getOrDefault(arg0: number, arg1: V): V;
+computeIfAbsentPartial(arg0: number, arg1: it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>): V;
 computeIfPresent(arg0: java_lang_Integer, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-computeIfPresent(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction): java_lang_Object;
+computeIfPresent(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+containsKey(arg0: java_lang_Object): boolean;
+containsKey(arg0: number): boolean;
+containsValue(arg0: java_lang_Object): boolean;
 defaultReturnValue(): V;
 defaultReturnValue(arg0: V): void;
-computeIfAbsentPartial(arg0: number, arg1: it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>): V;
-int2ObjectEntrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<it_unimi_dsi_fastutil_ints_Int2ObjectMap_Entry<V>>;
-remove(arg0: number): V;
-get(arg0: number): V;
-put(arg0: number, arg1: V): V;
-apply(arg0: number): V;
-apply(arg0: K): V;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+entrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<java_util_Map_Entry<java_lang_Integer, V>>;
+entrySet(): java_util_Set;
 equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-isEmpty(): boolean;
-replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
-putAll(arg0: java_util_Map<K, V>): void;
 forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
-containsValue(arg0: java_lang_Object): boolean;
+get(arg0: java_lang_Object): V;
+get(arg0: number): V;
+getOrDefault(arg0: java_lang_Object, arg1: V): V;
+getOrDefault(arg0: number, arg1: V): V;
+hashCode(): number;
+int2ObjectEntrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<it_unimi_dsi_fastutil_ints_Int2ObjectMap_Entry<V>>;
+isEmpty(): boolean;
+keySet(): it_unimi_dsi_fastutil_ints_IntSet;
+keySet(): java_util_Set;
+merge(arg0: java_lang_Integer, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction): java_lang_Object;
+merge(arg0: number, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+put(arg0: java_lang_Integer, arg1: V): V;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+put(arg0: number, arg1: V): V;
+putAll(arg0: java_util_Map<K, V>): void;
+putIfAbsent(arg0: java_lang_Integer, arg1: V): V;
+putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+putIfAbsent(arg0: number, arg1: V): V;
+remove(arg0: java_lang_Object): V;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+remove(arg0: number): V;
+remove(arg0: number, arg1: java_lang_Object): boolean;
+replace(arg0: java_lang_Integer, arg1: V): V;
+replace(arg0: java_lang_Integer, arg1: V, arg2: V): boolean;
+replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
+replace(arg0: number, arg1: V): V;
+replace(arg0: number, arg1: V, arg2: V): boolean;
+replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
+size(): number;
+values(): it_unimi_dsi_fastutil_objects_ObjectCollection<V>;
+values(): java_util_Collection;
 
   }
 }
@@ -536,68 +536,68 @@ import { Serializable as java_io_Serializable } from 'java.io';
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
 orDefault: V;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-values(): it_unimi_dsi_fastutil_objects_ObjectCollection<V>;
-values(): java_util_Collection;
-hashCode(): number;
-isEmpty(): boolean;
-putAll(arg0: java_util_Map<java_lang_Integer, V>): void;
-containsKey(arg0: number): boolean;
-containsValue(arg0: java_lang_Object): boolean;
-keySet(): it_unimi_dsi_fastutil_ints_IntSet;
-keySet(): java_util_Set;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-remove(arg0: java_lang_Object): V;
-remove(arg0: number): V;
-get(arg0: java_lang_Object): V;
-get(arg0: number): V;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Integer, arg1: V): V;
-put(arg0: number, arg1: V): V;
-apply(arg0: number): V;
-containsKey(arg0: java_lang_Object): boolean;
-clear(): void;
-size(): number;
-apply(arg0: K): V;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
-remove(arg0: number, arg1: java_lang_Object): boolean;
-remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
-replace(arg0: number, arg1: V): V;
-replace(arg0: number, arg1: V, arg2: V): boolean;
-replace(arg0: java_lang_Integer, arg1: V): V;
-replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
-replace(arg0: java_lang_Integer, arg1: V, arg2: V): boolean;
-merge(arg0: java_lang_Integer, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-merge(arg0: number, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction): java_lang_Object;
-entrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<java_util_Map_Entry<java_lang_Integer, V>>;
-entrySet(): java_util_Set;
-putIfAbsent(arg0: java_lang_Integer, arg1: V): V;
-putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-putIfAbsent(arg0: number, arg1: V): V;
+apply(arg0: K): V;
+apply(arg0: number): V;
+clear(): void;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 compute(arg0: java_lang_Integer, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
 compute(arg0: java_lang_Object, arg1: java_util_function_BiFunction): java_lang_Object;
 compute(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+computeIfAbsent(arg0: java_lang_Integer, arg1: java_util_function_Function<java_lang_Object, V>): V;
 computeIfAbsent(arg0: java_lang_Object, arg1: java_util_function_Function): java_lang_Object;
 computeIfAbsent(arg0: number, arg1: java_util_function_IntFunction<V>): V;
-computeIfAbsent(arg0: java_lang_Integer, arg1: java_util_function_Function<java_lang_Object, V>): V;
+computeIfAbsentPartial(arg0: number, arg1: it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>): V;
+computeIfPresent(arg0: java_lang_Integer, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction): java_lang_Object;
+computeIfPresent(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+containsKey(arg0: java_lang_Object): boolean;
+containsKey(arg0: number): boolean;
+containsValue(arg0: java_lang_Object): boolean;
+entrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<java_util_Map_Entry<java_lang_Integer, V>>;
+entrySet(): java_util_Set;
+equals(arg0: java_lang_Object): boolean;
+forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+get(arg0: java_lang_Object): V;
+get(arg0: number): V;
+getClass(): java_lang_Class<java_lang_Object>;
 getOrDefault(arg0: java_lang_Object, arg1: V): V;
 getOrDefault(arg0: number, arg1: V): V;
-computeIfPresent(arg0: java_lang_Integer, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-computeIfPresent(arg0: number, arg1: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
-computeIfPresent(arg0: java_lang_Object, arg1: java_util_function_BiFunction): java_lang_Object;
-computeIfAbsentPartial(arg0: number, arg1: it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>): V;
+hashCode(): number;
 int2ObjectEntrySet(): it_unimi_dsi_fastutil_objects_ObjectSet<it_unimi_dsi_fastutil_ints_Int2ObjectMap_Entry<V>>;
+isEmpty(): boolean;
+keySet(): it_unimi_dsi_fastutil_ints_IntSet;
+keySet(): java_util_Set;
+merge(arg0: java_lang_Integer, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+merge(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_util_function_BiFunction): java_lang_Object;
+merge(arg0: number, arg1: V, arg2: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): V;
+notify(): void;
+notifyAll(): void;
+put(arg0: java_lang_Integer, arg1: V): V;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+put(arg0: number, arg1: V): V;
+putAll(arg0: java_util_Map<java_lang_Integer, V>): void;
+putIfAbsent(arg0: java_lang_Integer, arg1: V): V;
+putIfAbsent(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+putIfAbsent(arg0: number, arg1: V): V;
+remove(arg0: java_lang_Object): V;
+remove(arg0: java_lang_Object, arg1: java_lang_Object): boolean;
+remove(arg0: number): V;
+remove(arg0: number, arg1: java_lang_Object): boolean;
+replace(arg0: java_lang_Integer, arg1: V): V;
+replace(arg0: java_lang_Integer, arg1: V, arg2: V): boolean;
+replace(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+replace(arg0: java_lang_Object, arg1: java_lang_Object, arg2: java_lang_Object): boolean;
+replace(arg0: number, arg1: V): V;
+replace(arg0: number, arg1: V, arg2: V): boolean;
 replaceAll(arg0: java_util_function_BiFunction<java_lang_Object, java_lang_Object, V>): void;
-forEach(arg0: java_util_function_BiConsumer<java_lang_Object, java_lang_Object>): void;
+size(): number;
+toString(): string;
+values(): it_unimi_dsi_fastutil_objects_ObjectCollection<V>;
+values(): java_util_Collection;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 
   }
 }
@@ -611,23 +611,23 @@ import { Serializable as java_io_Serializable } from 'java.io';
 
   export class AbstractInt2ObjectFunction<V extends java_lang_Object> extends java_lang_Object implements it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>, java_io_Serializable {
 
-defaultReturnValue(arg0: V): void;
-defaultReturnValue(): V;
-remove(arg0: java_lang_Object): V;
-remove(arg0: number): V;
-get(arg0: java_lang_Object): V;
-get(arg0: number): V;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Integer, arg1: V): V;
-put(arg0: number, arg1: V): V;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+apply(arg0: K): V;
 apply(arg0: number): V;
+clear(): void;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
 containsKey(arg0: java_lang_Object): boolean;
 containsKey(arg0: number): boolean;
-clear(): void;
+defaultReturnValue(): V;
+defaultReturnValue(arg0: V): void;
+get(arg0: java_lang_Object): V;
+get(arg0: number): V;
+put(arg0: java_lang_Integer, arg1: V): V;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+put(arg0: number, arg1: V): V;
+remove(arg0: java_lang_Object): V;
+remove(arg0: number): V;
 size(): number;
-apply(arg0: K): V;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
 }
@@ -637,15 +637,15 @@ declare module 'it.unimi.dsi.fastutil' {
 
 
   export class Hash {
+static DEFAULT_GROWTH_FACTOR: number;
 static DEFAULT_INITIAL_SIZE: number;
 static DEFAULT_LOAD_FACTOR: number;
 static FAST_LOAD_FACTOR: number;
-static VERY_FAST_LOAD_FACTOR: number;
-static DEFAULT_GROWTH_FACTOR: number;
 static FREE: number;
 static OCCUPIED: number;
-static REMOVED: number;
 static PRIMES: number[];
+static REMOVED: number;
+static VERY_FAST_LOAD_FACTOR: number;
 
 
   }
