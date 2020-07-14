@@ -65,7 +65,7 @@ function generatePropertyDefinition(property, deps) {
     }
     const nullableDef = property.nullable ? ' | null' : '';
     const typeDef = generateTypeDefinition(property.type, deps);
-    return `${property.isStatic ? 'static ' : ''}${property.name}: ${typeDef}${nullableDef};`;
+    return `${property.docs ? `/** ${property.docs} */\n` : ''}${property.isStatic ? 'static ' : ''}${property.name}: ${typeDef}${nullableDef};`;
 }
 function generateImportDefinitions(deps) {
     const set = {};

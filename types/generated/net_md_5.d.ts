@@ -180,6 +180,8 @@ import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
 /** All supported color values for chat */
 
   export class ChatColor extends java_lang_Object {
+/** Gets the color represented by the specified color code */
+static byChar: net_md_5_bungee_api_ChatColor | null;
 name: string;
 static ALL_CODES: string;
 static AQUA: net_md_5_bungee_api_ChatColor;
@@ -206,7 +208,6 @@ static STRIP_COLOR_PATTERN: java_util_regex_Pattern;
 static UNDERLINE: net_md_5_bungee_api_ChatColor;
 static WHITE: net_md_5_bungee_api_ChatColor;
 static YELLOW: net_md_5_bungee_api_ChatColor;
-static byChar: net_md_5_bungee_api_ChatColor | null;
 /** Gets the color represented by the specified color code */
 static getByChar(code: string): net_md_5_bungee_api_ChatColor | null;
 /** Returns an array containing the constants of this enum type, in

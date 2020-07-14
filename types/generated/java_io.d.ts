@@ -733,8 +733,9 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { BasicPermission as java_security_BasicPermission } from 'java.security';
 
   export class SerializablePermission extends java_security_BasicPermission {
-class: java_lang_Class<java_lang_Object>;
+/** Returns the unique fully qualified name of this Permission */
 name: string;
+class: java_lang_Class<java_lang_Object>;
 /** Returns the unique fully qualified name of this Permission */
 getName(): string;
 checkGuard(arg0: java_lang_Object): void;

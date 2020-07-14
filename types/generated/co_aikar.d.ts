@@ -6,6 +6,7 @@ import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
 /** Provides an ability to time sections of code within the Minecraft Server */
 
   export class Timing implements java_lang_AutoCloseable {
+/** Used internally to get the actual backing Handler in the case of delegated Handlers */
 timingHandler: co_aikar_timings_TimingHandler | null;
 /** Starts timing the execution until stopTiming() is called.
 
@@ -96,8 +97,9 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
 
   export class FullServerTickHandler extends co_aikar_timings_TimingHandler {
-class: java_lang_Class<java_lang_Object>;
+/** Description copied from interface: TimingUsed internally to get the actual backing Handler in the case of delegated Handlers */
 timingHandler: co_aikar_timings_TimingHandler;
+class: java_lang_Class<java_lang_Object>;
 /** Description copied from interface: TimingStarts timing the execution until Timing.stopTiming() is called.
 
  But only if we are on the primary thread. */
@@ -430,8 +432,9 @@ import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_Ti
 import { Object as java_lang_Object } from 'java.lang';
 
   export class NullTimingHandler extends java_lang_Object implements co_aikar_timings_Timing {
-static NULL: co_aikar_timings_Timing;
+/** Description copied from interface: TimingUsed internally to get the actual backing Handler in the case of delegated Handlers */
 timingHandler: co_aikar_timings_TimingHandler | null;
+static NULL: co_aikar_timings_Timing;
 /** Description copied from interface: TimingStarts timing the execution until Timing.stopTiming() is called.
 
  But only if we are on the primary thread. */
@@ -478,6 +481,7 @@ import { AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
 /** Provides an ability to time sections of code within the Minecraft Server */
 
   export class Timing implements java_lang_AutoCloseable {
+/** Used internally to get the actual backing Handler in the case of delegated Handlers */
 timingHandler: co_aikar_timings_TimingHandler | null;
 /** Starts timing the execution until stopTiming() is called.
 
@@ -527,9 +531,15 @@ import { CommandSender as org_bukkit_command_CommandSender } from 'org.bukkit.co
 import { Object as java_lang_Object } from 'java.lang';
 
   export class Timings extends java_lang_Object {
-static NULL_HANDLER: co_aikar_timings_Timing;
-static historyInterval: number;
+/** Gets how long in ticks Timings history is kept for the server.
+
+ Defaults to 1 hour (72000 ticks) */
 static historyLength: number;
+/** Gets the interval between Timing History report generation.
+
+ Defaults to 5 minutes (6000 ticks) */
+static historyInterval: number;
+static NULL_HANDLER: co_aikar_timings_Timing;
 /** Generates a report and sends it to the specified command sender.
 
  If sender is null, ConsoleCommandSender will be used. */
@@ -613,9 +623,13 @@ import { CommandSender as org_bukkit_command_CommandSender, MessageCommandSender
 import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java.lang';
 
   export class TimingsReportListener extends java_lang_Object implements org_bukkit_command_MessageCommandSender {
-effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
+/** Description copied from interface: CommandSenderGets the name of this command sender */
 name: string;
+/** Description copied from interface: CommandSenderReturns the server instance that this command is running on */
 server: org_bukkit_Server;
+/** Description copied from interface: PermissibleGets a set containing all of the permissions currently in effect by
+ this object */
+effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
 timingsURL: string | null;
 /** Description copied from interface: CommandSenderGets the name of this command sender */
 getName(): string;
@@ -696,15 +710,24 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { BukkitCommand as org_bukkit_command_defaults_BukkitCommand } from 'org.bukkit.command.defaults';
 
   export class TimingsCommand extends org_bukkit_command_defaults_BukkitCommand {
-aliases: java_util_List<string>;
-class: java_lang_Class<java_lang_Object>;
+/** Gets a brief description of this command */
 description: string;
-label: string;
-name: string;
-permission: string | null;
-permissionMessage: string | null;
-timingName: string;
+/** Gets an example usage of this command */
 usage: string;
+/** Gets the permission required by users to be able to perform this
+ command */
+permission: string | null;
+/** Returns a list of active aliases of this command */
+aliases: java_util_List<string>;
+/** Returns a message to be displayed on a failed permission check for this
+ command */
+permissionMessage: string | null;
+/** Returns the label for this command */
+label: string;
+/** Returns the name of this command */
+name: string;
+class: java_lang_Class<java_lang_Object>;
+timingName: string;
 /** Description copied from class: CommandExecuted on tab completion for this command, returning a list of
  options the player can tab through. */
 tabComplete(sender: org_bukkit_command_CommandSender, alias: string, args: string[]): java_util_List<string>;
@@ -800,12 +823,17 @@ import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
 import { List as java_util_List } from 'java.util';
 
   export class TimingsManager extends java_lang_Object {
+/** Due to access restrictions, we need a helper method to get a Command TimingHandler with String group
+
+ Plugins should never call this */
+static commandTiming: co_aikar_timings_Timing | null;
+/** Looks up the class loader for the specified class, and if it is a PluginClassLoader, return the
+ Plugin that created this class. */
+static pluginByClassloader: org_bukkit_plugin_Plugin | null;
 static FULL_SERVER_TICK: co_aikar_timings_FullServerTickHandler;
 static PLUGIN_GROUP_HANDLER: co_aikar_timings_Timing;
 static TIMINGS_TICK: co_aikar_timings_TimingHandler;
-static commandTiming: co_aikar_timings_Timing | null;
 static hiddenConfigs: java_util_List<string>;
-static pluginByClassloader: org_bukkit_plugin_Plugin | null;
 static privacy: boolean;
 /** Due to access restrictions, we need a helper method to get a Command TimingHandler with String group
 
@@ -830,9 +858,13 @@ import { CommandSender as org_bukkit_command_CommandSender, MessageCommandSender
 import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java.lang';
 
   export class TimingsReportListener extends java_lang_Object implements org_bukkit_command_MessageCommandSender {
-effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
+/** Description copied from interface: CommandSenderGets the name of this command sender */
 name: string;
+/** Description copied from interface: CommandSenderReturns the server instance that this command is running on */
 server: org_bukkit_Server;
+/** Description copied from interface: PermissibleGets a set containing all of the permissions currently in effect by
+ this object */
+effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
 timingsURL: string | null;
 /** Description copied from interface: CommandSenderGets the name of this command sender */
 getName(): string;

@@ -12,18 +12,21 @@ import { Serializable as java_io_Serializable } from 'java.io';
  but subject to change. */
 
   export class Color extends java_lang_Object implements java_awt_Paint, java_io_Serializable {
-alpha: number;
+/** Gets the blue component */
 blue: number;
+/** Gets the green component */
+green: number;
+/** Gets the red component */
+red: number;
+alpha: number;
 colorComponents: number[];
 colorComponents: number[];
 colorSpace: java_awt_color_ColorSpace;
 components: number[];
 components: number[];
-green: number;
 rGB: number;
 rGBColorComponents: number[];
 rGBComponents: number[];
-red: number;
 static BLACK: java_awt_Color;
 static BLUE: java_awt_Color;
 static CYAN: java_awt_Color;

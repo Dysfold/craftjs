@@ -7,8 +7,9 @@ import { Serializable as java_io_Serializable } from 'java.io';
 /** Represents a unique permission that may be attached to a Permissible */
 
   export class Permission extends java_lang_Object implements java_security_Guard, java_io_Serializable {
-actions: string;
+/** Returns the unique fully qualified name of this Permission */
 name: string;
+actions: string;
 /** Returns the unique fully qualified name of this Permission */
 getName(): string;
 checkGuard(arg0: java_lang_Object): void;

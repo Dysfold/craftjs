@@ -15,7 +15,15 @@ declare module 'com.destroystokyo.paper' {
  or NamespacedTag as needed instead. */
 
   export class Namespaced {
+/** Gets the key corresponding to this resource
+ 
+ This is contractually obligated to only contain lowercase alphanumeric characters,
+ periods, underscores, hyphens, and forward slashes. */
 key: string;
+/** Gets the namespace this resource is a part of
+ 
+ This is contractually obligated to only contain lowercase alphanumeric characters,
+ periods, underscores, and hyphens. */
 namespace: string;
 /** Gets the key corresponding to this resource
  
@@ -36,7 +44,14 @@ declare module 'com.destroystokyo.paper.util' {
 
 
   export class VersionFetcher {
+/** Amount of time to cache results for in milliseconds
+ 
+ Negative values will never cache. */
 cacheTime: number;
+/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
+ in the string. The string will be split on these newlines and sent as individual messages.
+ 
+ NOTE: This is run in a new thread separate from that of the command processing thread */
 versionMessage: string;
 /** Amount of time to cache results for in milliseconds
  
@@ -156,14 +171,25 @@ import { Object as java_lang_Object } from 'java.lang';
  A title can be sent without subtitle text. */
 
   export class Title extends java_lang_Object {
+/** Gets the number of ticks to fade in.
+
+ The returned value is never negative. */
 fadeIn: number;
+/** Gets the number of ticks to fade out.
+
+ The returned value is never negative. */
 fadeOut: number;
+/** Gets the number of ticks to stay.
+
+ The returned value is never negative. */
+stay: number;
+/** Gets the text of this title */
+title: net_md_5_bungee_api_chat_BaseComponent[];
+/** Gets the text of this title's subtitle */
+subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null;
 static DEFAULT_FADE_IN: number;
 static DEFAULT_FADE_OUT: number;
 static DEFAULT_STAY: number;
-stay: number;
-subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null;
-title: net_md_5_bungee_api_chat_BaseComponent[];
 /** Gets the number of ticks to fade in.
 
  The returned value is never negative. */
@@ -417,6 +443,7 @@ import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.l
 /** A reputation score for a player on a villager. */
 
   export class Reputation extends java_lang_Object {
+/** Gets the reputation value for a specific ReputationType. */
 reputation: number;
 /** Gets the reputation value for a specific ReputationType. */
 getReputation(type: com_destroystokyo_paper_entity_villager_ReputationType): number;
@@ -503,9 +530,12 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted block */
 
   export class TargetBlockInfo extends java_lang_Object {
+/** Get the block that is targeted */
 block: org_bukkit_block_Block;
-blockFace: org_bukkit_block_BlockFace;
+/** Get the relative Block to the targeted block on the side it is targeted at */
 relativeBlock: org_bukkit_block_Block;
+/** Get the targeted BlockFace */
+blockFace: org_bukkit_block_BlockFace;
 /** Get the block that is targeted */
 getBlock(): org_bukkit_block_Block;
 /** Get the relative Block to the targeted block on the side it is targeted at */
@@ -524,7 +554,9 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted entity */
 
   export class TargetEntityInfo extends java_lang_Object {
+/** Get the entity that is targeted */
 entity: org_bukkit_entity_Entity;
+/** Get the position the entity is targeted at */
 hitVector: org_bukkit_util_Vector;
 /** Get the entity that is targeted */
 getEntity(): org_bukkit_entity_Entity;
@@ -613,10 +645,13 @@ import { Location as org_bukkit_Location } from 'org.bukkit';
 /** Represents the result of a pathfinding calculation */
 
   export class PathResult {
+/** All currently calculated points to follow along the path to reach the destination location
+
+ Will return points the entity has already moved past, see getNextPointIndex() */
+points: java_util_List<org_bukkit_Location>;
 finalPoint: org_bukkit_Location | null;
 nextPoint: org_bukkit_Location | null;
 nextPointIndex: number;
-points: java_util_List<org_bukkit_Location>;
 /** All currently calculated points to follow along the path to reach the destination location
 
  Will return points the entity has already moved past, see getNextPointIndex() */
@@ -634,8 +669,14 @@ import { InetSocketAddress as java_net_InetSocketAddress } from 'java.net';
 /** Represents a client connected to the server. */
 
   export class NetworkClient {
-address: java_net_InetSocketAddress;
+/** Returns the protocol version of the client. */
 protocolVersion: number;
+/** Returns the socket address of the client. */
+address: java_net_InetSocketAddress;
+/** Returns the virtual host the client is connected to.
+
+ The virtual host refers to the hostname/port the client used to
+ connect to the server. */
 virtualHost: java_net_InetSocketAddress | null;
 /** Returns the protocol version of the client. */
 getProtocolVersion(): number;
@@ -692,7 +733,12 @@ import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 /** Represents an AI goal of an entity */
 
   export class Goal<T extends org_bukkit_entity_Mob> {
+/** A unique key that identifies this type of goal. Plugins should use their own namespace, not the minecraft
+ namespace. Additionally, this key also specifies to what mobs this goal can be applied to */
 key: com_destroystokyo_paper_entity_ai_GoalKey<T>;
+/** Returns a list of all applicable flags for this goal.
+
+ This method is only called on construction. */
 types: java_util_EnumSet<com_destroystokyo_paper_entity_ai_GoalType>;
 /** A unique key that identifies this type of goal. Plugins should use their own namespace, not the minecraft
  namespace. Additionally, this key also specifies to what mobs this goal can be applied to */
@@ -815,11 +861,16 @@ import { Sound as org_bukkit_Sound } from 'org.bukkit';
  The sound group includes break, step, place, hit, and fall sounds. */
 
   export class BlockSoundGroup {
+/** Gets the sound that plays when breaking this block */
 breakSound: org_bukkit_Sound;
-fallSound: org_bukkit_Sound;
+/** Gets the sound that plays when hitting this block */
 hitSound: org_bukkit_Sound;
+/** Gets the sound that plays when placing this block */
 placeSound: org_bukkit_Sound;
+/** Gets the sound that plays when stepping on this block */
 stepSound: org_bukkit_Sound;
+/** Gets the sound that plays when this block falls */
+fallSound: org_bukkit_Sound;
 /** Gets the sound that plays when breaking this block */
 getBreakSound(): org_bukkit_Sound;
 /** Gets the sound that plays when hitting this block */
@@ -845,12 +896,17 @@ import { InventoryEvent as org_bukkit_event_inventory_InventoryEvent } from 'org
 /** Called when an anvil is damaged from being used */
 
   export class AnvilDamagedEvent extends org_bukkit_event_inventory_InventoryEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-damageState: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Description copied from class: InventoryEventGets the primary Inventory involved in this transaction */
 inventory: org_bukkit_inventory_AnvilInventory;
+/** Description copied from class: InventoryEventGets the primary Inventory involved in this transaction */
 inventory: org_bukkit_inventory_Inventory;
+/** Gets the new state of damage on the anvil */
+damageState: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -917,14 +973,17 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 /** Represents the amount of damage on an anvil block */
 
   export class DamageState extends java_lang_Enum<com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState> {
-class: java_lang_Class<java_lang_Object>;
+/** Get block material of this state */
 material: org_bukkit_Material;
+/** Get damaged state by block data */
+static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
+/** Get damaged state by block material */
+static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
+class: java_lang_Class<java_lang_Object>;
 static BROKEN: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static CHIPPED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static DAMAGED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static FULL: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
-static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
-static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
 /** Get block material of this state */
 getMaterial(): org_bukkit_Material;
 /** Get damaged state by block data */
@@ -962,14 +1021,17 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 /** Represents the amount of damage on an anvil block */
 
   export class DamageState extends java_lang_Enum<com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState> {
-class: java_lang_Class<java_lang_Object>;
+/** Get block material of this state */
 material: org_bukkit_Material;
+/** Get damaged state by block data */
+static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
+/** Get damaged state by block material */
+static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
+class: java_lang_Class<java_lang_Object>;
 static BROKEN: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static CHIPPED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static DAMAGED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static FULL: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
-static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
-static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
 /** Get block material of this state */
 getMaterial(): org_bukkit_Material;
 /** Get damaged state by block data */
@@ -1014,24 +1076,76 @@ import { Enchantment as org_bukkit_enchantments_Enchantment } from 'org.bukkit.e
 import { PersistentDataContainer as org_bukkit_persistence_PersistentDataContainer } from 'org.bukkit.persistence';
 
   export class ArmorStandMeta implements org_bukkit_inventory_meta_ItemMeta {
-attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null;
-attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier>;
-attributeModifiers: java_util_Collection<org_bukkit_attribute_AttributeModifier> | null;
-canDestroy: java_util_Set<org_bukkit_Material>;
-canPlaceOn: java_util_Set<org_bukkit_Material>;
-customModelData: number;
-customTagContainer: org_bukkit_inventory_meta_tags_CustomItemTagContainer;
-destroyableKeys: java_util_Set<com_destroystokyo_paper_Namespaced>;
-displayName: string;
-displayNameComponent: net_md_5_bungee_api_chat_BaseComponent[];
+/** Checks for the level of the specified enchantment. */
 enchantLevel: number;
-enchants: java_util_Map<org_bukkit_enchantments_Enchantment, java_lang_Integer>;
+/** Get current set itemFlags. The collection returned is unmodifiable. */
 itemFlags: java_util_Set<org_bukkit_inventory_ItemFlag>;
-localizedName: string;
-lore: java_util_List<string> | null;
-loreComponents: java_util_List<net_md_5_bungee_api_chat_BaseComponent[]>;
-persistentDataContainer: org_bukkit_persistence_PersistentDataContainer;
+/** Gets set of materials what given item can destroy in GameMode.ADVENTURE */
+canDestroy: java_util_Set<org_bukkit_Material>;
+/** Gets set of materials where given item can be placed on in GameMode.ADVENTURE */
+canPlaceOn: java_util_Set<org_bukkit_Material>;
+/** Gets the collection of namespaced keys that the item can be placed on in GameMode.ADVENTURE */
 placeableKeys: java_util_Set<com_destroystokyo_paper_Namespaced>;
+/** Gets the collection of namespaced keys that the item can destroy in GameMode.ADVENTURE */
+destroyableKeys: java_util_Set<com_destroystokyo_paper_Namespaced>;
+/** Gets the custom model data that is set.
+ 
+ CustomModelData is an integer that may be associated client side with a
+ custom item model.
+ 
+ Plugins should check that hasCustomModelData() returns true
+ before calling this method. */
+customModelData: number;
+/** Gets the display name that is set.
+ 
+ Plugins should check that hasDisplayName() returns true
+ before calling this method. */
+displayName: string;
+/** Gets the localized display name that is set.
+ 
+ Plugins should check that hasLocalizedName() returns true
+ before calling this method. */
+localizedName: string;
+/** Gets the lore that is set.
+ 
+ Plugins should check if hasLore() returns true before
+ calling this method. */
+lore: java_util_List<string> | null;
+/** Return an immutable copy of all AttributeModifiers
+ for a given Attribute */
+attributeModifiers: java_util_Collection<org_bukkit_attribute_AttributeModifier> | null;
+/** Return an immutable copy of all Attributes and
+ their modifiers in this ItemMeta.
+ Returns null if none exist. */
+attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null;
+/** Return an immutable copy of all Attributes and their
+ AttributeModifiers for a given EquipmentSlot.
+ Any AttributeModifier that does have have a given
+ EquipmentSlot will be returned. This is because
+ AttributeModifiers without a slot are active in any slot.
+ If there are no attributes set for the given slot, an empty map
+ will be returned. */
+attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier>;
+/** Returns a copy the enchantments in this ItemMeta. 
+ Returns an empty map if none. */
+enchants: java_util_Map<org_bukkit_enchantments_Enchantment, java_lang_Integer>;
+/** Returns a custom tag container capable of storing tags on the object.
+
+ Note that the tags stored on this container are all stored under their
+ own custom namespace therefore modifying default tags using this
+ PersistentDataHolder is impossible. */
+persistentDataContainer: org_bukkit_persistence_PersistentDataContainer;
+/** Returns a public custom tag container capable of storing tags on the
+ item.
+
+ Those tags will be sent to the client with all of their content, so the
+ client is capable of reading them. This will result in the player seeing
+ a NBT Tag notification on the item.
+
+ These tags can also be modified by the client once in creative mode */
+customTagContainer: org_bukkit_inventory_meta_tags_CustomItemTagContainer;
+displayNameComponent: net_md_5_bungee_api_chat_BaseComponent[];
+loreComponents: java_util_List<net_md_5_bungee_api_chat_BaseComponent[]>;
 /** Add an Attribute and it's Modifier.
  AttributeModifiers can now support EquipmentSlots.
  If not set, the AttributeModifier will be active in ALL slots.
@@ -1248,12 +1362,20 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  Only 1 process will be allowed to provide completions, the Async Event, or the standard process. */
 
   export class AsyncTabCompleteEvent extends org_bukkit_event_Event implements org_bukkit_event_Cancellable {
+/** Get the sender completing this command. */
+sender: org_bukkit_command_CommandSender;
+/** Return the entire buffer which formed the basis of this completion. */
 buffer: string;
-class: java_lang_Class<java_lang_Object>;
+/** The list of completions which will be offered to the sender, in order.
+ This list is mutable and reflects what will be offered.
+
+ If this collection is not empty after the event is fired, then
+ the standard process of calling Command.tabComplete(CommandSender, String, String[])
+ or current player names will not be called. */
 completions: java_util_List<string>;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 location: org_bukkit_Location | null;
-sender: org_bukkit_command_CommandSender;
 static handlerList: org_bukkit_event_HandlerList;
 /** Description copied from interface: CancellableGets the cancellation state of this event. A cancelled event will not
  be executed in the server, but will still pass to other plugins */
@@ -1313,11 +1435,15 @@ import { BlockEvent as org_bukkit_event_block_BlockEvent } from 'org.bukkit.even
 /** Called when a beacon effect is being applied to a player. */
 
   export class BeaconEffectEvent extends org_bukkit_event_block_BlockEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-effect: org_bukkit_potion_PotionEffect;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets the player who the potion effect is being applied to. */
 player: org_bukkit_entity_Player;
+/** Gets the potion effect being applied. */
+effect: org_bukkit_potion_PotionEffect;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -1388,8 +1514,10 @@ import { BlockEvent as org_bukkit_event_block_BlockEvent } from 'org.bukkit.even
  Events such as leaves decaying, pistons retracting (where the block is moving), does NOT fire this event. */
 
   export class BlockDestroyEvent extends org_bukkit_event_block_BlockEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 newState: org_bukkit_block_data_BlockData;
 static handlerList: org_bukkit_event_HandlerList;
@@ -1448,11 +1576,16 @@ import { Sound as org_bukkit_Sound } from 'org.bukkit';
  The sound group includes break, step, place, hit, and fall sounds. */
 
   export class BlockSoundGroup {
+/** Gets the sound that plays when breaking this block */
 breakSound: org_bukkit_Sound;
-fallSound: org_bukkit_Sound;
+/** Gets the sound that plays when hitting this block */
 hitSound: org_bukkit_Sound;
+/** Gets the sound that plays when placing this block */
 placeSound: org_bukkit_Sound;
+/** Gets the sound that plays when stepping on this block */
 stepSound: org_bukkit_Sound;
+/** Gets the sound that plays when this block falls */
+fallSound: org_bukkit_Sound;
 /** Gets the sound that plays when breaking this block */
 getBreakSound(): org_bukkit_Sound;
 /** Gets the sound that plays when hitting this block */
@@ -1509,13 +1642,26 @@ import { LootableInventory as com_destroystokyo_paper_loottable_LootableInventor
 /** Represents an Inventory that can generate loot, such as Chests inside of Fortresses and Mineshafts */
 
   export class LootableBlockInventory implements com_destroystokyo_paper_loottable_LootableInventory {
-block: org_bukkit_block_Block;
-lastFilled: number;
-lastLooted: java_lang_Long | null;
-lastLooted: java_lang_Long | null;
-lootTable: org_bukkit_loot_LootTable | null;
-nextRefill: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the block that is lootable */
+block: org_bukkit_block_Block;
+/** Gets the timestamp in milliseconds that the Lootable object was last refilled */
+lastFilled: number;
+/** Gets the timestamp in milliseconds that the Lootable object will refill */
+nextRefill: number;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
 /** Change the state of whether or not a player has looted this block */
 setHasPlayerLooted(player: java_util_UUID, looted: boolean): boolean;
 /** Change the state of whether or not a player has looted this block */
@@ -1585,12 +1731,24 @@ import { LootTable as org_bukkit_loot_LootTable, Lootable as org_bukkit_loot_Loo
  on Minecraft versions and the Loot Table feature. */
 
   export class LootableInventory implements org_bukkit_loot_Lootable {
-lastFilled: number;
-lastLooted: java_lang_Long | null;
-lastLooted: java_lang_Long | null;
-lootTable: org_bukkit_loot_LootTable | null;
-nextRefill: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the timestamp in milliseconds that the Lootable object was last refilled */
+lastFilled: number;
+/** Gets the timestamp in milliseconds that the Lootable object will refill */
+nextRefill: number;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
 /** Change the state of whether or not a player has looted this block */
 setHasPlayerLooted(player: java_util_UUID, looted: boolean): boolean;
 /** Change the state of whether or not a player has looted this block */
@@ -1720,10 +1878,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when a Creeper is ignite flag is changed (armed/disarmed to explode). */
 
   export class CreeperIgniteEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Creeper;
-entity: org_bukkit_entity_Entity;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Creeper;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -1805,84 +1967,242 @@ import { PersistentDataContainer as org_bukkit_persistence_PersistentDataContain
 import { LootTable as org_bukkit_loot_LootTable } from 'org.bukkit.loot';
 
   export class RangedEntity implements org_bukkit_entity_Mob {
-absorptionAmount: number;
-activeItem: org_bukkit_inventory_ItemStack | null;
-activePotionEffects: java_util_Collection<org_bukkit_potion_PotionEffect>;
-arrowsStuck: number;
-attribute: org_bukkit_attribute_AttributeInstance | null;
-boundingBox: org_bukkit_util_BoundingBox;
-canPickupItems: boolean;
-chunk: org_bukkit_Chunk;
-collidableExemptions: java_util_Set<java_util_UUID>;
-customName: string | null;
-effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
-entityId: number;
-entitySpawnReason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
-equipment: org_bukkit_inventory_EntityEquipment | null;
-eyeHeight: number;
-eyeHeight: number;
-eyeLocation: org_bukkit_Location;
-facing: org_bukkit_block_BlockFace;
-fallDistance: number;
-fireTicks: number;
-handRaisedTime: number;
-health: number;
-height: number;
-itemUseRemainingTime: number;
-killer: org_bukkit_entity_Player | null;
-lastDamage: number;
-lastDamageCause: org_bukkit_event_entity_EntityDamageEvent | null;
-lastTwoTargetBlocks: java_util_List<org_bukkit_block_Block> | null;
-leashHolder: org_bukkit_entity_Entity;
-lineOfSight: java_util_List<org_bukkit_block_Block> | null;
-location: org_bukkit_Location;
-location: org_bukkit_Location;
-lootTable: org_bukkit_loot_LootTable | null;
-maxFireTicks: number;
-maxHealth: number;
-maximumAir: number;
-maximumNoDamageTicks: number;
-memory: T | null;
-metadata: java_util_List<org_bukkit_metadata_MetadataValue>;
-name: string;
-nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
-noDamageTicks: number;
-origin: org_bukkit_Location | null;
-passenger: org_bukkit_entity_Entity | null;
-passengers: java_util_List<org_bukkit_entity_Entity>;
+/** Enables access to control the pathing of an Entity */
 pathfinder: com_destroystokyo_paper_entity_Pathfinder;
-persistentDataContainer: org_bukkit_persistence_PersistentDataContainer;
-pistonMoveReaction: org_bukkit_block_PistonMoveReaction;
-portalCooldown: number;
-pose: org_bukkit_entity_Pose;
-potionEffect: org_bukkit_potion_PotionEffect | null;
-remainingAir: number;
-removeWhenFarAway: boolean;
-scoreboardTags: java_util_Set<string>;
+/** Get a Location detailing the current eye position of the living entity. */
+eyeLocation: org_bukkit_Location;
+/** Get how long the players hands have been raised (Charging Bow attack, using a potion, etc) */
+handRaisedTime: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
-server: org_bukkit_Server;
+/** Get the closest cardinal BlockFace direction an entity is
+ currently facing.
+ 
+ This will not return any non-cardinal directions such as
+ BlockFace.UP or BlockFace.DOWN.
+ 
+ Hanging entities will override this call and thus their behavior
+ may be different. */
+facing: org_bukkit_block_BlockFace;
+/** Get the delay (in ticks) before blocking is effective for this entity */
 shieldBlockingDelay: number;
-target: org_bukkit_entity_LivingEntity | null;
-targetBlock: org_bukkit_block_Block | null;
-targetBlock: org_bukkit_block_Block | null;
-targetBlock: org_bukkit_block_Block | null;
-targetBlockExact: org_bukkit_block_Block | null;
-targetBlockExact: org_bukkit_block_Block | null;
-targetBlockFace: org_bukkit_block_BlockFace | null;
-targetBlockFace: org_bukkit_block_BlockFace | null;
-targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
-targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
-targetEntity: org_bukkit_entity_Entity | null;
-targetEntity: org_bukkit_entity_Entity | null;
-targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
-targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
-ticksLived: number;
+/** Get the number of arrows stuck in this entity */
+arrowsStuck: number;
+/** Get the type of the entity. */
 type: org_bukkit_entity_EntityType;
-uniqueId: java_util_UUID;
+/** Get the vehicle that this player is inside. If there is no vehicle,
+ null will be returned. */
 vehicle: org_bukkit_entity_Entity | null;
-velocity: org_bukkit_util_Vector;
-width: number;
+/** Get's remaining time a player needs to keep hands raised with an item to finish using it. */
+itemUseRemainingTime: number;
+/** Get's the item being actively "used" or consumed. */
+activeItem: org_bukkit_inventory_ItemStack | null;
+/** Gets a list of passengers of this vehicle.
+ 
+ The returned list will not be directly linked to the entity's current
+ passengers, and no guarantees are made as to its mutability. */
+passengers: java_util_List<org_bukkit_entity_Entity>;
+/** Gets a set containing all of the permissions currently in effect by
+ this object */
+effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
+/** Gets all blocks along the living entity's line of sight.
+ 
+ This list contains all blocks from the living entity's eye position to
+ target inclusive. This method considers all blocks as 1x1x1 in size. */
+lineOfSight: java_util_List<org_bukkit_block_Block> | null;
+/** Gets if the living entity can pick up items. */
+canPickupItems: boolean;
+/** Gets information about the block the living entity has targeted */
+targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
+/** Gets information about the block the living entity has targeted, ignoring fluids */
+targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
+/** Gets information about the entity being targeted */
+targetEntity: org_bukkit_entity_Entity | null;
+/** Gets information about the entity being targeted */
+targetEntity: org_bukkit_entity_Entity | null;
+/** Gets information about the entity being targeted */
+targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
+/** Gets information about the entity being targeted */
+targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the Server that contains this Entity */
+server: org_bukkit_Server;
+/** Gets the amount of ticks this entity has lived for.
+ 
+ This is the equivalent to "age" in entities. */
+ticksLived: number;
+/** Gets the block that the living entity has targeted */
+targetBlock: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted, ignoring fluids */
+targetBlock: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted.
+ 
+ This method considers all blocks as 1x1x1 in size. To take exact block
+ collision shapes into account, see getTargetBlockExact(int,
+ FluidCollisionMode). */
+targetBlock: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted.
+ 
+ This takes the blocks' precise collision shapes into account.
+ 
+ This may cause loading of chunks! Some implementations may impose
+ artificial restrictions on the maximum distance. */
+targetBlockExact: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted.
+ 
+ This takes the blocks' precise collision shapes into account. Fluids are
+ ignored.
+ 
+ This may cause loading of chunks! Some implementations may impose
+ artificial restrictions on the maximum distance. */
+targetBlockExact: org_bukkit_block_Block | null;
+/** Gets the blockface of that block that the living entity has targeted */
+targetBlockFace: org_bukkit_block_BlockFace | null;
+/** Gets the blockface of that block that the living entity has targeted, ignoring fluids */
+targetBlockFace: org_bukkit_block_BlockFace | null;
+/** Gets the current target of this Mob */
+target: org_bukkit_entity_LivingEntity | null;
+/** Gets the current world this entity resides in */
 world: org_bukkit_World;
+/** Gets the custom name on a mob or block. If there is no name this method
+ will return null.
+ 
+ This value has no effect on players, they will always use their real
+ name. */
+customName: string | null;
+/** Gets the entity that is currently leading this entity. */
+leashHolder: org_bukkit_entity_Entity;
+/** Gets the entity's absorption amount. */
+absorptionAmount: number;
+/** Gets the entity's current bounding box.
+ 
+ The returned bounding box reflects the entity's current location and
+ size. */
+boundingBox: org_bukkit_util_BoundingBox;
+/** Gets the entity's current pose.
+
+ Note that the pose is only updated at the end of a tick, so may be
+ inconsistent with other methods. eg Player.isSneaking() being
+ true does not imply the current pose will be Pose.SNEAKING */
+pose: org_bukkit_entity_Pose;
+/** Gets the entity's health from 0 to getMaxHealth(), where 0 is dead. */
+health: number;
+/** Gets the entity's height */
+height: number;
+/** Gets the entity's width */
+width: number;
+/** Gets the height of the living entity's eyes above its Location. */
+eyeHeight: number;
+/** Gets the height of the living entity's eyes above its Location. */
+eyeHeight: number;
+/** Gets the inventory with the equipment worn by the living entity. */
+equipment: org_bukkit_inventory_EntityEquipment | null;
+/** Gets the last two blocks along the living entity's line of sight.
+ 
+ The target block will be the last block in the list. This method
+ considers all blocks as 1x1x1 in size. */
+lastTwoTargetBlocks: java_util_List<org_bukkit_block_Block> | null;
+/** Gets the latest chunk an entity is currently or was in. */
+chunk: org_bukkit_Chunk;
+/** Gets the location where this entity originates from.
+ 
+ This value can be null if the entity hasn't yet been added to the world. */
+origin: org_bukkit_Location | null;
+/** Gets the maximum health this entity has. */
+maxHealth: number;
+/** Gets the name of this command sender */
+name: string;
+/** Gets the period of time (in ticks) before this entity can use a portal. */
+portalCooldown: number;
+/** Gets the player identified as the killer of the living entity.
+ 
+ May be null. */
+killer: org_bukkit_entity_Player | null;
+/** Gets the primary passenger of a vehicle. For vehicles that could have
+ multiple passengers, this will only return the primary passenger. */
+passenger: org_bukkit_entity_Entity | null;
+/** Gets the specified attribute instance from the object. This instance will
+ be backed directly to the object and any changes will be visible at once. */
+attribute: org_bukkit_attribute_AttributeInstance | null;
+/** Gets this entity's current velocity */
+velocity: org_bukkit_util_Vector;
+/** Retrieve the last EntityDamageEvent inflicted on this entity.
+ This event may have been cancelled. */
+lastDamageCause: org_bukkit_event_entity_EntityDamageEvent | null;
+/** Returns a custom tag container capable of storing tags on the object.
+
+ Note that the tags stored on this container are all stored under their
+ own custom namespace therefore modifying default tags using this
+ PersistentDataHolder is impossible. */
+persistentDataContainer: org_bukkit_persistence_PersistentDataContainer;
+/** Returns a list of entities within a bounding box centered around this
+ entity */
+nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
+/** Returns a list of previously set metadata values from the implementing
+ object's metadata store. */
+metadata: java_util_List<org_bukkit_metadata_MetadataValue>;
+/** Returns a set of tags for this entity.
+ 
+ Entities can have no more than 1024 tags. */
+scoreboardTags: java_util_Set<string>;
+/** Returns a unique and persistent id for this entity */
+uniqueId: java_util_UUID;
+/** Returns a unique id for this entity */
+entityId: number;
+/** Returns all currently active PotionEffects on the living
+ entity. */
+activePotionEffects: java_util_Collection<org_bukkit_potion_PotionEffect>;
+/** Returns if the living entity despawns when away from players or not.
+ 
+ By default, animals are not removed while other mobs are. */
+removeWhenFarAway: boolean;
+/** Returns the active PotionEffect of the specified type.
+ 
+ If the effect is not present on the entity then null will be returned. */
+potionEffect: org_bukkit_potion_PotionEffect | null;
+/** Returns the amount of air that the living entity has remaining, in
+ ticks. */
+remainingAir: number;
+/** Returns the distance this entity has fallen */
+fallDistance: number;
+/** Returns the entity's current fire ticks (ticks before the entity stops
+ being on fire). */
+fireTicks: number;
+/** Returns the entity's maximum fire ticks. */
+maxFireTicks: number;
+/** Returns the living entity's current maximum no damage ticks.
+ 
+ This is the maximum duration in which the living entity will not take
+ damage. */
+maximumNoDamageTicks: number;
+/** Returns the living entity's current no damage ticks. */
+noDamageTicks: number;
+/** Returns the living entity's last damage taken in the current no damage
+ ticks time.
+ 
+ Only damage higher than this amount will further damage the living
+ entity. */
+lastDamage: number;
+/** Returns the maximum amount of air the living entity can have, in ticks. */
+maximumAir: number;
+/** Returns the reaction of the entity when moved by a piston. */
+pistonMoveReaction: org_bukkit_block_PistonMoveReaction;
+/** Returns the value of the memory specified.
+ 
+ Note that the value is null when the specific entity does not have that
+ value by default. */
+memory: T | null;
+collidableExemptions: java_util_Set<java_util_UUID>;
+entitySpawnReason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
+location: org_bukkit_Location;
+location: org_bukkit_Location;
 /** Add a passenger to the vehicle. */
 addPassenger(passenger: org_bukkit_entity_Entity): boolean;
 /** Add a tag to this entity.
@@ -2535,14 +2855,21 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a DragonFireball collides with a block/entity and spawns an AreaEffectCloud */
 
   export class EnderDragonFireballHitEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
+/** The fireball involved in this event */
+entity: org_bukkit_entity_DragonFireball;
+/** The fireball involved in this event */
+entity: org_bukkit_entity_Entity;
+/** The living entities hit by fireball
+
+ May be null if no entities were hit */
+targets: java_util_Collection<org_bukkit_entity_LivingEntity> | null;
 areaEffectCloud: org_bukkit_entity_AreaEffectCloud;
 class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_DragonFireball;
-entity: org_bukkit_entity_Entity;
-eventName: string;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
-targets: java_util_Collection<org_bukkit_entity_LivingEntity> | null;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -2605,11 +2932,15 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when an EnderDragon spawns an AreaEffectCloud by shooting flames */
 
   export class EnderDragonFlameEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
+/** The enderdragon involved in this event */
+entity: org_bukkit_entity_EnderDragon;
+/** The enderdragon involved in this event */
+entity: org_bukkit_entity_Entity;
 areaEffectCloud: org_bukkit_entity_AreaEffectCloud;
 class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_EnderDragon;
-entity: org_bukkit_entity_Entity;
-eventName: string;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -2670,10 +3001,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when an EnderDragon shoots a fireball */
 
   export class EnderDragonShootFireballEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_EnderDragon;
-entity: org_bukkit_entity_Entity;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** The enderdragon shooting the fireball */
+entity: org_bukkit_entity_EnderDragon;
+/** The enderdragon shooting the fireball */
+entity: org_bukkit_entity_Entity;
+class: java_lang_Class<java_lang_Object>;
 fireball: org_bukkit_entity_DragonFireball;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -2737,12 +3072,17 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  at the Enderman, according to Vanilla rules. */
 
   export class EndermanAttackPlayerEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Enderman;
-entity: org_bukkit_entity_Entity;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** The enderman considering attacking */
+entity: org_bukkit_entity_Enderman;
+/** The enderman considering attacking */
+entity: org_bukkit_entity_Entity;
+/** The player the Enderman is considering attacking */
 player: org_bukkit_entity_Player;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -2802,10 +3142,14 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.event.entity';
 
   export class EndermanEscapeEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Enderman;
-entity: org_bukkit_entity_Entity;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Enderman;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 reason: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
 static handlerList: org_bukkit_event_HandlerList;
@@ -2940,8 +3284,10 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  This will fire anytime a chunk is reloaded too. */
 
   export class EntityAddToWorldEvent extends org_bukkit_event_entity_EntityEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -2993,10 +3339,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  Cancelling the event will stop the entity from jumping */
 
   export class EntityJumpEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_LivingEntity;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_LivingEntity;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -3058,11 +3408,15 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  vector can be modified. If this event is cancelled, the entity is not knocked back. */
 
   export class EntityKnockbackByEntityEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_LivingEntity;
 acceleration: org_bukkit_util_Vector;
 class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_LivingEntity;
-eventName: string;
 handlers: org_bukkit_event_HandlerList;
 hitBy: org_bukkit_entity_Entity;
 knockbackStrength: number;
@@ -3131,13 +3485,22 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  is choosing to start moving to a location. */
 
   export class EntityPathfindEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
-loc: org_bukkit_Location;
-static handlerList: org_bukkit_event_HandlerList;
+/** If the Entity is trying to pathfind to an entity, this is the entity in relation.
+
+ Otherwise this will return null. */
 targetEntity: org_bukkit_entity_Entity | null;
+/** The Entity that is pathfinding. */
+entity: org_bukkit_entity_Entity;
+/** The Location of where the entity is about to move to.
+
+ Note that if the target happened to of been an entity */
+loc: org_bukkit_Location;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
+static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -3201,8 +3564,10 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired any time an entity is being removed from a world for any reason */
 
   export class EntityRemoveFromWorldEvent extends org_bukkit_event_entity_EntityEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -3253,11 +3618,16 @@ import { EntityTeleportEvent as org_bukkit_event_entity_EntityTeleportEvent } fr
 /** Fired any time an entity attempts to teleport in an end gateway */
 
   export class EntityTeleportEndGatewayEvent extends org_bukkit_event_entity_EntityTeleportEvent {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entityType: org_bukkit_entity_EntityType;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Gets the EntityType of the Entity involved in this event. */
+entityType: org_bukkit_entity_EntityType;
+/** Returns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+/** The gateway triggering the teleport */
 gateway: org_bukkit_block_EndGateway;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -3312,12 +3682,15 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  If the event is cancelled, the entity will not transform */
 
   export class EntityTransformedEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** The entity after it has transformed */
+transformed: org_bukkit_entity_Entity;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 reason: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
 static handlerList: org_bukkit_event_HandlerList;
-transformed: org_bukkit_entity_Entity;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -3442,13 +3815,19 @@ import { EntityTransformEvent as org_bukkit_event_entity_EntityTransformEvent } 
 /** Fired when lightning strikes an entity */
 
   export class EntityZapEvent extends org_bukkit_event_entity_EntityTransformEvent implements org_bukkit_event_Cancellable {
-bolt: org_bukkit_entity_LightningStrike;
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entityType: org_bukkit_entity_EntityType;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets the EntityType of the Entity involved in this event. */
+entityType: org_bukkit_entity_EntityType;
+/** Gets the entity that will replace the struck entity. */
 replacementEntity: org_bukkit_entity_Entity;
+/** Gets the lightning bolt that is striking the entity. */
+bolt: org_bukkit_entity_LightningStrike;
+/** Returns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -3511,8 +3890,10 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired anytime the server is about to merge 2 experience orbs into one */
 
   export class ExperienceOrbMergeEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 mergeSource: org_bukkit_entity_ExperienceOrb;
 mergeTarget: org_bukkit_entity_ExperienceOrb;
@@ -3572,10 +3953,11 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 /** Fired once a profiles additional properties (such as textures) has been filled */
 
   export class FillProfileEvent extends org_bukkit_event_Event {
+/** Same as .getPlayerProfile().getProperties() */
+properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>;
 class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 playerProfile: com_destroystokyo_paper_profile_PlayerProfile;
-properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>;
 static handlerList: org_bukkit_event_HandlerList;
 /** Same as .getPlayerProfile().getProperties() */
 getProperties(): java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>;
@@ -3603,7 +3985,12 @@ import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 /** Represents an AI goal of an entity */
 
   export class Goal<T extends org_bukkit_entity_Mob> {
+/** A unique key that identifies this type of goal. Plugins should use their own namespace, not the minecraft
+ namespace. Additionally, this key also specifies to what mobs this goal can be applied to */
 key: com_destroystokyo_paper_entity_ai_GoalKey<T>;
+/** Returns a list of all applicable flags for this goal.
+
+ This method is only called on construction. */
 types: java_util_EnumSet<com_destroystokyo_paper_entity_ai_GoalType>;
 /** A unique key that identifies this type of goal. Plugins should use their own namespace, not the minecraft
  namespace. Additionally, this key also specifies to what mobs this goal can be applied to */
@@ -3693,11 +4080,14 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  Adapted from Velocity's ProxyQueryEvent */
 
   export class GS4QueryEvent extends org_bukkit_event_Event {
+/** Get querier address */
+querierAddress: java_net_InetAddress;
+/** Get query response */
+response: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse;
+/** Get query type */
+queryType: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
 class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
-querierAddress: java_net_InetAddress;
-queryType: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
-response: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse;
 static handlerList: org_bukkit_event_HandlerList;
 /** Get querier address */
 getQuerierAddress(): java_net_InetAddress;
@@ -3729,15 +4119,25 @@ import { Collection as java_util_Collection } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class QueryResponse extends java_lang_Object {
-currentPlayers: number;
-gameVersion: string;
-hostname: string;
-map: string;
-maxPlayers: number;
-motd: string;
+/** Get collection of players which will be used to reply to the query. */
 players: java_util_Collection<string>;
+/** Get current online player count which will be used to reply to the query. */
+currentPlayers: number;
+/** Get game version which will be used to reply to the query. By default supported Minecraft versions range is sent. */
+gameVersion: string;
+/** Get list of plugins which will be used to reply to the query. */
 plugins: java_util_Collection<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>;
+/** Get map name which will be used to reply to the query. By default world is sent. */
+map: string;
+/** Get max player count which will be used to reply to the query. */
+maxPlayers: number;
+/** Get motd which will be used to reply to the query. By default it is Server.getMotd(). */
+motd: string;
+/** Get server (public facing) hostname */
+hostname: string;
+/** Get server (public facing) port */
 port: number;
+/** Get server software (name and version) which will be used to reply to the query. */
 serverVersion: string;
 /** Creates a new GS4QueryEvent.QueryResponse.Builder instance */
 static builder(): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
@@ -3854,15 +4254,25 @@ import { Collection as java_util_Collection } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class QueryResponse extends java_lang_Object {
-currentPlayers: number;
-gameVersion: string;
-hostname: string;
-map: string;
-maxPlayers: number;
-motd: string;
+/** Get collection of players which will be used to reply to the query. */
 players: java_util_Collection<string>;
+/** Get current online player count which will be used to reply to the query. */
+currentPlayers: number;
+/** Get game version which will be used to reply to the query. By default supported Minecraft versions range is sent. */
+gameVersion: string;
+/** Get list of plugins which will be used to reply to the query. */
 plugins: java_util_Collection<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>;
+/** Get map name which will be used to reply to the query. By default world is sent. */
+map: string;
+/** Get max player count which will be used to reply to the query. */
+maxPlayers: number;
+/** Get motd which will be used to reply to the query. By default it is Server.getMotd(). */
+motd: string;
+/** Get server (public facing) hostname */
+hostname: string;
+/** Get server (public facing) port */
 port: number;
+/** Get server software (name and version) which will be used to reply to the query. */
 serverVersion: string;
 /** Creates a new GS4QueryEvent.QueryResponse.Builder instance */
 static builder(): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
@@ -4018,13 +4428,26 @@ import { LootableInventory as com_destroystokyo_paper_loottable_LootableInventor
 /** Represents an Inventory that can generate loot, such as Minecarts inside of Mineshafts */
 
   export class LootableEntityInventory implements com_destroystokyo_paper_loottable_LootableInventory {
-entity: org_bukkit_entity_Entity;
-lastFilled: number;
-lastLooted: java_lang_Long | null;
-lastLooted: java_lang_Long | null;
-lootTable: org_bukkit_loot_LootTable | null;
-nextRefill: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the entity that is lootable */
+entity: org_bukkit_entity_Entity;
+/** Gets the timestamp in milliseconds that the Lootable object was last refilled */
+lastFilled: number;
+/** Gets the timestamp in milliseconds that the Lootable object will refill */
+nextRefill: number;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
 /** Change the state of whether or not a player has looted this block */
 setHasPlayerLooted(player: java_util_UUID, looted: boolean): boolean;
 /** Change the state of whether or not a player has looted this block */
@@ -4086,8 +4509,10 @@ import { Exception as java_lang_Exception, Object as java_lang_Object, Class as 
 import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.event.player';
 
   export class IllegalPacketEvent extends org_bukkit_event_player_PlayerEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 exceptionMessage: string | null;
 handlers: org_bukkit_event_HandlerList;
 kickMessage: string | null;
@@ -4147,6 +4572,7 @@ import { List as java_util_List } from 'java.util';
 /** Allows crafting Items that require full matching itemstacks to complete the recipe for custom items */
 
   export class ItemStackRecipeChoice extends java_lang_Object implements org_bukkit_inventory_RecipeChoice {
+/** Description copied from interface: RecipeChoiceGets a single item stack representative of this stack choice. */
 itemStack: org_bukkit_inventory_ItemStack;
 /** Description copied from interface: RecipeChoiceGets a single item stack representative of this stack choice. */
 getItemStack(): org_bukkit_inventory_ItemStack;
@@ -4205,13 +4631,26 @@ import { LootableInventory as com_destroystokyo_paper_loottable_LootableInventor
 /** Represents an Inventory that can generate loot, such as Chests inside of Fortresses and Mineshafts */
 
   export class LootableBlockInventory implements com_destroystokyo_paper_loottable_LootableInventory {
-block: org_bukkit_block_Block;
-lastFilled: number;
-lastLooted: java_lang_Long | null;
-lastLooted: java_lang_Long | null;
-lootTable: org_bukkit_loot_LootTable | null;
-nextRefill: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the block that is lootable */
+block: org_bukkit_block_Block;
+/** Gets the timestamp in milliseconds that the Lootable object was last refilled */
+lastFilled: number;
+/** Gets the timestamp in milliseconds that the Lootable object will refill */
+nextRefill: number;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
 /** Change the state of whether or not a player has looted this block */
 setHasPlayerLooted(player: java_util_UUID, looted: boolean): boolean;
 /** Change the state of whether or not a player has looted this block */
@@ -4275,13 +4714,26 @@ import { LootableInventory as com_destroystokyo_paper_loottable_LootableInventor
 /** Represents an Inventory that can generate loot, such as Minecarts inside of Mineshafts */
 
   export class LootableEntityInventory implements com_destroystokyo_paper_loottable_LootableInventory {
-entity: org_bukkit_entity_Entity;
-lastFilled: number;
-lastLooted: java_lang_Long | null;
-lastLooted: java_lang_Long | null;
-lootTable: org_bukkit_loot_LootTable | null;
-nextRefill: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the entity that is lootable */
+entity: org_bukkit_entity_Entity;
+/** Gets the timestamp in milliseconds that the Lootable object was last refilled */
+lastFilled: number;
+/** Gets the timestamp in milliseconds that the Lootable object will refill */
+nextRefill: number;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
 /** Change the state of whether or not a player has looted this block */
 setHasPlayerLooted(player: java_util_UUID, looted: boolean): boolean;
 /** Change the state of whether or not a player has looted this block */
@@ -4351,12 +4803,24 @@ import { LootTable as org_bukkit_loot_LootTable, Lootable as org_bukkit_loot_Loo
  on Minecraft versions and the Loot Table feature. */
 
   export class LootableInventory implements org_bukkit_loot_Lootable {
-lastFilled: number;
-lastLooted: java_lang_Long | null;
-lastLooted: java_lang_Long | null;
-lootTable: org_bukkit_loot_LootTable | null;
-nextRefill: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the timestamp in milliseconds that the Lootable object was last refilled */
+lastFilled: number;
+/** Gets the timestamp in milliseconds that the Lootable object will refill */
+nextRefill: number;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
+/** Gets the timestamp, in milliseconds, of when the player last looted this object */
+lastLooted: java_lang_Long | null;
 /** Change the state of whether or not a player has looted this block */
 setHasPlayerLooted(player: java_util_UUID, looted: boolean): boolean;
 /** Change the state of whether or not a player has looted this block */
@@ -4417,8 +4881,10 @@ import { Player as org_bukkit_entity_Player } from 'org.bukkit.entity';
 import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.event.player';
 
   export class LootableInventoryReplenishEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 inventory: com_destroystokyo_paper_loottable_LootableInventory;
 static handlerList: org_bukkit_event_HandlerList;
@@ -4479,7 +4945,9 @@ import { BlockState as org_bukkit_block_BlockState, Block as org_bukkit_block_Bl
 import { Object as java_lang_Object } from 'java.lang';
 
   export class MaterialSetTag extends java_lang_Object implements org_bukkit_Tag<org_bukkit_Material> {
+/** Description copied from interface: KeyedReturn the namespaced identifier for this object. */
 key: org_bukkit_NamespacedKey;
+/** Description copied from interface: TagGets an immutable set of all tagged items. */
 values: java_util_Set<org_bukkit_Material>;
 /** Description copied from interface: KeyedReturn the namespaced identifier for this object. */
 getKey(): org_bukkit_NamespacedKey;
@@ -4649,7 +5117,15 @@ declare module 'com.destroystokyo.paper' {
  or NamespacedTag as needed instead. */
 
   export class Namespaced {
+/** Gets the key corresponding to this resource
+ 
+ This is contractually obligated to only contain lowercase alphanumeric characters,
+ periods, underscores, hyphens, and forward slashes. */
 key: string;
+/** Gets the namespace this resource is a part of
+ 
+ This is contractually obligated to only contain lowercase alphanumeric characters,
+ periods, underscores, and hyphens. */
 namespace: string;
 /** Gets the key corresponding to this resource
  
@@ -4680,7 +5156,15 @@ import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
  underscores, hyphens, and forward slashes. */
 
   export class NamespacedTag extends java_lang_Object implements com_destroystokyo_paper_Namespaced {
+/** Description copied from interface: NamespacedGets the key corresponding to this resource
+ 
+ This is contractually obligated to only contain lowercase alphanumeric characters,
+ periods, underscores, hyphens, and forward slashes. */
 key: string;
+/** Description copied from interface: NamespacedGets the namespace this resource is a part of
+ 
+ This is contractually obligated to only contain lowercase alphanumeric characters,
+ periods, underscores, and hyphens. */
 namespace: string;
 static BUKKIT: string;
 static MINECRAFT: string;
@@ -4720,8 +5204,14 @@ import { InetSocketAddress as java_net_InetSocketAddress } from 'java.net';
 /** Represents a client connected to the server. */
 
   export class NetworkClient {
-address: java_net_InetSocketAddress;
+/** Returns the protocol version of the client. */
 protocolVersion: number;
+/** Returns the socket address of the client. */
+address: java_net_InetSocketAddress;
+/** Returns the virtual host the client is connected to.
+
+ The virtual host refers to the hostname/port the client used to
+ connect to the server. */
 virtualHost: java_net_InetSocketAddress | null;
 /** Returns the protocol version of the client. */
 getProtocolVersion(): number;
@@ -4776,15 +5266,35 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
  of the response sent to the client. */
 
   export class PaperServerListPingEvent extends org_bukkit_event_server_ServerListPingEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-client: com_destroystokyo_paper_network_StatusClient;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Get the maximum number of players sent.
+
+ Returns -1 if players are hidden using
+ shouldHidePlayers(). */
 maxPlayers: number;
+/** Get the number of players sent.
+
+ Returns -1 if players are hidden using
+ shouldHidePlayers(). */
 numPlayers: number;
-playerSample: java_util_List<com_destroystokyo_paper_profile_PlayerProfile>;
-protocolVersion: number;
+/** Gets the server icon sent to the client. */
 serverIcon: org_bukkit_util_CachedServerIcon | null;
+/** Returns a mutable list of PlayerProfile that will be displayed
+ as online players on the client.
+
+ The Vanilla Minecraft client will display them when hovering the
+ player count with the mouse. */
+playerSample: java_util_List<com_destroystokyo_paper_profile_PlayerProfile>;
+/** Returns the StatusClient pinging the server. */
+client: com_destroystokyo_paper_network_StatusClient;
+/** Returns the protocol version that will be sent as the protocol version
+ of the server to the client. */
+protocolVersion: number;
+/** Returns the version that will be sent as server version on the client. */
 version: string;
+class: java_lang_Class<java_lang_Object>;
 /** 
  
  Calling the Iterator.remove() method will force that particular
@@ -4912,8 +5422,14 @@ import { NetworkClient as com_destroystokyo_paper_network_NetworkClient } from '
  the server list). */
 
   export class StatusClient implements com_destroystokyo_paper_network_NetworkClient {
-address: java_net_InetSocketAddress;
+/** Returns the protocol version of the client. */
 protocolVersion: number;
+/** Returns the socket address of the client. */
+address: java_net_InetSocketAddress;
+/** Returns the virtual host the client is connected to.
+
+ The virtual host refers to the hostname/port the client used to
+ connect to the server. */
 virtualHost: java_net_InetSocketAddress | null;
 /** Returns the protocol version of the client. */
 getProtocolVersion(): number;
@@ -5107,10 +5623,13 @@ import { Location as org_bukkit_Location } from 'org.bukkit';
 /** Represents the result of a pathfinding calculation */
 
   export class PathResult {
+/** All currently calculated points to follow along the path to reach the destination location
+
+ Will return points the entity has already moved past, see getNextPointIndex() */
+points: java_util_List<org_bukkit_Location>;
 finalPoint: org_bukkit_Location | null;
 nextPoint: org_bukkit_Location | null;
 nextPointIndex: number;
-points: java_util_List<org_bukkit_Location>;
 /** All currently calculated points to follow along the path to reach the destination location
 
  Will return points the entity has already moved past, see getNextPointIndex() */
@@ -5132,9 +5651,12 @@ import { PreCreatureSpawnEvent as com_destroystokyo_paper_event_entity_PreCreatu
 /** Called when a phantom is spawned for an exhausted player */
 
   export class PhantomPreSpawnEvent extends com_destroystokyo_paper_event_entity_PreCreatureSpawnEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Get the entity this phantom is spawning for */
 spawningEntity: org_bukkit_entity_Entity | null;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -5232,10 +5754,14 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when a player is granted a criteria in an advancement. */
 
   export class PlayerAdvancementCriterionGrantEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-advancement: org_bukkit_advancement_Advancement;
-class: java_lang_Class<java_lang_Object>;
-criterion: string;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Get the advancement which has been affected. */
+advancement: org_bukkit_advancement_Advancement;
+/** Get the criterion which has been granted. */
+criterion: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -5299,12 +5825,17 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
  Not currently called for environmental factors though it MAY BE IN THE FUTURE */
 
   export class PlayerArmorChangeEvent extends org_bukkit_event_player_PlayerEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
-newItem: org_bukkit_inventory_ItemStack | null;
+/** Gets the existing item that's being replaced */
 oldItem: org_bukkit_inventory_ItemStack | null;
+/** Gets the new item that's replacing the old */
+newItem: org_bukkit_inventory_ItemStack | null;
+/** Gets the type of slot being altered. */
 slotType: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -5358,13 +5889,16 @@ import { Set as java_util_Set } from 'java.util';
 import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
 
   export class SlotType extends java_lang_Enum<com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType> {
+/** Gets an immutable set of all allowed material types that can be placed in an
+ armor slot. */
+types: java_util_Set<org_bukkit_Material>;
+/** Gets the type of slot via the specified material */
+static byMaterial: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 class: java_lang_Class<java_lang_Object>;
 static CHEST: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static FEET: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static HEAD: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static LEGS: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
-static byMaterial: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
-types: java_util_Set<org_bukkit_Material>;
 /** Gets an immutable set of all allowed material types that can be placed in an
  armor slot. */
 getTypes(): java_util_Set<org_bukkit_Material>;
@@ -5402,13 +5936,16 @@ import { Set as java_util_Set } from 'java.util';
 import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
 
   export class SlotType extends java_lang_Enum<com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType> {
+/** Gets an immutable set of all allowed material types that can be placed in an
+ armor slot. */
+types: java_util_Set<org_bukkit_Material>;
+/** Gets the type of slot via the specified material */
+static byMaterial: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 class: java_lang_Class<java_lang_Object>;
 static CHEST: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static FEET: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static HEAD: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static LEGS: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
-static byMaterial: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
-types: java_util_Set<org_bukkit_Material>;
 /** Gets an immutable set of all allowed material types that can be placed in an
  armor slot. */
 getTypes(): java_util_Set<org_bukkit_Material>;
@@ -5447,10 +5984,14 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when processing a player's attack on an entity when the player's attack strength cooldown is reset */
 
   export class PlayerAttackEntityCooldownResetEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
+/** Get the value of the players cooldown attack strength when they initiated the attack */
+cooledAttackStrength: number;
+/** Returns the entity attacked by the player */
 attackedEntity: org_bukkit_entity_Entity;
 class: java_lang_Class<java_lang_Object>;
-cooledAttackStrength: number;
-eventName: string;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -5514,9 +6055,11 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when the player changes his client settings */
 
   export class PlayerClientOptionsChangeEvent extends org_bukkit_event_player_PlayerEvent {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
 chatVisibility: com_destroystokyo_paper_ClientOption_ChatVisibility;
 class: java_lang_Class<java_lang_Object>;
-eventName: string;
 handlers: org_bukkit_event_HandlerList;
 locale: string;
 mainHand: org_bukkit_inventory_MainHand;
@@ -5615,11 +6158,14 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
   */
 
   export class PlayerConnectionCloseEvent extends org_bukkit_event_Event {
+/** Returns the UUID of the player disconnecting. */
+playerUniqueId: java_util_UUID;
+/** Returns the name of the player disconnecting. */
+playerName: string;
+/** Returns the player's IP address. */
+ipAddress: java_net_InetAddress;
 class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
-ipAddress: java_net_InetAddress;
-playerName: string;
-playerUniqueId: java_util_UUID;
 static handlerList: org_bukkit_event_HandlerList;
 /** Returns the UUID of the player disconnecting. */
 getPlayerUniqueId(): java_util_UUID;
@@ -5652,11 +6198,15 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired when a player boosts elytra flight with a firework */
 
   export class PlayerElytraBoostEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Get the firework entity that was spawned */
 firework: org_bukkit_entity_Firework;
-handlers: org_bukkit_event_HandlerList;
+/** Get the firework itemstack used */
 itemStack: org_bukkit_inventory_ItemStack;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -5723,15 +6273,27 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  WARNING: TAMPERING WITH THIS EVENT CAN BE DANGEROUS */
 
   export class PlayerHandshakeEvent extends org_bukkit_event_Event implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Gets the message to display to the client when authentication fails. */
 failMessage: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets the original handshake string. */
 originalHandshake: string;
+/** Gets the profile properties.
+
+ This should be a valid JSON string. */
 propertiesJson: string | null;
+/** Gets the server hostname string.
+
+ This should not include the port. */
 serverHostname: string | null;
+/** Gets the socket address hostname string.
+
+ This should not include the port. */
 socketAddressHostname: string | null;
-static handlerList: org_bukkit_event_HandlerList;
+/** Gets the unique id. */
 uniqueId: java_util_UUID | null;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
+static handlerList: org_bukkit_event_HandlerList;
 /** Determines if authentication failed.
 
  When true, the client connecting will be disconnected
@@ -5810,9 +6372,12 @@ import { Location as org_bukkit_Location } from 'org.bukkit';
 import { PlayerSpawnLocationEvent as org_spigotmc_event_player_PlayerSpawnLocationEvent } from 'org.spigotmc.event.player';
 
   export class PlayerInitialSpawnEvent extends org_spigotmc_event_player_PlayerSpawnLocationEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Returns the player involved in this event */
 player: org_bukkit_entity_Player;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -5865,12 +6430,19 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
  the server detects that the player is jumping. */
 
   export class PlayerJumpEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Gets the location this player jumped from */
 from: org_bukkit_Location;
+/** Gets the location this player jumped to
+
+ This information is based on what the client sends, it typically
+ has little relation to the arc of the jump at any given point. */
+to: org_bukkit_Location;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
-to: org_bukkit_Location;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -5942,11 +6514,15 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when a player shoots a projectile */
 
   export class PlayerLaunchProjectileEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Get the ItemStack used to fire the projectile */
 itemStack: org_bukkit_inventory_ItemStack;
+/** Gets the projectile which will be launched by this event */
 projectile: org_bukkit_entity_Projectile;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -6009,11 +6585,15 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when the locale of the player is changed. */
 
   export class PlayerLocaleChangeEvent extends org_bukkit_event_player_PlayerEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets the locale the player is changed to. */
 newLocale: string;
+/** Gets the locale the player switched from. */
 oldLocale: string;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -6066,8 +6646,10 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired when the server is calculating what chunks to try to spawn monsters in every Monster Spawn Tick event */
 
   export class PlayerNaturallySpawnCreaturesEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 spawnRadius: number;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6126,8 +6708,10 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired when a player is attempting to pick up an experience orb */
 
   export class PlayerPickupExperienceEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 experienceOrb: org_bukkit_entity_ExperienceOrb;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6185,10 +6769,13 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired after a player has respawned */
 
   export class PlayerPostRespawnEvent extends org_bukkit_event_player_PlayerEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Returns the location of the respawned player */
 respawnedLocation: org_bukkit_Location;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -6306,10 +6893,12 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when a player is firing a bow and the server is choosing an arrow to use. */
 
   export class PlayerReadyArrowEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
 arrow: org_bukkit_inventory_ItemStack;
 bow: org_bukkit_inventory_ItemStack;
 class: java_lang_Class<java_lang_Object>;
-eventName: string;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -6365,11 +6954,15 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Triggered when a player starts spectating an entity in spectator mode. */
 
   export class PlayerStartSpectatingEntityEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-currentSpectatorTarget: org_bukkit_entity_Entity;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets the entity that the player is currently spectating or themselves if they weren't spectating anything */
+currentSpectatorTarget: org_bukkit_entity_Entity;
+/** Gets the new entity that the player will now be spectating */
 newSpectatorTarget: org_bukkit_entity_Entity;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -6428,10 +7021,13 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Triggered when a player stops spectating an entity in spectator mode. */
 
   export class PlayerStopSpectatingEntityEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets the entity that the player is spectating */
 spectatorTarget: org_bukkit_entity_Entity;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -6489,12 +7085,18 @@ import { PlayerTeleportEvent as org_bukkit_event_player_PlayerTeleportEvent } fr
 /** Fired when a teleport is triggered for an End Gateway */
 
   export class PlayerTeleportEndGatewayEvent extends org_bukkit_event_player_PlayerTeleportEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Gets the location this player moved from */
 from: org_bukkit_Location;
-gateway: org_bukkit_block_EndGateway;
-player: org_bukkit_entity_Player;
+/** Gets the location this player moved to */
 to: org_bukkit_Location;
+/** Returns the player involved in this event */
+player: org_bukkit_entity_Player;
+/** The gateway triggering the teleport */
+gateway: org_bukkit_block_EndGateway;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -6566,9 +7168,11 @@ import { Player as org_bukkit_entity_Player } from 'org.bukkit.entity';
 import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.event.player';
 
   export class PlayerUseUnknownEntityEvent extends org_bukkit_event_player_PlayerEvent {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
 class: java_lang_Class<java_lang_Object>;
 entityId: number;
-eventName: string;
 hand: org_bukkit_inventory_EquipmentSlot;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6712,12 +7316,15 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  event.isAsync() */
 
   export class PreLookupProfileEvent extends org_bukkit_event_Event {
+/** If this value is left null by the completion of the event call, then the server will
+ trigger a call to the Mojang API to look up the UUID (Network Request), and subsequently, fire a
+ LookupProfileEvent */
+uUID: java_util_UUID | null;
 class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 name: string;
 profileProperties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>;
 static handlerList: org_bukkit_event_HandlerList;
-uUID: java_util_UUID | null;
 /** Adds any properties currently missing to the prepopulated properties set, replacing any that already were set.
  Any property in this Set will be automatically prefilled on this Profile */
 addProfileProperties(properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>): void;
@@ -6757,8 +7364,10 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { InventoryEvent as org_bukkit_event_inventory_InventoryEvent } from 'org.bukkit.event.inventory';
 
   export class PrepareResultEvent extends org_bukkit_event_inventory_InventoryEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 result: org_bukkit_inventory_ItemStack;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6814,8 +7423,10 @@ import { PreCreatureSpawnEvent as com_destroystokyo_paper_event_entity_PreCreatu
  If you really need it you have to get the spawner yourself. */
 
   export class PreSpawnerSpawnEvent extends com_destroystokyo_paper_event_entity_PreCreatureSpawnEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 spawnerLocation: org_bukkit_Location;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -6924,11 +7535,16 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  This event is called before EntityDamageByEntityEvent, and cancelling it will allow the projectile to continue flying */
 
   export class ProjectileCollideEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-collidedWith: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Projectile;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Get the entity the projectile collided with */
+collidedWith: org_bukkit_entity_Entity;
+/** Get the projectile that collided */
+entity: org_bukkit_entity_Entity;
+/** Get the projectile that collided */
+entity: org_bukkit_entity_Projectile;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -7010,84 +7626,242 @@ import { PersistentDataContainer as org_bukkit_persistence_PersistentDataContain
 import { LootTable as org_bukkit_loot_LootTable } from 'org.bukkit.loot';
 
   export class RangedEntity implements org_bukkit_entity_Mob {
-absorptionAmount: number;
-activeItem: org_bukkit_inventory_ItemStack | null;
-activePotionEffects: java_util_Collection<org_bukkit_potion_PotionEffect>;
-arrowsStuck: number;
-attribute: org_bukkit_attribute_AttributeInstance | null;
-boundingBox: org_bukkit_util_BoundingBox;
-canPickupItems: boolean;
-chunk: org_bukkit_Chunk;
-collidableExemptions: java_util_Set<java_util_UUID>;
-customName: string | null;
-effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
-entityId: number;
-entitySpawnReason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
-equipment: org_bukkit_inventory_EntityEquipment | null;
-eyeHeight: number;
-eyeHeight: number;
-eyeLocation: org_bukkit_Location;
-facing: org_bukkit_block_BlockFace;
-fallDistance: number;
-fireTicks: number;
-handRaisedTime: number;
-health: number;
-height: number;
-itemUseRemainingTime: number;
-killer: org_bukkit_entity_Player | null;
-lastDamage: number;
-lastDamageCause: org_bukkit_event_entity_EntityDamageEvent | null;
-lastTwoTargetBlocks: java_util_List<org_bukkit_block_Block> | null;
-leashHolder: org_bukkit_entity_Entity;
-lineOfSight: java_util_List<org_bukkit_block_Block> | null;
-location: org_bukkit_Location;
-location: org_bukkit_Location;
-lootTable: org_bukkit_loot_LootTable | null;
-maxFireTicks: number;
-maxHealth: number;
-maximumAir: number;
-maximumNoDamageTicks: number;
-memory: T | null;
-metadata: java_util_List<org_bukkit_metadata_MetadataValue>;
-name: string;
-nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
-noDamageTicks: number;
-origin: org_bukkit_Location | null;
-passenger: org_bukkit_entity_Entity | null;
-passengers: java_util_List<org_bukkit_entity_Entity>;
+/** Enables access to control the pathing of an Entity */
 pathfinder: com_destroystokyo_paper_entity_Pathfinder;
-persistentDataContainer: org_bukkit_persistence_PersistentDataContainer;
-pistonMoveReaction: org_bukkit_block_PistonMoveReaction;
-portalCooldown: number;
-pose: org_bukkit_entity_Pose;
-potionEffect: org_bukkit_potion_PotionEffect | null;
-remainingAir: number;
-removeWhenFarAway: boolean;
-scoreboardTags: java_util_Set<string>;
+/** Get a Location detailing the current eye position of the living entity. */
+eyeLocation: org_bukkit_Location;
+/** Get how long the players hands have been raised (Charging Bow attack, using a potion, etc) */
+handRaisedTime: number;
+/** Get the Loot Table's seed.
+ 
+ The seed is used when generating loot. */
 seed: number;
-server: org_bukkit_Server;
+/** Get the closest cardinal BlockFace direction an entity is
+ currently facing.
+ 
+ This will not return any non-cardinal directions such as
+ BlockFace.UP or BlockFace.DOWN.
+ 
+ Hanging entities will override this call and thus their behavior
+ may be different. */
+facing: org_bukkit_block_BlockFace;
+/** Get the delay (in ticks) before blocking is effective for this entity */
 shieldBlockingDelay: number;
-target: org_bukkit_entity_LivingEntity | null;
-targetBlock: org_bukkit_block_Block | null;
-targetBlock: org_bukkit_block_Block | null;
-targetBlock: org_bukkit_block_Block | null;
-targetBlockExact: org_bukkit_block_Block | null;
-targetBlockExact: org_bukkit_block_Block | null;
-targetBlockFace: org_bukkit_block_BlockFace | null;
-targetBlockFace: org_bukkit_block_BlockFace | null;
-targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
-targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
-targetEntity: org_bukkit_entity_Entity | null;
-targetEntity: org_bukkit_entity_Entity | null;
-targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
-targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
-ticksLived: number;
+/** Get the number of arrows stuck in this entity */
+arrowsStuck: number;
+/** Get the type of the entity. */
 type: org_bukkit_entity_EntityType;
-uniqueId: java_util_UUID;
+/** Get the vehicle that this player is inside. If there is no vehicle,
+ null will be returned. */
 vehicle: org_bukkit_entity_Entity | null;
-velocity: org_bukkit_util_Vector;
-width: number;
+/** Get's remaining time a player needs to keep hands raised with an item to finish using it. */
+itemUseRemainingTime: number;
+/** Get's the item being actively "used" or consumed. */
+activeItem: org_bukkit_inventory_ItemStack | null;
+/** Gets a list of passengers of this vehicle.
+ 
+ The returned list will not be directly linked to the entity's current
+ passengers, and no guarantees are made as to its mutability. */
+passengers: java_util_List<org_bukkit_entity_Entity>;
+/** Gets a set containing all of the permissions currently in effect by
+ this object */
+effectivePermissions: java_util_Set<org_bukkit_permissions_PermissionAttachmentInfo>;
+/** Gets all blocks along the living entity's line of sight.
+ 
+ This list contains all blocks from the living entity's eye position to
+ target inclusive. This method considers all blocks as 1x1x1 in size. */
+lineOfSight: java_util_List<org_bukkit_block_Block> | null;
+/** Gets if the living entity can pick up items. */
+canPickupItems: boolean;
+/** Gets information about the block the living entity has targeted */
+targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
+/** Gets information about the block the living entity has targeted, ignoring fluids */
+targetBlockInfo: com_destroystokyo_paper_block_TargetBlockInfo | null;
+/** Gets information about the entity being targeted */
+targetEntity: org_bukkit_entity_Entity | null;
+/** Gets information about the entity being targeted */
+targetEntity: org_bukkit_entity_Entity | null;
+/** Gets information about the entity being targeted */
+targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
+/** Gets information about the entity being targeted */
+targetEntityInfo: com_destroystokyo_paper_entity_TargetEntityInfo | null;
+/** Gets the Loot Table attached to this block or entity.
+ 
+
+ If an block/entity does not have a loot table, this will return null, NOT
+ an empty loot table. */
+lootTable: org_bukkit_loot_LootTable | null;
+/** Gets the Server that contains this Entity */
+server: org_bukkit_Server;
+/** Gets the amount of ticks this entity has lived for.
+ 
+ This is the equivalent to "age" in entities. */
+ticksLived: number;
+/** Gets the block that the living entity has targeted */
+targetBlock: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted, ignoring fluids */
+targetBlock: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted.
+ 
+ This method considers all blocks as 1x1x1 in size. To take exact block
+ collision shapes into account, see getTargetBlockExact(int,
+ FluidCollisionMode). */
+targetBlock: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted.
+ 
+ This takes the blocks' precise collision shapes into account.
+ 
+ This may cause loading of chunks! Some implementations may impose
+ artificial restrictions on the maximum distance. */
+targetBlockExact: org_bukkit_block_Block | null;
+/** Gets the block that the living entity has targeted.
+ 
+ This takes the blocks' precise collision shapes into account. Fluids are
+ ignored.
+ 
+ This may cause loading of chunks! Some implementations may impose
+ artificial restrictions on the maximum distance. */
+targetBlockExact: org_bukkit_block_Block | null;
+/** Gets the blockface of that block that the living entity has targeted */
+targetBlockFace: org_bukkit_block_BlockFace | null;
+/** Gets the blockface of that block that the living entity has targeted, ignoring fluids */
+targetBlockFace: org_bukkit_block_BlockFace | null;
+/** Gets the current target of this Mob */
+target: org_bukkit_entity_LivingEntity | null;
+/** Gets the current world this entity resides in */
 world: org_bukkit_World;
+/** Gets the custom name on a mob or block. If there is no name this method
+ will return null.
+ 
+ This value has no effect on players, they will always use their real
+ name. */
+customName: string | null;
+/** Gets the entity that is currently leading this entity. */
+leashHolder: org_bukkit_entity_Entity;
+/** Gets the entity's absorption amount. */
+absorptionAmount: number;
+/** Gets the entity's current bounding box.
+ 
+ The returned bounding box reflects the entity's current location and
+ size. */
+boundingBox: org_bukkit_util_BoundingBox;
+/** Gets the entity's current pose.
+
+ Note that the pose is only updated at the end of a tick, so may be
+ inconsistent with other methods. eg Player.isSneaking() being
+ true does not imply the current pose will be Pose.SNEAKING */
+pose: org_bukkit_entity_Pose;
+/** Gets the entity's health from 0 to getMaxHealth(), where 0 is dead. */
+health: number;
+/** Gets the entity's height */
+height: number;
+/** Gets the entity's width */
+width: number;
+/** Gets the height of the living entity's eyes above its Location. */
+eyeHeight: number;
+/** Gets the height of the living entity's eyes above its Location. */
+eyeHeight: number;
+/** Gets the inventory with the equipment worn by the living entity. */
+equipment: org_bukkit_inventory_EntityEquipment | null;
+/** Gets the last two blocks along the living entity's line of sight.
+ 
+ The target block will be the last block in the list. This method
+ considers all blocks as 1x1x1 in size. */
+lastTwoTargetBlocks: java_util_List<org_bukkit_block_Block> | null;
+/** Gets the latest chunk an entity is currently or was in. */
+chunk: org_bukkit_Chunk;
+/** Gets the location where this entity originates from.
+ 
+ This value can be null if the entity hasn't yet been added to the world. */
+origin: org_bukkit_Location | null;
+/** Gets the maximum health this entity has. */
+maxHealth: number;
+/** Gets the name of this command sender */
+name: string;
+/** Gets the period of time (in ticks) before this entity can use a portal. */
+portalCooldown: number;
+/** Gets the player identified as the killer of the living entity.
+ 
+ May be null. */
+killer: org_bukkit_entity_Player | null;
+/** Gets the primary passenger of a vehicle. For vehicles that could have
+ multiple passengers, this will only return the primary passenger. */
+passenger: org_bukkit_entity_Entity | null;
+/** Gets the specified attribute instance from the object. This instance will
+ be backed directly to the object and any changes will be visible at once. */
+attribute: org_bukkit_attribute_AttributeInstance | null;
+/** Gets this entity's current velocity */
+velocity: org_bukkit_util_Vector;
+/** Retrieve the last EntityDamageEvent inflicted on this entity.
+ This event may have been cancelled. */
+lastDamageCause: org_bukkit_event_entity_EntityDamageEvent | null;
+/** Returns a custom tag container capable of storing tags on the object.
+
+ Note that the tags stored on this container are all stored under their
+ own custom namespace therefore modifying default tags using this
+ PersistentDataHolder is impossible. */
+persistentDataContainer: org_bukkit_persistence_PersistentDataContainer;
+/** Returns a list of entities within a bounding box centered around this
+ entity */
+nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
+/** Returns a list of previously set metadata values from the implementing
+ object's metadata store. */
+metadata: java_util_List<org_bukkit_metadata_MetadataValue>;
+/** Returns a set of tags for this entity.
+ 
+ Entities can have no more than 1024 tags. */
+scoreboardTags: java_util_Set<string>;
+/** Returns a unique and persistent id for this entity */
+uniqueId: java_util_UUID;
+/** Returns a unique id for this entity */
+entityId: number;
+/** Returns all currently active PotionEffects on the living
+ entity. */
+activePotionEffects: java_util_Collection<org_bukkit_potion_PotionEffect>;
+/** Returns if the living entity despawns when away from players or not.
+ 
+ By default, animals are not removed while other mobs are. */
+removeWhenFarAway: boolean;
+/** Returns the active PotionEffect of the specified type.
+ 
+ If the effect is not present on the entity then null will be returned. */
+potionEffect: org_bukkit_potion_PotionEffect | null;
+/** Returns the amount of air that the living entity has remaining, in
+ ticks. */
+remainingAir: number;
+/** Returns the distance this entity has fallen */
+fallDistance: number;
+/** Returns the entity's current fire ticks (ticks before the entity stops
+ being on fire). */
+fireTicks: number;
+/** Returns the entity's maximum fire ticks. */
+maxFireTicks: number;
+/** Returns the living entity's current maximum no damage ticks.
+ 
+ This is the maximum duration in which the living entity will not take
+ damage. */
+maximumNoDamageTicks: number;
+/** Returns the living entity's current no damage ticks. */
+noDamageTicks: number;
+/** Returns the living entity's last damage taken in the current no damage
+ ticks time.
+ 
+ Only damage higher than this amount will further damage the living
+ entity. */
+lastDamage: number;
+/** Returns the maximum amount of air the living entity can have, in ticks. */
+maximumAir: number;
+/** Returns the reaction of the entity when moved by a piston. */
+pistonMoveReaction: org_bukkit_block_PistonMoveReaction;
+/** Returns the value of the memory specified.
+ 
+ Note that the value is null when the specific entity does not have that
+ value by default. */
+memory: T | null;
+collidableExemptions: java_util_Set<java_util_UUID>;
+entitySpawnReason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
+location: org_bukkit_Location;
+location: org_bukkit_Location;
 /** Add a passenger to the vehicle. */
 addPassenger(passenger: org_bukkit_entity_Entity): boolean;
 /** Add a tag to this entity.
@@ -7738,6 +8512,7 @@ import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.l
 /** A reputation score for a player on a villager. */
 
   export class Reputation extends java_lang_Object {
+/** Gets the reputation value for a specific ReputationType. */
 reputation: number;
 /** Gets the reputation value for a specific ReputationType. */
 getReputation(type: com_destroystokyo_paper_entity_villager_ReputationType): number;
@@ -7809,11 +8584,14 @@ import { ServerException as com_destroystokyo_paper_exception_ServerException } 
 /** Thrown when a command throws an exception */
 
   export class ServerCommandException extends com_destroystokyo_paper_exception_ServerException {
+/** Gets the arguments which threw the exception for the command */
 arguments: string[];
+/** Gets the command sender which executed the command request */
+commandSender: org_bukkit_command_CommandSender;
+/** Gets the command which threw the exception */
+command: org_bukkit_command_Command;
 cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
-command: org_bukkit_command_Command;
-commandSender: org_bukkit_command_CommandSender;
 localizedMessage: string;
 message: string;
 stackTrace: java_lang_StackTraceElement[];
@@ -7900,10 +8678,12 @@ import { ServerPluginException as com_destroystokyo_paper_exception_ServerPlugin
 /** Exception thrown when a server event listener throws an exception */
 
   export class ServerEventException extends com_destroystokyo_paper_exception_ServerPluginException {
+/** Gets the event which caused the exception */
+event: org_bukkit_event_Event;
+/** Gets the listener which threw the exception */
+listener: org_bukkit_event_Listener;
 cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
-event: org_bukkit_event_Event;
-listener: org_bukkit_event_Listener;
 localizedMessage: string;
 message: string;
 stackTrace: java_lang_StackTraceElement[];
@@ -7947,11 +8727,12 @@ import { ServerException as com_destroystokyo_paper_exception_ServerException } 
 /** Wrapper exception for all cases to which a plugin can be immediately blamed for */
 
   export class ServerPluginException extends com_destroystokyo_paper_exception_ServerException {
+/** Gets the plugin which is directly responsible for the exception being thrown */
+responsiblePlugin: org_bukkit_plugin_Plugin;
 cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-responsiblePlugin: org_bukkit_plugin_Plugin;
 stackTrace: java_lang_StackTraceElement[];
 suppressed: java_lang_Throwable[];
 /** Gets the plugin which is directly responsible for the exception being thrown */
@@ -8030,8 +8811,9 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 /** Called whenever an exception is thrown in a recoverable section of the server. */
 
   export class ServerExceptionEvent extends org_bukkit_event_Event {
-class: java_lang_Class<java_lang_Object>;
+/** Gets the wrapped exception that was thrown. */
 exception: com_destroystokyo_paper_exception_ServerException;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Gets the wrapped exception that was thrown. */
@@ -8143,11 +8925,12 @@ import { ServerException as com_destroystokyo_paper_exception_ServerException } 
 /** Wrapper exception for all cases to which a plugin can be immediately blamed for */
 
   export class ServerPluginException extends com_destroystokyo_paper_exception_ServerException {
+/** Gets the plugin which is directly responsible for the exception being thrown */
+responsiblePlugin: org_bukkit_plugin_Plugin;
 cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-responsiblePlugin: org_bukkit_plugin_Plugin;
 stackTrace: java_lang_StackTraceElement[];
 suppressed: java_lang_Throwable[];
 /** Gets the plugin which is directly responsible for the exception being thrown */
@@ -8188,13 +8971,16 @@ import { ServerPluginException as com_destroystokyo_paper_exception_ServerPlugin
 /** Thrown when an incoming plugin message channel throws an exception */
 
   export class ServerPluginMessageException extends com_destroystokyo_paper_exception_ServerPluginException {
-cause: java_lang_Throwable;
+/** Gets the channel to which the error occurred from recieving data from */
 channel: string;
-class: java_lang_Class<java_lang_Object>;
+/** Gets the data to which the error occurred from */
 data: number[];
+/** Gets the player which the plugin message causing the exception originated from */
+player: org_bukkit_entity_Player;
+cause: java_lang_Throwable;
+class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-player: org_bukkit_entity_Player;
 stackTrace: java_lang_StackTraceElement[];
 suppressed: java_lang_Throwable[];
 /** Gets the channel to which the error occurred from recieving data from */
@@ -8238,13 +9024,14 @@ import { ServerPluginException as com_destroystokyo_paper_exception_ServerPlugin
 /** Thrown when a plugin's scheduler fails with an exception */
 
   export class ServerSchedulerException extends com_destroystokyo_paper_exception_ServerPluginException {
+/** Gets the task which threw the exception */
+task: org_bukkit_scheduler_BukkitTask;
 cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
 stackTrace: java_lang_StackTraceElement[];
 suppressed: java_lang_Throwable[];
-task: org_bukkit_scheduler_BukkitTask;
 /** Gets the task which threw the exception */
 getTask(): org_bukkit_scheduler_BukkitTask;
 addSuppressed(arg0: java_lang_Throwable): void;
@@ -8321,12 +9108,17 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 /** Called when the server has finished ticking the main loop */
 
   export class ServerTickEndEvent extends org_bukkit_event_Event {
+/** Amount of nanoseconds remaining before the next tick should start.
+
+ If this value is negative, then that means the server has exceeded the tick time limit and TPS has been lost.
+
+ Method will continously return the updated time remaining value. (return value is not static) */
+timeRemaining: number;
 class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 tickDuration: number;
 tickNumber: number;
-timeRemaining: number;
 /** Amount of nanoseconds remaining before the next tick should start.
 
  If this value is negative, then that means the server has exceeded the tick time limit and TPS has been lost.
@@ -8385,10 +9177,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Event called when a player gets close to a skeleton horse and triggers the lightning trap */
 
   export class SkeletonHorseTrapEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_SkeletonHorse;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_SkeletonHorse;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -8469,10 +9265,14 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
  is choosing to change direction. */
 
   export class SlimeChangeDirectionEvent extends com_destroystokyo_paper_event_entity_SlimePathfindEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entityType: org_bukkit_entity_EntityType;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Get the new chosen yaw */
 newYaw: number;
+/** Gets the EntityType of the Entity involved in this event. */
+entityType: org_bukkit_entity_EntityType;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -8527,10 +9327,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  is choosing to start moving. */
 
   export class SlimePathfindEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Slime;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** The Slime that is pathfinding. */
+entity: org_bukkit_entity_Entity;
+/** The Slime that is pathfinding. */
+entity: org_bukkit_entity_Slime;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -8593,10 +9397,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  is choosing to start moving. */
 
   export class SlimePathfindEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Slime;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** The Slime that is pathfinding. */
+entity: org_bukkit_entity_Entity;
+/** The Slime that is pathfinding. */
+entity: org_bukkit_entity_Slime;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -8659,11 +9467,16 @@ import { SlimeWanderEvent as com_destroystokyo_paper_event_entity_SlimeWanderEve
  is choosing to start jumping. */
 
   export class SlimeSwimEvent extends com_destroystokyo_paper_event_entity_SlimeWanderEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Slime;
-entityType: org_bukkit_entity_EntityType;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Gets the EntityType of the Entity involved in this event. */
+entityType: org_bukkit_entity_EntityType;
+/** The Slime that is pathfinding. */
+entity: org_bukkit_entity_Entity;
+/** The Slime that is pathfinding. */
+entity: org_bukkit_entity_Slime;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -8728,9 +9541,12 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
  is choosing to start moving. */
 
   export class SlimeWanderEvent extends com_destroystokyo_paper_event_entity_SlimePathfindEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entityType: org_bukkit_entity_EntityType;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Gets the EntityType of the Entity involved in this event. */
+entityType: org_bukkit_entity_EntityType;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -8781,10 +9597,14 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
  is choosing to start moving. */
 
   export class SlimeTargetLivingEntityEvent extends com_destroystokyo_paper_event_entity_SlimePathfindEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entityType: org_bukkit_entity_EntityType;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Get the targeted entity */
 target: org_bukkit_entity_LivingEntity;
+/** Gets the EntityType of the Entity involved in this event. */
+entityType: org_bukkit_entity_EntityType;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -8837,9 +9657,12 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
  is choosing to start moving. */
 
   export class SlimeWanderEvent extends com_destroystokyo_paper_event_entity_SlimePathfindEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entityType: org_bukkit_entity_EntityType;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Gets the EntityType of the Entity involved in this event. */
+entityType: org_bukkit_entity_EntityType;
+class: java_lang_Class<java_lang_Object>;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
  asynchronous event:
@@ -8911,8 +9734,14 @@ import { NetworkClient as com_destroystokyo_paper_network_NetworkClient } from '
  the server list). */
 
   export class StatusClient implements com_destroystokyo_paper_network_NetworkClient {
-address: java_net_InetSocketAddress;
+/** Returns the protocol version of the client. */
 protocolVersion: number;
+/** Returns the socket address of the client. */
+address: java_net_InetSocketAddress;
+/** Returns the virtual host the client is connected to.
+
+ The virtual host refers to the hostname/port the client used to
+ connect to the server. */
 virtualHost: java_net_InetSocketAddress | null;
 /** Returns the protocol version of the client. */
 getProtocolVersion(): number;
@@ -8939,9 +9768,12 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted block */
 
   export class TargetBlockInfo extends java_lang_Object {
+/** Get the block that is targeted */
 block: org_bukkit_block_Block;
-blockFace: org_bukkit_block_BlockFace;
+/** Get the relative Block to the targeted block on the side it is targeted at */
 relativeBlock: org_bukkit_block_Block;
+/** Get the targeted BlockFace */
+blockFace: org_bukkit_block_BlockFace;
 /** Get the block that is targeted */
 getBlock(): org_bukkit_block_Block;
 /** Get the relative Block to the targeted block on the side it is targeted at */
@@ -8992,7 +9824,9 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted entity */
 
   export class TargetEntityInfo extends java_lang_Object {
+/** Get the entity that is targeted */
 entity: org_bukkit_entity_Entity;
+/** Get the position the entity is targeted at */
 hitVector: org_bukkit_util_Vector;
 /** Get the entity that is targeted */
 getEntity(): org_bukkit_entity_Entity;
@@ -9012,11 +9846,20 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  This event fires for all thrown eggs that may hatch, players, dispensers, etc. */
 
   export class ThrownEggHatchEvent extends org_bukkit_event_Event {
-class: java_lang_Class<java_lang_Object>;
-egg: org_bukkit_entity_Egg;
-handlers: org_bukkit_event_HandlerList;
-hatchingType: org_bukkit_entity_EntityType;
+/** Get the number of mob hatches from the egg. By default the number will
+ be the number the server would've done
+ 
+ 7/8 chance of being 0
+ 31/256 ~= 1/8 chance to be 1
+ 1/256 chance to be 4
+  */
 numHatches: number;
+/** Get the type of the mob being hatched (EntityType.CHICKEN by default) */
+hatchingType: org_bukkit_entity_EntityType;
+/** Gets the egg involved in this event. */
+egg: org_bukkit_entity_Egg;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Change the number of mobs coming out of the hatched egg
  
@@ -9067,14 +9910,25 @@ import { Object as java_lang_Object } from 'java.lang';
  A title can be sent without subtitle text. */
 
   export class Title extends java_lang_Object {
+/** Gets the number of ticks to fade in.
+
+ The returned value is never negative. */
 fadeIn: number;
+/** Gets the number of ticks to fade out.
+
+ The returned value is never negative. */
 fadeOut: number;
+/** Gets the number of ticks to stay.
+
+ The returned value is never negative. */
+stay: number;
+/** Gets the text of this title */
+title: net_md_5_bungee_api_chat_BaseComponent[];
+/** Gets the text of this title's subtitle */
+subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null;
 static DEFAULT_FADE_IN: number;
 static DEFAULT_FADE_OUT: number;
 static DEFAULT_STAY: number;
-stay: number;
-subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null;
-title: net_md_5_bungee_api_chat_BaseComponent[];
 /** Gets the number of ticks to fade in.
 
  The returned value is never negative. */
@@ -9179,11 +10033,19 @@ import { BlockEvent as org_bukkit_event_block_BlockEvent } from 'org.bukkit.even
  the TNT block as-is */
 
   export class TNTPrimeEvent extends org_bukkit_event_block_BlockEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList | null;
-primerEntity: org_bukkit_entity_Entity | null;
+/** Gets the TNT prime reason */
 reason: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
+/** Gets the TNT primer Entity.
+
+ It's null if getReason() is TNTPrimeEvent.PrimeReason.REDSTONE or TNTPrimeEvent.PrimeReason.FIRE.
+ It's not null if getReason() is TNTPrimeEvent.PrimeReason.ITEM or TNTPrimeEvent.PrimeReason.PROJECTILE
+ It might be null if getReason() is TNTPrimeEvent.PrimeReason.EXPLOSION */
+primerEntity: org_bukkit_entity_Entity | null;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList | null;
 static handlerList: org_bukkit_event_HandlerList | null;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -9312,10 +10174,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a Turtle decides to go home */
 
   export class TurtleGoHomeEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Turtle;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** The turtle going home */
+entity: org_bukkit_entity_Entity;
+/** The turtle going home */
+entity: org_bukkit_entity_Turtle;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -9376,13 +10242,19 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a Turtle lays eggs */
 
   export class TurtleLayEggEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-eggCount: number;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Turtle;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Get the location where the eggs are being laid */
 location: org_bukkit_Location;
+/** Get the number of eggs being laid */
+eggCount: number;
+/** The turtle laying the eggs */
+entity: org_bukkit_entity_Entity;
+/** The turtle laying the eggs */
+entity: org_bukkit_entity_Turtle;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -9448,12 +10320,17 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a Turtle starts digging to lay eggs */
 
   export class TurtleStartDiggingEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Turtle;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Get the location where the turtle is digging */
 location: org_bukkit_Location;
+/** The turtle digging */
+entity: org_bukkit_entity_Entity;
+/** The turtle digging */
+entity: org_bukkit_entity_Turtle;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -9528,7 +10405,13 @@ import { RangedEntity as com_destroystokyo_paper_entity_RangedEntity } from 'com
  Generated by VanillaPathfinderTest in paper-server */
 
   export class VanillaGoal<T extends org_bukkit_entity_Mob> implements com_destroystokyo_paper_entity_ai_Goal<T> {
+/** A unique key that identifies this type of goal. Plugins should use their own namespace, not the minecraft
+ namespace. Additionally, this key also specifies to what mobs this goal can be applied to */
 key: com_destroystokyo_paper_entity_ai_GoalKey<T>;
+/** Returns a list of all applicable flags for this goal.
+
+ This method is only called on construction. */
+types: java_util_EnumSet<com_destroystokyo_paper_entity_ai_GoalType>;
 static ANGER: com_destroystokyo_paper_entity_ai_GoalKey<org_bukkit_entity_PigZombie>;
 static ANGER_OTHER: com_destroystokyo_paper_entity_ai_GoalKey<org_bukkit_entity_PigZombie>;
 static ARROW_ATTACK: com_destroystokyo_paper_entity_ai_GoalKey<com_destroystokyo_paper_entity_RangedEntity>;
@@ -9715,7 +10598,6 @@ static WITHER_DO_NOTHING: com_destroystokyo_paper_entity_ai_GoalKey<org_bukkit_e
 static WOLF_AVOID_ENTITY: com_destroystokyo_paper_entity_ai_GoalKey<org_bukkit_entity_Wolf>;
 static ZOMBIE_ATTACK: com_destroystokyo_paper_entity_ai_GoalKey<org_bukkit_entity_Zombie>;
 static ZOMBIE_ATTACK_TURTLE_EGG: com_destroystokyo_paper_entity_ai_GoalKey<org_bukkit_entity_Zombie>;
-types: java_util_EnumSet<com_destroystokyo_paper_entity_ai_GoalType>;
 /** A unique key that identifies this type of goal. Plugins should use their own namespace, not the minecraft
  namespace. Additionally, this key also specifies to what mobs this goal can be applied to */
 getKey(): com_destroystokyo_paper_entity_ai_GoalKey<T>;
@@ -9742,7 +10624,14 @@ declare module 'com.destroystokyo.paper.util' {
 
 
   export class VersionFetcher {
+/** Amount of time to cache results for in milliseconds
+ 
+ Negative values will never cache. */
 cacheTime: number;
+/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
+ in the string. The string will be split on these newlines and sent as individual messages.
+ 
+ NOTE: This is run in a new thread separate from that of the command processing thread */
 versionMessage: string;
 /** Amount of time to cache results for in milliseconds
  
@@ -9763,7 +10652,14 @@ import { Object as java_lang_Object } from 'java.lang';
 import { VersionFetcher as com_destroystokyo_paper_util_VersionFetcher } from 'com.destroystokyo.paper.util';
 
   export class DummyVersionFetcher extends java_lang_Object implements com_destroystokyo_paper_util_VersionFetcher {
+/** Description copied from interface: VersionFetcherAmount of time to cache results for in milliseconds
+ 
+ Negative values will never cache. */
 cacheTime: number;
+/** Description copied from interface: VersionFetcherGets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
+ in the string. The string will be split on these newlines and sent as individual messages.
+ 
+ NOTE: This is run in a new thread separate from that of the command processing thread */
 versionMessage: string;
 /** Description copied from interface: VersionFetcherAmount of time to cache results for in milliseconds
  
@@ -9815,10 +10711,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a witch consumes the potion in their hand to buff themselves. */
 
   export class WitchConsumePotionEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Witch;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Witch;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 potion: org_bukkit_inventory_ItemStack | null;
 static handlerList: org_bukkit_event_HandlerList;
@@ -9882,10 +10782,14 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.event.entity';
 
   export class WitchReadyPotionEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Witch;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Witch;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 potion: org_bukkit_inventory_ItemStack | null;
 static handlerList: org_bukkit_event_HandlerList;
@@ -9952,10 +10856,14 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a witch throws a potion at a player */
 
   export class WitchThrowPotionEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
-entity: org_bukkit_entity_Entity;
-entity: org_bukkit_entity_Witch;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Entity;
+/** Description copied from class: EntityEventReturns the Entity involved in this event */
+entity: org_bukkit_entity_Witch;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 potion: org_bukkit_inventory_ItemStack | null;
 static handlerList: org_bukkit_event_HandlerList;

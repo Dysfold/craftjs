@@ -23,9 +23,11 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when an entity stops riding another entity. */
 
   export class EntityDismountEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
+eventName: string;
 class: java_lang_Class<java_lang_Object>;
 dismounted: org_bukkit_entity_Entity;
-eventName: string;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
@@ -84,8 +86,10 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when an entity attempts to ride another entity. */
 
   export class EntityMountEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
+class: java_lang_Class<java_lang_Object>;
 handlers: org_bukkit_event_HandlerList;
 mount: org_bukkit_entity_Entity;
 static handlerList: org_bukkit_event_HandlerList;
@@ -144,10 +148,15 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when player is about to spawn in a world after joining the server. */
 
   export class PlayerSpawnLocationEvent extends org_bukkit_event_player_PlayerEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets player's spawn location.
+ If the player OfflinePlayer.hasPlayedBefore(), it's going to default to the location inside player.dat file.
+ For new players, the default spawn location is spawn of the main Bukkit world. */
 spawnLocation: org_bukkit_Location;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
@@ -203,10 +212,15 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when player is about to spawn in a world after joining the server. */
 
   export class PlayerSpawnLocationEvent extends org_bukkit_event_player_PlayerEvent {
-class: java_lang_Class<java_lang_Object>;
+/** Convenience method for providing a user-friendly identifier. By
+ default, it is the event's class's simple name. */
 eventName: string;
-handlers: org_bukkit_event_HandlerList;
+/** Gets player's spawn location.
+ If the player OfflinePlayer.hasPlayedBefore(), it's going to default to the location inside player.dat file.
+ For new players, the default spawn location is spawn of the main Bukkit world. */
 spawnLocation: org_bukkit_Location;
+class: java_lang_Class<java_lang_Object>;
+handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 /** Any custom event that should not by synchronized with other events must
  use the specific constructor. These are the caveats of using an
