@@ -68,7 +68,7 @@ compareAndSwapLong(arg0: java_lang_Object, arg1: number, arg2: number, arg3: num
 compareAndSwapObject(arg0: java_lang_Object, arg1: number, arg2: java_lang_Object, arg3: java_lang_Object): boolean;
 copyMemory(arg0: java_lang_Object, arg1: number, arg2: java_lang_Object, arg3: number, arg4: number): void;
 copyMemory(arg0: number, arg1: number, arg2: number): void;
-defineAnonymousClass(arg0: java_lang_Class<java_lang_Object>, arg1: number[], arg2: java_lang_Object[]): java_lang_Class<java_lang_Object>;
+defineAnonymousClass(arg0: java_lang_Class<java_lang_Object>, arg1: JArray<number>, arg2: JArray<java_lang_Object>): java_lang_Class<java_lang_Object>;
 ensureClassInitialized(arg0: java_lang_Class<java_lang_Object>): void;
 freeMemory(arg0: number): void;
 fullFence(): void;
@@ -95,7 +95,7 @@ getFloatVolatile(arg0: java_lang_Object, arg1: number): number;
 getInt(arg0: java_lang_Object, arg1: number): number;
 getInt(arg0: number): number;
 getIntVolatile(arg0: java_lang_Object, arg1: number): number;
-getLoadAverage(arg0: number[], arg1: number): number;
+getLoadAverage(arg0: JArray<number>, arg1: number): number;
 getLong(arg0: java_lang_Object, arg1: number): number;
 getLong(arg0: number): number;
 getLongVolatile(arg0: java_lang_Object, arg1: number): number;

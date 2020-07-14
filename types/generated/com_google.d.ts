@@ -70,9 +70,9 @@ setCount(arg0: E, arg1: number, arg2: number): boolean;
 size(): number;
 spliterator(): java_util_Spliterator<E>;
 stream(): java_util_stream_Stream<E>;
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray(): JArray<java_lang_Object>;
+toArray<T extends java_lang_Object>(arg0: JArray<T>): JArray<T>;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<JArray<T>>): JArray<T>;
 toString(): string;
 
   }

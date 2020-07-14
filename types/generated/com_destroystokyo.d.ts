@@ -153,7 +153,7 @@ count(): number;
 location(): org_bukkit_Location | null;
 particle(): org_bukkit_Particle;
 receivers(): java_util_List<org_bukkit_entity_Player> | null;
-receivers(...receivers: org_bukkit_entity_Player[] | null): com_destroystokyo_paper_ParticleBuilder | null;
+receivers(...receivers: JArray<org_bukkit_entity_Player> | null): com_destroystokyo_paper_ParticleBuilder | null;
 receivers(receivers: java_util_Collection<org_bukkit_entity_Player> | null): com_destroystokyo_paper_ParticleBuilder | null;
 receivers(receivers: java_util_List<org_bukkit_entity_Player> | null): com_destroystokyo_paper_ParticleBuilder | null;
 source(): org_bukkit_entity_Player | null;
@@ -184,9 +184,9 @@ fadeOut: number;
  The returned value is never negative. */
 stay: number;
 /** Gets the text of this title */
-title: net_md_5_bungee_api_chat_BaseComponent[];
+title: JArray<net_md_5_bungee_api_chat_BaseComponent>;
 /** Gets the text of this title's subtitle */
-subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null;
+subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null;
 static DEFAULT_FADE_IN: number;
 static DEFAULT_FADE_OUT: number;
 static DEFAULT_STAY: number;
@@ -203,10 +203,14 @@ getFadeOut(): number;
  The returned value is never negative. */
 getStay(): number;
 /** Gets the text of this title */
-getTitle(): net_md_5_bungee_api_chat_BaseComponent[];
+getTitle(): JArray<net_md_5_bungee_api_chat_BaseComponent>;
 /** Gets the text of this title's subtitle */
-getSubtitle(): net_md_5_bungee_api_chat_BaseComponent[] | null;
+getSubtitle(): JArray<net_md_5_bungee_api_chat_BaseComponent> | null;
 static builder(): com_destroystokyo_paper_Title_Builder;
+/** Create a title with the default time values and no subtitle.
+
+ Times use default values. */
+constructor(title: JArray<net_md_5_bungee_api_chat_BaseComponent>);
 /** Create a title with the default time values and no subtitle.
 
  Times use default values. */
@@ -214,19 +218,15 @@ constructor(title: net_md_5_bungee_api_chat_BaseComponent);
 /** Create a title with the default time values and no subtitle.
 
  Times use default values. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent[]);
-/** Create a title with the default time values and no subtitle.
-
- Times use default values. */
 constructor(title: string);
 /** Create a title with the default time values.
 
  Times use default values. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null);
+constructor(title: JArray<net_md_5_bungee_api_chat_BaseComponent>, subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null);
 /** Create a title with the default time values.
 
  Times use default values. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent[], subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null);
+constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null);
 /** Create a title with the default time values.
 
  Times use default values. */
@@ -236,9 +236,9 @@ constructor(title: string, subtitle: string | null);
  It is recommended to the BaseComponent constrctors. */
 constructor(title: string, subtitle: string | null, fadeIn: number, stay: number, fadeOut: number);
 /** Creates a new title. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null, fadeIn: number, stay: number, fadeOut: number);
+constructor(title: JArray<net_md_5_bungee_api_chat_BaseComponent>, subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null, fadeIn: number, stay: number, fadeOut: number);
 /** Creates a new title. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent[], subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null, fadeIn: number, stay: number, fadeOut: number);
+constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null, fadeIn: number, stay: number, fadeOut: number);
   }
 }
 //@ts-nocheck
@@ -265,17 +265,17 @@ stay(stay: number): com_destroystokyo_paper_Title_Builder;
  It is recommended to the BaseComponent methods. */
 subtitle(subtitle: string | null): com_destroystokyo_paper_Title_Builder | null;
 /** Sets the subtitle to the given text. */
-subtitle(subtitle: net_md_5_bungee_api_chat_BaseComponent | null): com_destroystokyo_paper_Title_Builder | null;
+subtitle(subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null): com_destroystokyo_paper_Title_Builder | null;
 /** Sets the subtitle to the given text. */
-subtitle(subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null): com_destroystokyo_paper_Title_Builder | null;
+subtitle(subtitle: net_md_5_bungee_api_chat_BaseComponent | null): com_destroystokyo_paper_Title_Builder | null;
 /** Sets the title to the given text.
 
  It is recommended to the BaseComponent methods. */
 title(title: string): com_destroystokyo_paper_Title_Builder;
 /** Sets the title to the given text. */
-title(title: net_md_5_bungee_api_chat_BaseComponent): com_destroystokyo_paper_Title_Builder;
+title(title: JArray<net_md_5_bungee_api_chat_BaseComponent>): com_destroystokyo_paper_Title_Builder;
 /** Sets the title to the given text. */
-title(title: net_md_5_bungee_api_chat_BaseComponent[]): com_destroystokyo_paper_Title_Builder;
+title(title: net_md_5_bungee_api_chat_BaseComponent): com_destroystokyo_paper_Title_Builder;
 constructor();
   }
 }
@@ -419,7 +419,7 @@ over the constants as follows:
 for (ClientOption.ChatVisibility c : ClientOption.ChatVisibility.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_ClientOption_ChatVisibility[];
+static values(): JArray<com_destroystokyo_paper_ClientOption_ChatVisibility>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -475,7 +475,7 @@ over the constants as follows:
 for (ReputationType c : ReputationType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_entity_villager_ReputationType[];
+static values(): JArray<com_destroystokyo_paper_entity_villager_ReputationType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -507,7 +507,7 @@ over the constants as follows:
 for (TargetBlockInfo.FluidMode c : TargetBlockInfo.FluidMode.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_block_TargetBlockInfo_FluidMode[];
+static values(): JArray<com_destroystokyo_paper_block_TargetBlockInfo_FluidMode>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -801,7 +801,7 @@ over the constants as follows:
 for (GoalType c : GoalType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_entity_ai_GoalType[];
+static values(): JArray<com_destroystokyo_paper_entity_ai_GoalType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -837,7 +837,7 @@ over the constants as follows:
 for (HeightmapType c : HeightmapType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_HeightmapType[];
+static values(): JArray<com_destroystokyo_paper_HeightmapType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -996,7 +996,7 @@ over the constants as follows:
 for (AnvilDamagedEvent.DamageState c : AnvilDamagedEvent.DamageState.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState[];
+static values(): JArray<com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -1044,7 +1044,7 @@ over the constants as follows:
 for (AnvilDamagedEvent.DamageState c : AnvilDamagedEvent.DamageState.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState[];
+static values(): JArray<com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -1144,8 +1144,8 @@ persistentDataContainer: org_bukkit_persistence_PersistentDataContainer;
 
  These tags can also be modified by the client once in creative mode */
 customTagContainer: org_bukkit_inventory_meta_tags_CustomItemTagContainer;
-displayNameComponent: net_md_5_bungee_api_chat_BaseComponent[];
-loreComponents: java_util_List<net_md_5_bungee_api_chat_BaseComponent[]>;
+displayNameComponent: JArray<net_md_5_bungee_api_chat_BaseComponent>;
+loreComponents: java_util_List<JArray<net_md_5_bungee_api_chat_BaseComponent>>;
 /** Add an Attribute and it's Modifier.
  AttributeModifiers can now support EquipmentSlots.
  If not set, the AttributeModifier will be active in ALL slots.
@@ -1247,7 +1247,7 @@ removeAttributeModifier(attribute: org_bukkit_attribute_Attribute): boolean;
  AttributeModifiers that do not have an EquipmentSlot set. */
 removeAttributeModifier(slot: org_bukkit_inventory_EquipmentSlot): boolean;
 /** Remove specific set of itemFlags. This tells the Client it should render it again. This Method does silently ignore double removed itemFlags. */
-removeItemFlags(...itemFlags: org_bukkit_inventory_ItemFlag[]): void;
+removeItemFlags(...itemFlags: JArray<org_bukkit_inventory_ItemFlag>): void;
 /** Removes the specified enchantment from this item meta. */
 removeEnchant(ench: org_bukkit_enchantments_Enchantment): boolean;
 /** Return an immutable copy of all AttributeModifiers
@@ -1293,7 +1293,7 @@ getCustomTagContainer(): org_bukkit_inventory_meta_tags_CustomItemTagContainer;
  and add them to the ItemStack. */
 setAttributeModifiers(attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null): void | null;
 /** Set itemflags which should be ignored when rendering a ItemStack in the Client. This Method does silently ignore double set itemFlags. */
-addItemFlags(...itemFlags: org_bukkit_inventory_ItemFlag[]): void;
+addItemFlags(...itemFlags: JArray<org_bukkit_inventory_ItemFlag>): void;
 /** Sets set of materials what given item can destroy in GameMode.ADVENTURE */
 setCanDestroy(canDestroy: java_util_Set<org_bukkit_Material>): void;
 /** Sets set of materials where given item can be placed on in GameMode.ADVENTURE */
@@ -1328,10 +1328,10 @@ setPlaceableKeys(canPlaceOn: java_util_Collection<com_destroystokyo_paper_Namesp
 /** Sets the unbreakable tag. An unbreakable item will not lose durability. */
 setUnbreakable(unbreakable: boolean): void;
 clone(): org_bukkit_inventory_meta_ItemMeta;
-getDisplayNameComponent(): net_md_5_bungee_api_chat_BaseComponent[];
-getLoreComponents(): java_util_List<net_md_5_bungee_api_chat_BaseComponent[]>;
-setDisplayNameComponent(arg0: net_md_5_bungee_api_chat_BaseComponent[]): void;
-setLoreComponents(arg0: java_util_List<net_md_5_bungee_api_chat_BaseComponent[]>): void;
+getDisplayNameComponent(): JArray<net_md_5_bungee_api_chat_BaseComponent>;
+getLoreComponents(): java_util_List<JArray<net_md_5_bungee_api_chat_BaseComponent>>;
+setDisplayNameComponent(arg0: JArray<net_md_5_bungee_api_chat_BaseComponent>): void;
+setLoreComponents(arg0: java_util_List<JArray<net_md_5_bungee_api_chat_BaseComponent>>): void;
 
   }
 }
@@ -1344,7 +1344,7 @@ import { Object as java_lang_Object } from 'java.lang';
 
   export class ASMEventExecutorGenerator extends java_lang_Object {
 static NEXT_ID: java_util_concurrent_atomic_AtomicInteger;
-static generateEventExecutor(m: java_lang_reflect_Method, name: string): number[];
+static generateEventExecutor(m: java_lang_reflect_Method, name: string): JArray<number>;
 static generateName(): string;
 constructor();
   }
@@ -1623,7 +1623,7 @@ poll(): E | null;
 remove(): E;
 size(): number;
 stream(): java_util_stream_Stream<E>;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<JArray<T>>): JArray<T>;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -1808,7 +1808,7 @@ import { ClassLoader as java_lang_ClassLoader, Class as java_lang_Class, Object 
   export class ClassDefiner {
 static instance: com_destroystokyo_paper_event_executor_asm_ClassDefiner;
 /** Define a class */
-defineClass(parentLoader: java_lang_ClassLoader, name: string, data: number[]): java_lang_Class<java_lang_Object>;
+defineClass(parentLoader: java_lang_ClassLoader, name: string, data: JArray<number>): java_lang_Class<java_lang_Object>;
 /** Returns if the defined classes can bypass access checks */
 isBypassAccessChecks(): boolean;
 static getInstance(): com_destroystokyo_paper_event_executor_asm_ClassDefiner;
@@ -1853,7 +1853,7 @@ over the constants as follows:
 for (ClientOption.ChatVisibility c : ClientOption.ChatVisibility.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_ClientOption_ChatVisibility[];
+static values(): JArray<com_destroystokyo_paper_ClientOption_ChatVisibility>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -2661,16 +2661,16 @@ fromMobSpawner(): boolean;
 
  If this sender does not support sending full components then
  the component will be sent as legacy text. */
-sendMessage(...component: net_md_5_bungee_api_chat_BaseComponent[]): void;
+sendMessage(...component: JArray<net_md_5_bungee_api_chat_BaseComponent>): void;
 /** Sends the component to the sender
 
  If this sender does not support sending full components then
  the component will be sent as legacy text. */
 sendMessage(component: net_md_5_bungee_api_chat_BaseComponent): void;
 /** Sends this sender a message */
-sendMessage(message: string): void;
+sendMessage(message: JArray<string>): void;
 /** Sends this sender a message */
-sendMessage(message: string[]): void;
+sendMessage(message: string): void;
 /** Set entity jump state
  
  Setting to true will mark the entity to jump.
@@ -3222,7 +3222,7 @@ over the constants as follows:
 for (EndermanEscapeEvent.Reason c : EndermanEscapeEvent.Reason.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason[];
+static values(): JArray<com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -3256,7 +3256,7 @@ over the constants as follows:
 for (EndermanEscapeEvent.Reason c : EndermanEscapeEvent.Reason.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason[];
+static values(): JArray<com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -3756,7 +3756,7 @@ over the constants as follows:
 for (EntityTransformedEvent.TransformedReason c : EntityTransformedEvent.TransformedReason.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason[];
+static values(): JArray<com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -3790,7 +3790,7 @@ over the constants as follows:
 for (EntityTransformedEvent.TransformedReason c : EntityTransformedEvent.TransformedReason.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason[];
+static values(): JArray<com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -4053,7 +4053,7 @@ over the constants as follows:
 for (GoalType c : GoalType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_entity_ai_GoalType[];
+static values(): JArray<com_destroystokyo_paper_entity_ai_GoalType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -4187,9 +4187,9 @@ hostname(hostname: string): com_destroystokyo_paper_event_server_GS4QueryEvent_Q
 map(map: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 maxPlayers(maxPlayers: number): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 motd(motd: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
-players(...players: string[]): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
+players(...players: JArray<string>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 players(players: java_util_Collection<string>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
-plugins(...plugins: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation[]): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
+plugins(...plugins: JArray<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 plugins(plugins: java_util_Collection<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 port(port: number): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 serverVersion(serverVersion: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
@@ -4231,7 +4231,7 @@ over the constants as follows:
 for (GS4QueryEvent.QueryType c : GS4QueryEvent.QueryType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType[];
+static values(): JArray<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -4322,9 +4322,9 @@ hostname(hostname: string): com_destroystokyo_paper_event_server_GS4QueryEvent_Q
 map(map: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 maxPlayers(maxPlayers: number): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 motd(motd: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
-players(...players: string[]): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
+players(...players: JArray<string>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 players(players: java_util_Collection<string>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
-plugins(...plugins: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation[]): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
+plugins(...plugins: JArray<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 plugins(plugins: java_util_Collection<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 port(port: number): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 serverVersion(serverVersion: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
@@ -4366,7 +4366,7 @@ over the constants as follows:
 for (GS4QueryEvent.QueryType c : GS4QueryEvent.QueryType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType[];
+static values(): JArray<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -4402,7 +4402,7 @@ over the constants as follows:
 for (HeightmapType c : HeightmapType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_HeightmapType[];
+static values(): JArray<com_destroystokyo_paper_HeightmapType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -4955,9 +4955,9 @@ getKey(): org_bukkit_NamespacedKey;
 getValues(): java_util_Set<org_bukkit_Material>;
 /** Description copied from interface: TagReturns whether or not this tag has an entry for the specified item. */
 isTagged(material: org_bukkit_Material): boolean;
-add(...tags: com_destroystokyo_paper_MaterialSetTag[]): com_destroystokyo_paper_MaterialSetTag;
-add(...tags: org_bukkit_Material[]): com_destroystokyo_paper_MaterialSetTag;
-add(...tags: org_bukkit_Tag<org_bukkit_Material>[]): com_destroystokyo_paper_MaterialSetTag;
+add(...tags: JArray<com_destroystokyo_paper_MaterialSetTag>): com_destroystokyo_paper_MaterialSetTag;
+add(...tags: JArray<org_bukkit_Material>): com_destroystokyo_paper_MaterialSetTag;
+add(...tags: JArray<org_bukkit_Tag<org_bukkit_Material>>): com_destroystokyo_paper_MaterialSetTag;
 add(filter: java_util_function_Predicate<org_bukkit_Material>): com_destroystokyo_paper_MaterialSetTag;
 add(materials: java_util_Collection<org_bukkit_Material>): com_destroystokyo_paper_MaterialSetTag;
 contains(wit: string): com_destroystokyo_paper_MaterialSetTag;
@@ -4968,16 +4968,16 @@ isTagged(block: org_bukkit_block_Block): boolean;
 isTagged(block: org_bukkit_block_BlockState): boolean;
 isTagged(block: org_bukkit_block_data_BlockData): boolean;
 isTagged(item: org_bukkit_inventory_ItemStack): boolean;
-not(...tags: org_bukkit_Material[]): com_destroystokyo_paper_MaterialSetTag;
+not(...tags: JArray<org_bukkit_Material>): com_destroystokyo_paper_MaterialSetTag;
 not(filter: java_util_function_Predicate<org_bukkit_Material>): com_destroystokyo_paper_MaterialSetTag;
 not(materials: java_util_Collection<org_bukkit_Material>): com_destroystokyo_paper_MaterialSetTag;
 not(tags: com_destroystokyo_paper_MaterialSetTag): com_destroystokyo_paper_MaterialSetTag;
 notEndsWith(wit: string): com_destroystokyo_paper_MaterialSetTag;
 notStartsWith(wit: string): com_destroystokyo_paper_MaterialSetTag;
 startsWith(wit: string): com_destroystokyo_paper_MaterialSetTag;
-constructor(...filter: org_bukkit_Material[]);
+constructor(...filter: JArray<org_bukkit_Material>);
 constructor(filter: java_util_function_Predicate<org_bukkit_Material>);
-constructor(key: org_bukkit_NamespacedKey | null, ...filter: org_bukkit_Material[]);
+constructor(key: org_bukkit_NamespacedKey | null, ...filter: JArray<org_bukkit_Material>);
 constructor(key: org_bukkit_NamespacedKey | null, filter: java_util_function_Predicate<org_bukkit_Material>);
 constructor(key: org_bukkit_NamespacedKey | null, materials: java_util_Collection<org_bukkit_Material>);
 constructor(materials: java_util_Collection<org_bukkit_Material>);
@@ -5536,7 +5536,7 @@ count(): number;
 location(): org_bukkit_Location | null;
 particle(): org_bukkit_Particle;
 receivers(): java_util_List<org_bukkit_entity_Player> | null;
-receivers(...receivers: org_bukkit_entity_Player[] | null): com_destroystokyo_paper_ParticleBuilder | null;
+receivers(...receivers: JArray<org_bukkit_entity_Player> | null): com_destroystokyo_paper_ParticleBuilder | null;
 receivers(receivers: java_util_Collection<org_bukkit_entity_Player> | null): com_destroystokyo_paper_ParticleBuilder | null;
 receivers(receivers: java_util_List<org_bukkit_entity_Player> | null): com_destroystokyo_paper_ParticleBuilder | null;
 source(): org_bukkit_entity_Player | null;
@@ -5912,7 +5912,7 @@ over the constants as follows:
 for (PlayerArmorChangeEvent.SlotType c : PlayerArmorChangeEvent.SlotType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType[];
+static values(): JArray<com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -5959,7 +5959,7 @@ over the constants as follows:
 for (PlayerArmorChangeEvent.SlotType c : PlayerArmorChangeEvent.SlotType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType[];
+static values(): JArray<com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -8320,16 +8320,16 @@ fromMobSpawner(): boolean;
 
  If this sender does not support sending full components then
  the component will be sent as legacy text. */
-sendMessage(...component: net_md_5_bungee_api_chat_BaseComponent[]): void;
+sendMessage(...component: JArray<net_md_5_bungee_api_chat_BaseComponent>): void;
 /** Sends the component to the sender
 
  If this sender does not support sending full components then
  the component will be sent as legacy text. */
 sendMessage(component: net_md_5_bungee_api_chat_BaseComponent): void;
 /** Sends this sender a message */
-sendMessage(message: string): void;
+sendMessage(message: JArray<string>): void;
 /** Sends this sender a message */
-sendMessage(message: string[]): void;
+sendMessage(message: string): void;
 /** Set entity jump state
  
  Setting to true will mark the entity to jump.
@@ -8544,7 +8544,7 @@ over the constants as follows:
 for (ReputationType c : ReputationType.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_entity_villager_ReputationType[];
+static values(): JArray<com_destroystokyo_paper_entity_villager_ReputationType>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -8568,7 +8568,7 @@ import { ClassDefiner as com_destroystokyo_paper_event_executor_asm_ClassDefiner
   export class SafeClassDefiner extends java_lang_Object implements com_destroystokyo_paper_event_executor_asm_ClassDefiner {
 
 /** Description copied from interface: ClassDefinerDefine a class */
-defineClass(parentLoader: java_lang_ClassLoader, name: string, data: number[]): java_lang_Class<java_lang_Object>;
+defineClass(parentLoader: java_lang_ClassLoader, name: string, data: JArray<number>): java_lang_Class<java_lang_Object>;
 /** Returns if the defined classes can bypass access checks */
 isBypassAccessChecks(): boolean;
 
@@ -8585,7 +8585,7 @@ import { ServerException as com_destroystokyo_paper_exception_ServerException } 
 
   export class ServerCommandException extends com_destroystokyo_paper_exception_ServerException {
 /** Gets the arguments which threw the exception for the command */
-arguments: string[];
+arguments: JArray<string>;
 /** Gets the command sender which executed the command request */
 commandSender: org_bukkit_command_CommandSender;
 /** Gets the command which threw the exception */
@@ -8594,10 +8594,10 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 /** Gets the arguments which threw the exception for the command */
-getArguments(): string[];
+getArguments(): JArray<string>;
 /** Gets the command sender which executed the command request */
 getCommandSender(): org_bukkit_command_CommandSender;
 /** Gets the command which threw the exception */
@@ -8609,8 +8609,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8618,13 +8618,13 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
-constructor(cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: string[]);
-constructor(message: string, cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: string[]);
+constructor(cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: JArray<string>);
+constructor(message: string, cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: JArray<string>);
   }
 }
 //@ts-nocheck
@@ -8639,8 +8639,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 addSuppressed(arg0: java_lang_Throwable): void;
 equals(arg0: java_lang_Object): boolean;
 fillInStackTrace(): java_lang_Throwable;
@@ -8648,8 +8648,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8657,7 +8657,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
@@ -8686,8 +8686,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 /** Gets the event which caused the exception */
 getEvent(): org_bukkit_event_Event;
 /** Gets the listener which threw the exception */
@@ -8699,8 +8699,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8708,7 +8708,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
@@ -8733,8 +8733,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 /** Gets the plugin which is directly responsible for the exception being thrown */
 getResponsiblePlugin(): org_bukkit_plugin_Plugin;
 addSuppressed(arg0: java_lang_Throwable): void;
@@ -8744,8 +8744,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8753,7 +8753,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
@@ -8774,8 +8774,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 addSuppressed(arg0: java_lang_Throwable): void;
 equals(arg0: java_lang_Object): boolean;
 fillInStackTrace(): java_lang_Throwable;
@@ -8783,8 +8783,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8792,7 +8792,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
@@ -8845,8 +8845,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 addSuppressed(arg0: java_lang_Throwable): void;
 equals(arg0: java_lang_Object): boolean;
 fillInStackTrace(): java_lang_Throwable;
@@ -8854,8 +8854,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8863,7 +8863,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 static reportInternalException(cause: java_lang_Throwable): void;
 toString(): string;
 wait(): void;
@@ -8888,8 +8888,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 addSuppressed(arg0: java_lang_Throwable): void;
 equals(arg0: java_lang_Object): boolean;
 fillInStackTrace(): java_lang_Throwable;
@@ -8897,8 +8897,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8906,7 +8906,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
@@ -8931,8 +8931,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 /** Gets the plugin which is directly responsible for the exception being thrown */
 getResponsiblePlugin(): org_bukkit_plugin_Plugin;
 addSuppressed(arg0: java_lang_Throwable): void;
@@ -8942,8 +8942,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -8951,7 +8951,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
@@ -8974,19 +8974,19 @@ import { ServerPluginException as com_destroystokyo_paper_exception_ServerPlugin
 /** Gets the channel to which the error occurred from recieving data from */
 channel: string;
 /** Gets the data to which the error occurred from */
-data: number[];
+data: JArray<number>;
 /** Gets the player which the plugin message causing the exception originated from */
 player: org_bukkit_entity_Player;
 cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 /** Gets the channel to which the error occurred from recieving data from */
 getChannel(): string;
 /** Gets the data to which the error occurred from */
-getData(): number[];
+getData(): JArray<number>;
 /** Gets the player which the plugin message causing the exception originated from */
 getPlayer(): org_bukkit_entity_Player;
 addSuppressed(arg0: java_lang_Throwable): void;
@@ -8996,8 +8996,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -9005,13 +9005,13 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
-constructor(cause: java_lang_Throwable, responsiblePlugin: org_bukkit_plugin_Plugin, player: org_bukkit_entity_Player, channel: string, data: number[]);
-constructor(message: string, cause: java_lang_Throwable, responsiblePlugin: org_bukkit_plugin_Plugin, player: org_bukkit_entity_Player, channel: string, data: number[]);
+constructor(cause: java_lang_Throwable, responsiblePlugin: org_bukkit_plugin_Plugin, player: org_bukkit_entity_Player, channel: string, data: JArray<number>);
+constructor(message: string, cause: java_lang_Throwable, responsiblePlugin: org_bukkit_plugin_Plugin, player: org_bukkit_entity_Player, channel: string, data: JArray<number>);
   }
 }
 //@ts-nocheck
@@ -9030,8 +9030,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 /** Gets the task which threw the exception */
 getTask(): org_bukkit_scheduler_BukkitTask;
 addSuppressed(arg0: java_lang_Throwable): void;
@@ -9041,8 +9041,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -9050,7 +9050,7 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
@@ -9073,8 +9073,8 @@ cause: java_lang_Throwable;
 class: java_lang_Class<java_lang_Object>;
 localizedMessage: string;
 message: string;
-stackTrace: java_lang_StackTraceElement[];
-suppressed: java_lang_Throwable[];
+stackTrace: JArray<java_lang_StackTraceElement>;
+suppressed: JArray<java_lang_Throwable>;
 addSuppressed(arg0: java_lang_Throwable): void;
 equals(arg0: java_lang_Object): boolean;
 fillInStackTrace(): java_lang_Throwable;
@@ -9082,8 +9082,8 @@ getCause(): java_lang_Throwable;
 getClass(): java_lang_Class<java_lang_Object>;
 getLocalizedMessage(): string;
 getMessage(): string;
-getStackTrace(): java_lang_StackTraceElement[];
-getSuppressed(): java_lang_Throwable[];
+getStackTrace(): JArray<java_lang_StackTraceElement>;
+getSuppressed(): JArray<java_lang_Throwable>;
 hashCode(): number;
 initCause(arg0: java_lang_Throwable): java_lang_Throwable;
 notify(): void;
@@ -9091,13 +9091,13 @@ notifyAll(): void;
 printStackTrace(): void;
 printStackTrace(arg0: java_io_PrintStream): void;
 printStackTrace(arg0: java_io_PrintWriter): void;
-setStackTrace(arg0: java_lang_StackTraceElement[]): void;
+setStackTrace(arg0: JArray<java_lang_StackTraceElement>): void;
 toString(): string;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
-constructor(cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: string[]);
-constructor(message: string, cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: string[]);
+constructor(cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: JArray<string>);
+constructor(message: string, cause: java_lang_Throwable, command: org_bukkit_command_Command, commandSender: org_bukkit_command_CommandSender, arguments: JArray<string>);
   }
 }
 //@ts-nocheck
@@ -9800,7 +9800,7 @@ over the constants as follows:
 for (TargetBlockInfo.FluidMode c : TargetBlockInfo.FluidMode.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_block_TargetBlockInfo_FluidMode[];
+static values(): JArray<com_destroystokyo_paper_block_TargetBlockInfo_FluidMode>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -9923,9 +9923,9 @@ fadeOut: number;
  The returned value is never negative. */
 stay: number;
 /** Gets the text of this title */
-title: net_md_5_bungee_api_chat_BaseComponent[];
+title: JArray<net_md_5_bungee_api_chat_BaseComponent>;
 /** Gets the text of this title's subtitle */
-subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null;
+subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null;
 static DEFAULT_FADE_IN: number;
 static DEFAULT_FADE_OUT: number;
 static DEFAULT_STAY: number;
@@ -9942,10 +9942,14 @@ getFadeOut(): number;
  The returned value is never negative. */
 getStay(): number;
 /** Gets the text of this title */
-getTitle(): net_md_5_bungee_api_chat_BaseComponent[];
+getTitle(): JArray<net_md_5_bungee_api_chat_BaseComponent>;
 /** Gets the text of this title's subtitle */
-getSubtitle(): net_md_5_bungee_api_chat_BaseComponent[] | null;
+getSubtitle(): JArray<net_md_5_bungee_api_chat_BaseComponent> | null;
 static builder(): com_destroystokyo_paper_Title_Builder;
+/** Create a title with the default time values and no subtitle.
+
+ Times use default values. */
+constructor(title: JArray<net_md_5_bungee_api_chat_BaseComponent>);
 /** Create a title with the default time values and no subtitle.
 
  Times use default values. */
@@ -9953,19 +9957,15 @@ constructor(title: net_md_5_bungee_api_chat_BaseComponent);
 /** Create a title with the default time values and no subtitle.
 
  Times use default values. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent[]);
-/** Create a title with the default time values and no subtitle.
-
- Times use default values. */
 constructor(title: string);
 /** Create a title with the default time values.
 
  Times use default values. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null);
+constructor(title: JArray<net_md_5_bungee_api_chat_BaseComponent>, subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null);
 /** Create a title with the default time values.
 
  Times use default values. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent[], subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null);
+constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null);
 /** Create a title with the default time values.
 
  Times use default values. */
@@ -9975,9 +9975,9 @@ constructor(title: string, subtitle: string | null);
  It is recommended to the BaseComponent constrctors. */
 constructor(title: string, subtitle: string | null, fadeIn: number, stay: number, fadeOut: number);
 /** Creates a new title. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null, fadeIn: number, stay: number, fadeOut: number);
+constructor(title: JArray<net_md_5_bungee_api_chat_BaseComponent>, subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null, fadeIn: number, stay: number, fadeOut: number);
 /** Creates a new title. */
-constructor(title: net_md_5_bungee_api_chat_BaseComponent[], subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null, fadeIn: number, stay: number, fadeOut: number);
+constructor(title: net_md_5_bungee_api_chat_BaseComponent, subtitle: net_md_5_bungee_api_chat_BaseComponent | null, fadeIn: number, stay: number, fadeOut: number);
   }
 }
 //@ts-nocheck
@@ -10004,17 +10004,17 @@ stay(stay: number): com_destroystokyo_paper_Title_Builder;
  It is recommended to the BaseComponent methods. */
 subtitle(subtitle: string | null): com_destroystokyo_paper_Title_Builder | null;
 /** Sets the subtitle to the given text. */
-subtitle(subtitle: net_md_5_bungee_api_chat_BaseComponent | null): com_destroystokyo_paper_Title_Builder | null;
+subtitle(subtitle: JArray<net_md_5_bungee_api_chat_BaseComponent> | null): com_destroystokyo_paper_Title_Builder | null;
 /** Sets the subtitle to the given text. */
-subtitle(subtitle: net_md_5_bungee_api_chat_BaseComponent[] | null): com_destroystokyo_paper_Title_Builder | null;
+subtitle(subtitle: net_md_5_bungee_api_chat_BaseComponent | null): com_destroystokyo_paper_Title_Builder | null;
 /** Sets the title to the given text.
 
  It is recommended to the BaseComponent methods. */
 title(title: string): com_destroystokyo_paper_Title_Builder;
 /** Sets the title to the given text. */
-title(title: net_md_5_bungee_api_chat_BaseComponent): com_destroystokyo_paper_Title_Builder;
+title(title: JArray<net_md_5_bungee_api_chat_BaseComponent>): com_destroystokyo_paper_Title_Builder;
 /** Sets the title to the given text. */
-title(title: net_md_5_bungee_api_chat_BaseComponent[]): com_destroystokyo_paper_Title_Builder;
+title(title: net_md_5_bungee_api_chat_BaseComponent): com_destroystokyo_paper_Title_Builder;
 constructor();
   }
 }
@@ -10115,7 +10115,7 @@ over the constants as follows:
 for (TNTPrimeEvent.PrimeReason c : TNTPrimeEvent.PrimeReason.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason[];
+static values(): JArray<com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -10149,7 +10149,7 @@ over the constants as follows:
 for (TNTPrimeEvent.PrimeReason c : TNTPrimeEvent.PrimeReason.values())
     System.out.println(c);
  */
-static values(): com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason[];
+static values(): JArray<com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 

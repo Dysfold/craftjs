@@ -82,8 +82,8 @@ checkPermission(arg0: java_security_Permission): void;
 equals(arg0: java_lang_Object): boolean;
 getDomainCombiner(): java_security_DomainCombiner;
 hashCode(): number;
+constructor(arg0: JArray<java_security_ProtectionDomain>);
 constructor(arg0: java_security_AccessControlContext, arg1: java_security_DomainCombiner);
-constructor(arg0: java_security_ProtectionDomain[]);
   }
 }
 //@ts-nocheck
@@ -93,7 +93,7 @@ import { ProtectionDomain as java_security_ProtectionDomain } from 'java.securit
 
   export class DomainCombiner {
 
-combine(arg0: java_security_ProtectionDomain[], arg1: java_security_ProtectionDomain[]): java_security_ProtectionDomain[];
+combine(arg0: JArray<java_security_ProtectionDomain>, arg1: JArray<java_security_ProtectionDomain>): JArray<java_security_ProtectionDomain>;
 
   }
 }
@@ -107,16 +107,16 @@ import { CodeSource as java_security_CodeSource, Principal as java_security_Prin
 classLoader: java_lang_ClassLoader;
 codeSource: java_security_CodeSource;
 permissions: java_security_PermissionCollection;
-principals: java_security_Principal[];
+principals: JArray<java_security_Principal>;
 getClassLoader(): java_lang_ClassLoader;
 getCodeSource(): java_security_CodeSource;
 getPermissions(): java_security_PermissionCollection;
-getPrincipals(): java_security_Principal[];
+getPrincipals(): JArray<java_security_Principal>;
 implies(arg0: java_security_Permission): boolean;
 staticPermissionsOnly(): boolean;
 toString(): string;
 constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection);
-constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection, arg2: java_lang_ClassLoader, arg3: java_security_Principal[]);
+constructor(arg0: java_security_CodeSource, arg1: java_security_PermissionCollection, arg2: java_lang_ClassLoader, arg3: JArray<java_security_Principal>);
   }
 }
 //@ts-nocheck
@@ -129,18 +129,18 @@ import { CodeSource as java_security_CodeSource, CodeSigner as java_security_Cod
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class CodeSource extends java_lang_Object implements java_io_Serializable {
-certificates: java_security_cert_Certificate[];
-codeSigners: java_security_CodeSigner[];
+certificates: JArray<java_security_cert_Certificate>;
+codeSigners: JArray<java_security_CodeSigner>;
 location: java_net_URL;
 equals(arg0: java_lang_Object): boolean;
-getCertificates(): java_security_cert_Certificate[];
-getCodeSigners(): java_security_CodeSigner[];
+getCertificates(): JArray<java_security_cert_Certificate>;
+getCodeSigners(): JArray<java_security_CodeSigner>;
 getLocation(): java_net_URL;
 hashCode(): number;
 implies(arg0: java_security_CodeSource): boolean;
 toString(): string;
-constructor(arg0: java_net_URL, arg1: java_security_CodeSigner[]);
-constructor(arg0: java_net_URL, arg1: java_security_cert_Certificate[]);
+constructor(arg0: java_net_URL, arg1: JArray<java_security_CodeSigner>);
+constructor(arg0: java_net_URL, arg1: JArray<java_security_cert_Certificate>);
   }
 }
 //@ts-nocheck
@@ -151,11 +151,11 @@ import { PublicKey as java_security_PublicKey, Provider as java_security_Provide
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Certificate extends java_lang_Object implements java_io_Serializable {
-encoded: number[];
+encoded: JArray<number>;
 publicKey: java_security_PublicKey;
 type: string;
 equals(arg0: java_lang_Object): boolean;
-getEncoded(): number[];
+getEncoded(): JArray<number>;
 getPublicKey(): java_security_PublicKey;
 getType(): string;
 hashCode(): number;
@@ -173,11 +173,11 @@ import { Key as java_security_Key } from 'java.security';
 
   export class PublicKey implements java_security_Key {
 algorithm: string;
-encoded: number[];
+encoded: JArray<number>;
 format: string;
 static serialVersionUID: number;
 getAlgorithm(): string;
-getEncoded(): number[];
+getEncoded(): JArray<number>;
 getFormat(): string;
 
   }
@@ -189,11 +189,11 @@ import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Key implements java_io_Serializable {
 algorithm: string;
-encoded: number[];
+encoded: JArray<number>;
 format: string;
 static serialVersionUID: number;
 getAlgorithm(): string;
-getEncoded(): number[];
+getEncoded(): JArray<number>;
 getFormat(): string;
 
   }
@@ -313,14 +313,14 @@ import { Serializable as java_io_Serializable } from 'java.io';
 
   export class CertPath extends java_lang_Object implements java_io_Serializable {
 certificates: java_util_List<java_security_cert_Certificate>;
-encoded: number[];
-encoded: number[];
+encoded: JArray<number>;
+encoded: JArray<number>;
 encodings: java_util_Iterator<string>;
 type: string;
 equals(arg0: java_lang_Object): boolean;
 getCertificates(): java_util_List<java_security_cert_Certificate>;
-getEncoded(): number[];
-getEncoded(arg0: string): number[];
+getEncoded(): JArray<number>;
+getEncoded(arg0: string): JArray<number>;
 getEncodings(): java_util_Iterator<string>;
 getType(): string;
 hashCode(): number;

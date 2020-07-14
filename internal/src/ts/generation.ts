@@ -26,6 +26,7 @@ function parseName(name: string) {
 }
 
 function generateTypeDefinition(type: Type, deps: ClassRef[]): string {
+  const wrap = (str: string) => (type.isArray ? `JArray<${str}>` : str);
   const suffix = type.isArray ? '[]' : '';
 
   if (typeof type.baseClass !== 'string') {
@@ -34,16 +35,16 @@ function generateTypeDefinition(type: Type, deps: ClassRef[]): string {
         type.baseClass.name,
       ) !== -1
     ) {
-      return `number${suffix}`;
+      return wrap('number');
     }
     if (type.baseClass.name === 'char') {
-      return `string${suffix}`;
+      return wrap('string');
     }
     if (
       type.baseClass.name === 'String' &&
       type.baseClass.package === 'java.lang'
     ) {
-      return `string${suffix}`;
+      return wrap('string');
     }
     if (['boolean', 'void'].indexOf(type.baseClass.name) !== -1) {
       return type.baseClass.name;
@@ -62,9 +63,9 @@ function generateTypeDefinition(type: Type, deps: ClassRef[]): string {
       ? generateTypeDefinition(t.extends, deps)
       : 'any',
   );
-  return `${baseType}${
-    typeArgs.length > 0 ? `<${typeArgs.join(', ')}>` : ''
-  }${suffix}`;
+  return wrap(
+    `${baseType}${typeArgs.length > 0 ? `<${typeArgs.join(', ')}>` : ''}`,
+  );
 }
 
 function generateTypeParamDefinition(

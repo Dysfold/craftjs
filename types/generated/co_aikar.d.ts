@@ -148,15 +148,15 @@ import { Function as com_google_common_base_Function } from 'com.google.common.b
 /** Creates a key/value "JSONPair" object */
 static pair(key: string, obj: java_lang_Object | null): co_aikar_util_JSONUtil_JSONPair | null;
 /** Creates a new JSON object from multiple JSONPair key/value pairs */
-static createObject(...data: co_aikar_util_JSONUtil_JSONPair[]): java_util_Map<string, java_lang_Object>;
+static createObject(...data: JArray<co_aikar_util_JSONUtil_JSONPair>): java_util_Map<string, java_lang_Object>;
 /** These help build a single JSON Object from a collection, using a mapper function */
-static toObjectMapper<E extends java_lang_Object>(collection: E[], mapper: com_google_common_base_Function<E, co_aikar_util_JSONUtil_JSONPair>): java_util_Map;
+static toObjectMapper<E extends java_lang_Object>(collection: JArray<E>, mapper: com_google_common_base_Function<E, co_aikar_util_JSONUtil_JSONPair>): java_util_Map;
 /** These help build a single JSON array using a mapper function */
-static toArrayMapper<E extends java_lang_Object>(collection: E[], mapper: com_google_common_base_Function<E, java_lang_Object>): java_util_List;
+static toArrayMapper<E extends java_lang_Object>(collection: JArray<E>, mapper: com_google_common_base_Function<E, java_lang_Object>): java_util_List;
 /** This appends multiple key/value Obj pairs into a JSON Object */
-static appendObjectData(parent: java_util_Map, ...data: co_aikar_util_JSONUtil_JSONPair[]): java_util_Map<string, java_lang_Object>;
+static appendObjectData(parent: java_util_Map, ...data: JArray<co_aikar_util_JSONUtil_JSONPair>): java_util_Map<string, java_lang_Object>;
 /** This builds a JSON array from a set of data */
-static toArray(...data: java_lang_Object[]): java_util_List;
+static toArray(...data: JArray<java_lang_Object>): java_util_List;
 static pair(key: number, obj: java_lang_Object | null): co_aikar_util_JSONUtil_JSONPair | null;
 static toArrayMapper<E extends java_lang_Object>(collection: java_lang_Iterable<E>, mapper: com_google_common_base_Function<E, java_lang_Object>): java_util_List;
 static toObjectMapper<E extends java_lang_Object>(collection: java_lang_Iterable<E>, mapper: com_google_common_base_Function<E, co_aikar_util_JSONUtil_JSONPair>): java_util_Map;
@@ -636,9 +636,9 @@ getName(): string;
 /** Description copied from interface: CommandSenderReturns the server instance that this command is running on */
 getServer(): org_bukkit_Server;
 /** Description copied from interface: CommandSenderSends this sender a message */
-sendMessage(message: string): void;
+sendMessage(message: JArray<string>): void;
 /** Description copied from interface: CommandSenderSends this sender a message */
-sendMessage(message: string[]): void;
+sendMessage(message: string): void;
 /** Description copied from interface: PermissibleAdds a new PermissionAttachment with a single permission by
  name and value */
 addAttachment(plugin: org_bukkit_plugin_Plugin, name: string, value: boolean): org_bukkit_permissions_PermissionAttachment;
@@ -683,7 +683,7 @@ setOp(value: boolean): void;
 
  If this sender does not support sending full components then
  the component will be sent as legacy text. */
-sendMessage(...component: net_md_5_bungee_api_chat_BaseComponent[]): void;
+sendMessage(...component: JArray<net_md_5_bungee_api_chat_BaseComponent>): void;
 /** Sends the component to the sender
 
  If this sender does not support sending full components then
@@ -730,12 +730,12 @@ class: java_lang_Class<java_lang_Object>;
 timingName: string;
 /** Description copied from class: CommandExecuted on tab completion for this command, returning a list of
  options the player can tab through. */
-tabComplete(sender: org_bukkit_command_CommandSender, alias: string, args: string[]): java_util_List<string>;
+tabComplete(sender: org_bukkit_command_CommandSender, alias: string, args: JArray<string>): java_util_List<string>;
 /** Description copied from class: CommandExecutes the command, returning its success */
-execute(sender: org_bukkit_command_CommandSender, currentAlias: string, args: string[]): boolean;
+execute(sender: org_bukkit_command_CommandSender, currentAlias: string, args: JArray<string>): boolean;
 /** Executed on tab completion for this command, returning a list of
  options the player can tab through. */
-tabComplete(sender: org_bukkit_command_CommandSender, alias: string, args: string[], location: org_bukkit_Location | null): java_util_List<string> | null;
+tabComplete(sender: org_bukkit_command_CommandSender, alias: string, args: JArray<string>, location: org_bukkit_Location | null): java_util_List<string> | null;
 /** Gets a brief description of this command */
 getDescription(): string;
 /** Gets an example usage of this command */
@@ -871,9 +871,9 @@ getName(): string;
 /** Description copied from interface: CommandSenderReturns the server instance that this command is running on */
 getServer(): org_bukkit_Server;
 /** Description copied from interface: CommandSenderSends this sender a message */
-sendMessage(message: string): void;
+sendMessage(message: JArray<string>): void;
 /** Description copied from interface: CommandSenderSends this sender a message */
-sendMessage(message: string[]): void;
+sendMessage(message: string): void;
 /** Description copied from interface: PermissibleAdds a new PermissionAttachment with a single permission by
  name and value */
 addAttachment(plugin: org_bukkit_plugin_Plugin, name: string, value: boolean): org_bukkit_permissions_PermissionAttachment;
@@ -918,7 +918,7 @@ setOp(value: boolean): void;
 
  If this sender does not support sending full components then
  the component will be sent as legacy text. */
-sendMessage(...component: net_md_5_bungee_api_chat_BaseComponent[]): void;
+sendMessage(...component: JArray<net_md_5_bungee_api_chat_BaseComponent>): void;
 /** Sends the component to the sender
 
  If this sender does not support sending full components then

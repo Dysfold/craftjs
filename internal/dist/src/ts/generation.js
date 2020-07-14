@@ -19,17 +19,18 @@ function parseName(name) {
     return name;
 }
 function generateTypeDefinition(type, deps) {
+    const wrap = (str) => (type.isArray ? `JArray<${str}>` : str);
     const suffix = type.isArray ? '[]' : '';
     if (typeof type.baseClass !== 'string') {
         if (['int', 'long', 'double', 'float', 'byte', 'short'].indexOf(type.baseClass.name) !== -1) {
-            return `number${suffix}`;
+            return wrap('number');
         }
         if (type.baseClass.name === 'char') {
-            return `string${suffix}`;
+            return wrap('string');
         }
         if (type.baseClass.name === 'String' &&
             type.baseClass.package === 'java.lang') {
-            return `string${suffix}`;
+            return wrap('string');
         }
         if (['boolean', 'void'].indexOf(type.baseClass.name) !== -1) {
             return type.baseClass.name;
@@ -44,7 +45,7 @@ function generateTypeDefinition(type, deps) {
         : t.extends
             ? generateTypeDefinition(t.extends, deps)
             : 'any');
-    return `${baseType}${typeArgs.length > 0 ? `<${typeArgs.join(', ')}>` : ''}${suffix}`;
+    return wrap(`${baseType}${typeArgs.length > 0 ? `<${typeArgs.join(', ')}>` : ''}`);
 }
 function generateTypeParamDefinition({ name, extends: ex }, deps) {
     return `${name}${ex ? ` extends ${generateTypeDefinition(ex, deps)}` : ''}`;

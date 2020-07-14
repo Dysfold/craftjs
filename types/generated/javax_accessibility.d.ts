@@ -13,7 +13,7 @@ accessibleChildrenCount: number;
 accessibleComponent: javax_accessibility_AccessibleComponent;
 accessibleDescription: string;
 accessibleEditableText: javax_accessibility_AccessibleEditableText;
-accessibleIcon: javax_accessibility_AccessibleIcon[];
+accessibleIcon: JArray<javax_accessibility_AccessibleIcon>;
 accessibleIndexInParent: number;
 accessibleName: string;
 accessibleParent: javax_accessibility_Accessible;
@@ -55,7 +55,7 @@ getAccessibleChildrenCount(): number;
 getAccessibleComponent(): javax_accessibility_AccessibleComponent;
 getAccessibleDescription(): string;
 getAccessibleEditableText(): javax_accessibility_AccessibleEditableText;
-getAccessibleIcon(): javax_accessibility_AccessibleIcon[];
+getAccessibleIcon(): JArray<javax_accessibility_AccessibleIcon>;
 getAccessibleIndexInParent(): number;
 getAccessibleName(): string;
 getAccessibleParent(): javax_accessibility_Accessible;
@@ -142,14 +142,14 @@ import { Object as java_lang_Object } from 'java.lang';
   export class AccessibleStateSet extends java_lang_Object {
 
 add(arg0: javax_accessibility_AccessibleState): boolean;
-addAll(arg0: javax_accessibility_AccessibleState[]): void;
+addAll(arg0: JArray<javax_accessibility_AccessibleState>): void;
 clear(): void;
 contains(arg0: javax_accessibility_AccessibleState): boolean;
 remove(arg0: javax_accessibility_AccessibleState): boolean;
-toArray(): javax_accessibility_AccessibleState[];
+toArray(): JArray<javax_accessibility_AccessibleState>;
 toString(): string;
 constructor();
-constructor(arg0: javax_accessibility_AccessibleState[]);
+constructor(arg0: JArray<javax_accessibility_AccessibleState>);
   }
 }
 //@ts-nocheck
@@ -452,16 +452,16 @@ import { Object as java_lang_Object } from 'java.lang';
   export class AccessibleRelationSet extends java_lang_Object {
 
 add(arg0: javax_accessibility_AccessibleRelation): boolean;
-addAll(arg0: javax_accessibility_AccessibleRelation[]): void;
+addAll(arg0: JArray<javax_accessibility_AccessibleRelation>): void;
 clear(): void;
 contains(arg0: string): boolean;
 get(arg0: string): javax_accessibility_AccessibleRelation;
 remove(arg0: javax_accessibility_AccessibleRelation): boolean;
 size(): number;
-toArray(): javax_accessibility_AccessibleRelation[];
+toArray(): JArray<javax_accessibility_AccessibleRelation>;
 toString(): string;
 constructor();
-constructor(arg0: javax_accessibility_AccessibleRelation[]);
+constructor(arg0: JArray<javax_accessibility_AccessibleRelation>);
   }
 }
 //@ts-nocheck
@@ -497,22 +497,22 @@ static PARENT_WINDOW_OF: string;
 static PARENT_WINDOW_OF_PROPERTY: string;
 static SUBWINDOW_OF: string;
 static SUBWINDOW_OF_PROPERTY: string;
-target: java_lang_Object[];
+target: JArray<java_lang_Object>;
 equals(arg0: java_lang_Object): boolean;
 getClass(): java_lang_Class<java_lang_Object>;
 getKey(): string;
-getTarget(): java_lang_Object[];
+getTarget(): JArray<java_lang_Object>;
 hashCode(): number;
 notify(): void;
 notifyAll(): void;
+setTarget(arg0: JArray<java_lang_Object>): void;
 setTarget(arg0: java_lang_Object): void;
-setTarget(arg0: java_lang_Object[]): void;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 constructor(arg0: string);
+constructor(arg0: string, arg1: JArray<java_lang_Object>);
 constructor(arg0: string, arg1: java_lang_Object);
-constructor(arg0: string, arg1: java_lang_Object[]);
   }
 }
 //@ts-nocheck
@@ -532,8 +532,8 @@ accessibleRowDescription: javax_accessibility_Accessible;
 accessibleRowExtentAt: number;
 accessibleRowHeader: javax_accessibility_AccessibleTable;
 accessibleSummary: javax_accessibility_Accessible;
-selectedAccessibleColumns: number[];
-selectedAccessibleRows: number[];
+selectedAccessibleColumns: JArray<number>;
+selectedAccessibleRows: JArray<number>;
 getAccessibleAt(arg0: number, arg1: number): javax_accessibility_Accessible;
 getAccessibleCaption(): javax_accessibility_Accessible;
 getAccessibleColumnCount(): number;
@@ -545,8 +545,8 @@ getAccessibleRowDescription(arg0: number): javax_accessibility_Accessible;
 getAccessibleRowExtentAt(arg0: number, arg1: number): number;
 getAccessibleRowHeader(): javax_accessibility_AccessibleTable;
 getAccessibleSummary(): javax_accessibility_Accessible;
-getSelectedAccessibleColumns(): number[];
-getSelectedAccessibleRows(): number[];
+getSelectedAccessibleColumns(): JArray<number>;
+getSelectedAccessibleRows(): JArray<number>;
 isAccessibleColumnSelected(arg0: number): boolean;
 isAccessibleRowSelected(arg0: number): boolean;
 isAccessibleSelected(arg0: number, arg1: number): boolean;

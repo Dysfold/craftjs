@@ -28,9 +28,9 @@ retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 size(): number;
 spliterator(): java_util_Spliterator<E>;
 stream(): java_util_stream_Stream<E>;
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray(): JArray<java_lang_Object>;
+toArray<T extends java_lang_Object>(arg0: JArray<T>): JArray<T>;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<JArray<T>>): JArray<T>;
 
   }
 }
@@ -81,9 +81,9 @@ retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 size(): number;
 spliterator(): java_util_Spliterator<E>;
 stream(): java_util_stream_Stream<E>;
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray(): JArray<java_lang_Object>;
+toArray<T extends java_lang_Object>(arg0: JArray<T>): JArray<T>;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<JArray<T>>): JArray<T>;
 
   }
 }
@@ -238,14 +238,14 @@ wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 constructor();
+constructor(arg0: JArray<number>, arg1: JArray<V>);
+constructor(arg0: JArray<number>, arg1: JArray<V>, arg2: number);
 constructor(arg0: it_unimi_dsi_fastutil_ints_Int2ObjectMap<V>);
 constructor(arg0: it_unimi_dsi_fastutil_ints_Int2ObjectMap<V>, arg1: number);
 constructor(arg0: java_util_Map<java_lang_Integer, V>);
 constructor(arg0: java_util_Map<java_lang_Integer, V>, arg1: number);
 constructor(arg0: number);
 constructor(arg0: number, arg1: number);
-constructor(arg0: number[], arg1: V[]);
-constructor(arg0: number[], arg1: V[], arg2: number);
   }
 }
 //@ts-nocheck
@@ -289,12 +289,12 @@ retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 size(): number;
 spliterator(): java_util_Spliterator<E>;
 stream(): java_util_stream_Stream<E>;
-toArray(): java_lang_Object[];
-toArray(arg0: number[]): number[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toIntArray(): number[];
-toIntArray(arg0: number[]): number[];
+toArray(): JArray<java_lang_Object>;
+toArray(arg0: JArray<number>): JArray<number>;
+toArray<T extends java_lang_Object>(arg0: JArray<T>): JArray<T>;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<JArray<T>>): JArray<T>;
+toIntArray(): JArray<number>;
+toIntArray(arg0: JArray<number>): JArray<number>;
 
   }
 }
@@ -359,12 +359,12 @@ retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 size(): number;
 spliterator(): java_util_Spliterator<E>;
 stream(): java_util_stream_Stream<E>;
-toArray(): java_lang_Object[];
-toArray(arg0: number[]): number[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toIntArray(): number[];
-toIntArray(arg0: number[]): number[];
+toArray(): JArray<java_lang_Object>;
+toArray(arg0: JArray<number>): JArray<number>;
+toArray<T extends java_lang_Object>(arg0: JArray<T>): JArray<T>;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<JArray<T>>): JArray<T>;
+toIntArray(): JArray<number>;
+toIntArray(arg0: JArray<number>): JArray<number>;
 
   }
 }
@@ -419,9 +419,9 @@ retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
 size(): number;
 spliterator(): java_util_Spliterator<E>;
 stream(): java_util_stream_Stream<E>;
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray(): JArray<java_lang_Object>;
+toArray<T extends java_lang_Object>(arg0: JArray<T>): JArray<T>;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<JArray<T>>): JArray<T>;
 
   }
 }
@@ -643,7 +643,7 @@ static DEFAULT_LOAD_FACTOR: number;
 static FAST_LOAD_FACTOR: number;
 static FREE: number;
 static OCCUPIED: number;
-static PRIMES: number[];
+static PRIMES: JArray<number>;
 static REMOVED: number;
 static VERY_FAST_LOAD_FACTOR: number;
 

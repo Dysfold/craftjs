@@ -15,6 +15,8 @@ declare global {
   const __dirname: string;
   const readFile: (path: string) => string;
   const writeFile: (path: string, data: string, append?: boolean) => void;
+
+  interface JArray<T> extends JIterable<T> { }
 }
 
 

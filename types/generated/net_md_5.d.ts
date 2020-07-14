@@ -56,8 +56,8 @@ setItalic(arg0: java_lang_Boolean): void;
 setObfuscated(arg0: java_lang_Boolean): void;
 setStrikethrough(arg0: java_lang_Boolean): void;
 setUnderlined(arg0: java_lang_Boolean): void;
-static toLegacyText(...arg0: net_md_5_bungee_api_chat_BaseComponent[]): string;
-static toPlainText(...arg0: net_md_5_bungee_api_chat_BaseComponent[]): string;
+static toLegacyText(...arg0: JArray<net_md_5_bungee_api_chat_BaseComponent>): string;
+static toPlainText(...arg0: JArray<net_md_5_bungee_api_chat_BaseComponent>): string;
 toLegacyText(): string;
 toPlainText(): string;
 toString(): string;
@@ -80,7 +80,7 @@ getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
 static valueOf(arg0: string): net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention;
-static values(): net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention[];
+static values(): JArray<net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention>;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -122,7 +122,7 @@ getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
 static valueOf(arg0: string): net_md_5_bungee_api_chat_ClickEvent_Action;
-static values(): net_md_5_bungee_api_chat_ClickEvent_Action[];
+static values(): JArray<net_md_5_bungee_api_chat_ClickEvent_Action>;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -138,13 +138,13 @@ import { Action as net_md_5_bungee_api_chat_HoverEvent_Action } from 'net.md_5.b
 
   export class HoverEvent extends java_lang_Object {
 action: net_md_5_bungee_api_chat_HoverEvent_Action;
-value: net_md_5_bungee_api_chat_BaseComponent[];
+value: JArray<net_md_5_bungee_api_chat_BaseComponent>;
 equals(arg0: java_lang_Object): boolean;
 getAction(): net_md_5_bungee_api_chat_HoverEvent_Action;
-getValue(): net_md_5_bungee_api_chat_BaseComponent[];
+getValue(): JArray<net_md_5_bungee_api_chat_BaseComponent>;
 hashCode(): number;
 toString(): string;
-constructor(arg0: net_md_5_bungee_api_chat_HoverEvent_Action, arg1: net_md_5_bungee_api_chat_BaseComponent[]);
+constructor(arg0: net_md_5_bungee_api_chat_HoverEvent_Action, arg1: JArray<net_md_5_bungee_api_chat_BaseComponent>);
   }
 }
 //@ts-nocheck
@@ -163,7 +163,7 @@ getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
 static valueOf(arg0: string): net_md_5_bungee_api_chat_HoverEvent_Action;
-static values(): net_md_5_bungee_api_chat_HoverEvent_Action[];
+static values(): JArray<net_md_5_bungee_api_chat_HoverEvent_Action>;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
@@ -216,7 +216,7 @@ over the constants as follows:
 for (ChatColor c : ChatColor.values())
     System.out.println(c);
  */
-static values(): net_md_5_bungee_api_ChatColor[];
+static values(): JArray<net_md_5_bungee_api_ChatColor>;
 /** Returns the enum constant of this type with the specified name.
 The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
@@ -254,7 +254,7 @@ getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
 static valueOf(arg0: string): net_md_5_bungee_api_ChatMessageType;
-static values(): net_md_5_bungee_api_ChatMessageType[];
+static values(): JArray<net_md_5_bungee_api_ChatMessageType>;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
