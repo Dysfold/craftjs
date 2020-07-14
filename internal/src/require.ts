@@ -143,13 +143,11 @@ ${contents}
       resolved.getParent()?.toString() ?? '.',
     );
   } catch (e) {
-    const pos = [
-      'lineNumber' in e ? e.lineNumber : '',
-      'columnNumber' in e ? e.columnNumber : '',
-    ]
-      .filter(Boolean)
-      .join(':');
-    console.log(`Error while executing ${src.getName()} at ${pos}`);
+    const line = e.lineNumber ? e.lineNumber - 2 : -1;
+
+    console.log(
+      `Error while executing ${e.fileName ?? src.getName()} at line ${line}`,
+    );
     console.error(e);
   }
   cache[cacheId] = module;

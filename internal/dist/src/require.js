@@ -85,7 +85,7 @@ const overrides = {
     tty: 'tty-browserify',
 };
 function __require(id, relative) {
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f, _g;
     const pkg = java.lang.Package.getPackage(id);
     if (pkg) {
         return getPackage(id);
@@ -125,13 +125,8 @@ ${contents}
         func(module, exports, resolved.toString(), (_f = (_e = resolved.getParent()) === null || _e === void 0 ? void 0 : _e.toString()) !== null && _f !== void 0 ? _f : '.');
     }
     catch (e) {
-        const pos = [
-            'lineNumber' in e ? e.lineNumber : '',
-            'columnNumber' in e ? e.columnNumber : '',
-        ]
-            .filter(Boolean)
-            .join(':');
-        console.log(`Error while executing ${src.getName()} at ${pos}`);
+        const line = e.lineNumber ? e.lineNumber - 2 : -1;
+        console.log(`Error while executing ${(_g = e.fileName) !== null && _g !== void 0 ? _g : src.getName()} at line ${line}`);
         console.error(e);
     }
     cache[cacheId] = module;
