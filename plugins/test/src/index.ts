@@ -1,7 +1,6 @@
-import { Bukkit } from "org.bukkit";
+import { ServerCommandEvent } from "org.bukkit.event.server";
+import { PlayerInteractEvent } from "org.bukkit.event.player";
 
-const server = Bukkit;
-
-for (const p of server.worlds) {
-  console.log(p.entities[0]);
-} 
+registerEvent(PlayerInteractEvent, e => {
+  e.player.sendMessage(e.item.amount.toString());
+});
