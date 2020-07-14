@@ -67,8 +67,11 @@ function generateErrorMessage(
     return error;
   }
   const { file: sourceFile, line } = mapLineToSource(sourceMap, lineNumber);
+  const sourcePath = folder.resolve(sourceFile);
+  const relativeToJs = Paths.get(__jsdir).relativize(sourcePath);
+
   error.lineNumber = line;
-  error.fileName = Paths.get(sourceFile).fileName.toString();
+  error.fileName = relativeToJs.toString();
   return error;
 }
 

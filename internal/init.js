@@ -17,6 +17,7 @@ function writeFile(path, data, append = false) {
 }
 
 var global = globalThis;
+__jsdir = './js';
 var server = org.bukkit.Bukkit;
 var exports = {};
 load('./js/internal/dist/src/require.js');

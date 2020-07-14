@@ -47,8 +47,10 @@ function generateErrorMessage(file, fileContents, error, lineNumber) {
         return error;
     }
     const { file: sourceFile, line } = mapLineToSource(sourceMap, lineNumber);
+    const sourcePath = folder.resolve(sourceFile);
+    const relativeToJs = java_nio_file_1.Paths.get(__jsdir).relativize(sourcePath);
     error.lineNumber = line;
-    error.fileName = java_nio_file_1.Paths.get(sourceFile).fileName.toString();
+    error.fileName = relativeToJs.toString();
     return error;
 }
 global.mapLineToSource = mapLineToSource;
