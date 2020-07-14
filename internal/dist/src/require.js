@@ -126,7 +126,10 @@ ${contents}
     }
     catch (e) {
         const line = e.lineNumber ? e.lineNumber - 2 : -1;
-        console.log(`Error while executing ${(_g = e.fileName) !== null && _g !== void 0 ? _g : src.getName()} at line ${line}`);
+        const error = global.generateErrorMessage
+            ? global.generateErrorMessage(resolved, contents, e, line)
+            : e;
+        console.log(`Error while executing ${(_g = error.fileName) !== null && _g !== void 0 ? _g : src.getName()} at line ${error.lineNumber}`);
         console.error(e);
     }
     cache[cacheId] = module;
