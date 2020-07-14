@@ -10,6 +10,7 @@ const stack: string[] = [];
 class ModuleNotFoundError extends Error {
   constructor(module: string, parent: Path) {
     super(`Module '${module}' could not be resolved from ${parent}`);
+    this.name = 'ModuleNotFoundError';
   }
 }
 

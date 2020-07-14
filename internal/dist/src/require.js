@@ -6,6 +6,7 @@ const stack = [];
 class ModuleNotFoundError extends Error {
     constructor(module, parent) {
         super(`Module '${module}' could not be resolved from ${parent}`);
+        this.name = 'ModuleNotFoundError';
     }
 }
 function resolveModule(parent, id) {
