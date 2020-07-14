@@ -22,9 +22,6 @@ static CENTURIES: java_time_temporal_ChronoUnit;
 static MILLENNIA: java_time_temporal_ChronoUnit;
 static ERAS: java_time_temporal_ChronoUnit;
 static FOREVER: java_time_temporal_ChronoUnit;
-name: string;
-duration: java_time_Duration;
-static $VALUES: java_time_temporal_ChronoUnit[];
 duration: java_time_Duration;
 class: java_lang_Class<java_lang_Object>;
 toString(): string;
@@ -96,15 +93,10 @@ import { TemporalUnit as java_time_temporal_TemporalUnit, TemporalAmount as java
 import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, Comparable as java_lang_Comparable } from 'java.lang';
 import { Duration as java_time_Duration } from 'java.time';
 import { List as java_util_List } from 'java.util';
-import { BigInteger as java_math_BigInteger } from 'java.math';
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Duration extends java_lang_Object implements java_time_temporal_TemporalAmount, java_lang_Comparable<java_time_Duration>, java_io_Serializable {
 static ZERO: java_time_Duration;
-static serialVersionUID: number;
-static BI_NANOS_PER_SECOND: java_math_BigInteger;
-seconds: number;
-nanos: number;
 seconds: number;
 nano: number;
 units: java_util_List<java_time_temporal_TemporalUnit>;
@@ -250,11 +242,6 @@ import { ValueRange as java_time_temporal_ValueRange, TemporalField as java_time
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class ValueRange extends java_lang_Object implements java_io_Serializable {
-static serialVersionUID: number;
-minSmallest: number;
-minLargest: number;
-maxSmallest: number;
-maxLargest: number;
 minimum: number;
 largestMinimum: number;
 smallestMaximum: number;
@@ -288,7 +275,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 static STRICT: java_time_format_ResolverStyle;
 static SMART: java_time_format_ResolverStyle;
 static LENIENT: java_time_format_ResolverStyle;
-static $VALUES: java_time_format_ResolverStyle[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_time_format_ResolverStyle[];
 static valueOf(arg0: string): java_time_format_ResolverStyle;
@@ -322,13 +308,8 @@ import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Instant extends java_lang_Object implements java_time_temporal_Temporal, java_time_temporal_TemporalAdjuster, java_lang_Comparable<java_time_Instant>, java_io_Serializable {
 static EPOCH: java_time_Instant;
-static MIN_SECOND: number;
-static MAX_SECOND: number;
 static MIN: java_time_Instant;
 static MAX: java_time_Instant;
-static serialVersionUID: number;
-seconds: number;
-nanos: number;
 long: number;
 nano: number;
 epochSecond: number;
@@ -420,7 +401,6 @@ import { Serializable as java_io_Serializable } from 'java.io';
 
   export class ZoneId extends java_lang_Object implements java_io_Serializable {
 static SHORT_IDS: java_util_Map<string, string>;
-static serialVersionUID: number;
 id: string;
 rules: java_time_zone_ZoneRules;
 displayName: string;
@@ -444,26 +424,13 @@ static ofOffset(arg0: string, arg1: java_time_ZoneOffset): java_time_ZoneId;
 //@ts-nocheck
 
 declare module 'java.time.zone' {
-import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
+import { Object as java_lang_Object } from 'java.lang';
 import { ZoneOffset as java_time_ZoneOffset, Instant as java_time_Instant, LocalDateTime as java_time_LocalDateTime, Duration as java_time_Duration } from 'java.time';
 import { List as java_util_List } from 'java.util';
 import { ZoneOffsetTransition as java_time_zone_ZoneOffsetTransition, ZoneOffsetTransitionRule as java_time_zone_ZoneOffsetTransitionRule, ZoneRules as java_time_zone_ZoneRules } from 'java.time.zone';
-import { ConcurrentMap as java_util_concurrent_ConcurrentMap } from 'java.util.concurrent';
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class ZoneRules extends java_lang_Object implements java_io_Serializable {
-static serialVersionUID: number;
-static LAST_CACHED_YEAR: number;
-standardTransitions: number[];
-standardOffsets: java_time_ZoneOffset[];
-savingsInstantTransitions: number[];
-savingsLocalTransitions: java_time_LocalDateTime[];
-wallOffsets: java_time_ZoneOffset[];
-lastRules: java_time_zone_ZoneOffsetTransitionRule[];
-lastRulesCache: java_util_concurrent_ConcurrentMap<java_lang_Integer, java_time_zone_ZoneOffsetTransition[]>;
-static EMPTY_LONG_ARRAY: number[];
-static EMPTY_LASTRULES: java_time_zone_ZoneOffsetTransitionRule[];
-static EMPTY_LDT_ARRAY: java_time_LocalDateTime[];
 offset: java_time_ZoneOffset;
 offset: java_time_ZoneOffset;
 validOffsets: java_util_List<java_time_ZoneOffset>;
@@ -497,22 +464,15 @@ getTransitionRules(): java_util_List<java_time_zone_ZoneOffsetTransitionRule>;
 
 declare module 'java.time' {
 import { TemporalField as java_time_temporal_TemporalField, TemporalAccessor as java_time_temporal_TemporalAccessor, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, Temporal as java_time_temporal_Temporal, TemporalAdjuster as java_time_temporal_TemporalAdjuster } from 'java.time.temporal';
-import { Object as java_lang_Object, Class as java_lang_Class, Integer as java_lang_Integer, Comparable as java_lang_Comparable } from 'java.lang';
+import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 import { ZoneOffset as java_time_ZoneOffset, ZoneId as java_time_ZoneId } from 'java.time';
 import { ZoneRules as java_time_zone_ZoneRules } from 'java.time.zone';
-import { ConcurrentMap as java_util_concurrent_ConcurrentMap } from 'java.util.concurrent';
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class ZoneOffset extends java_time_ZoneId implements java_time_temporal_TemporalAccessor, java_time_temporal_TemporalAdjuster, java_lang_Comparable<java_time_ZoneOffset>, java_io_Serializable {
-static SECONDS_CACHE: java_util_concurrent_ConcurrentMap<java_lang_Integer, java_time_ZoneOffset>;
-static ID_CACHE: java_util_concurrent_ConcurrentMap<string, java_time_ZoneOffset>;
-static MAX_SECONDS: number;
-static serialVersionUID: number;
 static UTC: java_time_ZoneOffset;
 static MIN: java_time_ZoneOffset;
 static MAX: java_time_ZoneOffset;
-totalSeconds: number;
-id: string;
 long: number;
 id: string;
 rules: java_time_zone_ZoneRules;
@@ -556,12 +516,6 @@ import { LocalDateTime as java_time_LocalDateTime, ZoneOffset as java_time_ZoneO
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class ZoneOffsetTransition extends java_lang_Object implements java_lang_Comparable<java_time_zone_ZoneOffsetTransition>, java_io_Serializable {
-static serialVersionUID: number;
-epochSecond: number;
-transition: java_time_LocalDateTime;
-offsetBefore: java_time_ZoneOffset;
-offsetAfter: java_time_ZoneOffset;
-static $assertionsDisabled: boolean;
 duration: java_time_Duration;
 offsetAfter: java_time_ZoneOffset;
 dateTimeBefore: java_time_LocalDateTime;
@@ -600,9 +554,6 @@ import { Serializable as java_io_Serializable } from 'java.io';
   export class LocalDateTime extends java_lang_Object implements java_time_temporal_Temporal, java_time_temporal_TemporalAdjuster, java_time_chrono_ChronoLocalDateTime<java_time_LocalDate>, java_io_Serializable {
 static MIN: java_time_LocalDateTime;
 static MAX: java_time_LocalDateTime;
-static serialVersionUID: number;
-date: java_time_LocalDate;
-time: java_time_LocalTime;
 long: number;
 nano: number;
 year: number;
@@ -775,16 +726,8 @@ import { Locale as java_util_Locale, Set as java_util_Set } from 'java.util';
 import { DateTimeFormatter as java_time_format_DateTimeFormatter, FormatStyle as java_time_format_FormatStyle, DecimalStyle as java_time_format_DecimalStyle, ResolverStyle as java_time_format_ResolverStyle } from 'java.time.format';
 import { Period as java_time_Period, ZoneId as java_time_ZoneId } from 'java.time';
 import { Chronology as java_time_chrono_Chronology } from 'java.time.chrono';
-import { CompositePrinterParser as java_time_format_DateTimeFormatterBuilder_CompositePrinterParser } from 'java.time.format.DateTimeFormatterBuilder';
 
   export class DateTimeFormatter extends java_lang_Object {
-printerParser: java_time_format_DateTimeFormatterBuilder_CompositePrinterParser;
-locale: java_util_Locale;
-decimalStyle: java_time_format_DecimalStyle;
-resolverStyle: java_time_format_ResolverStyle;
-resolverFields: java_util_Set<java_time_temporal_TemporalField>;
-chrono: java_time_chrono_Chronology;
-zone: java_time_ZoneId;
 static ISO_LOCAL_DATE: java_time_format_DateTimeFormatter;
 static ISO_OFFSET_DATE: java_time_format_DateTimeFormatter;
 static ISO_DATE: java_time_format_DateTimeFormatter;
@@ -800,8 +743,6 @@ static ISO_WEEK_DATE: java_time_format_DateTimeFormatter;
 static ISO_INSTANT: java_time_format_DateTimeFormatter;
 static BASIC_ISO_DATE: java_time_format_DateTimeFormatter;
 static RFC_1123_DATE_TIME: java_time_format_DateTimeFormatter;
-static PARSED_EXCESS_DAYS: java_time_temporal_TemporalQuery<java_time_Period>;
-static PARSED_LEAP_SECOND: java_time_temporal_TemporalQuery<java_lang_Boolean>;
 locale: java_util_Locale;
 decimalStyle: java_time_format_DecimalStyle;
 chronology: java_time_chrono_Chronology;
@@ -854,7 +795,6 @@ static FULL: java_time_format_FormatStyle;
 static LONG: java_time_format_FormatStyle;
 static MEDIUM: java_time_format_FormatStyle;
 static SHORT: java_time_format_FormatStyle;
-static $VALUES: java_time_format_FormatStyle[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_time_format_FormatStyle[];
 static valueOf(arg0: string): java_time_format_FormatStyle;
@@ -875,17 +815,10 @@ import { Object as java_lang_Object, CharSequence as java_lang_CharSequence } fr
 import { Period as java_time_Period, LocalDate as java_time_LocalDate } from 'java.time';
 import { ChronoPeriod as java_time_chrono_ChronoPeriod, Chronology as java_time_chrono_Chronology, IsoChronology as java_time_chrono_IsoChronology } from 'java.time.chrono';
 import { List as java_util_List } from 'java.util';
-import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Period extends java_lang_Object implements java_time_chrono_ChronoPeriod, java_io_Serializable {
 static ZERO: java_time_Period;
-static serialVersionUID: number;
-static PATTERN: java_util_regex_Pattern;
-static SUPPORTED_UNITS: java_util_List<java_time_temporal_TemporalUnit>;
-years: number;
-months: number;
-days: number;
 years: number;
 months: number;
 days: number;
@@ -1057,12 +990,6 @@ static YEAR: java_time_temporal_ChronoField;
 static ERA: java_time_temporal_ChronoField;
 static INSTANT_SECONDS: java_time_temporal_ChronoField;
 static OFFSET_SECONDS: java_time_temporal_ChronoField;
-name: string;
-baseUnit: java_time_temporal_TemporalUnit;
-rangeUnit: java_time_temporal_TemporalUnit;
-range: java_time_temporal_ValueRange;
-displayNameKey: string;
-static $VALUES: java_time_temporal_ChronoField[];
 displayName: string;
 baseUnit: java_time_temporal_TemporalUnit;
 rangeUnit: java_time_temporal_TemporalUnit;
@@ -1106,9 +1033,6 @@ static SHORT: java_time_format_TextStyle;
 static SHORT_STANDALONE: java_time_format_TextStyle;
 static NARROW: java_time_format_TextStyle;
 static NARROW_STANDALONE: java_time_format_TextStyle;
-calendarStyle: number;
-zoneNameStyleIndex: number;
-static $VALUES: java_time_format_TextStyle[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_time_format_TextStyle[];
 static valueOf(arg0: string): java_time_format_TextStyle;
@@ -1217,25 +1141,6 @@ static MIN: java_time_LocalTime;
 static MAX: java_time_LocalTime;
 static MIDNIGHT: java_time_LocalTime;
 static NOON: java_time_LocalTime;
-static HOURS: java_time_LocalTime[];
-static HOURS_PER_DAY: number;
-static MINUTES_PER_HOUR: number;
-static MINUTES_PER_DAY: number;
-static SECONDS_PER_MINUTE: number;
-static SECONDS_PER_HOUR: number;
-static SECONDS_PER_DAY: number;
-static MILLIS_PER_DAY: number;
-static MICROS_PER_DAY: number;
-static NANOS_PER_MILLI: number;
-static NANOS_PER_SECOND: number;
-static NANOS_PER_MINUTE: number;
-static NANOS_PER_HOUR: number;
-static NANOS_PER_DAY: number;
-static serialVersionUID: number;
-hour: number;
-minute: number;
-second: number;
-nano: number;
 long: number;
 nano: number;
 hour: number;
@@ -1321,12 +1226,6 @@ import { Serializable as java_io_Serializable } from 'java.io';
 static MIN: java_time_LocalDate;
 static MAX: java_time_LocalDate;
 static EPOCH: java_time_LocalDate;
-static serialVersionUID: number;
-static DAYS_PER_CYCLE: number;
-static DAYS_0000_TO_1970: number;
-year: number;
-month: number;
-day: number;
 long: number;
 year: number;
 monthValue: number;
@@ -1448,8 +1347,6 @@ static SEPTEMBER: java_time_Month;
 static OCTOBER: java_time_Month;
 static NOVEMBER: java_time_Month;
 static DECEMBER: java_time_Month;
-static ENUMS: java_time_Month[];
-static $VALUES: java_time_Month[];
 long: number;
 value: number;
 displayName: string;
@@ -1499,8 +1396,6 @@ static THURSDAY: java_time_DayOfWeek;
 static FRIDAY: java_time_DayOfWeek;
 static SATURDAY: java_time_DayOfWeek;
 static SUNDAY: java_time_DayOfWeek;
-static ENUMS: java_time_DayOfWeek[];
-static $VALUES: java_time_DayOfWeek[];
 long: number;
 value: number;
 displayName: string;
@@ -1540,7 +1435,6 @@ import { Locale as java_util_Locale } from 'java.util';
   export class IsoEra extends java_lang_Enum<java_time_chrono_IsoEra> implements java_time_chrono_Era {
 static BCE: java_time_chrono_IsoEra;
 static CE: java_time_chrono_IsoEra;
-static $VALUES: java_time_chrono_IsoEra[];
 value: number;
 class: java_lang_Class<java_lang_Object>;
 long: number;
@@ -1577,9 +1471,6 @@ import { Serializable as java_io_Serializable } from 'java.io';
   export class OffsetTime extends java_lang_Object implements java_time_temporal_Temporal, java_time_temporal_TemporalAdjuster, java_lang_Comparable<java_time_OffsetTime>, java_io_Serializable {
 static MIN: java_time_OffsetTime;
 static MAX: java_time_OffsetTime;
-static serialVersionUID: number;
-time: java_time_LocalTime;
-offset: java_time_ZoneOffset;
 long: number;
 offset: java_time_ZoneOffset;
 nano: number;
@@ -1663,9 +1554,6 @@ import { Serializable as java_io_Serializable } from 'java.io';
   export class OffsetDateTime extends java_lang_Object implements java_time_temporal_Temporal, java_time_temporal_TemporalAdjuster, java_lang_Comparable<java_time_OffsetDateTime>, java_io_Serializable {
 static MIN: java_time_OffsetDateTime;
 static MAX: java_time_OffsetDateTime;
-static serialVersionUID: number;
-dateTime: java_time_LocalDateTime;
-offset: java_time_ZoneOffset;
 long: number;
 offset: java_time_ZoneOffset;
 nano: number;
@@ -1779,10 +1667,6 @@ import { ChronoZonedDateTime as java_time_chrono_ChronoZonedDateTime, ChronoLoca
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class ZonedDateTime extends java_lang_Object implements java_time_temporal_Temporal, java_time_chrono_ChronoZonedDateTime<java_time_LocalDate>, java_io_Serializable {
-static serialVersionUID: number;
-dateTime: java_time_LocalDateTime;
-offset: java_time_ZoneOffset;
-zone: java_time_ZoneId;
 long: number;
 offset: java_time_ZoneOffset;
 nano: number;
@@ -1975,8 +1859,6 @@ import { Serializable as java_io_Serializable } from 'java.io';
 
   export class IsoChronology extends java_time_chrono_AbstractChronology implements java_io_Serializable {
 static INSTANCE: java_time_chrono_IsoChronology;
-static serialVersionUID: number;
-static DAYS_0000_TO_1970: number;
 id: string;
 calendarType: string;
 class: java_lang_Class<java_lang_Object>;
@@ -2038,11 +1920,8 @@ import { Map as java_util_Map, Locale as java_util_Locale, List as java_util_Lis
 import { TemporalField as java_time_temporal_TemporalField, ChronoField as java_time_temporal_ChronoField, ValueRange as java_time_temporal_ValueRange, TemporalAccessor as java_time_temporal_TemporalAccessor } from 'java.time.temporal';
 import { ResolverStyle as java_time_format_ResolverStyle, TextStyle as java_time_format_TextStyle } from 'java.time.format';
 import { ZoneOffset as java_time_ZoneOffset, Instant as java_time_Instant, ZoneId as java_time_ZoneId, Clock as java_time_Clock } from 'java.time';
-import { ConcurrentHashMap as java_util_concurrent_ConcurrentHashMap } from 'java.util.concurrent';
 
   export class AbstractChronology extends java_lang_Object implements java_time_chrono_Chronology {
-static CHRONOS_BY_ID: java_util_concurrent_ConcurrentHashMap<string, java_time_chrono_Chronology>;
-static CHRONOS_BY_TYPE: java_util_concurrent_ConcurrentHashMap<string, java_time_chrono_Chronology>;
 id: string;
 displayName: string;
 calendarType: string;
@@ -2084,15 +1963,9 @@ declare module 'java.time.format' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Locale as java_util_Locale, Set as java_util_Set } from 'java.util';
 import { DecimalStyle as java_time_format_DecimalStyle } from 'java.time.format';
-import { ConcurrentMap as java_util_concurrent_ConcurrentMap } from 'java.util.concurrent';
 
   export class DecimalStyle extends java_lang_Object {
 static STANDARD: java_time_format_DecimalStyle;
-static CACHE: java_util_concurrent_ConcurrentMap<java_util_Locale, java_time_format_DecimalStyle>;
-zeroDigit: string;
-positiveSign: string;
-negativeSign: string;
-decimalSeparator: string;
 static availableLocales: java_util_Set<java_util_Locale>;
 positiveSign: string;
 negativeSign: string;
@@ -2117,99 +1990,6 @@ withDecimalSeparator(arg0: string): java_time_format_DecimalStyle;
 }
 //@ts-nocheck
 
-declare module 'java.time.format.DateTimeFormatterBuilder' {
-import { DateTimePrintContext as java_time_format_DateTimePrintContext, DateTimeParseContext as java_time_format_DateTimeParseContext } from 'java.time.format';
-import { StringBuilder as java_lang_StringBuilder, CharSequence as java_lang_CharSequence, Object as java_lang_Object } from 'java.lang';
-import { CompositePrinterParser as java_time_format_DateTimeFormatterBuilder_CompositePrinterParser, DateTimePrinterParser as java_time_format_DateTimeFormatterBuilder_DateTimePrinterParser } from 'java.time.format.DateTimeFormatterBuilder';
-
-  export class CompositePrinterParser extends java_lang_Object implements java_time_format_DateTimeFormatterBuilder_DateTimePrinterParser {
-printerParsers: java_time_format_DateTimeFormatterBuilder_DateTimePrinterParser[];
-optional: boolean;
-toString(): string;
-format(arg0: java_time_format_DateTimePrintContext, arg1: java_lang_StringBuilder): boolean;
-parse(arg0: java_time_format_DateTimeParseContext, arg1: java_lang_CharSequence, arg2: number): number;
-withOptional(arg0: boolean): java_time_format_DateTimeFormatterBuilder_CompositePrinterParser;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.time.format' {
-import { TemporalAccessor as java_time_temporal_TemporalAccessor } from 'java.time.temporal';
-import { DateTimeFormatter as java_time_format_DateTimeFormatter } from 'java.time.format';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class DateTimePrintContext extends java_lang_Object {
-temporal: java_time_temporal_TemporalAccessor;
-formatter: java_time_format_DateTimeFormatter;
-optional: number;
-toString(): string;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.time.format' {
-import { DateTimeFormatter as java_time_format_DateTimeFormatter, Parsed as java_time_format_Parsed } from 'java.time.format';
-import { ArrayList as java_util_ArrayList } from 'java.util';
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Chronology as java_time_chrono_Chronology } from 'java.time.chrono';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class DateTimeParseContext extends java_lang_Object {
-formatter: java_time_format_DateTimeFormatter;
-caseSensitive: boolean;
-strict: boolean;
-parsed: java_util_ArrayList<java_time_format_Parsed>;
-chronoListeners: java_util_ArrayList<java_util_function_Consumer<java_time_chrono_Chronology>>;
-toString(): string;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.time.format' {
-import { TemporalField as java_time_temporal_TemporalField, TemporalQuery as java_time_temporal_TemporalQuery, ValueRange as java_time_temporal_ValueRange, TemporalAccessor as java_time_temporal_TemporalAccessor } from 'java.time.temporal';
-import { Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
-import { Map as java_util_Map } from 'java.util';
-import { ZoneId as java_time_ZoneId, LocalTime as java_time_LocalTime, Period as java_time_Period } from 'java.time';
-import { Chronology as java_time_chrono_Chronology, ChronoLocalDate as java_time_chrono_ChronoLocalDate } from 'java.time.chrono';
-import { ResolverStyle as java_time_format_ResolverStyle } from 'java.time.format';
-
-  export class Parsed extends java_lang_Object implements java_time_temporal_TemporalAccessor {
-fieldValues: java_util_Map<java_time_temporal_TemporalField, java_lang_Long>;
-zone: java_time_ZoneId;
-chrono: java_time_chrono_Chronology;
-leapSecond: boolean;
-resolverStyle: java_time_format_ResolverStyle;
-date: java_time_chrono_ChronoLocalDate;
-time: java_time_LocalTime;
-excessDays: java_time_Period;
-long: number;
-toString(): string;
-getLong(arg0: java_time_temporal_TemporalField): number;
-query<R extends java_lang_Object>(arg0: java_time_temporal_TemporalQuery<R>): R;
-isSupported(arg0: java_time_temporal_TemporalField): boolean;
-get(arg0: java_time_temporal_TemporalField): number;
-range(arg0: java_time_temporal_TemporalField): java_time_temporal_ValueRange;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.time.format.DateTimeFormatterBuilder' {
-import { DateTimePrintContext as java_time_format_DateTimePrintContext, DateTimeParseContext as java_time_format_DateTimeParseContext } from 'java.time.format';
-import { StringBuilder as java_lang_StringBuilder, CharSequence as java_lang_CharSequence } from 'java.lang';
-
-  export class DateTimePrinterParser {
-
-format(arg0: java_time_format_DateTimePrintContext, arg1: java_lang_StringBuilder): boolean;
-parse(arg0: java_time_format_DateTimeParseContext, arg1: java_lang_CharSequence, arg2: number): number;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'java.time.zone' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Month as java_time_Month, DayOfWeek as java_time_DayOfWeek, LocalTime as java_time_LocalTime, ZoneOffset as java_time_ZoneOffset } from 'java.time';
@@ -2218,17 +1998,6 @@ import { ZoneOffsetTransitionRule as java_time_zone_ZoneOffsetTransitionRule, Zo
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class ZoneOffsetTransitionRule extends java_lang_Object implements java_io_Serializable {
-static serialVersionUID: number;
-month: java_time_Month;
-dom: number;
-dow: java_time_DayOfWeek;
-time: java_time_LocalTime;
-timeEndOfDay: boolean;
-timeDefinition: java_time_zone_ZoneOffsetTransitionRule_TimeDefinition;
-standardOffset: java_time_ZoneOffset;
-offsetBefore: java_time_ZoneOffset;
-offsetAfter: java_time_ZoneOffset;
-static $assertionsDisabled: boolean;
 dayOfWeek: java_time_DayOfWeek;
 standardOffset: java_time_ZoneOffset;
 offsetAfter: java_time_ZoneOffset;
@@ -2265,7 +2034,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 static UTC: java_time_zone_ZoneOffsetTransitionRule_TimeDefinition;
 static WALL: java_time_zone_ZoneOffsetTransitionRule_TimeDefinition;
 static STANDARD: java_time_zone_ZoneOffsetTransitionRule_TimeDefinition;
-static $VALUES: java_time_zone_ZoneOffsetTransitionRule_TimeDefinition[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_time_zone_ZoneOffsetTransitionRule_TimeDefinition[];
 static valueOf(arg0: string): java_time_zone_ZoneOffsetTransitionRule_TimeDefinition;

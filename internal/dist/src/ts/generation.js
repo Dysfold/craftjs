@@ -102,6 +102,7 @@ declare module '${clazz.ref.package}' {
     const constructorDefs = clazz.constructors.map((c) => generateMethodDefinition(c, dependencies));
     const propDefs = clazz.properties
         .concat(getterFields)
+        .filter((p) => p.isPublic)
         .map((p) => generatePropertyDefinition(p, dependencies));
     const extend = clazz.extends
         ? generateTypeDefinition(clazz.extends, dependencies)

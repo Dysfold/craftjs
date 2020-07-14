@@ -32,6 +32,26 @@ getNamespace(): string;
 }
 //@ts-nocheck
 
+declare module 'com.destroystokyo.paper.util' {
+
+
+  export class VersionFetcher {
+cacheTime: number;
+versionMessage: string;
+/** Amount of time to cache results for in milliseconds
+ 
+ Negative values will never cache. */
+getCacheTime(): number;
+/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
+ in the string. The string will be split on these newlines and sent as individual messages.
+ 
+ NOTE: This is run in a new thread separate from that of the command processing thread */
+getVersionMessage(serverVersion: string): string;
+
+  }
+}
+//@ts-nocheck
+
 declare module 'com.destroystokyo.paper' {
 import { ParticleBuilder as com_destroystokyo_paper_ParticleBuilder } from 'com.destroystokyo.paper';
 import { Object as java_lang_Object } from 'java.lang';
@@ -43,17 +63,7 @@ import { List as java_util_List, Collection as java_util_Collection } from 'java
  Usage of the builder is preferred over the super long World.spawnParticle(Particle, Location, int, double, double, double, double, Object) API */
 
   export class ParticleBuilder extends java_lang_Object {
-particle: org_bukkit_Particle;
-receivers: java_util_List<org_bukkit_entity_Player>;
-source: org_bukkit_entity_Player;
-location: org_bukkit_Location;
-count: number;
-offsetX: number;
-offsetY: number;
-offsetZ: number;
-extra: number;
-data: java_lang_Object;
-force: boolean;
+
 /** Sets the particle offset. Varies by particle on how this is used */
 offset(offsetX: number, offsetY: number, offsetZ: number): com_destroystokyo_paper_ParticleBuilder;
 count(): number;
@@ -149,11 +159,6 @@ import { Object as java_lang_Object } from 'java.lang';
 static DEFAULT_FADE_IN: number;
 static DEFAULT_STAY: number;
 static DEFAULT_FADE_OUT: number;
-title: net_md_5_bungee_api_chat_BaseComponent[];
-subtitle: net_md_5_bungee_api_chat_BaseComponent[];
-fadeIn: number;
-stay: number;
-fadeOut: number;
 fadeIn: number;
 stay: number;
 fadeOut: number;
@@ -220,11 +225,7 @@ import { Object as java_lang_Object } from 'java.lang';
 /** A builder for creating titles */
 
   export class Builder extends java_lang_Object {
-title: net_md_5_bungee_api_chat_BaseComponent[];
-subtitle: net_md_5_bungee_api_chat_BaseComponent[];
-fadeIn: number;
-stay: number;
-fadeOut: number;
+
 /** Create a title based on the values in the builder. */
 build(): com_destroystokyo_paper_Title;
 /** Sets the title to the given text. */
@@ -325,9 +326,6 @@ import { Object as java_lang_Object } from 'java.lang';
   export class ProfileProperty extends java_lang_Object {
 name: string;
 value: string;
-signature: string;
-name: string;
-value: string;
 signature: string | null;
 getName(): string;
 equals(o: java_lang_Object): boolean;
@@ -355,7 +353,6 @@ static LOCALE: com_destroystokyo_paper_ClientOption<string>;
 static MAIN_HAND: com_destroystokyo_paper_ClientOption<org_bukkit_inventory_MainHand>;
 static VIEW_DISTANCE: com_destroystokyo_paper_ClientOption<java_lang_Integer>;
 type: java_lang_Class<T>;
-type: java_lang_Class<T>;
 getType(): java_lang_Class<T>;
 
   }
@@ -367,12 +364,12 @@ declare module 'com.destroystokyo.paper' {
 
   export class SkinParts {
 raw: number;
-hasLeftSleeveEnabled(): boolean;
-hasCapeEnabled(): boolean;
-hasJacketEnabled(): boolean;
-hasRightSleeveEnabled(): boolean;
 hasLeftPantsEnabled(): boolean;
+hasCapeEnabled(): boolean;
 hasRightPantsEnabled(): boolean;
+hasRightSleeveEnabled(): boolean;
+hasLeftSleeveEnabled(): boolean;
+hasJacketEnabled(): boolean;
 hasHatsEnabled(): boolean;
 getRaw(): number;
 
@@ -389,7 +386,6 @@ static FULL: com_destroystokyo_paper_ClientOption_ChatVisibility;
 static SYSTEM: com_destroystokyo_paper_ClientOption_ChatVisibility;
 static HIDDEN: com_destroystokyo_paper_ClientOption_ChatVisibility;
 static UNKNOWN: com_destroystokyo_paper_ClientOption_ChatVisibility;
-static $VALUES: com_destroystokyo_paper_ClientOption_ChatVisibility[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -421,8 +417,6 @@ import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.l
 /** A reputation score for a player on a villager. */
 
   export class Reputation extends java_lang_Object {
-static REPUTATION_TYPES: com_destroystokyo_paper_entity_villager_ReputationType[];
-reputation: number[];
 reputation: number;
 /** Sets the reputation value for a specific ReputationType. */
 setReputation(type: com_destroystokyo_paper_entity_villager_ReputationType, value: number): void;
@@ -447,7 +441,6 @@ static MINOR_NEGATIVE: com_destroystokyo_paper_entity_villager_ReputationType;
 static MINOR_POSITIVE: com_destroystokyo_paper_entity_villager_ReputationType;
 static MAJOR_POSITIVE: com_destroystokyo_paper_entity_villager_ReputationType;
 static TRADING: com_destroystokyo_paper_entity_villager_ReputationType;
-static $VALUES: com_destroystokyo_paper_entity_villager_ReputationType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -480,7 +473,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 static NEVER: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode;
 static SOURCE_ONLY: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode;
 static ALWAYS: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode;
-static $VALUES: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -511,8 +503,6 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted block */
 
   export class TargetBlockInfo extends java_lang_Object {
-block: org_bukkit_block_Block;
-blockFace: org_bukkit_block_BlockFace;
 relativeBlock: org_bukkit_block_Block;
 block: org_bukkit_block_Block;
 blockFace: org_bukkit_block_BlockFace;
@@ -534,8 +524,6 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted entity */
 
   export class TargetEntityInfo extends java_lang_Object {
-entity: org_bukkit_entity_Entity;
-hitVec: org_bukkit_util_Vector;
 hitVector: org_bukkit_util_Vector;
 entity: org_bukkit_entity_Entity;
 /** Get the position the entity is targeted at */
@@ -547,21 +535,117 @@ constructor(entity: org_bukkit_entity_Entity, hitVec: org_bukkit_util_Vector);
 }
 //@ts-nocheck
 
-declare module 'com.destroystokyo.paper.util' {
+declare module 'com.destroystokyo.paper.entity' {
+import { PathResult as com_destroystokyo_paper_entity_Pathfinder_PathResult } from 'com.destroystokyo.paper.entity.Pathfinder';
+import { Location as org_bukkit_Location } from 'org.bukkit';
+import { LivingEntity as org_bukkit_entity_LivingEntity, Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
+/** Handles pathfinding operations for an Entity */
 
+  export class Pathfinder {
+entity: org_bukkit_entity_Mob;
+currentPath: com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
+/** Takes the result of a previous pathfinding calculation and sets it
+ as the active pathfinding, */
+moveTo(path: com_destroystokyo_paper_entity_Pathfinder_PathResult, speed: number): boolean;
+/** Calculates a destination for the Entity to navigate to, and sets it with default speed
+ as the current target. */
+moveTo(loc: org_bukkit_Location): boolean;
+/** Calculates a destination for the Entity to navigate to, with desired speed
+ as the current target. */
+moveTo(loc: org_bukkit_Location, speed: number): boolean;
+/** Calculates a destination for the Entity to navigate to to reach the target entity,
+ and sets it with default speed.
 
-  export class VersionFetcher {
-cacheTime: number;
-versionMessage: string;
-/** Amount of time to cache results for in milliseconds
- 
- Negative values will never cache. */
-getCacheTime(): number;
-/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
- in the string. The string will be split on these newlines and sent as individual messages.
- 
- NOTE: This is run in a new thread separate from that of the command processing thread */
-getVersionMessage(serverVersion: string): string;
+ The behavior of this PathResult is subject to the games pathfinding rules, and may
+ result in the pathfinding automatically updating to follow the target Entity.
+
+ However, this behavior is not guaranteed, and is subject to the games behavior. */
+moveTo(target: org_bukkit_entity_LivingEntity): boolean;
+/** Takes the result of a previous pathfinding calculation and sets it
+ as the active pathfinding with default speed. */
+moveTo(path: com_destroystokyo_paper_entity_Pathfinder_PathResult): boolean;
+/** Calculates a destination for the Entity to navigate to to reach the target entity,
+ and sets it with specified speed.
+
+ The behavior of this PathResult is subject to the games pathfinding rules, and may
+ result in the pathfinding automatically updating to follow the target Entity.
+
+ However, this behavior is not guaranteed, and is subject to the games behavior. */
+moveTo(target: org_bukkit_entity_LivingEntity, speed: number): boolean;
+/** Checks if this pathfinder allows passing through closed doors. */
+canOpenDoors(): boolean;
+/** Allows this pathfinder to pass through closed doors, or not */
+setCanOpenDoors(canOpenDoors: boolean): void;
+/** Checks if this pathfinder allows passing through open doors. */
+canPassDoors(): boolean;
+/** Allows this pathfinder to pass through open doors, or not */
+setCanPassDoors(canPassDoors: boolean): void;
+/** Makes this pathfinder assume that the mob can float, or not */
+setCanFloat(canFloat: boolean): void;
+/** If the entity is currently trying to navigate to a destination, this will return true */
+hasPath(): boolean;
+/** Calculates a destination for the Entity to navigate to, but does not set it
+ as the current target. Useful for calculating what would happen before setting it. */
+findPath(loc: org_bukkit_Location): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
+/** Calculates a destination for the Entity to navigate to to reach the target entity,
+ but does not set it as the current target.
+ Useful for calculating what would happen before setting it.
+
+ The behavior of this PathResult is subject to the games pathfinding rules, and may
+ result in the pathfinding automatically updating to follow the target Entity.
+
+ However, this behavior is not guaranteed, and is subject to the games behavior. */
+findPath(target: org_bukkit_entity_LivingEntity): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
+getEntity(): org_bukkit_entity_Mob;
+/** Checks if this pathfinder assumes that the mob can float */
+canFloat(): boolean;
+getCurrentPath(): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
+/** Instructs the Entity to stop trying to navigate to its current desired location */
+stopPathfinding(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'com.destroystokyo.paper.entity.Pathfinder' {
+import { List as java_util_List } from 'java.util';
+import { Location as org_bukkit_Location } from 'org.bukkit';
+/** Represents the result of a pathfinding calculation */
+
+  export class PathResult {
+points: java_util_List<org_bukkit_Location>;
+nextPointIndex: number;
+nextPoint: org_bukkit_Location | null;
+finalPoint: org_bukkit_Location | null;
+/** All currently calculated points to follow along the path to reach the destination location
+
+ Will return points the entity has already moved past, see getNextPointIndex() */
+getPoints(): java_util_List<org_bukkit_Location>;
+getNextPointIndex(): number;
+getNextPoint(): org_bukkit_Location | null;
+getFinalPoint(): org_bukkit_Location | null;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'com.destroystokyo.paper.network' {
+import { InetSocketAddress as java_net_InetSocketAddress } from 'java.net';
+/** Represents a client connected to the server. */
+
+  export class NetworkClient {
+address: java_net_InetSocketAddress;
+protocolVersion: number;
+virtualHost: java_net_InetSocketAddress | null;
+/** Returns the socket address of the client. */
+getAddress(): java_net_InetSocketAddress;
+/** Returns the protocol version of the client. */
+getProtocolVersion(): number;
+/** Returns the virtual host the client is connected to.
+
+ The virtual host refers to the hostname/port the client used to
+ connect to the server. */
+getVirtualHost(): java_net_InetSocketAddress | null;
 
   }
 }
@@ -640,8 +724,6 @@ import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 /** Used to identify a Goal. Consists of a NamespacedKey and the type of mob the goal can be applied to */
 
   export class GoalKey<T extends org_bukkit_entity_Mob> extends java_lang_Object {
-entityClass: java_lang_Class<T>;
-namespacedKey: org_bukkit_NamespacedKey;
 namespacedKey: org_bukkit_NamespacedKey;
 entityClass: java_lang_Class<T>;
 equals(o: java_lang_Object): boolean;
@@ -650,100 +732,6 @@ hashCode(): number;
 static of<A extends org_bukkit_entity_Mob>(entityClass: java_lang_Class<A>, namespacedKey: org_bukkit_NamespacedKey): com_destroystokyo_paper_entity_ai_GoalKey<A>;
 getNamespacedKey(): org_bukkit_NamespacedKey;
 getEntityClass(): java_lang_Class<T>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'com.destroystokyo.paper.entity' {
-import { LivingEntity as org_bukkit_entity_LivingEntity, Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
-import { PathResult as com_destroystokyo_paper_entity_Pathfinder_PathResult } from 'com.destroystokyo.paper.entity.Pathfinder';
-import { Location as org_bukkit_Location } from 'org.bukkit';
-/** Handles pathfinding operations for an Entity */
-
-  export class Pathfinder {
-entity: org_bukkit_entity_Mob;
-currentPath: com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
-/** Allows this pathfinder to pass through open doors, or not */
-setCanPassDoors(canPassDoors: boolean): void;
-/** Makes this pathfinder assume that the mob can float, or not */
-setCanFloat(canFloat: boolean): void;
-/** If the entity is currently trying to navigate to a destination, this will return true */
-hasPath(): boolean;
-/** Calculates a destination for the Entity to navigate to to reach the target entity,
- but does not set it as the current target.
- Useful for calculating what would happen before setting it.
-
- The behavior of this PathResult is subject to the games pathfinding rules, and may
- result in the pathfinding automatically updating to follow the target Entity.
-
- However, this behavior is not guaranteed, and is subject to the games behavior. */
-findPath(target: org_bukkit_entity_LivingEntity): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
-/** Calculates a destination for the Entity to navigate to, but does not set it
- as the current target. Useful for calculating what would happen before setting it. */
-findPath(loc: org_bukkit_Location): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
-/** Checks if this pathfinder allows passing through closed doors. */
-canOpenDoors(): boolean;
-/** Allows this pathfinder to pass through closed doors, or not */
-setCanOpenDoors(canOpenDoors: boolean): void;
-/** Checks if this pathfinder allows passing through open doors. */
-canPassDoors(): boolean;
-/** Takes the result of a previous pathfinding calculation and sets it
- as the active pathfinding, */
-moveTo(path: com_destroystokyo_paper_entity_Pathfinder_PathResult, speed: number): boolean;
-/** Takes the result of a previous pathfinding calculation and sets it
- as the active pathfinding with default speed. */
-moveTo(path: com_destroystokyo_paper_entity_Pathfinder_PathResult): boolean;
-/** Calculates a destination for the Entity to navigate to, and sets it with default speed
- as the current target. */
-moveTo(loc: org_bukkit_Location): boolean;
-/** Calculates a destination for the Entity to navigate to, with desired speed
- as the current target. */
-moveTo(loc: org_bukkit_Location, speed: number): boolean;
-/** Calculates a destination for the Entity to navigate to to reach the target entity,
- and sets it with default speed.
-
- The behavior of this PathResult is subject to the games pathfinding rules, and may
- result in the pathfinding automatically updating to follow the target Entity.
-
- However, this behavior is not guaranteed, and is subject to the games behavior. */
-moveTo(target: org_bukkit_entity_LivingEntity): boolean;
-/** Calculates a destination for the Entity to navigate to to reach the target entity,
- and sets it with specified speed.
-
- The behavior of this PathResult is subject to the games pathfinding rules, and may
- result in the pathfinding automatically updating to follow the target Entity.
-
- However, this behavior is not guaranteed, and is subject to the games behavior. */
-moveTo(target: org_bukkit_entity_LivingEntity, speed: number): boolean;
-/** Checks if this pathfinder assumes that the mob can float */
-canFloat(): boolean;
-getEntity(): org_bukkit_entity_Mob;
-getCurrentPath(): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
-/** Instructs the Entity to stop trying to navigate to its current desired location */
-stopPathfinding(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'com.destroystokyo.paper.entity.Pathfinder' {
-import { List as java_util_List } from 'java.util';
-import { Location as org_bukkit_Location } from 'org.bukkit';
-/** Represents the result of a pathfinding calculation */
-
-  export class PathResult {
-points: java_util_List<org_bukkit_Location>;
-nextPointIndex: number;
-nextPoint: org_bukkit_Location | null;
-finalPoint: org_bukkit_Location | null;
-/** All currently calculated points to follow along the path to reach the destination location
-
- Will return points the entity has already moved past, see getNextPointIndex() */
-getPoints(): java_util_List<org_bukkit_Location>;
-getNextPointIndex(): number;
-getNextPoint(): org_bukkit_Location | null;
-getFinalPoint(): org_bukkit_Location | null;
 
   }
 }
@@ -760,7 +748,6 @@ static LOOK: com_destroystokyo_paper_entity_ai_GoalType;
 static JUMP: com_destroystokyo_paper_entity_ai_GoalType;
 static TARGET: com_destroystokyo_paper_entity_ai_GoalType;
 static UNKNOWN_BEHAVIOR: com_destroystokyo_paper_entity_ai_GoalType;
-static $VALUES: com_destroystokyo_paper_entity_ai_GoalType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -785,28 +772,6 @@ notifyAll(): void;
 }
 //@ts-nocheck
 
-declare module 'com.destroystokyo.paper.network' {
-import { InetSocketAddress as java_net_InetSocketAddress } from 'java.net';
-/** Represents a client connected to the server. */
-
-  export class NetworkClient {
-address: java_net_InetSocketAddress;
-protocolVersion: number;
-virtualHost: java_net_InetSocketAddress | null;
-/** Returns the socket address of the client. */
-getAddress(): java_net_InetSocketAddress;
-/** Returns the protocol version of the client. */
-getProtocolVersion(): number;
-/** Returns the virtual host the client is connected to.
-
- The virtual host refers to the hostname/port the client used to
- connect to the server. */
-getVirtualHost(): java_net_InetSocketAddress | null;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'com.destroystokyo.paper' {
 import { HeightmapType as com_destroystokyo_paper_HeightmapType } from 'com.destroystokyo.paper';
 import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
@@ -819,7 +784,6 @@ static ANY: com_destroystokyo_paper_HeightmapType;
 static SOLID: com_destroystokyo_paper_HeightmapType;
 static SOLID_OR_LIQUID: com_destroystokyo_paper_HeightmapType;
 static SOLID_OR_LIQUID_NO_LEAVES: com_destroystokyo_paper_HeightmapType;
-static $VALUES: com_destroystokyo_paper_HeightmapType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -881,9 +845,6 @@ import { InventoryEvent as org_bukkit_event_inventory_InventoryEvent } from 'org
 /** Called when an anvil is damaged from being used */
 
   export class AnvilDamagedEvent extends org_bukkit_event_inventory_InventoryEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancel: boolean;
-damageState: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 handlers: org_bukkit_event_HandlerList;
 inventory: org_bukkit_inventory_Inventory;
 inventory: org_bukkit_inventory_AnvilInventory;
@@ -960,8 +921,6 @@ static FULL: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static CHIPPED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static DAMAGED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static BROKEN: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
-material: org_bukkit_Material;
-static $VALUES: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState[];
 static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
 static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
 material: org_bukkit_Material;
@@ -1007,8 +966,6 @@ static FULL: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static CHIPPED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static DAMAGED: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
 static BROKEN: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState;
-material: org_bukkit_Material;
-static $VALUES: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState[];
 static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
 static state: com_destroystokyo_paper_event_block_AnvilDamagedEvent_DamageState | null;
 material: org_bukkit_Material;
@@ -1044,31 +1001,31 @@ notifyAll(): void;
 
 declare module 'com.destroystokyo.paper.inventory.meta' {
 import { ItemMeta as org_bukkit_inventory_meta_ItemMeta } from 'org.bukkit.inventory.meta';
-import { BaseComponent as net_md_5_bungee_api_chat_BaseComponent } from 'net.md_5.bungee.api.chat';
-import { List as java_util_List, Collection as java_util_Collection, Set as java_util_Set, Map as java_util_Map } from 'java.util';
-import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
-import { Enchantment as org_bukkit_enchantments_Enchantment } from 'org.bukkit.enchantments';
-import { Attribute as org_bukkit_attribute_Attribute, AttributeModifier as org_bukkit_attribute_AttributeModifier } from 'org.bukkit.attribute';
 import { EquipmentSlot as org_bukkit_inventory_EquipmentSlot, ItemFlag as org_bukkit_inventory_ItemFlag } from 'org.bukkit.inventory';
 import { Multimap as com_google_common_collect_Multimap } from 'com.google.common.collect';
+import { Attribute as org_bukkit_attribute_Attribute, AttributeModifier as org_bukkit_attribute_AttributeModifier } from 'org.bukkit.attribute';
+import { Collection as java_util_Collection, Set as java_util_Set, List as java_util_List, Map as java_util_Map } from 'java.util';
 import { CustomItemTagContainer as org_bukkit_inventory_meta_tags_CustomItemTagContainer } from 'org.bukkit.inventory.meta.tags';
 import { Material as org_bukkit_Material } from 'org.bukkit';
 import { Namespaced as com_destroystokyo_paper_Namespaced } from 'com.destroystokyo.paper';
+import { BaseComponent as net_md_5_bungee_api_chat_BaseComponent } from 'net.md_5.bungee.api.chat';
+import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
+import { Enchantment as org_bukkit_enchantments_Enchantment } from 'org.bukkit.enchantments';
 import { PersistentDataContainer as org_bukkit_persistence_PersistentDataContainer } from 'org.bukkit.persistence';
 
   export class ArmorStandMeta implements org_bukkit_inventory_meta_ItemMeta {
 displayName: string;
 localizedName: string;
-displayNameComponent: net_md_5_bungee_api_chat_BaseComponent[];
-loreComponents: java_util_List<net_md_5_bungee_api_chat_BaseComponent[]>;
-customModelData: number;
-attributeModifiers: java_util_Collection<org_bukkit_attribute_AttributeModifier> | null;
 attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier>;
 attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null;
+attributeModifiers: java_util_Collection<org_bukkit_attribute_AttributeModifier> | null;
 customTagContainer: org_bukkit_inventory_meta_tags_CustomItemTagContainer;
 canDestroy: java_util_Set<org_bukkit_Material>;
 canPlaceOn: java_util_Set<org_bukkit_Material>;
 destroyableKeys: java_util_Set<com_destroystokyo_paper_Namespaced>;
+displayNameComponent: net_md_5_bungee_api_chat_BaseComponent[];
+loreComponents: java_util_List<net_md_5_bungee_api_chat_BaseComponent[]>;
+customModelData: number;
 placeableKeys: java_util_Set<com_destroystokyo_paper_Namespaced>;
 enchantLevel: number;
 enchants: java_util_Map<org_bukkit_enchantments_Enchantment, java_lang_Integer>;
@@ -1108,6 +1065,72 @@ getDisplayName(): string;
  Plugins should check that hasLocalizedName() returns true
  before calling this method. */
 getLocalizedName(): string;
+/** Return if the unbreakable tag is true. An unbreakable item will not lose
+ durability. */
+isUnbreakable(): boolean;
+/** Sets the unbreakable tag. An unbreakable item will not lose durability. */
+setUnbreakable(unbreakable: boolean): void;
+/** Checks for the existence of any AttributeModifiers. */
+hasAttributeModifiers(): boolean;
+/** Return an immutable copy of all Attributes and their
+ AttributeModifiers for a given EquipmentSlot.
+ Any AttributeModifier that does have have a given
+ EquipmentSlot will be returned. This is because
+ AttributeModifiers without a slot are active in any slot.
+ If there are no attributes set for the given slot, an empty map
+ will be returned. */
+getAttributeModifiers(slot: org_bukkit_inventory_EquipmentSlot): com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier>;
+/** Return an immutable copy of all Attributes and
+ their modifiers in this ItemMeta.
+ Returns null if none exist. */
+getAttributeModifiers(): com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null;
+/** Return an immutable copy of all AttributeModifiers
+ for a given Attribute */
+getAttributeModifiers(attribute: org_bukkit_attribute_Attribute): java_util_Collection<org_bukkit_attribute_AttributeModifier> | null;
+/** Add an Attribute and it's Modifier.
+ AttributeModifiers can now support EquipmentSlots.
+ If not set, the AttributeModifier will be active in ALL slots.
+ 
+ Two AttributeModifiers that have the same UUID
+ cannot exist on the same Attribute. */
+addAttributeModifier(attribute: org_bukkit_attribute_Attribute, modifier: org_bukkit_attribute_AttributeModifier): boolean;
+/** Set all Attributes and their AttributeModifiers.
+ To clear all currently set Attributes and AttributeModifiers use
+ null or an empty Multimap.
+ If not null nor empty, this will filter all entries that are not-null
+ and add them to the ItemStack. */
+setAttributeModifiers(attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null): void | null;
+/** Remove a specific Attribute and AttributeModifier.
+ AttributeModifiers are matched according to their UUID. */
+removeAttributeModifier(attribute: org_bukkit_attribute_Attribute, modifier: org_bukkit_attribute_AttributeModifier): boolean;
+/** Remove all AttributeModifiers associated with the given
+ Attribute.
+ This will return false if nothing was removed. */
+removeAttributeModifier(attribute: org_bukkit_attribute_Attribute): boolean;
+/** Remove all Attributes and AttributeModifiers for a
+ given EquipmentSlot.
+ If the given EquipmentSlot is null, this will remove all
+ AttributeModifiers that do not have an EquipmentSlot set. */
+removeAttributeModifier(slot: org_bukkit_inventory_EquipmentSlot): boolean;
+/** Returns a public custom tag container capable of storing tags on the
+ item.
+
+ Those tags will be sent to the client with all of their content, so the
+ client is capable of reading them. This will result in the player seeing
+ a NBT Tag notification on the item.
+
+ These tags can also be modified by the client once in creative mode */
+getCustomTagContainer(): org_bukkit_inventory_meta_tags_CustomItemTagContainer;
+/** Gets set of materials what given item can destroy in GameMode.ADVENTURE */
+getCanDestroy(): java_util_Set<org_bukkit_Material>;
+/** Sets set of materials what given item can destroy in GameMode.ADVENTURE */
+setCanDestroy(canDestroy: java_util_Set<org_bukkit_Material>): void;
+/** Gets set of materials where given item can be placed on in GameMode.ADVENTURE */
+getCanPlaceOn(): java_util_Set<org_bukkit_Material>;
+/** Sets set of materials where given item can be placed on in GameMode.ADVENTURE */
+setCanPlaceOn(canPlaceOn: java_util_Set<org_bukkit_Material>): void;
+/** Gets the collection of namespaced keys that the item can destroy in GameMode.ADVENTURE */
+getDestroyableKeys(): java_util_Set<com_destroystokyo_paper_Namespaced>;
 /** Checks for existence of a display name. */
 hasDisplayName(): boolean;
 getDisplayNameComponent(): net_md_5_bungee_api_chat_BaseComponent[];
@@ -1141,72 +1164,6 @@ hasEnchants(): boolean;
 /** Checks if the specified enchantment conflicts with any enchantments in
  this ItemMeta. */
 hasConflictingEnchant(ench: org_bukkit_enchantments_Enchantment): boolean;
-/** Return if the unbreakable tag is true. An unbreakable item will not lose
- durability. */
-isUnbreakable(): boolean;
-/** Sets the unbreakable tag. An unbreakable item will not lose durability. */
-setUnbreakable(unbreakable: boolean): void;
-/** Checks for the existence of any AttributeModifiers. */
-hasAttributeModifiers(): boolean;
-/** Return an immutable copy of all AttributeModifiers
- for a given Attribute */
-getAttributeModifiers(attribute: org_bukkit_attribute_Attribute): java_util_Collection<org_bukkit_attribute_AttributeModifier> | null;
-/** Return an immutable copy of all Attributes and their
- AttributeModifiers for a given EquipmentSlot.
- Any AttributeModifier that does have have a given
- EquipmentSlot will be returned. This is because
- AttributeModifiers without a slot are active in any slot.
- If there are no attributes set for the given slot, an empty map
- will be returned. */
-getAttributeModifiers(slot: org_bukkit_inventory_EquipmentSlot): com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier>;
-/** Return an immutable copy of all Attributes and
- their modifiers in this ItemMeta.
- Returns null if none exist. */
-getAttributeModifiers(): com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null;
-/** Add an Attribute and it's Modifier.
- AttributeModifiers can now support EquipmentSlots.
- If not set, the AttributeModifier will be active in ALL slots.
- 
- Two AttributeModifiers that have the same UUID
- cannot exist on the same Attribute. */
-addAttributeModifier(attribute: org_bukkit_attribute_Attribute, modifier: org_bukkit_attribute_AttributeModifier): boolean;
-/** Set all Attributes and their AttributeModifiers.
- To clear all currently set Attributes and AttributeModifiers use
- null or an empty Multimap.
- If not null nor empty, this will filter all entries that are not-null
- and add them to the ItemStack. */
-setAttributeModifiers(attributeModifiers: com_google_common_collect_Multimap<org_bukkit_attribute_Attribute, org_bukkit_attribute_AttributeModifier> | null): void | null;
-/** Remove a specific Attribute and AttributeModifier.
- AttributeModifiers are matched according to their UUID. */
-removeAttributeModifier(attribute: org_bukkit_attribute_Attribute, modifier: org_bukkit_attribute_AttributeModifier): boolean;
-/** Remove all Attributes and AttributeModifiers for a
- given EquipmentSlot.
- If the given EquipmentSlot is null, this will remove all
- AttributeModifiers that do not have an EquipmentSlot set. */
-removeAttributeModifier(slot: org_bukkit_inventory_EquipmentSlot): boolean;
-/** Remove all AttributeModifiers associated with the given
- Attribute.
- This will return false if nothing was removed. */
-removeAttributeModifier(attribute: org_bukkit_attribute_Attribute): boolean;
-/** Returns a public custom tag container capable of storing tags on the
- item.
-
- Those tags will be sent to the client with all of their content, so the
- client is capable of reading them. This will result in the player seeing
- a NBT Tag notification on the item.
-
- These tags can also be modified by the client once in creative mode */
-getCustomTagContainer(): org_bukkit_inventory_meta_tags_CustomItemTagContainer;
-/** Gets set of materials what given item can destroy in GameMode.ADVENTURE */
-getCanDestroy(): java_util_Set<org_bukkit_Material>;
-/** Sets set of materials what given item can destroy in GameMode.ADVENTURE */
-setCanDestroy(canDestroy: java_util_Set<org_bukkit_Material>): void;
-/** Gets set of materials where given item can be placed on in GameMode.ADVENTURE */
-getCanPlaceOn(): java_util_Set<org_bukkit_Material>;
-/** Sets set of materials where given item can be placed on in GameMode.ADVENTURE */
-setCanPlaceOn(canPlaceOn: java_util_Set<org_bukkit_Material>): void;
-/** Gets the collection of namespaced keys that the item can destroy in GameMode.ADVENTURE */
-getDestroyableKeys(): java_util_Set<com_destroystokyo_paper_Namespaced>;
 /** Sets the collection of namespaced keys that the item can destroy in GameMode.ADVENTURE */
 setDestroyableKeys(canDestroy: java_util_Collection<com_destroystokyo_paper_Namespaced>): void;
 /** Gets the collection of namespaced keys that the item can be placed on in GameMode.ADVENTURE */
@@ -1291,15 +1248,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  Only 1 process will be allowed to provide completions, the Async Event, or the standard process. */
 
   export class AsyncTabCompleteEvent extends org_bukkit_event_Event implements org_bukkit_event_Cancellable {
-sender: org_bukkit_command_CommandSender;
-buffer: string;
-isCommand: boolean;
-loc: org_bukkit_Location;
-completions: java_util_List<string>;
-cancelled: boolean;
-handled: boolean;
-fireSyncHandler: boolean;
-static handlers: org_bukkit_event_HandlerList;
 location: org_bukkit_Location | null;
 handlers: org_bukkit_event_HandlerList;
 buffer: string;
@@ -1314,6 +1262,9 @@ getBuffer(): string;
 /** Description copied from interface: CancellableGets the cancellation state of this event. A cancelled event will not
  be executed in the server, but will still pass to other plugins */
 isCancelled(): boolean;
+/** If true, the standard process of calling Command.tabComplete(CommandSender, String, String[])
+ or current player names will not be called. */
+isHandled(): boolean;
 isCommand(): boolean;
 /** Set the completions offered, overriding any already set.
  If this collection is not empty after the event is fired, then
@@ -1333,9 +1284,6 @@ getCompletions(): java_util_List<string>;
  If true, the standard process of calling Command.tabComplete(CommandSender, String, String[])
  or current player names will not be called. */
 setHandled(handled: boolean): void;
-/** If true, the standard process of calling Command.tabComplete(CommandSender, String, String[])
- or current player names will not be called. */
-isHandled(): boolean;
 /** Will provide no completions, and will not fire the synchronous process */
 setCancelled(cancelled: boolean): void;
 static getHandlerList(): org_bukkit_event_HandlerList;
@@ -1365,11 +1313,6 @@ import { BlockEvent as org_bukkit_event_block_BlockEvent } from 'org.bukkit.even
 /** Called when a beacon effect is being applied to a player. */
 
   export class BeaconEffectEvent extends org_bukkit_event_block_BlockEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-effect: org_bukkit_potion_PotionEffect;
-player: org_bukkit_entity_Player;
-primary: boolean;
 handlers: org_bukkit_event_HandlerList;
 effect: org_bukkit_potion_PotionEffect;
 player: org_bukkit_entity_Player;
@@ -1445,11 +1388,6 @@ import { BlockEvent as org_bukkit_event_block_BlockEvent } from 'org.bukkit.even
  Events such as leaves decaying, pistons retracting (where the block is moving), does NOT fire this event. */
 
   export class BlockDestroyEvent extends org_bukkit_event_block_BlockEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-newState: org_bukkit_block_data_BlockData;
-willDrop: boolean;
-playEffect: boolean;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 newState: org_bukkit_block_data_BlockData;
@@ -1535,11 +1473,9 @@ import { Collection as java_util_Collection } from 'java.util';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { IntFunction as java_util_function_IntFunction } from 'java.util.function';
 import { Stream as java_util_stream_Stream } from 'java.util.stream';
-import { LongAdder as java_util_concurrent_atomic_LongAdder } from 'java.util.concurrent.atomic';
 import { ConcurrentLinkedQueue as java_util_concurrent_ConcurrentLinkedQueue } from 'java.util.concurrent';
 
   export class CachedSizeConcurrentLinkedQueue<E extends java_lang_Object> extends java_util_concurrent_ConcurrentLinkedQueue<E> {
-cachedSize: java_util_concurrent_atomic_LongAdder;
 class: java_lang_Class<java_lang_Object>;
 add(e: E): boolean;
 size(): number;
@@ -1737,7 +1673,6 @@ static LOCALE: com_destroystokyo_paper_ClientOption<string>;
 static MAIN_HAND: com_destroystokyo_paper_ClientOption<org_bukkit_inventory_MainHand>;
 static VIEW_DISTANCE: com_destroystokyo_paper_ClientOption<java_lang_Integer>;
 type: java_lang_Class<T>;
-type: java_lang_Class<T>;
 getType(): java_lang_Class<T>;
 
   }
@@ -1753,7 +1688,6 @@ static FULL: com_destroystokyo_paper_ClientOption_ChatVisibility;
 static SYSTEM: com_destroystokyo_paper_ClientOption_ChatVisibility;
 static HIDDEN: com_destroystokyo_paper_ClientOption_ChatVisibility;
 static UNKNOWN: com_destroystokyo_paper_ClientOption_ChatVisibility;
-static $VALUES: com_destroystokyo_paper_ClientOption_ChatVisibility[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -1786,9 +1720,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when a Creeper is ignite flag is changed (armed/disarmed to explode). */
 
   export class CreeperIgniteEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-canceled: boolean;
-ignited: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Creeper;
@@ -1853,7 +1784,7 @@ import { MemoryKey as org_bukkit_entity_memory_MemoryKey } from 'org.bukkit.enti
 import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class } from 'java.lang';
 import { EntityEquipment as org_bukkit_inventory_EntityEquipment, ItemStack as org_bukkit_inventory_ItemStack } from 'org.bukkit.inventory';
 import { RayTraceResult as org_bukkit_util_RayTraceResult, BoundingBox as org_bukkit_util_BoundingBox, Vector as org_bukkit_util_Vector } from 'org.bukkit.util';
-import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Location as org_bukkit_Location, Material as org_bukkit_Material, Server as org_bukkit_Server, World as org_bukkit_World, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
+import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Location as org_bukkit_Location, Material as org_bukkit_Material, World as org_bukkit_World, Server as org_bukkit_Server, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
 import { Set as java_util_Set, List as java_util_List, Collection as java_util_Collection, UUID as java_util_UUID } from 'java.util';
 import { Block as org_bukkit_block_Block, BlockFace as org_bukkit_block_BlockFace, PistonMoveReaction as org_bukkit_block_PistonMoveReaction } from 'org.bukkit.block';
 import { FluidMode as com_destroystokyo_paper_block_TargetBlockInfo_FluidMode } from 'com.destroystokyo.paper.block.TargetBlockInfo';
@@ -1863,8 +1794,8 @@ import { Attribute as org_bukkit_attribute_Attribute, AttributeInstance as org_b
 import { Spigot as org_bukkit_command_CommandSender_Spigot } from 'org.bukkit.command.CommandSender';
 import { Spigot as org_bukkit_entity_Entity_Spigot } from 'org.bukkit.entity.Entity';
 import { TeleportCause as org_bukkit_event_player_PlayerTeleportEvent_TeleportCause } from 'org.bukkit.event.player.PlayerTeleportEvent';
-import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { EntityDamageEvent as org_bukkit_event_entity_EntityDamageEvent } from 'org.bukkit.event.entity';
+import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { SpawnReason as org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason } from 'org.bukkit.event.entity.CreatureSpawnEvent';
 import { MetadataValue as org_bukkit_metadata_MetadataValue } from 'org.bukkit.metadata';
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
@@ -1923,8 +1854,8 @@ type: org_bukkit_entity_EntityType;
 origin: org_bukkit_Location | null;
 width: number;
 height: number;
-server: org_bukkit_Server;
 world: org_bukkit_World;
+server: org_bukkit_Server;
 boundingBox: org_bukkit_util_BoundingBox;
 uniqueId: java_util_UUID;
 chunk: org_bukkit_Chunk;
@@ -1937,13 +1868,13 @@ vehicle: org_bukkit_entity_Entity | null;
 passengers: java_util_List<org_bukkit_entity_Entity>;
 facing: org_bukkit_block_BlockFace;
 velocity: org_bukkit_util_Vector;
-nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
 entityId: number;
 passenger: org_bukkit_entity_Entity | null;
 fallDistance: number;
 lastDamageCause: org_bukkit_event_entity_EntityDamageEvent | null;
 ticksLived: number;
 portalCooldown: number;
+nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
 entitySpawnReason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
 metadata: java_util_List<org_bukkit_metadata_MetadataValue>;
 name: string;
@@ -2273,10 +2204,10 @@ getOrigin(): org_bukkit_Location | null;
 getWidth(): number;
 /** Gets the entity's height */
 getHeight(): number;
-/** Gets the Server that contains this Entity */
-getServer(): org_bukkit_Server;
 /** Gets the current world this entity resides in */
 getWorld(): org_bukkit_World;
+/** Gets the Server that contains this Entity */
+getServer(): org_bukkit_Server;
 spigot(): org_bukkit_command_CommandSender_Spigot;
 spigot(): org_bukkit_entity_Entity_Spigot;
 /** Gets the entity's current bounding box.
@@ -2366,14 +2297,17 @@ setInvulnerable(flag: boolean): void;
 getFacing(): org_bukkit_block_BlockFace;
 /** Gets whether the entity is silent or not. */
 isSilent(): boolean;
-/** Gets this entity's current velocity */
-getVelocity(): org_bukkit_util_Vector;
-/** Sets this entity's velocity */
-setVelocity(velocity: org_bukkit_util_Vector): void;
 /** Returns true if the entity is supported by a block. This value is a
  state updated by the server and is not recalculated unless the entity
  moves. */
 isOnGround(): boolean;
+/** Gets this entity's current velocity */
+getVelocity(): org_bukkit_util_Vector;
+/** Sets this entity's velocity */
+setVelocity(velocity: org_bukkit_util_Vector): void;
+/** Teleports this entity to the given location. If this entity is riding a
+ vehicle, it will be dismounted prior to teleportation. */
+teleport(location: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): boolean;
 /** Teleports this entity to the given location. If this entity is riding a
  vehicle, it will be dismounted prior to teleportation. */
 teleport(location: org_bukkit_Location): boolean;
@@ -2383,20 +2317,6 @@ teleport(destination: org_bukkit_entity_Entity): boolean;
 /** Teleports this entity to the target Entity. If this entity is riding a
  vehicle, it will be dismounted prior to teleportation. */
 teleport(destination: org_bukkit_entity_Entity, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): boolean;
-/** Teleports this entity to the given location. If this entity is riding a
- vehicle, it will be dismounted prior to teleportation. */
-teleport(location: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): boolean;
-/** Returns a list of entities within a bounding box centered around this
- entity */
-getNearbyEntities(x: number, y: number, z: number): java_util_List<org_bukkit_entity_Entity>;
-/** Sets the entity's rotation.
- 
- Note that if the entity is affected by AI, it may override this rotation. */
-setRotation(yaw: number, pitch: number): void;
-/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
-teleportAsync(loc: org_bukkit_Location): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
-/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
-teleportAsync(loc: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
 /** Returns a unique id for this entity */
 getEntityId(): number;
 /** Returns true if this entity has been marked for removal. */
@@ -2471,6 +2391,17 @@ setGravity(gravity: boolean): void;
 getPortalCooldown(): number;
 /** Sets the period of time (in ticks) before this entity can use a portal. */
 setPortalCooldown(cooldown: number): void;
+/** Returns a list of entities within a bounding box centered around this
+ entity */
+getNearbyEntities(x: number, y: number, z: number): java_util_List<org_bukkit_entity_Entity>;
+/** Sets the entity's rotation.
+ 
+ Note that if the entity is affected by AI, it may override this rotation. */
+setRotation(yaw: number, pitch: number): void;
+/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
+teleportAsync(loc: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
+/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
+teleportAsync(loc: org_bukkit_Location): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
 /** Returns whether this entity was spawned from a mob spawner. */
 fromMobSpawner(): boolean;
 getEntitySpawnReason(): org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
@@ -2604,10 +2535,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a DragonFireball collides with a block/entity and spawns an AreaEffectCloud */
 
   export class EnderDragonFireballHitEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-targets: java_util_Collection<org_bukkit_entity_LivingEntity>;
-areaEffectCloud: org_bukkit_entity_AreaEffectCloud;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 areaEffectCloud: org_bukkit_entity_AreaEffectCloud;
 targets: java_util_Collection<org_bukkit_entity_LivingEntity> | null;
@@ -2678,9 +2605,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when an EnderDragon spawns an AreaEffectCloud by shooting flames */
 
   export class EnderDragonFlameEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-areaEffectCloud: org_bukkit_entity_AreaEffectCloud;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 areaEffectCloud: org_bukkit_entity_AreaEffectCloud;
 entity: org_bukkit_entity_Entity;
@@ -2746,9 +2670,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when an EnderDragon shoots a fireball */
 
   export class EnderDragonShootFireballEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-fireball: org_bukkit_entity_DragonFireball;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 fireball: org_bukkit_entity_DragonFireball;
 entity: org_bukkit_entity_Entity;
@@ -2816,9 +2737,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  at the Enderman, according to Vanilla rules. */
 
   export class EndermanAttackPlayerEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-player: org_bukkit_entity_Player;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Enderman;
@@ -2884,9 +2802,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.event.entity';
 
   export class EndermanEscapeEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-reason: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Enderman;
@@ -2956,7 +2871,6 @@ static INDIRECT: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason
 static CRITICAL_HIT: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
 static STARE: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
 static DROWN: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
-static $VALUES: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -2991,7 +2905,6 @@ static INDIRECT: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason
 static CRITICAL_HIT: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
 static STARE: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
 static DROWN: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason;
-static $VALUES: com_destroystokyo_paper_event_entity_EndermanEscapeEvent_Reason[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -3027,7 +2940,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  This will fire anytime a chunk is reloaded too. */
 
   export class EntityAddToWorldEvent extends org_bukkit_event_entity_EntityEvent {
-static handlers: org_bukkit_event_HandlerList;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 eventName: string;
@@ -3081,8 +2993,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  Cancelling the event will stop the entity from jumping */
 
   export class EntityJumpEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-canceled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_LivingEntity;
@@ -3148,11 +3058,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  vector can be modified. If this event is cancelled, the entity is not knocked back. */
 
   export class EntityKnockbackByEntityEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-hitBy: org_bukkit_entity_Entity;
-knockbackStrength: number;
-acceleration: org_bukkit_util_Vector;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 knockbackStrength: number;
 hitBy: org_bukkit_entity_Entity;
@@ -3226,10 +3131,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  is choosing to start moving to a location. */
 
   export class EntityPathfindEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-targetEntity: org_bukkit_entity_Entity;
-loc: org_bukkit_Location;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 loc: org_bukkit_Location;
 entity: org_bukkit_entity_Entity;
@@ -3300,7 +3201,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired any time an entity is being removed from a world for any reason */
 
   export class EntityRemoveFromWorldEvent extends org_bukkit_event_entity_EntityEvent {
-static handlers: org_bukkit_event_HandlerList;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 eventName: string;
@@ -3353,7 +3253,6 @@ import { EntityTeleportEvent as org_bukkit_event_entity_EntityTeleportEvent } fr
 /** Fired any time an entity attempts to teleport in an end gateway */
 
   export class EntityTeleportEndGatewayEvent extends org_bukkit_event_entity_EntityTeleportEvent {
-gateway: org_bukkit_block_EndGateway;
 gateway: org_bukkit_block_EndGateway;
 entity: org_bukkit_entity_Entity;
 entityType: org_bukkit_entity_EntityType;
@@ -3413,10 +3312,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  If the event is cancelled, the entity will not transform */
 
   export class EntityTransformedEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-transformed: org_bukkit_entity_Entity;
-reason: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
 handlers: org_bukkit_event_HandlerList;
 transformed: org_bukkit_entity_Entity;
 static handlerList: org_bukkit_event_HandlerList;
@@ -3481,7 +3376,6 @@ static CURED: com_destroystokyo_paper_event_entity_EntityTransformedEvent_Transf
 static INFECTED: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
 static SHEARED: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
 static LIGHTNING: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
-static $VALUES: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -3516,7 +3410,6 @@ static CURED: com_destroystokyo_paper_event_entity_EntityTransformedEvent_Transf
 static INFECTED: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
 static SHEARED: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
 static LIGHTNING: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason;
-static $VALUES: com_destroystokyo_paper_event_entity_EntityTransformedEvent_TransformedReason[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -3549,9 +3442,6 @@ import { EntityTransformEvent as org_bukkit_event_entity_EntityTransformEvent } 
 /** Fired when lightning strikes an entity */
 
   export class EntityZapEvent extends org_bukkit_event_entity_EntityTransformEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-bolt: org_bukkit_entity_LightningStrike;
 handlers: org_bukkit_event_HandlerList;
 bolt: org_bukkit_entity_LightningStrike;
 replacementEntity: org_bukkit_entity_Entity;
@@ -3621,10 +3511,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired anytime the server is about to merge 2 experience orbs into one */
 
   export class ExperienceOrbMergeEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-mergeTarget: org_bukkit_entity_ExperienceOrb;
-mergeSource: org_bukkit_entity_ExperienceOrb;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 mergeTarget: org_bukkit_entity_ExperienceOrb;
 mergeSource: org_bukkit_entity_ExperienceOrb;
@@ -3686,8 +3572,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 /** Fired once a profiles additional properties (such as textures) has been filled */
 
   export class FillProfileEvent extends org_bukkit_event_Event {
-profile: com_destroystokyo_paper_profile_PlayerProfile;
-static handlers: org_bukkit_event_HandlerList;
 properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -3751,8 +3635,6 @@ import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 /** Used to identify a Goal. Consists of a NamespacedKey and the type of mob the goal can be applied to */
 
   export class GoalKey<T extends org_bukkit_entity_Mob> extends java_lang_Object {
-entityClass: java_lang_Class<T>;
-namespacedKey: org_bukkit_NamespacedKey;
 namespacedKey: org_bukkit_NamespacedKey;
 entityClass: java_lang_Class<T>;
 equals(o: java_lang_Object): boolean;
@@ -3777,7 +3659,6 @@ static LOOK: com_destroystokyo_paper_entity_ai_GoalType;
 static JUMP: com_destroystokyo_paper_entity_ai_GoalType;
 static TARGET: com_destroystokyo_paper_entity_ai_GoalType;
 static UNKNOWN_BEHAVIOR: com_destroystokyo_paper_entity_ai_GoalType;
-static $VALUES: com_destroystokyo_paper_entity_ai_GoalType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -3812,10 +3693,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  Adapted from Velocity's ProxyQueryEvent */
 
   export class GS4QueryEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-queryType: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
-querierAddress: java_net_InetAddress;
-response: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse;
 handlers: org_bukkit_event_HandlerList;
 response: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse;
 queryType: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
@@ -3852,16 +3729,6 @@ import { Collection as java_util_Collection } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class QueryResponse extends java_lang_Object {
-motd: string;
-gameVersion: string;
-map: string;
-currentPlayers: number;
-maxPlayers: number;
-hostname: string;
-port: number;
-players: java_util_Collection<string>;
-serverVersion: string;
-plugins: java_util_Collection<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>;
 port: number;
 map: string;
 hostname: string;
@@ -3904,21 +3771,12 @@ getPlayers(): java_util_Collection<string>;
 declare module 'com.destroystokyo.paper.event.server.GS4QueryEvent.QueryResponse' {
 import { Builder as com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder, PluginInformation as com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation } from 'com.destroystokyo.paper.event.server.GS4QueryEvent.QueryResponse';
 import { QueryResponse as com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse } from 'com.destroystokyo.paper.event.server.GS4QueryEvent';
-import { Collection as java_util_Collection, List as java_util_List } from 'java.util';
+import { Collection as java_util_Collection } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 /** A builder for GS4QueryEvent.QueryResponse objects. */
 
   export class Builder extends java_lang_Object {
-motd: string;
-gameVersion: string;
-map: string;
-hostname: string;
-serverVersion: string;
-currentPlayers: number;
-maxPlayers: number;
-port: number;
-players: java_util_List<string>;
-plugins: java_util_List<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>;
+
 map(map: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 port(port: number): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 /** Builds new GS4QueryEvent.QueryResponse with supplied data */
@@ -3948,8 +3806,6 @@ import { Object as java_lang_Object } from 'java.lang';
   export class PluginInformation extends java_lang_Object {
 name: string;
 version: string;
-name: string;
-version: string;
 getName(): string;
 static of(name: string, version: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation;
 setName(name: string): void;
@@ -3968,7 +3824,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
   export class QueryType extends java_lang_Enum<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType> {
 static BASIC: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
 static FULL: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
-static $VALUES: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -3999,16 +3854,6 @@ import { Collection as java_util_Collection } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class QueryResponse extends java_lang_Object {
-motd: string;
-gameVersion: string;
-map: string;
-currentPlayers: number;
-maxPlayers: number;
-hostname: string;
-port: number;
-players: java_util_Collection<string>;
-serverVersion: string;
-plugins: java_util_Collection<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>;
 port: number;
 map: string;
 hostname: string;
@@ -4051,21 +3896,12 @@ getPlayers(): java_util_Collection<string>;
 declare module 'com.destroystokyo.paper.event.server.GS4QueryEvent.QueryResponse' {
 import { Builder as com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder, PluginInformation as com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation } from 'com.destroystokyo.paper.event.server.GS4QueryEvent.QueryResponse';
 import { QueryResponse as com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse } from 'com.destroystokyo.paper.event.server.GS4QueryEvent';
-import { Collection as java_util_Collection, List as java_util_List } from 'java.util';
+import { Collection as java_util_Collection } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 /** A builder for GS4QueryEvent.QueryResponse objects. */
 
   export class Builder extends java_lang_Object {
-motd: string;
-gameVersion: string;
-map: string;
-hostname: string;
-serverVersion: string;
-currentPlayers: number;
-maxPlayers: number;
-port: number;
-players: java_util_List<string>;
-plugins: java_util_List<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation>;
+
 map(map: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 port(port: number): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_Builder;
 /** Builds new GS4QueryEvent.QueryResponse with supplied data */
@@ -4095,8 +3931,6 @@ import { Object as java_lang_Object } from 'java.lang';
   export class PluginInformation extends java_lang_Object {
 name: string;
 version: string;
-name: string;
-version: string;
 getName(): string;
 static of(name: string, version: string): com_destroystokyo_paper_event_server_GS4QueryEvent_QueryResponse_PluginInformation;
 setName(name: string): void;
@@ -4115,7 +3949,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
   export class QueryType extends java_lang_Enum<com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType> {
 static BASIC: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
 static FULL: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType;
-static $VALUES: com_destroystokyo_paper_event_server_GS4QueryEvent_QueryType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -4152,7 +3985,6 @@ static ANY: com_destroystokyo_paper_HeightmapType;
 static SOLID: com_destroystokyo_paper_HeightmapType;
 static SOLID_OR_LIQUID: com_destroystokyo_paper_HeightmapType;
 static SOLID_OR_LIQUID_NO_LEAVES: com_destroystokyo_paper_HeightmapType;
-static $VALUES: com_destroystokyo_paper_HeightmapType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -4254,11 +4086,6 @@ import { Exception as java_lang_Exception, Object as java_lang_Object, Class as 
 import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.event.player';
 
   export class IllegalPacketEvent extends org_bukkit_event_player_PlayerEvent {
-type: string;
-ex: string;
-kickMessage: string;
-shouldKick: boolean;
-static handlers: org_bukkit_event_HandlerList;
 type: string | null;
 handlers: org_bukkit_event_HandlerList;
 exceptionMessage: string | null;
@@ -4320,7 +4147,6 @@ import { List as java_util_List } from 'java.util';
 /** Allows crafting Items that require full matching itemstacks to complete the recipe for custom items */
 
   export class ItemStackRecipeChoice extends java_lang_Object implements org_bukkit_inventory_RecipeChoice {
-choices: java_util_List<org_bukkit_inventory_ItemStack>;
 itemStack: org_bukkit_inventory_ItemStack;
 clone(): org_bukkit_inventory_RecipeChoice;
 clone(): java_lang_Object;
@@ -4348,8 +4174,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  event.isAsync() */
 
   export class LookupProfileEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-profile: com_destroystokyo_paper_profile_PlayerProfile;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 playerProfile: com_destroystokyo_paper_profile_PlayerProfile;
@@ -4593,9 +4417,6 @@ import { Player as org_bukkit_entity_Player } from 'org.bukkit.entity';
 import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.event.player';
 
   export class LootableInventoryReplenishEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-inventory: com_destroystokyo_paper_loottable_LootableInventory;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 inventory: com_destroystokyo_paper_loottable_LootableInventory;
 static handlerList: org_bukkit_event_HandlerList;
@@ -4653,13 +4474,11 @@ import { MaterialSetTag as com_destroystokyo_paper_MaterialSetTag } from 'com.de
 import { Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
 import { Predicate as java_util_function_Predicate } from 'java.util.function';
 import { ItemStack as org_bukkit_inventory_ItemStack } from 'org.bukkit.inventory';
-import { Block as org_bukkit_block_Block, BlockState as org_bukkit_block_BlockState } from 'org.bukkit.block';
 import { BlockData as org_bukkit_block_data_BlockData } from 'org.bukkit.block.data';
+import { BlockState as org_bukkit_block_BlockState, Block as org_bukkit_block_Block } from 'org.bukkit.block';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class MaterialSetTag extends java_lang_Object implements org_bukkit_Tag<org_bukkit_Material> {
-key: org_bukkit_NamespacedKey;
-materials: java_util_Set<org_bukkit_Material>;
 key: org_bukkit_NamespacedKey;
 values: java_util_Set<org_bukkit_Material>;
 add(...tags: org_bukkit_Material[]): com_destroystokyo_paper_MaterialSetTag;
@@ -4679,13 +4498,13 @@ not(tags: com_destroystokyo_paper_MaterialSetTag): com_destroystokyo_paper_Mater
 notEndsWith(wit: string): com_destroystokyo_paper_MaterialSetTag;
 notStartsWith(wit: string): com_destroystokyo_paper_MaterialSetTag;
 ensureSize(label: string, size: number): com_destroystokyo_paper_MaterialSetTag;
-isTagged(arg0: org_bukkit_Keyed): boolean;
 isTagged(item: org_bukkit_inventory_ItemStack): boolean;
-isTagged(block: org_bukkit_block_Block): boolean;
+isTagged(block: org_bukkit_block_data_BlockData): boolean;
 isTagged(block: org_bukkit_block_BlockState): boolean;
 /** Description copied from interface: TagReturns whether or not this tag has an entry for the specified item. */
 isTagged(material: org_bukkit_Material): boolean;
-isTagged(block: org_bukkit_block_data_BlockData): boolean;
+isTagged(arg0: org_bukkit_Keyed): boolean;
+isTagged(block: org_bukkit_block_Block): boolean;
 /** Description copied from interface: TagGets an immutable set of all tagged items. */
 getValues(): java_util_Set<org_bukkit_Material>;
 constructor(key: org_bukkit_NamespacedKey | null, materials: java_util_Collection<org_bukkit_Material>);
@@ -4773,8 +4592,7 @@ import { Method as java_lang_reflect_Method } from 'java.lang.reflect';
 import { EventExecutor as org_bukkit_plugin_EventExecutor } from 'org.bukkit.plugin';
 
   export class MethodHandleEventExecutor extends java_lang_Object implements org_bukkit_plugin_EventExecutor {
-eventClass: java_lang_Class<org_bukkit_event_Event>;
-handle: java_lang_invoke_MethodHandle;
+
 execute(listener: org_bukkit_event_Listener, event: org_bukkit_event_Event): void;
 constructor(eventClass: java_lang_Class<org_bukkit_event_Event>, handle: java_lang_invoke_MethodHandle);
 constructor(eventClass: java_lang_Class<org_bukkit_event_Event>, handle: java_lang_reflect_Method);
@@ -4852,7 +4670,6 @@ declare module 'com.destroystokyo.paper' {
 import { Object as java_lang_Object } from 'java.lang';
 import { NamespacedTag as com_destroystokyo_paper_NamespacedTag, Namespaced as com_destroystokyo_paper_Namespaced } from 'com.destroystokyo.paper';
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
-import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
 /** Represents a String based key pertaining to a tagged entry. Consists of two components - a namespace
  and a key.
  
@@ -4865,10 +4682,6 @@ import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
   export class NamespacedTag extends java_lang_Object implements com_destroystokyo_paper_Namespaced {
 static MINECRAFT: string;
 static BUKKIT: string;
-static VALID_NAMESPACE: java_util_regex_Pattern;
-static VALID_KEY: java_util_regex_Pattern;
-namespace: string;
-key: string;
 key: string;
 namespace: string;
 equals(obj: java_lang_Object): boolean;
@@ -4963,16 +4776,6 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
  of the response sent to the client. */
 
   export class PaperServerListPingEvent extends org_bukkit_event_server_ServerListPingEvent implements org_bukkit_event_Cancellable {
-client: com_destroystokyo_paper_network_StatusClient;
-numPlayers: number;
-hidePlayers: boolean;
-playerSample: java_util_List<com_destroystokyo_paper_profile_PlayerProfile>;
-version: string;
-protocolVersion: number;
-favicon: org_bukkit_util_CachedServerIcon;
-cancelled: boolean;
-originalPlayerCount: boolean;
-players: java_lang_Object[];
 version: string;
 numPlayers: number;
 client: com_destroystokyo_paper_network_StatusClient;
@@ -5008,13 +4811,13 @@ getVersion(): string;
  Cancelling this event will cause the connection to be closed immediately,
  without sending a response to the client. */
 isCancelled(): boolean;
+/** Sets the server icon sent to the client. */
+setServerIcon(icon: org_bukkit_util_CachedServerIcon | null): void | null;
 /** Get the number of players sent.
 
  Returns -1 if players are hidden using
  shouldHidePlayers(). */
 getNumPlayers(): number;
-/** Sets the server icon sent to the client. */
-setServerIcon(icon: org_bukkit_util_CachedServerIcon | null): void | null;
 /** Returns the StatusClient pinging the server. */
 getClient(): com_destroystokyo_paper_network_StatusClient;
 /** Sets the number of players displayed in the server list.
@@ -5142,17 +4945,7 @@ import { List as java_util_List, Collection as java_util_Collection } from 'java
  Usage of the builder is preferred over the super long World.spawnParticle(Particle, Location, int, double, double, double, double, Object) API */
 
   export class ParticleBuilder extends java_lang_Object {
-particle: org_bukkit_Particle;
-receivers: java_util_List<org_bukkit_entity_Player>;
-source: org_bukkit_entity_Player;
-location: org_bukkit_Location;
-count: number;
-offsetX: number;
-offsetY: number;
-offsetZ: number;
-extra: number;
-data: java_lang_Object;
-force: boolean;
+
 /** Sets the particle offset. Varies by particle on how this is used */
 offset(offsetX: number, offsetY: number, offsetZ: number): com_destroystokyo_paper_ParticleBuilder;
 count(): number;
@@ -5237,44 +5030,17 @@ constructor(particle: org_bukkit_Particle);
 //@ts-nocheck
 
 declare module 'com.destroystokyo.paper.entity' {
-import { LivingEntity as org_bukkit_entity_LivingEntity, Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 import { PathResult as com_destroystokyo_paper_entity_Pathfinder_PathResult } from 'com.destroystokyo.paper.entity.Pathfinder';
 import { Location as org_bukkit_Location } from 'org.bukkit';
+import { LivingEntity as org_bukkit_entity_LivingEntity, Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 /** Handles pathfinding operations for an Entity */
 
   export class Pathfinder {
 entity: org_bukkit_entity_Mob;
 currentPath: com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
-/** Allows this pathfinder to pass through open doors, or not */
-setCanPassDoors(canPassDoors: boolean): void;
-/** Makes this pathfinder assume that the mob can float, or not */
-setCanFloat(canFloat: boolean): void;
-/** If the entity is currently trying to navigate to a destination, this will return true */
-hasPath(): boolean;
-/** Calculates a destination for the Entity to navigate to to reach the target entity,
- but does not set it as the current target.
- Useful for calculating what would happen before setting it.
-
- The behavior of this PathResult is subject to the games pathfinding rules, and may
- result in the pathfinding automatically updating to follow the target Entity.
-
- However, this behavior is not guaranteed, and is subject to the games behavior. */
-findPath(target: org_bukkit_entity_LivingEntity): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
-/** Calculates a destination for the Entity to navigate to, but does not set it
- as the current target. Useful for calculating what would happen before setting it. */
-findPath(loc: org_bukkit_Location): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
-/** Checks if this pathfinder allows passing through closed doors. */
-canOpenDoors(): boolean;
-/** Allows this pathfinder to pass through closed doors, or not */
-setCanOpenDoors(canOpenDoors: boolean): void;
-/** Checks if this pathfinder allows passing through open doors. */
-canPassDoors(): boolean;
 /** Takes the result of a previous pathfinding calculation and sets it
  as the active pathfinding, */
 moveTo(path: com_destroystokyo_paper_entity_Pathfinder_PathResult, speed: number): boolean;
-/** Takes the result of a previous pathfinding calculation and sets it
- as the active pathfinding with default speed. */
-moveTo(path: com_destroystokyo_paper_entity_Pathfinder_PathResult): boolean;
 /** Calculates a destination for the Entity to navigate to, and sets it with default speed
  as the current target. */
 moveTo(loc: org_bukkit_Location): boolean;
@@ -5289,6 +5055,9 @@ moveTo(loc: org_bukkit_Location, speed: number): boolean;
 
  However, this behavior is not guaranteed, and is subject to the games behavior. */
 moveTo(target: org_bukkit_entity_LivingEntity): boolean;
+/** Takes the result of a previous pathfinding calculation and sets it
+ as the active pathfinding with default speed. */
+moveTo(path: com_destroystokyo_paper_entity_Pathfinder_PathResult): boolean;
 /** Calculates a destination for the Entity to navigate to to reach the target entity,
  and sets it with specified speed.
 
@@ -5297,9 +5066,33 @@ moveTo(target: org_bukkit_entity_LivingEntity): boolean;
 
  However, this behavior is not guaranteed, and is subject to the games behavior. */
 moveTo(target: org_bukkit_entity_LivingEntity, speed: number): boolean;
+/** Checks if this pathfinder allows passing through closed doors. */
+canOpenDoors(): boolean;
+/** Allows this pathfinder to pass through closed doors, or not */
+setCanOpenDoors(canOpenDoors: boolean): void;
+/** Checks if this pathfinder allows passing through open doors. */
+canPassDoors(): boolean;
+/** Allows this pathfinder to pass through open doors, or not */
+setCanPassDoors(canPassDoors: boolean): void;
+/** Makes this pathfinder assume that the mob can float, or not */
+setCanFloat(canFloat: boolean): void;
+/** If the entity is currently trying to navigate to a destination, this will return true */
+hasPath(): boolean;
+/** Calculates a destination for the Entity to navigate to, but does not set it
+ as the current target. Useful for calculating what would happen before setting it. */
+findPath(loc: org_bukkit_Location): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
+/** Calculates a destination for the Entity to navigate to to reach the target entity,
+ but does not set it as the current target.
+ Useful for calculating what would happen before setting it.
+
+ The behavior of this PathResult is subject to the games pathfinding rules, and may
+ result in the pathfinding automatically updating to follow the target Entity.
+
+ However, this behavior is not guaranteed, and is subject to the games behavior. */
+findPath(target: org_bukkit_entity_LivingEntity): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
+getEntity(): org_bukkit_entity_Mob;
 /** Checks if this pathfinder assumes that the mob can float */
 canFloat(): boolean;
-getEntity(): org_bukkit_entity_Mob;
 getCurrentPath(): com_destroystokyo_paper_entity_Pathfinder_PathResult | null;
 /** Instructs the Entity to stop trying to navigate to its current desired location */
 stopPathfinding(): void;
@@ -5339,7 +5132,6 @@ import { PreCreatureSpawnEvent as com_destroystokyo_paper_event_entity_PreCreatu
 /** Called when a phantom is spawned for an exhausted player */
 
   export class PhantomPreSpawnEvent extends com_destroystokyo_paper_event_entity_PreCreatureSpawnEvent {
-entity: org_bukkit_entity_Entity;
 spawningEntity: org_bukkit_entity_Entity | null;
 eventName: string;
 class: java_lang_Class<java_lang_Object>;
@@ -5397,12 +5189,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  Also, Plugins that replace Entity Registrations with their own custom entities might not fire this event. */
 
   export class PreCreatureSpawnEvent extends org_bukkit_event_Event implements org_bukkit_event_Cancellable {
-location: org_bukkit_Location;
-type: org_bukkit_entity_EntityType;
-reason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
-shouldAbortSpawn: boolean;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 type: org_bukkit_entity_EntityType;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -5446,10 +5232,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when a player is granted a criteria in an advancement. */
 
   export class PlayerAdvancementCriterionGrantEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-advancement: org_bukkit_advancement_Advancement;
-criterion: string;
-cancel: boolean;
 handlers: org_bukkit_event_HandlerList;
 criterion: string;
 advancement: org_bukkit_advancement_Advancement;
@@ -5517,23 +5299,19 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
  Not currently called for environmental factors though it MAY BE IN THE FUTURE */
 
   export class PlayerArmorChangeEvent extends org_bukkit_event_player_PlayerEvent {
-static HANDLERS: org_bukkit_event_HandlerList;
-slotType: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
-oldItem: org_bukkit_inventory_ItemStack;
-newItem: org_bukkit_inventory_ItemStack;
 handlers: org_bukkit_event_HandlerList;
-oldItem: org_bukkit_inventory_ItemStack | null;
 newItem: org_bukkit_inventory_ItemStack | null;
+oldItem: org_bukkit_inventory_ItemStack | null;
 static handlerList: org_bukkit_event_HandlerList;
 slotType: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 eventName: string;
 class: java_lang_Class<java_lang_Object>;
 toString(): string;
 getHandlers(): org_bukkit_event_HandlerList;
-/** Gets the existing item that's being replaced */
-getOldItem(): org_bukkit_inventory_ItemStack | null;
 /** Gets the new item that's replacing the old */
 getNewItem(): org_bukkit_inventory_ItemStack | null;
+/** Gets the existing item that's being replaced */
+getOldItem(): org_bukkit_inventory_ItemStack | null;
 static getHandlerList(): org_bukkit_event_HandlerList;
 /** Gets the type of slot being altered. */
 getSlotType(): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
@@ -5584,9 +5362,6 @@ static HEAD: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotTyp
 static CHEST: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static LEGS: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static FEET: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
-mutableTypes: java_util_Set<org_bukkit_Material>;
-immutableTypes: java_util_Set<org_bukkit_Material>;
-static $VALUES: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType[];
 static byMaterial: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 types: java_util_Set<org_bukkit_Material>;
 class: java_lang_Class<java_lang_Object>;
@@ -5602,10 +5377,10 @@ The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
 not permitted.) */
 static valueOf(name: string): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
-/** Gets the type of slot via the specified material */
-static getByMaterial(material: org_bukkit_Material): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 /** Gets whether or not this material can be equipped to a slot */
 static isEquipable(material: org_bukkit_Material): boolean;
+/** Gets the type of slot via the specified material */
+static getByMaterial(material: org_bukkit_Material): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 /** Gets an immutable set of all allowed material types that can be placed in an
  armor slot. */
 getTypes(): java_util_Set<org_bukkit_Material>;
@@ -5631,9 +5406,6 @@ static HEAD: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotTyp
 static CHEST: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static LEGS: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
 static FEET: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
-mutableTypes: java_util_Set<org_bukkit_Material>;
-immutableTypes: java_util_Set<org_bukkit_Material>;
-static $VALUES: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType[];
 static byMaterial: com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 types: java_util_Set<org_bukkit_Material>;
 class: java_lang_Class<java_lang_Object>;
@@ -5649,10 +5421,10 @@ The string must match exactly an identifier used to declare an
 enum constant in this type.  (Extraneous whitespace characters are 
 not permitted.) */
 static valueOf(name: string): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType;
-/** Gets the type of slot via the specified material */
-static getByMaterial(material: org_bukkit_Material): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 /** Gets whether or not this material can be equipped to a slot */
 static isEquipable(material: org_bukkit_Material): boolean;
+/** Gets the type of slot via the specified material */
+static getByMaterial(material: org_bukkit_Material): com_destroystokyo_paper_event_player_PlayerArmorChangeEvent_SlotType | null;
 /** Gets an immutable set of all allowed material types that can be placed in an
  armor slot. */
 getTypes(): java_util_Set<org_bukkit_Material>;
@@ -5675,10 +5447,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when processing a player's attack on an entity when the player's attack strength cooldown is reset */
 
   export class PlayerAttackEntityCooldownResetEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-cooledAttackStrength: number;
-cancel: boolean;
-static handlers: org_bukkit_event_HandlerList;
-attackedEntity: org_bukkit_entity_Entity;
 handlers: org_bukkit_event_HandlerList;
 attackedEntity: org_bukkit_entity_Entity;
 static handlerList: org_bukkit_event_HandlerList;
@@ -5746,13 +5514,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when the player changes his client settings */
 
   export class PlayerClientOptionsChangeEvent extends org_bukkit_event_player_PlayerEvent {
-static handlers: org_bukkit_event_HandlerList;
-locale: string;
-viewDistance: number;
-chatVisibility: com_destroystokyo_paper_ClientOption_ChatVisibility;
-chatColors: boolean;
-skinparts: com_destroystokyo_paper_SkinParts;
-mainHand: org_bukkit_inventory_MainHand;
 handlers: org_bukkit_event_HandlerList;
 locale: string;
 viewDistance: number;
@@ -5765,11 +5526,11 @@ class: java_lang_Class<java_lang_Object>;
 getHandlers(): org_bukkit_event_HandlerList;
 getLocale(): string;
 hasViewDistanceChanged(): boolean;
-hasLocaleChanged(): boolean;
-hasChatVisibilityChanged(): boolean;
-hasChatColorsEnabledChanged(): boolean;
 hasSkinPartsChanged(): boolean;
+hasChatColorsEnabledChanged(): boolean;
 hasMainHandChanged(): boolean;
+hasChatVisibilityChanged(): boolean;
+hasLocaleChanged(): boolean;
 getViewDistance(): number;
 static getHandlerList(): org_bukkit_event_HandlerList;
 hasChatColorsEnabled(): boolean;
@@ -5854,10 +5615,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
   */
 
   export class PlayerConnectionCloseEvent extends org_bukkit_event_Event {
-static HANDLERS: org_bukkit_event_HandlerList;
-playerUniqueId: java_util_UUID;
-playerName: string;
-ipAddress: java_net_InetAddress;
 handlers: org_bukkit_event_HandlerList;
 playerUniqueId: java_util_UUID;
 static handlerList: org_bukkit_event_HandlerList;
@@ -5895,11 +5652,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired when a player boosts elytra flight with a firework */
 
   export class PlayerElytraBoostEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-itemStack: org_bukkit_inventory_ItemStack;
-firework: org_bukkit_entity_Firework;
-consume: boolean;
 handlers: org_bukkit_event_HandlerList;
 firework: org_bukkit_entity_Firework;
 itemStack: org_bukkit_inventory_ItemStack;
@@ -5910,10 +5662,10 @@ getHandlers(): org_bukkit_event_HandlerList;
 /** Description copied from interface: CancellableGets the cancellation state of this event. A cancelled event will not
  be executed in the server, but will still pass to other plugins */
 isCancelled(): boolean;
-/** Get the firework entity that was spawned */
-getFirework(): org_bukkit_entity_Firework;
 /** Set whether to consume the firework or not */
 setShouldConsume(consume: boolean): void;
+/** Get the firework entity that was spawned */
+getFirework(): org_bukkit_entity_Firework;
 /** Get the firework itemstack used */
 getItemStack(): org_bukkit_inventory_ItemStack;
 /** Description copied from interface: CancellableSets the cancellation state of this event. A cancelled event will not
@@ -5971,21 +5723,12 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  WARNING: TAMPERING WITH THIS EVENT CAN BE DANGEROUS */
 
   export class PlayerHandshakeEvent extends org_bukkit_event_Event implements org_bukkit_event_Cancellable {
-static HANDLERS: org_bukkit_event_HandlerList;
-originalHandshake: string;
-cancelled: boolean;
-serverHostname: string;
-socketAddressHostname: string;
-uniqueId: java_util_UUID;
-propertiesJson: string;
-failed: boolean;
-failMessage: string;
 handlers: org_bukkit_event_HandlerList;
-originalHandshake: string;
-serverHostname: string | null;
-socketAddressHostname: string | null;
 propertiesJson: string | null;
+socketAddressHostname: string | null;
+serverHostname: string | null;
 failMessage: string;
+originalHandshake: string;
 uniqueId: java_util_UUID | null;
 static handlerList: org_bukkit_event_HandlerList;
 class: java_lang_Class<java_lang_Object>;
@@ -5995,48 +5738,48 @@ getHandlers(): org_bukkit_event_HandlerList;
  When this event is cancelled, custom handshake logic will not
  be processed. */
 isCancelled(): boolean;
-/** Gets the original handshake string. */
-getOriginalHandshake(): string;
-/** Gets the server hostname string.
-
- This should not include the port. */
-getServerHostname(): string | null;
-/** Sets the server hostname string.
-
- This should not include the port. */
-setServerHostname(serverHostname: string): void;
-/** Gets the socket address hostname string.
-
- This should not include the port. */
-getSocketAddressHostname(): string | null;
 /** Sets the socket address hostname string.
 
  This should not include the port. */
 setSocketAddressHostname(socketAddressHostname: string): void;
-/** Sets the unique id. */
-setUniqueId(uniqueId: java_util_UUID): void;
 /** Gets the profile properties.
 
  This should be a valid JSON string. */
 getPropertiesJson(): string | null;
+/** Sets the unique id. */
+setUniqueId(uniqueId: java_util_UUID): void;
 /** Determines if authentication failed.
 
  When true, the client connecting will be disconnected
  with the fail message. */
 isFailed(): boolean;
-/** Sets if authentication failed and the client should be disconnected.
+/** Gets the socket address hostname string.
 
- When true, the client connecting will be disconnected
- with the fail message. */
-setFailed(failed: boolean): void;
+ This should not include the port. */
+getSocketAddressHostname(): string | null;
+/** Gets the server hostname string.
+
+ This should not include the port. */
+getServerHostname(): string | null;
+/** Sets the message to display to the client when authentication fails. */
+setFailMessage(failMessage: string): void;
 /** Sets the profile properties.
 
  This should be a valid JSON string. */
 setPropertiesJson(propertiesJson: string): void;
 /** Gets the message to display to the client when authentication fails. */
 getFailMessage(): string;
-/** Sets the message to display to the client when authentication fails. */
-setFailMessage(failMessage: string): void;
+/** Sets if authentication failed and the client should be disconnected.
+
+ When true, the client connecting will be disconnected
+ with the fail message. */
+setFailed(failed: boolean): void;
+/** Sets the server hostname string.
+
+ This should not include the port. */
+setServerHostname(serverHostname: string): void;
+/** Gets the original handshake string. */
+getOriginalHandshake(): string;
 /** Gets the unique id. */
 getUniqueId(): java_util_UUID | null;
 /** Sets if this event is cancelled.
@@ -6122,10 +5865,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
  the server detects that the player is jumping. */
 
   export class PlayerJumpEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancel: boolean;
-from: org_bukkit_Location;
-to: org_bukkit_Location;
 handlers: org_bukkit_event_HandlerList;
 from: org_bukkit_Location;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6203,11 +5942,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when a player shoots a projectile */
 
   export class PlayerLaunchProjectileEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-projectile: org_bukkit_entity_Projectile;
-itemStack: org_bukkit_inventory_ItemStack;
-consumeItem: boolean;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 itemStack: org_bukkit_inventory_ItemStack;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6275,20 +6009,17 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when the locale of the player is changed. */
 
   export class PlayerLocaleChangeEvent extends org_bukkit_event_player_PlayerEvent {
-static handlers: org_bukkit_event_HandlerList;
-oldLocale: string;
-newLocale: string;
 handlers: org_bukkit_event_HandlerList;
-oldLocale: string;
 newLocale: string;
+oldLocale: string;
 static handlerList: org_bukkit_event_HandlerList;
 eventName: string;
 class: java_lang_Class<java_lang_Object>;
 getHandlers(): org_bukkit_event_HandlerList;
-/** Gets the locale the player switched from. */
-getOldLocale(): string;
 /** Gets the locale the player is changed to. */
 getNewLocale(): string;
+/** Gets the locale the player switched from. */
+getOldLocale(): string;
 static getHandlerList(): org_bukkit_event_HandlerList;
 /** Calls the event and tests if cancelled. */
 callEvent(): boolean;
@@ -6335,9 +6066,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired when the server is calculating what chunks to try to spawn monsters in every Monster Spawn Tick event */
 
   export class PlayerNaturallySpawnCreaturesEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-radius: number;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 spawnRadius: number;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6398,9 +6126,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired when a player is attempting to pick up an experience orb */
 
   export class PlayerPickupExperienceEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-experienceOrb: org_bukkit_entity_ExperienceOrb;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 experienceOrb: org_bukkit_entity_ExperienceOrb;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6460,9 +6185,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Fired after a player has respawned */
 
   export class PlayerPostRespawnEvent extends org_bukkit_event_player_PlayerEvent {
-static handlers: org_bukkit_event_HandlerList;
-respawnedLocation: org_bukkit_Location;
-isBedSpawn: boolean;
 handlers: org_bukkit_event_HandlerList;
 respawnedLocation: org_bukkit_Location;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6584,10 +6306,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when a player is firing a bow and the server is choosing an arrow to use. */
 
   export class PlayerReadyArrowEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-bow: org_bukkit_inventory_ItemStack;
-arrow: org_bukkit_inventory_ItemStack;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 bow: org_bukkit_inventory_ItemStack;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6647,10 +6365,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Triggered when a player starts spectating an entity in spectator mode. */
 
   export class PlayerStartSpectatingEntityEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-currentSpectatorTarget: org_bukkit_entity_Entity;
-newSpectatorTarget: org_bukkit_entity_Entity;
 handlers: org_bukkit_event_HandlerList;
 currentSpectatorTarget: org_bukkit_entity_Entity;
 newSpectatorTarget: org_bukkit_entity_Entity;
@@ -6714,9 +6428,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Triggered when a player stops spectating an entity in spectator mode. */
 
   export class PlayerStopSpectatingEntityEvent extends org_bukkit_event_player_PlayerEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-spectatorTarget: org_bukkit_entity_Entity;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 spectatorTarget: org_bukkit_entity_Entity;
@@ -6778,7 +6489,6 @@ import { PlayerTeleportEvent as org_bukkit_event_player_PlayerTeleportEvent } fr
 /** Fired when a teleport is triggered for an End Gateway */
 
   export class PlayerTeleportEndGatewayEvent extends org_bukkit_event_player_PlayerTeleportEvent {
-gateway: org_bukkit_block_EndGateway;
 gateway: org_bukkit_block_EndGateway;
 from: org_bukkit_Location;
 to: org_bukkit_Location;
@@ -6856,10 +6566,6 @@ import { Player as org_bukkit_entity_Player } from 'org.bukkit.entity';
 import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.event.player';
 
   export class PlayerUseUnknownEntityEvent extends org_bukkit_event_player_PlayerEvent {
-static handlers: org_bukkit_event_HandlerList;
-entityId: number;
-attack: boolean;
-hand: org_bukkit_inventory_EquipmentSlot;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 entityId: number;
@@ -6923,12 +6629,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  Also, Plugins that replace Entity Registrations with their own custom entities might not fire this event. */
 
   export class PreCreatureSpawnEvent extends org_bukkit_event_Event implements org_bukkit_event_Cancellable {
-location: org_bukkit_Location;
-type: org_bukkit_entity_EntityType;
-reason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
-shouldAbortSpawn: boolean;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 type: org_bukkit_entity_EntityType;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -6973,8 +6673,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  Allows plugins to pre populate cached properties and avoid a call to the Mojang API */
 
   export class PreFillProfileEvent extends org_bukkit_event_Event {
-profile: com_destroystokyo_paper_profile_PlayerProfile;
-static handlers: org_bukkit_event_HandlerList;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 playerProfile: com_destroystokyo_paper_profile_PlayerProfile;
@@ -7014,10 +6712,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  event.isAsync() */
 
   export class PreLookupProfileEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-name: string;
-uuid: java_util_UUID;
-properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>;
 name: string;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -7026,12 +6720,12 @@ profileProperties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty
 class: java_lang_Class<java_lang_Object>;
 getName(): string;
 getHandlers(): org_bukkit_event_HandlerList;
-/** Clears any existing prepopulated properties and uses the supplied properties
- Any property in this Set will be automatically prefilled on this Profile */
-setProfileProperties(properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>): void;
 /** Adds any properties currently missing to the prepopulated properties set, replacing any that already were set.
  Any property in this Set will be automatically prefilled on this Profile */
 addProfileProperties(properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>): void;
+/** Clears any existing prepopulated properties and uses the supplied properties
+ Any property in this Set will be automatically prefilled on this Profile */
+setProfileProperties(properties: java_util_Set<com_destroystokyo_paper_profile_ProfileProperty>): void;
 static getHandlerList(): org_bukkit_event_HandlerList;
 /** Sets the UUID for this player name. This will skip the initial API call to find the players UUID.
 
@@ -7063,8 +6757,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { InventoryEvent as org_bukkit_event_inventory_InventoryEvent } from 'org.bukkit.event.inventory';
 
   export class PrepareResultEvent extends org_bukkit_event_inventory_InventoryEvent {
-static handlers: org_bukkit_event_HandlerList;
-result: org_bukkit_inventory_ItemStack;
 handlers: org_bukkit_event_HandlerList;
 result: org_bukkit_inventory_ItemStack;
 static handlerList: org_bukkit_event_HandlerList;
@@ -7123,7 +6815,6 @@ import { PreCreatureSpawnEvent as com_destroystokyo_paper_event_entity_PreCreatu
 
   export class PreSpawnerSpawnEvent extends com_destroystokyo_paper_event_entity_PreCreatureSpawnEvent {
 spawnerLocation: org_bukkit_Location;
-spawnerLocation: org_bukkit_Location;
 eventName: string;
 class: java_lang_Class<java_lang_Object>;
 getSpawnerLocation(): org_bukkit_Location;
@@ -7171,9 +6862,6 @@ import { Object as java_lang_Object } from 'java.lang';
   export class ProfileProperty extends java_lang_Object {
 name: string;
 value: string;
-signature: string;
-name: string;
-value: string;
 signature: string | null;
 getName(): string;
 equals(o: java_lang_Object): boolean;
@@ -7197,12 +6885,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  and dynamically change the kick message. */
 
   export class ProfileWhitelistVerifyEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-profile: com_destroystokyo_paper_profile_PlayerProfile;
-whitelistEnabled: boolean;
-whitelisted: boolean;
-isOp: boolean;
-kickMessage: string;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 playerProfile: com_destroystokyo_paper_profile_PlayerProfile;
@@ -7242,9 +6924,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  This event is called before EntityDamageByEntityEvent, and cancelling it will allow the projectile to continue flying */
 
   export class ProjectileCollideEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-collidedWith: org_bukkit_entity_Entity;
-static handlerList: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 collidedWith: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Projectile;
@@ -7310,7 +6989,7 @@ import { MemoryKey as org_bukkit_entity_memory_MemoryKey } from 'org.bukkit.enti
 import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class } from 'java.lang';
 import { EntityEquipment as org_bukkit_inventory_EntityEquipment, ItemStack as org_bukkit_inventory_ItemStack } from 'org.bukkit.inventory';
 import { RayTraceResult as org_bukkit_util_RayTraceResult, BoundingBox as org_bukkit_util_BoundingBox, Vector as org_bukkit_util_Vector } from 'org.bukkit.util';
-import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Location as org_bukkit_Location, Material as org_bukkit_Material, Server as org_bukkit_Server, World as org_bukkit_World, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
+import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Location as org_bukkit_Location, Material as org_bukkit_Material, World as org_bukkit_World, Server as org_bukkit_Server, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
 import { Set as java_util_Set, List as java_util_List, Collection as java_util_Collection, UUID as java_util_UUID } from 'java.util';
 import { Block as org_bukkit_block_Block, BlockFace as org_bukkit_block_BlockFace, PistonMoveReaction as org_bukkit_block_PistonMoveReaction } from 'org.bukkit.block';
 import { FluidMode as com_destroystokyo_paper_block_TargetBlockInfo_FluidMode } from 'com.destroystokyo.paper.block.TargetBlockInfo';
@@ -7320,8 +6999,8 @@ import { Attribute as org_bukkit_attribute_Attribute, AttributeInstance as org_b
 import { Spigot as org_bukkit_command_CommandSender_Spigot } from 'org.bukkit.command.CommandSender';
 import { Spigot as org_bukkit_entity_Entity_Spigot } from 'org.bukkit.entity.Entity';
 import { TeleportCause as org_bukkit_event_player_PlayerTeleportEvent_TeleportCause } from 'org.bukkit.event.player.PlayerTeleportEvent';
-import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { EntityDamageEvent as org_bukkit_event_entity_EntityDamageEvent } from 'org.bukkit.event.entity';
+import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { SpawnReason as org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason } from 'org.bukkit.event.entity.CreatureSpawnEvent';
 import { MetadataValue as org_bukkit_metadata_MetadataValue } from 'org.bukkit.metadata';
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
@@ -7380,8 +7059,8 @@ type: org_bukkit_entity_EntityType;
 origin: org_bukkit_Location | null;
 width: number;
 height: number;
-server: org_bukkit_Server;
 world: org_bukkit_World;
+server: org_bukkit_Server;
 boundingBox: org_bukkit_util_BoundingBox;
 uniqueId: java_util_UUID;
 chunk: org_bukkit_Chunk;
@@ -7394,13 +7073,13 @@ vehicle: org_bukkit_entity_Entity | null;
 passengers: java_util_List<org_bukkit_entity_Entity>;
 facing: org_bukkit_block_BlockFace;
 velocity: org_bukkit_util_Vector;
-nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
 entityId: number;
 passenger: org_bukkit_entity_Entity | null;
 fallDistance: number;
 lastDamageCause: org_bukkit_event_entity_EntityDamageEvent | null;
 ticksLived: number;
 portalCooldown: number;
+nearbyEntities: java_util_List<org_bukkit_entity_Entity>;
 entitySpawnReason: org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
 metadata: java_util_List<org_bukkit_metadata_MetadataValue>;
 name: string;
@@ -7730,10 +7409,10 @@ getOrigin(): org_bukkit_Location | null;
 getWidth(): number;
 /** Gets the entity's height */
 getHeight(): number;
-/** Gets the Server that contains this Entity */
-getServer(): org_bukkit_Server;
 /** Gets the current world this entity resides in */
 getWorld(): org_bukkit_World;
+/** Gets the Server that contains this Entity */
+getServer(): org_bukkit_Server;
 spigot(): org_bukkit_command_CommandSender_Spigot;
 spigot(): org_bukkit_entity_Entity_Spigot;
 /** Gets the entity's current bounding box.
@@ -7823,14 +7502,17 @@ setInvulnerable(flag: boolean): void;
 getFacing(): org_bukkit_block_BlockFace;
 /** Gets whether the entity is silent or not. */
 isSilent(): boolean;
-/** Gets this entity's current velocity */
-getVelocity(): org_bukkit_util_Vector;
-/** Sets this entity's velocity */
-setVelocity(velocity: org_bukkit_util_Vector): void;
 /** Returns true if the entity is supported by a block. This value is a
  state updated by the server and is not recalculated unless the entity
  moves. */
 isOnGround(): boolean;
+/** Gets this entity's current velocity */
+getVelocity(): org_bukkit_util_Vector;
+/** Sets this entity's velocity */
+setVelocity(velocity: org_bukkit_util_Vector): void;
+/** Teleports this entity to the given location. If this entity is riding a
+ vehicle, it will be dismounted prior to teleportation. */
+teleport(location: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): boolean;
 /** Teleports this entity to the given location. If this entity is riding a
  vehicle, it will be dismounted prior to teleportation. */
 teleport(location: org_bukkit_Location): boolean;
@@ -7840,20 +7522,6 @@ teleport(destination: org_bukkit_entity_Entity): boolean;
 /** Teleports this entity to the target Entity. If this entity is riding a
  vehicle, it will be dismounted prior to teleportation. */
 teleport(destination: org_bukkit_entity_Entity, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): boolean;
-/** Teleports this entity to the given location. If this entity is riding a
- vehicle, it will be dismounted prior to teleportation. */
-teleport(location: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): boolean;
-/** Returns a list of entities within a bounding box centered around this
- entity */
-getNearbyEntities(x: number, y: number, z: number): java_util_List<org_bukkit_entity_Entity>;
-/** Sets the entity's rotation.
- 
- Note that if the entity is affected by AI, it may override this rotation. */
-setRotation(yaw: number, pitch: number): void;
-/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
-teleportAsync(loc: org_bukkit_Location): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
-/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
-teleportAsync(loc: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
 /** Returns a unique id for this entity */
 getEntityId(): number;
 /** Returns true if this entity has been marked for removal. */
@@ -7928,6 +7596,17 @@ setGravity(gravity: boolean): void;
 getPortalCooldown(): number;
 /** Sets the period of time (in ticks) before this entity can use a portal. */
 setPortalCooldown(cooldown: number): void;
+/** Returns a list of entities within a bounding box centered around this
+ entity */
+getNearbyEntities(x: number, y: number, z: number): java_util_List<org_bukkit_entity_Entity>;
+/** Sets the entity's rotation.
+ 
+ Note that if the entity is affected by AI, it may override this rotation. */
+setRotation(yaw: number, pitch: number): void;
+/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
+teleportAsync(loc: org_bukkit_Location, cause: org_bukkit_event_player_PlayerTeleportEvent_TeleportCause): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
+/** Loads/Generates(in 1.13+) the Chunk asynchronously, and then teleports the entity when the chunk is ready. */
+teleportAsync(loc: org_bukkit_Location): java_util_concurrent_CompletableFuture<java_lang_Boolean>;
 /** Returns whether this entity was spawned from a mob spawner. */
 fromMobSpawner(): boolean;
 getEntitySpawnReason(): org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason;
@@ -8059,8 +7738,6 @@ import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.l
 /** A reputation score for a player on a villager. */
 
   export class Reputation extends java_lang_Object {
-static REPUTATION_TYPES: com_destroystokyo_paper_entity_villager_ReputationType[];
-reputation: number[];
 reputation: number;
 /** Sets the reputation value for a specific ReputationType. */
 setReputation(type: com_destroystokyo_paper_entity_villager_ReputationType, value: number): void;
@@ -8085,7 +7762,6 @@ static MINOR_NEGATIVE: com_destroystokyo_paper_entity_villager_ReputationType;
 static MINOR_POSITIVE: com_destroystokyo_paper_entity_villager_ReputationType;
 static MAJOR_POSITIVE: com_destroystokyo_paper_entity_villager_ReputationType;
 static TRADING: com_destroystokyo_paper_entity_villager_ReputationType;
-static $VALUES: com_destroystokyo_paper_entity_villager_ReputationType[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -8112,41 +7788,14 @@ notifyAll(): void;
 
 declare module 'com.destroystokyo.paper.event.executor.asm' {
 import { ClassLoader as java_lang_ClassLoader, Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
-import { SafeClassDefiner as com_destroystokyo_paper_event_executor_asm_SafeClassDefiner, ClassDefiner as com_destroystokyo_paper_event_executor_asm_ClassDefiner } from 'com.destroystokyo.paper.event.executor.asm';
-import { ConcurrentMap as java_util_concurrent_ConcurrentMap } from 'java.util.concurrent';
-import { GeneratedClassLoader as com_destroystokyo_paper_event_executor_asm_SafeClassDefiner_GeneratedClassLoader } from 'com.destroystokyo.paper.event.executor.asm.SafeClassDefiner';
+import { ClassDefiner as com_destroystokyo_paper_event_executor_asm_ClassDefiner } from 'com.destroystokyo.paper.event.executor.asm';
 
   export class SafeClassDefiner extends java_lang_Object implements com_destroystokyo_paper_event_executor_asm_ClassDefiner {
-static INSTANCE: com_destroystokyo_paper_event_executor_asm_SafeClassDefiner;
-loaders: java_util_concurrent_ConcurrentMap<java_lang_ClassLoader, com_destroystokyo_paper_event_executor_asm_SafeClassDefiner_GeneratedClassLoader>;
-static $assertionsDisabled: boolean;
+
 /** Description copied from interface: ClassDefinerDefine a class */
 defineClass(parentLoader: java_lang_ClassLoader, name: string, data: number[]): java_lang_Class<java_lang_Object>;
 /** Returns if the defined classes can bypass access checks */
 isBypassAccessChecks(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'com.destroystokyo.paper.event.executor.asm.SafeClassDefiner' {
-import { Object as java_lang_Object, Class as java_lang_Class, ClassLoader as java_lang_ClassLoader } from 'java.lang';
-
-  export class GeneratedClassLoader extends java_lang_ClassLoader {
-static $assertionsDisabled: boolean;
-classLoadingLock: java_lang_Object;
-class: java_lang_Class<java_lang_Object>;
-getClassLoadingLock(arg0: string): java_lang_Object;
-hasClass(arg0: string): boolean;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-wait(): void;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
 
   }
 }
@@ -8160,9 +7809,6 @@ import { ServerException as com_destroystokyo_paper_exception_ServerException } 
 /** Thrown when a command throws an exception */
 
   export class ServerCommandException extends com_destroystokyo_paper_exception_ServerException {
-command: org_bukkit_command_Command;
-commandSender: org_bukkit_command_CommandSender;
-arguments: string[];
 commandSender: org_bukkit_command_CommandSender;
 arguments: string[];
 command: org_bukkit_command_Command;
@@ -8254,8 +7900,6 @@ import { ServerPluginException as com_destroystokyo_paper_exception_ServerPlugin
 /** Exception thrown when a server event listener throws an exception */
 
   export class ServerEventException extends com_destroystokyo_paper_exception_ServerPluginException {
-listener: org_bukkit_event_Listener;
-event: org_bukkit_event_Event;
 event: org_bukkit_event_Event;
 listener: org_bukkit_event_Listener;
 cause: java_lang_Throwable;
@@ -8303,7 +7947,6 @@ import { ServerException as com_destroystokyo_paper_exception_ServerException } 
 /** Wrapper exception for all cases to which a plugin can be immediately blamed for */
 
   export class ServerPluginException extends com_destroystokyo_paper_exception_ServerException {
-responsiblePlugin: org_bukkit_plugin_Plugin;
 responsiblePlugin: org_bukkit_plugin_Plugin;
 cause: java_lang_Throwable;
 message: string;
@@ -8387,8 +8030,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 /** Called whenever an exception is thrown in a recoverable section of the server. */
 
   export class ServerExceptionEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-exception: com_destroystokyo_paper_exception_ServerException;
 exception: com_destroystokyo_paper_exception_ServerException;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
@@ -8503,7 +8144,6 @@ import { ServerException as com_destroystokyo_paper_exception_ServerException } 
 
   export class ServerPluginException extends com_destroystokyo_paper_exception_ServerException {
 responsiblePlugin: org_bukkit_plugin_Plugin;
-responsiblePlugin: org_bukkit_plugin_Plugin;
 cause: java_lang_Throwable;
 message: string;
 suppressed: java_lang_Throwable[];
@@ -8548,9 +8188,6 @@ import { ServerPluginException as com_destroystokyo_paper_exception_ServerPlugin
 /** Thrown when an incoming plugin message channel throws an exception */
 
   export class ServerPluginMessageException extends com_destroystokyo_paper_exception_ServerPluginException {
-player: org_bukkit_entity_Player;
-channel: string;
-data: number[];
 channel: string;
 data: number[];
 player: org_bukkit_entity_Player;
@@ -8601,7 +8238,6 @@ import { ServerPluginException as com_destroystokyo_paper_exception_ServerPlugin
 /** Thrown when a plugin's scheduler fails with an exception */
 
   export class ServerSchedulerException extends com_destroystokyo_paper_exception_ServerPluginException {
-task: org_bukkit_scheduler_BukkitTask;
 task: org_bukkit_scheduler_BukkitTask;
 cause: java_lang_Throwable;
 message: string;
@@ -8685,10 +8321,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 /** Called when the server has finished ticking the main loop */
 
   export class ServerTickEndEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-tickNumber: number;
-tickDuration: number;
-timeEnd: number;
 handlers: org_bukkit_event_HandlerList;
 tickNumber: number;
 tickDuration: number;
@@ -8724,8 +8356,6 @@ import { HandlerList as org_bukkit_event_HandlerList, Event as org_bukkit_event_
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 
   export class ServerTickStartEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-tickNumber: number;
 handlers: org_bukkit_event_HandlerList;
 tickNumber: number;
 static handlerList: org_bukkit_event_HandlerList;
@@ -8755,8 +8385,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Event called when a player gets close to a skeleton horse and triggers the lightning trap */
 
   export class SkeletonHorseTrapEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_SkeletonHorse;
@@ -8817,12 +8445,12 @@ declare module 'com.destroystokyo.paper' {
 
   export class SkinParts {
 raw: number;
-hasLeftSleeveEnabled(): boolean;
-hasCapeEnabled(): boolean;
-hasJacketEnabled(): boolean;
-hasRightSleeveEnabled(): boolean;
 hasLeftPantsEnabled(): boolean;
+hasCapeEnabled(): boolean;
 hasRightPantsEnabled(): boolean;
+hasRightSleeveEnabled(): boolean;
+hasLeftSleeveEnabled(): boolean;
+hasJacketEnabled(): boolean;
 hasHatsEnabled(): boolean;
 getRaw(): number;
 
@@ -8841,7 +8469,6 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
  is choosing to change direction. */
 
   export class SlimeChangeDirectionEvent extends com_destroystokyo_paper_event_entity_SlimePathfindEvent implements org_bukkit_event_Cancellable {
-yaw: number;
 newYaw: number;
 entityType: org_bukkit_entity_EntityType;
 eventName: string;
@@ -8900,8 +8527,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  is choosing to start moving. */
 
   export class SlimePathfindEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Slime;
@@ -8968,8 +8593,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
  is choosing to start moving. */
 
   export class SlimePathfindEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Slime;
@@ -9159,7 +8782,6 @@ import { Cancellable as org_bukkit_event_Cancellable } from 'org.bukkit.event';
 
   export class SlimeTargetLivingEntityEvent extends com_destroystokyo_paper_event_entity_SlimePathfindEvent implements org_bukkit_event_Cancellable {
 target: org_bukkit_entity_LivingEntity;
-target: org_bukkit_entity_LivingEntity;
 entityType: org_bukkit_entity_EntityType;
 eventName: string;
 class: java_lang_Class<java_lang_Object>;
@@ -9272,12 +8894,10 @@ declare module 'com.destroystokyo.paper.event.executor' {
 import { Listener as org_bukkit_event_Listener, Event as org_bukkit_event_Event } from 'org.bukkit.event';
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
 import { Method as java_lang_reflect_Method } from 'java.lang.reflect';
-import { MethodHandle as java_lang_invoke_MethodHandle } from 'java.lang.invoke';
 import { EventExecutor as org_bukkit_plugin_EventExecutor } from 'org.bukkit.plugin';
 
   export class StaticMethodHandleEventExecutor extends java_lang_Object implements org_bukkit_plugin_EventExecutor {
-eventClass: java_lang_Class<org_bukkit_event_Event>;
-handle: java_lang_invoke_MethodHandle;
+
 execute(listener: org_bukkit_event_Listener, event: org_bukkit_event_Event): void;
 constructor(eventClass: java_lang_Class<org_bukkit_event_Event>, m: java_lang_reflect_Method);
   }
@@ -9319,8 +8939,6 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted block */
 
   export class TargetBlockInfo extends java_lang_Object {
-block: org_bukkit_block_Block;
-blockFace: org_bukkit_block_BlockFace;
 relativeBlock: org_bukkit_block_Block;
 block: org_bukkit_block_Block;
 blockFace: org_bukkit_block_BlockFace;
@@ -9343,7 +8961,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 static NEVER: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode;
 static SOURCE_ONLY: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode;
 static ALWAYS: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode;
-static $VALUES: com_destroystokyo_paper_block_TargetBlockInfo_FluidMode[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -9375,8 +8992,6 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Represents information about a targeted entity */
 
   export class TargetEntityInfo extends java_lang_Object {
-entity: org_bukkit_entity_Entity;
-hitVec: org_bukkit_util_Vector;
 hitVector: org_bukkit_util_Vector;
 entity: org_bukkit_entity_Entity;
 /** Get the position the entity is targeted at */
@@ -9397,11 +9012,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
  This event fires for all thrown eggs that may hatch, players, dispensers, etc. */
 
   export class ThrownEggHatchEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-egg: org_bukkit_entity_Egg;
-hatching: boolean;
-hatchType: org_bukkit_entity_EntityType;
-numHatches: number;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 numHatches: number;
@@ -9460,11 +9070,6 @@ import { Object as java_lang_Object } from 'java.lang';
 static DEFAULT_FADE_IN: number;
 static DEFAULT_STAY: number;
 static DEFAULT_FADE_OUT: number;
-title: net_md_5_bungee_api_chat_BaseComponent[];
-subtitle: net_md_5_bungee_api_chat_BaseComponent[];
-fadeIn: number;
-stay: number;
-fadeOut: number;
 fadeIn: number;
 stay: number;
 fadeOut: number;
@@ -9531,11 +9136,7 @@ import { Object as java_lang_Object } from 'java.lang';
 /** A builder for creating titles */
 
   export class Builder extends java_lang_Object {
-title: net_md_5_bungee_api_chat_BaseComponent[];
-subtitle: net_md_5_bungee_api_chat_BaseComponent[];
-fadeIn: number;
-stay: number;
-fadeOut: number;
+
 /** Create a title based on the values in the builder. */
 build(): com_destroystokyo_paper_Title;
 /** Sets the title to the given text. */
@@ -9578,10 +9179,6 @@ import { BlockEvent as org_bukkit_event_block_BlockEvent } from 'org.bukkit.even
  the TNT block as-is */
 
   export class TNTPrimeEvent extends org_bukkit_event_block_BlockEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-reason: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
-primerEntity: org_bukkit_entity_Entity;
 handlers: org_bukkit_event_HandlerList | null;
 primerEntity: org_bukkit_entity_Entity | null;
 static handlerList: org_bukkit_event_HandlerList | null;
@@ -9649,7 +9246,6 @@ static FIRE: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
 static ITEM: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
 static PROJECTILE: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
 static REDSTONE: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
-static $VALUES: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -9684,7 +9280,6 @@ static FIRE: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
 static ITEM: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
 static PROJECTILE: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
 static REDSTONE: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason;
-static $VALUES: com_destroystokyo_paper_event_block_TNTPrimeEvent_PrimeReason[];
 class: java_lang_Class<java_lang_Object>;
 /** Returns an array containing the constants of this enum type, in
 the order they are declared. This method may be used to iterate
@@ -9717,8 +9312,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a Turtle decides to go home */
 
   export class TurtleGoHomeEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Turtle;
@@ -9783,10 +9376,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a Turtle lays eggs */
 
   export class TurtleLayEggEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-location: org_bukkit_Location;
-eggCount: number;
 location: org_bukkit_Location;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
@@ -9859,9 +9448,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a Turtle starts digging to lay eggs */
 
   export class TurtleStartDiggingEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-location: org_bukkit_Location;
 location: org_bukkit_Location;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Turtle;
@@ -9925,7 +9511,6 @@ import { Unsafe as sun_misc_Unsafe } from 'sun.misc';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class UnsafeUtils extends java_lang_Object {
-static UNSAFE: sun_misc_Unsafe;
 static unsafe: sun_misc_Unsafe | null;
 static getUnsafe(): sun_misc_Unsafe | null;
 static isUnsafeSupported(): boolean;
@@ -10200,8 +9785,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 /** This event is fired when whitelist is toggled */
 
   export class WhitelistToggleEvent extends org_bukkit_event_Event {
-static handlers: org_bukkit_event_HandlerList;
-enabled: boolean;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 class: java_lang_Class<java_lang_Object>;
@@ -10232,9 +9815,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a witch consumes the potion in their hand to buff themselves. */
 
   export class WitchConsumePotionEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-potion: org_bukkit_inventory_ItemStack;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Witch;
@@ -10302,9 +9882,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.event.entity';
 
   export class WitchReadyPotionEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-potion: org_bukkit_inventory_ItemStack;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Entity;
 entity: org_bukkit_entity_Witch;
@@ -10375,10 +9952,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Fired when a witch throws a potion at a player */
 
   export class WitchThrowPotionEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-target: org_bukkit_entity_LivingEntity;
-potion: org_bukkit_inventory_ItemStack;
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
 target: org_bukkit_entity_LivingEntity;
 handlers: org_bukkit_event_HandlerList;
 entity: org_bukkit_entity_Witch;

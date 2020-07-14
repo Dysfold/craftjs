@@ -4,12 +4,8 @@ declare module 'sun.misc' {
 import { Class as java_lang_Class, Object as java_lang_Object, Throwable as java_lang_Throwable } from 'java.lang';
 import { Field as java_lang_reflect_Field } from 'java.lang.reflect';
 import { ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
-import { Unsafe as sun_misc_Unsafe } from 'sun.misc';
-import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
 
   export class Unsafe extends java_lang_Object {
-static theUnsafe: sun_misc_Unsafe;
-static theInternalUnsafe: jdk_internal_misc_Unsafe;
 static INVALID_FIELD_OFFSET: number;
 static ARRAY_BOOLEAN_BASE_OFFSET: number;
 static ARRAY_BYTE_BASE_OFFSET: number;

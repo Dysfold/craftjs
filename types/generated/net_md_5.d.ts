@@ -8,18 +8,6 @@ import { FormatRetention as net_md_5_bungee_api_chat_ComponentBuilder_FormatRete
 import { ChatColor as net_md_5_bungee_api_ChatColor } from 'net.md_5.bungee.api';
 
   export class BaseComponent extends java_lang_Object {
-parent: net_md_5_bungee_api_chat_BaseComponent;
-color: net_md_5_bungee_api_ChatColor;
-font: string;
-bold: java_lang_Boolean;
-italic: java_lang_Boolean;
-underlined: java_lang_Boolean;
-strikethrough: java_lang_Boolean;
-obfuscated: java_lang_Boolean;
-insertion: string;
-extra: java_util_List<net_md_5_bungee_api_chat_BaseComponent>;
-clickEvent: net_md_5_bungee_api_chat_ClickEvent;
-hoverEvent: net_md_5_bungee_api_chat_HoverEvent;
 extra: java_util_List<net_md_5_bungee_api_chat_BaseComponent>;
 colorRaw: net_md_5_bungee_api_ChatColor;
 fontRaw: string;
@@ -87,7 +75,6 @@ static NONE: net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention;
 static FORMATTING: net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention;
 static EVENTS: net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention;
 static ALL: net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention;
-static $VALUES: net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention[];
 class: java_lang_Class<java_lang_Object>;
 static values(): net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention[];
 static valueOf(arg0: string): net_md_5_bungee_api_chat_ComponentBuilder_FormatRetention;
@@ -107,8 +94,6 @@ import { Object as java_lang_Object } from 'java.lang';
 import { Action as net_md_5_bungee_api_chat_ClickEvent_Action } from 'net.md_5.bungee.api.chat.ClickEvent';
 
   export class ClickEvent extends java_lang_Object {
-action: net_md_5_bungee_api_chat_ClickEvent_Action;
-value: string;
 value: string;
 action: net_md_5_bungee_api_chat_ClickEvent_Action;
 equals(arg0: java_lang_Object): boolean;
@@ -132,7 +117,6 @@ static RUN_COMMAND: net_md_5_bungee_api_chat_ClickEvent_Action;
 static SUGGEST_COMMAND: net_md_5_bungee_api_chat_ClickEvent_Action;
 static CHANGE_PAGE: net_md_5_bungee_api_chat_ClickEvent_Action;
 static COPY_TO_CLIPBOARD: net_md_5_bungee_api_chat_ClickEvent_Action;
-static $VALUES: net_md_5_bungee_api_chat_ClickEvent_Action[];
 class: java_lang_Class<java_lang_Object>;
 static values(): net_md_5_bungee_api_chat_ClickEvent_Action[];
 static valueOf(arg0: string): net_md_5_bungee_api_chat_ClickEvent_Action;
@@ -153,8 +137,6 @@ import { BaseComponent as net_md_5_bungee_api_chat_BaseComponent } from 'net.md_
 import { Action as net_md_5_bungee_api_chat_HoverEvent_Action } from 'net.md_5.bungee.api.chat.HoverEvent';
 
   export class HoverEvent extends java_lang_Object {
-action: net_md_5_bungee_api_chat_HoverEvent_Action;
-value: net_md_5_bungee_api_chat_BaseComponent[];
 value: net_md_5_bungee_api_chat_BaseComponent[];
 action: net_md_5_bungee_api_chat_HoverEvent_Action;
 equals(arg0: java_lang_Object): boolean;
@@ -176,7 +158,6 @@ static SHOW_TEXT: net_md_5_bungee_api_chat_HoverEvent_Action;
 static SHOW_ACHIEVEMENT: net_md_5_bungee_api_chat_HoverEvent_Action;
 static SHOW_ITEM: net_md_5_bungee_api_chat_HoverEvent_Action;
 static SHOW_ENTITY: net_md_5_bungee_api_chat_HoverEvent_Action;
-static $VALUES: net_md_5_bungee_api_chat_HoverEvent_Action[];
 class: java_lang_Class<java_lang_Object>;
 static values(): net_md_5_bungee_api_chat_HoverEvent_Action[];
 static valueOf(arg0: string): net_md_5_bungee_api_chat_HoverEvent_Action;
@@ -192,19 +173,16 @@ notifyAll(): void;
 //@ts-nocheck
 
 declare module 'net.md_5.bungee.api' {
-import { Object as java_lang_Object, Character as java_lang_Character } from 'java.lang';
+import { Object as java_lang_Object } from 'java.lang';
 import { ChatColor as net_md_5_bungee_api_ChatColor } from 'net.md_5.bungee.api';
 import { Color as java_awt_Color } from 'java.awt';
 import { Pattern as java_util_regex_Pattern } from 'java.util.regex';
-import { Map as java_util_Map } from 'java.util';
 /** All supported color values for chat */
 
   export class ChatColor extends java_lang_Object {
 static COLOR_CHAR: string;
 static ALL_CODES: string;
 static STRIP_COLOR_PATTERN: java_util_regex_Pattern;
-static BY_CHAR: java_util_Map<java_lang_Character, net_md_5_bungee_api_ChatColor>;
-static BY_NAME: java_util_Map<string, net_md_5_bungee_api_ChatColor>;
 static BLACK: net_md_5_bungee_api_ChatColor;
 static DARK_BLUE: net_md_5_bungee_api_ChatColor;
 static DARK_GREEN: net_md_5_bungee_api_ChatColor;
@@ -227,10 +205,6 @@ static STRIKETHROUGH: net_md_5_bungee_api_ChatColor;
 static UNDERLINE: net_md_5_bungee_api_ChatColor;
 static ITALIC: net_md_5_bungee_api_ChatColor;
 static RESET: net_md_5_bungee_api_ChatColor;
-static count: number;
-toString: string;
-name: string;
-ordinal: number;
 name: string;
 static byChar: net_md_5_bungee_api_ChatColor | null;
 getName(): string;
@@ -253,9 +227,9 @@ static valueOf(name: string): net_md_5_bungee_api_ChatColor;
 static of(arg0: java_awt_Color): net_md_5_bungee_api_ChatColor;
 static of(arg0: string): net_md_5_bungee_api_ChatColor;
 ordinal(): number;
+static stripColor(arg0: string): string;
 /** Gets the color represented by the specified color code */
 static getByChar(code: string): net_md_5_bungee_api_ChatColor | null;
-static stripColor(arg0: string): string;
 /** Translates a string using an alternate color code character into a
  string that uses the internal ChatColor.COLOR_CODE color code
  character. The alternate color code character will only be replaced if
@@ -274,7 +248,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 static CHAT: net_md_5_bungee_api_ChatMessageType;
 static SYSTEM: net_md_5_bungee_api_ChatMessageType;
 static ACTION_BAR: net_md_5_bungee_api_ChatMessageType;
-static $VALUES: net_md_5_bungee_api_ChatMessageType[];
 class: java_lang_Class<java_lang_Object>;
 static values(): net_md_5_bungee_api_ChatMessageType[];
 static valueOf(arg0: string): net_md_5_bungee_api_ChatMessageType;

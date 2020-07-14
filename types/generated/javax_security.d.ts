@@ -3,20 +3,11 @@
 declare module 'javax.security.auth' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { Set as java_util_Set } from 'java.util';
-import { Principal as java_security_Principal, AccessControlContext as java_security_AccessControlContext, PrivilegedAction as java_security_PrivilegedAction, PrivilegedExceptionAction as java_security_PrivilegedExceptionAction, ProtectionDomain as java_security_ProtectionDomain } from 'java.security';
+import { Principal as java_security_Principal, AccessControlContext as java_security_AccessControlContext, PrivilegedAction as java_security_PrivilegedAction, PrivilegedExceptionAction as java_security_PrivilegedExceptionAction } from 'java.security';
 import { Subject as javax_security_auth_Subject } from 'javax.security.auth';
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Subject extends java_lang_Object implements java_io_Serializable {
-static serialVersionUID: number;
-principals: java_util_Set<java_security_Principal>;
-pubCredentials: java_util_Set<java_lang_Object>;
-privCredentials: java_util_Set<java_lang_Object>;
-readOnly: boolean;
-static PRINCIPAL_SET: number;
-static PUB_CREDENTIAL_SET: number;
-static PRIV_CREDENTIAL_SET: number;
-static NULL_PD_ARRAY: java_security_ProtectionDomain[];
 principals: java_util_Set<T>;
 principals: java_util_Set<java_security_Principal>;
 static subject: javax_security_auth_Subject;

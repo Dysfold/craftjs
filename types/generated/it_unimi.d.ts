@@ -1,5 +1,160 @@
 //@ts-nocheck
 
+declare module 'it.unimi.dsi.fastutil.objects' {
+import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator, ObjectCollection as it_unimi_dsi_fastutil_objects_ObjectCollection } from 'it.unimi.dsi.fastutil.objects';
+import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
+import { Object as java_lang_Object } from 'java.lang';
+import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class ObjectSet<K extends java_lang_Object> implements it_unimi_dsi_fastutil_objects_ObjectCollection<K>, java_util_Set<K> {
+
+iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
+iterator(): java_util_Iterator;
+add(arg0: E): boolean;
+remove(arg0: java_lang_Object): boolean;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+clear(): void;
+isEmpty(): boolean;
+contains(arg0: java_lang_Object): boolean;
+size(): number;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray(): java_lang_Object[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+spliterator(): java_util_Spliterator<E>;
+addAll(arg0: java_util_Collection<E>): boolean;
+stream(): java_util_stream_Stream<E>;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+parallelStream(): java_util_stream_Stream<E>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'it.unimi.dsi.fastutil.objects' {
+import { Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Object as java_lang_Object } from 'java.lang';
+import { Iterator as java_util_Iterator } from 'java.util';
+
+  export class ObjectIterator<K extends java_lang_Object> implements java_util_Iterator<K> {
+
+skip(arg0: number): number;
+remove(): void;
+forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
+next(): E;
+hasNext(): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'it.unimi.dsi.fastutil.objects' {
+import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator, ObjectIterable as it_unimi_dsi_fastutil_objects_ObjectIterable } from 'it.unimi.dsi.fastutil.objects';
+import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection } from 'java.util';
+import { Object as java_lang_Object } from 'java.lang';
+import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Stream as java_util_stream_Stream } from 'java.util.stream';
+
+  export class ObjectCollection<K extends java_lang_Object> implements java_util_Collection<K>, it_unimi_dsi_fastutil_objects_ObjectIterable<K> {
+
+iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
+iterator(): java_util_Iterator;
+add(arg0: E): boolean;
+remove(arg0: java_lang_Object): boolean;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+clear(): void;
+isEmpty(): boolean;
+contains(arg0: java_lang_Object): boolean;
+size(): number;
+toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
+toArray(): java_lang_Object[];
+toArray<T extends java_lang_Object>(arg0: T[]): T[];
+spliterator(): java_util_Spliterator<E>;
+addAll(arg0: java_util_Collection<E>): boolean;
+stream(): java_util_stream_Stream<E>;
+containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
+removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
+parallelStream(): java_util_stream_Stream<E>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'it.unimi.dsi.fastutil.objects' {
+import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator } from 'it.unimi.dsi.fastutil.objects';
+import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
+import { Consumer as java_util_function_Consumer } from 'java.util.function';
+import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
+
+  export class ObjectIterable<K extends java_lang_Object> implements java_lang_Iterable<K> {
+
+iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
+iterator(): java_util_Iterator;
+spliterator(): java_util_Spliterator<T>;
+forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'it.unimi.dsi.fastutil.ints' {
+import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
+import { Function as java_util_function_Function, IntFunction as java_util_function_IntFunction } from 'java.util.function';
+import { Function as it_unimi_dsi_fastutil_Function } from 'it.unimi.dsi.fastutil';
+
+  export class Int2ObjectFunction<V extends java_lang_Object> implements it_unimi_dsi_fastutil_Function<java_lang_Integer, V>, java_util_function_IntFunction<V> {
+
+remove(arg0: java_lang_Object): V;
+remove(arg0: number): V;
+get(arg0: java_lang_Object): V;
+get(arg0: number): V;
+put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
+put(arg0: java_lang_Integer, arg1: V): V;
+put(arg0: number, arg1: V): V;
+apply(arg0: number): V;
+containsKey(arg0: java_lang_Object): boolean;
+containsKey(arg0: number): boolean;
+defaultReturnValue(arg0: V): void;
+defaultReturnValue(): V;
+clear(): void;
+size(): number;
+apply(arg0: K): V;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'it.unimi.dsi.fastutil' {
+import { Object as java_lang_Object } from 'java.lang';
+import { Function as java_util_function_Function } from 'java.util.function';
+
+  export class Function<K extends java_lang_Object, V extends java_lang_Object> implements java_util_function_Function<K, V> {
+
+remove(arg0: java_lang_Object): V;
+get(arg0: java_lang_Object): V;
+put(arg0: K, arg1: V): V;
+clear(): void;
+size(): number;
+apply(arg0: K): V;
+containsKey(arg0: java_lang_Object): boolean;
+compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
+andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
+
+  }
+}
+//@ts-nocheck
+
 declare module 'it.unimi.dsi.fastutil.ints' {
 import { Object as java_lang_Object, Integer as java_lang_Integer, Class as java_lang_Class, Cloneable as java_lang_Cloneable } from 'java.lang';
 import { ObjectCollection as it_unimi_dsi_fastutil_objects_ObjectCollection, ObjectSet as it_unimi_dsi_fastutil_objects_ObjectSet } from 'it.unimi.dsi.fastutil.objects';
@@ -12,20 +167,6 @@ import { Serializable as java_io_Serializable } from 'java.io';
 import { Hash as it_unimi_dsi_fastutil_Hash } from 'it.unimi.dsi.fastutil';
 
   export class Int2ObjectOpenHashMap<V extends java_lang_Object> extends it_unimi_dsi_fastutil_ints_AbstractInt2ObjectMap<V> implements java_io_Serializable, java_lang_Cloneable, it_unimi_dsi_fastutil_Hash {
-static serialVersionUID: number;
-static ASSERTS: boolean;
-key: number[];
-value: V[];
-mask: number;
-containsNullKey: boolean;
-n: number;
-maxFill: number;
-minN: number;
-size: number;
-f: number;
-entries: it_unimi_dsi_fastutil_ints_Int2ObjectMap_FastEntrySet<V>;
-keys: it_unimi_dsi_fastutil_ints_IntSet;
-values: it_unimi_dsi_fastutil_objects_ObjectCollection<V>;
 orDefault: V;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
@@ -105,76 +246,6 @@ constructor(arg0: number, arg1: number);
 constructor(arg0: number);
 constructor();
 constructor(arg0: java_util_Map<java_lang_Integer, V>, arg1: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'it.unimi.dsi.fastutil.objects' {
-import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator, ObjectIterable as it_unimi_dsi_fastutil_objects_ObjectIterable } from 'it.unimi.dsi.fastutil.objects';
-import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class ObjectCollection<K extends java_lang_Object> implements java_util_Collection<K>, it_unimi_dsi_fastutil_objects_ObjectIterable<K> {
-
-iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
-iterator(): java_util_Iterator;
-add(arg0: E): boolean;
-remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'it.unimi.dsi.fastutil.objects' {
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Object as java_lang_Object } from 'java.lang';
-import { Iterator as java_util_Iterator } from 'java.util';
-
-  export class ObjectIterator<K extends java_lang_Object> implements java_util_Iterator<K> {
-
-skip(arg0: number): number;
-remove(): void;
-forEachRemaining(arg0: java_util_function_Consumer<java_lang_Object>): void;
-next(): E;
-hasNext(): boolean;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'it.unimi.dsi.fastutil.objects' {
-import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator } from 'it.unimi.dsi.fastutil.objects';
-import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator } from 'java.util';
-import { Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Object as java_lang_Object, Iterable as java_lang_Iterable } from 'java.lang';
-
-  export class ObjectIterable<K extends java_lang_Object> implements java_lang_Iterable<K> {
-
-iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
-iterator(): java_util_Iterator;
-spliterator(): java_util_Spliterator<T>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
   }
 }
 //@ts-nocheck
@@ -317,42 +388,6 @@ spliterator(): java_util_Spliterator<T>;
 }
 //@ts-nocheck
 
-declare module 'it.unimi.dsi.fastutil.objects' {
-import { ObjectIterator as it_unimi_dsi_fastutil_objects_ObjectIterator, ObjectCollection as it_unimi_dsi_fastutil_objects_ObjectCollection } from 'it.unimi.dsi.fastutil.objects';
-import { Iterator as java_util_Iterator, Spliterator as java_util_Spliterator, Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-import { IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate, Consumer as java_util_function_Consumer } from 'java.util.function';
-import { Stream as java_util_stream_Stream } from 'java.util.stream';
-
-  export class ObjectSet<K extends java_lang_Object> implements it_unimi_dsi_fastutil_objects_ObjectCollection<K>, java_util_Set<K> {
-
-iterator(): it_unimi_dsi_fastutil_objects_ObjectIterator<K>;
-iterator(): java_util_Iterator;
-add(arg0: E): boolean;
-remove(arg0: java_lang_Object): boolean;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-clear(): void;
-isEmpty(): boolean;
-contains(arg0: java_lang_Object): boolean;
-size(): number;
-toArray<T extends java_lang_Object>(arg0: java_util_function_IntFunction<T[]>): T[];
-toArray(): java_lang_Object[];
-toArray<T extends java_lang_Object>(arg0: T[]): T[];
-spliterator(): java_util_Spliterator<E>;
-addAll(arg0: java_util_Collection<E>): boolean;
-stream(): java_util_stream_Stream<E>;
-containsAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-retainAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeAll(arg0: java_util_Collection<java_lang_Object>): boolean;
-removeIf(arg0: java_util_function_Predicate<java_lang_Object>): boolean;
-parallelStream(): java_util_stream_Stream<E>;
-forEach(arg0: java_util_function_Consumer<java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'it.unimi.dsi.fastutil.ints.Int2ObjectMap' {
 import { Consumer as java_util_function_Consumer, IntFunction as java_util_function_IntFunction, Predicate as java_util_function_Predicate } from 'java.util.function';
 import { Object as java_lang_Object } from 'java.lang';
@@ -408,55 +443,6 @@ equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
 getValue(): V;
 setValue(arg0: V): V;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'it.unimi.dsi.fastutil.ints' {
-import { Object as java_lang_Object, Integer as java_lang_Integer } from 'java.lang';
-import { Function as java_util_function_Function, IntFunction as java_util_function_IntFunction } from 'java.util.function';
-import { Function as it_unimi_dsi_fastutil_Function } from 'it.unimi.dsi.fastutil';
-
-  export class Int2ObjectFunction<V extends java_lang_Object> implements it_unimi_dsi_fastutil_Function<java_lang_Integer, V>, java_util_function_IntFunction<V> {
-
-remove(arg0: java_lang_Object): V;
-remove(arg0: number): V;
-get(arg0: java_lang_Object): V;
-get(arg0: number): V;
-put(arg0: java_lang_Object, arg1: java_lang_Object): java_lang_Object;
-put(arg0: java_lang_Integer, arg1: V): V;
-put(arg0: number, arg1: V): V;
-apply(arg0: number): V;
-containsKey(arg0: java_lang_Object): boolean;
-containsKey(arg0: number): boolean;
-defaultReturnValue(arg0: V): void;
-defaultReturnValue(): V;
-clear(): void;
-size(): number;
-apply(arg0: K): V;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'it.unimi.dsi.fastutil' {
-import { Object as java_lang_Object } from 'java.lang';
-import { Function as java_util_function_Function } from 'java.util.function';
-
-  export class Function<K extends java_lang_Object, V extends java_lang_Object> implements java_util_function_Function<K, V> {
-
-remove(arg0: java_lang_Object): V;
-get(arg0: java_lang_Object): V;
-put(arg0: K, arg1: V): V;
-clear(): void;
-size(): number;
-apply(arg0: K): V;
-containsKey(arg0: java_lang_Object): boolean;
-compose<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, T>): java_util_function_Function<V, R>;
-andThen<V extends java_lang_Object>(arg0: java_util_function_Function<java_lang_Object, V>): java_util_function_Function<T, V>;
 
   }
 }
@@ -547,7 +533,6 @@ import { Entry as it_unimi_dsi_fastutil_ints_Int2ObjectMap_Entry } from 'it.unim
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class AbstractInt2ObjectMap<V extends java_lang_Object> extends it_unimi_dsi_fastutil_ints_AbstractInt2ObjectFunction<V> implements it_unimi_dsi_fastutil_ints_Int2ObjectMap<V>, java_io_Serializable {
-static serialVersionUID: number;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
 orDefault: V;
@@ -625,8 +610,7 @@ import { Int2ObjectFunction as it_unimi_dsi_fastutil_ints_Int2ObjectFunction } f
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class AbstractInt2ObjectFunction<V extends java_lang_Object> extends java_lang_Object implements it_unimi_dsi_fastutil_ints_Int2ObjectFunction<V>, java_io_Serializable {
-static serialVersionUID: number;
-defRetValue: V;
+
 defaultReturnValue(arg0: V): void;
 defaultReturnValue(): V;
 remove(arg0: java_lang_Object): V;

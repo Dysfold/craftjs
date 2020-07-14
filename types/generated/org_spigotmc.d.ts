@@ -1,17 +1,13 @@
 //@ts-nocheck
 
 declare module 'org.spigotmc' {
-import { Timing as co_aikar_timings_Timing } from 'co.aikar.timings';
-import { Boolean as java_lang_Boolean, Object as java_lang_Object } from 'java.lang';
-import { Method as java_lang_reflect_Method } from 'java.lang.reflect';
+import { Object as java_lang_Object } from 'java.lang';
 /** This is here for legacy purposes incase any plugin used it.
 
  If you use this, migrate ASAP as this will be removed in the future! */
 
   export class CustomTimingsHandler extends java_lang_Object {
-handler: co_aikar_timings_Timing;
-static sunReflectAvailable: java_lang_Boolean;
-static getCallerClass: java_lang_reflect_Method;
+
 startTiming(): void;
 stopTiming(): void;
 constructor(name: string);
@@ -27,10 +23,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when an entity stops riding another entity. */
 
   export class EntityDismountEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-dismounted: org_bukkit_entity_Entity;
-isCancellable: boolean;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 dismounted: org_bukkit_entity_Entity;
@@ -92,9 +84,6 @@ import { EntityEvent as org_bukkit_event_entity_EntityEvent } from 'org.bukkit.e
 /** Called when an entity attempts to ride another entity. */
 
   export class EntityMountEvent extends org_bukkit_event_entity_EntityEvent implements org_bukkit_event_Cancellable {
-static handlers: org_bukkit_event_HandlerList;
-cancelled: boolean;
-mount: org_bukkit_entity_Entity;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 mount: org_bukkit_entity_Entity;
@@ -155,8 +144,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when player is about to spawn in a world after joining the server. */
 
   export class PlayerSpawnLocationEvent extends org_bukkit_event_player_PlayerEvent {
-static handlers: org_bukkit_event_HandlerList;
-spawnLocation: org_bukkit_Location;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 spawnLocation: org_bukkit_Location;
@@ -216,8 +203,6 @@ import { PlayerEvent as org_bukkit_event_player_PlayerEvent } from 'org.bukkit.e
 /** Called when player is about to spawn in a world after joining the server. */
 
   export class PlayerSpawnLocationEvent extends org_bukkit_event_player_PlayerEvent {
-static handlers: org_bukkit_event_HandlerList;
-spawnLocation: org_bukkit_Location;
 handlers: org_bukkit_event_HandlerList;
 static handlerList: org_bukkit_event_HandlerList;
 spawnLocation: org_bukkit_Location;

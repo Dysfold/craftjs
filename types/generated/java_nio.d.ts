@@ -1,58 +1,10 @@
 //@ts-nocheck
 
-declare module 'java.nio.charset' {
-import { Charset as java_nio_charset_Charset, CharsetEncoder as java_nio_charset_CharsetEncoder, CharsetDecoder as java_nio_charset_CharsetDecoder } from 'java.nio.charset';
-import { Object as java_lang_Object, ThreadLocal as java_lang_ThreadLocal, Comparable as java_lang_Comparable } from 'java.lang';
-import { ByteBuffer as java_nio_ByteBuffer, CharBuffer as java_nio_CharBuffer } from 'java.nio';
-import { Set as java_util_Set, SortedMap as java_util_SortedMap, Locale as java_util_Locale } from 'java.util';
-import { CharsetProvider as java_nio_charset_spi_CharsetProvider } from 'java.nio.charset.spi';
-
-  export class Charset extends java_lang_Object implements java_lang_Comparable<java_nio_charset_Charset> {
-static standardProvider: java_nio_charset_spi_CharsetProvider;
-static zeroAliases: string[];
-static cache1: java_lang_Object[];
-static cache2: java_lang_Object[];
-static gate: java_lang_ThreadLocal<java_lang_ThreadLocal<java_lang_Object>>;
-static defaultCharset: java_nio_charset_Charset;
-name: string;
-aliases: string[];
-aliasSet: java_util_Set<string>;
-name(): string;
-static forName(arg0: string): java_nio_charset_Charset;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-compareTo(arg0: java_nio_charset_Charset): number;
-compareTo(arg0: java_lang_Object): number;
-contains(arg0: java_nio_charset_Charset): boolean;
-decode(arg0: java_nio_ByteBuffer): java_nio_CharBuffer;
-encode(arg0: java_nio_CharBuffer): java_nio_ByteBuffer;
-encode(arg0: string): java_nio_ByteBuffer;
-canEncode(): boolean;
-isRegistered(): boolean;
-static defaultCharset(): java_nio_charset_Charset;
-static isSupported(arg0: string): boolean;
-newEncoder(): java_nio_charset_CharsetEncoder;
-aliases(): java_util_Set<string>;
-static availableCharsets(): java_util_SortedMap<string, java_nio_charset_Charset>;
-displayName(): string;
-displayName(arg0: java_util_Locale): string;
-newDecoder(): java_nio_charset_CharsetDecoder;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'java.nio' {
 import { ByteBuffer as java_nio_ByteBuffer, Buffer as java_nio_Buffer, ByteOrder as java_nio_ByteOrder, CharBuffer as java_nio_CharBuffer, ShortBuffer as java_nio_ShortBuffer, IntBuffer as java_nio_IntBuffer, LongBuffer as java_nio_LongBuffer, FloatBuffer as java_nio_FloatBuffer, DoubleBuffer as java_nio_DoubleBuffer } from 'java.nio';
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 
   export class ByteBuffer extends java_nio_Buffer implements java_lang_Comparable<java_nio_ByteBuffer> {
-hb: number[];
-offset: number;
-isReadOnly: boolean;
-bigEndian: boolean;
-nativeByteOrder: boolean;
 short: number;
 short: number;
 char: string;
@@ -158,17 +110,9 @@ notifyAll(): void;
 declare module 'java.nio' {
 import { Buffer as java_nio_Buffer } from 'java.nio';
 import { Object as java_lang_Object } from 'java.lang';
-import { Unsafe as jdk_internal_misc_Unsafe } from 'jdk.internal.misc';
 
   export class Buffer extends java_lang_Object {
-static UNSAFE: jdk_internal_misc_Unsafe;
-static SPLITERATOR_CHARACTERISTICS: number;
-mark: number;
-position: number;
-limit: number;
-capacity: number;
-address: number;
-static $assertionsDisabled: boolean;
+
 clear(): java_nio_Buffer;
 limit(arg0: number): java_nio_Buffer;
 limit(): number;
@@ -198,10 +142,8 @@ import { ByteOrder as java_nio_ByteOrder } from 'java.nio';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class ByteOrder extends java_lang_Object {
-name: string;
 static BIG_ENDIAN: java_nio_ByteOrder;
 static LITTLE_ENDIAN: java_nio_ByteOrder;
-static NATIVE_ORDER: java_nio_ByteOrder;
 toString(): string;
 static nativeOrder(): java_nio_ByteOrder;
 
@@ -215,9 +157,6 @@ import { Object as java_lang_Object, CharSequence as java_lang_CharSequence, App
 import { IntStream as java_util_stream_IntStream } from 'java.util.stream';
 
   export class CharBuffer extends java_nio_Buffer implements java_lang_Comparable<java_nio_CharBuffer>, java_lang_Appendable, java_lang_CharSequence, java_lang_Readable {
-hb: string[];
-offset: number;
-isReadOnly: boolean;
 class: java_lang_Class<java_lang_Object>;
 get(): string;
 get(arg0: number): string;
@@ -296,9 +235,6 @@ import { ShortBuffer as java_nio_ShortBuffer, Buffer as java_nio_Buffer, ByteOrd
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 
   export class ShortBuffer extends java_nio_Buffer implements java_lang_Comparable<java_nio_ShortBuffer> {
-hb: number[];
-offset: number;
-isReadOnly: boolean;
 class: java_lang_Class<java_lang_Object>;
 get(arg0: number[], arg1: number, arg2: number): java_nio_ShortBuffer;
 get(arg0: number): number;
@@ -360,9 +296,6 @@ import { IntBuffer as java_nio_IntBuffer, Buffer as java_nio_Buffer, ByteOrder a
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 
   export class IntBuffer extends java_nio_Buffer implements java_lang_Comparable<java_nio_IntBuffer> {
-hb: number[];
-offset: number;
-isReadOnly: boolean;
 class: java_lang_Class<java_lang_Object>;
 get(arg0: number[], arg1: number, arg2: number): java_nio_IntBuffer;
 get(arg0: number): number;
@@ -424,9 +357,6 @@ import { LongBuffer as java_nio_LongBuffer, Buffer as java_nio_Buffer, ByteOrder
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 
   export class LongBuffer extends java_nio_Buffer implements java_lang_Comparable<java_nio_LongBuffer> {
-hb: number[];
-offset: number;
-isReadOnly: boolean;
 class: java_lang_Class<java_lang_Object>;
 get(arg0: number[], arg1: number, arg2: number): java_nio_LongBuffer;
 get(arg0: number): number;
@@ -488,9 +418,6 @@ import { FloatBuffer as java_nio_FloatBuffer, Buffer as java_nio_Buffer, ByteOrd
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 
   export class FloatBuffer extends java_nio_Buffer implements java_lang_Comparable<java_nio_FloatBuffer> {
-hb: number[];
-offset: number;
-isReadOnly: boolean;
 class: java_lang_Class<java_lang_Object>;
 get(arg0: number[], arg1: number, arg2: number): java_nio_FloatBuffer;
 get(arg0: number): number;
@@ -552,9 +479,6 @@ import { DoubleBuffer as java_nio_DoubleBuffer, Buffer as java_nio_Buffer, ByteO
 import { Object as java_lang_Object, Class as java_lang_Class, Comparable as java_lang_Comparable } from 'java.lang';
 
   export class DoubleBuffer extends java_nio_Buffer implements java_lang_Comparable<java_nio_DoubleBuffer> {
-hb: number[];
-offset: number;
-isReadOnly: boolean;
 class: java_lang_Class<java_lang_Object>;
 get(arg0: number[], arg1: number, arg2: number): java_nio_DoubleBuffer;
 get(arg0: number): number;
@@ -606,150 +530,6 @@ wait(): void;
 getClass(): java_lang_Class<java_lang_Object>;
 notify(): void;
 notifyAll(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.nio.charset' {
-import { Charset as java_nio_charset_Charset, CoderResult as java_nio_charset_CoderResult, CharsetEncoder as java_nio_charset_CharsetEncoder, CodingErrorAction as java_nio_charset_CodingErrorAction, CharsetDecoder as java_nio_charset_CharsetDecoder } from 'java.nio.charset';
-import { CharBuffer as java_nio_CharBuffer, ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
-import { CharSequence as java_lang_CharSequence, Object as java_lang_Object } from 'java.lang';
-import { WeakReference as java_lang_ref_WeakReference } from 'java.lang.ref';
-
-  export class CharsetEncoder extends java_lang_Object {
-charset: java_nio_charset_Charset;
-averageBytesPerChar: number;
-maxBytesPerChar: number;
-replacement: number[];
-malformedInputAction: java_nio_charset_CodingErrorAction;
-unmappableCharacterAction: java_nio_charset_CodingErrorAction;
-static ST_RESET: number;
-static ST_CODING: number;
-static ST_END: number;
-static ST_FLUSHED: number;
-state: number;
-static stateNames: string[];
-cachedDecoder: java_lang_ref_WeakReference<java_nio_charset_CharsetDecoder>;
-static $assertionsDisabled: boolean;
-charset(): java_nio_charset_Charset;
-replacement(): number[];
-encode(arg0: java_nio_CharBuffer): java_nio_ByteBuffer;
-encode(arg0: java_nio_CharBuffer, arg1: java_nio_ByteBuffer, arg2: boolean): java_nio_charset_CoderResult;
-canEncode(arg0: string): boolean;
-canEncode(arg0: java_lang_CharSequence): boolean;
-flush(arg0: java_nio_ByteBuffer): java_nio_charset_CoderResult;
-reset(): java_nio_charset_CharsetEncoder;
-onMalformedInput(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetEncoder;
-onUnmappableCharacter(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetEncoder;
-isLegalReplacement(arg0: number[]): boolean;
-averageBytesPerChar(): number;
-maxBytesPerChar(): number;
-malformedInputAction(): java_nio_charset_CodingErrorAction;
-unmappableCharacterAction(): java_nio_charset_CodingErrorAction;
-replaceWith(arg0: number[]): java_nio_charset_CharsetEncoder;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.nio.charset' {
-import { CoderResult as java_nio_charset_CoderResult } from 'java.nio.charset';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class CoderResult extends java_lang_Object {
-static CR_UNDERFLOW: number;
-static CR_OVERFLOW: number;
-static CR_ERROR_MIN: number;
-static CR_MALFORMED: number;
-static CR_UNMAPPABLE: number;
-static names: string[];
-type: number;
-length: number;
-static UNDERFLOW: java_nio_charset_CoderResult;
-static OVERFLOW: java_nio_charset_CoderResult;
-static malformed4: java_nio_charset_CoderResult[];
-static unmappable4: java_nio_charset_CoderResult[];
-static $assertionsDisabled: boolean;
-length(): number;
-toString(): string;
-throwException(): void;
-isUnderflow(): boolean;
-isOverflow(): boolean;
-isError(): boolean;
-static malformedForLength(arg0: number): java_nio_charset_CoderResult;
-isMalformed(): boolean;
-isUnmappable(): boolean;
-static unmappableForLength(arg0: number): java_nio_charset_CoderResult;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.nio.charset' {
-import { CodingErrorAction as java_nio_charset_CodingErrorAction } from 'java.nio.charset';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class CodingErrorAction extends java_lang_Object {
-name: string;
-static IGNORE: java_nio_charset_CodingErrorAction;
-static REPLACE: java_nio_charset_CodingErrorAction;
-static REPORT: java_nio_charset_CodingErrorAction;
-toString(): string;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.nio.charset' {
-import { Charset as java_nio_charset_Charset, CoderResult as java_nio_charset_CoderResult, CharsetDecoder as java_nio_charset_CharsetDecoder, CodingErrorAction as java_nio_charset_CodingErrorAction } from 'java.nio.charset';
-import { ByteBuffer as java_nio_ByteBuffer, CharBuffer as java_nio_CharBuffer } from 'java.nio';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class CharsetDecoder extends java_lang_Object {
-charset: java_nio_charset_Charset;
-averageCharsPerByte: number;
-maxCharsPerByte: number;
-replacement: string;
-malformedInputAction: java_nio_charset_CodingErrorAction;
-unmappableCharacterAction: java_nio_charset_CodingErrorAction;
-static ST_RESET: number;
-static ST_CODING: number;
-static ST_END: number;
-static ST_FLUSHED: number;
-state: number;
-static stateNames: string[];
-static $assertionsDisabled: boolean;
-charset(): java_nio_charset_Charset;
-replacement(): string;
-decode(arg0: java_nio_ByteBuffer): java_nio_CharBuffer;
-decode(arg0: java_nio_ByteBuffer, arg1: java_nio_CharBuffer, arg2: boolean): java_nio_charset_CoderResult;
-flush(arg0: java_nio_CharBuffer): java_nio_charset_CoderResult;
-reset(): java_nio_charset_CharsetDecoder;
-onMalformedInput(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetDecoder;
-onUnmappableCharacter(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetDecoder;
-malformedInputAction(): java_nio_charset_CodingErrorAction;
-unmappableCharacterAction(): java_nio_charset_CodingErrorAction;
-replaceWith(arg0: string): java_nio_charset_CharsetDecoder;
-maxCharsPerByte(): number;
-averageCharsPerByte(): number;
-isAutoDetecting(): boolean;
-isCharsetDetected(): boolean;
-detectedCharset(): java_nio_charset_Charset;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.nio.charset.spi' {
-import { Charset as java_nio_charset_Charset } from 'java.nio.charset';
-import { Iterator as java_util_Iterator } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class CharsetProvider extends java_lang_Object {
-
-charsetForName(arg0: string): java_nio_charset_Charset;
-charsets(): java_util_Iterator<java_nio_charset_Charset>;
 
   }
 }
@@ -900,7 +680,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 
   export class LinkOption extends java_lang_Enum<java_nio_file_LinkOption> implements java_nio_file_OpenOption, java_nio_file_CopyOption {
 static NOFOLLOW_LINKS: java_nio_file_LinkOption;
-static $VALUES: java_nio_file_LinkOption[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_nio_file_LinkOption[];
 static valueOf(arg0: string): java_nio_file_LinkOption;
@@ -982,10 +761,6 @@ import { InputStream as java_io_InputStream, OutputStream as java_io_OutputStrea
 import { Filter as java_nio_file_DirectoryStream_Filter } from 'java.nio.file.DirectoryStream';
 
   export class FileSystemProvider extends java_lang_Object {
-static lock: java_lang_Object;
-static installedProviders: java_util_List<java_nio_file_spi_FileSystemProvider>;
-static loadingProviders: boolean;
-static DEFAULT_OPEN_OPTIONS: java_util_Set<java_nio_file_OpenOption>;
 path: java_nio_file_Path;
 scheme: string;
 fileSystem: java_nio_file_FileSystem;
@@ -1032,7 +807,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 static READ: java_nio_file_AccessMode;
 static WRITE: java_nio_file_AccessMode;
 static EXECUTE: java_nio_file_AccessMode;
-static $VALUES: java_nio_file_AccessMode[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_nio_file_AccessMode[];
 static valueOf(arg0: string): java_nio_file_AccessMode;
@@ -1086,25 +860,7 @@ import { TimeUnit as java_util_concurrent_TimeUnit } from 'java.util.concurrent'
 import { Instant as java_time_Instant } from 'java.time';
 
   export class FileTime extends java_lang_Object implements java_lang_Comparable<java_nio_file_attribute_FileTime> {
-unit: java_util_concurrent_TimeUnit;
-value: number;
-instant: java_time_Instant;
-valueAsString: string;
-static HOURS_PER_DAY: number;
-static MINUTES_PER_HOUR: number;
-static SECONDS_PER_MINUTE: number;
-static SECONDS_PER_HOUR: number;
-static SECONDS_PER_DAY: number;
-static MILLIS_PER_SECOND: number;
-static MICROS_PER_SECOND: number;
-static NANOS_PER_SECOND: number;
-static NANOS_PER_MILLI: number;
-static NANOS_PER_MICRO: number;
-static MIN_SECOND: number;
-static MAX_SECOND: number;
-static DAYS_PER_10000_YEARS: number;
-static SECONDS_PER_10000_YEARS: number;
-static SECONDS_0000_TO_1970: number;
+
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
@@ -1192,7 +948,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { AbstractInterruptibleChannel as java_nio_channels_spi_AbstractInterruptibleChannel } from 'java.nio.channels.spi';
 
   export class FileChannel extends java_nio_channels_spi_AbstractInterruptibleChannel implements java_nio_channels_SeekableByteChannel, java_nio_channels_GatheringByteChannel, java_nio_channels_ScatteringByteChannel {
-static NO_ATTRIBUTES: java_nio_file_attribute_FileAttribute<java_lang_Object>[];
 class: java_lang_Class<java_lang_Object>;
 lock(): java_nio_channels_FileLock;
 lock(arg0: number, arg1: number, arg2: boolean): java_nio_channels_FileLock;
@@ -1237,10 +992,7 @@ import { FileChannel as java_nio_channels_FileChannel, Channel as java_nio_chann
 import { Object as java_lang_Object, AutoCloseable as java_lang_AutoCloseable } from 'java.lang';
 
   export class FileLock extends java_lang_Object implements java_lang_AutoCloseable {
-channel: java_nio_channels_Channel;
-position: number;
-size: number;
-shared: boolean;
+
 toString(): string;
 size(): number;
 position(): number;
@@ -1249,8 +1001,8 @@ release(): void;
 channel(): java_nio_channels_FileChannel;
 isShared(): boolean;
 isValid(): boolean;
-overlaps(arg0: number, arg1: number): boolean;
 acquiredBy(): java_nio_channels_Channel;
+overlaps(arg0: number, arg1: number): boolean;
 
   }
 }
@@ -1276,7 +1028,6 @@ import { Object as java_lang_Object } from 'java.lang';
 static READ_ONLY: java_nio_channels_FileChannel_MapMode;
 static READ_WRITE: java_nio_channels_FileChannel_MapMode;
 static PRIVATE: java_nio_channels_FileChannel_MapMode;
-name: string;
 toString(): string;
 
   }
@@ -1286,11 +1037,8 @@ toString(): string;
 declare module 'java.nio' {
 import { MappedByteBuffer as java_nio_MappedByteBuffer, ByteBuffer as java_nio_ByteBuffer, Buffer as java_nio_Buffer } from 'java.nio';
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
-import { FileDescriptor as java_io_FileDescriptor } from 'java.io';
 
   export class MappedByteBuffer extends java_nio_ByteBuffer {
-fd: java_io_FileDescriptor;
-static unused: number;
 class: java_lang_Class<java_lang_Object>;
 clear(): java_nio_MappedByteBuffer;
 clear(): java_nio_ByteBuffer;
@@ -1396,15 +1144,11 @@ close(): void;
 //@ts-nocheck
 
 declare module 'java.nio.channels.spi' {
-import { Object as java_lang_Object, Thread as java_lang_Thread } from 'java.lang';
-import { Interruptible as sun_nio_ch_Interruptible } from 'sun.nio.ch';
+import { Object as java_lang_Object } from 'java.lang';
 import { Channel as java_nio_channels_Channel, InterruptibleChannel as java_nio_channels_InterruptibleChannel } from 'java.nio.channels';
 
   export class AbstractInterruptibleChannel extends java_lang_Object implements java_nio_channels_Channel, java_nio_channels_InterruptibleChannel {
-closeLock: java_lang_Object;
-closed: boolean;
-interruptor: sun_nio_ch_Interruptible;
-interrupted: java_lang_Thread;
+
 isOpen(): boolean;
 close(): void;
 
@@ -1466,7 +1210,7 @@ import { Set as java_util_Set } from 'java.util';
 import { FileAttribute as java_nio_file_attribute_FileAttribute } from 'java.nio.file.attribute';
 
   export class AsynchronousFileChannel extends java_lang_Object implements java_nio_channels_AsynchronousChannel {
-static NO_ATTRIBUTES: java_nio_file_attribute_FileAttribute<java_lang_Object>[];
+
 lock(arg0: number, arg1: number, arg2: boolean): java_util_concurrent_Future<java_nio_channels_FileLock>;
 lock<A extends java_lang_Object>(arg0: A, arg1: java_nio_channels_CompletionHandler<java_nio_channels_FileLock, java_lang_Object>): void;
 lock<A extends java_lang_Object>(arg0: number, arg1: number, arg2: boolean, arg3: A, arg4: java_nio_channels_CompletionHandler<java_nio_channels_FileLock, java_lang_Object>): void;
@@ -1582,6 +1326,132 @@ implies(arg0: javax_security_auth_Subject): boolean;
 }
 //@ts-nocheck
 
+declare module 'java.nio.charset' {
+import { Charset as java_nio_charset_Charset, CharsetEncoder as java_nio_charset_CharsetEncoder, CharsetDecoder as java_nio_charset_CharsetDecoder } from 'java.nio.charset';
+import { Object as java_lang_Object, Comparable as java_lang_Comparable } from 'java.lang';
+import { ByteBuffer as java_nio_ByteBuffer, CharBuffer as java_nio_CharBuffer } from 'java.nio';
+import { Set as java_util_Set, SortedMap as java_util_SortedMap, Locale as java_util_Locale } from 'java.util';
+
+  export class Charset extends java_lang_Object implements java_lang_Comparable<java_nio_charset_Charset> {
+
+name(): string;
+static forName(arg0: string): java_nio_charset_Charset;
+equals(arg0: java_lang_Object): boolean;
+toString(): string;
+hashCode(): number;
+compareTo(arg0: java_nio_charset_Charset): number;
+compareTo(arg0: java_lang_Object): number;
+contains(arg0: java_nio_charset_Charset): boolean;
+decode(arg0: java_nio_ByteBuffer): java_nio_CharBuffer;
+encode(arg0: java_nio_CharBuffer): java_nio_ByteBuffer;
+encode(arg0: string): java_nio_ByteBuffer;
+canEncode(): boolean;
+isRegistered(): boolean;
+static defaultCharset(): java_nio_charset_Charset;
+static isSupported(arg0: string): boolean;
+newEncoder(): java_nio_charset_CharsetEncoder;
+aliases(): java_util_Set<string>;
+static availableCharsets(): java_util_SortedMap<string, java_nio_charset_Charset>;
+displayName(): string;
+displayName(arg0: java_util_Locale): string;
+newDecoder(): java_nio_charset_CharsetDecoder;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.charset' {
+import { Charset as java_nio_charset_Charset, CoderResult as java_nio_charset_CoderResult, CharsetEncoder as java_nio_charset_CharsetEncoder, CodingErrorAction as java_nio_charset_CodingErrorAction } from 'java.nio.charset';
+import { CharBuffer as java_nio_CharBuffer, ByteBuffer as java_nio_ByteBuffer } from 'java.nio';
+import { CharSequence as java_lang_CharSequence, Object as java_lang_Object } from 'java.lang';
+
+  export class CharsetEncoder extends java_lang_Object {
+
+charset(): java_nio_charset_Charset;
+replacement(): number[];
+encode(arg0: java_nio_CharBuffer): java_nio_ByteBuffer;
+encode(arg0: java_nio_CharBuffer, arg1: java_nio_ByteBuffer, arg2: boolean): java_nio_charset_CoderResult;
+canEncode(arg0: string): boolean;
+canEncode(arg0: java_lang_CharSequence): boolean;
+flush(arg0: java_nio_ByteBuffer): java_nio_charset_CoderResult;
+reset(): java_nio_charset_CharsetEncoder;
+onMalformedInput(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetEncoder;
+onUnmappableCharacter(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetEncoder;
+isLegalReplacement(arg0: number[]): boolean;
+averageBytesPerChar(): number;
+maxBytesPerChar(): number;
+malformedInputAction(): java_nio_charset_CodingErrorAction;
+unmappableCharacterAction(): java_nio_charset_CodingErrorAction;
+replaceWith(arg0: number[]): java_nio_charset_CharsetEncoder;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.charset' {
+import { CoderResult as java_nio_charset_CoderResult } from 'java.nio.charset';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class CoderResult extends java_lang_Object {
+static UNDERFLOW: java_nio_charset_CoderResult;
+static OVERFLOW: java_nio_charset_CoderResult;
+length(): number;
+toString(): string;
+throwException(): void;
+isUnderflow(): boolean;
+isOverflow(): boolean;
+isError(): boolean;
+static malformedForLength(arg0: number): java_nio_charset_CoderResult;
+isMalformed(): boolean;
+isUnmappable(): boolean;
+static unmappableForLength(arg0: number): java_nio_charset_CoderResult;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.charset' {
+import { CodingErrorAction as java_nio_charset_CodingErrorAction } from 'java.nio.charset';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class CodingErrorAction extends java_lang_Object {
+static IGNORE: java_nio_charset_CodingErrorAction;
+static REPLACE: java_nio_charset_CodingErrorAction;
+static REPORT: java_nio_charset_CodingErrorAction;
+toString(): string;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.nio.charset' {
+import { Charset as java_nio_charset_Charset, CoderResult as java_nio_charset_CoderResult, CharsetDecoder as java_nio_charset_CharsetDecoder, CodingErrorAction as java_nio_charset_CodingErrorAction } from 'java.nio.charset';
+import { ByteBuffer as java_nio_ByteBuffer, CharBuffer as java_nio_CharBuffer } from 'java.nio';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class CharsetDecoder extends java_lang_Object {
+
+charset(): java_nio_charset_Charset;
+replacement(): string;
+decode(arg0: java_nio_ByteBuffer): java_nio_CharBuffer;
+decode(arg0: java_nio_ByteBuffer, arg1: java_nio_CharBuffer, arg2: boolean): java_nio_charset_CoderResult;
+flush(arg0: java_nio_CharBuffer): java_nio_charset_CoderResult;
+reset(): java_nio_charset_CharsetDecoder;
+onMalformedInput(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetDecoder;
+onUnmappableCharacter(arg0: java_nio_charset_CodingErrorAction): java_nio_charset_CharsetDecoder;
+malformedInputAction(): java_nio_charset_CodingErrorAction;
+unmappableCharacterAction(): java_nio_charset_CodingErrorAction;
+replaceWith(arg0: string): java_nio_charset_CharsetDecoder;
+maxCharsPerByte(): number;
+averageCharsPerByte(): number;
+isAutoDetecting(): boolean;
+isCharsetDetected(): boolean;
+detectedCharset(): java_nio_charset_Charset;
+
+  }
+}
+//@ts-nocheck
+
 declare module 'java.nio.file.attribute' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Subject as javax_security_auth_Subject } from 'javax.security.auth';
@@ -1610,14 +1480,8 @@ import { BasicFileAttributes as java_nio_file_attribute_BasicFileAttributes, Use
 import { Set as java_util_Set, List as java_util_List, Map as java_util_Map } from 'java.util';
 import { SeekableByteChannel as java_nio_channels_SeekableByteChannel } from 'java.nio.channels';
 import { Filter as java_nio_file_DirectoryStream_Filter } from 'java.nio.file.DirectoryStream';
-import { JavaLangAccess as jdk_internal_misc_JavaLangAccess } from 'jdk.internal.misc';
 
   export class Files extends java_lang_Object {
-static DEFAULT_CREATE_OPTIONS: java_util_Set<java_nio_file_OpenOption>;
-static BUFFER_SIZE: number;
-static MAX_BUFFER_SIZE: number;
-static JLA: jdk_internal_misc_JavaLangAccess;
-static $assertionsDisabled: boolean;
 static owner: java_nio_file_attribute_UserPrincipal;
 static lastModifiedTime: java_nio_file_attribute_FileTime;
 static attribute: java_lang_Object;
@@ -1704,7 +1568,6 @@ import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang
 
   export class FileVisitOption extends java_lang_Enum<java_nio_file_FileVisitOption> {
 static FOLLOW_LINKS: java_nio_file_FileVisitOption;
-static $VALUES: java_nio_file_FileVisitOption[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_nio_file_FileVisitOption[];
 static valueOf(arg0: string): java_nio_file_FileVisitOption;
@@ -1733,7 +1596,6 @@ static GROUP_EXECUTE: java_nio_file_attribute_PosixFilePermission;
 static OTHERS_READ: java_nio_file_attribute_PosixFilePermission;
 static OTHERS_WRITE: java_nio_file_attribute_PosixFilePermission;
 static OTHERS_EXECUTE: java_nio_file_attribute_PosixFilePermission;
-static $VALUES: java_nio_file_attribute_PosixFilePermission[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_nio_file_attribute_PosixFilePermission[];
 static valueOf(arg0: string): java_nio_file_attribute_PosixFilePermission;
@@ -1774,7 +1636,6 @@ static CONTINUE: java_nio_file_FileVisitResult;
 static TERMINATE: java_nio_file_FileVisitResult;
 static SKIP_SUBTREE: java_nio_file_FileVisitResult;
 static SKIP_SIBLINGS: java_nio_file_FileVisitResult;
-static $VALUES: java_nio_file_FileVisitResult[];
 class: java_lang_Class<java_lang_Object>;
 static values(): java_nio_file_FileVisitResult[];
 static valueOf(arg0: string): java_nio_file_FileVisitResult;

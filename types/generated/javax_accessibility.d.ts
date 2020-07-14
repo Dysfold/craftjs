@@ -2,13 +2,11 @@
 
 declare module 'javax.accessibility' {
 import { Locale as java_util_Locale } from 'java.util';
-import { AccessibleStateSet as javax_accessibility_AccessibleStateSet, Accessible as javax_accessibility_Accessible, AccessibleSelection as javax_accessibility_AccessibleSelection, AccessibleRole as javax_accessibility_AccessibleRole, AccessibleAction as javax_accessibility_AccessibleAction, AccessibleText as javax_accessibility_AccessibleText, AccessibleEditableText as javax_accessibility_AccessibleEditableText, AccessibleValue as javax_accessibility_AccessibleValue, AccessibleIcon as javax_accessibility_AccessibleIcon, AccessibleRelationSet as javax_accessibility_AccessibleRelationSet, AccessibleTable as javax_accessibility_AccessibleTable, AccessibleComponent as javax_accessibility_AccessibleComponent } from 'javax.accessibility';
 import { Object as java_lang_Object } from 'java.lang';
-import { PropertyChangeListener as java_beans_PropertyChangeListener, PropertyChangeSupport as java_beans_PropertyChangeSupport } from 'java.beans';
-import { AppContext as sun_awt_AppContext } from 'sun.awt';
+import { Accessible as javax_accessibility_Accessible, AccessibleComponent as javax_accessibility_AccessibleComponent, AccessibleStateSet as javax_accessibility_AccessibleStateSet, AccessibleSelection as javax_accessibility_AccessibleSelection, AccessibleRole as javax_accessibility_AccessibleRole, AccessibleAction as javax_accessibility_AccessibleAction, AccessibleText as javax_accessibility_AccessibleText, AccessibleEditableText as javax_accessibility_AccessibleEditableText, AccessibleValue as javax_accessibility_AccessibleValue, AccessibleIcon as javax_accessibility_AccessibleIcon, AccessibleRelationSet as javax_accessibility_AccessibleRelationSet, AccessibleTable as javax_accessibility_AccessibleTable } from 'javax.accessibility';
+import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
 
   export class AccessibleContext extends java_lang_Object {
-targetAppContext: sun_awt_AppContext;
 static ACCESSIBLE_NAME_PROPERTY: string;
 static ACCESSIBLE_DESCRIPTION_PROPERTY: string;
 static ACCESSIBLE_STATE_PROPERTY: string;
@@ -31,13 +29,10 @@ static ACCESSIBLE_TEXT_PROPERTY: string;
 static ACCESSIBLE_INVALIDATE_CHILDREN: string;
 static ACCESSIBLE_TEXT_ATTRIBUTES_CHANGED: string;
 static ACCESSIBLE_COMPONENT_BOUNDS_CHANGED: string;
-accessibleParent: javax_accessibility_Accessible;
-accessibleName: string;
-accessibleDescription: string;
-accessibleChangeSupport: java_beans_PropertyChangeSupport;
-relationSet: javax_accessibility_AccessibleRelationSet;
-nativeAXResource: java_lang_Object;
 locale: java_util_Locale;
+accessibleChildrenCount: number;
+accessibleChild: javax_accessibility_Accessible;
+accessibleComponent: javax_accessibility_AccessibleComponent;
 accessibleIndexInParent: number;
 accessibleStateSet: javax_accessibility_AccessibleStateSet;
 accessibleParent: javax_accessibility_Accessible;
@@ -52,10 +47,11 @@ accessibleValue: javax_accessibility_AccessibleValue;
 accessibleIcon: javax_accessibility_AccessibleIcon[];
 accessibleRelationSet: javax_accessibility_AccessibleRelationSet;
 accessibleTable: javax_accessibility_AccessibleTable;
-accessibleChildrenCount: number;
-accessibleChild: javax_accessibility_Accessible;
-accessibleComponent: javax_accessibility_AccessibleComponent;
 getLocale(): java_util_Locale;
+firePropertyChange(arg0: string, arg1: java_lang_Object, arg2: java_lang_Object): void;
+getAccessibleChildrenCount(): number;
+getAccessibleChild(arg0: number): javax_accessibility_Accessible;
+getAccessibleComponent(): javax_accessibility_AccessibleComponent;
 getAccessibleIndexInParent(): number;
 getAccessibleStateSet(): javax_accessibility_AccessibleStateSet;
 getAccessibleParent(): javax_accessibility_Accessible;
@@ -73,10 +69,6 @@ getAccessibleValue(): javax_accessibility_AccessibleValue;
 getAccessibleIcon(): javax_accessibility_AccessibleIcon[];
 getAccessibleRelationSet(): javax_accessibility_AccessibleRelationSet;
 getAccessibleTable(): javax_accessibility_AccessibleTable;
-firePropertyChange(arg0: string, arg1: java_lang_Object, arg2: java_lang_Object): void;
-getAccessibleChildrenCount(): number;
-getAccessibleChild(arg0: number): javax_accessibility_Accessible;
-getAccessibleComponent(): javax_accessibility_AccessibleComponent;
 addPropertyChangeListener(arg0: java_beans_PropertyChangeListener): void;
 removePropertyChangeListener(arg0: java_beans_PropertyChangeListener): void;
 constructor();
@@ -85,12 +77,70 @@ constructor();
 //@ts-nocheck
 
 declare module 'javax.accessibility' {
+import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
+
+  export class Accessible {
+accessibleContext: javax_accessibility_AccessibleContext;
+getAccessibleContext(): javax_accessibility_AccessibleContext;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'javax.accessibility' {
+import { Point as java_awt_Point, Dimension as java_awt_Dimension, Font as java_awt_Font, Rectangle as java_awt_Rectangle, FontMetrics as java_awt_FontMetrics, Color as java_awt_Color, Cursor as java_awt_Cursor } from 'java.awt';
+import { Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
+import { FocusListener as java_awt_event_FocusListener } from 'java.awt.event';
+
+  export class AccessibleComponent {
+location: java_awt_Point;
+size: java_awt_Dimension;
+fontMetrics: java_awt_FontMetrics;
+locationOnScreen: java_awt_Point;
+accessibleAt: javax_accessibility_Accessible;
+foreground: java_awt_Color;
+background: java_awt_Color;
+cursor: java_awt_Cursor;
+font: java_awt_Font;
+bounds: java_awt_Rectangle;
+contains(arg0: java_awt_Point): boolean;
+getLocation(): java_awt_Point;
+getSize(): java_awt_Dimension;
+setSize(arg0: java_awt_Dimension): void;
+isEnabled(): boolean;
+setFont(arg0: java_awt_Font): void;
+setBounds(arg0: java_awt_Rectangle): void;
+getFontMetrics(arg0: java_awt_Font): java_awt_FontMetrics;
+isShowing(): boolean;
+requestFocus(): void;
+getLocationOnScreen(): java_awt_Point;
+getAccessibleAt(arg0: java_awt_Point): javax_accessibility_Accessible;
+addFocusListener(arg0: java_awt_event_FocusListener): void;
+removeFocusListener(arg0: java_awt_event_FocusListener): void;
+isFocusTraversable(): boolean;
+getForeground(): java_awt_Color;
+setForeground(arg0: java_awt_Color): void;
+getBackground(): java_awt_Color;
+setBackground(arg0: java_awt_Color): void;
+setLocation(arg0: java_awt_Point): void;
+getCursor(): java_awt_Cursor;
+isVisible(): boolean;
+setEnabled(arg0: boolean): void;
+setCursor(arg0: java_awt_Cursor): void;
+getFont(): java_awt_Font;
+setVisible(arg0: boolean): void;
+getBounds(): java_awt_Rectangle;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'javax.accessibility' {
 import { AccessibleState as javax_accessibility_AccessibleState } from 'javax.accessibility';
-import { Vector as java_util_Vector } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class AccessibleStateSet extends java_lang_Object {
-states: java_util_Vector<javax_accessibility_AccessibleState>;
+
 add(arg0: javax_accessibility_AccessibleState): boolean;
 remove(arg0: javax_accessibility_AccessibleState): boolean;
 toString(): string;
@@ -153,13 +203,11 @@ notifyAll(): void;
 //@ts-nocheck
 
 declare module 'javax.accessibility' {
-import { Locale as java_util_Locale, Hashtable as java_util_Hashtable } from 'java.util';
+import { Locale as java_util_Locale } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class AccessibleBundle extends java_lang_Object {
-static table: java_util_Hashtable<java_util_Locale, java_util_Hashtable<string, java_lang_Object>>;
-defaultResourceBundleName: string;
-key: string;
+
 toString(): string;
 toDisplayString(): string;
 toDisplayString(arg0: java_util_Locale): string;
@@ -169,29 +217,18 @@ constructor();
 //@ts-nocheck
 
 declare module 'javax.accessibility' {
-import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
-
-  export class Accessible {
-accessibleContext: javax_accessibility_AccessibleContext;
-getAccessibleContext(): javax_accessibility_AccessibleContext;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'javax.accessibility' {
 import { Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
 
   export class AccessibleSelection {
-accessibleSelection: javax_accessibility_Accessible;
 accessibleSelectionCount: number;
-getAccessibleSelection(arg0: number): javax_accessibility_Accessible;
-isAccessibleChildSelected(arg0: number): boolean;
+accessibleSelection: javax_accessibility_Accessible;
 getAccessibleSelectionCount(): number;
 addAccessibleSelection(arg0: number): void;
 removeAccessibleSelection(arg0: number): void;
 clearAccessibleSelection(): void;
 selectAllAccessibleSelection(): void;
+getAccessibleSelection(arg0: number): javax_accessibility_Accessible;
+isAccessibleChildSelected(arg0: number): boolean;
 
   }
 }
@@ -410,11 +447,10 @@ getAccessibleIconHeight(): number;
 
 declare module 'javax.accessibility' {
 import { AccessibleRelation as javax_accessibility_AccessibleRelation } from 'javax.accessibility';
-import { Vector as java_util_Vector } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class AccessibleRelationSet extends java_lang_Object {
-relations: java_util_Vector<javax_accessibility_AccessibleRelation>;
+
 add(arg0: javax_accessibility_AccessibleRelation): boolean;
 remove(arg0: javax_accessibility_AccessibleRelation): boolean;
 get(arg0: string): javax_accessibility_AccessibleRelation;
@@ -435,7 +471,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { AccessibleBundle as javax_accessibility_AccessibleBundle } from 'javax.accessibility';
 
   export class AccessibleRelation extends javax_accessibility_AccessibleBundle {
-target: java_lang_Object[];
 static LABEL_FOR: string;
 static LABELED_BY: string;
 static MEMBER_OF: string;
@@ -521,54 +556,6 @@ isAccessibleRowSelected(arg0: number): boolean;
 isAccessibleColumnSelected(arg0: number): boolean;
 getSelectedAccessibleRows(): number[];
 getSelectedAccessibleColumns(): number[];
-
-  }
-}
-//@ts-nocheck
-
-declare module 'javax.accessibility' {
-import { Point as java_awt_Point, Dimension as java_awt_Dimension, Font as java_awt_Font, Rectangle as java_awt_Rectangle, FontMetrics as java_awt_FontMetrics, Color as java_awt_Color, Cursor as java_awt_Cursor } from 'java.awt';
-import { Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
-import { FocusListener as java_awt_event_FocusListener } from 'java.awt.event';
-
-  export class AccessibleComponent {
-location: java_awt_Point;
-size: java_awt_Dimension;
-locationOnScreen: java_awt_Point;
-accessibleAt: javax_accessibility_Accessible;
-fontMetrics: java_awt_FontMetrics;
-foreground: java_awt_Color;
-background: java_awt_Color;
-cursor: java_awt_Cursor;
-font: java_awt_Font;
-bounds: java_awt_Rectangle;
-contains(arg0: java_awt_Point): boolean;
-getLocation(): java_awt_Point;
-getSize(): java_awt_Dimension;
-setSize(arg0: java_awt_Dimension): void;
-isEnabled(): boolean;
-setFont(arg0: java_awt_Font): void;
-isFocusTraversable(): boolean;
-isShowing(): boolean;
-requestFocus(): void;
-getLocationOnScreen(): java_awt_Point;
-getAccessibleAt(arg0: java_awt_Point): javax_accessibility_Accessible;
-addFocusListener(arg0: java_awt_event_FocusListener): void;
-removeFocusListener(arg0: java_awt_event_FocusListener): void;
-setBounds(arg0: java_awt_Rectangle): void;
-getFontMetrics(arg0: java_awt_Font): java_awt_FontMetrics;
-getForeground(): java_awt_Color;
-setForeground(arg0: java_awt_Color): void;
-getBackground(): java_awt_Color;
-setBackground(arg0: java_awt_Color): void;
-setEnabled(arg0: boolean): void;
-setLocation(arg0: java_awt_Point): void;
-getCursor(): java_awt_Cursor;
-isVisible(): boolean;
-setCursor(arg0: java_awt_Cursor): void;
-getFont(): java_awt_Font;
-setVisible(arg0: boolean): void;
-getBounds(): java_awt_Rectangle;
 
   }
 }

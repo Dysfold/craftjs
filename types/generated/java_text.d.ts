@@ -6,8 +6,6 @@ import { Object as java_lang_Object } from 'java.lang';
   export class ParsePosition extends java_lang_Object {
 index: number;
 errorIndex: number;
-index: number;
-errorIndex: number;
 equals(arg0: java_lang_Object): boolean;
 toString(): string;
 hashCode(): number;
@@ -26,7 +24,7 @@ import { FieldPosition as java_text_FieldPosition, ParsePosition as java_text_Pa
 import { Serializable as java_io_Serializable } from 'java.io';
 
   export class Format extends java_lang_Object implements java_io_Serializable, java_lang_Cloneable {
-static serialVersionUID: number;
+
 clone(): java_lang_Object;
 format(arg0: java_lang_Object, arg1: java_lang_StringBuffer, arg2: java_text_FieldPosition): java_lang_StringBuffer;
 format(arg0: java_lang_Object): string;
@@ -43,10 +41,6 @@ import { Object as java_lang_Object } from 'java.lang';
 import { Field as java_text_Format_Field } from 'java.text.Format';
 
   export class FieldPosition extends java_lang_Object {
-field: number;
-endIndex: number;
-beginIndex: number;
-attribute: java_text_Format_Field;
 field: number;
 fieldAttribute: java_text_Format_Field;
 beginIndex: number;
@@ -72,7 +66,6 @@ import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang'
 import { Attribute as java_textdCharacterIterator_Attribute_Attribute } from 'java.textdCharacterIterator.Attribute';
 
   export class Field extends java_textdCharacterIterator_Attribute_Attribute {
-static serialVersionUID: number;
 class: java_lang_Class<java_lang_Object>;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;

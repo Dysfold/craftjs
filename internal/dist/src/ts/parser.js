@@ -136,6 +136,7 @@ function parseMethod(method, javaDocData) {
         name: method.getName(),
         docs: '',
         isStatic: Modifier.isStatic(modifiers),
+        isPublic: Modifier.isPublic(modifiers),
         typeParameters: typeParams,
         parameters,
         nullable: false,
@@ -152,6 +153,7 @@ function parseConstructor(constr) {
         name: 'constructor',
         docs: '',
         isStatic: Modifier.isStatic(modifiers),
+        isPublic: Modifier.isPublic(modifiers),
         typeParameters: typeParams,
         nullable: false,
         parameters,
@@ -163,6 +165,7 @@ function parseProperty(field) {
     return {
         name: field.getName(),
         isStatic: Modifier.isStatic(modifiers),
+        isPublic: Modifier.isPublic(modifiers),
         nullable: false,
         type,
     };

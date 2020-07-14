@@ -34,26 +34,9 @@ stopTiming(): void;
 
 declare module 'co.aikar.timings' {
 import { Object as java_lang_Object } from 'java.lang';
-import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler, TimingIdentifier as co_aikar_timings_TimingIdentifier, TimingData as co_aikar_timings_TimingData } from 'co.aikar.timings';
-import { AtomicInteger as java_util_concurrent_atomic_AtomicInteger } from 'java.util.concurrent.atomic';
-import { Deque as java_util_Deque } from 'java.util';
-import { Int2ObjectOpenHashMap as it_unimi_dsi_fastutil_ints_Int2ObjectOpenHashMap } from 'it.unimi.dsi.fastutil.ints';
+import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
 
   export class TimingHandler extends java_lang_Object implements co_aikar_timings_Timing {
-static idPool: java_util_concurrent_atomic_AtomicInteger;
-static TIMING_STACK: java_util_Deque<co_aikar_timings_TimingHandler>;
-id: number;
-identifier: co_aikar_timings_TimingIdentifier;
-verbose: boolean;
-children: it_unimi_dsi_fastutil_ints_Int2ObjectOpenHashMap<co_aikar_timings_TimingData>;
-record: co_aikar_timings_TimingData;
-startParent: co_aikar_timings_TimingHandler;
-groupHandler: co_aikar_timings_TimingHandler;
-start: number;
-timingDepth: number;
-added: boolean;
-timed: boolean;
-enabled: boolean;
 timingHandler: co_aikar_timings_TimingHandler;
 equals(arg0: java_lang_Object): boolean;
 hashCode(): number;
@@ -71,70 +54,12 @@ stopTiming(): void;
 }
 //@ts-nocheck
 
-declare module 'co.aikar.timings' {
-import { Object as java_lang_Object } from 'java.lang';
-import { Map as java_util_Map } from 'java.util';
-import { TimingGroup as co_aikar_timings_TimingIdentifier_TimingGroup } from 'co.aikar.timings.TimingIdentifier';
-import { TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
-
-  export class TimingIdentifier extends java_lang_Object {
-static GROUP_MAP: java_util_Map<string, co_aikar_timings_TimingIdentifier_TimingGroup>;
-static DEFAULT_GROUP: co_aikar_timings_TimingIdentifier_TimingGroup;
-group: string;
-name: string;
-groupHandler: co_aikar_timings_TimingHandler;
-hashCode: number;
-equals(arg0: java_lang_Object): boolean;
-toString(): string;
-hashCode(): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'co.aikar.timings.TimingIdentifier' {
-import { Object as java_lang_Object } from 'java.lang';
-import { AtomicInteger as java_util_concurrent_atomic_AtomicInteger } from 'java.util.concurrent.atomic';
-import { List as java_util_List } from 'java.util';
-import { TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
-
-  export class TimingGroup extends java_lang_Object {
-static idPool: java_util_concurrent_atomic_AtomicInteger;
-id: number;
-name: string;
-handlers: java_util_List<co_aikar_timings_TimingHandler>;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'co.aikar.timings' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class TimingData extends java_lang_Object {
-id: number;
-count: number;
-lagCount: number;
-totalTime: number;
-lagTotalTime: number;
-curTickCount: number;
-curTickTotal: number;
-
-
-  }
-}
-//@ts-nocheck
-
 declare module 'co.aikar.util' {
 import { Class as java_lang_Class, Object as java_lang_Object, Long as java_lang_Long } from 'java.lang';
 import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_function_BiConsumer, Function as java_util_function_Function } from 'java.util.function';
-import { Map as java_util_Map } from 'java.util';
 import { ForwardingMap as com_google_common_collect_ForwardingMap } from 'com.google.common.collect';
 
   export class Counter<T extends java_lang_Object> extends com_google_common_collect_ForwardingMap<T, java_lang_Long> {
-counts: java_util_Map<T, java_lang_Long>;
 count: number | null;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
@@ -168,13 +93,9 @@ constructor();
 
 declare module 'co.aikar.timings' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler, TimingIdentifier as co_aikar_timings_TimingIdentifier, TimingData as co_aikar_timings_TimingData } from 'co.aikar.timings';
+import { Timing as co_aikar_timings_Timing, TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
 
   export class FullServerTickHandler extends co_aikar_timings_TimingHandler {
-static IDENTITY: co_aikar_timings_TimingIdentifier;
-minuteData: co_aikar_timings_TimingData;
-avgFreeMemory: number;
-avgUsedMemory: number;
 timingHandler: co_aikar_timings_TimingHandler;
 class: java_lang_Class<java_lang_Object>;
 equals(o: java_lang_Object): boolean;
@@ -247,8 +168,7 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Simply stores a key and a value, used internally by many methods below. */
 
   export class JSONPair extends java_lang_Object {
-key: string;
-val: java_lang_Object;
+
 
 
   }
@@ -260,8 +180,7 @@ import { Object as java_lang_Object } from 'java.lang';
 /** Simply stores a key and a value, used internally by many methods below. */
 
   export class JSONPair extends java_lang_Object {
-key: string;
-val: java_lang_Object;
+
 
 
   }
@@ -288,7 +207,6 @@ import { Function as com_google_common_base_Function } from 'com.google.common.b
  Do not wrap the backing map with Collections.synchronizedMap. */
 
   export class LoadingIntMap<V extends java_lang_Object> extends it_unimi_dsi_fastutil_ints_Int2ObjectOpenHashMap<V> {
-loader: com_google_common_base_Function<java_lang_Integer, V>;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
 get(key: number): V | null;
@@ -374,8 +292,6 @@ import { Function as java_util_function_Function, BiFunction as java_util_functi
  Do not wrap the backing map with Collections.synchronizedMap. */
 
   export class LoadingMap<K extends java_lang_Object, V extends java_lang_Object> extends java_util_AbstractMap<K, V> {
-backingMap: java_util_Map<K, V>;
-loader: java_util_function_Function<K, V>;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
 remove(key: java_lang_Object | null): V | null;
@@ -471,9 +387,6 @@ import { BiFunction as java_util_function_BiFunction, BiConsumer as java_util_fu
 /** Implements a Most Recently Used cache in front of a backing map, to quickly access the last accessed result. */
 
   export class MRUMapCache<K extends java_lang_Object, V extends java_lang_Object> extends java_util_AbstractMap<K, V> {
-backingMap: java_util_Map<K, V>;
-cacheKey: java_lang_Object;
-cacheValue: V;
 class: java_lang_Class<java_lang_Object>;
 orDefault: V;
 remove(key: java_lang_Object | null): V | null;
@@ -549,11 +462,9 @@ import { Listener as org_bukkit_event_Listener, Event as org_bukkit_event_Event 
 import { EventExecutor as org_bukkit_plugin_EventExecutor, Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
 import { Method as java_lang_reflect_Method } from 'java.lang.reflect';
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
-import { Timing as co_aikar_timings_Timing } from 'co.aikar.timings';
 
   export class TimedEventExecutor extends java_lang_Object implements org_bukkit_plugin_EventExecutor {
-executor: org_bukkit_plugin_EventExecutor;
-timings: co_aikar_timings_Timing;
+
 execute(listener: org_bukkit_event_Listener, event: org_bukkit_event_Event): void;
 /** Wraps an event executor and associates a timing handler to it. */
 constructor(executor: org_bukkit_plugin_EventExecutor, plugin: org_bukkit_plugin_Plugin, method: java_lang_reflect_Method | null, eventClass: java_lang_Class<org_bukkit_event_Event>);
@@ -594,12 +505,7 @@ stopTiming(): void;
 //@ts-nocheck
 
 declare module 'co.aikar.timings' {
-import { Map as java_util_Map, Set as java_util_Set } from 'java.util';
-import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
-import { MinuteReport as co_aikar_timings_TimingHistory_MinuteReport } from 'co.aikar.timings.TimingHistory';
-import { TimingHistoryEntry as co_aikar_timings_TimingHistoryEntry } from 'co.aikar.timings';
-import { Material as org_bukkit_Material } from 'org.bukkit';
-import { EntityType as org_bukkit_entity_EntityType } from 'org.bukkit.entity';
+import { Object as java_lang_Object } from 'java.lang';
 
   export class TimingHistory extends java_lang_Object {
 static lastMinuteTime: number;
@@ -608,76 +514,6 @@ static playerTicks: number;
 static entityTicks: number;
 static tileEntityTicks: number;
 static activatedEntityTicks: number;
-static worldIdPool: number;
-static worldMap: java_util_Map<string, java_lang_Integer>;
-endTime: number;
-startTime: number;
-totalTicks: number;
-totalTime: number;
-minuteReports: co_aikar_timings_TimingHistory_MinuteReport[];
-entries: co_aikar_timings_TimingHistoryEntry[];
-tileEntityTypeSet: java_util_Set<org_bukkit_Material>;
-entityTypeSet: java_util_Set<org_bukkit_entity_EntityType>;
-worlds: java_util_Map<java_lang_Object, java_lang_Object>;
-
-
-  }
-}
-//@ts-nocheck
-
-declare module 'co.aikar.timings.TimingHistory' {
-import { TicksRecord as co_aikar_timings_TimingHistory_TicksRecord, PingRecord as co_aikar_timings_TimingHistory_PingRecord } from 'co.aikar.timings.TimingHistory';
-import { TimingData as co_aikar_timings_TimingData } from 'co.aikar.timings';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class MinuteReport extends java_lang_Object {
-time: number;
-ticksRecord: co_aikar_timings_TimingHistory_TicksRecord;
-pingRecord: co_aikar_timings_TimingHistory_PingRecord;
-fst: co_aikar_timings_TimingData;
-tps: number;
-usedMemory: number;
-freeMemory: number;
-loadAvg: number;
-
-
-  }
-}
-//@ts-nocheck
-
-declare module 'co.aikar.timings.TimingHistory' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class TicksRecord extends java_lang_Object {
-timed: number;
-player: number;
-entity: number;
-tileEntity: number;
-activatedEntity: number;
-
-
-  }
-}
-//@ts-nocheck
-
-declare module 'co.aikar.timings.TimingHistory' {
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class PingRecord extends java_lang_Object {
-avg: number;
-
-
-  }
-}
-//@ts-nocheck
-
-declare module 'co.aikar.timings' {
-import { TimingData as co_aikar_timings_TimingData } from 'co.aikar.timings';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class TimingHistoryEntry extends java_lang_Object {
-data: co_aikar_timings_TimingData;
-children: co_aikar_timings_TimingData[];
 
 
   }
@@ -688,17 +524,10 @@ declare module 'co.aikar.timings' {
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
 import { Timing as co_aikar_timings_Timing, TimingsReportListener as co_aikar_timings_TimingsReportListener } from 'co.aikar.timings';
 import { CommandSender as org_bukkit_command_CommandSender } from 'org.bukkit.command';
-import { List as java_util_List } from 'java.util';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class Timings extends java_lang_Object {
-static requestingReport: java_util_List<org_bukkit_command_CommandSender>;
-static MAX_HISTORY_FRAMES: number;
 static NULL_HANDLER: co_aikar_timings_Timing;
-static timingsEnabled: boolean;
-static verboseEnabled: boolean;
-static historyInterval: number;
-static historyLength: number;
 static historyInterval: number;
 static historyLength: number;
 /** Returns a Timing for a plugin corresponding to a name. */
@@ -784,9 +613,6 @@ import { CommandSender as org_bukkit_command_CommandSender, MessageCommandSender
 import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java.lang';
 
   export class TimingsReportListener extends java_lang_Object implements org_bukkit_command_MessageCommandSender {
-senders: java_util_List<org_bukkit_command_CommandSender>;
-onDone: java_lang_Runnable;
-timingsURL: string;
 timingsURL: string | null;
 name: string;
 server: org_bukkit_Server;
@@ -870,8 +696,6 @@ import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang'
 import { BukkitCommand as org_bukkit_command_defaults_BukkitCommand } from 'org.bukkit.command.defaults';
 
   export class TimingsCommand extends org_bukkit_command_defaults_BukkitCommand {
-static TIMINGS_SUBCOMMANDS: java_util_List<string>;
-lastResetAttempt: number;
 name: string;
 permission: string | null;
 timingName: string;
@@ -970,27 +794,17 @@ constructor(name: string);
 
 declare module 'co.aikar.timings' {
 import { Command as org_bukkit_command_Command } from 'org.bukkit.command';
-import { Timing as co_aikar_timings_Timing, TimingIdentifier as co_aikar_timings_TimingIdentifier, TimingHandler as co_aikar_timings_TimingHandler, FullServerTickHandler as co_aikar_timings_FullServerTickHandler, TimingHistory as co_aikar_timings_TimingHistory } from 'co.aikar.timings';
+import { Timing as co_aikar_timings_Timing, FullServerTickHandler as co_aikar_timings_FullServerTickHandler, TimingHandler as co_aikar_timings_TimingHandler } from 'co.aikar.timings';
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
-import { Map as java_util_Map, List as java_util_List } from 'java.util';
-import { MinuteReport as co_aikar_timings_TimingHistory_MinuteReport } from 'co.aikar.timings.TimingHistory';
-import { EvictingQueue as com_google_common_collect_EvictingQueue } from 'com.google.common.collect';
+import { List as java_util_List } from 'java.util';
 
   export class TimingsManager extends java_lang_Object {
-static TIMING_MAP: java_util_Map<co_aikar_timings_TimingIdentifier, co_aikar_timings_TimingHandler>;
 static FULL_SERVER_TICK: co_aikar_timings_FullServerTickHandler;
 static TIMINGS_TICK: co_aikar_timings_TimingHandler;
 static PLUGIN_GROUP_HANDLER: co_aikar_timings_Timing;
 static hiddenConfigs: java_util_List<string>;
 static privacy: boolean;
-static HANDLERS: java_util_List<co_aikar_timings_TimingHandler>;
-static MINUTE_REPORTS: java_util_List<co_aikar_timings_TimingHistory_MinuteReport>;
-static HISTORY: com_google_common_collect_EvictingQueue<co_aikar_timings_TimingHistory>;
-static timingStart: number;
-static historyStart: number;
-static needsFullReset: boolean;
-static needsRecheckEnabled: boolean;
 static commandTiming: co_aikar_timings_Timing | null;
 static pluginByClassloader: org_bukkit_plugin_Plugin | null;
 /** Due to access restrictions, we need a helper method to get a Command TimingHandler with String group
@@ -1016,9 +830,6 @@ import { CommandSender as org_bukkit_command_CommandSender, MessageCommandSender
 import { Runnable as java_lang_Runnable, Object as java_lang_Object } from 'java.lang';
 
   export class TimingsReportListener extends java_lang_Object implements org_bukkit_command_MessageCommandSender {
-senders: java_util_List<org_bukkit_command_CommandSender>;
-onDone: java_lang_Runnable;
-timingsURL: string;
 timingsURL: string | null;
 name: string;
 server: org_bukkit_Server;

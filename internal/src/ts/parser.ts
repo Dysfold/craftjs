@@ -47,6 +47,7 @@ export interface Parameter {
 export interface Property {
   name: string;
   isStatic: boolean;
+  isPublic: boolean;
   nullable: boolean;
   type: Type;
 }
@@ -54,6 +55,7 @@ export interface Property {
 export interface Method {
   name: string;
   isStatic: boolean;
+  isPublic: boolean;
   nullable: boolean;
   typeParameters: TypeParameter[];
   parameters: Parameter[];
@@ -260,6 +262,7 @@ export function parseMethod(
     name: method.getName(),
     docs: '',
     isStatic: Modifier.isStatic(modifiers),
+    isPublic: Modifier.isPublic(modifiers),
     typeParameters: typeParams,
     parameters,
     nullable: false,
@@ -277,6 +280,7 @@ function parseConstructor(constr: any): Constructor {
     name: 'constructor',
     docs: '',
     isStatic: Modifier.isStatic(modifiers),
+    isPublic: Modifier.isPublic(modifiers),
     typeParameters: typeParams,
     nullable: false,
     parameters,
@@ -289,6 +293,7 @@ function parseProperty(field: any): Property {
   return {
     name: field.getName(),
     isStatic: Modifier.isStatic(modifiers),
+    isPublic: Modifier.isPublic(modifiers),
     nullable: false,
     type,
   };
