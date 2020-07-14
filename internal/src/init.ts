@@ -3,6 +3,7 @@ import { Paths } from 'java.nio.file';
 import { PluginDisableEvent } from 'org.bukkit.event.server';
 import { HandlerList } from 'org.bukkit.event';
 import { CommandSender } from 'org.bukkit.command';
+import { tabComplete } from './tabcomplete';
 
 const unloadHandlers: (() => void)[] = [];
 
@@ -81,8 +82,12 @@ registerCommand(
     try {
       const result = __ctx.eval('js', str);
       if (`${result}` === '[object Object]') {
-        const json = JSON.stringify(result, null, 2);
-        json.split('\n').forEach((row) => sender.sendMessage(row));
+        try {
+          const json = JSON.stringify(result, null, 2);
+          json.split('\n').forEach((row) => sender.sendMessage(row));
+        } catch {
+          sender.sendMessage(`${result}`);
+        }
       } else {
         sender.sendMessage(`${result}`);
       }
@@ -90,7 +95,9 @@ registerCommand(
       console.error(e);
     }
   },
-  (sender, alias, args) => {},
+  (sender, alias, args) => {
+    return tabComplete(sender, alias, args);
+  },
 );
 
 const startTime = Date.now();

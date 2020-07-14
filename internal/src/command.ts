@@ -14,10 +14,14 @@ function __registerCommand(
       const result = callback(sender, label, jsArgs);
       return typeof result === 'boolean' ? result : true;
     },
-    tabComplete(...params: [CommandSender, string, string[]]) {
+    tabComplete(...[sender, alias, args]: [CommandSender, string, string[]]) {
       if (tabComplete) {
-        const result = tabComplete(...params) ?? [];
-        return result;
+        try {
+          const result = tabComplete(sender, alias, [...args]) ?? [];
+          return result;
+        } catch (e) {
+          console.error(e);
+        }
       }
       return [];
     },
