@@ -7,6 +7,8 @@ declare const readFile: any;
 const cache: Record<string, any> = {};
 const stack: string[] = [];
 
+(global as any).__requireStack = stack;
+
 class ModuleNotFoundError extends Error {
   constructor(module: string, parent: Path) {
     super(`Module '${module}' could not be resolved from ${parent}`);
@@ -106,7 +108,7 @@ function __require(id: string, relative?: string): any {
 
   const parent = relative
     ? Paths.get(relative)
-    : Paths.get(stack.slice(-1)[0] ?? '.', '.');
+    : Paths.get(stack.slice(-1)[0] ?? '.').getParent() ?? Paths.get('.');
   const folder = resolveModule(parent, id);
   const resolved = resolveFile(folder)?.normalize();
 
@@ -120,7 +122,7 @@ function __require(id: string, relative?: string): any {
     return cache[cacheId].exports;
   }
 
-  stack.push(resolved.getParent()?.toString() ?? '.');
+  stack.push(resolved.toString());
   const exports = {};
   const module = {
     exports,

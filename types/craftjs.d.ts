@@ -22,6 +22,8 @@ declare global {
   ): void;
 
   function require(module: string, parent?: string): any;
+
+  const __requireStack: string[];
 }
 
 export { };
