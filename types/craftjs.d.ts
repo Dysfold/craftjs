@@ -24,6 +24,18 @@ declare global {
   function require(module: string, parent?: string): any;
 
   const __requireStack: string[];
+
+
+  /**
+   * Register a function to be called when the plugin is disabled
+   * @param callback Function to call
+   */
+  function addUnloadHandler(callback: () => void): void;
+  function generateTypescriptDefinitions(): void;
+  /**
+   * Reloads the plugin
+   */
+  function refresh(): void;
 }
 
 export { };

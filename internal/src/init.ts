@@ -7,19 +7,6 @@ import { tabComplete } from './tabcomplete';
 
 const unloadHandlers: (() => void)[] = [];
 
-declare global {
-  /**
-   * Register a function to be called when the plugin is disabled
-   * @param callback Function to call
-   */
-  function addUnloadHandler(callback: () => void): void;
-  function generateTypescriptDefinitions(): void;
-  /**
-   * Reloads the plugin
-   */
-  function refresh(): void;
-}
-
 global.addUnloadHandler = function (callback) {
   unloadHandlers.push(callback);
 };
