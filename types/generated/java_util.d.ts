@@ -2577,40 +2577,6 @@ start(arg0: number): number;
 //@ts-nocheck
 
 declare module 'java.util' {
-import { IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
-import { Object as java_lang_Object } from 'java.lang';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class Random extends java_lang_Object implements java_io_Serializable {
-
-doubles(): java_util_stream_DoubleStream;
-doubles(arg0: number): java_util_stream_DoubleStream;
-doubles(arg0: number, arg1: number): java_util_stream_DoubleStream;
-doubles(arg0: number, arg1: number, arg2: number): java_util_stream_DoubleStream;
-ints(): java_util_stream_IntStream;
-ints(arg0: number): java_util_stream_IntStream;
-ints(arg0: number, arg1: number): java_util_stream_IntStream;
-ints(arg0: number, arg1: number, arg2: number): java_util_stream_IntStream;
-longs(): java_util_stream_LongStream;
-longs(arg0: number): java_util_stream_LongStream;
-longs(arg0: number, arg1: number): java_util_stream_LongStream;
-longs(arg0: number, arg1: number, arg2: number): java_util_stream_LongStream;
-nextBoolean(): boolean;
-nextBytes(arg0: JArray<number>): void;
-nextDouble(): number;
-nextFloat(): number;
-nextGaussian(): number;
-nextInt(): number;
-nextInt(arg0: number): number;
-nextLong(): number;
-setSeed(arg0: number): void;
-constructor();
-constructor(arg0: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.util' {
 import { Object as java_lang_Object } from 'java.lang';
 import { Serializable as java_io_Serializable } from 'java.io';
 
@@ -2804,6 +2770,40 @@ declare module 'java.util' {
 
 
 
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { IntStream as java_util_stream_IntStream, LongStream as java_util_stream_LongStream, DoubleStream as java_util_stream_DoubleStream } from 'java.util.stream';
+import { Object as java_lang_Object } from 'java.lang';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class Random extends java_lang_Object implements java_io_Serializable {
+
+doubles(): java_util_stream_DoubleStream;
+doubles(arg0: number): java_util_stream_DoubleStream;
+doubles(arg0: number, arg1: number): java_util_stream_DoubleStream;
+doubles(arg0: number, arg1: number, arg2: number): java_util_stream_DoubleStream;
+ints(): java_util_stream_IntStream;
+ints(arg0: number): java_util_stream_IntStream;
+ints(arg0: number, arg1: number): java_util_stream_IntStream;
+ints(arg0: number, arg1: number, arg2: number): java_util_stream_IntStream;
+longs(): java_util_stream_LongStream;
+longs(arg0: number): java_util_stream_LongStream;
+longs(arg0: number, arg1: number): java_util_stream_LongStream;
+longs(arg0: number, arg1: number, arg2: number): java_util_stream_LongStream;
+nextBoolean(): boolean;
+nextBytes(arg0: JArray<number>): void;
+nextDouble(): number;
+nextFloat(): number;
+nextGaussian(): number;
+nextInt(): number;
+nextInt(arg0: number): number;
+nextLong(): number;
+setSeed(arg0: number): void;
+constructor();
+constructor(arg0: number);
   }
 }
 //@ts-nocheck
@@ -3490,6 +3490,141 @@ and(arg0: java_util_function_BiPredicate<java_lang_Object, java_lang_Object>): j
 negate(): java_util_function_BiPredicate<T, U>;
 or(arg0: java_util_function_BiPredicate<java_lang_Object, java_lang_Object>): java_util_function_BiPredicate<T, U>;
 test(arg0: T, arg1: U): boolean;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.util' {
+import { Object as java_lang_Object, Integer as java_lang_Integer, Cloneable as java_lang_Cloneable, Comparable as java_lang_Comparable } from 'java.lang';
+import { Calendar as java_util_Calendar, TimeZone as java_util_TimeZone, Locale as java_util_Locale, Date as java_util_Date, Map as java_util_Map, Set as java_util_Set } from 'java.util';
+import { Instant as java_time_Instant } from 'java.time';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class Calendar extends java_lang_Object implements java_io_Serializable, java_lang_Cloneable, java_lang_Comparable<java_util_Calendar> {
+actualMaximum: number;
+actualMinimum: number;
+calendarType: string;
+displayName: string;
+displayNames: java_util_Map<string, java_lang_Integer>;
+firstDayOfWeek: number;
+greatestMinimum: number;
+leastMaximum: number;
+maximum: number;
+minimalDaysInFirstWeek: number;
+minimum: number;
+static ALL_STYLES: number;
+static AM: number;
+static AM_PM: number;
+static APRIL: number;
+static AUGUST: number;
+static DATE: number;
+static DAY_OF_MONTH: number;
+static DAY_OF_WEEK: number;
+static DAY_OF_WEEK_IN_MONTH: number;
+static DAY_OF_YEAR: number;
+static DECEMBER: number;
+static DST_OFFSET: number;
+static ERA: number;
+static FEBRUARY: number;
+static FIELD_COUNT: number;
+static FRIDAY: number;
+static HOUR: number;
+static HOUR_OF_DAY: number;
+static JANUARY: number;
+static JULY: number;
+static JUNE: number;
+static LONG: number;
+static LONG_FORMAT: number;
+static LONG_STANDALONE: number;
+static MARCH: number;
+static MAY: number;
+static MILLISECOND: number;
+static MINUTE: number;
+static MONDAY: number;
+static MONTH: number;
+static NARROW_FORMAT: number;
+static NARROW_STANDALONE: number;
+static NOVEMBER: number;
+static OCTOBER: number;
+static PM: number;
+static SATURDAY: number;
+static SECOND: number;
+static SEPTEMBER: number;
+static SHORT: number;
+static SHORT_FORMAT: number;
+static SHORT_STANDALONE: number;
+static SUNDAY: number;
+static THURSDAY: number;
+static TUESDAY: number;
+static UNDECIMBER: number;
+static WEDNESDAY: number;
+static WEEK_OF_MONTH: number;
+static WEEK_OF_YEAR: number;
+static YEAR: number;
+static ZONE_OFFSET: number;
+static availableCalendarTypes: java_util_Set<string>;
+static availableLocales: JArray<java_util_Locale>;
+static instance: java_util_Calendar;
+static instance: java_util_Calendar;
+static instance: java_util_Calendar;
+static instance: java_util_Calendar;
+time: java_util_Date;
+timeInMillis: number;
+timeZone: java_util_TimeZone;
+weekYear: number;
+weeksInWeekYear: number;
+add(arg0: number, arg1: number): void;
+after(arg0: java_lang_Object): boolean;
+before(arg0: java_lang_Object): boolean;
+clear(): void;
+clear(arg0: number): void;
+clone(): java_lang_Object;
+compareTo(arg0: java_lang_Object): number;
+compareTo(arg0: java_util_Calendar): number;
+equals(arg0: java_lang_Object): boolean;
+get(arg0: number): number;
+getActualMaximum(arg0: number): number;
+getActualMinimum(arg0: number): number;
+getCalendarType(): string;
+getDisplayName(arg0: number, arg1: number, arg2: java_util_Locale): string;
+getDisplayNames(arg0: number, arg1: number, arg2: java_util_Locale): java_util_Map<string, java_lang_Integer>;
+getFirstDayOfWeek(): number;
+getGreatestMinimum(arg0: number): number;
+getLeastMaximum(arg0: number): number;
+getMaximum(arg0: number): number;
+getMinimalDaysInFirstWeek(): number;
+getMinimum(arg0: number): number;
+getTime(): java_util_Date;
+getTimeInMillis(): number;
+getTimeZone(): java_util_TimeZone;
+getWeekYear(): number;
+getWeeksInWeekYear(): number;
+hashCode(): number;
+isLenient(): boolean;
+isSet(arg0: number): boolean;
+isWeekDateSupported(): boolean;
+roll(arg0: number, arg1: boolean): void;
+roll(arg0: number, arg1: number): void;
+set(arg0: number, arg1: number): void;
+set(arg0: number, arg1: number, arg2: number): void;
+set(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): void;
+set(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): void;
+setFirstDayOfWeek(arg0: number): void;
+setLenient(arg0: boolean): void;
+setMinimalDaysInFirstWeek(arg0: number): void;
+setTime(arg0: java_util_Date): void;
+setTimeInMillis(arg0: number): void;
+setTimeZone(arg0: java_util_TimeZone): void;
+setWeekDate(arg0: number, arg1: number, arg2: number): void;
+static getAvailableCalendarTypes(): java_util_Set<string>;
+static getAvailableLocales(): JArray<java_util_Locale>;
+static getInstance(): java_util_Calendar;
+static getInstance(arg0: java_util_Locale): java_util_Calendar;
+static getInstance(arg0: java_util_TimeZone): java_util_Calendar;
+static getInstance(arg0: java_util_TimeZone, arg1: java_util_Locale): java_util_Calendar;
+toInstant(): java_time_Instant;
+toString(): string;
 
   }
 }

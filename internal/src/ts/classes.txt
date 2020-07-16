@@ -1151,3 +1151,4 @@ org.bukkit.entity.ZombieHorse
 org.bukkit.entity.ZombieVillager
 java.nio.file.Files
 java.nio.file.Paths
+java.sql.DriverManager

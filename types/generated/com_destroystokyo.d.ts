@@ -40,33 +40,6 @@ getNamespace(): string;
 }
 //@ts-nocheck
 
-declare module 'com.destroystokyo.paper.util' {
-
-
-  export class VersionFetcher {
-/** Amount of time to cache results for in milliseconds
- 
- Negative values will never cache. */
-cacheTime: number;
-/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
- in the string. The string will be split on these newlines and sent as individual messages.
- 
- NOTE: This is run in a new thread separate from that of the command processing thread */
-versionMessage: string;
-/** Amount of time to cache results for in milliseconds
- 
- Negative values will never cache. */
-getCacheTime(): number;
-/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
- in the string. The string will be split on these newlines and sent as individual messages.
- 
- NOTE: This is run in a new thread separate from that of the command processing thread */
-getVersionMessage(serverVersion: string): string;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'com.destroystokyo.paper' {
 import { ParticleBuilder as com_destroystokyo_paper_ParticleBuilder } from 'com.destroystokyo.paper';
 import { Object as java_lang_Object } from 'java.lang';
@@ -492,6 +465,26 @@ wait(arg0: number, arg1: number): void;
 }
 //@ts-nocheck
 
+declare module 'com.destroystokyo.paper.entity' {
+import { Vector as org_bukkit_util_Vector } from 'org.bukkit.util';
+import { Entity as org_bukkit_entity_Entity } from 'org.bukkit.entity';
+import { Object as java_lang_Object } from 'java.lang';
+/** Represents information about a targeted entity */
+
+  export class TargetEntityInfo extends java_lang_Object {
+/** Get the entity that is targeted */
+entity: org_bukkit_entity_Entity;
+/** Get the position the entity is targeted at */
+hitVector: org_bukkit_util_Vector;
+/** Get the entity that is targeted */
+getEntity(): org_bukkit_entity_Entity;
+/** Get the position the entity is targeted at */
+getHitVector(): org_bukkit_util_Vector;
+constructor(entity: org_bukkit_entity_Entity, hitVec: org_bukkit_util_Vector);
+  }
+}
+//@ts-nocheck
+
 declare module 'com.destroystokyo.paper.block.TargetBlockInfo' {
 import { FluidMode as com_destroystokyo_paper_block_TargetBlockInfo_FluidMode } from 'com.destroystokyo.paper.block.TargetBlockInfo';
 import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
@@ -547,29 +540,91 @@ constructor(block: org_bukkit_block_Block, blockFace: org_bukkit_block_BlockFace
 }
 //@ts-nocheck
 
-declare module 'com.destroystokyo.paper.entity' {
-import { Vector as org_bukkit_util_Vector } from 'org.bukkit.util';
-import { Entity as org_bukkit_entity_Entity } from 'org.bukkit.entity';
-import { Object as java_lang_Object } from 'java.lang';
-/** Represents information about a targeted entity */
+declare module 'com.destroystokyo.paper.util' {
 
-  export class TargetEntityInfo extends java_lang_Object {
-/** Get the entity that is targeted */
-entity: org_bukkit_entity_Entity;
-/** Get the position the entity is targeted at */
-hitVector: org_bukkit_util_Vector;
-/** Get the entity that is targeted */
-getEntity(): org_bukkit_entity_Entity;
-/** Get the position the entity is targeted at */
-getHitVector(): org_bukkit_util_Vector;
-constructor(entity: org_bukkit_entity_Entity, hitVec: org_bukkit_util_Vector);
+
+  export class VersionFetcher {
+/** Amount of time to cache results for in milliseconds
+ 
+ Negative values will never cache. */
+cacheTime: number;
+/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
+ in the string. The string will be split on these newlines and sent as individual messages.
+ 
+ NOTE: This is run in a new thread separate from that of the command processing thread */
+versionMessage: string;
+/** Amount of time to cache results for in milliseconds
+ 
+ Negative values will never cache. */
+getCacheTime(): number;
+/** Gets the version message to cache and show to command senders. Multiple messages can be sent using newlines (\n)
+ in the string. The string will be split on these newlines and sent as individual messages.
+ 
+ NOTE: This is run in a new thread separate from that of the command processing thread */
+getVersionMessage(serverVersion: string): string;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'com.destroystokyo.paper.entity.ai' {
+import { GoalKey as com_destroystokyo_paper_entity_ai_GoalKey, Goal as com_destroystokyo_paper_entity_ai_Goal, GoalType as com_destroystokyo_paper_entity_ai_GoalType } from 'com.destroystokyo.paper.entity.ai';
+import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
+import { Collection as java_util_Collection } from 'java.util';
+/** Represents a part of the "brain" of a mob. It tracks all tasks (running or not), allows adding and removing goals */
+
+  export class MobGoals {
+allGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+allGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+allGoalsWithout: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+goal: com_destroystokyo_paper_entity_ai_Goal<T> | null;
+goals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+runningGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+runningGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+runningGoalsWithout: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+addGoal<T extends org_bukkit_entity_Mob>(mob: T, priority: number, goal: com_destroystokyo_paper_entity_ai_Goal<T>): void;
+getAllGoals<T extends org_bukkit_entity_Mob>(mob: T): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+getAllGoals<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+getAllGoalsWithout<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+getGoal<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): com_destroystokyo_paper_entity_ai_Goal<T> | null;
+getGoals<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+getRunningGoals<T extends org_bukkit_entity_Mob>(mob: T): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+getRunningGoals<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+getRunningGoalsWithout<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
+hasGoal<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): boolean;
+removeAllGoals<T extends org_bukkit_entity_Mob>(mob: T): void;
+removeAllGoals<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): void;
+removeGoal<T extends org_bukkit_entity_Mob>(mob: T, goal: com_destroystokyo_paper_entity_ai_Goal<T>): void;
+removeGoal<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'com.destroystokyo.paper.entity.ai' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { NamespacedKey as org_bukkit_NamespacedKey } from 'org.bukkit';
+import { GoalKey as com_destroystokyo_paper_entity_ai_GoalKey } from 'com.destroystokyo.paper.entity.ai';
+import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
+/** Used to identify a Goal. Consists of a NamespacedKey and the type of mob the goal can be applied to */
+
+  export class GoalKey<T extends org_bukkit_entity_Mob> extends java_lang_Object {
+entityClass: java_lang_Class<T>;
+namespacedKey: org_bukkit_NamespacedKey;
+equals(o: java_lang_Object): boolean;
+getEntityClass(): java_lang_Class<T>;
+getNamespacedKey(): org_bukkit_NamespacedKey;
+hashCode(): number;
+static of<A extends org_bukkit_entity_Mob>(entityClass: java_lang_Class<A>, namespacedKey: org_bukkit_NamespacedKey): com_destroystokyo_paper_entity_ai_GoalKey<A>;
+toString(): string;
+
   }
 }
 //@ts-nocheck
 
 declare module 'com.destroystokyo.paper.entity' {
-import { PathResult as com_destroystokyo_paper_entity_Pathfinder_PathResult } from 'com.destroystokyo.paper.entity.Pathfinder';
 import { Location as org_bukkit_Location } from 'org.bukkit';
+import { PathResult as com_destroystokyo_paper_entity_Pathfinder_PathResult } from 'com.destroystokyo.paper.entity.Pathfinder';
 import { LivingEntity as org_bukkit_entity_LivingEntity, Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 /** Handles pathfinding operations for an Entity */
 
@@ -664,68 +719,6 @@ getNextPointIndex(): number;
 }
 //@ts-nocheck
 
-declare module 'com.destroystokyo.paper.network' {
-import { InetSocketAddress as java_net_InetSocketAddress } from 'java.net';
-/** Represents a client connected to the server. */
-
-  export class NetworkClient {
-/** Returns the protocol version of the client. */
-protocolVersion: number;
-/** Returns the socket address of the client. */
-address: java_net_InetSocketAddress;
-/** Returns the virtual host the client is connected to.
-
- The virtual host refers to the hostname/port the client used to
- connect to the server. */
-virtualHost: java_net_InetSocketAddress | null;
-/** Returns the protocol version of the client. */
-getProtocolVersion(): number;
-/** Returns the socket address of the client. */
-getAddress(): java_net_InetSocketAddress;
-/** Returns the virtual host the client is connected to.
-
- The virtual host refers to the hostname/port the client used to
- connect to the server. */
-getVirtualHost(): java_net_InetSocketAddress | null;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'com.destroystokyo.paper.entity.ai' {
-import { Goal as com_destroystokyo_paper_entity_ai_Goal, GoalKey as com_destroystokyo_paper_entity_ai_GoalKey, GoalType as com_destroystokyo_paper_entity_ai_GoalType } from 'com.destroystokyo.paper.entity.ai';
-import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
-import { Collection as java_util_Collection } from 'java.util';
-/** Represents a part of the "brain" of a mob. It tracks all tasks (running or not), allows adding and removing goals */
-
-  export class MobGoals {
-allGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-allGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-allGoalsWithout: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-goal: com_destroystokyo_paper_entity_ai_Goal<T> | null;
-goals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-runningGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-runningGoals: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-runningGoalsWithout: java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-addGoal<T extends org_bukkit_entity_Mob>(mob: T, priority: number, goal: com_destroystokyo_paper_entity_ai_Goal<T>): void;
-getAllGoals<T extends org_bukkit_entity_Mob>(mob: T): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-getAllGoals<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-getAllGoalsWithout<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-getGoal<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): com_destroystokyo_paper_entity_ai_Goal<T> | null;
-getGoals<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-getRunningGoals<T extends org_bukkit_entity_Mob>(mob: T): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-getRunningGoals<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-getRunningGoalsWithout<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): java_util_Collection<com_destroystokyo_paper_entity_ai_Goal<T>>;
-hasGoal<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): boolean;
-removeAllGoals<T extends org_bukkit_entity_Mob>(mob: T): void;
-removeAllGoals<T extends org_bukkit_entity_Mob>(mob: T, type: com_destroystokyo_paper_entity_ai_GoalType): void;
-removeGoal<T extends org_bukkit_entity_Mob>(mob: T, goal: com_destroystokyo_paper_entity_ai_Goal<T>): void;
-removeGoal<T extends org_bukkit_entity_Mob>(mob: T, key: com_destroystokyo_paper_entity_ai_GoalKey<T>): void;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'com.destroystokyo.paper.entity.ai' {
 import { GoalKey as com_destroystokyo_paper_entity_ai_GoalKey, GoalType as com_destroystokyo_paper_entity_ai_GoalType } from 'com.destroystokyo.paper.entity.ai';
 import { EnumSet as java_util_EnumSet } from 'java.util';
@@ -763,27 +756,6 @@ getTypes(): java_util_EnumSet<com_destroystokyo_paper_entity_ai_GoalType>;
 //@ts-nocheck
 
 declare module 'com.destroystokyo.paper.entity.ai' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { NamespacedKey as org_bukkit_NamespacedKey } from 'org.bukkit';
-import { GoalKey as com_destroystokyo_paper_entity_ai_GoalKey } from 'com.destroystokyo.paper.entity.ai';
-import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
-/** Used to identify a Goal. Consists of a NamespacedKey and the type of mob the goal can be applied to */
-
-  export class GoalKey<T extends org_bukkit_entity_Mob> extends java_lang_Object {
-entityClass: java_lang_Class<T>;
-namespacedKey: org_bukkit_NamespacedKey;
-equals(o: java_lang_Object): boolean;
-getEntityClass(): java_lang_Class<T>;
-getNamespacedKey(): org_bukkit_NamespacedKey;
-hashCode(): number;
-static of<A extends org_bukkit_entity_Mob>(entityClass: java_lang_Class<A>, namespacedKey: org_bukkit_NamespacedKey): com_destroystokyo_paper_entity_ai_GoalKey<A>;
-toString(): string;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'com.destroystokyo.paper.entity.ai' {
 import { GoalType as com_destroystokyo_paper_entity_ai_GoalType } from 'com.destroystokyo.paper.entity.ai';
 import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
 /** Represents the subtype of a goal. Used by minecraft to disable certain types of goals if needed. */
@@ -813,6 +785,34 @@ notifyAll(): void;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'com.destroystokyo.paper.network' {
+import { InetSocketAddress as java_net_InetSocketAddress } from 'java.net';
+/** Represents a client connected to the server. */
+
+  export class NetworkClient {
+/** Returns the protocol version of the client. */
+protocolVersion: number;
+/** Returns the socket address of the client. */
+address: java_net_InetSocketAddress;
+/** Returns the virtual host the client is connected to.
+
+ The virtual host refers to the hostname/port the client used to
+ connect to the server. */
+virtualHost: java_net_InetSocketAddress | null;
+/** Returns the protocol version of the client. */
+getProtocolVersion(): number;
+/** Returns the socket address of the client. */
+getAddress(): java_net_InetSocketAddress;
+/** Returns the virtual host the client is connected to.
+
+ The virtual host refers to the hostname/port the client used to
+ connect to the server. */
+getVirtualHost(): java_net_InetSocketAddress | null;
 
   }
 }
@@ -1063,16 +1063,16 @@ wait(arg0: number, arg1: number): void;
 
 declare module 'com.destroystokyo.paper.inventory.meta' {
 import { ItemMeta as org_bukkit_inventory_meta_ItemMeta } from 'org.bukkit.inventory.meta';
-import { EquipmentSlot as org_bukkit_inventory_EquipmentSlot, ItemFlag as org_bukkit_inventory_ItemFlag } from 'org.bukkit.inventory';
-import { Multimap as com_google_common_collect_Multimap } from 'com.google.common.collect';
-import { Attribute as org_bukkit_attribute_Attribute, AttributeModifier as org_bukkit_attribute_AttributeModifier } from 'org.bukkit.attribute';
 import { Collection as java_util_Collection, Set as java_util_Set, List as java_util_List, Map as java_util_Map } from 'java.util';
-import { CustomItemTagContainer as org_bukkit_inventory_meta_tags_CustomItemTagContainer } from 'org.bukkit.inventory.meta.tags';
-import { Material as org_bukkit_Material } from 'org.bukkit';
 import { Namespaced as com_destroystokyo_paper_Namespaced } from 'com.destroystokyo.paper';
 import { BaseComponent as net_md_5_bungee_api_chat_BaseComponent } from 'net.md_5.bungee.api.chat';
 import { Integer as java_lang_Integer, Object as java_lang_Object } from 'java.lang';
 import { Enchantment as org_bukkit_enchantments_Enchantment } from 'org.bukkit.enchantments';
+import { EquipmentSlot as org_bukkit_inventory_EquipmentSlot, ItemFlag as org_bukkit_inventory_ItemFlag } from 'org.bukkit.inventory';
+import { Multimap as com_google_common_collect_Multimap } from 'com.google.common.collect';
+import { Attribute as org_bukkit_attribute_Attribute, AttributeModifier as org_bukkit_attribute_AttributeModifier } from 'org.bukkit.attribute';
+import { CustomItemTagContainer as org_bukkit_inventory_meta_tags_CustomItemTagContainer } from 'org.bukkit.inventory.meta.tags';
+import { Material as org_bukkit_Material } from 'org.bukkit';
 import { PersistentDataContainer as org_bukkit_persistence_PersistentDataContainer } from 'org.bukkit.persistence';
 
   export class ArmorStandMeta implements org_bukkit_inventory_meta_ItemMeta {
@@ -1945,20 +1945,20 @@ import { Pathfinder as com_destroystokyo_paper_entity_Pathfinder, TargetEntityIn
 import { MemoryKey as org_bukkit_entity_memory_MemoryKey } from 'org.bukkit.entity.memory';
 import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class } from 'java.lang';
 import { EntityEquipment as org_bukkit_inventory_EntityEquipment, ItemStack as org_bukkit_inventory_ItemStack } from 'org.bukkit.inventory';
+import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Material as org_bukkit_Material, Location as org_bukkit_Location, Server as org_bukkit_Server, World as org_bukkit_World, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
 import { RayTraceResult as org_bukkit_util_RayTraceResult, BoundingBox as org_bukkit_util_BoundingBox, Vector as org_bukkit_util_Vector } from 'org.bukkit.util';
-import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Location as org_bukkit_Location, Material as org_bukkit_Material, World as org_bukkit_World, Server as org_bukkit_Server, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
 import { Set as java_util_Set, List as java_util_List, Collection as java_util_Collection, UUID as java_util_UUID } from 'java.util';
 import { Block as org_bukkit_block_Block, BlockFace as org_bukkit_block_BlockFace, PistonMoveReaction as org_bukkit_block_PistonMoveReaction } from 'org.bukkit.block';
+import { PotionEffect as org_bukkit_potion_PotionEffect, PotionEffectType as org_bukkit_potion_PotionEffectType } from 'org.bukkit.potion';
 import { FluidMode as com_destroystokyo_paper_block_TargetBlockInfo_FluidMode } from 'com.destroystokyo.paper.block.TargetBlockInfo';
 import { TargetBlockInfo as com_destroystokyo_paper_block_TargetBlockInfo } from 'com.destroystokyo.paper.block';
-import { PotionEffect as org_bukkit_potion_PotionEffect, PotionEffectType as org_bukkit_potion_PotionEffectType } from 'org.bukkit.potion';
 import { Attribute as org_bukkit_attribute_Attribute, AttributeInstance as org_bukkit_attribute_AttributeInstance } from 'org.bukkit.attribute';
 import { Spigot as org_bukkit_command_CommandSender_Spigot } from 'org.bukkit.command.CommandSender';
 import { Spigot as org_bukkit_entity_Entity_Spigot } from 'org.bukkit.entity.Entity';
 import { TeleportCause as org_bukkit_event_player_PlayerTeleportEvent_TeleportCause } from 'org.bukkit.event.player.PlayerTeleportEvent';
 import { EntityDamageEvent as org_bukkit_event_entity_EntityDamageEvent } from 'org.bukkit.event.entity';
-import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { SpawnReason as org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason } from 'org.bukkit.event.entity.CreatureSpawnEvent';
+import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { MetadataValue as org_bukkit_metadata_MetadataValue } from 'org.bukkit.metadata';
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
 import { BaseComponent as net_md_5_bungee_api_chat_BaseComponent } from 'net.md_5.bungee.api.chat';
@@ -4939,9 +4939,9 @@ import { Material as org_bukkit_Material, Tag as org_bukkit_Tag, NamespacedKey a
 import { MaterialSetTag as com_destroystokyo_paper_MaterialSetTag } from 'com.destroystokyo.paper';
 import { Collection as java_util_Collection, Set as java_util_Set } from 'java.util';
 import { Predicate as java_util_function_Predicate } from 'java.util.function';
-import { ItemStack as org_bukkit_inventory_ItemStack } from 'org.bukkit.inventory';
-import { BlockData as org_bukkit_block_data_BlockData } from 'org.bukkit.block.data';
 import { BlockState as org_bukkit_block_BlockState, Block as org_bukkit_block_Block } from 'org.bukkit.block';
+import { BlockData as org_bukkit_block_data_BlockData } from 'org.bukkit.block.data';
+import { ItemStack as org_bukkit_inventory_ItemStack } from 'org.bukkit.inventory';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class MaterialSetTag extends java_lang_Object implements org_bukkit_Tag<org_bukkit_Material> {
@@ -5069,7 +5069,7 @@ constructor(eventClass: java_lang_Class<org_bukkit_event_Event>, handle: java_la
 //@ts-nocheck
 
 declare module 'com.destroystokyo.paper.entity.ai' {
-import { Goal as com_destroystokyo_paper_entity_ai_Goal, GoalKey as com_destroystokyo_paper_entity_ai_GoalKey, GoalType as com_destroystokyo_paper_entity_ai_GoalType } from 'com.destroystokyo.paper.entity.ai';
+import { GoalKey as com_destroystokyo_paper_entity_ai_GoalKey, Goal as com_destroystokyo_paper_entity_ai_Goal, GoalType as com_destroystokyo_paper_entity_ai_GoalType } from 'com.destroystokyo.paper.entity.ai';
 import { Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 import { Collection as java_util_Collection } from 'java.util';
 /** Represents a part of the "brain" of a mob. It tracks all tasks (running or not), allows adding and removing goals */
@@ -5546,8 +5546,8 @@ constructor(particle: org_bukkit_Particle);
 //@ts-nocheck
 
 declare module 'com.destroystokyo.paper.entity' {
-import { PathResult as com_destroystokyo_paper_entity_Pathfinder_PathResult } from 'com.destroystokyo.paper.entity.Pathfinder';
 import { Location as org_bukkit_Location } from 'org.bukkit';
+import { PathResult as com_destroystokyo_paper_entity_Pathfinder_PathResult } from 'com.destroystokyo.paper.entity.Pathfinder';
 import { LivingEntity as org_bukkit_entity_LivingEntity, Mob as org_bukkit_entity_Mob } from 'org.bukkit.entity';
 /** Handles pathfinding operations for an Entity */
 
@@ -7604,20 +7604,20 @@ import { Pathfinder as com_destroystokyo_paper_entity_Pathfinder, TargetEntityIn
 import { MemoryKey as org_bukkit_entity_memory_MemoryKey } from 'org.bukkit.entity.memory';
 import { Object as java_lang_Object, Boolean as java_lang_Boolean, Class as java_lang_Class } from 'java.lang';
 import { EntityEquipment as org_bukkit_inventory_EntityEquipment, ItemStack as org_bukkit_inventory_ItemStack } from 'org.bukkit.inventory';
+import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Material as org_bukkit_Material, Location as org_bukkit_Location, Server as org_bukkit_Server, World as org_bukkit_World, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
 import { RayTraceResult as org_bukkit_util_RayTraceResult, BoundingBox as org_bukkit_util_BoundingBox, Vector as org_bukkit_util_Vector } from 'org.bukkit.util';
-import { FluidCollisionMode as org_bukkit_FluidCollisionMode, Location as org_bukkit_Location, Material as org_bukkit_Material, World as org_bukkit_World, Server as org_bukkit_Server, Chunk as org_bukkit_Chunk, EntityEffect as org_bukkit_EntityEffect } from 'org.bukkit';
 import { Set as java_util_Set, List as java_util_List, Collection as java_util_Collection, UUID as java_util_UUID } from 'java.util';
 import { Block as org_bukkit_block_Block, BlockFace as org_bukkit_block_BlockFace, PistonMoveReaction as org_bukkit_block_PistonMoveReaction } from 'org.bukkit.block';
+import { PotionEffect as org_bukkit_potion_PotionEffect, PotionEffectType as org_bukkit_potion_PotionEffectType } from 'org.bukkit.potion';
 import { FluidMode as com_destroystokyo_paper_block_TargetBlockInfo_FluidMode } from 'com.destroystokyo.paper.block.TargetBlockInfo';
 import { TargetBlockInfo as com_destroystokyo_paper_block_TargetBlockInfo } from 'com.destroystokyo.paper.block';
-import { PotionEffect as org_bukkit_potion_PotionEffect, PotionEffectType as org_bukkit_potion_PotionEffectType } from 'org.bukkit.potion';
 import { Attribute as org_bukkit_attribute_Attribute, AttributeInstance as org_bukkit_attribute_AttributeInstance } from 'org.bukkit.attribute';
 import { Spigot as org_bukkit_command_CommandSender_Spigot } from 'org.bukkit.command.CommandSender';
 import { Spigot as org_bukkit_entity_Entity_Spigot } from 'org.bukkit.entity.Entity';
 import { TeleportCause as org_bukkit_event_player_PlayerTeleportEvent_TeleportCause } from 'org.bukkit.event.player.PlayerTeleportEvent';
 import { EntityDamageEvent as org_bukkit_event_entity_EntityDamageEvent } from 'org.bukkit.event.entity';
-import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { SpawnReason as org_bukkit_event_entity_CreatureSpawnEvent_SpawnReason } from 'org.bukkit.event.entity.CreatureSpawnEvent';
+import { CompletableFuture as java_util_concurrent_CompletableFuture } from 'java.util.concurrent';
 import { MetadataValue as org_bukkit_metadata_MetadataValue } from 'org.bukkit.metadata';
 import { Plugin as org_bukkit_plugin_Plugin } from 'org.bukkit.plugin';
 import { BaseComponent as net_md_5_bungee_api_chat_BaseComponent } from 'net.md_5.bungee.api.chat';

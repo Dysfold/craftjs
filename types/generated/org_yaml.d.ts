@@ -332,7 +332,7 @@ wait(arg0: number, arg1: number): void;
 //@ts-nocheck
 
 declare module 'org.yaml.snakeyaml' {
-import { Property as org_yaml_snakeyaml_introspector_Property, PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils, PropertySubstitute as org_yaml_snakeyaml_introspector_PropertySubstitute } from 'org.yaml.snakeyaml.introspector';
+import { Property as org_yaml_snakeyaml_introspector_Property, PropertySubstitute as org_yaml_snakeyaml_introspector_PropertySubstitute, PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils } from 'org.yaml.snakeyaml.introspector';
 import { Node as org_yaml_snakeyaml_nodes_Node, Tag as org_yaml_snakeyaml_nodes_Tag } from 'org.yaml.snakeyaml.nodes';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { Set as java_util_Set } from 'java.util';
@@ -488,8 +488,8 @@ construct2ndStep(arg0: org_yaml_snakeyaml_nodes_Node, arg1: java_lang_Object): v
 //@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.constructor' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { Composer as org_yaml_snakeyaml_composer_Composer } from 'org.yaml.snakeyaml.composer';
-import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
 import { PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils } from 'org.yaml.snakeyaml.introspector';
 import { TypeDescription as org_yaml_snakeyaml_TypeDescription, LoaderOptions as org_yaml_snakeyaml_LoaderOptions } from 'org.yaml.snakeyaml';
 
@@ -571,10 +571,10 @@ wait(arg0: number, arg1: number): void;
 
 declare module 'org.yaml.snakeyaml.representer' {
 import { TimeZone as java_util_TimeZone } from 'java.util';
-import { PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils } from 'org.yaml.snakeyaml.introspector';
-import { TypeDescription as org_yaml_snakeyaml_TypeDescription, DumperOptions as org_yaml_snakeyaml_DumperOptions } from 'org.yaml.snakeyaml';
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
 import { Tag as org_yaml_snakeyaml_nodes_Tag, Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes';
+import { PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils } from 'org.yaml.snakeyaml.introspector';
+import { TypeDescription as org_yaml_snakeyaml_TypeDescription, DumperOptions as org_yaml_snakeyaml_DumperOptions } from 'org.yaml.snakeyaml';
 import { FlowStyle as org_yaml_snakeyaml_DumperOptions_FlowStyle, ScalarStyle as org_yaml_snakeyaml_DumperOptions_ScalarStyle } from 'org.yaml.snakeyaml.DumperOptions';
 import { SafeRepresenter as org_yaml_snakeyaml_representer_SafeRepresenter } from 'org.yaml.snakeyaml.representer';
 
@@ -788,10 +788,10 @@ constructor(arg0: org_yaml_snakeyaml_DumperOptions);
 //@ts-nocheck
 
 declare module 'org.yaml.snakeyaml.representer' {
-import { PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils } from 'org.yaml.snakeyaml.introspector';
 import { FlowStyle as org_yaml_snakeyaml_DumperOptions_FlowStyle, ScalarStyle as org_yaml_snakeyaml_DumperOptions_ScalarStyle } from 'org.yaml.snakeyaml.DumperOptions';
 import { Object as java_lang_Object } from 'java.lang';
 import { Node as org_yaml_snakeyaml_nodes_Node } from 'org.yaml.snakeyaml.nodes';
+import { PropertyUtils as org_yaml_snakeyaml_introspector_PropertyUtils } from 'org.yaml.snakeyaml.introspector';
 
   export class BaseRepresenter extends java_lang_Object {
 defaultFlowStyle: org_yaml_snakeyaml_DumperOptions_FlowStyle;

@@ -2158,6 +2158,64 @@ constructor(arg0: string, arg1: java_lang_Throwable);
 //@ts-nocheck
 
 declare module 'java.lang' {
+import { Object as java_lang_Object, Float as java_lang_Float, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
+
+  export class Float extends java_lang_Number implements java_lang_Comparable<java_lang_Float> {
+class: java_lang_Class<java_lang_Object>;
+static BYTES: number;
+static MAX_EXPONENT: number;
+static MAX_VALUE: number;
+static MIN_EXPONENT: number;
+static MIN_NORMAL: number;
+static MIN_VALUE: number;
+static NEGATIVE_INFINITY: number;
+static NaN: number;
+static POSITIVE_INFINITY: number;
+static SIZE: number;
+static TYPE: java_lang_Class<java_lang_Float>;
+byteValue(): number;
+compareTo(arg0: java_lang_Float): number;
+compareTo(arg0: java_lang_Object): number;
+doubleValue(): number;
+equals(arg0: java_lang_Object): boolean;
+floatValue(): number;
+getClass(): java_lang_Class<java_lang_Object>;
+hashCode(): number;
+intValue(): number;
+isInfinite(): boolean;
+isNaN(): boolean;
+longValue(): number;
+notify(): void;
+notifyAll(): void;
+shortValue(): number;
+static compare(arg0: number, arg1: number): number;
+static floatToIntBits(arg0: number): number;
+static floatToRawIntBits(arg0: number): number;
+static hashCode(arg0: number): number;
+static intBitsToFloat(arg0: number): number;
+static isFinite(arg0: number): boolean;
+static isInfinite(arg0: number): boolean;
+static isNaN(arg0: number): boolean;
+static max(arg0: number, arg1: number): number;
+static min(arg0: number, arg1: number): number;
+static parseFloat(arg0: string): number;
+static sum(arg0: number, arg1: number): number;
+static toHexString(arg0: number): string;
+static toString(arg0: number): string;
+static valueOf(arg0: number): java_lang_Float;
+static valueOf(arg0: string): java_lang_Float;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+constructor(arg0: number);
+constructor(arg0: number);
+constructor(arg0: string);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.lang' {
 import { Object as java_lang_Object, Byte as java_lang_Byte, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
 
   export class Byte extends java_lang_Number implements java_lang_Comparable<java_lang_Byte> {
@@ -2242,64 +2300,6 @@ toString(): string;
 wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
-constructor(arg0: number);
-constructor(arg0: string);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.lang' {
-import { Object as java_lang_Object, Float as java_lang_Float, Class as java_lang_Class, Number as java_lang_Number, Comparable as java_lang_Comparable } from 'java.lang';
-
-  export class Float extends java_lang_Number implements java_lang_Comparable<java_lang_Float> {
-class: java_lang_Class<java_lang_Object>;
-static BYTES: number;
-static MAX_EXPONENT: number;
-static MAX_VALUE: number;
-static MIN_EXPONENT: number;
-static MIN_NORMAL: number;
-static MIN_VALUE: number;
-static NEGATIVE_INFINITY: number;
-static NaN: number;
-static POSITIVE_INFINITY: number;
-static SIZE: number;
-static TYPE: java_lang_Class<java_lang_Float>;
-byteValue(): number;
-compareTo(arg0: java_lang_Float): number;
-compareTo(arg0: java_lang_Object): number;
-doubleValue(): number;
-equals(arg0: java_lang_Object): boolean;
-floatValue(): number;
-getClass(): java_lang_Class<java_lang_Object>;
-hashCode(): number;
-intValue(): number;
-isInfinite(): boolean;
-isNaN(): boolean;
-longValue(): number;
-notify(): void;
-notifyAll(): void;
-shortValue(): number;
-static compare(arg0: number, arg1: number): number;
-static floatToIntBits(arg0: number): number;
-static floatToRawIntBits(arg0: number): number;
-static hashCode(arg0: number): number;
-static intBitsToFloat(arg0: number): number;
-static isFinite(arg0: number): boolean;
-static isInfinite(arg0: number): boolean;
-static isNaN(arg0: number): boolean;
-static max(arg0: number, arg1: number): number;
-static min(arg0: number, arg1: number): number;
-static parseFloat(arg0: string): number;
-static sum(arg0: number, arg1: number): number;
-static toHexString(arg0: number): string;
-static toString(arg0: number): string;
-static valueOf(arg0: number): java_lang_Float;
-static valueOf(arg0: string): java_lang_Float;
-toString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-constructor(arg0: number);
 constructor(arg0: number);
 constructor(arg0: string);
   }

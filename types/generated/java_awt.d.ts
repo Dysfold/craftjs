@@ -158,7 +158,7 @@ toRGB(arg0: JArray<number>): JArray<number>;
 
 declare module 'java.awt.image' {
 import { Object as java_lang_Object } from 'java.lang';
-import { SampleModel as java_awt_image_SampleModel, WritableRaster as java_awt_image_WritableRaster, ColorModel as java_awt_image_ColorModel, Raster as java_awt_image_Raster } from 'java.awt.image';
+import { WritableRaster as java_awt_image_WritableRaster, ColorModel as java_awt_image_ColorModel, Raster as java_awt_image_Raster, SampleModel as java_awt_image_SampleModel } from 'java.awt.image';
 import { ColorSpace as java_awt_color_ColorSpace } from 'java.awt.color';
 import { Transparency as java_awt_Transparency } from 'java.awt';
 
@@ -235,6 +235,131 @@ isCompatibleSampleModel(arg0: java_awt_image_SampleModel): boolean;
 static getRGBdefault(): java_awt_image_ColorModel;
 toString(): string;
 constructor(arg0: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.image' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Raster as java_awt_image_Raster, WritableRaster as java_awt_image_WritableRaster } from 'java.awt.image';
+
+  export class WritableRaster extends java_awt_image_Raster {
+class: java_lang_Class<java_lang_Object>;
+writableParent: java_awt_image_WritableRaster;
+createWritableChild(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: JArray<number>): java_awt_image_WritableRaster;
+createWritableTranslatedChild(arg0: number, arg1: number): java_awt_image_WritableRaster;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+getWritableParent(): java_awt_image_WritableRaster;
+hashCode(): number;
+notify(): void;
+notifyAll(): void;
+setDataElements(arg0: number, arg1: number, arg2: java_awt_image_Raster): void;
+setDataElements(arg0: number, arg1: number, arg2: java_lang_Object): void;
+setDataElements(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_lang_Object): void;
+setPixel(arg0: number, arg1: number, arg2: JArray<number>): void;
+setPixel(arg0: number, arg1: number, arg2: JArray<number>): void;
+setPixel(arg0: number, arg1: number, arg2: JArray<number>): void;
+setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): void;
+setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): void;
+setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): void;
+setRect(arg0: java_awt_image_Raster): void;
+setRect(arg0: number, arg1: number, arg2: java_awt_image_Raster): void;
+setSample(arg0: number, arg1: number, arg2: number, arg3: number): void;
+setSample(arg0: number, arg1: number, arg2: number, arg3: number): void;
+setSample(arg0: number, arg1: number, arg2: number, arg3: number): void;
+setSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): void;
+setSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): void;
+setSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): void;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.image' {
+import { Raster as java_awt_image_Raster, SampleModel as java_awt_image_SampleModel, WritableRaster as java_awt_image_WritableRaster, DataBuffer as java_awt_image_DataBuffer } from 'java.awt.image';
+import { Rectangle as java_awt_Rectangle, Point as java_awt_Point } from 'java.awt';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class Raster extends java_lang_Object {
+bounds: java_awt_Rectangle;
+dataBuffer: java_awt_image_DataBuffer;
+dataElements: java_lang_Object;
+dataElements: java_lang_Object;
+height: number;
+minX: number;
+minY: number;
+numBands: number;
+numDataElements: number;
+parent: java_awt_image_Raster;
+pixel: JArray<number>;
+pixel: JArray<number>;
+pixel: JArray<number>;
+pixels: JArray<number>;
+pixels: JArray<number>;
+pixels: JArray<number>;
+sample: number;
+sampleDouble: number;
+sampleFloat: number;
+sampleModel: java_awt_image_SampleModel;
+sampleModelTranslateX: number;
+sampleModelTranslateY: number;
+samples: JArray<number>;
+samples: JArray<number>;
+samples: JArray<number>;
+transferType: number;
+width: number;
+createChild(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: JArray<number>): java_awt_image_Raster;
+createCompatibleWritableRaster(): java_awt_image_WritableRaster;
+createCompatibleWritableRaster(arg0: java_awt_Rectangle): java_awt_image_WritableRaster;
+createCompatibleWritableRaster(arg0: number, arg1: number): java_awt_image_WritableRaster;
+createCompatibleWritableRaster(arg0: number, arg1: number, arg2: number, arg3: number): java_awt_image_WritableRaster;
+createTranslatedChild(arg0: number, arg1: number): java_awt_image_Raster;
+getBounds(): java_awt_Rectangle;
+getDataBuffer(): java_awt_image_DataBuffer;
+getDataElements(arg0: number, arg1: number, arg2: java_lang_Object): java_lang_Object;
+getDataElements(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_lang_Object): java_lang_Object;
+getHeight(): number;
+getMinX(): number;
+getMinY(): number;
+getNumBands(): number;
+getNumDataElements(): number;
+getParent(): java_awt_image_Raster;
+getPixel(arg0: number, arg1: number, arg2: JArray<number>): JArray<number>;
+getPixel(arg0: number, arg1: number, arg2: JArray<number>): JArray<number>;
+getPixel(arg0: number, arg1: number, arg2: JArray<number>): JArray<number>;
+getPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): JArray<number>;
+getPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): JArray<number>;
+getPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): JArray<number>;
+getSample(arg0: number, arg1: number, arg2: number): number;
+getSampleDouble(arg0: number, arg1: number, arg2: number): number;
+getSampleFloat(arg0: number, arg1: number, arg2: number): number;
+getSampleModel(): java_awt_image_SampleModel;
+getSampleModelTranslateX(): number;
+getSampleModelTranslateY(): number;
+getSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): JArray<number>;
+getSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): JArray<number>;
+getSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): JArray<number>;
+getTransferType(): number;
+getWidth(): number;
+static createBandedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: JArray<number>, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
+static createBandedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
+static createBandedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_Point): java_awt_image_WritableRaster;
+static createInterleavedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
+static createInterleavedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_Point): java_awt_image_WritableRaster;
+static createInterleavedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
+static createPackedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: JArray<number>, arg5: java_awt_Point): java_awt_image_WritableRaster;
+static createPackedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: java_awt_Point): java_awt_image_WritableRaster;
+static createPackedRaster(arg0: number, arg1: number, arg2: number, arg3: JArray<number>, arg4: java_awt_Point): java_awt_image_WritableRaster;
+static createPackedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: java_awt_Point): java_awt_image_WritableRaster;
+static createRaster(arg0: java_awt_image_SampleModel, arg1: java_awt_image_DataBuffer, arg2: java_awt_Point): java_awt_image_Raster;
+static createWritableRaster(arg0: java_awt_image_SampleModel, arg1: java_awt_Point): java_awt_image_WritableRaster;
+static createWritableRaster(arg0: java_awt_image_SampleModel, arg1: java_awt_image_DataBuffer, arg2: java_awt_Point): java_awt_image_WritableRaster;
+
   }
 }
 //@ts-nocheck
@@ -356,192 +481,6 @@ static getDataTypeSize(arg0: number): number;
 }
 //@ts-nocheck
 
-declare module 'java.awt.image' {
-import { Raster as java_awt_image_Raster, WritableRaster as java_awt_image_WritableRaster } from 'java.awt.image';
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-
-  export class WritableRaster extends java_awt_image_Raster {
-class: java_lang_Class<java_lang_Object>;
-writableParent: java_awt_image_WritableRaster;
-createWritableChild(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: JArray<number>): java_awt_image_WritableRaster;
-createWritableTranslatedChild(arg0: number, arg1: number): java_awt_image_WritableRaster;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-getWritableParent(): java_awt_image_WritableRaster;
-hashCode(): number;
-notify(): void;
-notifyAll(): void;
-setDataElements(arg0: number, arg1: number, arg2: java_awt_image_Raster): void;
-setDataElements(arg0: number, arg1: number, arg2: java_lang_Object): void;
-setDataElements(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_lang_Object): void;
-setPixel(arg0: number, arg1: number, arg2: JArray<number>): void;
-setPixel(arg0: number, arg1: number, arg2: JArray<number>): void;
-setPixel(arg0: number, arg1: number, arg2: JArray<number>): void;
-setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): void;
-setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): void;
-setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): void;
-setRect(arg0: java_awt_image_Raster): void;
-setRect(arg0: number, arg1: number, arg2: java_awt_image_Raster): void;
-setSample(arg0: number, arg1: number, arg2: number, arg3: number): void;
-setSample(arg0: number, arg1: number, arg2: number, arg3: number): void;
-setSample(arg0: number, arg1: number, arg2: number, arg3: number): void;
-setSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): void;
-setSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): void;
-setSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): void;
-toString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.image' {
-import { Raster as java_awt_image_Raster, DataBuffer as java_awt_image_DataBuffer, WritableRaster as java_awt_image_WritableRaster, SampleModel as java_awt_image_SampleModel } from 'java.awt.image';
-import { Point as java_awt_Point, Rectangle as java_awt_Rectangle } from 'java.awt';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class Raster extends java_lang_Object {
-bounds: java_awt_Rectangle;
-dataBuffer: java_awt_image_DataBuffer;
-dataElements: java_lang_Object;
-dataElements: java_lang_Object;
-height: number;
-minX: number;
-minY: number;
-numBands: number;
-numDataElements: number;
-parent: java_awt_image_Raster;
-pixel: JArray<number>;
-pixel: JArray<number>;
-pixel: JArray<number>;
-pixels: JArray<number>;
-pixels: JArray<number>;
-pixels: JArray<number>;
-sample: number;
-sampleDouble: number;
-sampleFloat: number;
-sampleModel: java_awt_image_SampleModel;
-sampleModelTranslateX: number;
-sampleModelTranslateY: number;
-samples: JArray<number>;
-samples: JArray<number>;
-samples: JArray<number>;
-transferType: number;
-width: number;
-createChild(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: JArray<number>): java_awt_image_Raster;
-createCompatibleWritableRaster(): java_awt_image_WritableRaster;
-createCompatibleWritableRaster(arg0: java_awt_Rectangle): java_awt_image_WritableRaster;
-createCompatibleWritableRaster(arg0: number, arg1: number): java_awt_image_WritableRaster;
-createCompatibleWritableRaster(arg0: number, arg1: number, arg2: number, arg3: number): java_awt_image_WritableRaster;
-createTranslatedChild(arg0: number, arg1: number): java_awt_image_Raster;
-getBounds(): java_awt_Rectangle;
-getDataBuffer(): java_awt_image_DataBuffer;
-getDataElements(arg0: number, arg1: number, arg2: java_lang_Object): java_lang_Object;
-getDataElements(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_lang_Object): java_lang_Object;
-getHeight(): number;
-getMinX(): number;
-getMinY(): number;
-getNumBands(): number;
-getNumDataElements(): number;
-getParent(): java_awt_image_Raster;
-getPixel(arg0: number, arg1: number, arg2: JArray<number>): JArray<number>;
-getPixel(arg0: number, arg1: number, arg2: JArray<number>): JArray<number>;
-getPixel(arg0: number, arg1: number, arg2: JArray<number>): JArray<number>;
-getPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): JArray<number>;
-getPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): JArray<number>;
-getPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>): JArray<number>;
-getSample(arg0: number, arg1: number, arg2: number): number;
-getSampleDouble(arg0: number, arg1: number, arg2: number): number;
-getSampleFloat(arg0: number, arg1: number, arg2: number): number;
-getSampleModel(): java_awt_image_SampleModel;
-getSampleModelTranslateX(): number;
-getSampleModelTranslateY(): number;
-getSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): JArray<number>;
-getSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): JArray<number>;
-getSamples(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>): JArray<number>;
-getTransferType(): number;
-getWidth(): number;
-static createBandedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: JArray<number>, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
-static createBandedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: JArray<number>, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
-static createBandedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_Point): java_awt_image_WritableRaster;
-static createInterleavedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
-static createInterleavedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_Point): java_awt_image_WritableRaster;
-static createInterleavedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: JArray<number>, arg6: java_awt_Point): java_awt_image_WritableRaster;
-static createPackedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: JArray<number>, arg5: java_awt_Point): java_awt_image_WritableRaster;
-static createPackedRaster(arg0: java_awt_image_DataBuffer, arg1: number, arg2: number, arg3: number, arg4: java_awt_Point): java_awt_image_WritableRaster;
-static createPackedRaster(arg0: number, arg1: number, arg2: number, arg3: JArray<number>, arg4: java_awt_Point): java_awt_image_WritableRaster;
-static createPackedRaster(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number, arg5: java_awt_Point): java_awt_image_WritableRaster;
-static createRaster(arg0: java_awt_image_SampleModel, arg1: java_awt_image_DataBuffer, arg2: java_awt_Point): java_awt_image_Raster;
-static createWritableRaster(arg0: java_awt_image_SampleModel, arg1: java_awt_Point): java_awt_image_WritableRaster;
-static createWritableRaster(arg0: java_awt_image_SampleModel, arg1: java_awt_image_DataBuffer, arg2: java_awt_Point): java_awt_image_WritableRaster;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Point as java_awt_Point } from 'java.awt';
-import { Point2D as java_awt_geom_Point2D } from 'java.awt.geom';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class Point extends java_awt_geom_Point2D implements java_io_Serializable {
-class: java_lang_Class<java_lang_Object>;
-location: java_awt_Point;
-x: number;
-x: number;
-y: number;
-y: number;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-getLocation(): java_awt_Point;
-getX(): number;
-getY(): number;
-move(arg0: number, arg1: number): void;
-notify(): void;
-notifyAll(): void;
-setLocation(arg0: java_awt_Point): void;
-setLocation(arg0: number, arg1: number): void;
-setLocation(arg0: number, arg1: number): void;
-toString(): string;
-translate(arg0: number, arg1: number): void;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-constructor();
-constructor(arg0: java_awt_Point);
-constructor(arg0: number, arg1: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.geom' {
-import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
-import { Point2D as java_awt_geom_Point2D } from 'java.awt.geom';
-
-  export class Point2D extends java_lang_Object implements java_lang_Cloneable {
-x: number;
-y: number;
-clone(): java_lang_Object;
-distance(arg0: java_awt_geom_Point2D): number;
-distance(arg0: number, arg1: number): number;
-distanceSq(arg0: java_awt_geom_Point2D): number;
-distanceSq(arg0: number, arg1: number): number;
-equals(arg0: java_lang_Object): boolean;
-getX(): number;
-getY(): number;
-hashCode(): number;
-setLocation(arg0: java_awt_geom_Point2D): void;
-setLocation(arg0: number, arg1: number): void;
-static distance(arg0: number, arg1: number, arg2: number, arg3: number): number;
-static distanceSq(arg0: number, arg1: number, arg2: number, arg3: number): number;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'java.awt' {
 import { Rectangle as java_awt_Rectangle, Point as java_awt_Point, Dimension as java_awt_Dimension, Shape as java_awt_Shape } from 'java.awt';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
@@ -636,6 +575,67 @@ constructor(arg0: java_awt_Point, arg1: java_awt_Dimension);
 constructor(arg0: java_awt_Rectangle);
 constructor(arg0: number, arg1: number);
 constructor(arg0: number, arg1: number, arg2: number, arg3: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Point as java_awt_Point } from 'java.awt';
+import { Point2D as java_awt_geom_Point2D } from 'java.awt.geom';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class Point extends java_awt_geom_Point2D implements java_io_Serializable {
+class: java_lang_Class<java_lang_Object>;
+location: java_awt_Point;
+x: number;
+x: number;
+y: number;
+y: number;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+getLocation(): java_awt_Point;
+getX(): number;
+getY(): number;
+move(arg0: number, arg1: number): void;
+notify(): void;
+notifyAll(): void;
+setLocation(arg0: java_awt_Point): void;
+setLocation(arg0: number, arg1: number): void;
+setLocation(arg0: number, arg1: number): void;
+toString(): string;
+translate(arg0: number, arg1: number): void;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+constructor();
+constructor(arg0: java_awt_Point);
+constructor(arg0: number, arg1: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.geom' {
+import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
+import { Point2D as java_awt_geom_Point2D } from 'java.awt.geom';
+
+  export class Point2D extends java_lang_Object implements java_lang_Cloneable {
+x: number;
+y: number;
+clone(): java_lang_Object;
+distance(arg0: java_awt_geom_Point2D): number;
+distance(arg0: number, arg1: number): number;
+distanceSq(arg0: java_awt_geom_Point2D): number;
+distanceSq(arg0: number, arg1: number): number;
+equals(arg0: java_lang_Object): boolean;
+getX(): number;
+getY(): number;
+hashCode(): number;
+setLocation(arg0: java_awt_geom_Point2D): void;
+setLocation(arg0: number, arg1: number): void;
+static distance(arg0: number, arg1: number, arg2: number, arg3: number): number;
+static distanceSq(arg0: number, arg1: number, arg2: number, arg3: number): number;
+
   }
 }
 //@ts-nocheck
@@ -844,7 +844,7 @@ constructor(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { Rectangle2D as java_awt_geom_Rectangle2D, Point2D as java_awt_geom_Point2D, AffineTransform as java_awt_geom_AffineTransform, PathIterator as java_awt_geom_PathIterator } from 'java.awt.geom';
+import { Point2D as java_awt_geom_Point2D, Rectangle2D as java_awt_geom_Rectangle2D, AffineTransform as java_awt_geom_AffineTransform, PathIterator as java_awt_geom_PathIterator } from 'java.awt.geom';
 import { Rectangle as java_awt_Rectangle } from 'java.awt';
 
   export class Shape {
@@ -891,7 +891,7 @@ next(): void;
 
 declare module 'java.awt.geom' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
-import { Rectangle2D as java_awt_geom_Rectangle2D, Point2D as java_awt_geom_Point2D, AffineTransform as java_awt_geom_AffineTransform, PathIterator as java_awt_geom_PathIterator, Line2D as java_awt_geom_Line2D } from 'java.awt.geom';
+import { Rectangle2D as java_awt_geom_Rectangle2D, Point2D as java_awt_geom_Point2D, Line2D as java_awt_geom_Line2D, AffineTransform as java_awt_geom_AffineTransform, PathIterator as java_awt_geom_PathIterator } from 'java.awt.geom';
 import { Rectangle as java_awt_Rectangle, Shape as java_awt_Shape } from 'java.awt';
 
   export class Line2D extends java_lang_Object implements java_awt_Shape, java_lang_Cloneable {
@@ -1204,9 +1204,9 @@ imageUpdate(arg0: java_awt_Image, arg1: number, arg2: number, arg3: number, arg4
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { Graphics as java_awt_Graphics, Font as java_awt_Font, Color as java_awt_Color, FontMetrics as java_awt_FontMetrics, Rectangle as java_awt_Rectangle, Shape as java_awt_Shape, Polygon as java_awt_Polygon, Image as java_awt_Image } from 'java.awt';
-import { AttributedCharacterIterator as java_text_AttributedCharacterIterator } from 'java.text';
+import { Graphics as java_awt_Graphics, Font as java_awt_Font, Image as java_awt_Image, Color as java_awt_Color, FontMetrics as java_awt_FontMetrics, Rectangle as java_awt_Rectangle, Shape as java_awt_Shape, Polygon as java_awt_Polygon } from 'java.awt';
 import { ImageObserver as java_awt_image_ImageObserver } from 'java.awt.image';
+import { AttributedCharacterIterator as java_text_AttributedCharacterIterator } from 'java.text';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class Graphics extends java_lang_Object {
@@ -1754,8 +1754,8 @@ constructor(arg0: JArray<number>, arg1: JArray<number>, arg2: number);
 //@ts-nocheck
 
 declare module 'java.awt' {
+import { ColorModel as java_awt_image_ColorModel, BufferedImage as java_awt_image_BufferedImage, VolatileImage as java_awt_image_VolatileImage } from 'java.awt.image';
 import { GraphicsDevice as java_awt_GraphicsDevice, ImageCapabilities as java_awt_ImageCapabilities, BufferCapabilities as java_awt_BufferCapabilities, Rectangle as java_awt_Rectangle } from 'java.awt';
-import { BufferedImage as java_awt_image_BufferedImage, ColorModel as java_awt_image_ColorModel, VolatileImage as java_awt_image_VolatileImage } from 'java.awt.image';
 import { AffineTransform as java_awt_geom_AffineTransform } from 'java.awt.geom';
 import { Object as java_lang_Object } from 'java.lang';
 
@@ -1844,16 +1844,16 @@ constructor();
 
 declare module 'java.awt' {
 import { Type as java_awt_Window_Type } from 'java.awt.Window';
-import { Window as java_awt_Window, Dimension as java_awt_Dimension, Shape as java_awt_Shape, Rectangle as java_awt_Rectangle, Component as java_awt_Component, AWTKeyStroke as java_awt_AWTKeyStroke, Container as java_awt_Container, Event as java_awt_Event, BufferCapabilities as java_awt_BufferCapabilities, Graphics as java_awt_Graphics, Color as java_awt_Color, Image as java_awt_Image, Toolkit as java_awt_Toolkit, Point as java_awt_Point, Cursor as java_awt_Cursor, PopupMenu as java_awt_PopupMenu, MenuComponent as java_awt_MenuComponent, Font as java_awt_Font, FontMetrics as java_awt_FontMetrics, ImageCapabilities as java_awt_ImageCapabilities, ComponentOrientation as java_awt_ComponentOrientation, GraphicsConfiguration as java_awt_GraphicsConfiguration, AWTEvent as java_awt_AWTEvent, Frame as java_awt_Frame } from 'java.awt';
-import { Locale as java_util_Locale, Set as java_util_Set, ResourceBundle as java_util_ResourceBundle, List as java_util_List, EventListener as java_util_EventListener } from 'java.util';
-import { AccessibleContext as javax_accessibility_AccessibleContext, Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
-import { BufferStrategy as java_awt_image_BufferStrategy, ColorModel as java_awt_image_ColorModel, VolatileImage as java_awt_image_VolatileImage, ImageObserver as java_awt_image_ImageObserver, ImageProducer as java_awt_image_ImageProducer } from 'java.awt.image';
+import { Window as java_awt_Window, Dimension as java_awt_Dimension, Shape as java_awt_Shape, Color as java_awt_Color, Image as java_awt_Image, Toolkit as java_awt_Toolkit, Component as java_awt_Component, AWTKeyStroke as java_awt_AWTKeyStroke, Container as java_awt_Container, Event as java_awt_Event, BufferCapabilities as java_awt_BufferCapabilities, Graphics as java_awt_Graphics, Rectangle as java_awt_Rectangle, Point as java_awt_Point, Cursor as java_awt_Cursor, PopupMenu as java_awt_PopupMenu, MenuComponent as java_awt_MenuComponent, AWTEvent as java_awt_AWTEvent, GraphicsConfiguration as java_awt_GraphicsConfiguration, ImageCapabilities as java_awt_ImageCapabilities, ComponentOrientation as java_awt_ComponentOrientation, Font as java_awt_Font, FontMetrics as java_awt_FontMetrics, Frame as java_awt_Frame } from 'java.awt';
+import { Locale as java_util_Locale, List as java_util_List, Set as java_util_Set, ResourceBundle as java_util_ResourceBundle, EventListener as java_util_EventListener } from 'java.util';
 import { InputContext as java_awt_im_InputContext, InputMethodRequests as java_awt_im_InputMethodRequests } from 'java.awt.im';
 import { ModalExclusionType as java_awt_Dialog_ModalExclusionType } from 'java.awt.Dialog';
 import { WindowListener as java_awt_event_WindowListener, WindowStateListener as java_awt_event_WindowStateListener, WindowFocusListener as java_awt_event_WindowFocusListener, ComponentListener as java_awt_event_ComponentListener, FocusListener as java_awt_event_FocusListener, HierarchyListener as java_awt_event_HierarchyListener, HierarchyBoundsListener as java_awt_event_HierarchyBoundsListener, KeyListener as java_awt_event_KeyListener, MouseListener as java_awt_event_MouseListener, MouseMotionListener as java_awt_event_MouseMotionListener, MouseWheelListener as java_awt_event_MouseWheelListener, InputMethodListener as java_awt_event_InputMethodListener } from 'java.awt.event';
-import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
+import { AccessibleContext as javax_accessibility_AccessibleContext, Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
+import { BufferStrategy as java_awt_image_BufferStrategy, ColorModel as java_awt_image_ColorModel, ImageProducer as java_awt_image_ImageProducer, VolatileImage as java_awt_image_VolatileImage, ImageObserver as java_awt_image_ImageObserver } from 'java.awt.image';
 import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
-import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
+import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
+import { PrintStream as java_io_PrintStream, PrintWriter as java_io_PrintWriter } from 'java.io';
 import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
 import { DropTarget as java_awt_dnd_DropTarget } from 'java.awt.dnd';
 import { BaselineResizeBehavior as java_awt_Component_BaselineResizeBehavior } from 'java.awt.Component';
@@ -2196,17 +2196,846 @@ wait(arg0: number, arg1: number): void;
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { PopupMenu as java_awt_PopupMenu, MenuComponent as java_awt_MenuComponent, Graphics as java_awt_Graphics, Point as java_awt_Point, Dimension as java_awt_Dimension, Container as java_awt_Container, Event as java_awt_Event, Rectangle as java_awt_Rectangle, Font as java_awt_Font, Image as java_awt_Image, FontMetrics as java_awt_FontMetrics, AWTKeyStroke as java_awt_AWTKeyStroke, ComponentOrientation as java_awt_ComponentOrientation, Component as java_awt_Component, ImageCapabilities as java_awt_ImageCapabilities, Shape as java_awt_Shape, Color as java_awt_Color, GraphicsConfiguration as java_awt_GraphicsConfiguration, Toolkit as java_awt_Toolkit, Cursor as java_awt_Cursor, AWTEvent as java_awt_AWTEvent, MenuContainer as java_awt_MenuContainer } from 'java.awt';
+import { ColorModel as java_awt_image_ColorModel, ImageProducer as java_awt_image_ImageProducer, ImageObserver as java_awt_image_ImageObserver } from 'java.awt.image';
+import { Toolkit as java_awt_Toolkit, Image as java_awt_Image, GraphicsConfiguration as java_awt_GraphicsConfiguration, Insets as java_awt_Insets, Dimension as java_awt_Dimension, Frame as java_awt_Frame, JobAttributes as java_awt_JobAttributes, PageAttributes as java_awt_PageAttributes, PrintJob as java_awt_PrintJob, Point as java_awt_Point, Cursor as java_awt_Cursor, EventQueue as java_awt_EventQueue, Component as java_awt_Component, Font as java_awt_Font, FontMetrics as java_awt_FontMetrics } from 'java.awt';
+import { URL as java_net_URL } from 'java.net';
+import { AWTEventListener as java_awt_event_AWTEventListener } from 'java.awt.event';
+import { InputMethodHighlight as java_awt_im_InputMethodHighlight } from 'java.awt.im';
+import { Map as java_util_Map, Properties as java_util_Properties } from 'java.util';
+import { TextAttribute as java_awt_font_TextAttribute } from 'java.awt.font';
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { ModalExclusionType as java_awt_Dialog_ModalExclusionType, ModalityType as java_awt_Dialog_ModalityType } from 'java.awt.Dialog';
+import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
+import { Clipboard as java_awt_datatransfer_Clipboard } from 'java.awt.datatransfer';
+import { DragSource as java_awt_dnd_DragSource, DragGestureListener as java_awt_dnd_DragGestureListener, DragGestureRecognizer as java_awt_dnd_DragGestureRecognizer } from 'java.awt.dnd';
+
+  export class Toolkit extends java_lang_Object {
+aWTEventListeners: JArray<java_awt_event_AWTEventListener>;
+aWTEventListeners: JArray<java_awt_event_AWTEventListener>;
+bestCursorSize: java_awt_Dimension;
+colorModel: java_awt_image_ColorModel;
+desktopProperty: java_lang_Object;
+fontList: JArray<string>;
+fontMetrics: java_awt_FontMetrics;
+image: java_awt_Image;
+image: java_awt_Image;
+lockingKeyState: boolean;
+maximumCursorColors: number;
+menuShortcutKeyMask: number;
+menuShortcutKeyMaskEx: number;
+printJob: java_awt_PrintJob;
+printJob: java_awt_PrintJob;
+propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
+propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
+screenInsets: java_awt_Insets;
+screenResolution: number;
+screenSize: java_awt_Dimension;
+static defaultToolkit: java_awt_Toolkit;
+static property: string;
+systemClipboard: java_awt_datatransfer_Clipboard;
+systemEventQueue: java_awt_EventQueue;
+systemSelection: java_awt_datatransfer_Clipboard;
+addAWTEventListener(arg0: java_awt_event_AWTEventListener, arg1: number): void;
+addPropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListener): void;
+areExtraMouseButtonsEnabled(): boolean;
+beep(): void;
+checkImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): number;
+createCustomCursor(arg0: java_awt_Image, arg1: java_awt_Point, arg2: string): java_awt_Cursor;
+createDragGestureRecognizer<T extends java_awt_dnd_DragGestureRecognizer>(arg0: java_lang_Class<T>, arg1: java_awt_dnd_DragSource, arg2: java_awt_Component, arg3: number, arg4: java_awt_dnd_DragGestureListener): T;
+createImage(arg0: JArray<number>): java_awt_Image;
+createImage(arg0: JArray<number>, arg1: number, arg2: number): java_awt_Image;
+createImage(arg0: java_awt_image_ImageProducer): java_awt_Image;
+createImage(arg0: java_net_URL): java_awt_Image;
+createImage(arg0: string): java_awt_Image;
+getAWTEventListeners(): JArray<java_awt_event_AWTEventListener>;
+getAWTEventListeners(arg0: number): JArray<java_awt_event_AWTEventListener>;
+getBestCursorSize(arg0: number, arg1: number): java_awt_Dimension;
+getColorModel(): java_awt_image_ColorModel;
+getDesktopProperty(arg0: string): java_lang_Object;
+getFontList(): JArray<string>;
+getFontMetrics(arg0: java_awt_Font): java_awt_FontMetrics;
+getImage(arg0: java_net_URL): java_awt_Image;
+getImage(arg0: string): java_awt_Image;
+getLockingKeyState(arg0: number): boolean;
+getMaximumCursorColors(): number;
+getMenuShortcutKeyMask(): number;
+getMenuShortcutKeyMaskEx(): number;
+getPrintJob(arg0: java_awt_Frame, arg1: string, arg2: java_awt_JobAttributes, arg3: java_awt_PageAttributes): java_awt_PrintJob;
+getPrintJob(arg0: java_awt_Frame, arg1: string, arg2: java_util_Properties): java_awt_PrintJob;
+getPropertyChangeListeners(): JArray<java_beans_PropertyChangeListener>;
+getPropertyChangeListeners(arg0: string): JArray<java_beans_PropertyChangeListener>;
+getScreenInsets(arg0: java_awt_GraphicsConfiguration): java_awt_Insets;
+getScreenResolution(): number;
+getScreenSize(): java_awt_Dimension;
+getSystemClipboard(): java_awt_datatransfer_Clipboard;
+getSystemEventQueue(): java_awt_EventQueue;
+getSystemSelection(): java_awt_datatransfer_Clipboard;
+isAlwaysOnTopSupported(): boolean;
+isDynamicLayoutActive(): boolean;
+isFrameStateSupported(arg0: number): boolean;
+isModalExclusionTypeSupported(arg0: java_awt_Dialog_ModalExclusionType): boolean;
+isModalityTypeSupported(arg0: java_awt_Dialog_ModalityType): boolean;
+mapInputMethodHighlight(arg0: java_awt_im_InputMethodHighlight): java_util_Map<java_awt_font_TextAttribute, java_lang_Object>;
+prepareImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): boolean;
+removeAWTEventListener(arg0: java_awt_event_AWTEventListener): void;
+removePropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListener): void;
+setDynamicLayout(arg0: boolean): void;
+setLockingKeyState(arg0: number, arg1: boolean): void;
+static getDefaultToolkit(): java_awt_Toolkit;
+static getProperty(arg0: string, arg1: string): string;
+sync(): void;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.image' {
+import { ImageConsumer as java_awt_image_ImageConsumer } from 'java.awt.image';
+
+  export class ImageProducer {
+
+addConsumer(arg0: java_awt_image_ImageConsumer): void;
+isConsumer(arg0: java_awt_image_ImageConsumer): boolean;
+removeConsumer(arg0: java_awt_image_ImageConsumer): void;
+requestTopDownLeftRightResend(arg0: java_awt_image_ImageConsumer): void;
+startProduction(arg0: java_awt_image_ImageConsumer): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.image' {
+import { Hashtable as java_util_Hashtable } from 'java.util';
+import { Object as java_lang_Object } from 'java.lang';
+import { ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
+
+  export class ImageConsumer {
+static COMPLETESCANLINES: number;
+static IMAGEABORTED: number;
+static IMAGEERROR: number;
+static RANDOMPIXELORDER: number;
+static SINGLEFRAME: number;
+static SINGLEFRAMEDONE: number;
+static SINGLEPASS: number;
+static STATICIMAGEDONE: number;
+static TOPDOWNLEFTRIGHT: number;
+imageComplete(arg0: number): void;
+setColorModel(arg0: java_awt_image_ColorModel): void;
+setDimensions(arg0: number, arg1: number): void;
+setHints(arg0: number): void;
+setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_image_ColorModel, arg5: JArray<number>, arg6: number, arg7: number): void;
+setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_image_ColorModel, arg5: JArray<number>, arg6: number, arg7: number): void;
+setProperties(arg0: java_util_Hashtable<java_lang_Object, java_lang_Object>): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.event' {
+import { AWTEvent as java_awt_AWTEvent } from 'java.awt';
+import { EventListener as java_util_EventListener } from 'java.util';
+
+  export class AWTEventListener implements java_util_EventListener {
+
+eventDispatched(arg0: java_awt_AWTEvent): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { Event as java_awt_Event } from 'java.awt';
+import { EventObject as java_util_EventObject } from 'java.util';
+
+  export class AWTEvent extends java_util_EventObject {
+class: java_lang_Class<java_lang_Object>;
+iD: number;
+static ACTION_EVENT_MASK: number;
+static ADJUSTMENT_EVENT_MASK: number;
+static COMPONENT_EVENT_MASK: number;
+static CONTAINER_EVENT_MASK: number;
+static FOCUS_EVENT_MASK: number;
+static HIERARCHY_BOUNDS_EVENT_MASK: number;
+static HIERARCHY_EVENT_MASK: number;
+static INPUT_METHOD_EVENT_MASK: number;
+static INVOCATION_EVENT_MASK: number;
+static ITEM_EVENT_MASK: number;
+static KEY_EVENT_MASK: number;
+static MOUSE_EVENT_MASK: number;
+static MOUSE_MOTION_EVENT_MASK: number;
+static MOUSE_WHEEL_EVENT_MASK: number;
+static PAINT_EVENT_MASK: number;
+static RESERVED_ID_MAX: number;
+static TEXT_EVENT_MASK: number;
+static WINDOW_EVENT_MASK: number;
+static WINDOW_FOCUS_EVENT_MASK: number;
+static WINDOW_STATE_EVENT_MASK: number;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+getID(): number;
+hashCode(): number;
+notify(): void;
+notifyAll(): void;
+paramString(): string;
+setSource(arg0: java_lang_Object): void;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+constructor(arg0: java_awt_Event);
+constructor(arg0: java_lang_Object, arg1: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { Object as java_lang_Object } from 'java.lang';
+import { Event as java_awt_Event } from 'java.awt';
+import { Serializable as java_io_Serializable } from 'java.io';
+/** Represents an event.
+
+ All events require a static method named getHandlerList() which returns the same HandlerList as getHandlers(). */
+
+  export class Event extends java_lang_Object implements java_io_Serializable {
+arg: java_lang_Object;
+clickCount: number;
+evt: java_awt_Event;
+id: number;
+key: number;
+modifiers: number;
+static ACTION_EVENT: number;
+static ALT_MASK: number;
+static BACK_SPACE: number;
+static CAPS_LOCK: number;
+static CTRL_MASK: number;
+static DELETE: number;
+static DOWN: number;
+static END: number;
+static ENTER: number;
+static ESCAPE: number;
+static F10: number;
+static F11: number;
+static F12: number;
+static F1: number;
+static F2: number;
+static F3: number;
+static F4: number;
+static F5: number;
+static F6: number;
+static F7: number;
+static F8: number;
+static F9: number;
+static GOT_FOCUS: number;
+static HOME: number;
+static INSERT: number;
+static KEY_ACTION: number;
+static KEY_ACTION_RELEASE: number;
+static KEY_PRESS: number;
+static KEY_RELEASE: number;
+static LEFT: number;
+static LIST_DESELECT: number;
+static LIST_SELECT: number;
+static LOAD_FILE: number;
+static LOST_FOCUS: number;
+static META_MASK: number;
+static MOUSE_DOWN: number;
+static MOUSE_DRAG: number;
+static MOUSE_ENTER: number;
+static MOUSE_EXIT: number;
+static MOUSE_MOVE: number;
+static MOUSE_UP: number;
+static NUM_LOCK: number;
+static PAUSE: number;
+static PGDN: number;
+static PGUP: number;
+static PRINT_SCREEN: number;
+static RIGHT: number;
+static SAVE_FILE: number;
+static SCROLL_ABSOLUTE: number;
+static SCROLL_BEGIN: number;
+static SCROLL_END: number;
+static SCROLL_LINE_DOWN: number;
+static SCROLL_LINE_UP: number;
+static SCROLL_LOCK: number;
+static SCROLL_PAGE_DOWN: number;
+static SCROLL_PAGE_UP: number;
+static SHIFT_MASK: number;
+static TAB: number;
+static UP: number;
+static WINDOW_DEICONIFY: number;
+static WINDOW_DESTROY: number;
+static WINDOW_EXPOSE: number;
+static WINDOW_ICONIFY: number;
+static WINDOW_MOVED: number;
+target: java_lang_Object;
+when: number;
+x: number;
+y: number;
+controlDown(): boolean;
+metaDown(): boolean;
+shiftDown(): boolean;
+toString(): string;
+translate(arg0: number, arg1: number): void;
+constructor(arg0: java_lang_Object, arg1: number, arg2: java_lang_Object);
+constructor(arg0: java_lang_Object, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number);
+constructor(arg0: java_lang_Object, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: java_lang_Object);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.im' {
+import { Map as java_util_Map } from 'java.util';
+import { TextAttribute as java_awt_font_TextAttribute } from 'java.awt.font';
+import { Object as java_lang_Object } from 'java.lang';
+import { InputMethodHighlight as java_awt_im_InputMethodHighlight } from 'java.awt.im';
+
+  export class InputMethodHighlight extends java_lang_Object {
+state: number;
+static CONVERTED_TEXT: number;
+static RAW_TEXT: number;
+static SELECTED_CONVERTED_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
+static SELECTED_RAW_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
+static UNSELECTED_CONVERTED_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
+static UNSELECTED_RAW_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
+style: java_util_Map<java_awt_font_TextAttribute, java_lang_Object>;
+variation: number;
+getState(): number;
+getStyle(): java_util_Map<java_awt_font_TextAttribute, java_lang_Object>;
+getVariation(): number;
+isSelected(): boolean;
+constructor(arg0: boolean, arg1: number);
+constructor(arg0: boolean, arg1: number, arg2: number);
+constructor(arg0: boolean, arg1: number, arg2: number, arg3: java_util_Map<java_awt_font_TextAttribute, java_lang_Object>);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class Insets extends java_lang_Object implements java_lang_Cloneable, java_io_Serializable {
+bottom: number;
+left: number;
+right: number;
+top: number;
+clone(): java_lang_Object;
+equals(arg0: java_lang_Object): boolean;
+hashCode(): number;
+set(arg0: number, arg1: number, arg2: number, arg3: number): void;
+toString(): string;
+constructor(arg0: number, arg1: number, arg2: number, arg3: number);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.Dialog' {
+import { ModalExclusionType as java_awt_Dialog_ModalExclusionType } from 'java.awt.Dialog';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class ModalExclusionType extends java_lang_Enum<java_awt_Dialog_ModalExclusionType> {
+class: java_lang_Class<java_lang_Object>;
+static APPLICATION_EXCLUDE: java_awt_Dialog_ModalExclusionType;
+static NO_EXCLUDE: java_awt_Dialog_ModalExclusionType;
+static TOOLKIT_EXCLUDE: java_awt_Dialog_ModalExclusionType;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+static valueOf(arg0: string): java_awt_Dialog_ModalExclusionType;
+static values(): JArray<java_awt_Dialog_ModalExclusionType>;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { MenuComponent as java_awt_MenuComponent, Shape as java_awt_Shape, Image as java_awt_Image, MenuBar as java_awt_MenuBar, Rectangle as java_awt_Rectangle, Frame as java_awt_Frame, Color as java_awt_Color, Component as java_awt_Component, Graphics as java_awt_Graphics, Font as java_awt_Font, Dimension as java_awt_Dimension, Container as java_awt_Container, LayoutManager as java_awt_LayoutManager, FocusTraversalPolicy as java_awt_FocusTraversalPolicy, ComponentOrientation as java_awt_ComponentOrientation, Insets as java_awt_Insets, Event as java_awt_Event, Point as java_awt_Point, AWTKeyStroke as java_awt_AWTKeyStroke, PopupMenu as java_awt_PopupMenu, AWTEvent as java_awt_AWTEvent, GraphicsConfiguration as java_awt_GraphicsConfiguration, ImageCapabilities as java_awt_ImageCapabilities, FontMetrics as java_awt_FontMetrics, Cursor as java_awt_Cursor, Window as java_awt_Window, MenuContainer as java_awt_MenuContainer } from 'java.awt';
+import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
+import { ContainerListener as java_awt_event_ContainerListener, ComponentListener as java_awt_event_ComponentListener, FocusListener as java_awt_event_FocusListener, HierarchyListener as java_awt_event_HierarchyListener, HierarchyBoundsListener as java_awt_event_HierarchyBoundsListener, KeyListener as java_awt_event_KeyListener, MouseListener as java_awt_event_MouseListener, MouseMotionListener as java_awt_event_MouseMotionListener, MouseWheelListener as java_awt_event_MouseWheelListener, InputMethodListener as java_awt_event_InputMethodListener } from 'java.awt.event';
+import { Set as java_util_Set, Locale as java_util_Locale } from 'java.util';
+import { ColorModel as java_awt_image_ColorModel, ImageProducer as java_awt_image_ImageProducer, VolatileImage as java_awt_image_VolatileImage, ImageObserver as java_awt_image_ImageObserver } from 'java.awt.image';
+import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
+import { DropTarget as java_awt_dnd_DropTarget } from 'java.awt.dnd';
+import { BaselineResizeBehavior as java_awt_Component_BaselineResizeBehavior } from 'java.awt.Component';
+import { InputMethodRequests as java_awt_im_InputMethodRequests } from 'java.awt.im';
+import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
+
+  export class Frame extends java_awt_Window implements java_awt_MenuContainer {
+accessibleContext: javax_accessibility_AccessibleContext;
+alignmentX: number;
+alignmentY: number;
+baseline: number;
+baselineResizeBehavior: java_awt_Component_BaselineResizeBehavior;
+bounds: java_awt_Rectangle;
+bounds: java_awt_Rectangle;
+class: java_lang_Class<java_lang_Object>;
+colorModel: java_awt_image_ColorModel;
+component: java_awt_Component;
+componentAt: java_awt_Component;
+componentAt: java_awt_Component;
+componentCount: number;
+componentListeners: JArray<java_awt_event_ComponentListener>;
+componentOrientation: java_awt_ComponentOrientation;
+componentZOrder: number;
+components: JArray<java_awt_Component>;
+containerListeners: JArray<java_awt_event_ContainerListener>;
+cursor: java_awt_Cursor;
+cursorType: number;
+dropTarget: java_awt_dnd_DropTarget;
+extendedState: number;
+focusListeners: JArray<java_awt_event_FocusListener>;
+focusTraversalKeysEnabled: boolean;
+focusTraversalPolicy: java_awt_FocusTraversalPolicy;
+font: java_awt_Font;
+fontMetrics: java_awt_FontMetrics;
+foreground: java_awt_Color;
+graphics: java_awt_Graphics;
+graphicsConfiguration: java_awt_GraphicsConfiguration;
+height: number;
+hierarchyBoundsListeners: JArray<java_awt_event_HierarchyBoundsListener>;
+hierarchyListeners: JArray<java_awt_event_HierarchyListener>;
+iconImage: java_awt_Image;
+ignoreRepaint: boolean;
+inputMethodListeners: JArray<java_awt_event_InputMethodListener>;
+inputMethodRequests: java_awt_im_InputMethodRequests;
+insets: java_awt_Insets;
+keyListeners: JArray<java_awt_event_KeyListener>;
+layout: java_awt_LayoutManager;
+location: java_awt_Point;
+location: java_awt_Point;
+locationOnScreen: java_awt_Point;
+maximizedBounds: java_awt_Rectangle;
+maximumSize: java_awt_Dimension;
+menuBar: java_awt_MenuBar;
+minimumSize: java_awt_Dimension;
+mouseListeners: JArray<java_awt_event_MouseListener>;
+mouseMotionListeners: JArray<java_awt_event_MouseMotionListener>;
+mousePosition: java_awt_Point;
+mousePosition: java_awt_Point;
+mouseWheelListeners: JArray<java_awt_event_MouseWheelListener>;
+name: string;
+parent: java_awt_Container;
+preferredSize: java_awt_Dimension;
+propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
+propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
+size: java_awt_Dimension;
+size: java_awt_Dimension;
+state: number;
+static CROSSHAIR_CURSOR: number;
+static DEFAULT_CURSOR: number;
+static E_RESIZE_CURSOR: number;
+static HAND_CURSOR: number;
+static ICONIFIED: number;
+static MAXIMIZED_BOTH: number;
+static MAXIMIZED_HORIZ: number;
+static MAXIMIZED_VERT: number;
+static MOVE_CURSOR: number;
+static NE_RESIZE_CURSOR: number;
+static NORMAL: number;
+static NW_RESIZE_CURSOR: number;
+static N_RESIZE_CURSOR: number;
+static SE_RESIZE_CURSOR: number;
+static SW_RESIZE_CURSOR: number;
+static S_RESIZE_CURSOR: number;
+static TEXT_CURSOR: number;
+static WAIT_CURSOR: number;
+static W_RESIZE_CURSOR: number;
+static frames: JArray<java_awt_Frame>;
+title: string;
+treeLock: java_lang_Object;
+width: number;
+x: number;
+y: number;
+action(arg0: java_awt_Event, arg1: java_lang_Object): boolean;
+add(arg0: java_awt_Component): java_awt_Component;
+add(arg0: java_awt_Component, arg1: java_lang_Object): void;
+add(arg0: java_awt_Component, arg1: java_lang_Object, arg2: number): void;
+add(arg0: java_awt_Component, arg1: number): java_awt_Component;
+add(arg0: java_awt_PopupMenu): void;
+add(arg0: string, arg1: java_awt_Component): java_awt_Component;
+addComponentListener(arg0: java_awt_event_ComponentListener): void;
+addContainerListener(arg0: java_awt_event_ContainerListener): void;
+addFocusListener(arg0: java_awt_event_FocusListener): void;
+addHierarchyBoundsListener(arg0: java_awt_event_HierarchyBoundsListener): void;
+addHierarchyListener(arg0: java_awt_event_HierarchyListener): void;
+addInputMethodListener(arg0: java_awt_event_InputMethodListener): void;
+addKeyListener(arg0: java_awt_event_KeyListener): void;
+addMouseListener(arg0: java_awt_event_MouseListener): void;
+addMouseMotionListener(arg0: java_awt_event_MouseMotionListener): void;
+addMouseWheelListener(arg0: java_awt_event_MouseWheelListener): void;
+addNotify(): void;
+applyComponentOrientation(arg0: java_awt_ComponentOrientation): void;
+areFocusTraversalKeysSet(arg0: number): boolean;
+bounds(): java_awt_Rectangle;
+checkImage(arg0: java_awt_Image, arg1: java_awt_image_ImageObserver): number;
+checkImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): number;
+contains(arg0: java_awt_Point): boolean;
+contains(arg0: number, arg1: number): boolean;
+countComponents(): number;
+createImage(arg0: java_awt_image_ImageProducer): java_awt_Image;
+createImage(arg0: number, arg1: number): java_awt_Image;
+createVolatileImage(arg0: number, arg1: number): java_awt_image_VolatileImage;
+createVolatileImage(arg0: number, arg1: number, arg2: java_awt_ImageCapabilities): java_awt_image_VolatileImage;
+deliverEvent(arg0: java_awt_Event): void;
+disable(): void;
+dispatchEvent(arg0: java_awt_AWTEvent): void;
+doLayout(): void;
+enable(): void;
+enable(arg0: boolean): void;
+enableInputMethods(arg0: boolean): void;
+equals(arg0: java_lang_Object): boolean;
+findComponentAt(arg0: java_awt_Point): java_awt_Component;
+findComponentAt(arg0: number, arg1: number): java_awt_Component;
+firePropertyChange(arg0: string, arg1: number, arg2: number): void;
+firePropertyChange(arg0: string, arg1: number, arg2: number): void;
+firePropertyChange(arg0: string, arg1: number, arg2: number): void;
+firePropertyChange(arg0: string, arg1: number, arg2: number): void;
+firePropertyChange(arg0: string, arg1: number, arg2: number): void;
+firePropertyChange(arg0: string, arg1: string, arg2: string): void;
+getAccessibleContext(): javax_accessibility_AccessibleContext;
+getAlignmentX(): number;
+getAlignmentY(): number;
+getBaseline(arg0: number, arg1: number): number;
+getBaselineResizeBehavior(): java_awt_Component_BaselineResizeBehavior;
+getBounds(): java_awt_Rectangle;
+getBounds(arg0: java_awt_Rectangle): java_awt_Rectangle;
+getClass(): java_lang_Class<java_lang_Object>;
+getColorModel(): java_awt_image_ColorModel;
+getComponent(arg0: number): java_awt_Component;
+getComponentAt(arg0: java_awt_Point): java_awt_Component;
+getComponentAt(arg0: number, arg1: number): java_awt_Component;
+getComponentCount(): number;
+getComponentListeners(): JArray<java_awt_event_ComponentListener>;
+getComponentOrientation(): java_awt_ComponentOrientation;
+getComponentZOrder(arg0: java_awt_Component): number;
+getComponents(): JArray<java_awt_Component>;
+getContainerListeners(): JArray<java_awt_event_ContainerListener>;
+getCursor(): java_awt_Cursor;
+getCursorType(): number;
+getDropTarget(): java_awt_dnd_DropTarget;
+getExtendedState(): number;
+getFocusListeners(): JArray<java_awt_event_FocusListener>;
+getFocusTraversalKeysEnabled(): boolean;
+getFocusTraversalPolicy(): java_awt_FocusTraversalPolicy;
+getFont(): java_awt_Font;
+getFontMetrics(arg0: java_awt_Font): java_awt_FontMetrics;
+getForeground(): java_awt_Color;
+getGraphics(): java_awt_Graphics;
+getGraphicsConfiguration(): java_awt_GraphicsConfiguration;
+getHeight(): number;
+getHierarchyBoundsListeners(): JArray<java_awt_event_HierarchyBoundsListener>;
+getHierarchyListeners(): JArray<java_awt_event_HierarchyListener>;
+getIconImage(): java_awt_Image;
+getIgnoreRepaint(): boolean;
+getInputMethodListeners(): JArray<java_awt_event_InputMethodListener>;
+getInputMethodRequests(): java_awt_im_InputMethodRequests;
+getInsets(): java_awt_Insets;
+getKeyListeners(): JArray<java_awt_event_KeyListener>;
+getLayout(): java_awt_LayoutManager;
+getLocation(): java_awt_Point;
+getLocation(arg0: java_awt_Point): java_awt_Point;
+getLocationOnScreen(): java_awt_Point;
+getMaximizedBounds(): java_awt_Rectangle;
+getMaximumSize(): java_awt_Dimension;
+getMenuBar(): java_awt_MenuBar;
+getMinimumSize(): java_awt_Dimension;
+getMouseListeners(): JArray<java_awt_event_MouseListener>;
+getMouseMotionListeners(): JArray<java_awt_event_MouseMotionListener>;
+getMousePosition(): java_awt_Point;
+getMousePosition(arg0: boolean): java_awt_Point;
+getMouseWheelListeners(): JArray<java_awt_event_MouseWheelListener>;
+getName(): string;
+getParent(): java_awt_Container;
+getPreferredSize(): java_awt_Dimension;
+getPropertyChangeListeners(): JArray<java_beans_PropertyChangeListener>;
+getPropertyChangeListeners(arg0: string): JArray<java_beans_PropertyChangeListener>;
+getSize(): java_awt_Dimension;
+getSize(arg0: java_awt_Dimension): java_awt_Dimension;
+getState(): number;
+getTitle(): string;
+getTreeLock(): java_lang_Object;
+getWidth(): number;
+getX(): number;
+getY(): number;
+gotFocus(arg0: java_awt_Event, arg1: java_lang_Object): boolean;
+handleEvent(arg0: java_awt_Event): boolean;
+hasFocus(): boolean;
+hashCode(): number;
+imageUpdate(arg0: java_awt_Image, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): boolean;
+insets(): java_awt_Insets;
+inside(arg0: number, arg1: number): boolean;
+invalidate(): void;
+isAncestorOf(arg0: java_awt_Component): boolean;
+isBackgroundSet(): boolean;
+isCursorSet(): boolean;
+isDisplayable(): boolean;
+isDoubleBuffered(): boolean;
+isEnabled(): boolean;
+isFocusCycleRoot(arg0: java_awt_Container): boolean;
+isFocusOwner(): boolean;
+isFocusTraversable(): boolean;
+isFocusTraversalPolicyProvider(): boolean;
+isFocusTraversalPolicySet(): boolean;
+isFocusable(): boolean;
+isFontSet(): boolean;
+isForegroundSet(): boolean;
+isLightweight(): boolean;
+isMaximumSizeSet(): boolean;
+isMinimumSizeSet(): boolean;
+isPreferredSizeSet(): boolean;
+isResizable(): boolean;
+isUndecorated(): boolean;
+isValid(): boolean;
+isVisible(): boolean;
+keyDown(arg0: java_awt_Event, arg1: number): boolean;
+keyUp(arg0: java_awt_Event, arg1: number): boolean;
+layout(): void;
+list(): void;
+list(arg0: java_io_PrintStream): void;
+list(arg0: java_io_PrintStream, arg1: number): void;
+list(arg0: java_io_PrintWriter): void;
+list(arg0: java_io_PrintWriter, arg1: number): void;
+locate(arg0: number, arg1: number): java_awt_Component;
+location(): java_awt_Point;
+lostFocus(arg0: java_awt_Event, arg1: java_lang_Object): boolean;
+minimumSize(): java_awt_Dimension;
+mouseDown(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
+mouseDrag(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
+mouseEnter(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
+mouseExit(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
+mouseMove(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
+mouseUp(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
+move(arg0: number, arg1: number): void;
+nextFocus(): void;
+notify(): void;
+notifyAll(): void;
+paintAll(arg0: java_awt_Graphics): void;
+paintComponents(arg0: java_awt_Graphics): void;
+preferredSize(): java_awt_Dimension;
+prepareImage(arg0: java_awt_Image, arg1: java_awt_image_ImageObserver): boolean;
+prepareImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): boolean;
+print(arg0: java_awt_Graphics): void;
+printAll(arg0: java_awt_Graphics): void;
+printComponents(arg0: java_awt_Graphics): void;
+remove(arg0: java_awt_Component): void;
+remove(arg0: java_awt_MenuComponent): void;
+remove(arg0: number): void;
+removeAll(): void;
+removeComponentListener(arg0: java_awt_event_ComponentListener): void;
+removeContainerListener(arg0: java_awt_event_ContainerListener): void;
+removeFocusListener(arg0: java_awt_event_FocusListener): void;
+removeHierarchyBoundsListener(arg0: java_awt_event_HierarchyBoundsListener): void;
+removeHierarchyListener(arg0: java_awt_event_HierarchyListener): void;
+removeInputMethodListener(arg0: java_awt_event_InputMethodListener): void;
+removeKeyListener(arg0: java_awt_event_KeyListener): void;
+removeMouseListener(arg0: java_awt_event_MouseListener): void;
+removeMouseMotionListener(arg0: java_awt_event_MouseMotionListener): void;
+removeMouseWheelListener(arg0: java_awt_event_MouseWheelListener): void;
+removeNotify(): void;
+removePropertyChangeListener(arg0: java_beans_PropertyChangeListener): void;
+removePropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListener): void;
+repaint(): void;
+repaint(arg0: number): void;
+repaint(arg0: number, arg1: number, arg2: number, arg3: number): void;
+repaint(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): void;
+requestFocus(): void;
+requestFocus(arg0: java_awt_event_FocusEvent_Cause): void;
+requestFocusInWindow(): boolean;
+requestFocusInWindow(arg0: java_awt_event_FocusEvent_Cause): boolean;
+resize(arg0: java_awt_Dimension): void;
+resize(arg0: number, arg1: number): void;
+revalidate(): void;
+setBackground(arg0: java_awt_Color): void;
+setComponentOrientation(arg0: java_awt_ComponentOrientation): void;
+setComponentZOrder(arg0: java_awt_Component, arg1: number): void;
+setCursor(arg0: number): void;
+setDropTarget(arg0: java_awt_dnd_DropTarget): void;
+setEnabled(arg0: boolean): void;
+setExtendedState(arg0: number): void;
+setFocusTraversalKeys(arg0: number, arg1: java_util_Set<java_awt_AWTKeyStroke>): void;
+setFocusTraversalKeysEnabled(arg0: boolean): void;
+setFocusTraversalPolicy(arg0: java_awt_FocusTraversalPolicy): void;
+setFocusTraversalPolicyProvider(arg0: boolean): void;
+setFocusable(arg0: boolean): void;
+setFont(arg0: java_awt_Font): void;
+setForeground(arg0: java_awt_Color): void;
+setIconImage(arg0: java_awt_Image): void;
+setIgnoreRepaint(arg0: boolean): void;
+setLayout(arg0: java_awt_LayoutManager): void;
+setLocale(arg0: java_util_Locale): void;
+setMaximizedBounds(arg0: java_awt_Rectangle): void;
+setMaximumSize(arg0: java_awt_Dimension): void;
+setMenuBar(arg0: java_awt_MenuBar): void;
+setMixingCutoutShape(arg0: java_awt_Shape): void;
+setName(arg0: string): void;
+setOpacity(arg0: number): void;
+setPreferredSize(arg0: java_awt_Dimension): void;
+setResizable(arg0: boolean): void;
+setShape(arg0: java_awt_Shape): void;
+setState(arg0: number): void;
+setTitle(arg0: string): void;
+setUndecorated(arg0: boolean): void;
+show(arg0: boolean): void;
+size(): java_awt_Dimension;
+static getFrames(): JArray<java_awt_Frame>;
+toString(): string;
+transferFocus(): void;
+transferFocusBackward(): void;
+transferFocusDownCycle(): void;
+transferFocusUpCycle(): void;
+update(arg0: java_awt_Graphics): void;
+validate(): void;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+constructor();
+constructor(arg0: java_awt_GraphicsConfiguration);
+constructor(arg0: string);
+constructor(arg0: string, arg1: java_awt_GraphicsConfiguration);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { MenuContainer as java_awt_MenuContainer, Font as java_awt_Font, AWTEvent as java_awt_AWTEvent, Event as java_awt_Event } from 'java.awt';
+import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
+import { Object as java_lang_Object } from 'java.lang';
+import { Serializable as java_io_Serializable } from 'java.io';
+
+  export class MenuComponent extends java_lang_Object implements java_io_Serializable {
+accessibleContext: javax_accessibility_AccessibleContext;
+font: java_awt_Font;
+name: string;
+parent: java_awt_MenuContainer;
+dispatchEvent(arg0: java_awt_AWTEvent): void;
+getAccessibleContext(): javax_accessibility_AccessibleContext;
+getFont(): java_awt_Font;
+getName(): string;
+getParent(): java_awt_MenuContainer;
+postEvent(arg0: java_awt_Event): boolean;
+removeNotify(): void;
+setFont(arg0: java_awt_Font): void;
+setName(arg0: string): void;
+toString(): string;
+constructor();
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { MenuComponent as java_awt_MenuComponent, Event as java_awt_Event, Font as java_awt_Font } from 'java.awt';
+
+  export class MenuContainer {
+font: java_awt_Font;
+getFont(): java_awt_Font;
+postEvent(arg0: java_awt_Event): boolean;
+remove(arg0: java_awt_MenuComponent): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.event' {
+import { FocusEvent as java_awt_event_FocusEvent } from 'java.awt.event';
+import { EventListener as java_util_EventListener } from 'java.util';
+
+  export class FocusListener implements java_util_EventListener {
+
+focusGained(arg0: java_awt_event_FocusEvent): void;
+focusLost(arg0: java_awt_event_FocusEvent): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.event' {
+import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
+import { Component as java_awt_Component } from 'java.awt';
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { ComponentEvent as java_awt_event_ComponentEvent } from 'java.awt.event';
+
+  export class FocusEvent extends java_awt_event_ComponentEvent {
+cause: java_awt_event_FocusEvent_Cause;
+class: java_lang_Class<java_lang_Object>;
+iD: number;
+oppositeComponent: java_awt_Component;
+source: java_lang_Object;
+static FOCUS_FIRST: number;
+static FOCUS_GAINED: number;
+static FOCUS_LAST: number;
+static FOCUS_LOST: number;
+equals(arg0: java_lang_Object): boolean;
+getCause(): java_awt_event_FocusEvent_Cause;
+getClass(): java_lang_Class<java_lang_Object>;
+getID(): number;
+getOppositeComponent(): java_awt_Component;
+getSource(): java_lang_Object;
+hashCode(): number;
+isTemporary(): boolean;
+notify(): void;
+notifyAll(): void;
+paramString(): string;
+setSource(arg0: java_lang_Object): void;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+constructor(arg0: java_awt_Component, arg1: number);
+constructor(arg0: java_awt_Component, arg1: number, arg2: boolean);
+constructor(arg0: java_awt_Component, arg1: number, arg2: boolean, arg3: java_awt_Component);
+constructor(arg0: java_awt_Component, arg1: number, arg2: boolean, arg3: java_awt_Component, arg4: java_awt_event_FocusEvent_Cause);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.event.FocusEvent' {
+import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
+import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
+
+  export class Cause extends java_lang_Enum<java_awt_event_FocusEvent_Cause> {
+class: java_lang_Class<java_lang_Object>;
+static ACTIVATION: java_awt_event_FocusEvent_Cause;
+static CLEAR_GLOBAL_FOCUS_OWNER: java_awt_event_FocusEvent_Cause;
+static MOUSE_EVENT: java_awt_event_FocusEvent_Cause;
+static ROLLBACK: java_awt_event_FocusEvent_Cause;
+static TRAVERSAL: java_awt_event_FocusEvent_Cause;
+static TRAVERSAL_BACKWARD: java_awt_event_FocusEvent_Cause;
+static TRAVERSAL_DOWN: java_awt_event_FocusEvent_Cause;
+static TRAVERSAL_FORWARD: java_awt_event_FocusEvent_Cause;
+static TRAVERSAL_UP: java_awt_event_FocusEvent_Cause;
+static UNEXPECTED: java_awt_event_FocusEvent_Cause;
+static UNKNOWN: java_awt_event_FocusEvent_Cause;
+getClass(): java_lang_Class<java_lang_Object>;
+notify(): void;
+notifyAll(): void;
+static valueOf(arg0: string): java_awt_event_FocusEvent_Cause;
+static values(): JArray<java_awt_event_FocusEvent_Cause>;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { PopupMenu as java_awt_PopupMenu, MenuComponent as java_awt_MenuComponent, Graphics as java_awt_Graphics, Point as java_awt_Point, Dimension as java_awt_Dimension, Container as java_awt_Container, Event as java_awt_Event, Rectangle as java_awt_Rectangle, Font as java_awt_Font, AWTEvent as java_awt_AWTEvent, Image as java_awt_Image, Color as java_awt_Color, GraphicsConfiguration as java_awt_GraphicsConfiguration, Toolkit as java_awt_Toolkit, AWTKeyStroke as java_awt_AWTKeyStroke, ComponentOrientation as java_awt_ComponentOrientation, Component as java_awt_Component, ImageCapabilities as java_awt_ImageCapabilities, Shape as java_awt_Shape, FontMetrics as java_awt_FontMetrics, Cursor as java_awt_Cursor, MenuContainer as java_awt_MenuContainer } from 'java.awt';
 import { PrintStream as java_io_PrintStream, PrintWriter as java_io_PrintWriter, Serializable as java_io_Serializable } from 'java.io';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { Locale as java_util_Locale, Set as java_util_Set, EventListener as java_util_EventListener } from 'java.util';
-import { ColorModel as java_awt_image_ColorModel, VolatileImage as java_awt_image_VolatileImage, ImageObserver as java_awt_image_ImageObserver, ImageProducer as java_awt_image_ImageProducer } from 'java.awt.image';
+import { ColorModel as java_awt_image_ColorModel, ImageProducer as java_awt_image_ImageProducer, VolatileImage as java_awt_image_VolatileImage, ImageObserver as java_awt_image_ImageObserver } from 'java.awt.image';
+import { InputContext as java_awt_im_InputContext, InputMethodRequests as java_awt_im_InputMethodRequests } from 'java.awt.im';
 import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
 import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
 import { DropTarget as java_awt_dnd_DropTarget } from 'java.awt.dnd';
 import { BaselineResizeBehavior as java_awt_Component_BaselineResizeBehavior } from 'java.awt.Component';
 import { ComponentListener as java_awt_event_ComponentListener, FocusListener as java_awt_event_FocusListener, HierarchyListener as java_awt_event_HierarchyListener, HierarchyBoundsListener as java_awt_event_HierarchyBoundsListener, KeyListener as java_awt_event_KeyListener, MouseListener as java_awt_event_MouseListener, MouseMotionListener as java_awt_event_MouseMotionListener, MouseWheelListener as java_awt_event_MouseWheelListener, InputMethodListener as java_awt_event_InputMethodListener } from 'java.awt.event';
-import { InputMethodRequests as java_awt_im_InputMethodRequests, InputContext as java_awt_im_InputContext } from 'java.awt.im';
 import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
 
   export class Component extends java_lang_Object implements java_awt_image_ImageObserver, java_awt_MenuContainer, java_io_Serializable {
@@ -2481,7 +3310,7 @@ validate(): void;
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { MenuContainer as java_awt_MenuContainer, Component as java_awt_Component, MenuShortcut as java_awt_MenuShortcut, Font as java_awt_Font, Event as java_awt_Event, AWTEvent as java_awt_AWTEvent, Menu as java_awt_Menu } from 'java.awt';
+import { MenuContainer as java_awt_MenuContainer, Component as java_awt_Component, MenuShortcut as java_awt_MenuShortcut, Font as java_awt_Font, AWTEvent as java_awt_AWTEvent, Event as java_awt_Event, Menu as java_awt_Menu } from 'java.awt';
 import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
 import { ActionListener as java_awt_event_ActionListener } from 'java.awt.event';
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
@@ -2535,336 +3364,6 @@ wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 constructor();
 constructor(arg0: string);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { MenuComponent as java_awt_MenuComponent, Event as java_awt_Event, Font as java_awt_Font } from 'java.awt';
-
-  export class MenuContainer {
-font: java_awt_Font;
-getFont(): java_awt_Font;
-postEvent(arg0: java_awt_Event): boolean;
-remove(arg0: java_awt_MenuComponent): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { MenuContainer as java_awt_MenuContainer, Font as java_awt_Font, Event as java_awt_Event, AWTEvent as java_awt_AWTEvent } from 'java.awt';
-import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
-import { Object as java_lang_Object } from 'java.lang';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class MenuComponent extends java_lang_Object implements java_io_Serializable {
-accessibleContext: javax_accessibility_AccessibleContext;
-font: java_awt_Font;
-name: string;
-parent: java_awt_MenuContainer;
-dispatchEvent(arg0: java_awt_AWTEvent): void;
-getAccessibleContext(): javax_accessibility_AccessibleContext;
-getFont(): java_awt_Font;
-getName(): string;
-getParent(): java_awt_MenuContainer;
-postEvent(arg0: java_awt_Event): boolean;
-removeNotify(): void;
-setFont(arg0: java_awt_Font): void;
-setName(arg0: string): void;
-toString(): string;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { Object as java_lang_Object } from 'java.lang';
-import { Event as java_awt_Event } from 'java.awt';
-import { Serializable as java_io_Serializable } from 'java.io';
-/** Represents an event.
-
- All events require a static method named getHandlerList() which returns the same HandlerList as getHandlers(). */
-
-  export class Event extends java_lang_Object implements java_io_Serializable {
-arg: java_lang_Object;
-clickCount: number;
-evt: java_awt_Event;
-id: number;
-key: number;
-modifiers: number;
-static ACTION_EVENT: number;
-static ALT_MASK: number;
-static BACK_SPACE: number;
-static CAPS_LOCK: number;
-static CTRL_MASK: number;
-static DELETE: number;
-static DOWN: number;
-static END: number;
-static ENTER: number;
-static ESCAPE: number;
-static F10: number;
-static F11: number;
-static F12: number;
-static F1: number;
-static F2: number;
-static F3: number;
-static F4: number;
-static F5: number;
-static F6: number;
-static F7: number;
-static F8: number;
-static F9: number;
-static GOT_FOCUS: number;
-static HOME: number;
-static INSERT: number;
-static KEY_ACTION: number;
-static KEY_ACTION_RELEASE: number;
-static KEY_PRESS: number;
-static KEY_RELEASE: number;
-static LEFT: number;
-static LIST_DESELECT: number;
-static LIST_SELECT: number;
-static LOAD_FILE: number;
-static LOST_FOCUS: number;
-static META_MASK: number;
-static MOUSE_DOWN: number;
-static MOUSE_DRAG: number;
-static MOUSE_ENTER: number;
-static MOUSE_EXIT: number;
-static MOUSE_MOVE: number;
-static MOUSE_UP: number;
-static NUM_LOCK: number;
-static PAUSE: number;
-static PGDN: number;
-static PGUP: number;
-static PRINT_SCREEN: number;
-static RIGHT: number;
-static SAVE_FILE: number;
-static SCROLL_ABSOLUTE: number;
-static SCROLL_BEGIN: number;
-static SCROLL_END: number;
-static SCROLL_LINE_DOWN: number;
-static SCROLL_LINE_UP: number;
-static SCROLL_LOCK: number;
-static SCROLL_PAGE_DOWN: number;
-static SCROLL_PAGE_UP: number;
-static SHIFT_MASK: number;
-static TAB: number;
-static UP: number;
-static WINDOW_DEICONIFY: number;
-static WINDOW_DESTROY: number;
-static WINDOW_EXPOSE: number;
-static WINDOW_ICONIFY: number;
-static WINDOW_MOVED: number;
-target: java_lang_Object;
-when: number;
-x: number;
-y: number;
-controlDown(): boolean;
-metaDown(): boolean;
-shiftDown(): boolean;
-toString(): string;
-translate(arg0: number, arg1: number): void;
-constructor(arg0: java_lang_Object, arg1: number, arg2: java_lang_Object);
-constructor(arg0: java_lang_Object, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number);
-constructor(arg0: java_lang_Object, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number, arg6: number, arg7: java_lang_Object);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.event' {
-import { FocusEvent as java_awt_event_FocusEvent } from 'java.awt.event';
-import { EventListener as java_util_EventListener } from 'java.util';
-
-  export class FocusListener implements java_util_EventListener {
-
-focusGained(arg0: java_awt_event_FocusEvent): void;
-focusLost(arg0: java_awt_event_FocusEvent): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.event' {
-import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
-import { Component as java_awt_Component } from 'java.awt';
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { ComponentEvent as java_awt_event_ComponentEvent } from 'java.awt.event';
-
-  export class FocusEvent extends java_awt_event_ComponentEvent {
-cause: java_awt_event_FocusEvent_Cause;
-class: java_lang_Class<java_lang_Object>;
-iD: number;
-oppositeComponent: java_awt_Component;
-source: java_lang_Object;
-static FOCUS_FIRST: number;
-static FOCUS_GAINED: number;
-static FOCUS_LAST: number;
-static FOCUS_LOST: number;
-equals(arg0: java_lang_Object): boolean;
-getCause(): java_awt_event_FocusEvent_Cause;
-getClass(): java_lang_Class<java_lang_Object>;
-getID(): number;
-getOppositeComponent(): java_awt_Component;
-getSource(): java_lang_Object;
-hashCode(): number;
-isTemporary(): boolean;
-notify(): void;
-notifyAll(): void;
-paramString(): string;
-setSource(arg0: java_lang_Object): void;
-toString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-constructor(arg0: java_awt_Component, arg1: number);
-constructor(arg0: java_awt_Component, arg1: number, arg2: boolean);
-constructor(arg0: java_awt_Component, arg1: number, arg2: boolean, arg3: java_awt_Component);
-constructor(arg0: java_awt_Component, arg1: number, arg2: boolean, arg3: java_awt_Component, arg4: java_awt_event_FocusEvent_Cause);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.event.FocusEvent' {
-import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
-import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
-
-  export class Cause extends java_lang_Enum<java_awt_event_FocusEvent_Cause> {
-class: java_lang_Class<java_lang_Object>;
-static ACTIVATION: java_awt_event_FocusEvent_Cause;
-static CLEAR_GLOBAL_FOCUS_OWNER: java_awt_event_FocusEvent_Cause;
-static MOUSE_EVENT: java_awt_event_FocusEvent_Cause;
-static ROLLBACK: java_awt_event_FocusEvent_Cause;
-static TRAVERSAL: java_awt_event_FocusEvent_Cause;
-static TRAVERSAL_BACKWARD: java_awt_event_FocusEvent_Cause;
-static TRAVERSAL_DOWN: java_awt_event_FocusEvent_Cause;
-static TRAVERSAL_FORWARD: java_awt_event_FocusEvent_Cause;
-static TRAVERSAL_UP: java_awt_event_FocusEvent_Cause;
-static UNEXPECTED: java_awt_event_FocusEvent_Cause;
-static UNKNOWN: java_awt_event_FocusEvent_Cause;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-static valueOf(arg0: string): java_awt_event_FocusEvent_Cause;
-static values(): JArray<java_awt_event_FocusEvent_Cause>;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.event' {
-import { Component as java_awt_Component, AWTEvent as java_awt_AWTEvent } from 'java.awt';
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-
-  export class ComponentEvent extends java_awt_AWTEvent {
-class: java_lang_Class<java_lang_Object>;
-component: java_awt_Component;
-source: java_lang_Object;
-static COMPONENT_FIRST: number;
-static COMPONENT_HIDDEN: number;
-static COMPONENT_LAST: number;
-static COMPONENT_MOVED: number;
-static COMPONENT_RESIZED: number;
-static COMPONENT_SHOWN: number;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-getComponent(): java_awt_Component;
-getSource(): java_lang_Object;
-hashCode(): number;
-notify(): void;
-notifyAll(): void;
-paramString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-constructor(arg0: java_awt_Component, arg1: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { Event as java_awt_Event } from 'java.awt';
-import { EventObject as java_util_EventObject } from 'java.util';
-
-  export class AWTEvent extends java_util_EventObject {
-class: java_lang_Class<java_lang_Object>;
-iD: number;
-static ACTION_EVENT_MASK: number;
-static ADJUSTMENT_EVENT_MASK: number;
-static COMPONENT_EVENT_MASK: number;
-static CONTAINER_EVENT_MASK: number;
-static FOCUS_EVENT_MASK: number;
-static HIERARCHY_BOUNDS_EVENT_MASK: number;
-static HIERARCHY_EVENT_MASK: number;
-static INPUT_METHOD_EVENT_MASK: number;
-static INVOCATION_EVENT_MASK: number;
-static ITEM_EVENT_MASK: number;
-static KEY_EVENT_MASK: number;
-static MOUSE_EVENT_MASK: number;
-static MOUSE_MOTION_EVENT_MASK: number;
-static MOUSE_WHEEL_EVENT_MASK: number;
-static PAINT_EVENT_MASK: number;
-static RESERVED_ID_MAX: number;
-static TEXT_EVENT_MASK: number;
-static WINDOW_EVENT_MASK: number;
-static WINDOW_FOCUS_EVENT_MASK: number;
-static WINDOW_STATE_EVENT_MASK: number;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-getID(): number;
-hashCode(): number;
-notify(): void;
-notifyAll(): void;
-paramString(): string;
-setSource(arg0: java_lang_Object): void;
-toString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-constructor(arg0: java_awt_Event);
-constructor(arg0: java_lang_Object, arg1: number);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { Cursor as java_awt_Cursor } from 'java.awt';
-import { Object as java_lang_Object } from 'java.lang';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class Cursor extends java_lang_Object implements java_io_Serializable {
-name: string;
-static CROSSHAIR_CURSOR: number;
-static CUSTOM_CURSOR: number;
-static DEFAULT_CURSOR: number;
-static E_RESIZE_CURSOR: number;
-static HAND_CURSOR: number;
-static MOVE_CURSOR: number;
-static NE_RESIZE_CURSOR: number;
-static NW_RESIZE_CURSOR: number;
-static N_RESIZE_CURSOR: number;
-static SE_RESIZE_CURSOR: number;
-static SW_RESIZE_CURSOR: number;
-static S_RESIZE_CURSOR: number;
-static TEXT_CURSOR: number;
-static WAIT_CURSOR: number;
-static W_RESIZE_CURSOR: number;
-static defaultCursor: java_awt_Cursor;
-static predefinedCursor: java_awt_Cursor;
-static systemCustomCursor: java_awt_Cursor;
-type: number;
-getName(): string;
-getType(): number;
-static getDefaultCursor(): java_awt_Cursor;
-static getPredefinedCursor(arg0: number): java_awt_Cursor;
-static getSystemCustomCursor(arg0: string): java_awt_Cursor;
-toString(): string;
-constructor(arg0: number);
   }
 }
 //@ts-nocheck
@@ -2938,7 +3437,7 @@ constructor(arg0: java_lang_Object, arg1: number, arg2: string, arg3: number, ar
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { MenuItem as java_awt_MenuItem, MenuComponent as java_awt_MenuComponent, MenuContainer as java_awt_MenuContainer, Font as java_awt_Font, Event as java_awt_Event, AWTEvent as java_awt_AWTEvent } from 'java.awt';
+import { MenuItem as java_awt_MenuItem, MenuComponent as java_awt_MenuComponent, MenuContainer as java_awt_MenuContainer, Font as java_awt_Font, AWTEvent as java_awt_AWTEvent, Event as java_awt_Event } from 'java.awt';
 import { AccessibleContext as javax_accessibility_AccessibleContext, Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 
@@ -2991,9 +3490,9 @@ constructor(arg0: string, arg1: boolean);
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { AccessibleContext as javax_accessibility_AccessibleContext, Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
 import { MenuShortcut as java_awt_MenuShortcut, MenuComponent as java_awt_MenuComponent } from 'java.awt';
 import { ActionListener as java_awt_event_ActionListener } from 'java.awt.event';
+import { AccessibleContext as javax_accessibility_AccessibleContext, Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
 import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
 import { EventListener as java_util_EventListener } from 'java.util';
 
@@ -3040,7 +3539,7 @@ constructor(arg0: string, arg1: java_awt_MenuShortcut);
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { Component as java_awt_Component, Graphics as java_awt_Graphics, Font as java_awt_Font, AWTKeyStroke as java_awt_AWTKeyStroke, Container as java_awt_Container, LayoutManager as java_awt_LayoutManager, Dimension as java_awt_Dimension, FocusTraversalPolicy as java_awt_FocusTraversalPolicy, ComponentOrientation as java_awt_ComponentOrientation, Insets as java_awt_Insets, Event as java_awt_Event, Point as java_awt_Point } from 'java.awt';
+import { Component as java_awt_Component, Graphics as java_awt_Graphics, Font as java_awt_Font, Dimension as java_awt_Dimension, AWTKeyStroke as java_awt_AWTKeyStroke, Container as java_awt_Container, LayoutManager as java_awt_LayoutManager, FocusTraversalPolicy as java_awt_FocusTraversalPolicy, ComponentOrientation as java_awt_ComponentOrientation, Insets as java_awt_Insets, Event as java_awt_Event, Point as java_awt_Point } from 'java.awt';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
 import { Set as java_util_Set, EventListener as java_util_EventListener } from 'java.util';
@@ -3491,6 +3990,36 @@ wait(arg0: number, arg1: number): void;
 }
 //@ts-nocheck
 
+declare module 'java.awt.event' {
+import { Component as java_awt_Component, AWTEvent as java_awt_AWTEvent } from 'java.awt';
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+
+  export class ComponentEvent extends java_awt_AWTEvent {
+class: java_lang_Class<java_lang_Object>;
+component: java_awt_Component;
+source: java_lang_Object;
+static COMPONENT_FIRST: number;
+static COMPONENT_HIDDEN: number;
+static COMPONENT_LAST: number;
+static COMPONENT_MOVED: number;
+static COMPONENT_RESIZED: number;
+static COMPONENT_SHOWN: number;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+getComponent(): java_awt_Component;
+getSource(): java_lang_Object;
+hashCode(): number;
+notify(): void;
+notifyAll(): void;
+paramString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+constructor(arg0: java_awt_Component, arg1: number);
+  }
+}
+//@ts-nocheck
+
 declare module 'java.awt' {
 import { Component as java_awt_Component, Container as java_awt_Container, Dimension as java_awt_Dimension } from 'java.awt';
 
@@ -3507,7 +4036,7 @@ removeLayoutComponent(arg0: java_awt_Component): void;
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { Window as java_awt_Window, Component as java_awt_Component, Container as java_awt_Container } from 'java.awt';
+import { Container as java_awt_Container, Component as java_awt_Component, Window as java_awt_Window } from 'java.awt';
 import { Object as java_lang_Object } from 'java.lang';
 
   export class FocusTraversalPolicy extends java_lang_Object {
@@ -3545,25 +4074,6 @@ isLeftToRight(): boolean;
 static getOrientation(arg0: java_util_Locale): java_awt_ComponentOrientation;
 static getOrientation(arg0: java_util_ResourceBundle): java_awt_ComponentOrientation;
 
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
-import { Serializable as java_io_Serializable } from 'java.io';
-
-  export class Insets extends java_lang_Object implements java_lang_Cloneable, java_io_Serializable {
-bottom: number;
-left: number;
-right: number;
-top: number;
-clone(): java_lang_Object;
-equals(arg0: java_lang_Object): boolean;
-hashCode(): number;
-set(arg0: number, arg1: number, arg2: number, arg3: number): void;
-toString(): string;
-constructor(arg0: number, arg1: number, arg2: number, arg3: number);
   }
 }
 //@ts-nocheck
@@ -3612,6 +4122,34 @@ wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 constructor(arg0: java_awt_Component, arg1: number, arg2: java_awt_Component);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.im' {
+import { InputContext as java_awt_im_InputContext } from 'java.awt.im';
+import { Locale as java_util_Locale } from 'java.util';
+import { AWTEvent as java_awt_AWTEvent, Component as java_awt_Component } from 'java.awt';
+import { Subset as java_lang_Character_Subset } from 'java.lang.Character';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class InputContext extends java_lang_Object {
+inputMethodControlObject: java_lang_Object;
+locale: java_util_Locale;
+static instance: java_awt_im_InputContext;
+dispatchEvent(arg0: java_awt_AWTEvent): void;
+dispose(): void;
+endComposition(): void;
+getInputMethodControlObject(): java_lang_Object;
+getLocale(): java_util_Locale;
+isCompositionEnabled(): boolean;
+reconvert(): void;
+removeNotify(arg0: java_awt_Component): void;
+selectInputMethod(arg0: java_util_Locale): boolean;
+setCharacterSubsets(arg0: JArray<java_lang_Character_Subset>): void;
+setCompositionEnabled(arg0: boolean): void;
+static getInstance(): java_awt_im_InputContext;
+
   }
 }
 //@ts-nocheck
@@ -3970,7 +4508,7 @@ constructor();
 
 declare module 'java.awt.image' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { ImageObserver as java_awt_image_ImageObserver, ColorModel as java_awt_image_ColorModel, SampleModel as java_awt_image_SampleModel, Raster as java_awt_image_Raster, WritableRaster as java_awt_image_WritableRaster, BufferedImage as java_awt_image_BufferedImage, TileObserver as java_awt_image_TileObserver, ImageProducer as java_awt_image_ImageProducer, RenderedImage as java_awt_image_RenderedImage, IndexColorModel as java_awt_image_IndexColorModel, WritableRenderedImage as java_awt_image_WritableRenderedImage } from 'java.awt.image';
+import { ImageObserver as java_awt_image_ImageObserver, Raster as java_awt_image_Raster, ColorModel as java_awt_image_ColorModel, SampleModel as java_awt_image_SampleModel, WritableRaster as java_awt_image_WritableRaster, BufferedImage as java_awt_image_BufferedImage, TileObserver as java_awt_image_TileObserver, ImageProducer as java_awt_image_ImageProducer, RenderedImage as java_awt_image_RenderedImage, IndexColorModel as java_awt_image_IndexColorModel, WritableRenderedImage as java_awt_image_WritableRenderedImage } from 'java.awt.image';
 import { Rectangle as java_awt_Rectangle, Graphics as java_awt_Graphics, Graphics2D as java_awt_Graphics2D, Point as java_awt_Point, Image as java_awt_Image, Transparency as java_awt_Transparency } from 'java.awt';
 import { Vector as java_util_Vector, Hashtable as java_util_Hashtable } from 'java.util';
 
@@ -4087,15 +4625,15 @@ constructor(arg0: number, arg1: number, arg2: number, arg3: java_awt_image_Index
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { Shape as java_awt_Shape, Rectangle as java_awt_Rectangle, Image as java_awt_Image, Composite as java_awt_Composite, GraphicsConfiguration as java_awt_GraphicsConfiguration, Paint as java_awt_Paint, Stroke as java_awt_Stroke, RenderingHints as java_awt_RenderingHints, Color as java_awt_Color, Graphics as java_awt_Graphics } from 'java.awt';
+import { Shape as java_awt_Shape, Rectangle as java_awt_Rectangle, GraphicsConfiguration as java_awt_GraphicsConfiguration, Paint as java_awt_Paint, Stroke as java_awt_Stroke, RenderingHints as java_awt_RenderingHints, Composite as java_awt_Composite, Image as java_awt_Image, Color as java_awt_Color, Graphics as java_awt_Graphics } from 'java.awt';
 import { AffineTransform as java_awt_geom_AffineTransform } from 'java.awt.geom';
-import { AttributedCharacterIterator as java_text_AttributedCharacterIterator } from 'java.text';
-import { BufferedImage as java_awt_image_BufferedImage, BufferedImageOp as java_awt_image_BufferedImageOp, ImageObserver as java_awt_image_ImageObserver, RenderedImage as java_awt_image_RenderedImage } from 'java.awt.image';
+import { RenderedImage as java_awt_image_RenderedImage, BufferedImage as java_awt_image_BufferedImage, BufferedImageOp as java_awt_image_BufferedImageOp, ImageObserver as java_awt_image_ImageObserver } from 'java.awt.image';
 import { RenderableImage as java_awt_image_renderable_RenderableImage } from 'java.awt.image.renderable';
 import { GlyphVector as java_awt_font_GlyphVector, FontRenderContext as java_awt_font_FontRenderContext } from 'java.awt.font';
 import { Key as java_awt_RenderingHints_Key } from 'java.awt.RenderingHints';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { Map as java_util_Map } from 'java.util';
+import { AttributedCharacterIterator as java_text_AttributedCharacterIterator } from 'java.text';
 
   export class Graphics2D extends java_awt_Graphics {
 background: java_awt_Color;
@@ -4161,51 +4699,8 @@ wait(arg0: number, arg1: number): void;
 //@ts-nocheck
 
 declare module 'java.awt.image' {
-import { BufferedImage as java_awt_image_BufferedImage, ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
-import { Rectangle2D as java_awt_geom_Rectangle2D, Point2D as java_awt_geom_Point2D } from 'java.awt.geom';
-import { RenderingHints as java_awt_RenderingHints } from 'java.awt';
-
-  export class BufferedImageOp {
-bounds2D: java_awt_geom_Rectangle2D;
-point2D: java_awt_geom_Point2D;
-renderingHints: java_awt_RenderingHints;
-createCompatibleDestImage(arg0: java_awt_image_BufferedImage, arg1: java_awt_image_ColorModel): java_awt_image_BufferedImage;
-filter(arg0: java_awt_image_BufferedImage, arg1: java_awt_image_BufferedImage): java_awt_image_BufferedImage;
-getBounds2D(arg0: java_awt_image_BufferedImage): java_awt_geom_Rectangle2D;
-getPoint2D(arg0: java_awt_geom_Point2D, arg1: java_awt_geom_Point2D): java_awt_geom_Point2D;
-getRenderingHints(): java_awt_RenderingHints;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
-import { RenderingHints as java_awt_RenderingHints, CompositeContext as java_awt_CompositeContext } from 'java.awt';
-
-  export class Composite {
-
-createContext(arg0: java_awt_image_ColorModel, arg1: java_awt_image_ColorModel, arg2: java_awt_RenderingHints): java_awt_CompositeContext;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { Raster as java_awt_image_Raster, WritableRaster as java_awt_image_WritableRaster } from 'java.awt.image';
-
-  export class CompositeContext {
-
-compose(arg0: java_awt_image_Raster, arg1: java_awt_image_Raster, arg2: java_awt_image_WritableRaster): void;
-dispose(): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.image' {
 import { Object as java_lang_Object } from 'java.lang';
-import { ColorModel as java_awt_image_ColorModel, SampleModel as java_awt_image_SampleModel, Raster as java_awt_image_Raster, WritableRaster as java_awt_image_WritableRaster, RenderedImage as java_awt_image_RenderedImage } from 'java.awt.image';
+import { Raster as java_awt_image_Raster, ColorModel as java_awt_image_ColorModel, SampleModel as java_awt_image_SampleModel, WritableRaster as java_awt_image_WritableRaster, RenderedImage as java_awt_image_RenderedImage } from 'java.awt.image';
 import { Rectangle as java_awt_Rectangle } from 'java.awt';
 import { Vector as java_util_Vector } from 'java.util';
 
@@ -4290,8 +4785,8 @@ isDynamic(): boolean;
 
 declare module 'java.awt.image.renderable' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
-import { AffineTransform as java_awt_geom_AffineTransform } from 'java.awt.geom';
 import { RenderingHints as java_awt_RenderingHints, Shape as java_awt_Shape } from 'java.awt';
+import { AffineTransform as java_awt_geom_AffineTransform } from 'java.awt.geom';
 
   export class RenderContext extends java_lang_Object implements java_lang_Cloneable {
 areaOfInterest: java_awt_Shape;
@@ -4322,6 +4817,49 @@ import { Shape as java_awt_Shape } from 'java.awt';
   export class Stroke {
 
 createStrokedShape(arg0: java_awt_Shape): java_awt_Shape;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
+import { RenderingHints as java_awt_RenderingHints, CompositeContext as java_awt_CompositeContext } from 'java.awt';
+
+  export class Composite {
+
+createContext(arg0: java_awt_image_ColorModel, arg1: java_awt_image_ColorModel, arg2: java_awt_RenderingHints): java_awt_CompositeContext;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { Raster as java_awt_image_Raster, WritableRaster as java_awt_image_WritableRaster } from 'java.awt.image';
+
+  export class CompositeContext {
+
+compose(arg0: java_awt_image_Raster, arg1: java_awt_image_Raster, arg2: java_awt_image_WritableRaster): void;
+dispose(): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.image' {
+import { BufferedImage as java_awt_image_BufferedImage, ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
+import { RenderingHints as java_awt_RenderingHints } from 'java.awt';
+import { Point2D as java_awt_geom_Point2D, Rectangle2D as java_awt_geom_Rectangle2D } from 'java.awt.geom';
+
+  export class BufferedImageOp {
+bounds2D: java_awt_geom_Rectangle2D;
+point2D: java_awt_geom_Point2D;
+renderingHints: java_awt_RenderingHints;
+createCompatibleDestImage(arg0: java_awt_image_BufferedImage, arg1: java_awt_image_ColorModel): java_awt_image_BufferedImage;
+filter(arg0: java_awt_image_BufferedImage, arg1: java_awt_image_BufferedImage): java_awt_image_BufferedImage;
+getBounds2D(arg0: java_awt_image_BufferedImage): java_awt_geom_Rectangle2D;
+getPoint2D(arg0: java_awt_geom_Point2D, arg1: java_awt_geom_Point2D): java_awt_geom_Point2D;
+getRenderingHints(): java_awt_RenderingHints;
 
   }
 }
@@ -4402,50 +4940,8 @@ setData(arg0: java_awt_image_Raster): void;
 //@ts-nocheck
 
 declare module 'java.awt.image' {
-import { ImageConsumer as java_awt_image_ImageConsumer } from 'java.awt.image';
-
-  export class ImageProducer {
-
-addConsumer(arg0: java_awt_image_ImageConsumer): void;
-isConsumer(arg0: java_awt_image_ImageConsumer): boolean;
-removeConsumer(arg0: java_awt_image_ImageConsumer): void;
-requestTopDownLeftRightResend(arg0: java_awt_image_ImageConsumer): void;
-startProduction(arg0: java_awt_image_ImageConsumer): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.image' {
-import { Hashtable as java_util_Hashtable } from 'java.util';
-import { Object as java_lang_Object } from 'java.lang';
-import { ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
-
-  export class ImageConsumer {
-static COMPLETESCANLINES: number;
-static IMAGEABORTED: number;
-static IMAGEERROR: number;
-static RANDOMPIXELORDER: number;
-static SINGLEFRAME: number;
-static SINGLEFRAMEDONE: number;
-static SINGLEPASS: number;
-static STATICIMAGEDONE: number;
-static TOPDOWNLEFTRIGHT: number;
-imageComplete(arg0: number): void;
-setColorModel(arg0: java_awt_image_ColorModel): void;
-setDimensions(arg0: number, arg1: number): void;
-setHints(arg0: number): void;
-setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_image_ColorModel, arg5: JArray<number>, arg6: number, arg7: number): void;
-setPixels(arg0: number, arg1: number, arg2: number, arg3: number, arg4: java_awt_image_ColorModel, arg5: JArray<number>, arg6: number, arg7: number): void;
-setProperties(arg0: java_util_Hashtable<java_lang_Object, java_lang_Object>): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.image' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { SampleModel as java_awt_image_SampleModel, Raster as java_awt_image_Raster, BufferedImage as java_awt_image_BufferedImage, WritableRaster as java_awt_image_WritableRaster, ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
+import { Raster as java_awt_image_Raster, BufferedImage as java_awt_image_BufferedImage, WritableRaster as java_awt_image_WritableRaster, SampleModel as java_awt_image_SampleModel, ColorModel as java_awt_image_ColorModel } from 'java.awt.image';
 import { BigInteger as java_math_BigInteger } from 'java.math';
 
   export class IndexColorModel extends java_awt_image_ColorModel {
@@ -4885,207 +5381,19 @@ getTextLocation(arg0: java_awt_font_TextHitInfo): java_awt_Rectangle;
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { Font as java_awt_Font, FontMetrics as java_awt_FontMetrics, GraphicsConfiguration as java_awt_GraphicsConfiguration, Insets as java_awt_Insets, Image as java_awt_Image, Toolkit as java_awt_Toolkit, Dimension as java_awt_Dimension, Frame as java_awt_Frame, PrintJob as java_awt_PrintJob, JobAttributes as java_awt_JobAttributes, PageAttributes as java_awt_PageAttributes, Point as java_awt_Point, Cursor as java_awt_Cursor, EventQueue as java_awt_EventQueue, Component as java_awt_Component } from 'java.awt';
-import { ColorModel as java_awt_image_ColorModel, ImageObserver as java_awt_image_ImageObserver, ImageProducer as java_awt_image_ImageProducer } from 'java.awt.image';
-import { ModalExclusionType as java_awt_Dialog_ModalExclusionType, ModalityType as java_awt_Dialog_ModalityType } from 'java.awt.Dialog';
-import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
-import { URL as java_net_URL } from 'java.net';
-import { Properties as java_util_Properties, Map as java_util_Map } from 'java.util';
-import { Clipboard as java_awt_datatransfer_Clipboard } from 'java.awt.datatransfer';
-import { Class as java_lang_Class, Object as java_lang_Object } from 'java.lang';
-import { DragSource as java_awt_dnd_DragSource, DragGestureListener as java_awt_dnd_DragGestureListener, DragGestureRecognizer as java_awt_dnd_DragGestureRecognizer } from 'java.awt.dnd';
-import { AWTEventListener as java_awt_event_AWTEventListener } from 'java.awt.event';
-import { InputMethodHighlight as java_awt_im_InputMethodHighlight } from 'java.awt.im';
-import { TextAttribute as java_awt_font_TextAttribute } from 'java.awt.font';
+import { Cursor as java_awt_Cursor } from 'java.awt';
+import { Object as java_lang_Object } from 'java.lang';
+import { Serializable as java_io_Serializable } from 'java.io';
 
-  export class Toolkit extends java_lang_Object {
-aWTEventListeners: JArray<java_awt_event_AWTEventListener>;
-aWTEventListeners: JArray<java_awt_event_AWTEventListener>;
-bestCursorSize: java_awt_Dimension;
-colorModel: java_awt_image_ColorModel;
-desktopProperty: java_lang_Object;
-fontList: JArray<string>;
-fontMetrics: java_awt_FontMetrics;
-image: java_awt_Image;
-image: java_awt_Image;
-lockingKeyState: boolean;
-maximumCursorColors: number;
-menuShortcutKeyMask: number;
-menuShortcutKeyMaskEx: number;
-printJob: java_awt_PrintJob;
-printJob: java_awt_PrintJob;
-propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
-propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
-screenInsets: java_awt_Insets;
-screenResolution: number;
-screenSize: java_awt_Dimension;
-static defaultToolkit: java_awt_Toolkit;
-static property: string;
-systemClipboard: java_awt_datatransfer_Clipboard;
-systemEventQueue: java_awt_EventQueue;
-systemSelection: java_awt_datatransfer_Clipboard;
-addAWTEventListener(arg0: java_awt_event_AWTEventListener, arg1: number): void;
-addPropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListener): void;
-areExtraMouseButtonsEnabled(): boolean;
-beep(): void;
-checkImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): number;
-createCustomCursor(arg0: java_awt_Image, arg1: java_awt_Point, arg2: string): java_awt_Cursor;
-createDragGestureRecognizer<T extends java_awt_dnd_DragGestureRecognizer>(arg0: java_lang_Class<T>, arg1: java_awt_dnd_DragSource, arg2: java_awt_Component, arg3: number, arg4: java_awt_dnd_DragGestureListener): T;
-createImage(arg0: JArray<number>): java_awt_Image;
-createImage(arg0: JArray<number>, arg1: number, arg2: number): java_awt_Image;
-createImage(arg0: java_awt_image_ImageProducer): java_awt_Image;
-createImage(arg0: java_net_URL): java_awt_Image;
-createImage(arg0: string): java_awt_Image;
-getAWTEventListeners(): JArray<java_awt_event_AWTEventListener>;
-getAWTEventListeners(arg0: number): JArray<java_awt_event_AWTEventListener>;
-getBestCursorSize(arg0: number, arg1: number): java_awt_Dimension;
-getColorModel(): java_awt_image_ColorModel;
-getDesktopProperty(arg0: string): java_lang_Object;
-getFontList(): JArray<string>;
-getFontMetrics(arg0: java_awt_Font): java_awt_FontMetrics;
-getImage(arg0: java_net_URL): java_awt_Image;
-getImage(arg0: string): java_awt_Image;
-getLockingKeyState(arg0: number): boolean;
-getMaximumCursorColors(): number;
-getMenuShortcutKeyMask(): number;
-getMenuShortcutKeyMaskEx(): number;
-getPrintJob(arg0: java_awt_Frame, arg1: string, arg2: java_awt_JobAttributes, arg3: java_awt_PageAttributes): java_awt_PrintJob;
-getPrintJob(arg0: java_awt_Frame, arg1: string, arg2: java_util_Properties): java_awt_PrintJob;
-getPropertyChangeListeners(): JArray<java_beans_PropertyChangeListener>;
-getPropertyChangeListeners(arg0: string): JArray<java_beans_PropertyChangeListener>;
-getScreenInsets(arg0: java_awt_GraphicsConfiguration): java_awt_Insets;
-getScreenResolution(): number;
-getScreenSize(): java_awt_Dimension;
-getSystemClipboard(): java_awt_datatransfer_Clipboard;
-getSystemEventQueue(): java_awt_EventQueue;
-getSystemSelection(): java_awt_datatransfer_Clipboard;
-isAlwaysOnTopSupported(): boolean;
-isDynamicLayoutActive(): boolean;
-isFrameStateSupported(arg0: number): boolean;
-isModalExclusionTypeSupported(arg0: java_awt_Dialog_ModalExclusionType): boolean;
-isModalityTypeSupported(arg0: java_awt_Dialog_ModalityType): boolean;
-mapInputMethodHighlight(arg0: java_awt_im_InputMethodHighlight): java_util_Map<java_awt_font_TextAttribute, java_lang_Object>;
-prepareImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): boolean;
-removeAWTEventListener(arg0: java_awt_event_AWTEventListener): void;
-removePropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListener): void;
-setDynamicLayout(arg0: boolean): void;
-setLockingKeyState(arg0: number, arg1: boolean): void;
-static getDefaultToolkit(): java_awt_Toolkit;
-static getProperty(arg0: string, arg1: string): string;
-sync(): void;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.Dialog' {
-import { ModalExclusionType as java_awt_Dialog_ModalExclusionType } from 'java.awt.Dialog';
-import { Class as java_lang_Class, Object as java_lang_Object, Enum as java_lang_Enum } from 'java.lang';
-
-  export class ModalExclusionType extends java_lang_Enum<java_awt_Dialog_ModalExclusionType> {
-class: java_lang_Class<java_lang_Object>;
-static APPLICATION_EXCLUDE: java_awt_Dialog_ModalExclusionType;
-static NO_EXCLUDE: java_awt_Dialog_ModalExclusionType;
-static TOOLKIT_EXCLUDE: java_awt_Dialog_ModalExclusionType;
-getClass(): java_lang_Class<java_lang_Object>;
-notify(): void;
-notifyAll(): void;
-static valueOf(arg0: string): java_awt_Dialog_ModalExclusionType;
-static values(): JArray<java_awt_Dialog_ModalExclusionType>;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { MenuComponent as java_awt_MenuComponent, Shape as java_awt_Shape, Image as java_awt_Image, MenuBar as java_awt_MenuBar, Rectangle as java_awt_Rectangle, Frame as java_awt_Frame, Color as java_awt_Color, Component as java_awt_Component, Graphics as java_awt_Graphics, Font as java_awt_Font, Container as java_awt_Container, LayoutManager as java_awt_LayoutManager, Dimension as java_awt_Dimension, FocusTraversalPolicy as java_awt_FocusTraversalPolicy, ComponentOrientation as java_awt_ComponentOrientation, Insets as java_awt_Insets, Event as java_awt_Event, Point as java_awt_Point, AWTKeyStroke as java_awt_AWTKeyStroke, PopupMenu as java_awt_PopupMenu, FontMetrics as java_awt_FontMetrics, ImageCapabilities as java_awt_ImageCapabilities, GraphicsConfiguration as java_awt_GraphicsConfiguration, Cursor as java_awt_Cursor, AWTEvent as java_awt_AWTEvent, Window as java_awt_Window, MenuContainer as java_awt_MenuContainer } from 'java.awt';
-import { AccessibleContext as javax_accessibility_AccessibleContext } from 'javax.accessibility';
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { PrintWriter as java_io_PrintWriter, PrintStream as java_io_PrintStream } from 'java.io';
-import { ContainerListener as java_awt_event_ContainerListener, ComponentListener as java_awt_event_ComponentListener, FocusListener as java_awt_event_FocusListener, HierarchyListener as java_awt_event_HierarchyListener, HierarchyBoundsListener as java_awt_event_HierarchyBoundsListener, KeyListener as java_awt_event_KeyListener, MouseListener as java_awt_event_MouseListener, MouseMotionListener as java_awt_event_MouseMotionListener, MouseWheelListener as java_awt_event_MouseWheelListener, InputMethodListener as java_awt_event_InputMethodListener } from 'java.awt.event';
-import { Set as java_util_Set, Locale as java_util_Locale } from 'java.util';
-import { ColorModel as java_awt_image_ColorModel, VolatileImage as java_awt_image_VolatileImage, ImageObserver as java_awt_image_ImageObserver, ImageProducer as java_awt_image_ImageProducer } from 'java.awt.image';
-import { Cause as java_awt_event_FocusEvent_Cause } from 'java.awt.event.FocusEvent';
-import { DropTarget as java_awt_dnd_DropTarget } from 'java.awt.dnd';
-import { BaselineResizeBehavior as java_awt_Component_BaselineResizeBehavior } from 'java.awt.Component';
-import { InputMethodRequests as java_awt_im_InputMethodRequests } from 'java.awt.im';
-import { PropertyChangeListener as java_beans_PropertyChangeListener } from 'java.beans';
-
-  export class Frame extends java_awt_Window implements java_awt_MenuContainer {
-accessibleContext: javax_accessibility_AccessibleContext;
-alignmentX: number;
-alignmentY: number;
-baseline: number;
-baselineResizeBehavior: java_awt_Component_BaselineResizeBehavior;
-bounds: java_awt_Rectangle;
-bounds: java_awt_Rectangle;
-class: java_lang_Class<java_lang_Object>;
-colorModel: java_awt_image_ColorModel;
-component: java_awt_Component;
-componentAt: java_awt_Component;
-componentAt: java_awt_Component;
-componentCount: number;
-componentListeners: JArray<java_awt_event_ComponentListener>;
-componentOrientation: java_awt_ComponentOrientation;
-componentZOrder: number;
-components: JArray<java_awt_Component>;
-containerListeners: JArray<java_awt_event_ContainerListener>;
-cursor: java_awt_Cursor;
-cursorType: number;
-dropTarget: java_awt_dnd_DropTarget;
-extendedState: number;
-focusListeners: JArray<java_awt_event_FocusListener>;
-focusTraversalKeysEnabled: boolean;
-focusTraversalPolicy: java_awt_FocusTraversalPolicy;
-font: java_awt_Font;
-fontMetrics: java_awt_FontMetrics;
-foreground: java_awt_Color;
-graphics: java_awt_Graphics;
-graphicsConfiguration: java_awt_GraphicsConfiguration;
-height: number;
-hierarchyBoundsListeners: JArray<java_awt_event_HierarchyBoundsListener>;
-hierarchyListeners: JArray<java_awt_event_HierarchyListener>;
-iconImage: java_awt_Image;
-ignoreRepaint: boolean;
-inputMethodListeners: JArray<java_awt_event_InputMethodListener>;
-inputMethodRequests: java_awt_im_InputMethodRequests;
-insets: java_awt_Insets;
-keyListeners: JArray<java_awt_event_KeyListener>;
-layout: java_awt_LayoutManager;
-location: java_awt_Point;
-location: java_awt_Point;
-locationOnScreen: java_awt_Point;
-maximizedBounds: java_awt_Rectangle;
-maximumSize: java_awt_Dimension;
-menuBar: java_awt_MenuBar;
-minimumSize: java_awt_Dimension;
-mouseListeners: JArray<java_awt_event_MouseListener>;
-mouseMotionListeners: JArray<java_awt_event_MouseMotionListener>;
-mousePosition: java_awt_Point;
-mousePosition: java_awt_Point;
-mouseWheelListeners: JArray<java_awt_event_MouseWheelListener>;
+  export class Cursor extends java_lang_Object implements java_io_Serializable {
 name: string;
-parent: java_awt_Container;
-preferredSize: java_awt_Dimension;
-propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
-propertyChangeListeners: JArray<java_beans_PropertyChangeListener>;
-size: java_awt_Dimension;
-size: java_awt_Dimension;
-state: number;
 static CROSSHAIR_CURSOR: number;
+static CUSTOM_CURSOR: number;
 static DEFAULT_CURSOR: number;
 static E_RESIZE_CURSOR: number;
 static HAND_CURSOR: number;
-static ICONIFIED: number;
-static MAXIMIZED_BOTH: number;
-static MAXIMIZED_HORIZ: number;
-static MAXIMIZED_VERT: number;
 static MOVE_CURSOR: number;
 static NE_RESIZE_CURSOR: number;
-static NORMAL: number;
 static NW_RESIZE_CURSOR: number;
 static N_RESIZE_CURSOR: number;
 static SE_RESIZE_CURSOR: number;
@@ -5094,266 +5402,25 @@ static S_RESIZE_CURSOR: number;
 static TEXT_CURSOR: number;
 static WAIT_CURSOR: number;
 static W_RESIZE_CURSOR: number;
-static frames: JArray<java_awt_Frame>;
-title: string;
-treeLock: java_lang_Object;
-width: number;
-x: number;
-y: number;
-action(arg0: java_awt_Event, arg1: java_lang_Object): boolean;
-add(arg0: java_awt_Component): java_awt_Component;
-add(arg0: java_awt_Component, arg1: java_lang_Object): void;
-add(arg0: java_awt_Component, arg1: java_lang_Object, arg2: number): void;
-add(arg0: java_awt_Component, arg1: number): java_awt_Component;
-add(arg0: java_awt_PopupMenu): void;
-add(arg0: string, arg1: java_awt_Component): java_awt_Component;
-addComponentListener(arg0: java_awt_event_ComponentListener): void;
-addContainerListener(arg0: java_awt_event_ContainerListener): void;
-addFocusListener(arg0: java_awt_event_FocusListener): void;
-addHierarchyBoundsListener(arg0: java_awt_event_HierarchyBoundsListener): void;
-addHierarchyListener(arg0: java_awt_event_HierarchyListener): void;
-addInputMethodListener(arg0: java_awt_event_InputMethodListener): void;
-addKeyListener(arg0: java_awt_event_KeyListener): void;
-addMouseListener(arg0: java_awt_event_MouseListener): void;
-addMouseMotionListener(arg0: java_awt_event_MouseMotionListener): void;
-addMouseWheelListener(arg0: java_awt_event_MouseWheelListener): void;
-addNotify(): void;
-applyComponentOrientation(arg0: java_awt_ComponentOrientation): void;
-areFocusTraversalKeysSet(arg0: number): boolean;
-bounds(): java_awt_Rectangle;
-checkImage(arg0: java_awt_Image, arg1: java_awt_image_ImageObserver): number;
-checkImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): number;
-contains(arg0: java_awt_Point): boolean;
-contains(arg0: number, arg1: number): boolean;
-countComponents(): number;
-createImage(arg0: java_awt_image_ImageProducer): java_awt_Image;
-createImage(arg0: number, arg1: number): java_awt_Image;
-createVolatileImage(arg0: number, arg1: number): java_awt_image_VolatileImage;
-createVolatileImage(arg0: number, arg1: number, arg2: java_awt_ImageCapabilities): java_awt_image_VolatileImage;
-deliverEvent(arg0: java_awt_Event): void;
-disable(): void;
-dispatchEvent(arg0: java_awt_AWTEvent): void;
-doLayout(): void;
-enable(): void;
-enable(arg0: boolean): void;
-enableInputMethods(arg0: boolean): void;
-equals(arg0: java_lang_Object): boolean;
-findComponentAt(arg0: java_awt_Point): java_awt_Component;
-findComponentAt(arg0: number, arg1: number): java_awt_Component;
-firePropertyChange(arg0: string, arg1: number, arg2: number): void;
-firePropertyChange(arg0: string, arg1: number, arg2: number): void;
-firePropertyChange(arg0: string, arg1: number, arg2: number): void;
-firePropertyChange(arg0: string, arg1: number, arg2: number): void;
-firePropertyChange(arg0: string, arg1: number, arg2: number): void;
-firePropertyChange(arg0: string, arg1: string, arg2: string): void;
-getAccessibleContext(): javax_accessibility_AccessibleContext;
-getAlignmentX(): number;
-getAlignmentY(): number;
-getBaseline(arg0: number, arg1: number): number;
-getBaselineResizeBehavior(): java_awt_Component_BaselineResizeBehavior;
-getBounds(): java_awt_Rectangle;
-getBounds(arg0: java_awt_Rectangle): java_awt_Rectangle;
-getClass(): java_lang_Class<java_lang_Object>;
-getColorModel(): java_awt_image_ColorModel;
-getComponent(arg0: number): java_awt_Component;
-getComponentAt(arg0: java_awt_Point): java_awt_Component;
-getComponentAt(arg0: number, arg1: number): java_awt_Component;
-getComponentCount(): number;
-getComponentListeners(): JArray<java_awt_event_ComponentListener>;
-getComponentOrientation(): java_awt_ComponentOrientation;
-getComponentZOrder(arg0: java_awt_Component): number;
-getComponents(): JArray<java_awt_Component>;
-getContainerListeners(): JArray<java_awt_event_ContainerListener>;
-getCursor(): java_awt_Cursor;
-getCursorType(): number;
-getDropTarget(): java_awt_dnd_DropTarget;
-getExtendedState(): number;
-getFocusListeners(): JArray<java_awt_event_FocusListener>;
-getFocusTraversalKeysEnabled(): boolean;
-getFocusTraversalPolicy(): java_awt_FocusTraversalPolicy;
-getFont(): java_awt_Font;
-getFontMetrics(arg0: java_awt_Font): java_awt_FontMetrics;
-getForeground(): java_awt_Color;
-getGraphics(): java_awt_Graphics;
-getGraphicsConfiguration(): java_awt_GraphicsConfiguration;
-getHeight(): number;
-getHierarchyBoundsListeners(): JArray<java_awt_event_HierarchyBoundsListener>;
-getHierarchyListeners(): JArray<java_awt_event_HierarchyListener>;
-getIconImage(): java_awt_Image;
-getIgnoreRepaint(): boolean;
-getInputMethodListeners(): JArray<java_awt_event_InputMethodListener>;
-getInputMethodRequests(): java_awt_im_InputMethodRequests;
-getInsets(): java_awt_Insets;
-getKeyListeners(): JArray<java_awt_event_KeyListener>;
-getLayout(): java_awt_LayoutManager;
-getLocation(): java_awt_Point;
-getLocation(arg0: java_awt_Point): java_awt_Point;
-getLocationOnScreen(): java_awt_Point;
-getMaximizedBounds(): java_awt_Rectangle;
-getMaximumSize(): java_awt_Dimension;
-getMenuBar(): java_awt_MenuBar;
-getMinimumSize(): java_awt_Dimension;
-getMouseListeners(): JArray<java_awt_event_MouseListener>;
-getMouseMotionListeners(): JArray<java_awt_event_MouseMotionListener>;
-getMousePosition(): java_awt_Point;
-getMousePosition(arg0: boolean): java_awt_Point;
-getMouseWheelListeners(): JArray<java_awt_event_MouseWheelListener>;
+static defaultCursor: java_awt_Cursor;
+static predefinedCursor: java_awt_Cursor;
+static systemCustomCursor: java_awt_Cursor;
+type: number;
 getName(): string;
-getParent(): java_awt_Container;
-getPreferredSize(): java_awt_Dimension;
-getPropertyChangeListeners(): JArray<java_beans_PropertyChangeListener>;
-getPropertyChangeListeners(arg0: string): JArray<java_beans_PropertyChangeListener>;
-getSize(): java_awt_Dimension;
-getSize(arg0: java_awt_Dimension): java_awt_Dimension;
-getState(): number;
-getTitle(): string;
-getTreeLock(): java_lang_Object;
-getWidth(): number;
-getX(): number;
-getY(): number;
-gotFocus(arg0: java_awt_Event, arg1: java_lang_Object): boolean;
-handleEvent(arg0: java_awt_Event): boolean;
-hasFocus(): boolean;
-hashCode(): number;
-imageUpdate(arg0: java_awt_Image, arg1: number, arg2: number, arg3: number, arg4: number, arg5: number): boolean;
-insets(): java_awt_Insets;
-inside(arg0: number, arg1: number): boolean;
-invalidate(): void;
-isAncestorOf(arg0: java_awt_Component): boolean;
-isBackgroundSet(): boolean;
-isCursorSet(): boolean;
-isDisplayable(): boolean;
-isDoubleBuffered(): boolean;
-isEnabled(): boolean;
-isFocusCycleRoot(arg0: java_awt_Container): boolean;
-isFocusOwner(): boolean;
-isFocusTraversable(): boolean;
-isFocusTraversalPolicyProvider(): boolean;
-isFocusTraversalPolicySet(): boolean;
-isFocusable(): boolean;
-isFontSet(): boolean;
-isForegroundSet(): boolean;
-isLightweight(): boolean;
-isMaximumSizeSet(): boolean;
-isMinimumSizeSet(): boolean;
-isPreferredSizeSet(): boolean;
-isResizable(): boolean;
-isUndecorated(): boolean;
-isValid(): boolean;
-isVisible(): boolean;
-keyDown(arg0: java_awt_Event, arg1: number): boolean;
-keyUp(arg0: java_awt_Event, arg1: number): boolean;
-layout(): void;
-list(): void;
-list(arg0: java_io_PrintStream): void;
-list(arg0: java_io_PrintStream, arg1: number): void;
-list(arg0: java_io_PrintWriter): void;
-list(arg0: java_io_PrintWriter, arg1: number): void;
-locate(arg0: number, arg1: number): java_awt_Component;
-location(): java_awt_Point;
-lostFocus(arg0: java_awt_Event, arg1: java_lang_Object): boolean;
-minimumSize(): java_awt_Dimension;
-mouseDown(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
-mouseDrag(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
-mouseEnter(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
-mouseExit(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
-mouseMove(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
-mouseUp(arg0: java_awt_Event, arg1: number, arg2: number): boolean;
-move(arg0: number, arg1: number): void;
-nextFocus(): void;
-notify(): void;
-notifyAll(): void;
-paintAll(arg0: java_awt_Graphics): void;
-paintComponents(arg0: java_awt_Graphics): void;
-preferredSize(): java_awt_Dimension;
-prepareImage(arg0: java_awt_Image, arg1: java_awt_image_ImageObserver): boolean;
-prepareImage(arg0: java_awt_Image, arg1: number, arg2: number, arg3: java_awt_image_ImageObserver): boolean;
-print(arg0: java_awt_Graphics): void;
-printAll(arg0: java_awt_Graphics): void;
-printComponents(arg0: java_awt_Graphics): void;
-remove(arg0: java_awt_Component): void;
-remove(arg0: java_awt_MenuComponent): void;
-remove(arg0: number): void;
-removeAll(): void;
-removeComponentListener(arg0: java_awt_event_ComponentListener): void;
-removeContainerListener(arg0: java_awt_event_ContainerListener): void;
-removeFocusListener(arg0: java_awt_event_FocusListener): void;
-removeHierarchyBoundsListener(arg0: java_awt_event_HierarchyBoundsListener): void;
-removeHierarchyListener(arg0: java_awt_event_HierarchyListener): void;
-removeInputMethodListener(arg0: java_awt_event_InputMethodListener): void;
-removeKeyListener(arg0: java_awt_event_KeyListener): void;
-removeMouseListener(arg0: java_awt_event_MouseListener): void;
-removeMouseMotionListener(arg0: java_awt_event_MouseMotionListener): void;
-removeMouseWheelListener(arg0: java_awt_event_MouseWheelListener): void;
-removeNotify(): void;
-removePropertyChangeListener(arg0: java_beans_PropertyChangeListener): void;
-removePropertyChangeListener(arg0: string, arg1: java_beans_PropertyChangeListener): void;
-repaint(): void;
-repaint(arg0: number): void;
-repaint(arg0: number, arg1: number, arg2: number, arg3: number): void;
-repaint(arg0: number, arg1: number, arg2: number, arg3: number, arg4: number): void;
-requestFocus(): void;
-requestFocus(arg0: java_awt_event_FocusEvent_Cause): void;
-requestFocusInWindow(): boolean;
-requestFocusInWindow(arg0: java_awt_event_FocusEvent_Cause): boolean;
-resize(arg0: java_awt_Dimension): void;
-resize(arg0: number, arg1: number): void;
-revalidate(): void;
-setBackground(arg0: java_awt_Color): void;
-setComponentOrientation(arg0: java_awt_ComponentOrientation): void;
-setComponentZOrder(arg0: java_awt_Component, arg1: number): void;
-setCursor(arg0: number): void;
-setDropTarget(arg0: java_awt_dnd_DropTarget): void;
-setEnabled(arg0: boolean): void;
-setExtendedState(arg0: number): void;
-setFocusTraversalKeys(arg0: number, arg1: java_util_Set<java_awt_AWTKeyStroke>): void;
-setFocusTraversalKeysEnabled(arg0: boolean): void;
-setFocusTraversalPolicy(arg0: java_awt_FocusTraversalPolicy): void;
-setFocusTraversalPolicyProvider(arg0: boolean): void;
-setFocusable(arg0: boolean): void;
-setFont(arg0: java_awt_Font): void;
-setForeground(arg0: java_awt_Color): void;
-setIconImage(arg0: java_awt_Image): void;
-setIgnoreRepaint(arg0: boolean): void;
-setLayout(arg0: java_awt_LayoutManager): void;
-setLocale(arg0: java_util_Locale): void;
-setMaximizedBounds(arg0: java_awt_Rectangle): void;
-setMaximumSize(arg0: java_awt_Dimension): void;
-setMenuBar(arg0: java_awt_MenuBar): void;
-setMixingCutoutShape(arg0: java_awt_Shape): void;
-setName(arg0: string): void;
-setOpacity(arg0: number): void;
-setPreferredSize(arg0: java_awt_Dimension): void;
-setResizable(arg0: boolean): void;
-setShape(arg0: java_awt_Shape): void;
-setState(arg0: number): void;
-setTitle(arg0: string): void;
-setUndecorated(arg0: boolean): void;
-show(arg0: boolean): void;
-size(): java_awt_Dimension;
-static getFrames(): JArray<java_awt_Frame>;
+getType(): number;
+static getDefaultCursor(): java_awt_Cursor;
+static getPredefinedCursor(arg0: number): java_awt_Cursor;
+static getSystemCustomCursor(arg0: string): java_awt_Cursor;
 toString(): string;
-transferFocus(): void;
-transferFocusBackward(): void;
-transferFocusDownCycle(): void;
-transferFocusUpCycle(): void;
-update(arg0: java_awt_Graphics): void;
-validate(): void;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-constructor();
-constructor(arg0: java_awt_GraphicsConfiguration);
-constructor(arg0: string);
-constructor(arg0: string, arg1: java_awt_GraphicsConfiguration);
+constructor(arg0: number);
   }
 }
 //@ts-nocheck
 
 declare module 'java.awt' {
 import { Menu as java_awt_Menu, MenuComponent as java_awt_MenuComponent, MenuShortcut as java_awt_MenuShortcut, MenuItem as java_awt_MenuItem, MenuContainer as java_awt_MenuContainer } from 'java.awt';
-import { AccessibleContext as javax_accessibility_AccessibleContext, Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
 import { Enumeration as java_util_Enumeration } from 'java.util';
+import { AccessibleContext as javax_accessibility_AccessibleContext, Accessible as javax_accessibility_Accessible } from 'javax.accessibility';
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 
   export class MenuBar extends java_awt_MenuComponent implements java_awt_MenuContainer, javax_accessibility_Accessible {
@@ -5391,28 +5458,9 @@ constructor();
 //@ts-nocheck
 
 declare module 'java.awt' {
-import { Dimension as java_awt_Dimension, Graphics as java_awt_Graphics } from 'java.awt';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class PrintJob extends java_lang_Object {
-graphics: java_awt_Graphics;
-pageDimension: java_awt_Dimension;
-pageResolution: number;
-end(): void;
-finalize(): void;
-getGraphics(): java_awt_Graphics;
-getPageDimension(): java_awt_Dimension;
-getPageResolution(): number;
-lastPageFirst(): boolean;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
 import { JobAttributes as java_awt_JobAttributes } from 'java.awt';
-import { DefaultSelectionType as java_awt_JobAttributes_DefaultSelectionType, DialogType as java_awt_JobAttributes_DialogType, MultipleDocumentHandlingType as java_awt_JobAttributes_MultipleDocumentHandlingType, SidesType as java_awt_JobAttributes_SidesType, DestinationType as java_awt_JobAttributes_DestinationType } from 'java.awt.JobAttributes';
+import { DestinationType as java_awt_JobAttributes_DestinationType, DefaultSelectionType as java_awt_JobAttributes_DefaultSelectionType, DialogType as java_awt_JobAttributes_DialogType, MultipleDocumentHandlingType as java_awt_JobAttributes_MultipleDocumentHandlingType, SidesType as java_awt_JobAttributes_SidesType } from 'java.awt.JobAttributes';
 
   export class JobAttributes extends java_lang_Object implements java_lang_Cloneable {
 copies: number;
@@ -5471,14 +5519,13 @@ constructor(arg0: number, arg1: java_awt_JobAttributes_DefaultSelectionType, arg
 
 declare module 'java.awt.JobAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { DefaultSelectionType as java_awt_JobAttributes_DefaultSelectionType } from 'java.awt.JobAttributes';
+import { DestinationType as java_awt_JobAttributes_DestinationType } from 'java.awt.JobAttributes';
 import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
 
-  export class DefaultSelectionType extends java_awt_AttributeValue {
+  export class DestinationType extends java_awt_AttributeValue {
 class: java_lang_Class<java_lang_Object>;
-static ALL: java_awt_JobAttributes_DefaultSelectionType;
-static RANGE: java_awt_JobAttributes_DefaultSelectionType;
-static SELECTION: java_awt_JobAttributes_DefaultSelectionType;
+static FILE: java_awt_JobAttributes_DestinationType;
+static PRINTER: java_awt_JobAttributes_DestinationType;
 equals(arg0: java_lang_Object): boolean;
 getClass(): java_lang_Class<java_lang_Object>;
 hashCode(): number;
@@ -5500,6 +5547,30 @@ import { Object as java_lang_Object } from 'java.lang';
 
 hashCode(): number;
 toString(): string;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.JobAttributes' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { DefaultSelectionType as java_awt_JobAttributes_DefaultSelectionType } from 'java.awt.JobAttributes';
+import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
+
+  export class DefaultSelectionType extends java_awt_AttributeValue {
+class: java_lang_Class<java_lang_Object>;
+static ALL: java_awt_JobAttributes_DefaultSelectionType;
+static RANGE: java_awt_JobAttributes_DefaultSelectionType;
+static SELECTION: java_awt_JobAttributes_DefaultSelectionType;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+hashCode(): number;
+notify(): void;
+notifyAll(): void;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
 
   }
 }
@@ -5576,33 +5647,10 @@ wait(arg0: number, arg1: number): void;
 }
 //@ts-nocheck
 
-declare module 'java.awt.JobAttributes' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { DestinationType as java_awt_JobAttributes_DestinationType } from 'java.awt.JobAttributes';
-import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
-
-  export class DestinationType extends java_awt_AttributeValue {
-class: java_lang_Class<java_lang_Object>;
-static FILE: java_awt_JobAttributes_DestinationType;
-static PRINTER: java_awt_JobAttributes_DestinationType;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-hashCode(): number;
-notify(): void;
-notifyAll(): void;
-toString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
 declare module 'java.awt' {
 import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
 import { PageAttributes as java_awt_PageAttributes } from 'java.awt';
-import { MediaType as java_awt_PageAttributes_MediaType, OrientationRequestedType as java_awt_PageAttributes_OrientationRequestedType, OriginType as java_awt_PageAttributes_OriginType, PrintQualityType as java_awt_PageAttributes_PrintQualityType, ColorType as java_awt_PageAttributes_ColorType } from 'java.awt.PageAttributes';
+import { OriginType as java_awt_PageAttributes_OriginType, MediaType as java_awt_PageAttributes_MediaType, OrientationRequestedType as java_awt_PageAttributes_OrientationRequestedType, PrintQualityType as java_awt_PageAttributes_PrintQualityType, ColorType as java_awt_PageAttributes_ColorType } from 'java.awt.PageAttributes';
 
   export class PageAttributes extends java_lang_Object implements java_lang_Cloneable {
 color: java_awt_PageAttributes_ColorType;
@@ -5638,6 +5686,29 @@ toString(): string;
 constructor();
 constructor(arg0: java_awt_PageAttributes);
 constructor(arg0: java_awt_PageAttributes_ColorType, arg1: java_awt_PageAttributes_MediaType, arg2: java_awt_PageAttributes_OrientationRequestedType, arg3: java_awt_PageAttributes_OriginType, arg4: java_awt_PageAttributes_PrintQualityType, arg5: JArray<number>);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.PageAttributes' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { OriginType as java_awt_PageAttributes_OriginType } from 'java.awt.PageAttributes';
+import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
+
+  export class OriginType extends java_awt_AttributeValue {
+class: java_lang_Class<java_lang_Object>;
+static PHYSICAL: java_awt_PageAttributes_OriginType;
+static PRINTABLE: java_awt_PageAttributes_OriginType;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+hashCode(): number;
+notify(): void;
+notifyAll(): void;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+
   }
 }
 //@ts-nocheck
@@ -5835,29 +5906,6 @@ wait(arg0: number, arg1: number): void;
 
 declare module 'java.awt.PageAttributes' {
 import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { OriginType as java_awt_PageAttributes_OriginType } from 'java.awt.PageAttributes';
-import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
-
-  export class OriginType extends java_awt_AttributeValue {
-class: java_lang_Class<java_lang_Object>;
-static PHYSICAL: java_awt_PageAttributes_OriginType;
-static PRINTABLE: java_awt_PageAttributes_OriginType;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-hashCode(): number;
-notify(): void;
-notifyAll(): void;
-toString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.PageAttributes' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
 import { PrintQualityType as java_awt_PageAttributes_PrintQualityType } from 'java.awt.PageAttributes';
 import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
 
@@ -5899,6 +5947,25 @@ wait(): void;
 wait(arg0: number): void;
 wait(arg0: number, arg1: number): void;
 
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { Dimension as java_awt_Dimension, Graphics as java_awt_Graphics } from 'java.awt';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class PrintJob extends java_lang_Object {
+graphics: java_awt_Graphics;
+pageDimension: java_awt_Dimension;
+pageResolution: number;
+end(): void;
+finalize(): void;
+getGraphics(): java_awt_Graphics;
+getPageDimension(): java_awt_Dimension;
+getPageResolution(): number;
+lastPageFirst(): boolean;
+constructor();
   }
 }
 //@ts-nocheck
@@ -6135,8 +6202,8 @@ constructor(arg0: java_awt_dnd_DragSourceContext, arg1: number, arg2: boolean, a
 //@ts-nocheck
 
 declare module 'java.awt.dnd' {
-import { DragSourceListener as java_awt_dnd_DragSourceListener, DragSourceDropEvent as java_awt_dnd_DragSourceDropEvent, DragSourceDragEvent as java_awt_dnd_DragSourceDragEvent, DragSource as java_awt_dnd_DragSource, DragGestureEvent as java_awt_dnd_DragGestureEvent, DragSourceEvent as java_awt_dnd_DragSourceEvent, DragSourceMotionListener as java_awt_dnd_DragSourceMotionListener } from 'java.awt.dnd';
 import { Transferable as java_awt_datatransfer_Transferable } from 'java.awt.datatransfer';
+import { DragSourceListener as java_awt_dnd_DragSourceListener, DragSourceDropEvent as java_awt_dnd_DragSourceDropEvent, DragSourceDragEvent as java_awt_dnd_DragSourceDragEvent, DragSource as java_awt_dnd_DragSource, DragSourceEvent as java_awt_dnd_DragSourceEvent, DragGestureEvent as java_awt_dnd_DragGestureEvent, DragSourceMotionListener as java_awt_dnd_DragSourceMotionListener } from 'java.awt.dnd';
 import { Component as java_awt_Component, Cursor as java_awt_Cursor, Image as java_awt_Image, Point as java_awt_Point } from 'java.awt';
 import { Object as java_lang_Object } from 'java.lang';
 import { Serializable as java_io_Serializable } from 'java.io';
@@ -6306,137 +6373,6 @@ wait(arg0: number, arg1: number): void;
 //@ts-nocheck
 
 declare module 'java.awt.event' {
-import { AWTEvent as java_awt_AWTEvent } from 'java.awt';
-import { EventListener as java_util_EventListener } from 'java.util';
-
-  export class AWTEventListener implements java_util_EventListener {
-
-eventDispatched(arg0: java_awt_AWTEvent): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.im' {
-import { Map as java_util_Map } from 'java.util';
-import { TextAttribute as java_awt_font_TextAttribute } from 'java.awt.font';
-import { Object as java_lang_Object } from 'java.lang';
-import { InputMethodHighlight as java_awt_im_InputMethodHighlight } from 'java.awt.im';
-
-  export class InputMethodHighlight extends java_lang_Object {
-state: number;
-static CONVERTED_TEXT: number;
-static RAW_TEXT: number;
-static SELECTED_CONVERTED_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
-static SELECTED_RAW_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
-static UNSELECTED_CONVERTED_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
-static UNSELECTED_RAW_TEXT_HIGHLIGHT: java_awt_im_InputMethodHighlight;
-style: java_util_Map<java_awt_font_TextAttribute, java_lang_Object>;
-variation: number;
-getState(): number;
-getStyle(): java_util_Map<java_awt_font_TextAttribute, java_lang_Object>;
-getVariation(): number;
-isSelected(): boolean;
-constructor(arg0: boolean, arg1: number);
-constructor(arg0: boolean, arg1: number, arg2: number);
-constructor(arg0: boolean, arg1: number, arg2: number, arg3: java_util_Map<java_awt_font_TextAttribute, java_lang_Object>);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.im' {
-import { InputContext as java_awt_im_InputContext } from 'java.awt.im';
-import { Locale as java_util_Locale } from 'java.util';
-import { Subset as java_lang_Character_Subset } from 'java.lang.Character';
-import { Object as java_lang_Object } from 'java.lang';
-import { Component as java_awt_Component, AWTEvent as java_awt_AWTEvent } from 'java.awt';
-
-  export class InputContext extends java_lang_Object {
-inputMethodControlObject: java_lang_Object;
-locale: java_util_Locale;
-static instance: java_awt_im_InputContext;
-dispatchEvent(arg0: java_awt_AWTEvent): void;
-dispose(): void;
-endComposition(): void;
-getInputMethodControlObject(): java_lang_Object;
-getLocale(): java_util_Locale;
-isCompositionEnabled(): boolean;
-reconvert(): void;
-removeNotify(arg0: java_awt_Component): void;
-selectInputMethod(arg0: java_util_Locale): boolean;
-setCharacterSubsets(arg0: JArray<java_lang_Character_Subset>): void;
-setCompositionEnabled(arg0: boolean): void;
-static getInstance(): java_awt_im_InputContext;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt' {
-import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
-import { ImageCapabilities as java_awt_ImageCapabilities } from 'java.awt';
-import { FlipContents as java_awt_BufferCapabilities_FlipContents } from 'java.awt.BufferCapabilities';
-
-  export class BufferCapabilities extends java_lang_Object implements java_lang_Cloneable {
-backBufferCapabilities: java_awt_ImageCapabilities;
-flipContents: java_awt_BufferCapabilities_FlipContents;
-frontBufferCapabilities: java_awt_ImageCapabilities;
-clone(): java_lang_Object;
-getBackBufferCapabilities(): java_awt_ImageCapabilities;
-getFlipContents(): java_awt_BufferCapabilities_FlipContents;
-getFrontBufferCapabilities(): java_awt_ImageCapabilities;
-isFullScreenRequired(): boolean;
-isMultiBufferAvailable(): boolean;
-isPageFlipping(): boolean;
-constructor(arg0: java_awt_ImageCapabilities, arg1: java_awt_ImageCapabilities, arg2: java_awt_BufferCapabilities_FlipContents);
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.BufferCapabilities' {
-import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
-import { FlipContents as java_awt_BufferCapabilities_FlipContents } from 'java.awt.BufferCapabilities';
-import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
-
-  export class FlipContents extends java_awt_AttributeValue {
-class: java_lang_Class<java_lang_Object>;
-static BACKGROUND: java_awt_BufferCapabilities_FlipContents;
-static COPIED: java_awt_BufferCapabilities_FlipContents;
-static PRIOR: java_awt_BufferCapabilities_FlipContents;
-static UNDEFINED: java_awt_BufferCapabilities_FlipContents;
-equals(arg0: java_lang_Object): boolean;
-getClass(): java_lang_Class<java_lang_Object>;
-hashCode(): number;
-notify(): void;
-notifyAll(): void;
-toString(): string;
-wait(): void;
-wait(arg0: number): void;
-wait(arg0: number, arg1: number): void;
-
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.image' {
-import { BufferCapabilities as java_awt_BufferCapabilities, Graphics as java_awt_Graphics } from 'java.awt';
-import { Object as java_lang_Object } from 'java.lang';
-
-  export class BufferStrategy extends java_lang_Object {
-capabilities: java_awt_BufferCapabilities;
-drawGraphics: java_awt_Graphics;
-contentsLost(): boolean;
-contentsRestored(): boolean;
-dispose(): void;
-getCapabilities(): java_awt_BufferCapabilities;
-getDrawGraphics(): java_awt_Graphics;
-show(): void;
-constructor();
-  }
-}
-//@ts-nocheck
-
-declare module 'java.awt.event' {
 import { WindowEvent as java_awt_event_WindowEvent } from 'java.awt.event';
 import { EventListener as java_util_EventListener } from 'java.util';
 
@@ -6525,6 +6461,70 @@ import { EventListener as java_util_EventListener } from 'java.util';
 windowGainedFocus(arg0: java_awt_event_WindowEvent): void;
 windowLostFocus(arg0: java_awt_event_WindowEvent): void;
 
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt' {
+import { Object as java_lang_Object, Cloneable as java_lang_Cloneable } from 'java.lang';
+import { ImageCapabilities as java_awt_ImageCapabilities } from 'java.awt';
+import { FlipContents as java_awt_BufferCapabilities_FlipContents } from 'java.awt.BufferCapabilities';
+
+  export class BufferCapabilities extends java_lang_Object implements java_lang_Cloneable {
+backBufferCapabilities: java_awt_ImageCapabilities;
+flipContents: java_awt_BufferCapabilities_FlipContents;
+frontBufferCapabilities: java_awt_ImageCapabilities;
+clone(): java_lang_Object;
+getBackBufferCapabilities(): java_awt_ImageCapabilities;
+getFlipContents(): java_awt_BufferCapabilities_FlipContents;
+getFrontBufferCapabilities(): java_awt_ImageCapabilities;
+isFullScreenRequired(): boolean;
+isMultiBufferAvailable(): boolean;
+isPageFlipping(): boolean;
+constructor(arg0: java_awt_ImageCapabilities, arg1: java_awt_ImageCapabilities, arg2: java_awt_BufferCapabilities_FlipContents);
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.BufferCapabilities' {
+import { Object as java_lang_Object, Class as java_lang_Class } from 'java.lang';
+import { FlipContents as java_awt_BufferCapabilities_FlipContents } from 'java.awt.BufferCapabilities';
+import { AttributeValue as java_awt_AttributeValue } from 'java.awt';
+
+  export class FlipContents extends java_awt_AttributeValue {
+class: java_lang_Class<java_lang_Object>;
+static BACKGROUND: java_awt_BufferCapabilities_FlipContents;
+static COPIED: java_awt_BufferCapabilities_FlipContents;
+static PRIOR: java_awt_BufferCapabilities_FlipContents;
+static UNDEFINED: java_awt_BufferCapabilities_FlipContents;
+equals(arg0: java_lang_Object): boolean;
+getClass(): java_lang_Class<java_lang_Object>;
+hashCode(): number;
+notify(): void;
+notifyAll(): void;
+toString(): string;
+wait(): void;
+wait(arg0: number): void;
+wait(arg0: number, arg1: number): void;
+
+  }
+}
+//@ts-nocheck
+
+declare module 'java.awt.image' {
+import { BufferCapabilities as java_awt_BufferCapabilities, Graphics as java_awt_Graphics } from 'java.awt';
+import { Object as java_lang_Object } from 'java.lang';
+
+  export class BufferStrategy extends java_lang_Object {
+capabilities: java_awt_BufferCapabilities;
+drawGraphics: java_awt_Graphics;
+contentsLost(): boolean;
+contentsRestored(): boolean;
+dispose(): void;
+getCapabilities(): java_awt_BufferCapabilities;
+getDrawGraphics(): java_awt_Graphics;
+show(): void;
+constructor();
   }
 }
 //@ts-nocheck
