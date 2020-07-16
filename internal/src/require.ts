@@ -17,7 +17,7 @@ class ModuleNotFoundError extends Error {
 }
 
 function resolveModule(parent: Path, id: string): Path | null {
-  if (id.match(/^[0-9A-Za-z_-]/)) {
+  if (id[0] !== '.') {
     return resolveNodeModule(parent, id);
   }
   return Paths.get(parent.toString(), id);
