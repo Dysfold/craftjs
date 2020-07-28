@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { test } from 'zora';
 
 test('require', (t) => {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const module = require('./mock/a');
     t.ok(module, 'Require works');
     t.ok(module.local, 'Requiring local files works');
@@ -23,6 +23,9 @@ test('require', (t) => {
         'Requiring non existant module should throw ModuleNotFoundError',
       );
     }
+
+    const adotb = require('./mock/a.b');
+    t.ok(adotb, 'Requiring files with dot in their name works');
   } catch (e) {
     t.fail(e);
   }

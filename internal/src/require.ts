@@ -75,7 +75,8 @@ function resolveFile(path: Path | null) {
   if (file.exists() && file.isDirectory()) {
     return getEntrypoint(path);
   }
-  if (parts.length === 1) {
+  const ext = parts.slice(-1)[0];
+  if (ext !== 'js' && ext !== 'mjs') {
     return Paths.get(path.getParent()?.toString() ?? '.', `${name}.js`) as Path;
   }
   return path;
