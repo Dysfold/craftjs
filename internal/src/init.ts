@@ -25,7 +25,12 @@ function loadPlugins() {
     }
     const path = Paths.get(file.getPath());
     const relative = self.relativize(path);
-    require(relative.toString());
+    try {
+      require(relative.toString());
+    } catch (e) {
+      console.error(`Could not load plugin '${file.getName()}'`);
+      console.error(e);
+    }
   }
 }
 
