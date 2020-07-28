@@ -1,4 +1,5 @@
 import { File } from 'java.io';
+import { Paths } from 'java.nio.file';
 
 declare global {
   function runTests(): void;
@@ -14,8 +15,19 @@ function walk(file: File, callback: (file: File) => void) {
   }
 }
 
-function runTests() {
-  const baseDir = new File(__jsdir);
+function getTestBaseDir(base?: string) {
+  if (!base) {
+    return __jsdir;
+  }
+  if (base[0] === '.') {
+    return Paths.get(__jsdir, base).toString();
+  }
+  const pluginDir = Paths.get(__jsdir, 'plugins', base).toString();
+  return pluginDir;
+}
+
+function runTests(base?: string) {
+  const baseDir = new File(getTestBaseDir(base));
   const testFiles: File[] = [];
   walk(baseDir, (f) => {
     if (
