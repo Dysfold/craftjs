@@ -72,16 +72,17 @@ registerCommand(
   (sender: CommandSender, label: string, args: string[]) => {
     const str = args.join(' ');
     try {
+      global.self = sender as any;
       const result = __ctx.eval('js', str);
       if (`${result}` === '[object Object]') {
         try {
           const json = JSON.stringify(result, null, 2);
           json.split('\n').forEach((row) => sender.sendMessage(row));
         } catch {
-          sender.sendMessage(`${result}`);
+          sender.sendMessage(`< ${result}`);
         }
       } else {
-        sender.sendMessage(`${result}`);
+        sender.sendMessage(`< ${result}`);
       }
     } catch (e) {
       console.error(e);
