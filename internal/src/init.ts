@@ -93,6 +93,14 @@ registerCommand(
   },
 );
 
+enum TimeUnit {
+  MILLIS,
+  TICKS,
+  SECONDS,
+  MINUTES
+}
+(global as any).TimeUnit = TimeUnit
+
 const startTime = Date.now();
 loadPlugins();
 console.log(`Loaded all plugins in ${Date.now() - startTime}ms`);
