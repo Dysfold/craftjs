@@ -1,17 +1,8 @@
-language: minimal
+language: java
 cache:
   directories:
     - $HOME/.m2
 
-install:
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-  # Install Maven, that uses GraalVM for later builds
-  - sdk install maven
-
-  - cd java
-  - mvn --version
-
 script:
+  - cd java
   - mvn install
