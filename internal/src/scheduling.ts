@@ -56,7 +56,7 @@ function wait(delay: number = 0, unit: TimeUnit = TimeUnit.TICKS): Promise<void>
       ms = delay * 1000 * 60
       break;
     default:
-      throw 'unknown time unit';
+      throw new Error('unknown time unit');
   }
   return new Promise(resolve => setTimeout(() => resolve(), ms));
 }
