@@ -20,11 +20,11 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Build with Maven
         run: cd java && mvn install
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          tag_name: latest
-          release_name: latest
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            ./java/target/*.jar
