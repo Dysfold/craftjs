@@ -96,6 +96,8 @@ const overrides: Record<string, string> = {
   tty: 'tty-browserify',
 };
 
+(global as any).__zoraTests = [];
+
 function __require(id: string, relative?: string): any {
   const pkg = java.lang.Package.getPackage(id);
   if (pkg) {
@@ -112,6 +114,19 @@ function __require(id: string, relative?: string): any {
     : Paths.get(stack.slice(-1)[0] ?? '.').getParent() ?? Paths.get('.');
   const folder = resolveModule(parent, id);
   const resolved = resolveFile(folder)?.normalize();
+
+  if (id === 'zora' && !relative) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const zora = require('zora', parent.toString());
+    return {
+      ...zora,
+      test(...args: any[]) {
+        const test = zora.test(...args);
+        (global as any).__zoraTests.push(test);
+        return test;
+      },
+    };
+  }
 
   if (!resolved || !resolved.toFile().exists()) {
     throw new ModuleNotFoundError(id, parent);
