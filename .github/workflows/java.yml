@@ -40,3 +40,17 @@ jobs:
           title: "Development Build"
           files: |
             ./*.jar
+  test-js:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      CRAFTJS_ENV: test
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: target
+      - run: |
+          wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.jar \
+          mkdir plugins \
+          mv ./*.jar ./plugins \
+          java -jar paper.jar
