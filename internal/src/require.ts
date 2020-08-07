@@ -7,6 +7,10 @@ declare const readFile: any;
 const cache: Record<string, any> = {};
 const stack: string[] = [];
 
+declare global {
+  const __zoraHarness: import('zora').TestHarness;
+}
+
 (global as any).__requireStack = stack;
 
 class ModuleNotFoundError extends Error {
@@ -96,7 +100,7 @@ const overrides: Record<string, string> = {
   tty: 'tty-browserify',
 };
 
-(global as any).__zoraTests = [];
+let __zoraHarness: any;
 
 function __require(id: string, relative?: string): any {
   const pkg = java.lang.Package.getPackage(id);
@@ -118,11 +122,15 @@ function __require(id: string, relative?: string): any {
   if (id === 'zora' && !relative) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const zora = require('zora', parent.toString());
+    if (!__zoraHarness) {
+      __zoraHarness = zora.createHarness();
+      (global as any).__zoraHarness = __zoraHarness;
+    }
+    const { test: testFunc } = __zoraHarness;
     return {
       ...zora,
       test(...args: any[]) {
-        const test = zora.test(...args);
-        (global as any).__zoraTests.push(test);
+        const test = testFunc(...args);
         return test;
       },
     };
