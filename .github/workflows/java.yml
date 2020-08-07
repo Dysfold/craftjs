@@ -53,4 +53,5 @@ jobs:
           wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.jar
           mkdir plugins
           mv ./*.jar ./plugins
+          ls
           java -jar paper.jar
