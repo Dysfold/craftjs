@@ -119,6 +119,7 @@ function __require(id: string, relative?: string): any {
   const folder = resolveModule(parent, id);
   const resolved = resolveFile(folder)?.normalize();
 
+  // Zora require hook for CI test running purposes
   if (id === 'zora' && !relative) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const zora = require('zora', parent.toString());
