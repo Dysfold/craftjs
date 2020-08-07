@@ -54,4 +54,4 @@ jobs:
           mv ./*.jar ./plugins
           wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.jar
           ls
-          java -jar paper.jar
+          java -Dcom.mojang.eula.agree=true -jar paper.jar
