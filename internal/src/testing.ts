@@ -53,11 +53,14 @@ async function runner() {
   console.log(`craftjs_env=${env}`);
   if (env === 'test') {
     runTests();
-    await __zoraHarness.report();
-    if (!__zoraHarness.pass) {
-      java.lang.System.exit(1);
-    } else {
+    try {
+      await __zoraHarness.report();
+      if (!__zoraHarness.pass) {
+        throw new Error();
+      }
       server.shutdown();
+    } catch {
+      java.lang.Runtime.getRuntime().halt(1);
     }
   }
 }
