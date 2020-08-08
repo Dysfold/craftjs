@@ -64,7 +64,7 @@ jobs:
           cd ./server/js/internal
           npm install
           cd ../..
-          wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.ja
+          wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.jar
       - name: Run tests
         run: |
           cd server
