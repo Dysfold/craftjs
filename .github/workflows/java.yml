@@ -64,6 +64,8 @@ jobs:
           cd ./server/js/internal
           npm install
           cd ../..
-          wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.jar
-          ls -R
+          wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.ja
+      - name: Run tests
+        run: |
+          cd server
           java -Dcom.mojang.eula.agree=true -jar paper.jar
