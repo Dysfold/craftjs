@@ -62,8 +62,7 @@ jobs:
           key: ${{ runner.os }}-server
       - name: Setup server
         run: |
-          mkdir server
-          mkdir ./server/plugins
+          mkdir -p ./server/plugins
           mv ./*.jar ./server/plugins
           mv ./js ./server/js
           cd ./server/js/internal
