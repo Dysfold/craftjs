@@ -61,7 +61,9 @@ jobs:
           mkdir ./server/plugins
           mv ./*.jar ./server/plugins
           mv ./js ./server/js
-          wget https://papermc.io/api/v1/paper/1.16.1/133/download -O ./server/paper.jar
-          cd server
+          cd ./server/js/internal
+          npm install
+          cd ../..
+          wget https://papermc.io/api/v1/paper/1.16.1/133/download -O paper.jar
           ls -R
           java -Dcom.mojang.eula.agree=true -jar paper.jar
