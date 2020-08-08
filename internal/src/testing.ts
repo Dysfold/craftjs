@@ -58,7 +58,7 @@ async function runner() {
       if (!__zoraHarness.pass) {
         throw new Error();
       }
-      server.shutdown();
+      java.lang.Runtime.getRuntime().halt(0);
     } catch {
       java.lang.Runtime.getRuntime().halt(1);
     }
