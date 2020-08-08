@@ -55,6 +55,11 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: target
+      - name: Cache server
+        uses: actions/cache@v2
+        with:
+          path: ./server
+          key: ${{ runner.os }}-server
       - name: Setup server
         run: |
           mkdir server
