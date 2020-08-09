@@ -1,27 +1,18 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const java_lang_1 = require("java.lang");
-const org_bukkit_plugin_1 = require("org.bukkit.plugin");
-function getSpigotMethod(name) {
-    const long = java.lang.Long.class.getField('TYPE').get(null);
-    const c = server.getScheduler().class;
-    const params = [org_bukkit_plugin_1.Plugin.class, java_lang_1.Runnable.class, long].concat(name === 'runTaskTimer' ? [long] : []);
-    const method = c.getMethod(name, ...params);
-    return (...args) => method.invoke(server.getScheduler(), ...args);
-}
-function getRunnable(callback) {
-    const Task = Java.extend(java_lang_1.Runnable, {
-        run() {
-            callback();
-        },
-    });
-    return new Task();
-}
+/**
+ * Milliseconds per server tick.
+ */
+const MILLIS_PER_TICK = 50;
+/**
+ * Repeatedly executes given function.
+ * @param handler Function to execute.
+ * @param delay Delay and internal between executions (in milliseconds).
+ * @returns Task id.
+ */
 function setInterval(handler, delay) {
-    const runnable = getRunnable(handler);
-    const runTaskLater = getSpigotMethod('runTaskTimer');
-    const task = runTaskLater(__plugin, runnable, delay / 50, delay / 50);
-    return task.getTaskId();
+    // Scheduler doesn't like fractional ticks
+    const ms = Math.floor(delay / MILLIS_PER_TICK);
+    return __plugin.scheduleRepeating(handler, ms, ms);
 }
 function clearInterval(tid) {
     if (!tid) {
@@ -29,14 +20,40 @@ function clearInterval(tid) {
     }
     server.scheduler.cancelTask(tid);
 }
+/**
+ * Executes a function in server thread after a delay.
+ * @param handler Function to execute.
+ * @param delay Delay in milliseconds.
+ * @returns Task id.
+ */
 function setTimeout(handler, delay) {
-    const runnable = getRunnable(handler);
-    const runTaskLater = getSpigotMethod('runTaskLater');
-    const task = runTaskLater(__plugin, runnable, delay / 50);
-    return task.getTaskId();
+    return __plugin.scheduleOnce(handler, Math.floor(delay / MILLIS_PER_TICK));
 }
+// Override JS standard library timers
 global.setInterval = setInterval;
 global.setTimeout = setTimeout;
 global.clearInterval = clearInterval;
 global.clearTimeout = clearInterval;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NoZWR1bGluZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY2hlZHVsaW5nLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEseUNBQStEO0FBRS9ELHlEQUEyQztBQUUzQyxTQUFTLGVBQWUsQ0FBQyxJQUFxQztJQUM1RCxNQUFNLElBQUksR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsUUFBUSxDQUFDLE1BQU0sQ0FBQyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUM3RCxNQUFNLENBQUMsR0FBSSxNQUFNLENBQUMsWUFBWSxFQUFVLENBQUMsS0FFeEMsQ0FBQztJQUNGLE1BQU0sTUFBTSxHQUFHLENBQUUsMEJBQWMsQ0FBQyxLQUFLLEVBQUcsb0JBQWdCLENBQUMsS0FBSyxFQUFFLElBQUksQ0FBQyxDQUFDLE1BQU0sQ0FDMUUsSUFBSSxLQUFLLGNBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUN0QyxDQUFDO0lBQ0YsTUFBTSxNQUFNLEdBQUcsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxJQUFJLEVBQUUsR0FBRyxNQUFNLENBQVEsQ0FBQztJQUNuRCxPQUFPLENBQUMsR0FBRyxJQUFXLEVBQUUsRUFBRSxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUMsTUFBTSxDQUFDLFlBQVksRUFBRSxFQUFFLEdBQUcsSUFBSSxDQUFDLENBQUM7QUFDM0UsQ0FBQztBQUVELFNBQVMsV0FBVyxDQUFDLFFBQW9CO0lBQ3ZDLE1BQU0sSUFBSSxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUMsb0JBQVEsRUFBRTtRQUNqQyxHQUFHO1lBQ0QsUUFBUSxFQUFFLENBQUM7UUFDYixDQUFDO0tBQ0YsQ0FBQyxDQUFDO0lBQ0gsT0FBTyxJQUFJLElBQUksRUFBRSxDQUFDO0FBQ3BCLENBQUM7QUFFRCxTQUFTLFdBQVcsQ0FBQyxPQUFtQixFQUFFLEtBQWE7SUFDckQsTUFBTSxRQUFRLEdBQUcsV0FBVyxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ3RDLE1BQU0sWUFBWSxHQUFHLGVBQWUsQ0FBQyxjQUFjLENBQUMsQ0FBQztJQUNyRCxNQUFNLElBQUksR0FBRyxZQUFZLENBQ3ZCLFFBQVEsRUFDUixRQUFRLEVBQ1IsS0FBSyxHQUFHLEVBQUUsRUFDVixLQUFLLEdBQUcsRUFBRSxDQUNHLENBQUM7SUFDaEIsT0FBTyxJQUFJLENBQUMsU0FBUyxFQUFFLENBQUM7QUFDMUIsQ0FBQztBQUVELFNBQVMsYUFBYSxDQUFDLEdBQVk7SUFDakMsSUFBSSxDQUFDLEdBQUcsRUFBRTtRQUNSLE9BQU87S0FDUjtJQUNELE1BQU0sQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0FBQ25DLENBQUM7QUFFRCxTQUFTLFVBQVUsQ0FBQyxPQUFtQixFQUFFLEtBQWE7SUFDcEQsTUFBTSxRQUFRLEdBQUcsV0FBVyxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ3RDLE1BQU0sWUFBWSxHQUFHLGVBQWUsQ0FBQyxjQUFjLENBQUMsQ0FBQztJQUNyRCxNQUFNLElBQUksR0FBRyxZQUFZLENBQUMsUUFBUSxFQUFFLFFBQVEsRUFBRSxLQUFLLEdBQUcsRUFBRSxDQUFlLENBQUM7SUFDeEUsT0FBTyxJQUFJLENBQUMsU0FBUyxFQUFFLENBQUM7QUFDMUIsQ0FBQztBQUVELE1BQU0sQ0FBQyxXQUFXLEdBQUcsV0FBa0IsQ0FBQztBQUN4QyxNQUFNLENBQUMsVUFBVSxHQUFHLFVBQWlCLENBQUM7QUFDdEMsTUFBTSxDQUFDLGFBQWEsR0FBRyxhQUFhLENBQUM7QUFDckMsTUFBTSxDQUFDLFlBQVksR0FBRyxhQUFhLENBQUMifQ==
+// See global.wait for docs
+function wait(delay = 0, unit = TimeUnit.TICKS) {
+    let ms;
+    switch (unit) {
+        case TimeUnit.MILLIS:
+            ms = delay;
+            break;
+        case TimeUnit.TICKS:
+            ms = delay * MILLIS_PER_TICK;
+            break;
+        case TimeUnit.SECONDS:
+            ms = delay * 1000;
+            break;
+        case TimeUnit.MINUTES:
+            ms = delay * 1000 * 60;
+            break;
+        default:
+            throw new Error('unknown time unit');
+    }
+    return new Promise(resolve => setTimeout(() => resolve(), ms));
+}
+global.wait = wait;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NoZWR1bGluZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY2hlZHVsaW5nLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7R0FFRztBQUNILE1BQU0sZUFBZSxHQUFHLEVBQUUsQ0FBQztBQUUzQjs7Ozs7R0FLRztBQUNILFNBQVMsV0FBVyxDQUFDLE9BQW1CLEVBQUUsS0FBYTtJQUNyRCwwQ0FBMEM7SUFDMUMsTUFBTSxFQUFFLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxLQUFLLEdBQUcsZUFBZSxDQUFDLENBQUM7SUFDL0MsT0FBUSxRQUFnQixDQUFDLGlCQUFpQixDQUFDLE9BQU8sRUFBRSxFQUFFLEVBQUUsRUFBRSxDQUFXLENBQUM7QUFDeEUsQ0FBQztBQUVELFNBQVMsYUFBYSxDQUFDLEdBQVk7SUFDakMsSUFBSSxDQUFDLEdBQUcsRUFBRTtRQUNSLE9BQU87S0FDUjtJQUNELE1BQU0sQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDLEdBQUcsQ0FBQyxDQUFDO0FBQ25DLENBQUM7QUFFRDs7Ozs7R0FLRztBQUNILFNBQVMsVUFBVSxDQUFDLE9BQW1CLEVBQUUsS0FBYTtJQUNwRCxPQUFRLFFBQWdCLENBQUMsWUFBWSxDQUFDLE9BQU8sRUFBRSxJQUFJLENBQUMsS0FBSyxDQUFDLEtBQUssR0FBRyxlQUFlLENBQUMsQ0FBVyxDQUFDO0FBQ2hHLENBQUM7QUFFRCxzQ0FBc0M7QUFDdEMsTUFBTSxDQUFDLFdBQVcsR0FBRyxXQUFrQixDQUFDO0FBQ3hDLE1BQU0sQ0FBQyxVQUFVLEdBQUcsVUFBaUIsQ0FBQztBQUN0QyxNQUFNLENBQUMsYUFBYSxHQUFHLGFBQWEsQ0FBQztBQUNyQyxNQUFNLENBQUMsWUFBWSxHQUFHLGFBQWEsQ0FBQztBQUdwQywyQkFBMkI7QUFDM0IsU0FBUyxJQUFJLENBQUMsUUFBZ0IsQ0FBQyxFQUFFLE9BQWlCLFFBQVEsQ0FBQyxLQUFLO0lBQzlELElBQUksRUFBVSxDQUFDO0lBQ2YsUUFBUSxJQUFJLEVBQUU7UUFDWixLQUFLLFFBQVEsQ0FBQyxNQUFNO1lBQ2xCLEVBQUUsR0FBRyxLQUFLLENBQUM7WUFDWCxNQUFNO1FBQ1IsS0FBSyxRQUFRLENBQUMsS0FBSztZQUNqQixFQUFFLEdBQUcsS0FBSyxHQUFHLGVBQWUsQ0FBQztZQUM3QixNQUFNO1FBQ1IsS0FBSyxRQUFRLENBQUMsT0FBTztZQUNuQixFQUFFLEdBQUcsS0FBSyxHQUFHLElBQUksQ0FBQztZQUNsQixNQUFNO1FBQ1IsS0FBSyxRQUFRLENBQUMsT0FBTztZQUNuQixFQUFFLEdBQUcsS0FBSyxHQUFHLElBQUksR0FBRyxFQUFFLENBQUE7WUFDdEIsTUFBTTtRQUNSO1lBQ0UsTUFBTSxJQUFJLEtBQUssQ0FBQyxtQkFBbUIsQ0FBQyxDQUFDO0tBQ3hDO0lBQ0QsT0FBTyxJQUFJLE9BQU8sQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDLFVBQVUsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxPQUFPLEVBQUUsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDO0FBQ2pFLENBQUM7QUFFRCxNQUFNLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQyJ9

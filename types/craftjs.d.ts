@@ -24,6 +24,7 @@ declare global {
   function require(module: string, parent?: string): any;
 
   const __requireStack: string[];
+  const __zoraTests: Promise<unknown>[];
 
 
   /**

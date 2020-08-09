@@ -1,5 +1,6 @@
 import { File } from 'java.io';
 import { Paths } from 'java.nio.file';
+import { Color } from 'org.bukkit';
 
 declare global {
   function runTests(): void;
@@ -46,5 +47,24 @@ function runTests(base?: string) {
     require(`./${f.getPath()}`, '.');
   });
 }
+
+async function runner() {
+  const env = java.lang.System.getenv('CRAFTJS_ENV');
+  console.log(`craftjs_env=${env}`);
+  if (env === 'test') {
+    runTests();
+    try {
+      await __zoraHarness.report();
+      if (!__zoraHarness.pass) {
+        throw new Error();
+      }
+      java.lang.Runtime.getRuntime().halt(0);
+    } catch {
+      java.lang.Runtime.getRuntime().halt(1);
+    }
+  }
+}
+
+runner();
 
 global.runTests = runTests;
