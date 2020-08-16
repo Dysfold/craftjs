@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,21 +13,34 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitTask;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.HostAccess;
 import org.graalvm.polyglot.PolyglotException;
 import org.graalvm.polyglot.Source;
+import org.h2.mvstore.MVStore;
 
 public class JSPlugin extends JavaPlugin {
-  Context ctx;
+  private static JSPlugin instance;
+  
+  public static JSPlugin getInstance() {
+    Objects.requireNonNull(instance, "instance not yet available");
+    return instance;
+  }
+  
+  /**
+   * GraalJS context.
+   */
+  private Context ctx;
 
-  List<String> FOLDERS_TO_IMPORT = Arrays.asList(new String[] { "internal", "types", "plugins" });
+  private List<String> foldersToImport = Arrays.asList(new String[] { "internal", "types", "plugins" });
+  
+  private Map<String, MVStore> openDbs = new HashMap<>();
 
   public void refresh() {
     Bukkit.getPluginManager().disablePlugin(this);
@@ -59,7 +71,16 @@ public class JSPlugin extends JavaPlugin {
   public int scheduleRepeating(Runnable task, long delay, long period) {
 	  return Bukkit.getScheduler().scheduleSyncRepeatingTask(this, task, delay, period);
   }
-
+  
+  /**
+   * Opens a database.
+   * @param name Database name.
+   * @return New database.
+   */
+  public MVStore openDatabase(String name) {
+    return openDbs.computeIfAbsent(name, MVStore::open);
+  }
+  
   @Override
   public void onEnable() {
     this.saveDefaultConfig();
@@ -97,7 +118,7 @@ public class JSPlugin extends JavaPlugin {
         files.forEach(file -> {
           Path rel = root.relativize(file);
           Path folder = rel.subpath(0, 1);
-          if (!FOLDERS_TO_IMPORT.contains(folder.toString().toLowerCase())) {
+          if (!foldersToImport.contains(folder.toString().toLowerCase())) {
             return;
           }
           Path target = dir.resolve(rel);
@@ -125,6 +146,8 @@ public class JSPlugin extends JavaPlugin {
     } catch (PolyglotException | IOException e) {
       System.out.println(e);
     }
+    
+    instance = this;
   }
 
   @Override
