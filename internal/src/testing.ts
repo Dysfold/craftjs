@@ -27,7 +27,7 @@ function getTestBaseDir(base?: string) {
   return pluginDir;
 }
 
-function runTests(base?: string) {
+async function runTests(base?: string) {
   const baseDir = new File(getTestBaseDir(base));
   const testFiles: File[] = [];
   walk(baseDir, (f) => {
@@ -46,6 +46,7 @@ function runTests(base?: string) {
     const relative = ownPath.relativize(f.toPath());
     require(`./${f.getPath()}`, '.');
   });
+  await __zoraHarness.report();
 }
 
 async function runner() {

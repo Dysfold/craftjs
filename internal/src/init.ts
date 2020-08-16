@@ -69,11 +69,11 @@ global.refresh = refresh;
  */
 registerCommand(
   'js',
-  (sender: CommandSender, label: string, args: string[]) => {
+  async (sender: CommandSender, label: string, args: string[]) => {
     const str = args.join(' ');
     try {
       global.self = sender as any;
-      const result = __ctx.eval('js', str);
+      const result = await Promise.resolve(__ctx.eval('js', str));
       if (`${result}` === '[object Object]') {
         try {
           const json = JSON.stringify(result, null, 2);
@@ -85,7 +85,7 @@ registerCommand(
         sender.sendMessage(`< ${result}`);
       }
     } catch (e) {
-      console.error(e);
+      console.error(e.stack);
     }
   },
   (sender, alias, args) => {
