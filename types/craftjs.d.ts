@@ -38,12 +38,7 @@ declare global {
    */
   function refresh(): void;
 
-  enum TimeUnit {
-    MILLIS,
-    TICKS,
-    SECONDS,
-    MINUTES
-  }
+  type TimeUnit = 'millis' | 'ticks' | 'seconds' | 'minutes';
 
   /**
    * Returns a promise that is resolved after a delay.

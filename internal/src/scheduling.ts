@@ -40,19 +40,19 @@ global.clearTimeout = clearInterval;
 
 
 // See global.wait for docs
-function wait(delay: number = 0, unit: TimeUnit = TimeUnit.TICKS): Promise<void> {
+function wait(delay: number = 0, unit: TimeUnit = 'ticks'): Promise<void> {
   let ms: number;
   switch (unit) {
-    case TimeUnit.MILLIS:
+    case 'millis':
       ms = delay;
       break;
-    case TimeUnit.TICKS:
+    case 'ticks':
       ms = delay * MILLIS_PER_TICK;
       break;
-    case TimeUnit.SECONDS:
+    case 'seconds':
       ms = delay * 1000;
       break;
-    case TimeUnit.MINUTES:
+    case 'minutes':
       ms = delay * 1000 * 60
       break;
     default:
