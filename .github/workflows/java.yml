@@ -49,7 +49,7 @@ jobs:
       - name: Setup server
         run: |
           mkdir -p ./server/plugins
-          mv ./*.jar ./server/plugins
+          mv ./craftjs-*.jar ./server/plugins
           mv ./js ./server/js
           cd ./server/js/internal
           npm install
