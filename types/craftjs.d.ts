@@ -37,16 +37,6 @@ declare global {
    * Reloads the plugin
    */
   function refresh(): void;
-
-  type TimeUnit = 'millis' | 'ticks' | 'seconds' | 'minutes';
-
-  /**
-   * Returns a promise that is resolved after a delay.
-   * @param delay Delay in given time unit. By default, and when delay is zero,
-   * executes as soon as possible (probably next tick).
-   * @param unit Time unit (defaults to ticks).
-   */
-  function wait(delay?: number, unit?: TimeUnit): Promise<void>;
 }
 
 export { };

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2020",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+    "strict": true,
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@bensku"],
+    "declaration": true,
+    "declarationDir": "types"
+  },
+  "include": [
+    "types/**/*",
+    "src/**/*",
+    "test/**/*"
+  ],
+  "exclude": [
+    "javadocs/**/*"
+  ]
+}
