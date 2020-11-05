@@ -1,8 +1,8 @@
-declare module 'graaljs' {
+declare global {
   /**
    * GraalJS and GraalVM information.
    */
-  export class Graal {
+  class Graal {
     /**
      * GraalJS version.
      */
@@ -23,13 +23,13 @@ declare module 'graaljs' {
   /**
    * GraalJS Java interoperability tools.
    */
-  export class Java {
+  class Java {
     /**
      * Gets a Java class or throws if it cannot be found.
      * @param name Fully qualified name.
      * @returns Java class.
      */
-    static type(name: string): object;
+    static type(name: string): any;
 
     /**
      * Greates a shallow copy of given Java array or list.
@@ -75,14 +75,14 @@ declare module 'graaljs' {
   /**
    * Contains all top-level packages (e.g. 'java', 'net', 'org').
    */
-  interface Packages {
-    [name: string]: Package;
-  }
+  const Packages: JavaPackage;
 
   /**
    * Contains sub-packages and Java classes.
    */
-  interface Package {
+  interface JavaPackage {
     [name: string]: Package | object;
   }
 }
+
+export {};

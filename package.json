@@ -18,7 +18,7 @@
     "zora": "^4.0.1"
   },
   "devDependencies": {
-    "@bensku/paper-types": "^1.16.3-4670603",
+    "@bensku/paper-types": "latest",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
     "eslint": "^6.8.0",

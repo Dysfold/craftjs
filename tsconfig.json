@@ -17,7 +17,6 @@
     "declarationDir": "types"
   },
   "include": [
-    "types/**/*",
     "src/**/*",
     "test/**/*"
   ],
