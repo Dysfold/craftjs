@@ -37,11 +37,37 @@ declare global {
      * @param name Plugin name.
      */
     reloadPlugin(name: string);
+
+    /**
+     * Calls a function after a delay in main server thread.
+     * @param handler Function to call.
+     * @param delay Delay in ticks.
+     * @returns Task id.
+     */
+    scheduleOnce(handler: () => void, delay: number): number;
+
+    /**
+     * Repeatedly calls a function after a delay.
+     * @param handler Function to call.
+     * @param delay Delay before first call in ticks.
+     * @param interval Ticks between calls.
+     * @returns Task id.
+     */
+    scheduleRepeating(
+      handler: () => void,
+      delay: number,
+      interval: number,
+    ): number;
   };
 
   /**
-   * Converts Java byte array to string using UTF-8 charset.
-   * @param bytes Byte array.
+   * Java interoperability provided by CraftJS.
    */
-  function bytesToString(bytes: number[]): string;
+  const __interop: {
+    /**
+     * Converts Java byte array to string using UTF-8 charset.
+     * @param bytes Byte array.
+     */
+    bytesToString(bytes: number[]): string;
+  };
 }

@@ -85,7 +85,7 @@ function patchError(
   let sourceMapJson;
   if (isInline) {
     // Just borrow a decoder from Java side
-    sourceMapJson = bytesToString(
+    sourceMapJson = __interop.bytesToString(
       Base64.urlDecoder.decode(url.split('base64,')[1]),
     );
   } else {
