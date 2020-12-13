@@ -195,19 +195,16 @@ ${contents}
       entrypoint.toString(),
       entrypoint.parent?.toString() ?? '.',
     );
-  } catch (e) {
-    const line = e.lineNumber ? e.lineNumber - 2 : -1;
-    // TODO error handling
-    const error = global.patchError
-      ? global.patchError(resolved, contents, e, line)
-      : e;
+  } catch (error) {
+    const line = error.lineNumber ? error.lineNumber - 2 : -1;
+    patchError(entrypoint, contents, error, line);
 
     console.log(
-      `Error while executing ${error.fileName ?? src.getName()} at line ${
+      `Error while executing ${error.fileName ?? error.name} at line ${
         error.lineNumber
       }`,
     );
-    console.error(e);
+    console.error(error);
   }
 
   cache.set(cacheId, module); // Cache the module
@@ -215,8 +212,8 @@ ${contents}
   return module.exports;
 }
 
+// Export our require to globals
 declare global {
   function require(id: string, relative?: string): any;
 }
-
-global.require = __require;
+globalThis.require = __require;

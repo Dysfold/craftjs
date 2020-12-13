@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "@types/js-base64": "^2.3.2",
-    "js-base64": "^2.6.4",
     "typescript": "^3.9.7",
     "vlq": "^1.0.1",
     "zora": "^4.0.1"
