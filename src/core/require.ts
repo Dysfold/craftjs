@@ -57,7 +57,7 @@ function resolveModule(parent: Path, name: string): Path | null {
   }
 
   // Relative path module resolution
-  const module = parent.resolve(name);
+  const module = parent.resolve(name + '.js');
   if (FilesType.exists(module)) {
     return module;
   } else {

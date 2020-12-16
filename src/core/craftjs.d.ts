@@ -1,10 +1,18 @@
 import { Path } from 'java.nio.file';
+import { CommandSender } from 'org.bukkit.command';
+import { Event, EventPriority } from 'org.bukkit.event';
+import { EventExecutor, Plugin } from 'org.bukkit.plugin';
 
 declare global {
   /**
    * CraftJS Java API.
    */
   const __craftjs: {
+    /**
+     * Current Bukkit plugin.
+     */
+    readonly plugin: Plugin;
+
     /**
      * CraftJS version string.
      */
@@ -49,6 +57,32 @@ declare global {
       delay: number,
       interval: number,
     ): number;
+
+    /**
+     * Registers an event handler for current plugin.
+     * @param event Event type to handle.
+     * @param priority Handler priority.
+     * @param handler Handler function.
+     * @param ignoreCancelled If the handler should receive cancelled events.
+     */
+    registerEvent<T extends Event>(
+      event: new (...args: any[]) => T,
+      priority: EventPriority,
+      handler: (event: T) => void,
+      ignoreCancelled: boolean,
+    );
+
+    registerCommand(
+      handler: (sender: CommandSender, ...args: string[]) => boolean,
+      completer: (
+        sender: CommandSender,
+        alias: string,
+        ...args: string[]
+      ) => string[],
+      name: string,
+      aliases: string[],
+      description: string,
+    );
   };
 
   /**
