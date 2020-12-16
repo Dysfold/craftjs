@@ -1,5 +1,4 @@
 import { Path } from 'java.nio.file';
-import { Map } from 'java.util';
 
 declare global {
   /**
@@ -12,18 +11,16 @@ declare global {
     readonly version: string;
 
     /**
-     * Paths to roots of JS plugins. They MAY refer to foreign file systems
-     * (e.g. zip file system of CraftJS jar).
+     * Root path of current plugin.
      */
-    readonly pluginRoots: Map<string, Path>;
+    readonly pluginRoot: Path;
 
     /**
-     * Gets plugin root based on an absolute path.
-     * Note that e.g. paths used in imports are usually relative, so this
-     * can't be used to simplify require() implementation.
-     * @param absolute Absolute path.
+     * Resolves a Node (node_modules) module root.
+     * @param name Node module name.
+     * @returns Root directory of the module.
      */
-    getPluginRoot(absolute: Path);
+    resolveNodeModule(name: string): Path;
 
     /**
      * Evaluates JavaScript code.
@@ -31,12 +28,6 @@ declare global {
      * @returns What the code evaluates to.
      */
     eval(code: string): any;
-
-    /**
-     * Reloads a CraftJS plugin.
-     * @param name Plugin name.
-     */
-    reloadPlugin(name: string);
 
     /**
      * Calls a function after a delay in main server thread.
@@ -70,4 +61,9 @@ declare global {
      */
     bytesToString(bytes: number[]): string;
   };
+
+  /**
+   * CraftJS index.ts required. Do not use outside of require() implementation.
+   */
+  const __craftjscore: any;
 }

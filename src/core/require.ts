@@ -46,31 +46,41 @@ function resolvePackage(name: string): JavaPackage | null {
  * @see resolvePackage
  * @param parent Path to parent directory of module.
  * @param name Module name.
- * @returns Resolved module, or null if it cannot be found.
+ * @returns Entrypoint of the resolved module, or null if resolution failed.
  */
 function resolveModule(parent: Path, name: string): Path | null {
-  if (name[0] !== '.') {
-    return resolveNodeModule(name);
+  // Handle special modules first
+  if (name == 'craftjs') {
+    return __craftjscore; // CraftJS core
+  } else if (name[0] !== '.') {
+    return resolveNodeModule(name); // Node module
   }
-  return PathType.of(parent.toString(), name);
+
+  // Relative path module resolution
+  const module = parent.resolve(name);
+  if (FilesType.exists(module)) {
+    return module;
+  } else {
+    return null; // Module doesn't seem to exist
+  }
 }
 
 /**
  * Resolves a Node module of current plugin.
  * @param name Module name.
+ * @returns Entrypoint of the module, or null.
  */
 function resolveNodeModule(name: string): Path | null {
-  const pluginRoot = __craftjs.pluginRoots.get(currentPlugin);
-  const modules = pluginRoot.resolve('node_modules');
+  const modules = __craftjs.pluginRoot.resolve('node_modules');
   if (!FilesType.isDirectory(modules)) {
     return null; // Definitely no modules here
   }
-  return modules.resolve(name);
+  return getEntrypoint(modules.resolve(name));
 }
 
 /**
- * Resolves the entrypoint of a module.
- * @param module Path to module.
+ * Resolves the entrypoint of a Node module.
+ * @param module Path to module directory.
  * @returns Path to entry point, or null if no entry point was found.
  */
 function getEntrypoint(module: Path): Path | null {
@@ -88,7 +98,7 @@ function getEntrypoint(module: Path): Path | null {
   if (FilesType.exists(entrypoint)) {
     return entrypoint;
   } else {
-    return null;
+    return null; // Entrypoint not found, oops?
   }
 }
 
@@ -101,11 +111,6 @@ const overrides: Record<string, string> = {
  * Cache of previously required modules.
  */
 const cache: Map<string, any> = new Map();
-
-/**
- * Id of currently required plugin.
- */
-let currentPlugin: string;
 
 /**
  * Current require stack.
@@ -138,21 +143,19 @@ function __require(id: string, relative?: string): any {
     parent = PathType.of(relative);
   } else {
     // Relative to module that called require this time
-    // Figure it out by looking at require stack we're keeping
-    parent = stack[stack.length - 1].parent ?? Path.of('.');
+    if (stack.length == 0) {
+      // First call to require, start at JS dist directory
+      parent = __craftjs.pluginRoot.resolve('dist');
+    } else {
+      // Directory of entrypoint file that was last required
+      parent = stack[stack.length - 1].parent;
+    }
   }
 
-  // Resolve module
-  const folder = resolveModule(parent, id);
-  if (!folder) {
-    throw new ModuleNotFoundError(id, parent);
-  }
-
-  // Get entrypoint, add to stack
-  const entrypoint = getEntrypoint(folder);
+  // Resolve module entrypoint and add it to require stack
+  const entrypoint = resolveModule(parent, id);
   if (!entrypoint) {
-    // Shouldn't get this far...
-    throw new ModuleNotFoundError(id, parent); // TODO better errors
+    throw new ModuleNotFoundError(id, parent);
   }
   stack.push(entrypoint);
 

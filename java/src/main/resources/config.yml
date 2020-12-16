@@ -1,6 +1,0 @@
-graal-options:
-  - name: js.nashorn-compat
-    value: true
-js-zip: https://github.com/Ap3teus/craftjs-javascript/archive/master.zip
-js-directory: js
-entry-file: internal/init.js
