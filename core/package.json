@@ -1,18 +1,18 @@
 {
-  "name": "internal",
+  "name": "craftjs-core",
   "version": "1.0.0",
   "description": "",
   "main": "init.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint './src/**/*.ts'"
+    "lint": "eslint './src/**/*.ts'",
+    "tsc": "tsc --project ."
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@types/js-base64": "^2.3.2",
-    "typescript": "^3.9.7",
+    "typescript": "^4.1.0",
     "vlq": "^1.0.1",
     "zora": "^4.0.1"
   },
@@ -22,7 +22,7 @@
     "@typescript-eslint/parser": "^2.30.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "prettier": "^2.1.2"
+    "eslint-plugin-prettier": "^3.3.0",
+    "prettier": "^2.2.1"
   }
 }
