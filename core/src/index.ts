@@ -1,4 +1,4 @@
-require('./core/sourcemap'); // Don't export these
-export * from './api/commands';
-export * from './api/events';
-export * from './api/scheduling';
+require('./boot/sourcemap'); // Don't export these
+export * from './commands';
+export * from './events';
+export * from './scheduling';

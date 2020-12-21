@@ -52,7 +52,7 @@ public class CraftJsMain extends JavaPlugin {
 		
 		// Load require implementation to globals
 		try {
-			ctx.eval("js", Files.readString(core.getRootDir().resolve("core").resolve("require.js")));
+			ctx.eval("js", Files.readString(core.getRootDir().resolve("boot").resolve("require.js")));
 		} catch (IOException e) {
 			throw new AssertionError("failed to load require impl");
 		}
