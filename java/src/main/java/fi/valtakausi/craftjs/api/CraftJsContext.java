@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -71,7 +70,10 @@ public class CraftJsContext {
 		if (context != null) {
 			throw new IllegalStateException("context already exists");
 		}
-		context = craftjs.newGraalContext(this);
+		context = craftjs.newGraalContext(this, plugin.internalApisEnabled());
+		craftjs.installCore(this); // Install our core JS APIs
+		// Prepare for evaluating the JS plugin
+		context.getBindings("js").putMember("__craftjs", this);
 	}
 	
 	public void destroyGraalContext() {
@@ -93,6 +95,9 @@ public class CraftJsContext {
 	 * @return Return value of the code.
 	 */
 	public Value eval(String code) {
+		if (context == null) {
+			throw new IllegalStateException("context not initialized");
+		}
 		return context.eval("js", code);
 	}
 	

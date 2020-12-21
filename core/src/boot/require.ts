@@ -28,15 +28,17 @@ class ModuleNotFoundError extends Error {
  * @returns Package or null if no such package exists.
  */
 function resolvePackage(name: string): JavaPackage | null {
+  // Check if the package actually exists
+  // Iterating GraalJS packages produces empty packages when it doesn't
+  if (!PackageType.getPackage(name)) {
+    // FIXME: this checks current ClassLoader only, breaks importing from other loaders
+    return null;
+  }
+
   const parts = name.split('.');
   let pkg = Packages;
   for (const part of parts) {
-    const child = pkg[part];
-    if (child instanceof PackageType) {
-      pkg = child;
-    } else {
-      return null; // Reached a class or nonexistent package
-    }
+    pkg = pkg[part];
   }
   return pkg;
 }
@@ -57,7 +59,10 @@ function resolveModule(parent: Path, name: string): Path | null {
   }
 
   // Relative path module resolution
-  const module = parent.resolve(name + '.js');
+  if (!name.endsWith('.js')) {
+    name = name + '.js';
+  }
+  const module = parent.resolve(name);
   if (FilesType.exists(module)) {
     return module;
   } else {
@@ -200,14 +205,11 @@ ${contents}
     );
   } catch (error) {
     const line = error.lineNumber ? error.lineNumber - 2 : -1;
-    patchError(entrypoint, contents, error, line);
-
-    console.log(
-      `Error while executing ${error.fileName ?? error.name} at line ${
-        error.lineNumber
-      }`,
-    );
-    console.error(error);
+    // Patch error if we can (during early craftjs-core boot, we can't) 
+    if ('patchError' in globalThis) {
+      patchError(entrypoint, contents, error, line);
+    }
+    throw error;
   }
 
   cache.set(cacheId, module); // Cache the module

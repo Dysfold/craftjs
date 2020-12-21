@@ -16,4 +16,6 @@ public class PackageJson {
 	public String name;
 	public String version;
 	public String main;
+	
+	public Boolean _internalApis;
 }

@@ -12,9 +12,9 @@
     "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "typeRoots": ["node_modules/@bensku"],
+    "typeRoots": ["node_modules/@bensku", "node_modules/craftjs"],
     "declaration": true,
-    "declarationDir": "types/types"
+    "declarationDir": "types"
   },
   "include": [
     "src/**/*",

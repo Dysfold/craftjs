@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.CopyOption;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -33,19 +32,9 @@ public class JsPlugin extends PluginBase {
 		Path dataDir = craftjs.getDataFolder().toPath();
 		
 		// Root dir is inside CraftJS jar, or override directory (for development)
-		Path rootDir;
-		Path overrideDir = dataDir.resolve("craftjs-core");
-		if (Files.exists(overrideDir)) {
-			rootDir = overrideDir; // Don't use core embedded in jar
-		} else {
-			try {
-				rootDir = FileSystems.newFileSystem(jarPath, null).getPath("craftjs-core");
-			} catch (IOException e) {
-				throw new AssertionError("failed to open CraftJS jar");
-			}
-		}
+		Path rootDir = craftjs.getInternalPlugin("craftjs-core");
 		return new JsPlugin(craftjs, jarPath, rootDir, "index.js",
-				dataDir, "craftjs-core", craftjs.getDescription().getVersion());
+				dataDir, "craftjs-core", craftjs.getDescription().getVersion(), false);
 	}
 	
 	/**
@@ -95,11 +84,17 @@ public class JsPlugin extends PluginBase {
 	private final CraftJsContext context;
 	
 	/**
+	 * Enable internal APIs for this plugin.
+	 */
+	private final boolean internalApis;
+	
+	/**
 	 * If this plugin is enabled.
 	 */
 	private boolean enabled;
 
-	JsPlugin(CraftJsMain craftjs, Path pluginFile, Path rootDir, String entrypoint, Path dataDir, String name, String version) {
+	JsPlugin(CraftJsMain craftjs, Path pluginFile, Path rootDir, String entrypoint, Path dataDir, String name, String version,
+			boolean internalApis) {
 		this.loader = craftjs.getJsLoader();
 		this.pluginPath = pluginFile;
 		this.rootDir = rootDir;
@@ -109,10 +104,16 @@ public class JsPlugin extends PluginBase {
 		this.version = version;
 		this.logger = new PluginLogger(this);
 		this.context = new CraftJsContext(craftjs, this);
+		this.internalApis = internalApis;
+		this.enabled = false;
 	}
 	
 	public Path getRootDir() {
 		return rootDir;
+	}
+	
+	public Path getPluginPath() {
+		return pluginPath;
 	}
 	
 	public Path getNodeModules() {
@@ -121,6 +122,10 @@ public class JsPlugin extends PluginBase {
 	
 	public CraftJsContext getContext() {
 		return context;
+	}
+	
+	public boolean internalApisEnabled() {
+		return internalApis;
 	}
 
 	@Override
@@ -192,6 +197,19 @@ public class JsPlugin extends PluginBase {
 	public void onDisable() {
 		context.destroyGraalContext(); // Unload all code
 	}
+	
+	public void setEnabled(boolean state) {
+		if (state == enabled) {
+			return; // Nothing to do
+		}
+		enabled = state;
+		if (state) {
+			onLoad(); // Called for correctness, even if it is empty
+			onEnable();
+		} else {
+			onDisable();
+		}
+	}
 
 	@Override
 	public void onEnable() {
@@ -227,14 +245,12 @@ public class JsPlugin extends PluginBase {
 
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		return null; // Handled per-command basis
 	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		// TODO Auto-generated method stub
-		return false;
+		return false; // Handled per-command basis
 	}
 
 }

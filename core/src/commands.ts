@@ -60,7 +60,7 @@ interface CommandOptions {
 
 function registerCommand(
   names: string | string[],
-  handler: (sender: CommandSender, ...args: string[]) => boolean | undefined,
+  handler: (sender: CommandSender, ...args: string[]) => boolean | void,
   options: CommandOptions = {},
 ): void {
   // Figure out primary name
@@ -160,7 +160,7 @@ declare global {
    */
   function registerCommand(
     names: string | string[],
-    handler: (sender: CommandSender, ...args: string[]) => boolean | undefined,
+    handler: (sender: CommandSender, ...args: string[]) => boolean | void,
     options?: CommandOptions,
   ): void;
 }

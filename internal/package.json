@@ -2,23 +2,20 @@
   "name": "craftjs-jscore",
   "version": "0.1.0",
   "description": "",
-  "main": "init.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint './src/**/*.ts'",
-    "tsc": "tsc --project . && cp package.types.json types/package.json",
-    "watch": "tsc --project . --watch"
+    "tsc": "rm -rf node_modules/craftjs/node_modules && tsc --project ."
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@types/js-base64": "^2.3.2",
-    "typescript": "^4.1.0",
-    "vlq": "^1.0.1",
-    "zora": "^4.0.1"
+    "@bensku/paper-types": "^1.16.3-a8b20e2",
+    "craftjs": "file:../core/types",
+    "typescript": "^4.1.0"
   },
   "devDependencies": {
-    "@bensku/paper-types": "^1.16.3-a8b20e2",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
     "eslint": "^6.8.0",

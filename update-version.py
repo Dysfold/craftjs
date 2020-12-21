@@ -12,6 +12,7 @@ def update_package_json(file):
     manifest['version'] = version
     with open(file, 'w') as f:
         json.dump(manifest, f, indent=2)
+        f.write('\n')
 
 def update_plugin_yml(file):
     with open(file, 'r') as f:
