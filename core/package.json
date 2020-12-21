@@ -1,11 +1,11 @@
 {
   "name": "craftjs-core",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "init.js",
   "scripts": {
     "lint": "eslint './src/**/*.ts'",
-    "tsc": "tsc --project ."
+    "tsc": "tsc --project . && cp package.types.json types/package.json"
   },
   "keywords": [],
   "author": "",

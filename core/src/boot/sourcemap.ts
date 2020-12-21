@@ -104,9 +104,7 @@ function patchError(
   const sourcePath = sourceDir.resolve(mapped.file);
 
   // Patch error with line number and suitable absolute path
-  const relativeToJs = __craftjs
-    .getPluginRoot(sourceDir)
-    .relativize(sourcePath);
+  const relativeToJs = __craftjs.pluginRoot.relativize(sourcePath);
   error.lineNumber = mapped.line;
   error.fileName = relativeToJs.toString();
   return error;

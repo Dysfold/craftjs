@@ -1,0 +1,11 @@
+{
+  "name": "craftjs",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@bensku/paper-types": "latest"
+  }
+}
