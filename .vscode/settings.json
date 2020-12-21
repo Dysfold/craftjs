@@ -1,0 +1,9 @@
+{
+    "eslint.workingDirectories": [
+        "core",
+        "internal"
+    ],
+    "[typescript]": {
+        "editor.tabSize": 2
+    }
+}

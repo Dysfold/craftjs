@@ -1,7 +1,4 @@
-import { Bukkit } from 'org.bukkit';
-import { Listener, EventPriority, Event, HandlerList } from 'org.bukkit.event';
-import { PlayerInteractAtEntityEvent } from 'org.bukkit.event.player';
-import { EventExecutor } from 'org.bukkit.plugin';
+import { EventPriority, Event } from 'org.bukkit.event';
 
 interface EventHandlerOptions {
   /**

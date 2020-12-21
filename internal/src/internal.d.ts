@@ -1,12 +1,12 @@
 declare global {
+  /**
+   * Internal CraftJS APIs.
+   */
+  const __internals: {
     /**
-     * Internal CraftJS APIs.
+     * Reloads a JS plugin.
+     * @param name Plugin name
      */
-    const __internals: {
-        /**
-         * Reloads a JS plugin.
-         * @param name Plugin name
-         */
-        reloadPlugin(name: string): boolean;
-    };
+    reloadPlugin(name: string): boolean;
+  };
 }
