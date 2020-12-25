@@ -16,6 +16,8 @@ CraftJS and Scriptcraft are both essentially just a Javascript engine wrapped in
 
 ### Installation
 
+***NOTE: CraftJS requires you to use [Paper](https://papermc.io)***
+
 Download the plugin jar from [releases](https://github.com/Ap3teus/craftjs/releases) or build the code directly from source. More info [here](./docs/Getting%20Started.md)
 
 ### Contributing
@@ -25,7 +27,7 @@ The plugin's java code is located at `java` . The internal Javascript code, most
 ### Building the plugin from source
 
 0. Make sure you have `maven` installed
-1. Download and install [Graal Java runtime](https://www.graalvm.org/downloads) and make sure it's configured as your default Java (executing `java --version` should say `OpenJDK Runtime Environment GraalVM` )
+1. Download and install [Graal Java runtime](https://www.graalvm.org/downloads) and make sure it's configured as your default Java (executing `java -version` should say `OpenJDK Runtime Environment GraalVM` )
 2. Run `mvn install` in the `java` -directory
 3. Copy the built jar from `java/target` to your server's plugins-folder
 
