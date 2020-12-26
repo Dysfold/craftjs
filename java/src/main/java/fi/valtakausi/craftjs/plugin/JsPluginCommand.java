@@ -1,6 +1,7 @@
 package fi.valtakausi.craftjs.plugin;
 
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandMap;
@@ -59,7 +60,14 @@ public class JsPluginCommand extends Command implements PluginIdentifiableComman
 	}
 	
 	public void unload(CommandMap commandMap) {
-		commandMap.getKnownCommands().remove(getName()); // Don't complete this command
+		// Remove all aliases of the command (including plugin prefixes)
+		Map<String, Command> knownCommands = commandMap.getKnownCommands();
+		knownCommands.remove(getName());
+		knownCommands.remove(getPlugin().getName() + ":" + getName());
+		for (String alias : getAliases()) {
+			knownCommands.remove(alias);
+			knownCommands.remove(getPlugin().getName() + ":" + alias);
+		}
 		unregister(commandMap); // Call Bukkit to do some cleanup
 	}
 

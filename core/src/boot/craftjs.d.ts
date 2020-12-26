@@ -1,7 +1,7 @@
 import { Path } from 'java.nio.file';
 import { CommandSender } from 'org.bukkit.command';
 import { Event, EventPriority } from 'org.bukkit.event';
-import { EventExecutor, Plugin } from 'org.bukkit.plugin';
+import { Plugin } from 'org.bukkit.plugin';
 
 declare global {
   /**
@@ -33,9 +33,11 @@ declare global {
     /**
      * Evaluates JavaScript code.
      * @param code JavaScript in string.
+     * @param name Name of the JavaScript source. Usually a relative path of
+     * JS file from plugin root.
      * @returns What the code evaluates to.
      */
-    eval(code: string): any;
+    eval(code: string, name: string): any;
 
     /**
      * Calls a function after a delay in main server thread.
@@ -72,6 +74,14 @@ declare global {
       ignoreCancelled: boolean,
     );
 
+    /**
+     * Registers a new command for current plugin.
+     * @param handler Main command handler.
+     * @param completer Tab completion handler.
+     * @param name Primary command name.
+     * @param aliases Alternative command names.
+     * @param description Command description.
+     */
     registerCommand(
       handler: (sender: CommandSender, ...args: string[]) => boolean,
       completer: (
@@ -94,6 +104,21 @@ declare global {
      * @param bytes Byte array.
      */
     bytesToString(bytes: number[]): string;
+
+    /**
+     * Catches an error thrown by the given function and converts it to
+     * something we can inspect in JS side.
+     * @param func Function.
+     * @returns Error or null if no error was thrown.
+     */
+    catchError(func: () => void): JsError | null;
+
+    /**
+     * Gets a JVM system property.
+     * @param name Property name.
+     * @returns Property value, or null if it is not set.
+     */
+    systemProperty(name: string): string | null;
   };
 
   /**

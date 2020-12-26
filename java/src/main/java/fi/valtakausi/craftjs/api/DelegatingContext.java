@@ -20,8 +20,8 @@ public class DelegatingContext extends CraftJsContext {
 	}
 	
 	@Override
-	public Value eval(String code) {
-		return delegate.eval(code);
+	public Value eval(String code, String name) {
+		return delegate.eval(code, plugin.getName(), name);
 	}
 
 }

@@ -118,7 +118,18 @@ function registerCommand(
       return false;
     }
 
-    const success = handler(sender, ...args);
+    let success: boolean | void = false;
+    const internalError = handleError(
+      () => (success = handler(sender, ...args)),
+      `An internal error occurred during execution of command /${name}`,
+    );
+    // If internal error occurred, don't call normal error handling
+    if (internalError) {
+      sender.sendMessage(
+        'An internal error occurred during the command execution.',
+      );
+      return false;
+    }
 
     // Handle failures if false was explicitly returned
     // undefined/no return indicates success
@@ -128,7 +139,10 @@ function registerCommand(
         if (typeof usage == 'string') {
           sender.sendMessage(usage);
         } else {
-          usage(sender, name, ...args);
+          handleError(
+            () => usage(sender, name, ...args),
+            'Failed to generate command usage message',
+          );
         }
       }
       return false;

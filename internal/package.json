@@ -1,11 +1,12 @@
 {
-  "name": "craftjs-jscore",
+  "name": "craftjs-internal",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "lint": "eslint './src/**/*.ts'",
-    "tsc": "rm -rf node_modules/craftjs/node_modules && tsc --project ."
+    "tsc": "rm -rf node_modules/craftjs/node_modules && tsc --project .",
+    "watch": "tsc --project . --watch"
   },
   "keywords": [],
   "author": "",

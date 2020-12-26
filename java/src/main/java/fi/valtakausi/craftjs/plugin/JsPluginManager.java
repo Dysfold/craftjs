@@ -48,6 +48,11 @@ public class JsPluginManager {
 		this.internalPlugins = new HashMap<>();
 	}
 	
+	public JsPlugin getPlugin(String name) {
+		// Search both internal and normal plugins
+		return internalPlugins.computeIfAbsent(name, plugins::get);
+	}
+	
 	public void loadInternalPlugin(CraftJsMain craftjs, String name) {
 		Path rootDir = craftjs.getInternalPlugin(name);
 		
@@ -103,13 +108,7 @@ public class JsPluginManager {
 	}
 	
 	private void enablePlugin(JsPlugin plugin) {
-		try {
-			Bukkit.getPluginManager().enablePlugin(plugin);
-		} catch (Throwable e) {
-			log.severe("Failed to enable plugin '" + plugin.getName() + "':");
-			e.printStackTrace();
-			loader.disablePlugin(plugin); // Clean up partially enabled plugin
-		}
+		Bukkit.getPluginManager().enablePlugin(plugin);
 	}
 	
 	public void enablePlugins() {

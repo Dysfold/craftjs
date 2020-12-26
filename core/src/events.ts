@@ -20,7 +20,16 @@ function registerEvent<T extends Event>(
   options = options ?? {};
   const priority = options.priority ?? EventPriority.NORMAL;
   const ignoreCancelled = options.ignoreCancelled ?? false;
-  __craftjs.registerEvent(event, priority, handler, ignoreCancelled);
+  __craftjs.registerEvent(
+    event,
+    priority,
+    (event) =>
+      handleError(
+        () => handler(event),
+        'An error occurred during in an event handler',
+      ),
+    ignoreCancelled,
+  );
 }
 
 declare global {

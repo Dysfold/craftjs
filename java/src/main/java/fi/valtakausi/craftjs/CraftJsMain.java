@@ -94,14 +94,20 @@ public class CraftJsMain extends JavaPlugin {
 	 * @param context CraftJS context.
 	 */
 	public void installCore(CraftJsContext context) {
-		// Load require implementation to globals
+		// Load code needed in early boot to globals
+		// Currently, this includes error handling and require() implementation
 		try {
-			context.eval(Files.readString(core.getRootDir().resolve("dist").resolve("boot").resolve("require.js")));
+			Path bootDir = core.getRootDir().resolve("dist").resolve("boot");
+			context.eval(Files.readString(bootDir.resolve("errors.js")), "dist/boot/errors.js");
+			context.eval(Files.readString(bootDir.resolve("require.js")), "dist/boot/require.js");
 		} catch (IOException e) {
 			throw new AssertionError("failed to load require impl", e);
 		}
 		// Require (and add to globals) CraftJS core
-		context.eval("globalThis.__craftjscore = require('./index');");
+		boolean error = context.eval("__coreEntrypoint();", "entrypoint").asBoolean();
+		if (error) {
+			throw new AssertionError("core install failed");
+		}
 	}
 	
 	public JsPluginLoader getJsLoader() {

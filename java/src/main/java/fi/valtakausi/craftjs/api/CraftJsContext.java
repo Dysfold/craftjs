@@ -1,8 +1,12 @@
 package fi.valtakausi.craftjs.api;
 
+import java.lang.ref.Cleaner;
+import java.lang.ref.Cleaner.Cleanable;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Consumer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -10,6 +14,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.EventExecutor;
 import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.PolyglotException;
+import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
 
 import fi.valtakausi.craftjs.CraftJsMain;
@@ -26,6 +32,11 @@ import fi.valtakausi.craftjs.plugin.JsPluginCommand.JsTabCompleter;
 public class CraftJsContext {
 	
 	private static final Listener EVENT_LISTENER = new Listener() {};
+	
+	/**
+	 * Cleaner that is used for Graal context leak detection.
+	 */
+	private static final Cleaner CLEANER = Cleaner.create();
 	
 	/**
 	 * The JS plugin instance.
@@ -60,7 +71,7 @@ public class CraftJsContext {
 	
 	public CraftJsContext(CraftJsMain craftjs, JsPlugin plugin) {
 		this.plugin = plugin;
-		this.version = plugin.getDescription().getVersion();
+		this.version = craftjs.getDescription().getVersion();
 		this.pluginRoot = plugin.getRootDir();
 		this.craftjs = craftjs;
 		this.commands = new ArrayList<>();
@@ -86,19 +97,35 @@ public class CraftJsContext {
 		}
 		commands.clear();
 		
-		context = null;
+		// Listen for context GC
+		AtomicBoolean destroyed = new AtomicBoolean(false);
+		CLEANER.register(context, () -> destroyed.set(true));
+		context = null; // ... should be GC'd soon
+		
+		// If the context is still around after a while, emit a warning
+		Bukkit.getScheduler().scheduleSyncDelayedTask(craftjs, () -> {
+			if (!destroyed.get()) {
+				craftjs.getLogger().warning("GraalJS context was not destroyed, this could be a memory leak.");
+			}
+		}, 5_000);
 	}
 	
 	/**
 	 * Evaluates code in context of this plugin.
 	 * @param code JS code.
+	 * @param name Source (file) name.
 	 * @return Return value of the code.
 	 */
-	public Value eval(String code) {
+	public Value eval(String code, String name) {
+		return eval(code, plugin.getName(), name);
+	}
+		
+	protected Value eval(String code, String plugin, String name) {
 		if (context == null) {
 			throw new IllegalStateException("context not initialized");
 		}
-		return context.eval("js", code);
+		Source src = Source.newBuilder("js", code, plugin + ":" + name).buildLiteral();
+		return context.eval(src);
 	}
 	
 	/**

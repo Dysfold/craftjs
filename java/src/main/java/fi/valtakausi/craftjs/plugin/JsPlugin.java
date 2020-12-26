@@ -215,7 +215,11 @@ public class JsPlugin extends PluginBase {
 	public void onEnable() {
 		context.initGraalContext(); // Load CraftJS core
 		// Load, probably specified in package.json
-		context.eval("require('./" + entrypoint + "');");
+		boolean error = context.eval("__pluginEntrypoint('./" + entrypoint + "');", "entrypoint").asBoolean();
+		if (error) {
+			logger.severe("Failed to load the plugin, disabling...");
+			Bukkit.getPluginManager().disablePlugin(this);
+		}
 	}
 	
 	@Override

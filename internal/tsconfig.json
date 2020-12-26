@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@bensku", "node_modules/craftjs"],
     "declaration": true,
-    "declarationDir": "types"
+    "declarationDir": "types/types",
+    "inlineSourceMap": true
   },
   "include": [
     "src/**/*",

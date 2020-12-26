@@ -182,35 +182,34 @@ function __require(id: string, relative?: string): any {
   //   };
   // }
 
+  const contents = FilesType.readString(entrypoint);
+  const relativePath = __craftjs.pluginRoot.relativize(entrypoint).toString();
+  if ('cacheSourceMap' in globalThis) {
+    // Load and cache source map for this file (except during early startup)
+    // NOTE: startOffset should be equal to lines the closure has before contents
+    if (!cacheSourceMap(__craftjs.plugin.name, relativePath, contents, 1)) {
+      console.warn(`Missing source map: ${relativePath}`);
+    }
+  }
+
   // Wrap module as a function (for CommonJS module support)
   const exports = {};
   const module = {
     exports,
   };
-  const contents = FilesType.readString(entrypoint);
-  const closure = `
-  (function(module, exports, __filename, __dirname){
+  const closure = `(function(module, exports, __filename, __dirname){
 ${contents}
   })
   `;
 
   // Evaluate and execute
-  try {
-    const func = __craftjs.eval(closure);
-    func(
-      module,
-      exports,
-      entrypoint.toString(),
-      entrypoint.parent?.toString() ?? '.',
-    );
-  } catch (error) {
-    const line = error.lineNumber ? error.lineNumber - 2 : -1;
-    // Patch error if we can (during early craftjs-core boot, we can't) 
-    if ('patchError' in globalThis) {
-      patchError(entrypoint, contents, error, line);
-    }
-    throw error;
-  }
+  const func = __craftjs.eval(closure, relativePath);
+  func(
+    module,
+    exports,
+    entrypoint.toString(),
+    entrypoint.parent?.toString() ?? '.',
+  );
 
   cache.set(cacheId, module); // Cache the module
   stack.pop(); // Module has been executed
@@ -222,3 +221,26 @@ declare global {
   function require(id: string, relative?: string): any;
 }
 globalThis.require = __require;
+
+/**
+ * CraftJS core entrypoint for Java code.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function __coreEntrypoint(): boolean {
+  return handleError(
+    () => ((globalThis as any).__craftjscore = require('./index')),
+    'Critical: Failed to load craftjs core',
+  );
+}
+
+/**
+ * Plugin entrypoint called by Java code.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function __pluginEntrypoint(entrypoint: string): boolean {
+  // Wrap require() to catch errors that might occur when loading plugin
+  return handleError(
+    () => require(entrypoint),
+    `Failed to load entrypoint ${entrypoint}`,
+  );
+}
