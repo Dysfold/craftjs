@@ -5,15 +5,14 @@
   "main": "init.js",
   "scripts": {
     "lint": "eslint './src/**/*.ts'",
-    "tsc": "tsc --project . && cp package.types.json types/package.json",
-    "watch": "tsc --project . --watch"
+    "tsc": "tsc --project .",
+    "watch": "tsc --project . --watch",
+    "dist": "npm run tsc && cp package.types.json types/package.json && npm ci --only=prod"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@types/js-base64": "^2.3.2",
-    "typescript": "^4.1.0",
     "vlq": "^1.0.1",
     "zora": "^4.0.1"
   },
@@ -24,6 +23,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.0"
   }
 }

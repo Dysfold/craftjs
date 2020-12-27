@@ -64,6 +64,22 @@
           <include>config.yml</include>
         </includes>
       </resource>
+      <resource>
+      	<directory>${project.basedir}/../core</directory>
+      	<targetPath>craftjs-core</targetPath>
+      	<includes>
+      	  <include>**/*.js</include>
+      	  <include>**/package.json</include>
+      	</includes>
+      </resource>
+      <resource>
+      	<directory>${project.basedir}/../internal</directory>
+      	<targetPath>craftjs-internal</targetPath>
+      	<includes>
+      	  <include>**/*.js</include>
+      	  <include>**/package.json</include>
+      	</includes>
+      </resource>
     </resources>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
