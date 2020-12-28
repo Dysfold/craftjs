@@ -13,14 +13,9 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@bensku", "node_modules/craftjs"],
-    "declaration": true,
     "inlineSourceMap": true
   },
   "include": [
-    "src/**/*",
-    "test/**/*"
-  ],
-  "exclude": [
-    "javadocs/**/*"
+    "src/**/*"
   ]
 }

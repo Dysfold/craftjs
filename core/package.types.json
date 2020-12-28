@@ -1,5 +1,5 @@
 {
-  "name": "craftjs",
+  "name": "craftjs-plugin",
   "version": "0.1.0",
   "description": "",
   "keywords": [],
@@ -7,5 +7,10 @@
   "license": "MIT",
   "dependencies": {
     "@bensku/paper-types": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Valtakausi/craftjs.git",
+    "directory": "core/types"
   }
 }

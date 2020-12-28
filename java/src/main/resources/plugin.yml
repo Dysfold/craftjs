@@ -1,4 +1,3 @@
 main: fi.valtakausi.craftjs.CraftJsMain
 name: CraftJS
-api-version: 1.16
-version: 0.1.0
+api-version: 0.1.0
