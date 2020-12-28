@@ -4,6 +4,7 @@ require('./boot/errors');
 
 // Export (and load) public APIs
 export * from './commands';
+export * from './database';
 export * from './events';
 export * from './scheduling';
 

@@ -90,7 +90,8 @@ public class JsPluginManager {
 	}
 	
 	private JsPlugin discoverPlugin(Path path) {
-		if (path.getFileName().toString().equals("craftjs-core")) {
+		String fileName = path.getFileName().toString();
+		if (fileName.equals("craftjs-core") || fileName.equals("databases")) {
 			return null; // Not regular plugin, don't load it
 		}
 		try {

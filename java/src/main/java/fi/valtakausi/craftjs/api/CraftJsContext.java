@@ -1,12 +1,14 @@
 package fi.valtakausi.craftjs.api;
 
+import java.io.IOException;
 import java.lang.ref.Cleaner;
-import java.lang.ref.Cleaner.Cleanable;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.Consumer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -14,9 +16,9 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.EventExecutor;
 import org.graalvm.polyglot.Context;
-import org.graalvm.polyglot.PolyglotException;
 import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
+import org.h2.mvstore.MVStore;
 
 import fi.valtakausi.craftjs.CraftJsMain;
 import fi.valtakausi.craftjs.plugin.JsPlugin;
@@ -69,12 +71,18 @@ public class CraftJsContext {
 	 */
 	private final List<JsPluginCommand> commands;
 	
+	/**
+	 * Opened databases.
+	 */
+	private final Map<String, Database> databases;
+	
 	public CraftJsContext(CraftJsMain craftjs, JsPlugin plugin) {
 		this.plugin = plugin;
 		this.version = craftjs.getDescription().getVersion();
 		this.pluginRoot = plugin.getRootDir();
 		this.craftjs = craftjs;
 		this.commands = new ArrayList<>();
+		this.databases = new HashMap<>();
 	}
 	
 	public void initGraalContext() {
@@ -176,5 +184,20 @@ public class CraftJsContext {
 		JsPluginCommand command = new JsPluginCommand(plugin, handler, completer, name, aliases, description);
 		Bukkit.getCommandMap().register(plugin.getName().toLowerCase(), command); // Register to global command map
 		commands.add(command); // Queue to be unloaded when this is destroyed
+	}
+	
+	/**
+	 * Opens a database for this plugin with given name, or returns a
+	 * previously opened one.
+	 * @param name Database name.
+	 * @return A database.
+	 */
+	public Database openDatabase(String name) throws IOException {
+		if (!databases.containsKey(name)) {
+			Path path = craftjs.getDatabaseDir().resolve(plugin.getName()).resolve(name + ".db");
+			Files.createDirectories(path.getParent());
+			databases.put(name, new Database(path));
+		}
+		return databases.get(name);
 	}
 }

@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "eslint './src/**/*.ts'",
     "tsc": "rm -rf node_modules/craftjs/node_modules && tsc --project .",
-    "watch": "tsc --project . --watch",
-    "dist": "npm run tsc && npm ci --only=prod"
+    "watch": "tsc --project . --watch"
   },
   "keywords": [],
   "author": "",

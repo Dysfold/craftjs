@@ -1,7 +1,12 @@
 import { Path } from 'java.nio.file';
+import { Map } from 'java.util';
 import { CommandSender } from 'org.bukkit.command';
 import { Event, EventPriority } from 'org.bukkit.event';
 import { Plugin } from 'org.bukkit.plugin';
+
+declare interface InternalDb {
+  getTable(name: string): Map<any, any>;
+}
 
 declare global {
   /**
@@ -93,6 +98,8 @@ declare global {
       aliases: string[],
       description: string,
     );
+
+    openDatabase(name: string): InternalDb;
   };
 
   /**

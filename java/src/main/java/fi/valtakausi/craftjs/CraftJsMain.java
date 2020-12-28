@@ -133,4 +133,8 @@ public class CraftJsMain extends JavaPlugin {
 			return jarFs.getPath(name);
 		}
 	}
+	
+	public Path getDatabaseDir() {
+		return getDataFolder().toPath().resolve("databases");
+	}
 }

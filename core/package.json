@@ -5,9 +5,8 @@
   "main": "init.js",
   "scripts": {
     "lint": "eslint './src/**/*.ts'",
-    "tsc": "tsc --project .",
-    "watch": "tsc --project . --watch",
-    "dist": "npm run tsc && cp package.types.json types/package.json && npm ci --only=prod"
+    "tsc": "tsc --project . && cp package.types.json types/package.json && cp types/types/*.d.ts types",
+    "watch": "tsc --project . --watch"
   },
   "keywords": [],
   "author": "",

@@ -51,11 +51,9 @@ function resolvePackage(name: string): JavaPackage | null {
  * @returns Entrypoint of the resolved module, or null if resolution failed.
  */
 function resolveModule(parent: Path, name: string): Path | null {
-  // Handle special modules first
-  if (name == 'craftjs') {
-    return __craftjscore; // CraftJS core
-  } else if (name[0] !== '.') {
-    return resolveNodeModule(name); // Node module
+  // Special case for Node (npm) modules
+  if (name[0] !== '.') {
+    return resolveNodeModule(name);
   }
 
   // Relative path module resolution
@@ -125,6 +123,11 @@ const stack: Path[] = [];
 // let __zoraHarness: any;
 
 function __require(id: string, relative?: string): any {
+  // Special case for CraftJS core (it is installed to globals by Java code)
+  if (id == 'craftjs') {
+    return __craftjscore;
+  }
+
   // For ALL requires, check override table
   id = overrides[id] ?? id;
 
