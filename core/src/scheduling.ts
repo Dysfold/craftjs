@@ -50,8 +50,6 @@ globalThis.setTimeout = setTimeout;
 globalThis.clearInterval = clearInterval;
 globalThis.clearTimeout = clearInterval;
 
-type TimeUnit = 'millis' | 'ticks' | 'seconds' | 'minutes';
-
 function wait(delay = 0, unit: TimeUnit = 'ticks'): Promise<void> {
   let ms: number;
   switch (unit) {
@@ -75,6 +73,8 @@ function wait(delay = 0, unit: TimeUnit = 'ticks'): Promise<void> {
 }
 
 declare global {
+  type TimeUnit = 'millis' | 'ticks' | 'seconds' | 'minutes';
+
   /**
    * Returns a promise that is resolved after a delay.
    * @param delay Delay in given time unit. By default, and when delay is zero,

@@ -17,8 +17,8 @@ def update_package_json(file):
 def update_plugin_yml(file):
     with open(file, 'r') as f:
         text = f.read()
-    index = text.find('version: ')
-    text = text[0:index] + 'version: ' + version
+    index = text.find('\nversion: ')
+    text = text[0:index] + '\nversion: ' + version
     with open(file, 'w') as f:
         f.write(text)
 
