@@ -22,11 +22,22 @@ import fi.valtakausi.craftjs.plugin.JsPluginManager;
 
 public class CraftJsMain extends JavaPlugin {
 		
-	private static final Context.Builder CONTEXT_BUILDER = Context.newBuilder("js")
-			.allowHostClassLookup(className -> true) // Allow loading all classes
-			.allowHostAccess(HostAccess.ALL) // ... and accessing their members
-			.allowExperimentalOptions(true)
-			.option("js.nashorn-compat", "true"); // For native JS getter/setter compatibility
+	private static final Context.Builder CONTEXT_BUILDER = makeContextBuilder();
+
+	private static Context.Builder makeContextBuilder() {
+		// Configure unrestricted host access and additional type mappings
+		HostAccess hostAccess = HostAccess.newBuilder(HostAccess.ALL)
+				.targetTypeMapping(Number.class, Float.class, o -> o != null, Number::floatValue,
+						HostAccess.TargetMappingPrecedence.HIGHEST) // JS number -> float, with precision loss
+				.build();
+		
+		return Context.newBuilder("js")
+				.allowHostClassLookup(className -> true) // Allow loading all classes
+				.allowHostAccess(hostAccess)
+				.allowExperimentalOptions(true)
+				.option("js.foreign-object-prototype", "true") // Java List - JS array compatibility
+				.option("js.nashorn-compat", "true"); // For native JS getter/setter compatibility
+	}
 	
 	/**
 	 * Zip file system of CraftJS jar.
