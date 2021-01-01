@@ -1,4 +1,11 @@
 // Define minimal types for GraalVM polyglot exception API
+
+import { Path } from 'java.nio.file';
+
+// Avoid using require(), it is not loaded yet
+// require.ts loads this into same namespace
+declare const PathType: typeof Path;
+
 // Most methods and fields will be missing
 declare class JsError {
   readonly name: string;
@@ -82,24 +89,21 @@ function formatError(error: JsError): string {
       line = { file: frame.source, line: frame.line };
       fileName = frame.fileName;
     } else {
-      line = mapLineToSource(frame.plugin, frame.source, frame.line);
-      if (line.file.startsWith('../')) {
-        line.file = line.file.substring(3); // Skip ../ at start
+      if ('mapLineToSource' in globalThis) {
+        line = mapLineToSource(frame.plugin, frame.source, frame.line);
+        fileName = line.file.split('/').pop() ?? frame.fileName;
+      } else {
+        // Error occurred during early startup
+        console.warn('Error in early startup, source maps do not work');
+        line = { file: frame.source, line: frame.line };
+        fileName = frame.fileName;
       }
-      fileName = line.file.split('/').pop() ?? frame.fileName;
     }
     text += `        at ${line.file}.${frame.methodName}(${fileName}:${line.line}) [${frame.plugin}]\n`;
   }
   return text;
 }
-globalThis.formatError = formatError;
 
-/**
- * Catches and logs an error.
- * @param func Function that might throw an error.
- * @param msg Message to log above the error.
- * @returns If an error occurred.
- */
 function handleError(func: () => void, msg: string): boolean {
   const error = __interop.catchError(func);
   if (error) {
@@ -112,3 +116,13 @@ function handleError(func: () => void, msg: string): boolean {
   }
 }
 globalThis.handleError = handleError;
+
+declare global {
+  /**
+   * Catches and logs an error.
+   * @param func Function that might throw an error.
+   * @param msg Message to log above the error.
+   * @returns If an error occurred.
+   */
+  function handleError(func: () => void, msg: string): boolean;
+}

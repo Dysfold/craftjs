@@ -87,6 +87,17 @@ function resolveNodeModule(name: string): Path | null {
  * @returns Path to entry point, or null if no entry point was found.
  */
 function getEntrypoint(module: Path): Path | null {
+  // Use JS file at given path if it exists
+  let fileName = module.fileName.toString();
+  if (!fileName.endsWith('.js')) {
+    fileName += '.js';
+  }
+  const jsFile = module.parent.resolve(fileName);
+  if (FilesType.isRegularFile(jsFile)) {
+    return jsFile;
+  }
+
+  // Look at package.json for module main
   const packageJson = module.resolve('package.json');
   if (FilesType.exists(packageJson)) {
     // Does package.json tell where entrypoint is?
@@ -124,25 +135,12 @@ const stack: Path[] = [];
 
 function __require(id: string, relative?: string): any {
   // Special case for CraftJS core (it is installed to globals by Java code)
-  if (id == 'craftjs') {
+  if (id == 'craftjs-plugin') {
     return __craftjscore;
   }
 
   // For ALL requires, check override table
   id = overrides[id] ?? id;
-
-  // Check cache as early as possible
-  const cacheId = (relative ?? '/') + id;
-  if (cache.has(cacheId)) {
-    return cache.get(cacheId);
-  }
-
-  // Try to 'import' a Java package
-  const pkg = resolvePackage(id);
-  if (pkg) {
-    cache.set(cacheId, pkg); // Put to cache!
-    return pkg; // Found package, use it as 'module'
-  }
 
   // Figure out parent directory for require
   let parent: Path; // Parent folder of required thing
@@ -158,6 +156,19 @@ function __require(id: string, relative?: string): any {
       // Directory of entrypoint file that was last required
       parent = stack[stack.length - 1].parent;
     }
+  }
+
+  // Check cache as early as possible
+  const cacheId = (relative ?? parent.toAbsolutePath().toString()) + id;
+  if (cache.has(cacheId)) {
+    return cache.get(cacheId);
+  }
+
+  // Try to 'import' a Java package
+  const pkg = resolvePackage(id);
+  if (pkg) {
+    cache.set(cacheId, pkg); // Put to cache!
+    return pkg; // Found package, use it as 'module'
   }
 
   // Resolve module entrypoint and add it to require stack
@@ -191,7 +202,8 @@ function __require(id: string, relative?: string): any {
     // Load and cache source map for this file (except during early startup)
     // NOTE: startOffset should be equal to lines the closure has before contents
     if (!cacheSourceMap(__craftjs.plugin.name, relativePath, contents, 1)) {
-      console.warn(`Missing source map: ${relativePath}`);
+      //console.warn(`Missing source map: ${relativePath}`);
+      // TODO maybe warn for TS files (but how do we detect those?)
     }
   }
 
@@ -214,7 +226,7 @@ ${contents}
     entrypoint.parent?.toString() ?? '.',
   );
 
-  cache.set(cacheId, module); // Cache the module
+  cache.set(cacheId, module.exports); // Cache the module
   stack.pop(); // Module has been executed
   return module.exports;
 }

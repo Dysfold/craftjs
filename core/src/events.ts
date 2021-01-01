@@ -23,7 +23,7 @@ function registerEvent<T extends Event>(
   __craftjs.registerEvent(
     event,
     priority,
-    (event) =>
+    (_, event) =>
       handleError(
         () => handler(event),
         'An error occurred during in an event handler',

@@ -1,6 +1,5 @@
 // Don't export internal code
 require('./boot/sourcemap');
-require('./boot/errors');
 
 // Export (and load) public APIs
 export * from './commands';

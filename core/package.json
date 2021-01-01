@@ -12,6 +12,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@bensku/java-core-types": "^11.0.8-9069a37",
     "vlq": "^1.0.1",
     "zora": "^4.0.1"
   },

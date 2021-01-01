@@ -75,7 +75,7 @@ declare global {
     registerEvent<T extends Event>(
       event: new (...args: any[]) => T,
       priority: EventPriority,
-      handler: (event: T) => void,
+      handler: (_: unknown, event: T) => void,
       ignoreCancelled: boolean,
     );
 
