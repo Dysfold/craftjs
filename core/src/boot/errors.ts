@@ -91,6 +91,18 @@ function formatError(error: JsError): string {
     } else {
       if ('mapLineToSource' in globalThis) {
         line = mapLineToSource(frame.plugin, frame.source, frame.line);
+
+        // line.file is relative path to JS file under dist
+        // Normalize and relativize it against plugin root
+        const pluginRoot = __craftjs.getPluginRoot(frame.plugin);
+        const distDir = pluginRoot.resolve('dist');
+        line.file = pluginRoot.relativize(distDir.resolve(line.file).normalize()).toString();
+
+        // If we somehow didn't get rid of ../ at beginning, strip it out
+        if (line.file.startsWith('../')) {
+          line.file = line.file.substring(3);
+        }
+        
         fileName = line.file.split('/').pop() ?? frame.fileName;
       } else {
         // Error occurred during early startup
@@ -99,7 +111,7 @@ function formatError(error: JsError): string {
         fileName = frame.fileName;
       }
     }
-    text += `        at ${line.file}.${frame.methodName}(${fileName}:${line.line}) [${frame.plugin}]\n`;
+    text += `        at ${line.file} ${frame.methodName}(${fileName}:${line.line}) [${frame.plugin}]\n`;
   }
   return text;
 }

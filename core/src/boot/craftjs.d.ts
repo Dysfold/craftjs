@@ -26,14 +26,13 @@ declare global {
     /**
      * Root path of current plugin.
      */
-    readonly pluginRoot: Path;
+    pluginRoot: Path;
 
     /**
-     * Resolves a Node (node_modules) module root.
-     * @param name Node module name.
-     * @returns Root directory of the module.
+     * Gets root directory of a plugin.
+     * @param name Plugin name.
      */
-    resolveNodeModule(name: string): Path;
+    getPluginRoot(name: string): Path;
 
     /**
      * Evaluates JavaScript code.

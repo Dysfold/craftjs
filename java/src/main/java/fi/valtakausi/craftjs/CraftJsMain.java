@@ -121,6 +121,10 @@ public class CraftJsMain extends JavaPlugin {
 		}
 	}
 	
+	public JsPlugin getJsCore() {
+		return core;
+	}
+	
 	public JsPluginLoader getJsLoader() {
 		return pluginManager.getPluginLoader();
 	}

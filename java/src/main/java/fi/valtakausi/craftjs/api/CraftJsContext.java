@@ -18,7 +18,6 @@ import org.bukkit.plugin.EventExecutor;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
-import org.h2.mvstore.MVStore;
 
 import fi.valtakausi.craftjs.CraftJsMain;
 import fi.valtakausi.craftjs.plugin.JsPlugin;
@@ -51,7 +50,7 @@ public class CraftJsContext {
 	public final String version;
 	
 	/**
-	 * Plugin root path.
+	 * Plugin root of our {@link #plugin}.
 	 */
 	public final Path pluginRoot;
 	
@@ -116,6 +115,19 @@ public class CraftJsContext {
 				craftjs.getLogger().warning("GraalJS context was not destroyed, this could be a memory leak.");
 			}
 		}, 5_000);
+	}
+	
+	/**
+	 * Gets root directory of a plugin.
+	 * @param name Plugin name.
+	 * @return Root directory.
+	 * @see #pluginRoot
+	 */
+	public Path getPluginRoot(String name) {
+		if (name.equals("craftjs-core")) {
+			return craftjs.getJsCore().getRootDir();
+		}
+		return craftjs.getJsPluginManager().getPlugin(name).getRootDir();
 	}
 	
 	/**
