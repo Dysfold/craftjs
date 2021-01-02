@@ -5,6 +5,7 @@ require('./boot/sourcemap');
 export * from './commands';
 export * from './database';
 export * from './events';
+export * from './logging'; // Loaded early, but export the types
 export * from './scheduling';
 
 // Export our require to globals

@@ -29,6 +29,11 @@ declare global {
     pluginRoot: Path;
 
     /**
+     * Logger, retrieved by logging.ts.
+     */
+    logger: Logger;
+
+    /**
      * Gets root directory of a plugin.
      * @param name Plugin name.
      */

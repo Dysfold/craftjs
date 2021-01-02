@@ -96,17 +96,19 @@ function formatError(error: JsError): string {
         // Normalize and relativize it against plugin root
         const pluginRoot = __craftjs.getPluginRoot(frame.plugin);
         const distDir = pluginRoot.resolve('dist');
-        line.file = pluginRoot.relativize(distDir.resolve(line.file).normalize()).toString();
+        line.file = pluginRoot
+          .relativize(distDir.resolve(line.file).normalize())
+          .toString();
 
         // If we somehow didn't get rid of ../ at beginning, strip it out
         if (line.file.startsWith('../')) {
           line.file = line.file.substring(3);
         }
-        
+
         fileName = line.file.split('/').pop() ?? frame.fileName;
       } else {
         // Error occurred during early startup
-        console.warn('Error in early startup, source maps do not work');
+        log.warn('Error in early startup, source maps do not work');
         line = { file: frame.source, line: frame.line };
         fileName = frame.fileName;
       }
@@ -119,9 +121,8 @@ function formatError(error: JsError): string {
 function handleError(func: () => void, msg: string): boolean {
   const error = __interop.catchError(func);
   if (error) {
-    // TODO better logging
-    console.error(msg);
-    console.error(formatError(error));
+    log.error(msg);
+    log.error(formatError(error));
     return true;
   } else {
     return false;

@@ -55,6 +55,11 @@ public class CraftJsContext {
 	public final Path pluginRoot;
 	
 	/**
+	 * Logger exposed to JS plugin.
+	 */
+	public final JsLogger logger;
+	
+	/**
 	 * CraftJS plugin instance.
 	 */
 	private final CraftJsMain craftjs;
@@ -79,6 +84,7 @@ public class CraftJsContext {
 		this.plugin = plugin;
 		this.version = craftjs.getDescription().getVersion();
 		this.pluginRoot = plugin.getRootDir();
+		this.logger = new JsLogger(plugin);
 		this.craftjs = craftjs;
 		this.commands = new ArrayList<>();
 		this.databases = new HashMap<>();
@@ -92,6 +98,7 @@ public class CraftJsContext {
 		craftjs.installCore(this); // Install our core JS APIs
 		// Prepare for evaluating the JS plugin
 		context.getBindings("js").putMember("__craftjs", this);
+		eval("globalThis.log = __craftjs.logger;", "logger-patch");
 	}
 	
 	public void destroyGraalContext() {

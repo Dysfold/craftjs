@@ -1,5 +1,4 @@
 import { Bukkit } from 'org.bukkit';
-import { InvalidPluginException } from 'org.bukkit.plugin';
 
 /**
  * Milliseconds per server tick.

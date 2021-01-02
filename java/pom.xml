@@ -55,6 +55,7 @@
   </dependencies>
 
   <build>
+  	<finalName>${project.artifactId}</finalName>
     <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
     <resources>
       <resource>

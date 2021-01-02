@@ -25,4 +25,4 @@ mv core_modules.temp core/node_modules
 rm -rf internal/node_modules
 mv internal_modules.temp internal/node_modules
 
-echo "DONE! craftjs-VERSION.jar built at java/target"
+echo "DONE! craftjs.jar built at java/target"
