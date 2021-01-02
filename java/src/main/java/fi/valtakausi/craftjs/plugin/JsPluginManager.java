@@ -140,7 +140,6 @@ public class JsPluginManager {
 			if (plugin == null) {
 				return false;
 			}
-			plugins.put(plugin.getName(), plugin);
 			try {
 				plugin = loader.loadPlugin(plugin.getPluginPath().toFile());
 			} catch (UnknownDependencyException | InvalidPluginException e) {
@@ -151,6 +150,7 @@ public class JsPluginManager {
 				}
 				return false;
 			}
+			plugins.put(plugin.getName(), plugin);
 			enablePlugin(plugin);
 		} else {
 			return false;

@@ -60,7 +60,11 @@ interface CommandOptions {
 
 function registerCommand(
   names: string | string[],
-  handler: (sender: CommandSender, ...args: string[]) => boolean | void,
+  handler: (
+    sender: CommandSender,
+    alias: string,
+    ...args: string[]
+  ) => boolean | void,
   options: CommandOptions = {},
 ): void {
   // Figure out primary name
@@ -76,7 +80,11 @@ function registerCommand(
   }
 
   // Wrap user-provided handler to do access checks and print usage message
-  const wrappedHandler = (sender: CommandSender, ...args: string[]) => {
+  const wrappedHandler = (
+    sender: CommandSender,
+    alias: string,
+    ...args: string[]
+  ) => {
     let permission = true;
     const executableBy = options.executableBy;
     if (executableBy) {
@@ -120,7 +128,7 @@ function registerCommand(
 
     let success: boolean | void = false;
     const internalError = handleError(
-      () => (success = handler(sender, ...args)),
+      () => (success = handler(sender, alias, ...args)),
       `An internal error occurred during execution of command /${name}`,
     );
     // If internal error occurred, don't call normal error handling

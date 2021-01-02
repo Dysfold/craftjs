@@ -111,6 +111,11 @@ public class CraftJsContext {
 		}
 		commands.clear();
 		
+		// Close databases
+		for (Database db : databases.values()) {
+			db.close();
+		}
+		
 		// Listen for context GC
 		AtomicBoolean destroyed = new AtomicBoolean(false);
 		CLEANER.register(context, () -> destroyed.set(true));

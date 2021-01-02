@@ -92,7 +92,11 @@ declare global {
      * @param description Command description.
      */
     registerCommand(
-      handler: (sender: CommandSender, ...args: string[]) => boolean,
+      handler: (
+        sender: CommandSender,
+        alias: string,
+        ...args: string[]
+      ) => boolean,
       completer: (
         sender: CommandSender,
         alias: string,

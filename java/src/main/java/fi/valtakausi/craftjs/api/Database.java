@@ -19,4 +19,8 @@ public class Database {
 	public Map<?, ?> getTable(String name) {
 		return store.openMap(name);
 	}
+
+	public void close() {
+		store.close();
+	}
 }

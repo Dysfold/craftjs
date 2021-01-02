@@ -1,7 +1,23 @@
 registerCommand(
   ['craftjs', 'js'],
-  (sender, action, ...args) => {
-    console.log('TODO');
+  (sender, _alias, args) => {
+    console.log(_alias);
+    console.log(args);
+    const action = args[0];
+    if (action == 'reload') {
+      const plugin = args[1];
+      if (!plugin) {
+        return false; // Missing plugin name
+      }
+      sender.sendMessage(`Reloading plugin '${plugin}...'`);
+      if (!__internals.reloadPlugin(plugin)) {
+        sender.sendMessage(`... failed! See console for more details.`);
+      } else {
+        sender.sendMessage('... done!');
+      }
+    } else {
+      return false;
+    }
   },
   {
     usage: `Usage: /craftjs ...
