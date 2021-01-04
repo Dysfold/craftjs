@@ -50,25 +50,27 @@ globalThis.clearInterval = clearInterval;
 globalThis.clearTimeout = clearInterval;
 
 function wait(delay = 0, unit: TimeUnit = 'ticks'): Promise<void> {
-  let ms: number;
+  let ticks: number;
   switch (unit) {
     case 'millis':
-      ms = delay;
+      ticks = Math.ceil(delay / MILLIS_PER_TICK);
       break;
     case 'ticks':
-      ms = delay * MILLIS_PER_TICK;
+      ticks = delay;
       break;
     case 'seconds':
-      ms = delay * 1000;
+      ticks = delay * 20;
       break;
     case 'minutes':
-      ms = delay * 1000 * 60;
+      ticks = delay * 20 * 60;
       break;
     default:
       throw new Error('unknown time unit');
   }
   // We won't and can't pass arguments, so just use CraftJS Java API directly
-  return new Promise((resolve) => __craftjs.scheduleOnce(() => resolve(), ms));
+  return new Promise((resolve) =>
+    __craftjs.scheduleOnce(() => resolve(), ticks),
+  );
 }
 
 declare global {
