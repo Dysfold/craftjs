@@ -7,7 +7,7 @@ import { Path } from 'java.nio.file';
 declare const PathType: typeof Path;
 
 // Most methods and fields will be missing
-declare class JsError {
+export declare class JsError {
   readonly name: string;
   readonly message: string | null;
   readonly stack: FrameInfo[];
@@ -62,11 +62,6 @@ function shouldEmitFrame(frame: FrameInfo): boolean {
   return true;
 }
 
-/**
- * Formats error for logging.
- * @param error The error.
- * @returns Error message, including stack trace.
- */
 function formatError(error: JsError): string {
   // Try to format error name and message
   let text = error.name;
@@ -91,20 +86,6 @@ function formatError(error: JsError): string {
     } else {
       if ('mapLineToSource' in globalThis) {
         line = mapLineToSource(frame.plugin, frame.source, frame.line);
-
-        // line.file is relative path to JS file under dist
-        // Normalize and relativize it against plugin root
-        const pluginRoot = __craftjs.getPluginRoot(frame.plugin);
-        const distDir = pluginRoot.resolve('dist');
-        line.file = pluginRoot
-          .relativize(distDir.resolve(line.file).normalize())
-          .toString();
-
-        // If we somehow didn't get rid of ../ at beginning, strip it out
-        if (line.file.startsWith('../')) {
-          line.file = line.file.substring(3);
-        }
-
         fileName = line.file.split('/').pop() ?? frame.fileName;
       } else {
         // Error occurred during early startup
@@ -131,6 +112,13 @@ function handleError(func: () => void, msg: string): boolean {
 globalThis.handleError = handleError;
 
 declare global {
+  /**
+   * Formats error for logging.
+   * @param error The error.
+   * @returns Error message, including stack trace.
+   */
+  function formatError(error: JsError): string;
+
   /**
    * Catches and logs an error.
    * @param func Function that might throw an error.

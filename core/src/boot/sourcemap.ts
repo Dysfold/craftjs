@@ -126,7 +126,21 @@ function mapLineToSource(
     if (line <= 0) {
       return { file: file, line: line }; // Not mapped line
     }
-    return mapLineInternal(map, line);
+
+    const result = mapLineInternal(map, line);
+    // line.file is relative path to JS file under dist
+    // Normalize and relativize it against plugin root
+    const pluginRoot = __craftjs.getPluginRoot(plugin);
+    const distDir = pluginRoot.resolve('dist');
+    result.file = pluginRoot
+      .relativize(distDir.resolve(result.file).normalize())
+      .toString();
+
+    // If we somehow didn't get rid of ../ at beginning, strip it out
+    if (result.file.startsWith('../')) {
+      result.file = result.file.substring(3);
+    }
+    return result;
   } else {
     // Mapping not found, return original JS file and line
     return { file: file, line: line };

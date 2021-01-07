@@ -13,6 +13,13 @@ registerCommand(
       } else {
         sender.sendMessage('... done!');
       }
+    } else if (action == 'test') {
+      const plugin = args[1];
+      if (!plugin) {
+        return false; // Missing plugin name
+      }
+      sender.sendMessage(`Running tests for '${plugin}...`);
+      __internals.callForeign(plugin, '__runTests', sender);
     } else {
       return false;
     }
@@ -20,6 +27,7 @@ registerCommand(
   {
     usage: `Usage: /craftjs ...
   reload <plugin> - Reload a JS plugin
+  test <plugin> - Run tests of a JS plugin
 `,
   },
 );

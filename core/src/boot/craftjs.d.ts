@@ -3,6 +3,7 @@ import { Map } from 'java.util';
 import { CommandSender } from 'org.bukkit.command';
 import { Event, EventPriority } from 'org.bukkit.event';
 import { Plugin } from 'org.bukkit.plugin';
+import { JsError } from './errors';
 
 declare interface InternalDb {
   getTable(name: string): Map<any, any>;

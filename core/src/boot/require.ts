@@ -133,7 +133,7 @@ const stack: Path[] = [];
 
 // let __zoraHarness: any;
 
-function __require(id: string, relative?: string): any {
+function __require(id: string, relative?: string | Path): any {
   // Special case for CraftJS core (it is installed to globals by Java code)
   if (id == 'craftjs-plugin') {
     return __craftjscore;
@@ -146,7 +146,7 @@ function __require(id: string, relative?: string): any {
   let parent: Path; // Parent folder of required thing
   if (relative) {
     // Relative to given path
-    parent = PathType.of(relative);
+    parent = relative instanceof PathType ? relative : PathType.of(relative);
   } else {
     // Relative to module that called require this time
     if (stack.length == 0) {

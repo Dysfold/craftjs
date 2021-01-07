@@ -161,6 +161,17 @@ public class CraftJsContext {
 	}
 	
 	/**
+	 * Calls a function in global scope.
+	 * @param func Function name.
+	 * @param args Arguments.
+	 * @return Return value.
+	 */
+	public Value call(String func, Object... args) {
+		Value bind = context.getBindings("js");
+		return bind.getMember(func).execute(args);
+	}
+	
+	/**
 	 * Schedules a task once.
 	 * @param task Task to run.
 	 * @param delay Delay in ticks.
