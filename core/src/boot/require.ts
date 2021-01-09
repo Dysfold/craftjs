@@ -28,6 +28,14 @@ class ModuleNotFoundError extends Error {
  * @returns Package or null if no such package exists.
  */
 function resolvePackage(name: string): JavaPackage | null {
+  // If name is valid class name, return it
+  // This could happen e.g. when inner classes are imported
+  try {
+    return Java.type(name);
+  } catch (_e) {
+    // Package or JS file
+  }
+
   // Check if the package actually exists
   // Iterating GraalJS packages produces empty packages when it doesn't
   if (!PackageType.getPackage(name)) {
