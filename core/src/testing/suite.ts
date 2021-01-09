@@ -86,6 +86,7 @@ function runTestFile(file: Path, out: CommandSender): TestStats {
   require('./' + file.fileName.toString(), file.parent);
 
   // Figure out original TS file name for reporting
+  // TODO this may be broken, take a look later
   const { file: origin } = mapLineToSource(
     __craftjs.plugin.name,
     suite.file.toString(),
@@ -144,7 +145,8 @@ function reportResults(
     } else {
       success = false;
       const failure = result as FailedAssert;
-      out.sendMessage([`  ✘ ${failure.message}`, `    ${failure.failure}`]);
+      out.sendMessage(`  ✘ ${failure.message}`);
+      out.sendMessage(`    ${failure.failure}`);
       if (failure.error) {
         // If failure included error, print stack trace
         out.sendMessage(formatError(failure.error));
@@ -154,7 +156,8 @@ function reportResults(
 
   // Test might have thrown something before it finished...
   if (error) {
-    out.sendMessage([` ✘ test throw an error`, formatError(error)]);
+    out.sendMessage(`  ✘ test doesn't throw errors`);
+    out.sendMessage(formatError(error));
   }
   return success;
 }

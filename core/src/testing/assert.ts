@@ -1,7 +1,7 @@
 import equal from 'fast-deep-equal/es6';
 import { JsError } from '../boot/errors';
 
-type Throwable = new (...args: unknown[]) => unknown;
+type Throwable = new (...args: any[]) => any;
 
 export class Assert {
   private results: (AssertResult | FailedAssert)[];
@@ -86,7 +86,9 @@ export class Assert {
   throws(func: () => void, expected: Throwable, message: string) {
     const error = __interop.catchError(func);
     if (error) {
-      if (error.name == expected.name) {
+      // Java classes won't have name property like JS classes/constructors
+      const expectedName = Java.typeName(expected) ?? expected.name;
+      if (error.name == expectedName) {
         this.success(message);
       } else {
         this.failure(
