@@ -122,9 +122,14 @@ const overrides: Record<string, string> = {
 };
 
 /**
- * Cache of previously required modules.
+ * Cache of previously required JS modules.
  */
-const cache: Map<string, any> = new Map();
+const moduleCache: Map<string, any> = new Map();
+
+/**
+ * Map of required Java packages.
+ */
+const packageCache: Map<string, any> = new Map();
 
 /**
  * Current require stack.
@@ -141,6 +146,11 @@ function __require(id: string, relative?: string | Path): any {
 
   // For ALL requires, check override table
   id = overrides[id] ?? id;
+
+  // Check cached Java packages, maybe this represents one...
+  if (packageCache.has(id)) {
+    return packageCache.get(id);
+  }
 
   // Figure out parent directory for require
   let parent: Path; // Parent folder of required thing
@@ -159,15 +169,15 @@ function __require(id: string, relative?: string | Path): any {
   }
 
   // Check cache as early as possible
-  const cacheId = (relative ?? parent.toAbsolutePath().toString()) + id;
-  if (cache.has(cacheId)) {
-    return cache.get(cacheId);
+  const cacheId = parent.resolve(id).normalize().toAbsolutePath().toString();
+  if (moduleCache.has(cacheId)) {
+    return moduleCache.get(cacheId);
   }
 
   // Try to 'import' a Java package
   const pkg = resolvePackage(id);
   if (pkg) {
-    cache.set(cacheId, pkg); // Put to cache!
+    packageCache.set(cacheId, pkg); // Put to cache!
     return pkg; // Found package, use it as 'module'
   }
 
@@ -226,7 +236,7 @@ ${contents}
     entrypoint.parent?.toString() ?? '.',
   );
 
-  cache.set(cacheId, module.exports); // Cache the module
+  moduleCache.set(cacheId, module.exports); // Cache the module
   stack.pop(); // Module has been executed
   return module.exports;
 }

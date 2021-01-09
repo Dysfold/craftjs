@@ -10,19 +10,19 @@ declare global {
      * Logs a message at ERROR level.
      * @param msg The message.
      */
-    error(msg: string): void;
+    error(...msgs: any[]): void;
 
     /**
      * Logs a message at WARN level.
      * @param msg The message.
      */
-    warn(msg: string): void;
+    warn(...msgs: any[]): void;
 
     /**
      * Logs a message at INFO level.
      * @param msg The message.
      */
-    info(msg: string): void;
+    info(...msgs: any[]): void;
 
     /**
      * Logs a message at INFO level if debugging has been enabled for this JS
@@ -33,7 +33,7 @@ declare global {
      * with a JVM argument, e.g. -Dcraftjs.debug=list,of,plugins
      * @param msg The message.
      */
-    debug(msg: string): void;
+    debug(...msgs: any[]): void;
   }
 
   /**
