@@ -17,9 +17,11 @@ declare global {
      * @param func Function name in global namespace.
      * @param args Arguments to the function. Non-primitive JS values are
      * NOT supported!
+     * @returns Return value. Non-primitive JS values are not supported!
      */
     callForeign(plugin: string, func: string, ...args: unknown[]): unknown;
   };
 }
 
 require('./admin');
+require('./test-runner');

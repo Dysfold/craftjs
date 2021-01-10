@@ -89,8 +89,8 @@ function runTestFile(file: Path, out: CommandSender): TestStats {
   // TODO this may be broken, take a look later
   const { file: origin } = mapLineToSource(
     __craftjs.plugin.name,
-    suite.file.toString(),
-    0,
+    __craftjs.pluginRoot.relativize(suite.file).toString(),
+    3,
   );
 
   out.sendMessage(origin);

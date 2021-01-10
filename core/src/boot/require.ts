@@ -196,24 +196,6 @@ function __require(id: string, relative?: string | Path): any {
   }
   stack.push(entrypoint);
 
-  // Zora require hook for CI test running purposes
-  // if (id === 'zora' && !relative) {
-  //   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  //   const zora = require('zora', parent.toString());
-  //   if (!__zoraHarness) {
-  //     __zoraHarness = zora.createHarness();
-  //     (global as any).__zoraHarness = __zoraHarness;
-  //   }
-  //   const { test: testFunc } = __zoraHarness;
-  //   return {
-  //     ...zora,
-  //     test(...args: any[]) {
-  //       const test = testFunc(...args);
-  //       return test;
-  //     },
-  //   };
-  // }
-
   const contents = FilesType.readString(entrypoint);
   const relativePath = __craftjs.pluginRoot.relativize(entrypoint).toString();
   if ('cacheSourceMap' in globalThis) {

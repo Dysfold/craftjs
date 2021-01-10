@@ -1,3 +1,5 @@
+import { runTests } from './test-runner';
+
 registerCommand(
   ['craftjs', 'js'],
   (sender, _alias, args) => {
@@ -19,7 +21,7 @@ registerCommand(
         return false; // Missing plugin name
       }
       sender.sendMessage(`Running tests for '${plugin}...`);
-      __internals.callForeign(plugin, '__runTests', sender);
+      runTests(plugin, sender);
     } else {
       return false;
     }
