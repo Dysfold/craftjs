@@ -1,42 +1,63 @@
 # CraftJS
+CraftJS is a Bukkit plugin that adds support for writing plugins in TypeScript
+and JavaScript.
 
-***NOTE: Under heavy development***
+## Current status
+CraftJS is in early development and has little documentation aside of the
+JS/Javadocs. No guarantees about API stability are provided.
 
-Spigot Plugin that allows programming custom functionality for your server using Javascript. Inspired heavily by [Scriptcraft](https://github.com/walterhiggins/ScriptCraft) but trying to address some of it's issues.
+## Requirements
+* Paper (Minecraft 1.16)
+  * Spigot would likely be trivial, will be considered later
+* GraalVM 20.2 (Java 11 version)
+  * GraalVM 20.3 is not usable due to a bug, 21.1 has a fix
 
-# CraftJS Javascript
+## Usage
+Tutorials for creating CraftJS plugins will come later. For now, see 'internal'
+for a JS plugin example. If you copy the package.json from there, make sure to
+change dependency 'craftjs-plugin' to latest version from npm.
 
-Repository containing base Javascript code for [CraftJS](https://github.com/Ap3teus/craftjs) responsible for implementing basic Node-like functionality (partially CommonJS -compatible module resolvation, `setTimeout` and `setInterval` , Spigot event registration, etc...)
+To install CraftJS, just copy the jar file to your plugins folder.
 
-## Differences to Scriptcraft
+## Development
+CraftJS can be built with 'build.sh' script available at repository root.
+Unfortunately, only Linux is supported for building at the moment.
 
-CraftJS and Scriptcraft are both essentially just a Javascript engine wrapped into a Spigot plugin. Scriptcraft uses now deprecated [Nashorn](https://openjdk.java.net/projects/nashorn/) -engine, while CraftJS uses [Graal](https://www.graalvm.org/docs/reference-manual/languages/js/). This allows the executing code to use more recent (ES6+) Javascript features without using transpilers (like [Babel](https://babeljs.io)), and should also allow for much better performance.
+More development instructions will come later.
 
-## Getting started
+## Technical details
+JavaScript is executed with [GraalJS](https://github.com/oracle/graaljs), which
+(unline Nashorn) supports modern JavaScript features. CraftJS itself provides
 
-### Installation
+* JavaScript plugin loader implementation
+* require() implementation with Java import support (for TypeScript)
+* Bukkit scheduling helpers
+* Event handler and command registration support
+* Various standard library function implementations/polyfills
 
-***NOTE: CraftJS requires you to use [Paper](https://papermc.io)***
+TypeScript types are [generated](https://github.com/bensku/java-ts-bind)
+automatically from Java source code and include Javadoc. They are available
+on npm as 'craftjs-plugin'.
 
-Download the plugin jar from [releases](https://github.com/Ap3teus/craftjs/releases) or build the code directly from source. More info [here](./docs/Getting%20Started.md)
+### Components
+CraftJS consists of the following components that can be found in directories
+with similar names:
+* core: Javascript core
+  * Provides core APIs (e.g. require) to JS plugins
+  * Injected to each Graal context before loading JS plugin
+* internal: CraftJS JS plugin
+  * Internal JS plugin that provides e.g. /craftjs command
+  * Has access to internal APIs from java component
+* java: CraftJS Java code
+  * Maven project with all our Java code
 
-### Contributing
+## Differences from ScriptCraft
+CraftJS is inspired by an older scripting plugin,
+[Scriptcraft](https://github.com/walterhiggins/ScriptCraft). Despite the
+obvious similarities, the two plugins have several important differences:
 
-The plugin's java code is located at `java` . The internal Javascript code, mostly coded in [Typescript](https://www.typescriptlang.org), can be found under `internal` . Development time compilation can be done by executing `npx tsc --watch` at `internal` . `internal/dist` contains compiled js-files, and they are executed by the plugin.
-
-### Building the plugin from source
-
-0. Make sure you have `maven` installed
-1. Download and install [Graal Java runtime](https://www.graalvm.org/downloads) and make sure it's configured as your default Java (executing `java -version` should say `OpenJDK Runtime Environment GraalVM` )
-2. Run `mvn install` in the `java` -directory
-3. Copy the built jar from `java/target` to your server's plugins-folder
-
-## Testing
-
-Unit tests can be run by executing `runTests()` in the CraftJS Graal-context. Easiest way to do so is to run `js runTests()` -command in the server console.
-
-## Typescript
-
-`types` -directory contains Typescript definitions generated from Java types. It's not perfect, but most of the time it's been enough.
-
-More information is available [here](./docs/Typescript.md)
+* CraftJS uses [GraalJS](https://github.com/oracle/graaljs) instead of Nashorn
+  * Better support for new JS features
+  * (Usually) better performance
+* CraftJS has TypeScript types
+  * Autocomplete (and import) Bukkit classes!

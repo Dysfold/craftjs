@@ -1,0 +1,38 @@
+name: CraftJS CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build CraftJS
+        run: |
+          npm install --prefix=core
+          npm install --prefix=internal
+          ./build.sh
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: craftjs.jar
+          path: java/target/craftjs.jar
+  test:
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+      - uses: DeLaGuardo/setup-graalvm@master
+        with:
+          graalvm-version: "20.2.0.java11"
+      - uses: actions/download-artifact@v2
+        with:
+          name: craftjs.jar
+      - name: Setup server
+        run: |
+          mkdir plugins
+          mv craftjs.jar plugins
+          wget -c https://papermc.io/api/v1/paper/1.16.4/401/download -O paper.jar
+      - name: Run tests
+        run: |
+          java -Dcom.mojang.eula.agree=true -Dcraftjs.runTests=craftjs-internal -jar paper.jar

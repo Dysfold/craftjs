@@ -32,7 +32,7 @@
     <dependency>
       <groupId>org.graalvm.sdk</groupId>
       <artifactId>graal-sdk</artifactId>
-      <version>20.1.0</version>
+      <version>20.2.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -46,15 +46,10 @@
       <version>1.16.1-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
   <build>
+  	<finalName>${project.artifactId}</finalName>
     <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
     <resources>
       <resource>
@@ -63,6 +58,22 @@
           <include>plugin.yml</include>
           <include>config.yml</include>
         </includes>
+      </resource>
+      <resource>
+      	<directory>${project.basedir}/../core</directory>
+      	<targetPath>craftjs-core</targetPath>
+      	<includes>
+      	  <include>**/*.js</include>
+      	  <include>**/package.json</include>
+      	</includes>
+      </resource>
+      <resource>
+      	<directory>${project.basedir}/../internal</directory>
+      	<targetPath>craftjs-internal</targetPath>
+      	<includes>
+      	  <include>**/*.js</include>
+      	  <include>**/package.json</include>
+      	</includes>
       </resource>
     </resources>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
