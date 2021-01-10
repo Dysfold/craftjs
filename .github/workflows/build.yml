@@ -7,8 +7,12 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+      - uses: actions/checkout@v2
       - name: Build CraftJS
-        run: ./build.sh
+        run: |
+          npm install --prefix=core
+          npm install --prefix=internal
+          ./build.sh
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
