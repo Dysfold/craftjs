@@ -2,6 +2,12 @@ package fi.valtakausi.craftjs.api;
 
 import java.io.IOException;
 import java.lang.ref.Cleaner;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpRequest.BodyPublisher;
+import java.net.http.HttpRequest.BodyPublishers;
+import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -33,6 +39,7 @@ import fi.valtakausi.craftjs.plugin.JsPluginCommand.JsTabCompleter;
 public class CraftJsContext {
 	
 	private static final Listener EVENT_LISTENER = new Listener() {};
+	private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
 	
 	/**
 	 * Cleaner that is used for Graal context leak detection.
@@ -234,5 +241,36 @@ public class CraftJsContext {
 			databases.put(name, new Database(path));
 		}
 		return databases.get(name);
+	}
+	
+	private void runSync(Runnable task) {
+		Bukkit.getScheduler().runTask(plugin, task);
+	}
+	
+	public Thenable fetch(String uri, String method, String payload, String[] headers) {
+		// Prepare request
+		BodyPublisher body = payload != null ? BodyPublishers.ofString(payload) : BodyPublishers.noBody();
+		HttpRequest.Builder builder = HttpRequest.newBuilder()
+				.uri(URI.create(uri))
+				.method(method, body);
+		if (headers.length > 0) {
+			builder = builder.headers(headers);
+		}
+		HttpRequest request = builder.build();
+		
+		// Return JS object that can be used for creating a promise
+		// We're collecting entire response body to string before resolving
+		// In future, headers should be made available before body is awaited
+		return (resolve, reject) -> {
+			HTTP_CLIENT.sendAsync(request, BodyHandlers.ofString())
+					.whenComplete((response, e) -> {
+						// GraalJS is not thread safe, so call promise on server thread
+						if (e != null) {
+							runSync(() -> reject.execute(e));
+						} else {
+							runSync(() -> resolve.execute(response));
+						}
+					});
+		};
 	}
 }

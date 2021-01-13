@@ -16,6 +16,7 @@
     "vlq": "^1.0.1"
   },
   "devDependencies": {
+    "@bensku/httpclient-types": "^11.0.8-469bb3c",
     "@bensku/java-core-types": "^11.0.8-9069a37",
     "@bensku/paper-types": "^1.16.3-a8b20e2",
     "@typescript-eslint/eslint-plugin": "^2.30.0",

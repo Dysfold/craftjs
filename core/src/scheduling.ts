@@ -69,7 +69,10 @@ function wait(delay = 0, unit: TimeUnit = 'ticks'): Promise<void> {
   }
   // We won't and can't pass arguments, so just use CraftJS Java API directly
   return new Promise((resolve) =>
-    __craftjs.scheduleOnce(() => resolve(), ticks),
+    __craftjs.scheduleOnce(
+      () => handleError(resolve, 'Promise threw an error'),
+      ticks,
+    ),
   );
 }
 

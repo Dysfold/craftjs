@@ -1,3 +1,4 @@
+import { HttpResponse } from 'java.net.http';
 import { Path } from 'java.nio.file';
 import { Map } from 'java.util';
 import { CommandSender } from 'org.bukkit.command';
@@ -108,7 +109,18 @@ declare global {
       description: string,
     );
 
+    /**
+     * Opens a database for current plugin.
+     * @param name Database name.
+     */
     openDatabase(name: string): InternalDb;
+
+    fetch(
+      uri: string,
+      method: string,
+      payload: string | undefined,
+      headers: string[],
+    ): Promise<HttpResponse<string>>;
   };
 
   /**
