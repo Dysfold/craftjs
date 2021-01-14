@@ -8,8 +8,11 @@ require('./boot/sourcemap');
 export * from './commands';
 export * from './database';
 export * from './events';
-export * from './logging'; // Loaded early, but export the types
+export * from './logging'; // Loaded earlier, but export the types
 export * from './scheduling';
+export * from './fetch';
+
+// Testing is quite high-level functionality, might use other APIs
 export * from './testing/index';
 
 // Export our require to globals
