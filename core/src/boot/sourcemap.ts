@@ -1,5 +1,4 @@
 import * as vlq from 'vlq';
-import { Files, Path } from 'java.nio.file';
 import { Base64 } from 'java.util';
 
 interface RawSourceMap {

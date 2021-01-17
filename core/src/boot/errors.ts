@@ -89,7 +89,7 @@ function formatError(error: JsError): string {
         fileName = line.file.split('/').pop() ?? frame.fileName;
       } else {
         // Error occurred during early startup
-        log.warn('Error in early startup, source maps do not work');
+        console.warn('Error in early startup, source maps will not work');
         line = { file: frame.source, line: frame.line };
         fileName = frame.fileName;
       }
@@ -102,8 +102,10 @@ function formatError(error: JsError): string {
 function handleError(func: () => void, msg: string): boolean {
   const error = __interop.catchError(func);
   if (error) {
-    log.error(msg);
-    log.error(formatError(error));
+    // During early startup, logging might not be available yet
+    const logger = 'log' in globalThis ? log.error : console.error;
+    logger(msg);
+    logger(formatError(error));
     return true;
   } else {
     return false;
