@@ -3,7 +3,7 @@ import { test } from 'craftjs-plugin';
 // FIXME: async test errors are not correctly reported yet
 // If fetch OK is not shown, something is wrong
 
-test('fetch polyfill', async (t) => {
+test('fetch polyfill', async () => {
   try {
     const json = await (
       await fetch('https://api.github.com', {

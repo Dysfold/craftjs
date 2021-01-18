@@ -11,6 +11,7 @@ export * from './events';
 export * from './logging'; // Loaded earlier, but export the types
 export * from './scheduling';
 export * from './fetch';
+export * as chat from './chat';
 
 // Testing is quite high-level functionality, might use other APIs
 export * from './testing/index';

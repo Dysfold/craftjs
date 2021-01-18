@@ -38,8 +38,12 @@ function resolvePackage(name: string): JavaPackage | null {
 
   // Check if the package actually exists
   // Iterating GraalJS packages produces empty packages when it doesn't
-  if (!PackageType.getPackage(name)) {
-    // FIXME: this checks current ClassLoader only, breaks importing from other loaders
+  if (
+    !PackageType.getPackage(name) &&
+    !name.startsWith('net.md_5.bungee.api')
+  ) {
+    // FIXME Package.getPackage() works for current ClassLoader only
+    // Add Bungeecord chat API as special case until we have a better solution
     return null;
   }
 
@@ -148,8 +152,12 @@ const stack: Path[] = [];
 
 function __require(id: string, relative?: string | Path): any {
   // Special case for CraftJS core (it is installed to globals by Java code)
-  if (id == 'craftjs-plugin') {
-    return __craftjscore;
+  if (id.startsWith('craftjs-plugin')) {
+    let module = __craftjscore;
+    for (const name of id.split('/').slice(1)) {
+      module = module[name];
+    }
+    return module;
   }
 
   // For ALL requires, check override table

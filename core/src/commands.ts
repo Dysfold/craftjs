@@ -108,7 +108,7 @@ function registerCommand(
       permission = sender.hasPermission(options.permission);
     } else {
       // Default to OP requirement to avoid accidentally exposing admin commands
-      permission = sender.op;
+      permission = sender.isOp();
     }
 
     // Send error message and stop here if player is not allowed to execute
