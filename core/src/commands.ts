@@ -54,7 +54,7 @@ interface CommandOptions {
   completer?: (
     sender: CommandSender,
     alias: string,
-    ...args: string[]
+    args: string[],
   ) => string[];
 }
 
@@ -63,7 +63,7 @@ function registerCommand(
   handler: (
     sender: CommandSender,
     alias: string,
-    ...args: string[]
+    args: string[],
   ) => boolean | void,
   options: CommandOptions = {},
 ): void {
@@ -83,7 +83,7 @@ function registerCommand(
   const wrappedHandler = (
     sender: CommandSender,
     alias: string,
-    ...args: string[]
+    args: string[],
   ) => {
     let permission = true;
     const executableBy = options.executableBy;
@@ -128,7 +128,7 @@ function registerCommand(
 
     let success: boolean | void = false;
     const internalError = handleError(
-      () => (success = handler(sender, alias, ...args)),
+      () => (success = handler(sender, alias, args)),
       `An internal error occurred during execution of command /${name}`,
     );
     // If internal error occurred, don't call normal error handling
@@ -182,7 +182,11 @@ declare global {
    */
   function registerCommand(
     names: string | string[],
-    handler: (sender: CommandSender, ...args: string[]) => boolean | void,
+    handler: (
+      sender: CommandSender,
+      alias: string,
+      args: string[],
+    ) => boolean | void,
     options?: CommandOptions,
   ): void;
 }

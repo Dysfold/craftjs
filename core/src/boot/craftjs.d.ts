@@ -97,12 +97,12 @@ declare global {
       handler: (
         sender: CommandSender,
         alias: string,
-        ...args: string[]
+        args: string[],
       ) => boolean,
       completer: (
         sender: CommandSender,
         alias: string,
-        ...args: string[]
+        args: string[],
       ) => string[],
       name: string,
       aliases: string[],
