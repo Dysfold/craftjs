@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: DeLaGuardo/setup-graalvm@master
         with:
-          graalvm-version: "20.2.0.java11"
+          graalvm-version: "21.0.0.java11"
       - uses: actions/download-artifact@v2
         with:
           name: craftjs.jar
