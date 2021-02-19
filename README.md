@@ -9,8 +9,8 @@ JS/Javadocs. No guarantees about API stability are provided.
 ## Requirements
 * Paper (Minecraft 1.16)
   * Spigot would likely be trivial, will be considered later
-* GraalVM 20.2 (Java 11 version)
-  * GraalVM 20.3 is not usable due to a bug, 21.1 has a fix
+* GraalVM 21.0 (Java 11 version)
+  * Older known not to work, newer versions *might* be ok
 
 ## Usage
 Tutorials for creating CraftJS plugins will come later. For now, see 'internal'
