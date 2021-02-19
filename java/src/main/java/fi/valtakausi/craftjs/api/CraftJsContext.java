@@ -1,7 +1,7 @@
 package fi.valtakausi.craftjs.api;
 
 import java.io.IOException;
-import java.lang.ref.Cleaner;
+import java.lang.ref.WeakReference;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -40,12 +39,7 @@ public class CraftJsContext {
 	
 	private static final Listener EVENT_LISTENER = new Listener() {};
 	private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
-	
-	/**
-	 * Cleaner that is used for Graal context leak detection.
-	 */
-	private static final Cleaner CLEANER = Cleaner.create();
-	
+		
 	/**
 	 * The JS plugin instance.
 	 */
@@ -122,18 +116,12 @@ public class CraftJsContext {
 		for (Database db : databases.values()) {
 			db.close();
 		}
+		databases.clear();
 		
-		// Listen for context GC
-		AtomicBoolean destroyed = new AtomicBoolean(false);
-		CLEANER.register(context, () -> destroyed.set(true));
-		context = null; // ... should be GC'd soon
-		
-		// If the context is still around after a while, emit a warning
-		Bukkit.getScheduler().scheduleSyncDelayedTask(craftjs, () -> {
-			if (!destroyed.get()) {
-				craftjs.getLogger().warning("GraalJS context was not destroyed, this could be a memory leak.");
-			}
-		}, 5_000);
+		context.getEngine().close();
+		context.close();
+		context = null;
+		// Leaks memory, probably due to https://github.com/oracle/graaljs/issues/384
 	}
 	
 	/**
