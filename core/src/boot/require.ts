@@ -250,10 +250,16 @@ globalThis.require = __require;
  */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function __coreEntrypoint(): boolean {
-  return handleError(
+  let errored = false;
+  __interop.catchError(
     () => ((globalThis as any).__craftjscore = require('./index')),
-    'Critical: Failed to load craftjs core',
+    (error) => {
+      errored = true;
+      console.error('Critical: Failed to load CraftJS core');
+      console.error(formatError(error));
+    },
   );
+  return errored;
 }
 
 /**
@@ -262,8 +268,14 @@ function __coreEntrypoint(): boolean {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function __pluginEntrypoint(entrypoint: string): boolean {
   // Wrap require() to catch errors that might occur when loading plugin
-  return handleError(
+  let errored = false;
+  __interop.catchError(
     () => require(entrypoint),
-    `Failed to load entrypoint ${entrypoint}`,
+    (error) => {
+      errored = true;
+      log.error(`Failed to load the entrypoint: ${entrypoint}`);
+      log.error(formatError(error));
+    },
   );
+  return errored;
 }

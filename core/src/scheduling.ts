@@ -17,7 +17,11 @@ function setInterval(handler: TimerHandler, delay?: number, ...args: any[]) {
   }
   // Default to 1 tick delay and avoid fractional ticks
   const ms = !delay ? 1 : Math.floor(delay / MILLIS_PER_TICK);
-  return __craftjs.scheduleRepeating(() => handler(args), ms, ms);
+  const wrapped = catchAndLogError(
+    () => handler(args),
+    'An error occurred in a (repeating) timer',
+  );
+  return __craftjs.scheduleRepeating(wrapped, ms, ms);
 }
 
 function clearInterval(tid?: number) {
@@ -37,8 +41,12 @@ function setTimeout(handler: TimerHandler, delay?: number, ...args: any[]) {
   if (typeof handler == 'string') {
     throw new Error('setTimeout eval not supported');
   }
-  return __craftjs.scheduleOnce(
+  const wrapped = catchAndLogError(
     () => handler(args),
+    'An error occurred in a (one-off) timer',
+  );
+  return __craftjs.scheduleOnce(
+    wrapped,
     !delay ? 1 : Math.floor(delay / MILLIS_PER_TICK),
   );
 }
@@ -70,7 +78,7 @@ function wait(delay = 0, unit: TimeUnit = 'ticks'): Promise<void> {
   // We won't and can't pass arguments, so just use CraftJS Java API directly
   return new Promise((resolve) =>
     __craftjs.scheduleOnce(
-      () => handleError(resolve, 'Promise threw an error'),
+      catchAndLogError(resolve, 'An error occurred in timer-backed Promise'),
       ticks,
     ),
   );

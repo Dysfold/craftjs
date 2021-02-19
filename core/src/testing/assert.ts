@@ -84,7 +84,8 @@ export class Assert {
   }
 
   throws(func: () => void, expected: Throwable, message: string) {
-    const error = __interop.catchError(func);
+    let error: JsError | undefined;
+    __interop.catchError(func, (e) => (error = e));
     if (error) {
       // Java classes won't have name property like JS classes/constructors
       const expectedName = Java.typeName(expected) ?? expected.name;
@@ -103,7 +104,8 @@ export class Assert {
   }
 
   doesNotThrow(func: () => void, message: string) {
-    const error = __interop.catchError(func);
+    let error: JsError | undefined;
+    __interop.catchError(func, (e) => (error = e));
     if (!error) {
       this.success(message);
     } else {

@@ -99,7 +99,11 @@ function runTestFile(file: Path, out: CommandSender): TestStats {
   const stats = { succeeded: 0, failed: 0, errored: 0 };
   for (const test of suite.tests) {
     const results: AssertResult[] = [];
-    const error = __interop.catchError(() => test.handler(new Assert(results)));
+    let error;
+    __interop.catchError(
+      () => test.handler(new Assert(results)),
+      (e) => (error = e),
+    );
 
     // Test reporting
     const success = reportResults(test, results, error, out);
@@ -132,7 +136,7 @@ function runTestFile(file: Path, out: CommandSender): TestStats {
 function reportResults(
   test: TestCase,
   results: AssertResult[],
-  error: JsError | null,
+  error: JsError | undefined,
   out: CommandSender,
 ): boolean {
   out.sendMessage(`${test.name}:`);

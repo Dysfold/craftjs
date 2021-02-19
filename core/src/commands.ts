@@ -126,16 +126,28 @@ function registerCommand(
       return false;
     }
 
+    // Call the user-provided handler
+    let internalError = false;
     let success: boolean | void = false;
-    const internalError = handleError(
+    __interop.catchError(
       () => (success = handler(sender, alias, args)),
-      `An internal error occurred during execution of command /${name}`,
+      (error) => {
+        // Let the admins know
+        log.error(
+          `An internal error occurred during execution of command /${name}`,
+        );
+        log.error(formatError(error));
+
+        // Also tell the player
+        sender.sendMessage(
+          'An internal error occurred during the command execution.',
+        );
+        internalError = true;
+      },
     );
-    // If internal error occurred, don't call normal error handling
+
+    // If an internal error occurred, don't call normal error handling
     if (internalError) {
-      sender.sendMessage(
-        'An internal error occurred during the command execution.',
-      );
       return false;
     }
 
@@ -147,10 +159,10 @@ function registerCommand(
         if (typeof usage == 'string') {
           sender.sendMessage(usage);
         } else {
-          handleError(
+          catchAndLogError(
             () => usage(sender, name, ...args),
-            'Failed to generate command usage message',
-          );
+            'Failed to generate command usage',
+          )();
         }
       }
       return false;
