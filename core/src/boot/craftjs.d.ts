@@ -134,12 +134,13 @@ declare global {
     bytesToString(bytes: number[]): string;
 
     /**
-     * Catches an error thrown by the given function and converts it to
-     * something we can inspect in JS side.
-     * @param func Function.
-     * @returns Error or null if no error was thrown.
+     * Calls a function and catches errors thrown by it with the given handler.
+     * Unlike normal try-catch, the resulting JsError provides stack-walking
+     * support which allows e.g. source maps to be used.
+     * @param func A function to wrap.
+     * @param handler Error handler.
      */
-    catchError(func: () => void): JsError | null;
+    catchError<A, R>(func: () => void, handler: (error: JsError) => void): void;
 
     /**
      * Gets a JVM system property.

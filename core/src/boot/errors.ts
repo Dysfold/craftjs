@@ -1,11 +1,5 @@
 // Define minimal types for GraalVM polyglot exception API
 
-import { Path } from 'java.nio.file';
-
-// Avoid using require(), it is not loaded yet
-// require.ts loads this into same namespace
-declare const PathType: typeof Path;
-
 // Most methods and fields will be missing
 export declare class JsError {
   readonly name: string;
@@ -99,19 +93,23 @@ function formatError(error: JsError): string {
   return text;
 }
 
-function handleError(func: () => void, msg: string): boolean {
-  const error = __interop.catchError(func);
-  if (error) {
+function catchAndLogError<A extends any[], R>(
+  func: (...arg: A) => R,
+  msg: string,
+): (...args: A) => R | undefined {
+  const errorHandler = (error: JsError) => {
     // During early startup, logging might not be available yet
     const logger = 'log' in globalThis ? log.error : console.error;
     logger(msg);
     logger(formatError(error));
-    return true;
-  } else {
-    return false;
-  }
+  };
+  return (...args) => {
+    let ret: R | undefined = undefined;
+    __interop.catchError(() => (ret = func(...args)), errorHandler);
+    return ret;
+  };
 }
-globalThis.handleError = handleError;
+globalThis.catchAndLogError = catchAndLogError;
 
 declare global {
   /**
@@ -122,10 +120,14 @@ declare global {
   function formatError(error: JsError): string;
 
   /**
-   * Catches and logs an error.
+   * Wraps a function to catch and log errors thrown by it.
+   * The function returns undefined when an error has been thrown and caught.
    * @param func Function that might throw an error.
    * @param msg Message to log above the error.
-   * @returns If an error occurred.
+   * @returns A wrapped function.
    */
-  function handleError(func: () => void, msg: string): boolean;
+  function catchAndLogError<A extends any[], R>(
+    func: (...args: A) => R,
+    msg: string,
+  ): (...args: A) => R | undefined;
 }

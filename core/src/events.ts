@@ -20,14 +20,11 @@ function registerEvent<T extends Event>(
   options = options ?? {};
   const priority = options.priority ?? EventPriority.NORMAL;
   const ignoreCancelled = options.ignoreCancelled ?? false;
+  handler = catchAndLogError(handler, 'An error occurred in an event handler');
   __craftjs.registerEvent(
     event,
     priority,
-    (_, event) =>
-      handleError(
-        () => handler(event),
-        'An error occurred during in an event handler',
-      ),
+    (_, event) => handler(event),
     ignoreCancelled,
   );
 }

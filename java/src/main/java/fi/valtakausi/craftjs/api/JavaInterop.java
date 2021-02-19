@@ -1,6 +1,7 @@
 package fi.valtakausi.craftjs.api;
 
 import java.nio.charset.StandardCharsets;
+import java.util.function.Consumer;
 
 import org.graalvm.polyglot.PolyglotException;
 
@@ -11,18 +12,23 @@ public class JavaInterop {
 	}
 	
 	/**
-	 * Handles {@link PolyglotException polyglot} errors thrown by given
-	 * function by returning them as JS errors.
-	 * @param func Function to call.
-	 * @return Error converted for JS usage, or null if nothing was thrown.
+	 * Executes a function while catching polyglot exceptions thrown by it.
+	 * Java exceptions that don't pass at least one layer of JS are not caught.
+	 * @param func A function.
+	 * @param handler Function to call when an exception occurs.
+	 * @return The wrapped function.
 	 */
-	public JsError catchError(Runnable func) {
+	public void catchError(Runnable func, Consumer<JsError> handler) {
 		try {
 			func.run();
-			return null;
 		} catch (PolyglotException e) {
-			return new JsError(e);
+			handler.accept(new JsError(e));
 		}
+	}
+		
+	@FunctionalInterface
+	interface VarargsConsumer {
+		Object call(Object... args);
 	}
 	
 	public String systemProperty(String name) {
