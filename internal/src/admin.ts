@@ -3,8 +3,6 @@ import { runTests } from './test-runner';
 registerCommand(
   ['craftjs', 'js'],
   (sender, _alias, args) => {
-    console.log(_alias);
-    console.log(args);
     const action = args[0];
     if (action == 'reload') {
       const plugin = args[1];
