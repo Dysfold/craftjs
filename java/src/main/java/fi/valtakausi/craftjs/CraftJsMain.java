@@ -61,11 +61,12 @@ public class CraftJsMain extends JavaPlugin {
 		} catch (IOException e) {
 			throw new AssertionError("corrupted craftjs jar");
 		}
-		pluginManager = new JsPluginManager(this);
+		Path dir = getDataFolder().toPath();
+		pluginManager = new JsPluginManager(this, dir.getParent());
 		core = JsPlugin.createCraftJsCore(this);
 		
 		// Load JS plugins
-		pluginManager.loadInternalPlugin(this, "craftjs-internal");
+		pluginManager.loadInternalPlugin("craftjs-internal");
 		pluginManager.enablePlugins();
 	}
 	
@@ -135,14 +136,14 @@ public class CraftJsMain extends JavaPlugin {
 	
 	/**
 	 * Gets path to root of internal CraftJS plugin. Normally, this will be
-	 * inside CraftJS jar. For development, it could be inside normal plugins
-	 * directory.
+	 * inside CraftJS jar. For development, it could be inside an override
+	 * directory in host file system.
 	 * @param name Internal plugin name.
 	 * @return Path to plugin root.
 	 */
 	public Path getInternalPlugin(String name) {
-		Path override = getDataFolder().toPath().resolve(name);
-		if (Files.exists(override)) {
+		Path override = getDataFolder().toPath().resolve("override").resolve(name);
+		if (Files.isDirectory(override)) {
 			return override;
 		} else {
 			return jarFs.getPath(name);

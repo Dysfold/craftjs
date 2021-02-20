@@ -30,6 +30,15 @@ public class JsPluginLoader implements PluginLoader {
 		this.craftjs = craftjs;
 	}
 	
+	public boolean isJsPlugin(Path pluginPath) {
+		if (Files.isDirectory(pluginPath)) {
+			// If package.json is present, this is probably JS plugin
+			// If this is not enough, consider adding a custom property to it
+			return Files.exists(pluginPath.resolve("package.json"));
+		}
+		return false; // TODO plugin bundles
+	}
+	
 	private Path getRootDir(Path pluginPath) {
 		if (Files.isDirectory(pluginPath)) {
 			return pluginPath;
@@ -52,7 +61,7 @@ public class JsPluginLoader implements PluginLoader {
 			throw new InvalidPluginException("missing plugin: " + path);
 		}
 		Path rootDir = getRootDir(path);
-		Path dataDir = null; // TODO should ask team for opinions on this
+		Path dataDir = rootDir.resolve("data"); // TODO plugin bundles
 		PackageJson manifest;
 		try {
 			manifest = loadManifest(rootDir.resolve("package.json"));

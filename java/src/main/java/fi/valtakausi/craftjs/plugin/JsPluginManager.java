@@ -16,14 +16,19 @@ import fi.valtakausi.craftjs.CraftJsMain;
 public class JsPluginManager {
 	
 	/**
+	 * CraftJS plugin main.
+	 */
+	private final CraftJsMain craftjs;
+	
+	/**
 	 * CraftJS logger.
 	 */
 	private final Logger log;
 	
 	/**
-	 * 'craftjs' directory. Directories under this are loaded as JS plugins.
+	 * The main plugin directory.
 	 */
-	private final Path pluginDir;
+	private final Path pluginsDir;
 	
 	/**
 	 * Our plugin loader.
@@ -40,9 +45,10 @@ public class JsPluginManager {
 	 */
 	private final Map<String, JsPlugin> internalPlugins;
 	
-	public JsPluginManager(CraftJsMain craftjs) {
+	public JsPluginManager(CraftJsMain craftjs, Path pluginDir) {
+		this.craftjs = craftjs;
 		this.log = craftjs.getLogger();
-		this.pluginDir = craftjs.getDataFolder().toPath();
+		this.pluginsDir = pluginDir;
 		this.loader = new JsPluginLoader(craftjs);
 		this.plugins = new HashMap<>();
 		this.internalPlugins = new HashMap<>();
@@ -53,31 +59,29 @@ public class JsPluginManager {
 		return internalPlugins.computeIfAbsent(name, plugins::get);
 	}
 	
-	public void loadInternalPlugin(CraftJsMain craftjs, String name) {
+	public void loadInternalPlugin(String name) {
+		// Load from CraftJS jar or override directory
 		Path rootDir = craftjs.getInternalPlugin(name);
 		
-		// If path we got is in jar, load this as internal plugin
-		// Otherwise, treat the override as normal plugin
-		if (!rootDir.startsWith(craftjs.getDataFolder().toPath())) {
-			try {
-				JsPlugin plugin = loader.loadPlugin(rootDir);
-				internalPlugins.put(name, plugin);
-				enablePlugin(plugin);
-			} catch (UnknownDependencyException | InvalidPluginException e) {
-				throw new AssertionError("failed to load internal plugin: " + name, e);
-			}
+		// Load it, wherever it is
+		try {
+			JsPlugin plugin = loader.loadPlugin(rootDir);
+			internalPlugins.put(name, plugin);
+			enablePlugin(plugin);
+		} catch (UnknownDependencyException | InvalidPluginException e) {
+			throw new AssertionError("failed to load internal plugin: " + name, e);
 		}
 	}
 	
 	private void discoverPlugins() {
 		plugins.clear();
-		if (!Files.exists(pluginDir)) {
-			return; // Probably no plugins to be found
+		if (!Files.exists(pluginsDir)) {
+			return; // Shouldn't happen, but if it does -> no plugins to load
 		}
 		
-		// Iterate over available plugins
+		// Iterate over potential JS plugins
 		try {
-			Files.list(pluginDir).forEach(path -> {
+			Files.list(pluginsDir).forEach(path -> {
 				JsPlugin plugin = discoverPlugin(path);
 				if (plugin != null) {
 					plugins.put(plugin.getName(), plugin);
@@ -90,9 +94,8 @@ public class JsPluginManager {
 	}
 	
 	private JsPlugin discoverPlugin(Path path) {
-		String fileName = path.getFileName().toString();
-		if (fileName.equals("craftjs-core") || fileName.equals("databases")) {
-			return null; // Not regular plugin, don't load it
+		if (!loader.isJsPlugin(path)) {
+			return null; // Not a (JS) plugin
 		}
 		try {
 			return loader.loadPlugin(path.toFile());
@@ -136,7 +139,7 @@ public class JsPluginManager {
 			
 			// Remove and re-discover, package.json MIGHT have changed
 			plugins.remove(name);
-			plugin = discoverPlugin(pluginDir.resolve(name));
+			plugin = discoverPlugin(pluginsDir.resolve(name));
 			if (plugin == null) {
 				return false;
 			}

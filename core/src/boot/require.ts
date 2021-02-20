@@ -270,7 +270,10 @@ function __pluginEntrypoint(entrypoint: string): boolean {
   // Wrap require() to catch errors that might occur when loading plugin
   let errored = false;
   __interop.catchError(
-    () => require(entrypoint),
+    () => {
+      (globalThis as any).currentPlugin = __craftjs.plugin;
+      require(entrypoint);
+    },
     (error) => {
       errored = true;
       log.error(`Failed to load the entrypoint: ${entrypoint}`);

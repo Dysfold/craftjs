@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Path } from 'java.nio.file';
+import { Plugin } from 'org.bukkit.plugin';
 
 // Don't export internal code
 require('./boot/sourcemap');
@@ -16,8 +17,14 @@ export * as chat from './chat';
 // Testing is quite high-level functionality, might use other APIs
 export * from './testing/index';
 
-// Export our require to globals
+// Export our require (and currentPlugin) to globals
 // (don't export an import, we can't require the require implementation)
 declare global {
-  function require(id: string, relative?: string | Path): any;
+  function require(id: string, relative?: string | Path): void;
+
+  /**
+   * Currently executing JS plugin. This is NOT an instance of the
+   * CraftJS Java plugin.
+   */
+  const currentPlugin: Plugin;
 }
