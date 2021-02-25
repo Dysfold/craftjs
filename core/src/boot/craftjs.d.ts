@@ -148,6 +148,13 @@ declare global {
      * @returns Property value, or null if it is not set.
      */
     systemProperty(name: string): string | null;
+
+    /**
+     * Performs an explicit conversion to double.
+     * @param value JS number.
+     * @returns JS number explicitly as Java double.
+     */
+    toDouble(value: number): number;
   };
 
   /**

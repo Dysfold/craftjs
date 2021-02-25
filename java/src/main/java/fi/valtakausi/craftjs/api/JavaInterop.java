@@ -34,5 +34,16 @@ public class JavaInterop {
 	public String systemProperty(String name) {
 		return System.getProperty(name);
 	}
+	
+	/**
+	 * Ensures that the given JS number will stay a Java double when passed
+	 * to Java side. This may be needed to call certain APIs with generic
+	 * types (e.g. Bukkit persistent data).
+	 * @param value JS number (converted to double).
+	 * @return Number that will stay double.
+	 */
+	public double toDouble(double value) {
+		return value;
+	}
 
 }

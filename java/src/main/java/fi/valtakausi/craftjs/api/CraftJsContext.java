@@ -1,7 +1,6 @@
 package fi.valtakausi.craftjs.api;
 
 import java.io.IOException;
-import java.lang.ref.WeakReference;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
