@@ -130,12 +130,10 @@ function mapLineToSource(
     // line.file is relative path to JS file under dist
     // Normalize and relativize it against plugin root
     const pluginRoot = __craftjs.getPluginRoot(plugin);
-    console.log(pluginRoot);
     const sourceFile = pluginRoot
       .resolve(file)
       .parent.resolve(result.file)
       .normalize();
-    console.log(sourceFile);
     result.file = pluginRoot.relativize(sourceFile).toString();
 
     // If we somehow didn't get rid of ../ at beginning, strip it out
