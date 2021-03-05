@@ -93,20 +93,37 @@ function formatError(error: JsError): string {
   return text;
 }
 
+function logError(error: Error, msg: string) {
+  // Turn normal Error into introspectable JsError
+  const jsError = __interop.catchError(() => {
+    throw error;
+  });
+
+  // During early startup, logging might not be available yet
+  const logger = 'log' in globalThis ? log.error : console.error;
+  logger(msg); // Log user-specified message before error and stack trace
+  logger(formatError(jsError as JsError)); // TS compiler doesn't know that jsError is never null
+}
+
 function catchAndLogError<A extends any[], R>(
-  func: (...arg: A) => R,
+  func: (...arg: A) => R | Promise<R>,
   msg: string,
 ): (...args: A) => R | undefined {
-  const errorHandler = (error: JsError) => {
-    // During early startup, logging might not be available yet
-    const logger = 'log' in globalThis ? log.error : console.error;
-    logger(msg);
-    logger(formatError(error));
-  };
   return (...args) => {
-    let ret: R | undefined = undefined;
-    __interop.catchError(() => (ret = func(...args)), errorHandler);
-    return ret;
+    try {
+      const ret = func(...args);
+      // async functions need special handling to catch errors
+      if (ret && 'catch' in ret) {
+        ret.catch((e) => {
+          logError(e, msg);
+        });
+        return undefined; // TODO support async returns
+      } else {
+        return ret;
+      }
+    } catch (e) {
+      logError(e, msg);
+    }
   };
 }
 globalThis.catchAndLogError = catchAndLogError;
@@ -120,6 +137,13 @@ declare global {
   function formatError(error: JsError): string;
 
   /**
+   * Logs an error to console.
+   * @param error The error.
+   * @param msg Message to log above the error.
+   */
+  function logError(error: Error, msg: string): void;
+
+  /**
    * Wraps a function to catch and log errors thrown by it.
    * The function returns undefined when an error has been thrown and caught.
    * @param func Function that might throw an error.
@@ -127,7 +151,7 @@ declare global {
    * @returns A wrapped function.
    */
   function catchAndLogError<A extends any[], R>(
-    func: (...args: A) => R,
+    func: (...args: A) => R | Promise<R>,
     msg: string,
   ): (...args: A) => R | undefined;
 }

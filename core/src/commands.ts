@@ -127,28 +127,21 @@ function registerCommand(
     }
 
     // Call the user-provided handler
-    let internalError = false;
     let success: boolean | void = false;
-    __interop.catchError(
-      () => (success = handler(sender, alias, args)),
-      (error) => {
-        // Let the admins know
-        log.error(
-          `An internal error occurred during execution of command /${name}`,
-        );
-        log.error(formatError(error));
+    try {
+      success = handler(sender, alias, args);
+    } catch (e) {
+      // Let the admins know
+      logError(
+        e,
+        `An internal error occurred during execution of command /${name}`,
+      );
 
-        // Also tell the player
-        sender.sendMessage(
-          'An internal error occurred during the command execution.',
-        );
-        internalError = true;
-      },
-    );
-
-    // If an internal error occurred, don't call normal error handling
-    if (internalError) {
-      return false;
+      // Also tell the player
+      sender.sendMessage(
+        'An internal error occurred during the command execution.',
+      );
+      return false; // Skip normal error handling, this is not user error
     }
 
     // Handle failures if false was explicitly returned

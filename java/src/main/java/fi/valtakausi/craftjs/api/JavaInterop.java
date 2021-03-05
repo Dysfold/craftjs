@@ -15,20 +15,15 @@ public class JavaInterop {
 	 * Executes a function while catching polyglot exceptions thrown by it.
 	 * Java exceptions that don't pass at least one layer of JS are not caught.
 	 * @param func A function.
-	 * @param handler Function to call when an exception occurs.
-	 * @return The wrapped function.
+	 * @return An error, or null if no error occurred.
 	 */
-	public void catchError(Runnable func, Consumer<JsError> handler) {
+	public JsError catchError(Runnable func) {
 		try {
 			func.run();
+			return null;
 		} catch (PolyglotException e) {
-			handler.accept(new JsError(e));
+			return new JsError(e);
 		}
-	}
-		
-	@FunctionalInterface
-	interface VarargsConsumer {
-		Object call(Object... args);
 	}
 	
 	public String systemProperty(String name) {

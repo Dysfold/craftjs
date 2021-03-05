@@ -138,9 +138,8 @@ declare global {
      * Unlike normal try-catch, the resulting JsError provides stack-walking
      * support which allows e.g. source maps to be used.
      * @param func A function to wrap.
-     * @param handler Error handler.
      */
-    catchError<A, R>(func: () => void, handler: (error: JsError) => void): void;
+    catchError<A, R>(func: () => void): JsError | null;
 
     /**
      * Gets a JVM system property.
