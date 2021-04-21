@@ -12,7 +12,7 @@
     "outDir": "./dist",
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "typeRoots": ["node_modules/@bensku", "node_modules/craftjs"],
+    "typeRoots": ["node_modules/@craftjs-types"],
     "inlineSourceMap": true
   },
   "include": [
