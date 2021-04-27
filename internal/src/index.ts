@@ -20,6 +20,12 @@ declare global {
      * @returns Return value. Non-primitive JS values are not supported!
      */
     callForeign(plugin: string, func: string, ...args: unknown[]): unknown;
+
+    /**
+     * Lists JS plugin names.
+     * @returns JS plugin names, excluding internal plugins.
+     */
+    listPlugins(): string[];
   };
 }
 

@@ -37,5 +37,13 @@ registerCommand(
   reload <plugin> - Reload a JS plugin
   test <plugin> - Run tests of a JS plugin
 `,
+    completer: (_sender, _alias, args) => {
+      if (args.length == 1) {
+        return ['reload', 'test'];
+      } else if (args.length == 2) {
+        return __internals.listPlugins();
+      }
+      return [];
+    },
   },
 );
