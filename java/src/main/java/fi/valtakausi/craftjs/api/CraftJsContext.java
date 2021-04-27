@@ -260,4 +260,8 @@ public class CraftJsContext {
 					});
 		};
 	}
+	
+	public boolean packageExists(String name) {
+		return craftjs.getPackageLookup().exists(name);
+	}
 }

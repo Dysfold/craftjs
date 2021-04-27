@@ -10,10 +10,6 @@ const FilesType: typeof Files = Java.type('java.nio.file.Files');
 const PathType: typeof Path = Java.type('java.nio.file.Path');
 const PackageType: typeof Package = Java.type('java.lang.Package');
 
-// declare global {
-//   const __zoraHarness: import('zora').TestHarness;
-// }
-
 class ModuleNotFoundError extends Error {
   constructor(module: string, parent: Path) {
     super(`Module '${module}' could not be resolved from ${parent}`);
@@ -38,12 +34,7 @@ function resolvePackage(name: string): JavaPackage | null {
 
   // Check if the package actually exists
   // Iterating GraalJS packages produces empty packages when it doesn't
-  if (
-    !PackageType.getPackage(name) &&
-    !name.startsWith('net.md_5.bungee.api')
-  ) {
-    // FIXME Package.getPackage() works for current ClassLoader only
-    // Add Bungeecord chat API as special case until we have a better solution
+  if (!__craftjs.packageExists(name)) {
     return null;
   }
 

@@ -7,6 +7,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.HostAccess;
@@ -34,6 +35,7 @@ public class CraftJsMain extends JavaPlugin {
 		return Context.newBuilder("js")
 				.allowHostClassLookup(className -> true) // Allow loading all classes
 				.allowHostAccess(hostAccess)
+				.hostClassLoader(CraftJsMain.class.getClassLoader()) // Needed for loading classes from plugins
 				.allowExperimentalOptions(true)
 				.option("js.foreign-object-prototype", "true") // Java List - JS array compatibility
 				.option("js.nashorn-compat", "true"); // For native JS getter/setter compatibility
@@ -45,14 +47,19 @@ public class CraftJsMain extends JavaPlugin {
 	private FileSystem jarFs;
 	
 	/**
+	 * JS plugin manager.
+	 */
+	private JsPluginManager pluginManager;
+	
+	/**
 	 * Core pseudo-plugin that is loaded to every JS plugin context.
 	 */
 	private JsPlugin core;
 	
 	/**
-	 * JS plugin manager.
+	 * Package lookup, to be exposed to core JS code.
 	 */
-	private JsPluginManager pluginManager;
+	private PackageLookup packageLookup;
 	
 	@Override
 	public void onEnable() {
@@ -62,8 +69,9 @@ public class CraftJsMain extends JavaPlugin {
 			throw new AssertionError("corrupted craftjs jar");
 		}
 		Path dir = getDataFolder().toPath();
-		pluginManager = new JsPluginManager(this, dir.getParent());
+		pluginManager = new JsPluginManager(this, dir.getParent()); // Must exist before core is created
 		core = JsPlugin.createCraftJsCore(this);
+		packageLookup = PackageLookup.create(Bukkit.getPluginManager().getPlugins());
 		
 		// Load JS plugins
 		pluginManager.loadInternalPlugin("craftjs-internal");
@@ -152,5 +160,9 @@ public class CraftJsMain extends JavaPlugin {
 	
 	public Path getDatabaseDir() {
 		return getDataFolder().toPath().resolve("databases");
+	}
+	
+	public PackageLookup getPackageLookup() {
+		return packageLookup;
 	}
 }

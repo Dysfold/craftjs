@@ -121,6 +121,12 @@ declare global {
       payload: string | undefined,
       headers: string[],
     ): Promise<HttpResponse<string>>;
+
+    /**
+     * Checks if the given Java package exist in currently running JVM.
+     * @param name Fully qualified package name.
+     */
+    packageExists(name: string): boolean;
   };
 
   /**
