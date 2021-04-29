@@ -32,7 +32,11 @@ function resolvePackage(name: string): JavaPackage | null {
 
   // Check if the package actually exists
   // Iterating GraalJS packages produces empty packages when it doesn't
-  if (!__craftjs.packageExists(name)) {
+  // FIXME figure out why we STILL need special case for Bungeecord chat
+  if (
+    !__craftjs.packageExists(name) &&
+    !name.startsWith('net.md_5.bungee.api')
+  ) {
     return null;
   }
 
