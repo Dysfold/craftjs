@@ -1,5 +1,4 @@
 import { Files, Path } from 'java.nio.file';
-import { Package } from 'java.lang';
 
 // BEWARE: require() and friends have not been defined yet
 // We CAN import things to use them as types (as shown above)
@@ -8,7 +7,6 @@ import { Package } from 'java.lang';
 // If needed, use Java.type directly as workaround
 const FilesType: typeof Files = Java.type('java.nio.file.Files');
 const PathType: typeof Path = Java.type('java.nio.file.Path');
-const PackageType: typeof Package = Java.type('java.lang.Package');
 
 class ModuleNotFoundError extends Error {
   constructor(module: string, parent: Path) {

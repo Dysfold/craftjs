@@ -25,7 +25,7 @@ class TestSuite {
  */
 let suite: TestSuite | null;
 
-export function test(name: string, handler: TestFunction) {
+export function test(name: string, handler: TestFunction): void {
   if (!suite) {
     throw new Error('test() used outside of a test');
   }

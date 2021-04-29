@@ -23,7 +23,7 @@ export class Assert {
     });
   }
 
-  equal<A, E>(actual: A, expected: E, message: string) {
+  equal<A, E>(actual: A, expected: E, message: string): void {
     // Deep equality from fast-deep-equal
     if (equal(actual, expected)) {
       this.success(message);
@@ -33,11 +33,11 @@ export class Assert {
     }
   }
 
-  eq<A, E>(actual: A, expected: E, message: string) {
+  eq<A, E>(actual: A, expected: E, message: string): void {
     this.equal(actual, expected, message);
   }
 
-  notEqual<A, E>(actual: A, expected: E, message: string) {
+  notEqual<A, E>(actual: A, expected: E, message: string): void {
     // Deep equality from fast-deep-equal
     if (!equal(actual, expected)) {
       this.success(message);
@@ -47,11 +47,11 @@ export class Assert {
     }
   }
 
-  notEq<A, E>(actual: A, expected: E, message: string) {
+  notEq<A, E>(actual: A, expected: E, message: string): void {
     this.notEqual(actual, expected, message);
   }
 
-  is<A, E>(actual: A, expected: E, message: string) {
+  is<A, E>(actual: A, expected: E, message: string): void {
     if (Object.is(actual, expected)) {
       this.success(message);
     } else {
@@ -59,7 +59,7 @@ export class Assert {
     }
   }
 
-  isNot<A, E>(actual: A, expected: E, message: string) {
+  isNot<A, E>(actual: A, expected: E, message: string): void {
     if (!Object.is(actual, expected)) {
       this.success(message);
     } else {
@@ -67,7 +67,7 @@ export class Assert {
     }
   }
 
-  truthy(actual: unknown, message: string) {
+  truthy(actual: unknown, message: string): void {
     if (actual) {
       this.success(message);
     } else {
@@ -75,7 +75,7 @@ export class Assert {
     }
   }
 
-  falsy(actual: unknown, message: string) {
+  falsy(actual: unknown, message: string): void {
     if (!actual) {
       this.success(message);
     } else {
@@ -83,7 +83,7 @@ export class Assert {
     }
   }
 
-  throws(func: () => void, expected: Throwable, message: string) {
+  throws(func: () => void, expected: Throwable, message: string): void {
     const error = __interop.catchError(func);
     if (error) {
       // Java classes won't have name property like JS classes/constructors
@@ -102,7 +102,7 @@ export class Assert {
     }
   }
 
-  doesNotThrow(func: () => void, message: string) {
+  doesNotThrow(func: () => void, message: string): void {
     const error = __interop.catchError(func);
     if (!error) {
       this.success(message);

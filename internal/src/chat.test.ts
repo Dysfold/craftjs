@@ -15,7 +15,6 @@ import {
   TranslatableComponent,
 } from 'net.md_5.bungee.api.chat';
 import { Action as ClickAction } from 'net.md_5.bungee.api.chat.ClickEvent';
-import { Text } from 'net.md_5.bungee.api.chat.hover.content';
 import { Action as HoverAction } from 'net.md_5.bungee.api.chat.HoverEvent';
 import { Bukkit } from 'org.bukkit';
 

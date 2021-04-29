@@ -1,13 +1,13 @@
 import { HttpResponse } from 'java.net.http';
 import { Path } from 'java.nio.file';
-import { Map } from 'java.util';
 import { CommandSender } from 'org.bukkit.command';
 import { Event, EventPriority } from 'org.bukkit.event';
 import { Plugin } from 'org.bukkit.plugin';
+import { Table } from '../database';
 import { JsError } from './errors';
 
 declare interface InternalDb {
-  getTable(name: string): Map<any, any>;
+  getTable(name: string): Table<any, any>;
 }
 
 declare global {
@@ -145,7 +145,7 @@ declare global {
      * support which allows e.g. source maps to be used.
      * @param func A function to wrap.
      */
-    catchError<A, R>(func: () => void): JsError | null;
+    catchError(func: () => void): JsError | null;
 
     /**
      * Gets a JVM system property.

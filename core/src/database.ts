@@ -1,4 +1,4 @@
-import { Map } from 'java.util';
+import { Iterable } from 'java.lang';
 import { InternalDb } from './boot/craftjs';
 
 /**
@@ -16,38 +16,85 @@ export class Database {
    * @param name Table name.
    */
   getTable(name: string): Table<any, any> {
-    return new Table(this.impl.getTable(name));
+    return this.impl.getTable(name);
   }
 }
 
 /**
- * A single database table storing key-value pairs.
+ * Types directly supported by CraftJS's key-value database API.
  */
-export class Table<K, V> {
-  map: Map<K, V>;
+export type DatabaseType = string | number;
 
-  constructor(map: Map<K, V>) {
-    this.map = map;
-  }
+/**
+ * A CraftJS database API table;
+ * an ordered key-value storage backed by disk storage.
+ */
+export declare class Table<
+  K extends DatabaseType,
+  V extends DatabaseType
+> extends Iterable<[K, V]> {
+  /**
+   * Gets current size of this table.
+   * @returns Amount of entries in table.
+   */
+  get size(): number;
 
-  clear(): void {
-    this.map.clear();
-  }
+  /**
+   * Clears this table. Data in it is LOST!
+   */
+  clear(): void;
 
-  delete(key: K): boolean {
-    return this.map.remove(key) != null;
-  }
+  /**
+   * Deletes an entry from this table.
+   * @param key Key to delete.
+   * @returns Whether or not an entry existed before deletion.
+   */
+  delete(key: K): boolean;
 
-  get(key: K): V | null {
-    return this.map.get(key);
-  }
+  /**
+   * Gets a value from this table.
+   * @param key Key for value.
+   * @returns The value, or null if no value with given key exists.
+   */
+  get(key: K): V | null;
 
-  has(key: K): boolean {
-    return this.map.containsKey(key);
-  }
+  /**
+   * Checks if this table has the given key.
+   * @param key A key.
+   */
+  has(key: K): boolean;
 
-  set(key: K, value: V): Table<K, V> {
-    this.map.put(key, value);
-    return this;
-  }
+  /**
+   * Sets a value to this table.
+   * @param key Key for value.
+   * @param value The value.
+   * @returns This table, for easily chaining set()s.
+   */
+  set(key: K, value: V): Table<K, V>;
+
+  /**
+   * Gets a cursor to this table at the given key.
+   * @param from First key to include in iteration
+   * @returns A cursor that can be used to iterate values in this table from
+   * given starting point key.
+   */
+  cursor(from: K): Iterable<[K, V]>;
+
+  /**
+   * Gets keys of this table.
+   * @returns Iterable keys.
+   */
+  keys(): Iterable<K>;
+
+  /**
+   * Gets values of this table.
+   * @returns Iterable values.
+   */
+  values(): Iterable<V>;
+
+  /**
+   * Gets key-value entries of this table.
+   * @returns Table entries.
+   */
+  entries(): Iterable<[K, V]>;
 }

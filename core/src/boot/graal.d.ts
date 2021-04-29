@@ -47,21 +47,21 @@ declare global {
      * @param javaType Java type to convert it to.
      * @returns Java object.
      */
-    static to(value: any, javaType: object): object;
+    static to(value: any, javaType: any): any;
 
     /**
      * Checks if a value is Java object or native JavaScript value.
      * @param value Value to check.
      * @returns If it is a Java object.
      */
-    static isJavaObject(value: object): boolean;
+    static isJavaObject(value: any): boolean;
 
     /**
      * Checks if a value is Java class instance (type).
      * @param value Value to check.
      * @returns If it is a Java class instance.
      */
-    static isType(value: object): boolean;
+    static isType(value: any): boolean;
 
     /**
      * Gets type name of given Java class instance.
@@ -69,7 +69,7 @@ declare global {
      * @returns Type name of given class instance, or undefined if a value that
      * is not a class instance was given.
      */
-    static typeName(value: object): string | undefined;
+    static typeName(value: any): string | undefined;
   }
 
   /**
@@ -81,7 +81,7 @@ declare global {
    * Contains sub-packages and Java classes.
    */
   interface JavaPackage {
-    [name: string]: Package | object;
+    [name: string]: Package | any;
   }
 }
 

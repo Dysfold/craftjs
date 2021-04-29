@@ -1,8 +1,6 @@
 package fi.valtakausi.craftjs.api;
 
 import java.nio.charset.StandardCharsets;
-import java.util.function.Consumer;
-
 import org.graalvm.polyglot.PolyglotException;
 
 public class JavaInterop {

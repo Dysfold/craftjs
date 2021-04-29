@@ -24,6 +24,7 @@ import org.graalvm.polyglot.Source;
 import org.graalvm.polyglot.Value;
 
 import fi.valtakausi.craftjs.CraftJsMain;
+import fi.valtakausi.craftjs.api.database.Database;
 import fi.valtakausi.craftjs.plugin.JsPlugin;
 import fi.valtakausi.craftjs.plugin.JsPluginCommand;
 import fi.valtakausi.craftjs.plugin.JsPluginCommand.CommandHandler;
