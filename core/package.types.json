@@ -1,12 +1,12 @@
 {
   "name": "craftjs-plugin",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "",
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "@craftjs-types/paper": "latest"
+  "peerDependencies": {
+    "@craftjs-types/paper": "*"
   },
   "repository": {
     "type": "git",
