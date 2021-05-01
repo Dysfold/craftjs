@@ -1,4 +1,5 @@
 import { Iterable } from 'java.lang';
+import { UUID } from 'java.util';
 import { InternalDb } from './boot/craftjs';
 
 /**
@@ -23,7 +24,7 @@ export class Database {
 /**
  * Types directly supported by CraftJS's key-value database API.
  */
-export type DatabaseType = string | number;
+export type DatabaseType = string | number | UUID;
 
 /**
  * A CraftJS database API table;
