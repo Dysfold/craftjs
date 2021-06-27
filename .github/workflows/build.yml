@@ -8,6 +8,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: zulu
+          java-version: 16
       - name: Build CraftJS
         run: |
           npm install --prefix=core
@@ -24,7 +28,9 @@ jobs:
     steps:
       - uses: DeLaGuardo/setup-graalvm@master
         with:
-          graalvm-version: "21.0.0.java11"
+          graalvm: '21.1.0'
+          java: java16
+          arch: amd64
       - uses: actions/download-artifact@v2
         with:
           name: craftjs.jar
@@ -32,7 +38,7 @@ jobs:
         run: |
           mkdir plugins
           mv craftjs.jar plugins
-          wget -c https://papermc.io/api/v1/paper/1.16.5/631/download -O paper.jar
+          wget -c https://papermc.io/api/v2/projects/paper/versions/1.17/builds/53/downloads/paper-1.17-53.jar -O paper.jar
       - name: Run tests
         run: |
           java -Dcom.mojang.eula.agree=true -Dcraftjs.runTests=craftjs-internal -jar paper.jar

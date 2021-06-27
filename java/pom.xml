@@ -13,7 +13,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.release>16</maven.compiler.release>
   </properties>
 
   <repositories>
@@ -31,7 +31,7 @@
     <dependency>
       <groupId>org.graalvm.sdk</groupId>
       <artifactId>graal-sdk</artifactId>
-      <version>21.0.0</version>
+      <version>21.1.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -40,9 +40,9 @@
       <version>1.4.200</version>
     </dependency>
     <dependency>
-      <groupId>com.destroystokyo.paper</groupId>
+      <groupId>io.papermc.paper</groupId>
       <artifactId>paper-api</artifactId>
-      <version>1.16.1-R0.1-SNAPSHOT</version>
+      <version>1.17-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>

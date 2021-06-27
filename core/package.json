@@ -16,7 +16,6 @@
     "vlq": "^1.0.1"
   },
   "devDependencies": {
-    "@craftjs-types/bungeecord-chat": "^1.16.4-d0882a3",
     "@craftjs-types/java.base": "^11.0.8-2d836a4",
     "@craftjs-types/java.net.http": "^11.0.8-2d836a4",
     "@craftjs-types/paper": "^1.16.5-d0882a3",

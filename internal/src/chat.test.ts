@@ -7,22 +7,24 @@ import {
   tooltip,
   translate,
 } from 'craftjs-plugin/chat';
-import { ChatColor } from 'net.md_5.bungee.api';
+import { Component } from 'net.kyori.adventure.text';
+import { ClickEvent, HoverEvent } from 'net.kyori.adventure.text.event';
+import { Action as ClickAction } from 'net.kyori.adventure.text.event.ClickEvent';
 import {
-  ClickEvent,
-  HoverEvent,
-  TextComponent,
-  TranslatableComponent,
-} from 'net.md_5.bungee.api.chat';
-import { Action as ClickAction } from 'net.md_5.bungee.api.chat.ClickEvent';
-import { Action as HoverAction } from 'net.md_5.bungee.api.chat.HoverEvent';
+  NamedTextColor,
+  TextColor,
+  TextDecoration,
+} from 'net.kyori.adventure.text.format';
 import { Bukkit } from 'org.bukkit';
 
 test('base components', (t) => {
-  t.eq(text('test string'), new TextComponent('test string'), 'text component');
+  t.eq(text('test string'), Component.text('test string'), 'text component');
   t.eq(
     translate('foo.bar', 'arg', 'another'),
-    new TranslatableComponent('foo.bar', 'arg', 'another'),
+    Component.translatable()
+      .key('foo.bar')
+      .args(Component.text('arg'), Component.text('another'))
+      .build(),
     'translatable component',
   );
   t.doesNotThrow(
@@ -32,21 +34,34 @@ test('base components', (t) => {
 });
 
 test('chat colors', (t) => {
-  const basic = new TextComponent('colored');
-  basic.color = ChatColor.AQUA;
-  t.eq(color(ChatColor.AQUA, text('colored')), basic, 'basic ChatColor');
+  const basic = Component.text('colored', NamedTextColor.AQUA);
+  t.eq(color(NamedTextColor.AQUA, text('colored')), basic, 'basic ChatColor');
 
-  const rgb = new TextComponent('colored');
-  rgb.color = ChatColor.of('#001122');
+  const rgb = Component.text('colored', TextColor.fromCSSHexString('#001122'));
   t.eq(color('#001122', text('colored')), rgb, '1.16+ RGB ChatColor');
 });
 
 test('chat styles', (t) => {
-  t.truthy(style('bold').bold, 'bold text');
-  t.truthy(style('italic').italic, 'italic text');
-  t.truthy(style('obfuscated').obfuscated, 'obfuscated text');
-  t.truthy(style('strikethrough').strikethrough, 'strikethrough text');
-  t.truthy(style('underlined').underlined, 'underlined text');
+  t.truthy(
+    style('bold').style().hasDecoration(TextDecoration.BOLD),
+    'bold text',
+  );
+  t.truthy(
+    style('italic').style().hasDecoration(TextDecoration.ITALIC),
+    'italic text',
+  );
+  t.truthy(
+    style('obfuscated').style().hasDecoration(TextDecoration.OBFUSCATED),
+    'obfuscated text',
+  );
+  t.truthy(
+    style('strikethrough').style().hasDecoration(TextDecoration.STRIKETHROUGH),
+    'strikethrough text',
+  );
+  t.truthy(
+    style('underlined').style().hasDecoration(TextDecoration.UNDERLINED),
+    'underlined text',
+  );
 });
 
 test('click events', (t) => {
@@ -55,20 +70,20 @@ test('click events', (t) => {
     'https://github.com',
     text('click this!'),
   );
-  const expected = new TextComponent('click this!');
-  expected.clickEvent = new ClickEvent(
-    ClickAction.OPEN_URL,
-    'https://github.com',
-  );
+  const expected = Component.text()
+    .content('click this!')
+    .clickEvent(
+      ClickEvent.clickEvent(ClickAction.OPEN_URL, 'https://github.com'),
+    )
+    .build();
   t.eq(actual, expected, 'text with click event');
 });
 
 test('hover events', (t) => {
   const actual = tooltip(text('tooltip text'), text('other text'));
-  const expected = new TextComponent('other text');
-  expected.hoverEvent = new HoverEvent(
-    HoverAction.SHOW_TEXT,
-    actual.hoverEvent.contents,
-  );
+  const expected = Component.text()
+    .content('other text')
+    .hoverEvent(HoverEvent.showText(Component.text('tooltip text')))
+    .build();
   t.eq(actual, expected, 'tooltip text');
 });

@@ -38,7 +38,8 @@ public class CraftJsMain extends JavaPlugin {
 				.hostClassLoader(CraftJsMain.class.getClassLoader()) // Needed for loading classes from plugins
 				.allowExperimentalOptions(true)
 				.option("js.foreign-object-prototype", "true") // Java List - JS array compatibility
-				.option("js.nashorn-compat", "true"); // For native JS getter/setter compatibility
+				.option("js.nashorn-compat", "true") // For native JS getter/setter compatibility
+				.option("js.ecmascript-version", "2021"); // Nashorn compat might default to old JS version
 	}
 	
 	/**
@@ -64,7 +65,7 @@ public class CraftJsMain extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		try {
-			jarFs = FileSystems.newFileSystem(getFile().toPath(), null);
+			jarFs = FileSystems.newFileSystem(getFile().toPath(), (ClassLoader) null);
 		} catch (IOException e) {
 			throw new AssertionError("corrupted craftjs jar");
 		}
