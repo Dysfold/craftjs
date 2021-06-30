@@ -10,7 +10,9 @@ const PathType: typeof Path = Java.type('java.nio.file.Path');
 
 class ModuleNotFoundError extends Error {
   constructor(module: string, parent: Path) {
-    super(`Module '${module}' could not be resolved from ${parent}`);
+    super(
+      `Module '${module}' could not be resolved from ${parent.normalize()}`,
+    );
     this.name = 'ModuleNotFoundError';
   }
 }
@@ -32,10 +34,10 @@ function resolvePackage(name: string): JavaPackage | null {
 
   // Check if the package actually exists
   // Iterating GraalJS packages produces empty packages when it doesn't
-  // FIXME figure out why we STILL need special case for Bungeecord chat
+  // FIXME figure out why we STILL need special case for Adventure chat
   if (
     !__craftjs.packageExists(name) &&
-    !name.startsWith('net.md_5.bungee.api')
+    !name.startsWith('net.kyori.adventure.text')
   ) {
     return null;
   }
