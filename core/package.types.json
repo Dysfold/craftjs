@@ -1,6 +1,6 @@
 {
   "name": "craftjs-plugin",
-  "version": "0.3.3",
+  "version": "0.4.1",
   "description": "",
   "keywords": [],
   "author": "",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Valtakausi/craftjs.git",
+    "url": "https://github.com/Valtakausi/craftjs.git",
     "directory": "core/types"
   }
 }

@@ -42,6 +42,21 @@ function parent(components: ComponentText[]): Builder {
 }
 
 /**
+ * Wraps many chat componets to one component. If one component is given, this
+ * returns it as-is.
+ * @param components Components to wrap.
+ * @returns One chat component.
+ */
+export function component(...components: Component[]): Component {
+  if (components.length == 1) {
+    // Fast path: one component
+    // We don't need to create a builder in this case
+    return components[0];
+  }
+  return parent(components).build();
+}
+
+/**
  * Creates a text component.
  * @param content Plain text content.
  */
