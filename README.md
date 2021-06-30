@@ -7,9 +7,9 @@ CraftJS is in early development and has little documentation aside of the
 JS/Javadocs. No guarantees about API stability are provided.
 
 ## Requirements
-* Paper (Minecraft 1.16)
+* Paper (Minecraft 1.17)
   * Spigot would likely be trivial, will be considered later
-* GraalVM 21.0 (Java 11 version)
+* GraalVM 21.1 (Java 16 version)
   * Older known not to work, newer versions *might* be ok
 
 ## Usage
