@@ -37,7 +37,7 @@ function resolvePackage(name: string): JavaPackage | null {
   // FIXME figure out why we STILL need special case for Adventure chat
   if (
     !__craftjs.packageExists(name) &&
-    !name.startsWith('net.kyori.adventure.text')
+    !name.startsWith('net.kyori.adventure')
   ) {
     return null;
   }
