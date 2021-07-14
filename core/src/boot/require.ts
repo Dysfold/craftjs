@@ -136,16 +136,18 @@ const moduleCache: Map<string, any> = new Map();
 /**
  * Map of required Java packages.
  */
-const packageCache: Map<string, any> = new Map();
+const packageCache: Map<string, JavaPackage> = new Map();
 
 /**
  * Current require stack.
  */
 const stack: Path[] = [];
 
-// let __zoraHarness: any;
-
-function __require(id: string, relative?: string | Path): any {
+function __require(
+  id: string,
+  relative?: string | Path,
+  bypassCache = false,
+): any {
   // Special case for CraftJS core (it is installed to globals by Java code)
   if (id.startsWith('craftjs-plugin')) {
     let module = __craftjscore;
@@ -159,7 +161,7 @@ function __require(id: string, relative?: string | Path): any {
   id = overrides[id] ?? id;
 
   // Check cached Java packages, maybe this represents one...
-  if (packageCache.has(id)) {
+  if (!bypassCache && packageCache.has(id)) {
     return packageCache.get(id);
   }
 
@@ -181,7 +183,7 @@ function __require(id: string, relative?: string | Path): any {
 
   // Check cache as early as possible
   const cacheId = parent.resolve(id).normalize().toAbsolutePath().toString();
-  if (moduleCache.has(cacheId)) {
+  if (!bypassCache && moduleCache.has(cacheId)) {
     return moduleCache.get(cacheId);
   }
 
@@ -236,7 +238,11 @@ ${contents}
 
 // Export our require to globals
 declare global {
-  function require(id: string, relative?: string): any;
+  function require(
+    id: string,
+    relative?: string | Path,
+    bypassCache?: boolean,
+  ): any;
 }
 globalThis.require = __require;
 

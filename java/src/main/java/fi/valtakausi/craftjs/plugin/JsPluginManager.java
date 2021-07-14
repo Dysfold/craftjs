@@ -57,7 +57,7 @@ public class JsPluginManager {
 	
 	public JsPlugin getPlugin(String name) {
 		// Search both internal and normal plugins
-		return internalPlugins.computeIfAbsent(name, plugins::get);
+		return internalPlugins.getOrDefault(name, plugins.get(name));
 	}
 	
 	public void loadInternalPlugin(String name) {

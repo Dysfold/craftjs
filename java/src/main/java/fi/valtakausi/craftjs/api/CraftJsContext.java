@@ -162,6 +162,9 @@ public class CraftJsContext {
 	 * @return Return value.
 	 */
 	public Value call(String func, Object... args) {
+		if (context == null) {
+			throw new IllegalStateException("context not initialized");
+		}
 		Value bind = context.getBindings("js");
 		return bind.getMember(func).execute(args);
 	}

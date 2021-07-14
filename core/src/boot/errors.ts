@@ -45,7 +45,7 @@ function shouldEmitFrame(frame: FrameInfo): boolean {
   if (frame.javaFrame) {
     if (hiddenClasses.has(frame.source)) {
       return false;
-    } else if (frame.source.startsWith('com.sun.proxy')) {
+    } else if (frame.source.startsWith('jdk.proxy')) {
       return false;
     }
   } else {

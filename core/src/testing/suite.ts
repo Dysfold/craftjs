@@ -83,7 +83,8 @@ function runTests(out: CommandSender) {
 function runTestFile(file: Path, out: CommandSender): TestStats {
   // Initialize suite and load tests
   suite = new TestSuite(file);
-  require('./' + file.fileName.toString(), file.parent);
+  const module = './' + file.fileName.toString();
+  require(module, file.parent, true);
 
   // Figure out original TS file name for reporting
   // TODO this may be broken, take a look later
