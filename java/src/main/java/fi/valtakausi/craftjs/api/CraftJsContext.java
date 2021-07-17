@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Event;
@@ -25,6 +26,7 @@ import org.graalvm.polyglot.Value;
 
 import fi.valtakausi.craftjs.CraftJsMain;
 import fi.valtakausi.craftjs.api.database.Database;
+import fi.valtakausi.craftjs.api.websocket.WebSocketHandle;
 import fi.valtakausi.craftjs.plugin.JsPlugin;
 import fi.valtakausi.craftjs.plugin.JsPluginCommand;
 import fi.valtakausi.craftjs.plugin.JsPluginCommand.CommandHandler;
@@ -267,5 +269,11 @@ public class CraftJsContext {
 	
 	public boolean packageExists(String name) {
 		return craftjs.getPackageLookup().exists(name);
+	}
+	
+	public void openWebSocket(String address, Map<String, String> httpHeaders, Consumer<WebSocketHandle> success, Consumer<Exception> failure) {
+		URI uri = URI.create(address);
+		WebSocketHandle handle = new WebSocketHandle(plugin, uri, httpHeaders, success, failure);
+		handle.connect();
 	}
 }
