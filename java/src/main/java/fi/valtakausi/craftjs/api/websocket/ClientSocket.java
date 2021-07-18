@@ -8,12 +8,13 @@ import org.java_websocket.handshake.ServerHandshake;
 
 public class ClientSocket extends WebSocketClient {
 
-	private WebSocketHandle handle;
+	private final WebSocketHandle handle;
 	
 	private volatile boolean connected;
 		
-	public ClientSocket(URI serverUri, Map<String, String> httpHeaders) {
+	public ClientSocket(WebSocketHandle handle, URI serverUri, Map<String, String> httpHeaders) {
 		super(serverUri, httpHeaders);
+		this.handle = handle;
 	}
 
 	@Override

@@ -35,7 +35,7 @@ public class WebSocketHandle {
 	public WebSocketHandle(JsPlugin ownerPlugin, URI serverUri, Map<String, String> httpHeaders,
 			Consumer<WebSocketHandle> connectSuccess, Consumer<Exception> connectError) {
 		this.ownerPlugin = ownerPlugin;
-		this.socket = new ClientSocket(serverUri, httpHeaders);
+		this.socket = new ClientSocket(this, serverUri, httpHeaders);
 		this.connectSuccess = connectSuccess;
 		this.connectError = connectError;
 		this.receivedMessages = new ConcurrentLinkedQueue<>();

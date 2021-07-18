@@ -57,16 +57,17 @@ interface TestStats {
  * @param out Where the results should be sent.
  * @returns If all tests passed.
  */
-function runTests(out: CommandSender) {
+async function runTests(out: CommandSender): Promise<boolean> {
   const globalStats = { succeeded: 0, failed: 0, errored: 0 };
-  Files.walk(__craftjs.pluginRoot.resolve('dist')).forEach(((file: Path) => {
+  const files = Files.walk(__craftjs.pluginRoot.resolve('dist')).toList();
+  for (const file of files) {
     if (file.fileName.toString().endsWith('.test.js')) {
-      const stats = runTestFile(file, out);
+      const stats = await runTestFile(file, out);
       globalStats.succeeded += stats.succeeded;
       globalStats.failed += stats.failed;
       globalStats.errored += stats.errored;
     }
-  }) as any);
+  }
   out.sendMessage(
     `ALL: ${globalStats.errored} errored, ${globalStats.failed} failed, ${globalStats.succeeded} succeeded`,
   );
@@ -80,11 +81,11 @@ function runTests(out: CommandSender) {
  * @param out Result sink.
  * @returns Test statistics.
  */
-function runTestFile(file: Path, out: CommandSender): TestStats {
+async function runTestFile(file: Path, out: CommandSender): Promise<TestStats> {
   // Initialize suite and load tests
   suite = new TestSuite(file);
   const module = './' + file.fileName.toString();
-  require(module, file.parent, true);
+  require(module, file.parent, true); // Disable caching for require
 
   // Figure out original TS file name for reporting
   // TODO this may be broken, take a look later
@@ -100,7 +101,22 @@ function runTestFile(file: Path, out: CommandSender): TestStats {
   const stats = { succeeded: 0, failed: 0, errored: 0 };
   for (const test of suite.tests) {
     const results: AssertResult[] = [];
-    const error = __interop.catchError(() => test.handler(new Assert(results)));
+    let promise;
+    // Handle sync errors with catchError to guarantee good stack traces
+    let error = __interop.catchError(
+      () => (promise = test.handler(new Assert(results))),
+    );
+    if (promise) {
+      // For async code, error handling is a bit more complicated
+      // This might mangle the stack trace, but it is better than doing nothing
+      try {
+        await promise;
+      } catch (e) {
+        error = __interop.catchError(() => {
+          throw e;
+        });
+      }
+    }
 
     // Test reporting
     const success = reportResults(test, results, error, out);
