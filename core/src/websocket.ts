@@ -1,10 +1,14 @@
 import { WebSocketHandle } from './boot/craftjs';
 
 export class WebSocket {
-  static open(address: string): Promise<WebSocket> {
+  static open(
+    address: string,
+    httpHeaders?: Map<string, string>,
+  ): Promise<WebSocket> {
     return new Promise((resolve, reject) => {
       __craftjs.openWebSocket(
         address,
+        httpHeaders ?? new Map(),
         (handle) => {
           resolve(new WebSocket(address, handle));
         },

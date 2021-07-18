@@ -147,6 +147,7 @@ declare global {
 
     openWebSocket(
       address: string,
+      httpHeaders: Map<string, string>,
       success: (handle: WebSocketHandle) => void,
       failure: (error: any) => void,
     ): void;

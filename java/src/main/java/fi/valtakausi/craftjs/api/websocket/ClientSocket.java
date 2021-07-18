@@ -30,9 +30,6 @@ public class ClientSocket extends WebSocketClient {
 
 	@Override
 	public void onClose(int code, String reason, boolean remote) {
-		if (!remote) {
-			return; // Client closed, user should know about that
-		}
 		if (connected) {
 			// Be sure that reason is not null, WS library Javadoc is not clear on that
 			handle.setClosed(new ClosedStatus(code, reason != null ? reason : "", remote));
