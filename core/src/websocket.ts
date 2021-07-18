@@ -1,6 +1,15 @@
 import { WebSocketHandle } from './boot/craftjs';
 
+/**
+ * Represents a WebSocket, open or closed.
+ */
 export class WebSocket {
+  /**
+   * Opens a new WebSocket and connects to a server.
+   * @param address Server URL.
+   * @param httpHeaders HTTP headers to include for handshake.
+   * @returns Promise for socket.
+   */
   static open(
     address: string,
     httpHeaders?: Map<string, string>,
