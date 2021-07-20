@@ -10,6 +10,23 @@ declare interface InternalDb {
   getTable(name: string): Table<any, any>;
 }
 
+declare type WebSocketClosed = (
+  code: number,
+  reason: string,
+  remote: boolean,
+) => void;
+
+declare interface WebSocketHandle {
+  receive(
+    success: (msg: string) => void,
+    closed: WebSocketClosed,
+    error: (error: any) => void,
+  ): void;
+  send(msg: string): [number, string, boolean];
+  close(reason: string, completed: () => void): void;
+  isClosed(): boolean;
+}
+
 declare global {
   /**
    * CraftJS Java API.
@@ -127,6 +144,13 @@ declare global {
      * @param name Fully qualified package name.
      */
     packageExists(name: string): boolean;
+
+    openWebSocket(
+      address: string,
+      httpHeaders: Map<string, string>,
+      success: (handle: WebSocketHandle) => void,
+      failure: (error: any) => void,
+    ): void;
   };
 
   /**

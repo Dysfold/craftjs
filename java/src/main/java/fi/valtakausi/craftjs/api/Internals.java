@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.graalvm.polyglot.Value;
-
 import fi.valtakausi.craftjs.CraftJsMain;
 
 public class Internals {
@@ -20,7 +18,7 @@ public class Internals {
 		return craftjs.getJsPluginManager().reloadPlugin(name);
 	}
 	
-	public Value callForeign(String plugin, String func, Object... args) {
+	public Object callForeign(String plugin, String func, Object... args) {
 		return craftjs.getJsPluginManager().getPlugin(plugin).getContext().call(func, args);
 	}
 	

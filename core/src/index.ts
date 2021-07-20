@@ -13,6 +13,7 @@ export * from './logging'; // Loaded earlier, but export the types
 export * from './scheduling';
 export * from './fetch';
 export * as chat from './chat';
+export * as websocket from './websocket';
 
 // Testing is quite high-level functionality, might use other APIs
 export * from './testing/index';
